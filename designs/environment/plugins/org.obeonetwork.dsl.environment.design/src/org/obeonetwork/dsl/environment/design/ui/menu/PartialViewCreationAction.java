@@ -8,6 +8,8 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
@@ -17,6 +19,7 @@ import org.eclipse.sirius.diagram.tools.api.DiagramPlugin;
 import org.eclipse.sirius.diagram.tools.internal.preferences.SiriusDiagramInternalPreferencesKeys;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.Activator;
 import org.obeonetwork.utils.common.StringUtils;
@@ -54,14 +57,20 @@ public class PartialViewCreationAction extends Action {
 			}
 		}
 
-		int index = name.toLowerCase().lastIndexOf("diagram");
-		if(index != -1) {
-			name = name.substring(0, index) + "Partial View" + name.substring(index + 7);
-		} else {
-			name = name + " Partial View";
-		}
+		name = tweakPartialViewName(name);
 		
 		return name;
+	}
+
+	private String tweakPartialViewName(String diagramName) {
+		String partialViewName;
+		int index = diagramName.toLowerCase().lastIndexOf("diagram");
+		if(index != -1) {
+			partialViewName = diagramName.substring(0, index) + "Partial View" + diagramName.substring(index + 7);
+		} else {
+			partialViewName = diagramName + " Partial View";
+		}
+		return partialViewName;
 	}
 
 	@Override
@@ -76,8 +85,18 @@ public class PartialViewCreationAction extends Action {
 
 		Session session = SessionManager.INSTANCE.getSession(context);
 		
-		// TODO Pop a diagram to edit the proposed name
-		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, representationDescription, getText(), context, new NullProgressMonitor());
+		// Pop a dialog to edit the proposed name
+		final InputDialog promptName = new InputDialog(Display.getDefault().getActiveShell(),
+				"New " + tweakPartialViewName(representationDescription.getName()),
+				"Name:",
+				getText(),
+				null);
+		if(promptName.open() != Window.OK) {
+			return;
+		}
+		String representationName = promptName.getValue();
+		
+		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, representationDescription, representationName, context, new NullProgressMonitor());
 		
 		try {
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().run(false, false, motitor -> 
