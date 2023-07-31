@@ -26,7 +26,8 @@ import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
+import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 
 public class ISObjectSelectionWizardAction implements IExternalJavaAction {
 
@@ -62,19 +63,25 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         
         List<EObject> roots = toEObjectList(parameters.get(PARAMETER_ROOTS));
         
-        String childrenExpression = null;
+        final String childrenExpression;
         if(parameters.get(PARAMETER_CHILDREN_EXPRESSION) instanceof String) {
         	childrenExpression = "aql:" + parameters.get(PARAMETER_CHILDREN_EXPRESSION);
+        } else {
+        	childrenExpression = "aql:Sequence{}";
         }
         
-        String selectableCondition = null;
+        final String selectableCondition;
         if(parameters.get(PARAMETER_SELECTABLE_CONDITION) instanceof String) {
         	selectableCondition = "aql:" + parameters.get(PARAMETER_SELECTABLE_CONDITION);
+        } else {
+        	selectableCondition = "aql:true";
         }
         
-        EObjectTreeItemWrapper input = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		ISObjectTreeItemWrapper input = new ISObjectTreeItemWrapper(
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
         for(EObject root : roots) {
-        	new EObjectTreeItemWrapper(input, root);
+        	new ISObjectTreeItemWrapper(input, root);
         }
         
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -85,12 +92,12 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         		multiple);
         
         List<EObject> preSelection = toEObjectList(parameters.get(PARAMETER_PRE_SELECTION));
-        wizard.setPreSelectedEObjects(preSelection);
+        wizard.setPreSelectedObjects(preSelection);
         
         final int result = wizard.open();
         if (result == Window.OK) {
     		interpreter.setVariable(OUTPUT_RETURN_CODE, "OK");
-    		interpreter.setVariable(OUTPUT_SELECTED_ELEMENTS, new ArrayList<>(wizard.getSelectedEObjects())); // Sirius don't like Sets
+    		interpreter.setVariable(OUTPUT_SELECTED_ELEMENTS, new ArrayList<>(wizard.getSelectedObjects())); // Sirius don't like Sets
         } else {
     		interpreter.setVariable(OUTPUT_RETURN_CODE, "CANCEL");
         }

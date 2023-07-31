@@ -58,11 +58,12 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
-import org.obeonetwork.dsl.environment.design.wizards.EObjectSelectionInductor;
-import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SiriusInterpreterUtils;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectSelectionInductor;
 
 public class TypesServices {
 	
@@ -463,15 +464,17 @@ public class TypesServices {
 		.collect(toList());
 		
 		interpreter.setVariable("roots", roots);
-		String childrenExpression = "aql:self.eContents()->select(e|"
+		final String childrenExpression = "aql:self.eContents()->select(e|"
 				+ "e.oclIsKindOf(environment::Namespace) or "
 				+ "e.oclIsKindOf(environment::StructuredType) or "
 				+ "(e.oclIsKindOf(environment::Reference) and e.referencedType.ancestors()->intersection(roots)->notEmpty()))";
-		String selectableCondition = "aql:self.oclIsTypeOf(environment::Namespace) or self.oclIsKindOf(environment::StructuredType) or self.oclIsKindOf(environment::Reference)";
-		EObjectTreeItemWrapper input = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		final String selectableCondition = "aql:self.oclIsTypeOf(environment::Namespace) or self.oclIsKindOf(environment::StructuredType) or self.oclIsKindOf(environment::Reference)";
+		ISObjectTreeItemWrapper input = new ISObjectTreeItemWrapper(
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
 		
 		for(EObject root : roots) {
-			new EObjectTreeItemWrapper(input, root);
+			new ISObjectTreeItemWrapper(input, root);
 		}
 		
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -484,9 +487,9 @@ public class TypesServices {
         wizard.setLevelToExpand(3);
         
         // When a reference is selected, select the referenced type
-        EObjectSelectionInductor eObjectSelectionInductor = new EObjectSelectionInductor(input) {
+        ISObjectSelectionInductor eObjectSelectionInductor = new ISObjectSelectionInductor(wizard) {
 			@Override
-			public List<EObject> selectEObject(EObject selected) {
+			public List<?> selectObject(Object selected) {
 				List<EObject> inducedSelectedEObjects = new ArrayList<>();
 				if(selected instanceof Reference) {
 					inducedSelectedEObjects.add(((Reference) selected).getReferencedType());
@@ -496,16 +499,17 @@ public class TypesServices {
 		};
         wizard.setSelectionInductor(eObjectSelectionInductor);
         
+        // Page is complete if at least one Namespace is selected or partially selected
         IPageCompleteTester pageCompleteTester = new IPageCompleteTester() {
 			@Override
-			public boolean isPageComplete(Collection<EObjectTreeItemWrapper> selectedTreeItemWrapers, Collection<EObjectTreeItemWrapper> partiallySelectedTreeItemWrapers) {
-				List<EObjectTreeItemWrapper> allTreeItemWrappers = new ArrayList<>();
+			public boolean isPageComplete(Collection<ISObjectTreeItemWrapper> selectedTreeItemWrapers, Collection<ISObjectTreeItemWrapper> partiallySelectedTreeItemWrapers) {
+				List<ISObjectTreeItemWrapper> allTreeItemWrappers = new ArrayList<>();
 				allTreeItemWrappers.addAll(selectedTreeItemWrapers);
 				allTreeItemWrappers.addAll(partiallySelectedTreeItemWrapers);
 				
 				return allTreeItemWrappers.stream()
 				.filter(tiw -> tiw.isSelectable())
-				.map(tiw -> tiw.getWrappedEObject())
+				.map(tiw -> tiw.getWrappedObject())
 				.anyMatch(Namespace.class::isInstance);
 			}
 		};
@@ -514,12 +518,12 @@ public class TypesServices {
         Collection<Namespace> rootNamespacesCopy = Collections.emptyList();
         if(wizard.open() == Window.OK) {
         	Set<EObject> allSelectedElements = new HashSet<>();
-        	allSelectedElements.addAll(wizard.getSelectedEObjects());
+        	allSelectedElements.addAll(wizard.getSelectedObjects(EObject.class));
         	// Are also considered as selected the selectable partially selected elements
         	wizard.getPartiallySelectedTreeItemWrappers().stream()
         	.filter(tiw -> tiw.isSelectable())
         	.forEach(tiw -> {
-        		allSelectedElements.add(tiw.getWrappedEObject());
+        		allSelectedElements.add((EObject) tiw.getWrappedObject());
         	});
         	
         	rootNamespacesCopy = createNamespacesFromOthers(contextNamespaceContainer, allSelectedElements, targetTypeName, sourceTypeName);

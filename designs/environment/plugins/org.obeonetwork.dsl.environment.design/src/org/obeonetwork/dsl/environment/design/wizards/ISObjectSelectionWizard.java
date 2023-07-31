@@ -10,9 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.wizards;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.Collection;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
@@ -29,7 +30,7 @@ public class ISObjectSelectionWizard extends Wizard {
 
     private ISObjectSelectionWizardPage page;
 
-    /**
+	/**
      * A dialog exposing the finish method.
      */
     private WizardDialogClosableByWizard dialog;
@@ -38,13 +39,17 @@ public class ISObjectSelectionWizard extends Wizard {
     		String windowTitle, 
     		String wizardPageTitle, 
     		ImageDescriptor wizardPageTitleImage,
-    		EObjectTreeItemWrapper treeRoot,
+    		ISObjectTreeItemWrapper treeRoot,
     		boolean many) {
         setWindowTitle(windowTitle);
         page = new ISObjectSelectionWizardPage(ISOBJECT_SELECTION_WIZARD_PAGE_NAME, wizardPageTitle, wizardPageTitleImage, treeRoot, many);
         addPage(page);
     }
     
+    public ISObjectSelectionWizardPage getPage() {
+		return page;
+	}
+
     /**
      * Determines whether the tree should be unfolded by default.
      * Default is true.
@@ -71,11 +76,11 @@ public class ISObjectSelectionWizard extends Wizard {
 		page.setSelectionInductor(selectionInductor);
 	}
     
-    public void setPreSelectedEObjects(Collection<EObject> preSelectedEObjects) {
-    	page.setPreSelectedEObjects(preSelectedEObjects);
+    public void setPreSelectedObjects(Collection<? extends Object> preSelectedObjects) {
+    	page.setPreSelectedObjects(preSelectedObjects);
     }
     
-    public void setPreSelectedTreeItemWrappers(Collection<EObjectTreeItemWrapper> preSelectedTreeItemWrappers) {
+    public void setPreSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers) {
     	page.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
     }
     
@@ -100,30 +105,44 @@ public class ISObjectSelectionWizard extends Wizard {
         return true;
     }
 
-    public EObjectTreeItemWrapper getSelectedTreeItemWrapper() {
+    public ISObjectTreeItemWrapper getSelectedTreeItemWrapper() {
         return page.getSelectedTreeItemWrapper();
     }
     
-    public EObject getSelectedEObject() {
-        return page.getSelectedEObject();
+    public Object getSelectedObject() {
+        return page.getSelectedObject();
     }
 
-    public Collection<EObjectTreeItemWrapper> getSelectedTreeItemWrappers() {
+    public Collection<ISObjectTreeItemWrapper> getSelectedTreeItemWrappers() {
         return page.getSelectedTreeItemWrappers();
     }
     
-    public Collection<EObject> getSelectedEObjects() {
-        return page.getSelectedEObjects();
+    public Collection<Object> getSelectedObjects() {
+        return page.getSelectedObjects();
     }
     
-    public Collection<EObjectTreeItemWrapper> getPartiallySelectedTreeItemWrappers() {
+    public <T> Collection<T> getSelectedObjects(Class<T> type) {
+        return page.getSelectedObjects().stream()
+        		.filter(e -> type.isInstance(e))
+        		.map(e -> type.cast(e))
+        		.collect(toList());
+    }
+    
+    public Collection<ISObjectTreeItemWrapper> getPartiallySelectedTreeItemWrappers() {
     	return page.getPartiallySelectedTreeItemWrappers();
     }
     
-    public Collection<EObject> getPartiallySelectedEObjects() {
-        return page.getPartiallySelectedEObjects();
+    public Collection<Object> getPartiallySelectedObjects() {
+        return page.getPartiallySelectedObjects();
     }
 
+    public <T> Collection<T> getPartiallySelectedObjects(Class<T> type) {
+        return page.getPartiallySelectedObjects().stream()
+        		.filter(e -> type.isInstance(e))
+        		.map(e -> type.cast(e))
+        		.collect(toList());
+    }
+    
 	public int open() {
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
         final WizardDialogClosableByWizard dlg = new WizardDialogClosableByWizard(shell, this);

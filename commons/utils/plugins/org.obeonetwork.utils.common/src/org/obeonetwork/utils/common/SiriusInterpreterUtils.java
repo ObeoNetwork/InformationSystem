@@ -57,5 +57,16 @@ public class SiriusInterpreterUtils {
 		
 		return result;
 	}
+	
+	public static boolean evaluateToBoolean(IInterpreter interpreter, EObject context, String expression, boolean defaultValue) {
+		boolean b = defaultValue;
+        try {
+        	b = interpreter.evaluateBoolean(context, expression);
+		} catch (EvaluationException e) {
+			e.printStackTrace();
+			// Bad luck
+		}
+        return b;
+	}
 
 }

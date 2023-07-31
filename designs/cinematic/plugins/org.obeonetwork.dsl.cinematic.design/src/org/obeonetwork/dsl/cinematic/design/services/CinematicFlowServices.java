@@ -47,11 +47,12 @@ import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
-import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
-import org.obeonetwork.dsl.environment.design.wizards.TreeItemWrapperCheckBoxFilter;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectCheckBoxFilter;
 import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 import org.obeonetwork.utils.common.StreamUtils;
 
 /**
@@ -151,9 +152,11 @@ public class CinematicFlowServices {
 		String childrenExpression = "aql:self.getEventSelectionDialogChildren()";
 		String selectableCondition = "aql:self.oclIsKindOf(flow::FlowEvent) or self.oclIsKindOf(toolkits::WidgetEventType)";
 		
-		EObjectTreeItemWrapper treeRoot = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
 		for(EObject root : roots) {
-			new EObjectTreeItemWrapper(treeRoot, root);
+			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
 		
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -165,7 +168,7 @@ public class CinematicFlowServices {
 		
         wizard.setLevelToExpand(2);
         
-        List<EObjectTreeItemWrapper> preSelectedTreeItemWrappers = 
+        List<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = 
         		treeRoot.getAllSelectableTreeItemWrappers().stream()
         		.filter(tiw -> transition.getOn().stream().anyMatch(event -> treeItemWrapperMatchesEvent(tiw, event)))
         		.collect(toList());
@@ -173,37 +176,37 @@ public class CinematicFlowServices {
 		wizard.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
         
 		EList<ViewContainer> contextualViewContainers = ((ViewState) transition.getFrom()).getViewContainers();
-        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide non contextual View Containers", !contextualViewContainers.isEmpty()) {
+        wizard.setCheckBoxFilter(new ISObjectCheckBoxFilter("Hide non contextual View Containers", !contextualViewContainers.isEmpty()) {
 			@Override
-			public boolean filter(EObjectTreeItemWrapper treeItemWrapper) {
-				List<EObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
-				return !(ancestors.get(ancestors.size() - 2).getWrappedEObject() instanceof Flow) &&
+			public boolean filter(ISObjectTreeItemWrapper treeItemWrapper) {
+				List<ISObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
+				return !(ancestors.get(ancestors.size() - 2).getWrappedObject() instanceof Flow) &&
 						!ancestors.stream()
-						.map(tiw -> tiw.getWrappedEObject())
+						.map(tiw -> tiw.getWrappedObject())
 						.filter(ViewContainer.class::isInstance).map(ViewContainer.class::cast)
 						.anyMatch(vc -> contextualViewContainers.contains(vc));
 			}
 		});
         
         if(wizard.open() == Window.OK) {
-        	Collection<EObjectTreeItemWrapper> selectedTreeItemWrappers = wizard.getSelectedTreeItemWrappers();
+        	Collection<ISObjectTreeItemWrapper> selectedTreeItemWrappers = wizard.getSelectedTreeItemWrappers();
         	
         	List<Event> removedEvents = transition.getOn().stream()
         			.filter(event -> selectedTreeItemWrappers.stream().noneMatch(tiw -> treeItemWrapperMatchesEvent(tiw, event)))
         			.collect(toList());
         	
-        	List<EObjectTreeItemWrapper> addedEvents = selectedTreeItemWrappers.stream()
+        	List<ISObjectTreeItemWrapper> addedEvents = selectedTreeItemWrappers.stream()
         			.filter(tiw -> transition.getOn().stream().noneMatch(event -> treeItemWrapperMatchesEvent(tiw, event)))
         			.collect(toList());
         	
         	// Get or create a View Event for each added event
         	addedEvents.forEach(addedEvent -> {
-        		if(addedEvent.getWrappedEObject() instanceof FlowEvent) {
-        			transition.getOn().add((FlowEvent) addedEvent.getWrappedEObject());
-        		} else if(addedEvent.getWrappedEObject() instanceof WidgetEventType) {
+        		if(addedEvent.getWrappedObject() instanceof FlowEvent) {
+        			transition.getOn().add((FlowEvent) addedEvent.getWrappedObject());
+        		} else if(addedEvent.getWrappedObject() instanceof WidgetEventType) {
             		transition.getOn().add(ViewUtil.getOrCreateViewEvent(
-                			(ViewContainer)addedEvent.getParent().getWrappedEObject(), 
-                			(WidgetEventType)addedEvent.getWrappedEObject()));
+                			(ViewContainer)addedEvent.getParent().getWrappedObject(), 
+                			(WidgetEventType)addedEvent.getWrappedObject()));
         		}
         	});
         	
@@ -219,14 +222,14 @@ public class CinematicFlowServices {
         
 	}
 	
-	private boolean treeItemWrapperMatchesEvent(EObjectTreeItemWrapper treeItemWrapper, Event event) {
+	private boolean treeItemWrapperMatchesEvent(ISObjectTreeItemWrapper treeItemWrapper, Event event) {
 		boolean match = false;
 		
 		if(event instanceof FlowEvent) {
-			match = treeItemWrapper.getWrappedEObject() == event;
+			match = treeItemWrapper.getWrappedObject() == event;
 		} else if(event instanceof ViewEvent) {
-			match = treeItemWrapper.getWrappedEObject() == ((ViewEvent)event).getType() &&
-					treeItemWrapper.getParent().getWrappedEObject() == event.eContainer();
+			match = treeItemWrapper.getWrappedObject() == ((ViewEvent)event).getType() &&
+					treeItemWrapper.getParent().getWrappedObject() == event.eContainer();
 		}
 		
 		return match;
@@ -246,9 +249,11 @@ public class CinematicFlowServices {
 		String childrenExpression = "aql:self.viewContainers + if self.oclIsKindOf(cinematic::Package) then self.subPackages else Sequence{} endif";
 		String selectableCondition = "aql:self.oclIsKindOf(view::ViewContainer)";
 		
-		EObjectTreeItemWrapper treeRoot = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
 		for(EObject root : roots) {
-			new EObjectTreeItemWrapper(treeRoot, root);
+			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
 		
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -260,7 +265,7 @@ public class CinematicFlowServices {
 		
         wizard.setLevelToExpand(3);
         
-        wizard.setPreSelectedEObjects(viewState.getViewContainers().stream().collect(toList()));
+        wizard.setPreSelectedObjects(viewState.getViewContainers().stream().collect(toList()));
         
         wizard.setTreeSelectMode(SelectMode.PICK_ANY);
         
@@ -273,15 +278,15 @@ public class CinematicFlowServices {
         		.flatMap(vs -> vs.getViewContainers().stream())
         		.collect(toSet());
         		
-        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide View Containers bound to other View States", true) {
+        wizard.setCheckBoxFilter(new ISObjectCheckBoxFilter("Hide View Containers bound to other View States", true) {
 			@Override
-			public boolean filter(EObjectTreeItemWrapper treeItemWrapper) {
-				return alreadyBoundViewContainers.contains(treeItemWrapper.getWrappedEObject());
+			public boolean filter(ISObjectTreeItemWrapper treeItemWrapper) {
+				return alreadyBoundViewContainers.contains(treeItemWrapper.getWrappedObject());
 			}
 		});
         
         if(wizard.open() == Window.OK) {
-        	List<ViewContainer> selectedViewContainers = wizard.getSelectedEObjects().stream().map(ViewContainer.class::cast).collect(toList());
+        	List<ViewContainer> selectedViewContainers = wizard.getSelectedObjects().stream().map(ViewContainer.class::cast).collect(toList());
         	List<ViewContainer> removed = viewState.getViewContainers().stream().filter(vc -> !selectedViewContainers.contains(vc)).collect(toList());
         	List<ViewContainer> added = selectedViewContainers.stream().filter(vc -> !viewState.getViewContainers().contains(vc)).collect(toList());
         	viewState.getViewContainers().removeAll(removed);
