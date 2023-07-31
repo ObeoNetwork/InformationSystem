@@ -637,7 +637,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 					(treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw)) &&
 							(!treeItemWrapper.isSelectable() || treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> !selectedTreeItemWrapers.contains(tiw))));
 		case PICK_ANY:
-			return treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw));
+			return !selectedTreeItemWrapers.contains(treeItemWrapper) && treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw));
 		}
 		return false;
 	}
@@ -650,8 +650,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 			
 			if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
 				ungrayTreeItemWrapper(treeItemWrapper);
-			} 
-			if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
+			} else if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
 				deselectTreeItemWrapper(treeItemWrapper);
 			} else { // Element was unselected
 				selectTreeItemWrapper(treeItemWrapper);
