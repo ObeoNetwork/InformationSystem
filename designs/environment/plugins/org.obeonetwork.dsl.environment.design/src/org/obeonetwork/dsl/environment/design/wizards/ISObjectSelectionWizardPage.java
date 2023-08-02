@@ -464,6 +464,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             		selectedTreeItemWrapers.add(selectedTreeItemWrapper);
             	}
         	}
+        	
+	        if(pageCompleteTester != null) {
+	        	setPageComplete(pageCompleteTester.isPageComplete(getSelectedTreeItemWrappers(), getPartiallySelectedTreeItemWrappers()));
+	        }
         }
     }
 
