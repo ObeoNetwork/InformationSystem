@@ -585,8 +585,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
                 }
 
                 if (selected && regExp != null && !regExp.isEmpty() && treeViewer != null) {
-                    Object wrappedObject = ((ISObjectTreeItemWrapper) element).getWrappedObject();
-                    String text = ((ILabelProvider) treeViewer.getLabelProvider()).getText(wrappedObject);
+                    String text = ((ILabelProvider) treeViewer.getLabelProvider()).getText(element);
                     if (text != null) {
                         selected = getStringMatcher().match(text);
                     }
