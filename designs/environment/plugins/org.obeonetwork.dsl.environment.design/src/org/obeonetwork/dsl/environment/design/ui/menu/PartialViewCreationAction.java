@@ -38,7 +38,7 @@ public class PartialViewCreationAction extends Action {
 		this.representationDescription = representationDescription;
 		
 		setText(computePartialViewName(context, representationDescription));
-		setImageDescriptor(Activator.getImageDescriptor("icons/full/obj16/EnvironmentModelFile.gif"));
+		setImageDescriptor(Activator.getImageDescriptor("icons/full/tool/PartialView.gif"));
 	}
 
 	private String computePartialViewName(EObject context, RepresentationDescription representationDescription) {
