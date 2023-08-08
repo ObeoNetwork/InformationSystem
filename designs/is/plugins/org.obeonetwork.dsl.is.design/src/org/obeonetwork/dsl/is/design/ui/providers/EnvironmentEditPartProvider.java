@@ -74,25 +74,10 @@ public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 				public synchronized void configureBackground(IFigure fig) {
 			        if (resolveDDiagram().some() && fig != null) {
 			            DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
-			            
 			            final IInterpreter interpreter = InterpreterUtil.getInterpreter(dSemanticDiagram);
-			            
-			            // Save the diagram variable initial value to restore it after configuring
-			            // the diagram background to avoid any side effect.
-			            Object diagramVariableInitialValue = interpreter.getVariable("diagram");
-			            
 			            interpreter.setVariable("diagram", dSemanticDiagram);
-			            
-			            super.configureBackground(fig);
-			            
-			            if(diagramVariableInitialValue != null) {
-			            	interpreter.setVariable("diagram", diagramVariableInitialValue);
-			            } else {
-				            interpreter.unSetVariable("diagram");
-			            }
-			        } else {
-						super.configureBackground(fig);
 			        }
+			        super.configureBackground(fig);
 				}
 				
 			};
