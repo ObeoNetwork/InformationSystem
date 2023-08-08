@@ -31,4 +31,13 @@
         </description>
      </wizard>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.design.partialView">
+     <partialView
+           descriptionName="Entities Namespaces Hierarchy">
+     </partialView>
+     <partialView
+           descriptionName="Entities Diagram">
+     </partialView>
+  </extension>
 </plugin>
