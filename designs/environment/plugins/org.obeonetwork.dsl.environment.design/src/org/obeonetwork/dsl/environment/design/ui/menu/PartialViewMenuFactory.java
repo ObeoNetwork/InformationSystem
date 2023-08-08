@@ -1,5 +1,7 @@
 package org.obeonetwork.dsl.environment.design.ui.menu;
 
+import java.util.Set;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.viewers.ISelection;
@@ -27,7 +29,10 @@ public class PartialViewMenuFactory extends ExtensionContributionFactory {
 
 		Session session = SessionManager.INSTANCE.getSession(context);
 
-		DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), context)
+		Set<String> partialViewDescriptionNames = PartialViewExtension.getPartialViewDescriptionNames();
+		
+		DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), context).stream()
+			.filter(rd -> partialViewDescriptionNames.contains(rd.getName()))
 			.forEach(representationDescription -> 
 				additions.addContributionItem(new ActionContributionItem(new PartialViewCreationAction(context, representationDescription)), null));
 

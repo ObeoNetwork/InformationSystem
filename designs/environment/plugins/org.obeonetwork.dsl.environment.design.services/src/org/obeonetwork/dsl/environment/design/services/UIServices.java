@@ -21,7 +21,7 @@ public class UIServices {
 	private static final String INFO = "INFO";
 	
 	public EObject displayWarningDropNamespaceOnChild(EObject context) {
-		return displayWarning(context, "Drop namespace", "A namespace can not be dropped onto one of its children.");
+		return displayWarning(context, "Drop namespace", "A namespace can not be dropped onto itself or one of its children.");
 	}
 
 	public EObject displayInfo(EObject context, String title, String message) {

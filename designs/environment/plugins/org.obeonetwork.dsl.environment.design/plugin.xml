@@ -12,6 +12,7 @@
  -->
 
 <plugin>
+   <extension-point id="partialView" name="partialView" schema="schema/partialView.exsd"/>
 
   <extension point="org.eclipse.sirius.componentization">
     <component class="org.obeonetwork.dsl.environment.design.Activator"
