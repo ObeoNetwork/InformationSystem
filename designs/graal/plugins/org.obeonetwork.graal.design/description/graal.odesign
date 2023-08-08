@@ -1082,6 +1082,13 @@
       <ownedColumnMappings name="UST_ReferencedTask" domainClass="graal.Task" semanticCandidatesExpression="[userStories.elements.eContainer(graal::Task)/]"/>
       <intersection name="UST_UserStoryReferencesTask" canEdit="false" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="feature:elements"/>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="Actors list" titleExpression="[name + ' - Actors list'/]" domainClass="graal.UseCase">
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
+      <ownedLineMappings name="ACL_TasksGroup" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']" domainClass="graal.TasksGroup" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
+      <ownedLineMappings name="ACL_Task" reusedInMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" domainClass="graal.Task" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
+      <ownedColumnMappings name="ACL_Actor" headerLabelExpression="feature:name" domainClass="graal.Actor" semanticCandidatesExpression="[getVisibleActors()->asSequence()->filter(Actor)->sortedBy(a : graal::Actor | a.name.toUpper())/]"/>
+      <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Domain Classes Namespaces Hierarchy" label="Domain Classes Namespaces Hierarchy" titleExpression="Domain Classes Namespaces Hierarchy" domainClass="graal.System">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
@@ -1098,10 +1105,17 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment::Namespace" referenceName="ownedNamespaces">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.namespace.fromOther.creationTreatment}"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1128,7 +1142,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1136,18 +1150,11 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->including(newSemanticContainer)->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
-                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
-                      </cases>
-                      <default>
-                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
-                      </default>
-                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                   </default>
                 </subModelOperations>
               </firstModelOperations>
@@ -1159,16 +1166,26 @@
             <containerView name="containerView"/>
             <initialOperation/>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="ACT_AddContainedNamespace" label="Add contained Namespaces" precondition="aql:self.oclIsKindOf(environment::NamespacesContainer) and not diagram.synchronized" icon="/org.obeonetwork.dsl.environment.design/icons/full/tool/search.gif">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:views" iteratorName="view">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:view.target.oclAsType(environment::NamespacesContainer).ownedNamespaces" iteratorName="ownedNamespace">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" containerViewExpression="var:view"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
-        <edgeMappings name="ND_Dependency" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
+        <edgeMappings name="ND_Dependency" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ND_Dependency_External" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']" targetFinderExpression="service:self.getExternalNamespaces()">
+        <edgeMappings name="ND_Dependency_External" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']" targetFinderExpression="service:self.getExternalNamespaces()">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
@@ -1190,12 +1207,13 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
+      <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="aql:self.name + ' - Domain Classes diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(graal::System)->notEmpty()">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_ED_Namespace']" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="aql:self.name + ' - Domain Classes diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(graal::System)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
@@ -1210,12 +1228,12 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="ED_Inheritance_Type_Type" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_Inheritance']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Source']">
+        <edgeMappings name="ED_Inheritance_Type_Type" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_Inheritance']" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="InputClosedArrow">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
+        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.oppositeOf.name + ' [' + self.oppositeOf.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
@@ -1284,7 +1302,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1292,21 +1310,21 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->including(newSemanticContainer)->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
-                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
-                      </cases>
-                      <default>
-                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
-                      </default>
-                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                   </default>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.namespace.fromOther.creationTreatment}"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1491,7 +1509,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_DomainClass" precondition="aql:self.oclIsKindOf(graal::DomainClass)" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_DomainClass" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(graal::DomainClass)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1502,7 +1520,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:self.oclIsKindOf(environment::Enumeration)" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Enumeration)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1643,6 +1661,29 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="ACT_AddContainedNamespace" label="Add contained Namespaces" precondition="aql:self.oclIsKindOf(environment::Namespace) and not diagram.synchronized" icon="/org.obeonetwork.dsl.environment.design/icons/full/tool/search.gif">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:views" iteratorName="view">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:view.target.oclAsType(environment::Namespace).ownedNamespaces" iteratorName="ownedNamespace">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']" containerViewExpression="var:view"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="ACT_AddReferencedStructuredTypes" label="Add referenced domain classes" precondition="aql:self.oclIsKindOf(graal::DomainClass) and not diagram.synchronized" icon="/org.obeonetwork.dsl.environment.design/icons/full/tool/search.gif">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:views" iteratorName="view">
+                <subModelOperations xsi:type="tool_1:Let" variableName="structuredType" valueExpression="aql:view.target">
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:structuredType.ownedReferences.referencedType->including(structuredType.supertype)" iteratorName="referencedStructuredType">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']" containerViewExpression="aql:view.eContainer()"/>
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" containerViewExpression="aql:view.eContainer()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
@@ -1735,13 +1776,7 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="Actors list" titleExpression="[name + ' - Actors list'/]" domainClass="graal.UseCase">
-      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
-      <ownedLineMappings name="ACL_TasksGroup" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']" domainClass="graal.TasksGroup" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
-      <ownedLineMappings name="ACL_Task" reusedInMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" domainClass="graal.Task" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
-      <ownedColumnMappings name="ACL_Actor" headerLabelExpression="feature:name" domainClass="graal.Actor" semanticCandidatesExpression="[getVisibleActors()->asSequence()->filter(Actor)->sortedBy(a : graal::Actor | a.name.toUpper())/]"/>
-      <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
+      <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>

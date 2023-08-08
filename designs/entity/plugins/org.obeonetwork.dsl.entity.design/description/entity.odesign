@@ -35,7 +35,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment::Namespace" referenceName="ownedNamespaces">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
