@@ -9,7 +9,6 @@
       <children id="namespace">
         <stringValues id="label" value="Namespace"/>
         <stringValues id="creation.label" value="Namespace"/>
-        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
       </children>
       <children id="usability">
         <children id="diagramCreation">
@@ -48,7 +47,6 @@
       <children id="namespace">
         <stringValues id="label" value="Namespace"/>
         <stringValues id="creation.label" value="Namespace"/>
-        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
       </children>
       <children id="structuredType">
         <children id="creation">
@@ -80,7 +78,11 @@
         </children>
         <children id="dragdrop.structuredtype">
           <stringValues id="id" value="DAD_ED_DomainClass"/>
-          <stringValues id="precondition" value="aql:self.oclIsKindOf(graal::DomainClass)"/>
+          <stringValues id="precondition" value="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(graal::DomainClass)) or (partialView and element.eContainer()=newContainer) endlet"/>
+        </children>
+        <children id="addReferencedStructuredTypes">
+          <stringValues id="label" value="Add referenced domain classes"/>
+          <stringValues id="precondition" value="aql:self.oclIsKindOf(graal::DomainClass) and not diagram.synchronized"/>
         </children>
       </children>
     </children>
