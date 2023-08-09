@@ -16,6 +16,8 @@ import java.util.Optional;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 
 public class DebugServices {
 
@@ -30,15 +32,39 @@ public class DebugServices {
 		return self;
 	}
 	
-	public EObject traceVars(EObject o) {
-		trace(o);
-		Session session = new EObjectQuery(o).getSession();
+	public EObject traceVars(EObject self) {
+		trace(self);
+		Session session = new EObjectQuery(self).getSession();
 		Map<String, ?> vars = session.getInterpreter().getVariables();
 		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
 		for(String var : vars.keySet()) {
 			java.lang.System.out.println("- " + var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")");
 		}
-		return o;
+		
+		return self;
+	}
+
+	public EObject traceVars(EObject self, String expr) {
+		
+		if(!expr.startsWith("aql:")) {
+			expr = "aql:" + expr;
+		}
+		traceVars(self);
+		printExpression(self, expr);
+		
+		return self;
+	}
+	
+	private void printExpression(EObject self, String expr) {
+		IInterpreter interpreter = new EObjectQuery(self).getSession().getInterpreter();
+		
+		try {
+			Object value = interpreter.evaluate(self, expr);
+			java.lang.System.out.println(expr + " --> " + value);
+		} catch (EvaluationException e) {
+			java.lang.System.out.println("WARNING: Could not evaluate " + expr);
+		}
+		
 	}
 	
 }
