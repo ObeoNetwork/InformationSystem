@@ -62,13 +62,14 @@ public class FlowsUtil {
 	}
 	
 	/**
-	 * Return the viewContainers contained in the states of the context.
-	 * @param context the Flow
+	 * Return the viewContainers referenced by the states of the given flow.
+	 * 
+	 * @param flow the Flow
 	 * @return list of ViewContainer
 	 */
-	public List<ViewContainer> getStatesViewContainers(Flow context){
+	public List<ViewContainer> getStatesViewContainers(Flow flow){
 		List<ViewContainer> statesViewContainers = new ArrayList<ViewContainer>();
-		for (FlowState flowState : context.getStates()){
+		for (FlowState flowState : flow.getStates()){
 			if (flowState instanceof ViewState){
 				statesViewContainers.addAll(((ViewState) flowState).getViewContainers());
 			}
