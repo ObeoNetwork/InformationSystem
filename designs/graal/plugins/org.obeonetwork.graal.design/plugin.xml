@@ -227,4 +227,31 @@
          </description>
       </wizard>
    </extension>
+   <extension
+         point="org.obeonetwork.dsl.environment.design.partialView">
+      <partialView
+            descriptionName="Tasks Graph">
+      </partialView>
+      <partialView
+            descriptionName="Actions Plan">
+      </partialView>
+      <partialView
+            descriptionName="Actors Graph">
+      </partialView>
+      <partialView
+            descriptionName="TasksGroup Graph">
+      </partialView>
+      <partialView
+            descriptionName="Use Cases Main View">
+      </partialView>
+      <partialView
+            descriptionName="Use Case Diagram">
+      </partialView>
+      <partialView
+            descriptionName="Domain Classes Namespaces Hierarchy">
+      </partialView>
+      <partialView
+            descriptionName="Domain Classes Diagram">
+      </partialView>
+   </extension>
 </plugin>

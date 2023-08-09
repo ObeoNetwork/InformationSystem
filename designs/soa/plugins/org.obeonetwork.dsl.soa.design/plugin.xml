@@ -75,4 +75,19 @@
 		<identifier name="text/plain"></identifier>
 		<identifier name="text/xml"></identifier>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.design.partialView">
+     <partialView
+           descriptionName="SOA Diagram">
+     </partialView>
+     <partialView
+           descriptionName="Component Contract Diagram">
+     </partialView>
+     <partialView
+           descriptionName="DTO Namespaces Hierarchy">
+     </partialView>
+     <partialView
+           descriptionName="DTO Diagram">
+     </partialView>
+  </extension>
 </plugin>

@@ -277,4 +277,13 @@
            sequence="CTRL+P">
      </key>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.design.partialView">
+     <partialView
+           descriptionName="Flow Diagram">
+     </partialView>
+     <partialView
+           descriptionName="Package Diagram">
+     </partialView>
+  </extension>
 </plugin>

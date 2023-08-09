@@ -47,4 +47,13 @@
            name="DB_Sequence">
      </blacklistedRequirementDecorator>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.design.partialView">
+     <partialView
+           descriptionName="Database Diagram">
+     </partialView>
+     <partialView
+           descriptionName="Schema Diagram">
+     </partialView>
+  </extension>
  </plugin>
