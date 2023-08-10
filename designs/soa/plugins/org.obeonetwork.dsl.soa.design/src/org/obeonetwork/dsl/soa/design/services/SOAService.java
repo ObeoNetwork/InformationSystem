@@ -146,7 +146,10 @@ public class SOAService {
 		for (Wire wire : ownedWires) {
 			Component componentSource = (Component) wire.getSource().eContainer();
 			allReferencedComponents.add(componentSource);
-			Component componentDest = (Component) wire.getDest().eContainer();
+			Component componentDest = null;
+			if(wire.getDest() != null) {
+				componentDest = (Component) wire.getDest().eContainer();
+			}
 			allReferencedComponents.add(componentDest);
 		}
 		Set<Component> componentsSet = new HashSet<Component>();
