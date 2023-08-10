@@ -262,69 +262,6 @@ public class DataBaseServices {
         return images;
     }
 
-    // @formatter:off
-    @Documentation(
-            comment = "{m:database.asDatabasePartialViewImage()}",
-            value = "Returns a collection of images representing the target Database Database Partial View Diagrams.",
-            examples = {
-                    @Example(
-                            expression = "{m:database.asDatabasePartialViewImage()}", 
-                            result = "A sequence of images.")
-            }
-        )
-    // @formatter:on    
-    public List<MImage> asDatabasePartialViewImage(DataBase database) throws SizeTooLargeException, IOException {
-        Session session = new EObjectQuery(database).getSession();
-        List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(database,
-                IDatabaseViewpointConstants.DATABASE_PARTIAL_VIEW_DIAGRAM_ID);
-
-        return images;
-    }
-
-    // @formatter:off
-    @Documentation(
-            comment = "{m:database.asDatabasePartialViewImage(width)}",
-            value = "Returns a collection of images representing the target Database Database Partial View Diagrams scaled to the given width keeping the initial image ratio.",
-            examples = {
-                    @Example(
-                            expression = "{m:database.asDatabasePartialViewImage(400)}", 
-                            result = "A sequence of images.")
-            }
-        )
-    // @formatter:on    
-    public List<MImage> asDatabasePartialViewImage(DataBase database, int width)
-            throws SizeTooLargeException, IOException {
-        Session session = new EObjectQuery(database).getSession();
-        List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(database,
-                IDatabaseViewpointConstants.DATABASE_PARTIAL_VIEW_DIAGRAM_ID);
-        images.forEach(i -> i.conserveRatio());
-        images.forEach(i -> i.setWidth(width));
-
-        return images;
-    }
-
-    // @formatter:off
-    @Documentation(
-            comment = "{m:database.asDatabasePartialViewImage(width, height)}",
-            value = "Returns a collection of images representing the target Database Database Partial View Diagrams scaled to the given width and heigth.",
-            examples = {
-                    @Example(
-                            expression = "{m:database.asDatabasePartialViewImage(400, 300)}", 
-                            result = "A sequence of images.")
-            }
-        )
-    // @formatter:on    
-    public List<MImage> asDatabasePartialViewImage(DataBase database, int width, int height)
-            throws SizeTooLargeException, IOException {
-        Session session = new EObjectQuery(database).getSession();
-        List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(database,
-                IDatabaseViewpointConstants.DATABASE_PARTIAL_VIEW_DIAGRAM_ID);
-        images.forEach(i -> i.setHeight(height));
-        images.forEach(i -> i.setWidth(width));
-
-        return images;
-    }
-
     /**
      * Switch class used to collect the tables of a data base.
      * 
