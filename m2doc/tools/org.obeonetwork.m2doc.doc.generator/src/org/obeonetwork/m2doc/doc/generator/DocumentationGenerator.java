@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.sirius.diagram.DiagramPackage;
+import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.PropertiesExtWidgetsReferencePackage;
 import org.eclipse.sirius.table.metamodel.table.TablePackage;
@@ -120,14 +121,19 @@ public class DocumentationGenerator {
 		final List<Class<?>> allServiceClasses = new ArrayList<>();
 
 		for (Configuration configuration : configurations) {
-			allServiceClasses.addAll(Arrays.asList(configuration.serviceslJavaPackages).stream().map(p -> ReflectionHelper.getClasses(p))
-					.flatMap(a -> a.stream()).filter(c -> isServiceClass(c)).collect(Collectors.toList()));
+			allServiceClasses.addAll(
+					Arrays.stream(configuration.serviceslJavaPackages)
+					.flatMap(p -> ReflectionHelper.getClasses(p).stream())
+					.filter(DocumentationGenerator::isServiceClass)
+					.collect(Collectors.toList()));
 		}
 		System.out.println("Found Total Service Classes : " + allServiceClasses.size());
 
-		List<Method> allServices = allServiceClasses.stream().map(s -> Arrays.asList(s.getMethods()))
-				.flatMap(a -> a.stream()).filter(m -> isService(m))
-				.sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).collect(Collectors.toList());
+		List<Method> allServices = allServiceClasses.stream()
+				.flatMap(s -> Arrays.stream(s.getMethods()))
+				.filter(DocumentationGenerator::isService)
+				.sorted((m1, m2) -> m1.getName().compareTo(m2.getName()))
+				.collect(Collectors.toList());
 		System.out.println("Found Total Services : " + allServices.size());
 		
 		final Map<EClass, String> eClassToHTMLPages = initEClassToHTMLPage(configurations);
@@ -143,7 +149,6 @@ public class DocumentationGenerator {
 			if(!pagesFolder.exists()) {
 				pagesFolder.mkdir();
 			}
-
 
 			List<Class<?>> serviceClasses = Arrays.asList(configuration.serviceslJavaPackages).stream()
 					.map(p -> ReflectionHelper.getClasses(p)).flatMap(a -> a.stream()).filter(c -> !c.getSimpleName().isEmpty()).collect(Collectors.toList());
@@ -275,6 +280,7 @@ public class DocumentationGenerator {
 
 	private static List<Viewpoint> loadViewpoints(String[] odesignResourcePaths) {
 		List<Viewpoint> viewPoints = new ArrayList<>();
+		DescriptionPackage.eINSTANCE.eClass();
 		ViewpointPackage.eINSTANCE.eClass();
 		TablePackage.eINSTANCE.eClass();
 		TreePackage.eINSTANCE.eClass();
