@@ -416,7 +416,7 @@
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/4.0.0#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_Namespace']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']">
             <labelFormat>bold</labelFormat>
           </style>
@@ -482,11 +482,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_External" precondition="false">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_External">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:DeleteView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:OperationAction" name="ACT_AddContainedNamespace" label="Add contained Namespaces" precondition="aql:self.oclIsKindOf(environment::NamespacesContainer) and not diagram.synchronized" icon="/org.obeonetwork.dsl.environment.design/icons/full/tool/search.gif">
             <view name="views"/>
@@ -495,6 +501,25 @@
                 <subModelOperations xsi:type="tool_1:For" expression="aql:view.target.oclAsType(environment::NamespacesContainer).ownedNamespaces" iteratorName="ownedNamespace">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" containerViewExpression="var:view"/>
                 </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_Namespace">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Switch">
+                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                    <subModelOperations xsi:type="tool_1:DeleteView"/>
+                  </subModelOperations>
+                </cases>
+                <default>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
+                  </subModelOperations>
+                </default>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -887,7 +912,18 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
+              <firstModelOperations xsi:type="tool_1:Switch">
+                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                    <subModelOperations xsi:type="tool_1:DeleteView"/>
+                  </subModelOperations>
+                </cases>
+                <default>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
+                  </subModelOperations>
+                </default>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" forceRefresh="true">
@@ -895,8 +931,10 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="feature:supertype"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="feature:supertype"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -907,8 +945,10 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                <subModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1033,7 +1073,7 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="External DTOs" activeByDefault="true">
-        <containerMappings name="ED_ExternalStructuredType_Referenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:self.getAllReferencedStructuredTypes(diagram)" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" childrenPresentation="List">
+        <containerMappings name="ED_ExternalStructuredType_Referenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalStructuredType_Referenced']" semanticCandidatesExpression="service:self.getAllReferencedStructuredTypes(diagram)" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" childrenPresentation="List">
           <subNodeMappings name="ED_ExternalAttribute" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="feature:ownedAttributes" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1100,6 +1140,18 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(environment::Namespace)">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_Referenced">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:DeleteView"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2233,12 +2285,10 @@
         <controls xsi:type="properties:TextDescription" name="environment::Attribute minimum" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'Minimum Value' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Minimum Length' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('minimum')) endif endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'The minimum value for this number-typed attribute.\n\nExpected: a String literal corresponding to the type of this attribute.' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The minimum length of this text-typed attribute.\n\nExpected: a String literal corresponding to a positive integer.' else input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('minimum')) endif endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minimum').changeable" valueExpression="aql:self.minimum">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="minimum" valueExpression="var:newValue"/>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="minimum" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="environment::Attribute maximum" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'Maximum Value' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Maximum Length' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('maximum')) endif endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'The maximum value of this number-typed attribute.\n\nExpected: a String literal corresponding to the type of this attribute.' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The maximum length of this text-typed attribute.\n\nExpected: a String literal corresponding to a positive integer.' else input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('maximum')) endif endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('maximum').changeable" valueExpression="aql:self.maximum">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="maximum" valueExpression="var:newValue"/>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="maximum" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
@@ -2246,7 +2296,6 @@
           <ifs name="Parameter Value Constraints Group Conditional" predicateExpression="aql: self.type.kind = environment::PrimitiveTypeKind::TEXT">
             <widget xsi:type="properties:TextDescription" name="environment::Attribute pattern" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Pattern' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('pattern')) endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The Regular Expression to which the value of this text-typed attribute must conform.\n\nExpected: a String literal corresponding to a JavaScript regular expression (see ECMA 262).' else 'Pattern is only available for text-typed attributes.' endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('pattern').changeable and self.type.kind = environment::PrimitiveTypeKind::TEXT" valueExpression="aql:self.pattern">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:SetValue" featureName="pattern" valueExpression="var:newValue"/>
                 <firstModelOperations xsi:type="tool_1:SetValue" featureName="pattern" valueExpression="var:newValue"/>
               </initialOperation>
             </widget>
