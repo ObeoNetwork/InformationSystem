@@ -120,7 +120,7 @@ public class CinematicFlowServices {
 		return viewContainersAncestors;
 	}
 	
-	public List<EObject> getEventSelectionDialogChildren(EObject parent) {
+	private static List<EObject> getEventSelectionDialogChildren(Object parent) {
 		List<EObject> children = new ArrayList<>();
 		
 		if(parent instanceof Flow) {
@@ -146,8 +146,6 @@ public class CinematicFlowServices {
 	}
 	
 	public void openEventSelectionDialog(Transition transition) {
-		IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(transition);
-		
 		String windowTitle = "Event selection";
 		String message = "Select the events triggering this transition.";
 		
@@ -157,12 +155,9 @@ public class CinematicFlowServices {
 		roots.addAll(cinematicRoot.getViewContainers());
 		roots.addAll(cinematicRoot.getSubPackages());
 		
-		String childrenExpression = "aql:self.getEventSelectionDialogChildren()";
-		String selectableCondition = "aql:self.oclIsKindOf(flow::FlowEvent) or self.oclIsKindOf(toolkits::WidgetEventType)";
-		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
+				CinematicFlowServices::getEventSelectionDialogChildren, 
+				(wrappedEObject) -> wrappedEObject instanceof FlowEvent || wrappedEObject instanceof WidgetEventType);
 		for(EObject root : roots) {
 			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
@@ -256,11 +251,10 @@ public class CinematicFlowServices {
 		roots.addAll(cinematicRoot.getSubPackages());
 		
 		String childrenExpression = "aql:self.viewContainers + if self.oclIsKindOf(cinematic::Package) then self.subPackages else Sequence{} endif";
-		String selectableCondition = "aql:self.oclIsKindOf(view::ViewContainer)";
 		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
 				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
+				ViewContainer.class::isInstance);
 		for(EObject root : roots) {
 			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
