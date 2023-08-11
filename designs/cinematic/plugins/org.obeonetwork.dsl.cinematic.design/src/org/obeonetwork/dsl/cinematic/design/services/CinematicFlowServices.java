@@ -45,17 +45,17 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectCheckBoxFilter;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 import org.obeonetwork.utils.common.StreamUtils;
-import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 
 /**
  * Services to use the flows
@@ -188,7 +188,8 @@ public class CinematicFlowServices {
 			@Override
 			public boolean filter(ISObjectTreeItemWrapper treeItemWrapper) {
 				List<ISObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
-				return !(ancestors.get(ancestors.size() - 2).getWrappedObject() instanceof Flow) &&
+				ancestors.add(treeItemWrapper);
+				return !(ancestors.get(1).getWrappedObject() instanceof Flow) &&
 						!ancestors.stream()
 						.map(tiw -> tiw.getWrappedObject())
 						.filter(ViewContainer.class::isInstance).map(ViewContainer.class::cast)

@@ -707,7 +707,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 			case HIERARCHIC:
 				selectedTreeItemWrapers.addAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
 				ungrayedTreeItemWrapers.removeAll(treeItemWrapper.getAllTreeItemWrappers());
-				treeItemWrapper.getAncestors().forEach(p -> {
+				List<ISObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
+				Collections.reverse(ancestors);
+				ancestors.forEach(p -> {
 					if(selectedTreeItemWrapers.containsAll(p.getChildren()) && p.isSelectable()) {
 						selectedTreeItemWrapers.add(p);
 						ungrayedTreeItemWrapers.remove(p);

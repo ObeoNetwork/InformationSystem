@@ -18,6 +18,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 
+import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
+
 public class ISObjectTreeItemWrapper {
 
 	// Structural data
@@ -132,15 +134,14 @@ public class ISObjectTreeItemWrapper {
 	}
 
 	/**
-	 * @return A list of ancestors in ascending order, going from the parent of the given object to the root.
+	 * @return A new list of ancestors in descending order, going from the root to the parent of this {@link TreeItemWrapper}.
 	 */
 	public List<ISObjectTreeItemWrapper> getAncestors() {
-		List<ISObjectTreeItemWrapper> ancestors = new ArrayList<>();
-		ISObjectTreeItemWrapper treeItemWrapper = this.parent;
-		while(treeItemWrapper != null) {
-			ancestors.add(treeItemWrapper);
-			treeItemWrapper = treeItemWrapper.parent;
+		if (parent == null) {
+			return new ArrayList<ISObjectTreeItemWrapper>();
 		}
+		List<ISObjectTreeItemWrapper> ancestors = parent.getAncestors();
+		ancestors.add(parent);
 		return ancestors;
 	}
 	

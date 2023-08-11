@@ -61,16 +61,15 @@ public class EObjectUtils {
 	
 	/**
 	 * @param eObject
-	 * @return A list of ancestors in descending order, going from the model root to the parent of the given object.
+	 * @return A new list of ancestors in descending order, going from the model root to the parent of the given object.
 	 */
 	public static List<EObject> getAncestors(EObject eObject) {
-		if (eObject.eContainer() != null) {
-			List<EObject> ancestors = getAncestors(eObject.eContainer());
-			ancestors.add(eObject.eContainer());
-			return ancestors;
-		} else {
+		if (eObject.eContainer() == null) {
 			return new ArrayList<EObject>();
 		}
+		List<EObject> ancestors = getAncestors(eObject.eContainer());
+		ancestors.add(eObject.eContainer());
+		return ancestors;
 	}
 	
 	public static <T extends EObject> T getContainerOrSelf(EObject eObject, Class<T> type) {
