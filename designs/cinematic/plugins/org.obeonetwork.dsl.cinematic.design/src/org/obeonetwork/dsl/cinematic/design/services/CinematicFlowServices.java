@@ -46,6 +46,7 @@ import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
@@ -54,6 +55,7 @@ import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPag
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 import org.obeonetwork.utils.common.StreamUtils;
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 
 /**
  * Services to use the flows
@@ -128,10 +130,16 @@ public class CinematicFlowServices {
 			Package aPackage = (Package) parent;
 			children.addAll(aPackage.getSubPackages());
 			children.addAll(aPackage.getViewContainers());
-		} else if(parent instanceof ViewContainer) {
-			ViewContainer viewContainer = (ViewContainer) parent;
-			children.addAll(viewContainer.getWidget().getPossibleEvents());
-			children.addAll(viewContainer.getViewContainers());
+		} else if(parent instanceof AbstractViewElement) {
+			AbstractViewElement abstractViewElement = (AbstractViewElement) parent;
+			children.addAll(abstractViewElement.getWidget().getPossibleEvents());
+			if(abstractViewElement instanceof ViewContainer) {
+				ViewContainer viewContainer = (ViewContainer) abstractViewElement;
+				children.addAll(viewContainer.getOwnedElements());
+			} else if(abstractViewElement instanceof ViewContainerReference) {
+				ViewContainerReference viewContainerReference = (ViewContainerReference) abstractViewElement;
+				children.add(viewContainerReference.getViewContainer());
+			}
 		}
 		
 		return children;
@@ -205,7 +213,7 @@ public class CinematicFlowServices {
         			transition.getOn().add((FlowEvent) addedEvent.getWrappedObject());
         		} else if(addedEvent.getWrappedObject() instanceof WidgetEventType) {
             		transition.getOn().add(ViewUtil.getOrCreateViewEvent(
-                			(ViewContainer)addedEvent.getParent().getWrappedObject(), 
+                			(AbstractViewElement)addedEvent.getParent().getWrappedObject(), 
                 			(WidgetEventType)addedEvent.getWrappedObject()));
         		}
         	});
