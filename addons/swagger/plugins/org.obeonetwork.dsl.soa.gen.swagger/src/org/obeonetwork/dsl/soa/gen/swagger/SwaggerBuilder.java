@@ -29,6 +29,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
 import static org.obeonetwork.dsl.soa.gen.swagger.PropertiesExtensionsHelper.addPropertiesExtensionsFromSoaToSwg;
+import static org.obeonetwork.dsl.soa.gen.swagger.utils.ConstrainableElementGenUtil.isTextual;
 import static org.obeonetwork.utils.common.StringUtils.EMPTY_STRING;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
@@ -68,7 +69,6 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
@@ -696,11 +696,19 @@ public class SwaggerBuilder {
 
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM)) {
 			final String minimum = constrainableElement.getMinimum();
-			schema.setMinimum(new BigDecimal(minimum));
+			if(isTextual(constrainableElement)) {
+				schema.setMinLength(Integer.valueOf(minimum));
+			} else {
+				schema.setMinimum(new BigDecimal(minimum));
+			}
 		}
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM)) {
 			final String maximum = constrainableElement.getMaximum();
-			schema.setMaximum(new BigDecimal(maximum));
+			if(isTextual(constrainableElement)) {
+				schema.setMaxLength(Integer.valueOf(maximum));
+			} else {
+				schema.setMaximum(new BigDecimal(maximum));
+			}
 		}
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN)) {
 			final String pattern = constrainableElement.getPattern();

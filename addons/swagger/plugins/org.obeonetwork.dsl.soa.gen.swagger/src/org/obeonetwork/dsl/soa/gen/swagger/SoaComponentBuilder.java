@@ -22,11 +22,11 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.SOA_PRIMIT
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
+import static org.obeonetwork.dsl.soa.gen.swagger.utils.ConstrainableElementGenUtil.isTextual;
 import static org.obeonetwork.utils.common.EObjectUtils.getAncestors;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -1863,10 +1863,26 @@ public class SoaComponentBuilder {
 	private static void setValueConstraints(final ConstrainableElement constrainableElement, final Schema schema) {
 		Objects.requireNonNull(constrainableElement);
 		Objects.requireNonNull(schema);
-
-		final BigDecimal minimum = schema.getMinimum();
-		final BigDecimal maximum = schema.getMaximum();
+		
+		String minimum = null;
+		String maximum = null;
+		if(isTextual(constrainableElement)) {
+			if(schema.getMinLength() != null) {
+				minimum = schema.getMinLength().toString();
+			}
+			if(schema.getMaxLength() != null) {
+				maximum = schema.getMaxLength().toString();
+			}
+		} else {
+			if(schema.getMinimum() != null) {
+				minimum = schema.getMinimum().toString();
+			}
+			if(schema.getMaximum() != null) {
+				maximum = schema.getMaximum().toString();
+			}
+		}
 		final String pattern = schema.getPattern();
+		
 		if (minimum != null) {
 			constrainableElement.setMinimum(minimum.toString());
 		}
