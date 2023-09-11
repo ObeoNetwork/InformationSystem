@@ -415,6 +415,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.SiriusUIUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="DomainColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>
