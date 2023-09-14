@@ -67,7 +67,7 @@ public class TableChangeBuilder extends ChangeBuilder {
 		if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(change.getAttribute())) {
 			return createUpdateTableCommentChange(change);
 		}
-		return super.handleAlterChange(change);
+		return null;
 	}
 
 	protected AddTable createAddTable(Comparison comparison, TableContainer tableContainer, Table table, ReferenceChange change) {
