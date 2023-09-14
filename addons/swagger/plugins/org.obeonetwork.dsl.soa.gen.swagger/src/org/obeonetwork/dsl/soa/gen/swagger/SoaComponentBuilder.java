@@ -1430,6 +1430,8 @@ public class SoaComponentBuilder {
 			updateEnumeration((Enumeration) exposedType, schema);
 			break;
 		}
+		
+		exposedType.setDescription(schema.getDescription());
 	}
 
 	private Enumeration updateEnumeration(Enumeration enumeration, Schema schema) {
@@ -1485,7 +1487,7 @@ public class SoaComponentBuilder {
 			// Terminal case of a structure defining properties
 			buildSoaProperties(dto, schema, getProperties(schema));
 		}
-
+		
 		return dto;
 	}
 
@@ -1589,6 +1591,7 @@ public class SoaComponentBuilder {
 
 		if (soaProperty != null) {
 			soaProperty.setName(propertyKey);
+			soaProperty.setDescription(unwrappedSchema.getDescription());
 
 			soaProperty.setMultiplicity(computeMultiplicity(
 					enclosingSchema.getRequired() != null && enclosingSchema.getRequired().contains(propertyKey),

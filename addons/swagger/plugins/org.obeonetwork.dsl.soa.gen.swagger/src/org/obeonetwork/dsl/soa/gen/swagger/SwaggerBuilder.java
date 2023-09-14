@@ -687,6 +687,10 @@ public class SwaggerBuilder {
 			addValueConstraintsFromSoaToSwg((ConstrainableElement) soaProperty, schema);
 		}
 
+		if(!StringUtils.isNullOrWhite(soaProperty.getDescription())) {
+			schema.setDescription(soaProperty.getDescription());
+		}
+		
 		return schema;
 	}
 
