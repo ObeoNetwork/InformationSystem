@@ -63,7 +63,7 @@
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -146,7 +146,7 @@
             <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="ND_Namespace_External" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" domainClass="environment.Namespace">
+        <containerMappings name="ND_Namespace_External" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_border']" labelSize="10" labelExpression="service:self.getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_foreground']">
             <labelFormat>bold</labelFormat>
           </style>
