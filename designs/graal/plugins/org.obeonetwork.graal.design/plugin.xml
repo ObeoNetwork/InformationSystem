@@ -227,7 +227,6 @@
          </description>
       </wizard>
    </extension>
-<!--
    <extension
          point="org.obeonetwork.dsl.environment.design.partialView">
       <partialView
@@ -255,5 +254,4 @@
             descriptionName="Domain Classes Diagram">
       </partialView>
    </extension>
--->
 </plugin>
