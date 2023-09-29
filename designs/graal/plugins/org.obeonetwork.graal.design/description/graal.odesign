@@ -969,21 +969,21 @@
       </additionalLayers>
       <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='UCM_DND_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_DND_UseCase']" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal::System" preconditionExpression="aql:self.eInverse(diagram::DDiagram)->select(diag| diag.eContainer()&lt;>null).description->select(desc|desc.name = 'Use Cases Main View')->isEmpty()">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default">
-        <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Actors%20list']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:useCases" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal.UseCase">
+        <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Actors%20list']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Element']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:useCases" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal::UseCase">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="UCM_Extend" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Extend']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetFinderExpression="feature:extends" targetExpression="var:self">
+        <edgeMappings name="UCM_Extend" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Extend']" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetFinderExpression="feature:extends" targetExpression="var:self">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']">
             <centerLabelStyleDescription showIcon="false" labelExpression="['&lt;&lt;extend>>'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="UCM_Include" preconditionExpression="[source &lt;> target/]" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Include']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetFinderExpression="[includes->asSequence()->union(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().oclAsType(graal::Task).uses.eInverse(graal::UseCase))/]" targetExpression="var:self">
+        <edgeMappings name="UCM_Include" preconditionExpression="[source &lt;> target/]" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Include']" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetFinderExpression="[includes->asSequence()->union(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().oclAsType(graal::Task).uses.eInverse(graal::UseCase))/]" targetExpression="var:self">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']">
             <centerLabelStyleDescription showIcon="false" labelExpression="['&lt;&lt;include>>'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
@@ -1044,7 +1044,7 @@
             <representationNameVariable name="tableName"/>
           </ownedTools>
           <subSections name="Usability tools">
-            <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Extend">
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Extend" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
               <element name="element"/>
               <elementView name="elementView"/>
               <containerView name="containerView"/>
@@ -1054,7 +1054,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Include">
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Include" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
               <element name="element"/>
               <elementView name="elementView"/>
               <containerView name="containerView"/>
@@ -1067,22 +1067,57 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Element" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="UCM_DND_UseCase" precondition="aql:not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized and element.oclIsKindOf(graal::UseCase) and element.eContainer()=newContainer" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" dragSource="PROJECT_EXPLORER">
+              <oldContainer name="oldSemanticContainer"/>
+              <newContainer name="newSemanticContainer"/>
+              <element name="element"/>
+              <newViewContainer name="newContainerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" containerViewExpression="var:newContainerView"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
           </subSections>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Actors" activeByDefault="true">
-        <nodeMappings name="UCM_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="[useCases.getVisibleActors()/]" domainClass="graal.Actor">
+        <nodeMappings name="UCM_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Element']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="[useCases.getVisibleActors()/]" domainClass="graal::Actor">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="service:computeGraalLabel" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="4" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/Actor.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
           </style>
         </nodeMappings>
-        <edgeMappings name="UCM_ActorWorksOnUseCase" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" targetFinderExpression="service:getVisibleActors">
+        <edgeMappings name="UCM_ActorWorksOnUseCase" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" targetFinderExpression="service:getVisibleActors">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration">
             <centerLabelStyleDescription labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="UCM_DND_Actor" precondition="aql:not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized and newContainer.useCases.getVisibleActors()->includes(element)" mappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" containerViewExpression="var:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
+      <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Task']" name="Use Case Diagram" titleExpression="[name + ' Use Case Diagram'/]" domainClass="graal.UseCase">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
