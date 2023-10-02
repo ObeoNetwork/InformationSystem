@@ -1337,8 +1337,8 @@
             "in": "header",
             "description": "Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.",
             "schema": {
-              "maximum" : 100,
-              "minimum" : 0,
+              "maxLength" : 100,
+              "minLength" : 0,
               "pattern" : "/^[a-zA-Z]+$/",
               "type": "string"
             }
