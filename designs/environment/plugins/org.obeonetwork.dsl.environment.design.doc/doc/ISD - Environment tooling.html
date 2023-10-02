@@ -8,10 +8,39 @@
 			<i>Copyright &#169; 2008, 2023 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
 		<h1 id="ISDOutillageenvironnement">ISD &#8211; Outillage environnement</h1>
+		<p>L&#8217;outillage environnement est le socle commun aux différents types de modeleurs que le studio IS-Designer fournit.</p>
+		<h2 id="vues_partielles">Vues partielles</h2>
+		<p>La fonctionnalité &#171;Vue Partielle&#187; permet de créer une représentation dont le contenu présenté n&#8217;est pas exhaustif.</p>
+		<p>Par défaut, les différents types de représentation fournis par le studio sont synchronisés avec le contenu du modèle. Ainsi par exemple pour un diagramme d&#8217;entités qui est créé sur un Namespace, le diagramme présente tout le contenu du Namespace. Ce mode de fonctionnement offre à l&#8217;utilisateur la garantie que le contenu des diagrammes est toujours en cohérence avec le contenu du modèle. Les diagrammes synchronisés ont une couleur de fond blanche :</p>
+		<p>
+			<img border="0" src="./pics/SynchronizedDiagram.png"/>
+		</p>
+		<p>Les &#171;Vues Partielles&#187; fournissent un moyen de constituer une représentation dont le contenu n&#8217;est pas exhaustif. Lorsqu&#8217;elle est créée, une Vue Partielle est vide, et elle est peuplée en y glissant et déposant des éléments depuis le Model Explorer. Ces vues peuvent être utiles pour faire un focus sur une sous partie d&#8217;un modèle , en particulier pour les gros modèles. Les vues partielles ont une couleur de fond spécifique les distinguant clairement des diagrammes classiques, et alertant sur le caractère non exaustif du contenu présenté :</p>
+		<p>
+			<img border="0" src="./pics/PartialViewDiagram.png"/>
+		</p>
+		<p>Les représentations classiques et les Vues Partielles peuvent être créées à partir du menu contextuel sur un élément du Model Explorer, dans le sous menu &#171;New Representation&#187;. La première partie du menu jusqu'à l&#8217;entrée &#171;Other...&#187; permet de créer des représentations classique, les entrées présentées après &#171;Other...&#187; permettent de créer des Vues Partielles :</p>
+		<p>
+			<img border="0" src="./pics/NewRepresentationMenu.png"/>
+		</p>
+		<p>Il est possible de convertir un diagramme synchronisé classique en Vue Partielle par l&#8217;action du menu contextuel &#171;Unsynchronized&#187; sur le fond du diagramme :</p>
+		<p>
+			<img border="0" src="./pics/UnsynchronizedMenu.png"/>
+		</p>
+		<p>La mise en forme d&#8217;un diagramme ou d&#8217;une vue partielle peut être reproduite sur une autre en utilisant les actions suivantes :</p>
+		<ul>
+			<li>Dans le menu contextuel sur le fond d&#8217;une représentation, séléctionner 
+				<em>Edit &gt; Copy format</em>.
+			</li>
+			<li>Dans le menu contextuel sur le fond d&#8217;une autre représentation, séléctionner 
+				<em>Edit &gt; Paste layout</em>.
+			</li>
+		</ul>
+		<h2 id="Lemodleenvironnement">Le modèle environnement</h2>
 		<p>Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
 			<br/>Avant la version Safr@n 1.9 le modèle &#171;obeo.environment&#187; était ajouté par défaut dans les dépendances des projets modeling. Depuis la version Safr@n 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d&#8217;un projet modeling, ainsi que de gérer les ressources environnement d&#8217;un projet.
 		</p>
-		<h2 id="modeling_project_creation">Création d&#8217;un projet modeling</h2>
+		<h3 id="modeling_project_creation">Création d&#8217;un projet modeling</h3>
 		<p>A la création d&#8217;un projet modeling la ressource &#171;obeo.environment&#187; est ajoutée par defaut.</p>
 		<p>Ce comportement repose sur l&#8217;utilisation du point d&#8217;extension &#171;org.obeonetwork.dsl.environment.providedEnvironmentModel&#187; qui permet de définir les modèles environnement utilisables dans le studio.</p>
 		<p>Ce point d&#8217;extenion permet de contribuer des modèles environement en définissant pour chacun d&#8217;eux :</p>
@@ -21,7 +50,7 @@
 			<li>Une priorité</li>
 		</ul>
 		<p>A la création d&#8217;un projet modeling, seuls les modèles environnement dont la priorité est la plus élevée sont chargés. La ressource &#171;obeo.environment&#187; est contribuée à ce point d&#8217;extension avec la priorité 0. (Ainsi, si un autre modèle environement est contribué avec la priorité 0, ces deux modèles seront chargés par défaut à la création d&#8217;un projet modeling).</p>
-		<h2 id="manage_env_resource">Gestion des ressources environnement</h2>
+		<h3 id="manage_env_resource">Gestion des ressources environnement</h3>
 		<p>La boîte de dialogue &#171;Manage Environment&#187; permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l&#8217;action &#171;Manage environment resources&#187; du menu contextuel d&#8217;un projet modeling, d&#8217;une ressource aird, ou de l'élément &#171;Project Dependencies&#187; :</p>
 		<p>
 			<img style="width:100%" border="0" src="./pics/ManageEnvironmentResourcesActions.png"/>
@@ -45,7 +74,7 @@
 			<br/>- Les changements sont appliqués mais pas sauvegardés
 			<br/>- Il est possible d&#8217;annuler tous les changements opérés à l&#8217;aide du raccourci clavier "Ctrl+Z.
 		</p>
-		<h2 id="CrationdunmodleEnvironment">Création d&#8217;un modèle Environment</h2>
+		<h3 id="CrationdunmodleEnvironment">Création d&#8217;un modèle Environment</h3>
 		<p>Un assistant de création de modèles Environment est accessible via le menu :</p>
 		<blockquote>
 			<p>File &gt; New &gt; Other ... &gt; Environment Model (Catégorie IS Designer)</p>

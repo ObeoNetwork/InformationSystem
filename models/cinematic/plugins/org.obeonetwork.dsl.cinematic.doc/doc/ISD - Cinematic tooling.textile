@@ -86,6 +86,10 @@ Le modeleur Cinematic apporte les représentations suivantes :
 | **Layout Diagram**         | : diagramme de consultation des composants et composites d'un Layout. |
 | **Flow Diagram**           | : diagramme permettant de modéliser la dynamique de l'IHM. |
 
+Les représentations suivantes peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
+* Flow Diagram
+* Package Diagram
+
 h3. Package Diagram
 
 h4. Contenu

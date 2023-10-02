@@ -76,6 +76,10 @@ Si il est fermé, un diagramme peut être ouvert en double-cliquant sur le noeud
 
 Attention, bien qu'ils continuent d'exister et qu'ils soient bien sauvegardés, les diagrammes des points de vues non activés sont filtrés de la vue _Model Explorer_. Celle-ci ne présente que les diagrammes des points de vue activés sur le _Modeling Project_.
 
+Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
+* SOA Diagram
+* Component Contract Diagram
+
 h3. SOA Diagram
 
 Le _SOA Diagram_ offre une vue de haut niveau sur un modèle SOA, il peut être créé sur l'objet racine _Components_.

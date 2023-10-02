@@ -2,10 +2,38 @@ __Copyright (c) 2008, 2023 Obeo -  All rights reserved. This program and the acc
 
 h1. ISD - Outillage environnement
 
+L'outillage environnement est le socle commun aux différents types de modeleurs que le studio IS-Designer fournit.
+
+h2(#vues_partielles). Vues partielles
+
+La fonctionnalité "Vue Partielle" permet de créer une représentation dont le contenu présenté n'est pas exhaustif.
+
+Par défaut, les différents types de représentation fournis par le studio sont synchronisés avec le contenu du modèle. Ainsi par exemple pour un diagramme d'entités qui est créé sur un Namespace, le diagramme présente tout le contenu du Namespace. Ce mode de fonctionnement offre à l'utilisateur la garantie que le contenu des diagrammes est toujours en cohérence avec le contenu du modèle. Les diagrammes synchronisés ont une couleur de fond blanche :
+
+!./pics/SynchronizedDiagram.png!
+
+Les "Vues Partielles" fournissent un moyen de constituer une représentation dont le contenu n'est pas exhaustif. Lorsqu'elle est créée, une Vue Partielle est vide, et elle est peuplée en y glissant et déposant des éléments depuis le Model Explorer. Ces vues peuvent être utiles pour faire un focus sur une sous partie d'un modèle , en particulier pour les gros modèles. Les vues partielles ont une couleur de fond spécifique les distinguant clairement des diagrammes classiques, et alertant sur le caractère non exaustif du contenu présenté :
+
+!./pics/PartialViewDiagram.png!
+
+Les représentations classiques et les Vues Partielles peuvent être créées à partir du menu contextuel sur un élément du Model Explorer, dans le sous menu "New Representation". La première partie du menu jusqu'à l'entrée "Other..." permet de créer des représentations classique, les entrées présentées après "Other..." permettent de créer des Vues Partielles :
+
+!./pics/NewRepresentationMenu.png!
+
+Il est possible de convertir un diagramme synchronisé classique en Vue Partielle par l'action du menu contextuel "Unsynchronized" sur le fond du diagramme :
+
+!./pics/UnsynchronizedMenu.png!
+
+La mise en forme d'un diagramme ou d'une vue partielle peut être reproduite sur une autre en utilisant les actions suivantes :
+* Dans le menu contextuel sur le fond d'une représentation, séléctionner _Edit > Copy format_.
+* Dans le menu contextuel sur le fond d'une autre représentation, séléctionner _Edit > Paste layout_.
+
+h2. Le modèle environnement
+
 Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
 Avant la version Safr@n 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version Safr@n 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
 
-h2(#modeling_project_creation). Création d'un projet modeling
+h3(#modeling_project_creation). Création d'un projet modeling
 
 A la création d'un projet modeling la ressource "obeo.environment" est ajoutée par defaut.
 
@@ -18,7 +46,7 @@ Ce point d'extenion permet de contribuer des modèles environement en définissa
 
 A la création d'un projet modeling, seuls les modèles environnement dont la priorité est la plus élevée sont chargés. La ressource "obeo.environment" est contribuée à ce point d'extension avec la priorité 0. (Ainsi, si un autre modèle environement est contribué avec la priorité 0, ces deux modèles seront chargés par défaut à la création d'un projet modeling).
 
-h2(#manage_env_resource). Gestion des ressources environnement
+h3(#manage_env_resource). Gestion des ressources environnement
 
 La boîte de dialogue "Manage Environment" permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l'action "Manage environment resources" du menu contextuel d'un projet modeling, d'une ressource aird, ou de l'élément "Project Dependencies" :
 
@@ -43,7 +71,7 @@ Remarques :
 - Les changements sont appliqués mais pas sauvegardés
 - Il est possible d'annuler tous les changements opérés à l'aide du raccourci clavier "Ctrl+Z.
 
-h2. Création d'un modèle Environment
+h3. Création d'un modèle Environment
 
 Un assistant de création de modèles Environment est accessible via le menu :
 

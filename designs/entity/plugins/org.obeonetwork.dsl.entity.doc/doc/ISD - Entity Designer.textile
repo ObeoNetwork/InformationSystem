@@ -67,6 +67,10 @@ Par exemple sur un objet racine _Entities_, deux types de représentation peuven
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
+Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
+* Entities Namespaces Hierarchy
+* Entities Diagram
+
 h3. Entities Namespaces Hierarchy (pour l'objet racine _Entities_)
 
 Les entités (_Entity_) sont organisées en packages (_Namespaces_).

@@ -97,12 +97,7 @@ La couleur de fond de la vue permet de la distinguer de la vue synchronisée _Da
 
 !{width:80%}pics/BDD_PartialView_01.png!
 
-Cette vue étant dédiée à la visualisation, la palette ne présente aucun outil.
-Les éléments qu'elle présente sont soumis aux mêmes règles que pour _Database Diagram_ : une table d'un autre schéma ne peut pas figurer sur le diagramme à moins qu'elle soit en lien via les _Foreign Keys_ de manière directe ou indirecte avec les tables du schéma courant.
-
-La mise en forme d'un diagramme _Database Diagram_ peut être reproduite sur une _Partial View_ en utilisant les actions suivantes :
-* Dans le menu contextuel sur le fond du _Database Diagram_, séléctionner _Edit > Copy format_.
-* Dans le menu contextuel sur le fond de la _Partial View_, séléctionner _Edit > Paste layout_.
+Le fonctionnement des Vues Partielles est décrit en détail dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
 
 h4. Modèle Physique de Données
 
@@ -115,8 +110,6 @@ Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "
 
 !pics/BDD_Column_Enum.png!
 !pics/BDD_Column_Varchar.png!
- 
-
  
 h4. Modèle Logique de Données
 

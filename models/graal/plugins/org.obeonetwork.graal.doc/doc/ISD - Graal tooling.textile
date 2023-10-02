@@ -62,6 +62,14 @@ bq. New... > #Nom du diagramme#
 
 puis renseigner le nom du diagramme et, enfin, valider.
 
+Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
+* Tasks Graph
+* Actions Plan
+* Actors Graph
+* TasksGroup Graph
+* Use Cases Main View
+* Use Case Diagram
+
 Par exemple sur un _System_, trois types de diagrammes peuvent être créés comme présenté sur la capture d'écran suivante :
  
 !pics/GraalGraphsOnSystem.png!
