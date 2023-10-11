@@ -9,7 +9,6 @@
     Contributors:
         Obeo - initial API and implementation
  -->
-
 <site>
    <feature url="features/org.obeonetwork.dsl.database.feature_0.0.0.jar" id="org.obeonetwork.dsl.database.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.models"/>
@@ -185,6 +184,10 @@
    <feature url="features/liquibase.feature_0.0.0.jar" id="liquibase.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.reversers"/>
    </feature>
+   <feature url="features/org.obeonetwork.informationsystem.metamodels_0.0.0.jar" id="org.obeonetwork.dsl.informationsystem.metamodels.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.metamodels"/>
+   </feature>
+   <category-def name="org.obeonetwork.informationsystem.metamodels" label="Information System - Meta Models"/>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
