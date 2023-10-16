@@ -604,6 +604,10 @@ public class SwaggerBuilder {
 			schema = createSoaStructuredTypeSchema((StructuredType) soaType);
 		}
 
+		if (soaType.getDescription() != null) {
+			schema.setDescription(soaType.getDescription());
+		}
+
 		addPropertiesExtensionsFromSoaToSwg(soaType, schema);
 
 		return schema;
@@ -617,10 +621,6 @@ public class SwaggerBuilder {
 
 	private Schema<Object> createSoaStructuredTypeSchema(StructuredType soaStructuredType) {
 		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
-
-		if (soaStructuredType.getDescription() != null) {
-			schema.setDescription(soaStructuredType.getDescription());
-		}
 
 		for (Attribute attribute : soaStructuredType.getOwnedAttributes()) {
 			buildProperty(schema, attribute);

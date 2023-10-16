@@ -427,7 +427,7 @@ paths:
         description: Status values that need to be considered for filter
         required: false
         schema:
-          $ref: '#/components/schemas/PetStatus'
+          $ref: '#/components/schemas/Pet_FindPetsByStatusStatus'
       - name: page
         in: query
         description: The index of the page queried
@@ -443,29 +443,11 @@ paths:
           type: integer
           format: int64
       responses:
-        206:
+        200:
           description: |-
-            Partial Content
+            OK
 
             successful operation
-          headers:
-            X-Total-Element:
-              schema:
-                type: integer
-                format: int64
-            X-Page-Element-Count:
-              schema:
-                type: integer
-                format: int64
-            Accept-Range:
-              schema:
-                type: string
-            Content-Range:
-              schema:
-                type: string
-            Link:
-              schema:
-                type: string
           content:
             application/xml:
               schema:
@@ -714,6 +696,7 @@ components:
       x-swagger-router-model: io.swagger.petstore.model.Order
     OrderStatus:
       type: string
+      description: Order Status
       enum:
       - approved
       - placed
@@ -745,6 +728,13 @@ components:
       x-swagger-router-model: io.swagger.petstore.model.Pet
     PetStatus:
       type: string
+      description: pet status in the store
+      enum:
+      - sold
+      - pending
+      - available
+    Pet_FindPetsByStatusStatus:
+      type: string
       enum:
       - sold
       - pending
@@ -771,6 +761,7 @@ components:
           type: string
         userStatus:
           type: integer
+          description: User Status
           format: int32
         phone:
           type: string

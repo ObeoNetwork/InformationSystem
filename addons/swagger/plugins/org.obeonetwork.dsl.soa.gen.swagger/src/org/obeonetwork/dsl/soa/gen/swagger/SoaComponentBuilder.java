@@ -1438,6 +1438,10 @@ public class SoaComponentBuilder {
 		Set<String> literalNames = new HashSet<>();
 		collectLiterals(literalNames, schema);
 		updateEnumeration(enumeration, literalNames);
+		
+		if(!StringUtils.isNullOrWhite(schema.getDescription())) {
+			enumeration.setDescription(schema.getDescription());
+		}
 
 		return enumeration;
 

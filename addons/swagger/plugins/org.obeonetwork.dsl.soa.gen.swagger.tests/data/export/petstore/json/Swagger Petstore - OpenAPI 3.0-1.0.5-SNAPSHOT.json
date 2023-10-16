@@ -506,7 +506,7 @@
           "description" : "Status values that need to be considered for filter",
           "required" : false,
           "schema" : {
-            "$ref" : "#/components/schemas/PetStatus"
+            "$ref" : "#/components/schemas/Pet_FindPetsByStatusStatus"
           }
         }, {
           "name" : "page",
@@ -528,37 +528,8 @@
           }
         } ],
         "responses" : {
-          "206" : {
-            "description" : "Partial Content\n\nsuccessful operation",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
+          "200" : {
+            "description" : "OK\n\nsuccessful operation",
             "content" : {
               "application/xml" : {
                 "schema" : {
@@ -858,6 +829,7 @@
       },
       "OrderStatus" : {
         "type" : "string",
+        "description" : "Order Status",
         "enum" : [ "approved", "placed", "delivered" ]
       },
       "Pet" : {
@@ -895,6 +867,11 @@
       },
       "PetStatus" : {
         "type" : "string",
+        "description" : "pet status in the store",
+        "enum" : [ "sold", "pending", "available" ]
+      },
+      "Pet_FindPetsByStatusStatus" : {
+        "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
       "Store_GetInventoryOutput200" : {
@@ -927,6 +904,7 @@
           },
           "userStatus" : {
             "type" : "integer",
+            "description" : "User Status",
             "format" : "int32"
           },
           "phone" : {
