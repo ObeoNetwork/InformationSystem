@@ -446,6 +446,22 @@ Le dialogue propose les codes de succès dans le cas d'un paramètre de sortie, 
 
 !pics/exposition/Dialog_SelectStatus_OutputParameter.png! !pics/exposition/Dialog_SelectStatus_FaultParameter.png!
 
+h5(#parameter_media_types). Modélisation des média-types
+
+Des types de média peuvent être définis sur un paramètre exposé en REST quel que soit sa direction (paramètre entrant, sortant ou d'erreur). L'onglet "Exposition" de la vue des propriétés présente la liste des types de média pour un paramètre donné :
+
+!pics/exposition/Properties_Parameter_Exposition_Tab_MediaTypes.png!
+
+Un double clic sur un type de média ouvre un dialogue d'édition :
+
+!pics/exposition/Properties_Parameter_Exposition_EditMediaTypeDialog.png!
+
+Le champ "Example" est un champ texte, destiné à reçevoir une sérialisation textuelle d'un exemple.
+
+Le champ "Identifier" est un champ libre, le bouton "..." est une aide à la saisie qui permet de choisir parmis les types de média les plus courants :
+
+!pics/exposition/Properties_Parameter_Exposition_SelectMediaTypeStatusDialog.png!
+
 h4. Modélisation de la sécurité
 
 h5. Modélisation des schémas de sécurité
