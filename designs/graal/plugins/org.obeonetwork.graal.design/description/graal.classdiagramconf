@@ -18,7 +18,7 @@
     </children>
     <stringValues id="label" value="Domain Classes Namespaces Hierarchy"/>
     <stringValues id="titleExpression" value="Domain Classes Namespaces Hierarchy"/>
-    <stringValues id="domainClass" value="graal.System"/>
+    <stringValues id="domainClass" value="graal::System"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/graal/2.0.0</metamodels>
   </diagrams>

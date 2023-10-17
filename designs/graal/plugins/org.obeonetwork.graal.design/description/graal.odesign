@@ -1253,7 +1253,7 @@
       <ownedColumnMappings name="ACL_Actor" headerLabelExpression="feature:name" domainClass="graal.Actor" semanticCandidatesExpression="[getVisibleActors()->asSequence()->filter(Actor)->sortedBy(a : graal::Actor | a.name.toUpper())/]"/>
       <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Domain Classes Namespaces Hierarchy" label="Domain Classes Namespaces Hierarchy" titleExpression="Domain Classes Namespaces Hierarchy" domainClass="graal.System">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Domain Classes Namespaces Hierarchy" label="Domain Classes Namespaces Hierarchy" titleExpression="Domain Classes Namespaces Hierarchy" domainClass="graal::System">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
@@ -1273,13 +1273,6 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.namespace.fromOther.creationTreatment}"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

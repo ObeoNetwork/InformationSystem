@@ -22,7 +22,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" generatorOptionalNode="{ClassDiagram.section.structuredType.fromOtherType.enable}">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
