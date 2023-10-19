@@ -74,8 +74,6 @@ public class SwaggerImportWizard extends Wizard {
 		
 		String swaggerFilePath = swaggerImportWizardPage.getSwaggerFilePath();
 		String paginationExtension = swaggerImportWizardPage.getPaginationExtension();
-		java.lang.System.out.println(swaggerFilePath);
-		java.lang.System.out.println(paginationExtension);
 		
 		Environment environment = EObjectUtils.getAllResources(soaSystem).stream()
 		.flatMap(resource -> resource.getContents().stream())

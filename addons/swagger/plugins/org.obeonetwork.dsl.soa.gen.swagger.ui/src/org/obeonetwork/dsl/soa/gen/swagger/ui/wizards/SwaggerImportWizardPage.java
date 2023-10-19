@@ -107,7 +107,7 @@ public class SwaggerImportWizardPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog dialog = new FileDialog(SwaggerImportWizardPage.this.getShell(), SWT.OPEN);
-				dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				dialog.setFilterExtensions(new String [] { "*.yaml;*.yml;*.json", "*.yaml;*.yml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				dialog.setFilterPath(model.getSwaggerFilePath());
 				String swaggerFilePath = dialog.open();
 				if(swaggerFilePath != null) {

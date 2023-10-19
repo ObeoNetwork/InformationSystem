@@ -35,7 +35,7 @@ public class SwaggerFileQuery {
 	private JsonNode root;
 	
 	public SwaggerFileQuery(File file) throws JsonProcessingException, IOException {
-		if(file.getPath().endsWith(".yaml")) {
+		if(file.getPath().endsWith(".yaml") || file.getPath().endsWith(".yml")) {
 			mapper = new ObjectMapper(new YAMLFactory());
 		} else if(file.getPath().endsWith(".json")) {
 			mapper = new ObjectMapper();

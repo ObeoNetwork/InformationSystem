@@ -76,7 +76,7 @@ public class SwaggerImporter {
 		if(status != IStatus.ERROR) {
 			
 			ObjectMapper objectMapper = null;
-			if(inputFilePath.endsWith(".yaml")) {
+			if(inputFilePath.endsWith(".yaml") || inputFilePath.endsWith(".yml")) {
 				objectMapper = Yaml.mapper();
 			} else if(inputFilePath.endsWith(".json")) {
 				objectMapper = Json.mapper();
