@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,15 +30,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
 import org.obeonetwork.dsl.cinematic.provider.NamedElementItemProvider;
@@ -300,37 +297,70 @@ public class AbstractViewElementItemProvider
 	 */
 	public Object getReferencedWidgetImage(Object object) {
 		AbstractViewElement abstractViewElement = (AbstractViewElement)object;
+		
 		Widget widget = abstractViewElement.getWidget();
-		if (widget != null) {
-			String iconStringPath = widget.getIcon();
-			if (iconStringPath != null && !iconStringPath.trim().equals("")) {
-				IResource iconResource = ResourcesPlugin.getWorkspace().getRoot().findMember(iconStringPath);
-				if (iconResource == null) {
-					// Search in plugins
-					IPath iconPath = new Path(iconStringPath);
-					String bundleId = iconPath.segment(0);
-					Bundle bundle = Platform.getBundle(bundleId);
-					if (bundle != null) {
-						IPath iconRelativePath = iconPath.removeFirstSegments(1);
-						Map<String, String> emptyMap = Collections.emptyMap();
-						URL imageURL = FileLocator.find(bundle, iconRelativePath, emptyMap);
-						if (imageURL != null) {
-							ImageDescriptor imgDesc = ImageDescriptor.createFromURL(imageURL);
-							if (imgDesc !=null) {
-								return imgDesc.createImage();
-							}
-						}
-					}
-				} else {
-					ImageDescriptor imgDesc = ImageDescriptor.createFromImageData(new ImageData(iconResource.getLocation().toString()));
-					if (imgDesc !=null) {
-						return imgDesc.createImage();
-					}
-				}
-			}
+		if(widget == null) {
+			return null;
 		}
+		
+		String iconStringPath = widget.getIcon();
+	    if (iconStringPath == null || iconStringPath.trim().isEmpty()) {
+	        return null;
+	    }
+	
+	    ImageDescriptor imageDescriptor = getImageDescriptor(iconStringPath);
+		if (imageDescriptor != null) {
+			return getOrCreateImage(imageDescriptor);
+		}
+
 		return null;
 	}
 
+	private Map<ImageDescriptor, Image> imagesCache = new HashMap<ImageDescriptor, Image>();
 	
+	private Image getOrCreateImage(ImageDescriptor imageDescriptor) {
+		Image image = imagesCache.get(imageDescriptor);
+		if(image == null) {
+			image = imageDescriptor.createImage();
+			imagesCache.put(imageDescriptor, image);
+		}
+		return image;
+	}
+
+	@Override
+	public void dispose() {
+		imagesCache.entrySet().stream()
+		.map(entry -> entry.getValue())
+		.filter(image -> !image.isDisposed())
+		.forEach(image -> image.dispose());
+		
+		super.dispose();
+	}
+
+	private ImageDescriptor getImageDescriptor(String iconStringPath) {
+		ImageDescriptor imgageDescriptor = null;
+		
+		IResource iconResource = ResourcesPlugin.getWorkspace().getRoot().findMember(iconStringPath);
+		if (iconResource == null) {
+			// Search in plugins
+			IPath iconPath = new Path(iconStringPath);
+			String bundleId = iconPath.segment(0);
+			Bundle bundle = Platform.getBundle(bundleId);
+			if (bundle != null) {
+				IPath iconRelativePath = iconPath.removeFirstSegments(1);
+				Map<String, String> emptyMap = Collections.emptyMap();
+				URL imageURL = FileLocator.find(bundle, iconRelativePath, emptyMap);
+				if (imageURL != null) {
+					imgageDescriptor = ImageDescriptor.createFromURL(imageURL);
+				}
+			}
+		}
+		
+		if(imgageDescriptor == null) {
+			imgageDescriptor = ImageDescriptor.createFromImageDataProvider(zoom -> new ImageData(iconResource.getLocation().toString()));
+		}
+		
+		return imgageDescriptor;
+	}
+		
 }
