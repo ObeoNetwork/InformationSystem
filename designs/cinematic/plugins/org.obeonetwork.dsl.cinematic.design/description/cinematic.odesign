@@ -24,14 +24,14 @@
         </ownedTools>
       </toolSection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DND_FlowDiagram_content'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DND_FLD_FlowEvents'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DND_FLD_ViewContainer']" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow::Flow" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DND_FlowDiagram_content'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DND_FLD_FlowEvents'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DND_FLD_ViewContainer']" name="Flow Diagram" titleExpression="aql:self.name + ' Flow Diagram'" domainClass="flow::Flow" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//toolkits"/>
       <layout xsi:type="description_1:CompositeLayout" padding="15" direction="LeftToRight"/>
       <diagramInitialisation>
-        <firstModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(cinematic::flow::Flow).states->filter(cinematic::flow::InitialState)->size() = 0/]">
+        <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(flow::Flow).states->filter(flow::InitialState)->isEmpty()">
           <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.InitialState" referenceName="states">
             <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Initial"/>
           </subModelOperations>
@@ -111,7 +111,7 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Transition" referenceName="transitions">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
@@ -128,7 +128,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.ViewState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['View' + eContainer(cinematic::flow::Flow).states->filter(cinematic::flow::ViewState)->size()/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'View' + self.eContainer(flow::Flow).states->filter(flow::ViewState)->size()">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:instance.openViewContainerSelectionDialog()"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -141,7 +141,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.ActionState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Action' + eContainer(cinematic::flow::Flow).states->filter(cinematic::flow::ActionState)->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Action' + self.eContainer(flow::Flow).states->filter(flow::ActionState)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -152,21 +152,21 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.AsyncEventState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['AsyncEvent' + eContainer(cinematic::flow::Flow).states->filter(cinematic::flow::AsyncEventState)->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AsyncEvent' + self.eContainer(flow::Flow).states->filter(flow::AsyncEventState)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ExistingFlowSubflowState" label="Existing flow" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState']">
             <variable name="container">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allFlows" computationExpression="[container.getAllRootsForCinematic().eAllContents(cinematic::flow::Flow)/]"/>
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="aql:allFlows + allFlows.eContainer()->filter(cinematic::AbstractPackage)"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedFlow" candidatesExpression="[allCandidates->asOrderedSet()->asSequence()/]" tree="true" rootExpression="[allCandidates->asOrderedSet()->asSequence()->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select an existing Flow"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allFlows" computationExpression="aql:container.getAllRootsForCinematic().eAllContents(flow::Flow)"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="aql:(allFlows + allFlows.eContainer()->filter(cinematic::AbstractPackage))->asOrderedSet()->asSequence()"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedFlow" candidatesExpression="aql:allCandidates" tree="true" rootExpression="aql:allCandidates->select(e | e.eContainer() =null or allCandidates->excludes(e.eContainer()))" childrenExpression="feature:eContents" message="Select an existing Flow"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not selectedFlow.oclIsUndefined()/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selectedFlow &lt;> null">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.SubflowState" referenceName="states">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="subflow" valueExpression="var:selectedFlow"/>
                   </subModelOperations>
@@ -178,7 +178,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eContainer()/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Flow" referenceName="flows" variableName="newFlow">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Flow' + eContainer(cinematic::AbstractPackage).flows->size()/]"/>
                 </subModelOperations>
@@ -358,7 +358,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.oclAsType(cinematic::flow::SubflowState).subflow/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(flow::SubflowState).subflow">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
               </firstModelOperations>
             </initialOperation>
@@ -413,7 +413,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.FlowEvent" referenceName="events">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['event' + eContainer().oclAsType(cinematic::flow::Flow).events->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'event' + self.eContainer(flow::Flow).events->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -453,7 +453,7 @@
       </additionalLayers>
       <additionalLayers name="View Containers" activeByDefault="true">
         <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="[eContents()->size()/]">
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="aql:self.eContents()->size()">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
@@ -481,7 +481,7 @@
           </style>
         </containerMappings>
         <toolSections name="View Containers">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_ViewState_To_ViewContainer" label="Bind View State and View Container" precondition="[preSource.oclAsType(cinematic::flow::ViewState).viewContainers->includes(preTarget) = false/]" edgeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/ViewStateToViewContainer.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_ViewState_To_ViewContainer" label="Bind View State and View Container" precondition="aql:preSource.oclAsType(flow::ViewState).viewContainers->excludes(preTarget)" edgeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/ViewStateToViewContainer.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -501,7 +501,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selectedElement">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsTypeOf(cinematic::view::ViewContainer)/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(view::ViewContainer)">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="var:selectedElement"/>
                   </subModelOperations>
@@ -512,11 +512,11 @@
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_New_ViewContainer" label="Bind new View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="service:getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="[viewContainerTypes.eContainer(cinematic::toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="service:getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eContainer(cinematic::AbstractPackage)/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer(cinematic::AbstractPackage)">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
@@ -548,9 +548,9 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[edgeView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:edgeView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target">
                 <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="var:source"/>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(flow::ViewState).viewContainers->includes(target)=false/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(flow::ViewState).viewContainers->excludes(target)">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="var:target"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -567,7 +567,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(cinematic::flow::ViewState).viewContainers->includes(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target)=false/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(flow::ViewState).viewContainers->excludes(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target)">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -618,7 +618,7 @@
       </additionalLayers>
       <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DND_AbstractPackage_content']" name="Package Diagram" titleExpression="[name + ' Package Diagram'/]" domainClass="cinematic.AbstractPackage">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DND_AbstractPackage_content']" name="Package Diagram" titleExpression="aql:self.name + ' Package Diagram'" domainClass="cinematic.AbstractPackage">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
@@ -841,7 +841,7 @@
       </additionalLayers>
       <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:TreeDescription" name="UI Structure" titleExpression="[name +' UI Structure'/]" domainClass="cinematic.AbstractPackage">
+    <ownedRepresentations xsi:type="description_2:TreeDescription" name="UI Structure" titleExpression="aql:self.name +' UI Structure'" domainClass="cinematic.AbstractPackage">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
@@ -1175,7 +1175,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
-            <conditionalStyles predicateExpression="[oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(environment::DTO)/]">
+            <conditionalStyles predicateExpression="aql:self.oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(environment::DTO)">
               <style labelExpression="service:getCinematicBindingInfoLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/DTOBinding.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1187,7 +1187,7 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </conditionalStyles>
-            <conditionalStyles predicateExpression="[oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(entity::Entity)/]">
+            <conditionalStyles predicateExpression="aql:self.oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(entity::Entity)">
               <style labelExpression="service:getCinematicBindingInfoLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/EntityBinding.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
