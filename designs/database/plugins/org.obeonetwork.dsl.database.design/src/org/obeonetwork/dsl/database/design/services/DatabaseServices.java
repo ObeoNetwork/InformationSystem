@@ -83,9 +83,15 @@ public class DatabaseServices {
 	public ForeignKey createForeignKey(Table source, Table target) {
 		ForeignKey fk = DatabaseFactory.eINSTANCE.createForeignKey();
 		source.getForeignKeys().add(fk);
-		fk.setTarget(target);
 		
-		// Initialize with columns
+		setForeignKeyTarget(fk, target);
+		return fk;
+	}
+
+
+	public ForeignKey setForeignKeyTarget(ForeignKey fk, Table target) {
+		fk.setTarget(target);
+		Table source = fk.getSourceTable();
 		if (target.getPrimaryKey() != null) {
 			for (Column pkColumn : target.getPrimaryKey().getColumns()) {
 				Column fkColumn = getOrCreateColumn(source, pkColumn);
