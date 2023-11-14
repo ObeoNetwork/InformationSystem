@@ -1505,13 +1505,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.namespace.fromOther.creationTreatment}"/>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
         <toolSections name="Domain Class">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Domain Class" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']">
