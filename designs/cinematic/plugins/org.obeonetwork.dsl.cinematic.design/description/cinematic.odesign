@@ -57,7 +57,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ViewState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewState_ViewContainerMockup_Create']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewState_ViewContainerMockup_Navigate']" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_DEL_Flow_contents']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewState_DoubleClick_EditViewState']" domainClass="flow::ViewState">
-          <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="null" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
+          <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="null" synchronizationLock="true" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
             <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="4" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -323,22 +323,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="FLD_DEL_Flow_contents">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="FLD_DEL_Flow_contents" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Switch">
-                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                    <subModelOperations xsi:type="tool_1:DeleteView"/>
-                  </subModelOperations>
-                </cases>
-                <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                  </subModelOperations>
-                </default>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -394,7 +385,7 @@
       </defaultLayer>
       <additionalLayers name="Flow Events" activeByDefault="true">
         <containerMappings name="FLD_FlowEvents" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.0/@ownedTools[name='DEL_PreventFlowDeletion']" semanticCandidatesExpression="var:self" domainClass="flow.Flow" childrenPresentation="List">
-          <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DE_FlowEvent']" semanticCandidatesExpression="feature:events" domainClass="flow.FlowEvent">
+          <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DE_FlowEvent']" semanticCandidatesExpression="feature:events" synchronizationLock="true" domainClass="flow.FlowEvent">
             <style xsi:type="style:SquareDescription" labelExpression="aql:self.getCinematicLabel()+' ('+self.binds -> size()+')'" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -418,16 +409,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventFlowDeletion">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventFlowDeletion" precondition="aql:false">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                  <subModelOperations xsi:type="tool_1:DeleteView"/>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -458,19 +445,19 @@
           </style>
         </edgeMappings>
         <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewContainer_ViewContainerMockup_Create']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewContainer_ViewContainerMockup_Navigate']" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_FLD_ViewContainer']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewContainer_ViewContainerMockup_DoubleClick_Navigate']" domainClass="view::ViewContainer" childrenPresentation="List">
-          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewContainer_ViewContainerMockup_DoubleClick_Navigate']" domainClass="view.ViewContainer">
+          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_ViewContainer_ViewContainerMockup_DoubleClick_Navigate']" synchronizationLock="true" domainClass="view.ViewContainer">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="FLD_ViewElement" semanticCandidatesExpression="feature:ownedElements" domainClass="view.ViewElement">
+          <subNodeMappings name="FLD_ViewElement" semanticCandidatesExpression="feature:ownedElements" synchronizationLock="true" domainClass="view.ViewElement">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="FLD_ViewContainerReference" semanticCandidatesExpression="feature:ownedElements" semanticElements="feature:viewContainer" domainClass="view.ViewContainerReference">
+          <subNodeMappings name="FLD_ViewContainerReference" semanticCandidatesExpression="feature:ownedElements" semanticElements="feature:viewContainer" synchronizationLock="true" domainClass="view.ViewContainerReference">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -529,15 +516,13 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability" reusedTools="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='MNU_AssociateToolkit'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='FLD_DEL_Flow_contents']">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DissociateViewStateAndViewContainer">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DissociateViewStateAndViewContainer" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:elementView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="aql:elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="aql:elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -595,22 +580,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_FLD_ViewContainer">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_FLD_ViewContainer" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Switch">
-                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                    <subModelOperations xsi:type="tool_1:DeleteView"/>
-                  </subModelOperations>
-                </cases>
-                <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                  </subModelOperations>
-                </default>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -793,22 +769,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="PAD_DEL_PackageDiagram_node">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="PAD_DEL_PackageDiagram_node" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Switch">
-                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                    <subModelOperations xsi:type="tool_1:DeleteView"/>
-                  </subModelOperations>
-                </cases>
-                <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                  </subModelOperations>
-                </default>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -835,7 +802,9 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>

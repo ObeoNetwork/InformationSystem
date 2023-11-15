@@ -71,16 +71,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_External">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_External" precondition="aql:false">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                  <subModelOperations xsi:type="tool_1:DeleteView"/>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:OperationAction" name="ACT_AddContainedNamespace" label="Add contained Namespaces" precondition="aql:self.oclIsKindOf(environment::NamespacesContainer) and not diagram.synchronized" icon="/org.obeonetwork.dsl.environment.design/icons/full/tool/search.gif">
@@ -93,22 +89,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_Namespace">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_Namespace" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Switch">
-                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                    <subModelOperations xsi:type="tool_1:DeleteView"/>
-                  </subModelOperations>
-                </cases>
-                <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
-                  </subModelOperations>
-                </default>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -495,52 +482,39 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Generic" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Generic" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Switch">
-                <cases conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                    <subModelOperations xsi:type="tool_1:DeleteView"/>
-                  </subModelOperations>
-                </cases>
-                <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
-                  </subModelOperations>
-                </default>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="feature:supertype"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="feature:supertype"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
             <element name="element">
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="aql:self->asSequence()->including(self.oppositeOf)" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventDeletion">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventDeletion" precondition="aql:false">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -700,7 +674,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability tools">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -731,15 +705,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_Referenced">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_Referenced" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:not containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                  <subModelOperations xsi:type="tool_1:DeleteView"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool_1:DeleteView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
