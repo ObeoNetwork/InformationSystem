@@ -1381,7 +1381,7 @@
       </additionalLayers>
       <backgroundColor xsi:type="description:ComputedColor" href="../../org.obeonetwork.dsl.environment.design/description/environment.odesign#//@userColorsPalettes[name='Palette']/@entries[name='UnsynchronizableDiagramBackground']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_ED_Namespace']" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="aql:self.name + ' - Domain Classes diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(graal::System)->notEmpty()">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_ED_Namespace'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='DAD_ED_ExternalStructuredType_Referenced']" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="aql:self.name + ' - Domain Classes diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(graal::System)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <defaultLayer name="Default">
@@ -1948,6 +1948,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
                 <subModelOperations xsi:type="tool_1:DeleteView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_ExternalStructuredType_Referenced" precondition="aql:let diagram=newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and newContainer.getAllReferencedStructuredTypes(diagram)->includes(element) endlet" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" containerViewExpression="var:newContainerView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
