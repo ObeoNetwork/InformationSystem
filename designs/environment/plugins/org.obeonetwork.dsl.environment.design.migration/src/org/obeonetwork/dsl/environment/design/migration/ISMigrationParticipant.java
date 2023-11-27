@@ -53,7 +53,7 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		// /!\ Warning: This version number is serialized on 'save' operation. /!\
 		// This version number have to be increased when ISD metamodel change or when Sirius version change.
 		// Version number format is 100.0.0 + ISD version (ex: 103.1.0 is related to 3.1.0 version)
-		return new Version(103,1,0);
+		return new Version(104,1,0);
 	}
 
 	@Override
