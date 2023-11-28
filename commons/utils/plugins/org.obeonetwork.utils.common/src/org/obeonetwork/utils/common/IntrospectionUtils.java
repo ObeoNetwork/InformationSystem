@@ -32,6 +32,18 @@ public class IntrospectionUtils {
 		}
 		return fieldValue;
 	}
+	
+	public static void setFieldValue(Object object, String fieldName, Object value) {
+		Field field = getField(object.getClass(), fieldName);
+		field.setAccessible(true);
+		try {
+			field.set(object, value);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			// Silent catch
+		} finally {
+			field.setAccessible(false);
+		}
+	}
 
 	public static Field getField(Class<? extends Object> clazz, String fieldName) {
 		Field field = getDeclaredFieldSafe(clazz,fieldName);
