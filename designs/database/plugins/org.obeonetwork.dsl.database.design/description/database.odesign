@@ -194,7 +194,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_Sequence" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_Sequence" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target and element.tableContainerWithSequences() &lt;> null endlet" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
