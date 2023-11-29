@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bindingdialect" nsURI="http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0"
     nsPrefix="bindingdialect">
-  <eClassifiers xsi:type="ecore:EClass" name="DBindingEditor" eSuperTypes="platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//DRepresentation platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//DSemanticDecorator">
+  <eClassifiers xsi:type="ecore:EClass" name="DBindingEditor" eSuperTypes="platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//DRepresentation platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//DSemanticDecorator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
         eType="#//description/DBindingEditorDescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="boundElements" upperBound="-1"
@@ -10,13 +10,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEdges" upperBound="-1"
         eType="#//DBindingEdge" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DBindingEdge" eSuperTypes="platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//DRepresentationElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DBindingEdge" eSuperTypes="platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//DRepresentationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//DBoundElement"
         eOpposite="#//DBoundElement/edgesAsLeft"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//DBoundElement"
         eOpposite="#//DBoundElement/edgesAsRight"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DBoundElement" eSuperTypes="platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//DRepresentationElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DBoundElement" eSuperTypes="platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//DRepresentationElement">
     <eOperations name="getPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DBoundElement"
         eOpposite="#//DBoundElement/children"/>
@@ -32,9 +32,9 @@
   </eClassifiers>
   <eSubpackages name="description" nsURI="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0"
       nsPrefix="description">
-    <eClassifiers xsi:type="ecore:EClass" name="DBindingEditorDescription" eSuperTypes="platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//description/RepresentationDescription"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DBindingEditorDescription" eSuperTypes="platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//description/RepresentationDescription"/>
     <eClassifiers xsi:type="ecore:EClass" name="DBindingEditorCreationDescription"
-        eSuperTypes="platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//description/tool/RepresentationCreationDescription">
+        eSuperTypes="platform:/plugin/org.eclipse.sirius.model/model/viewpoint.ecore#//description/tool/RepresentationCreationDescription">
       <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
           eType="#//description/DBindingEditorDescription"/>
     </eClassifiers>
