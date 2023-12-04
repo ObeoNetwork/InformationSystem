@@ -24,6 +24,16 @@ Il est possible de convertir un diagramme synchronisé classique en Vue Partiell
 
 !./pics/UnsynchronizedMenu.png!
 
+Les vues partielles sont conçues de manière à ne pas permettre une suppression d'élément du modèle de manière accidentelle par une pression sur la touche Suppr. L'outil de suppression est donc désactivé, seul l'outil de suppression du diagramme est activé :
+
+!./pics/PartialViewDiagram_ToolbarDeleteTool.png!
+
+Le raccourci clavier pour la suppression d'un élément du diagramme est *Shift+Ctrl+D*.
+
+Les éléments de liste contenue ne peuvent pas être supprimés du diagramme, par contre ils peuvent être cachés. Une fois caché, l'élément fait toujours partie du diagramme mais n'est simplement pas visible. Les éléments cachés peuvent être rendus visible en utilisant le mode "Visibility" du diagramme. Ils sont alors affichés de manière estompée :
+
+!./pics/PartialViewDiagram_ToolbarVisibilityMode.png!
+
 La mise en forme d'un diagramme ou d'une vue partielle peut être reproduite sur une autre en utilisant les actions suivantes :
 * Dans le menu contextuel sur le fond d'une représentation, séléctionner _Edit > Copy format_.
 * Dans le menu contextuel sur le fond d'une autre représentation, séléctionner _Edit > Paste layout_.
