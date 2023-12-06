@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.diagram.model.business.internal.helper.LayerModelHelper;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.DiagramImportDescription;
 import org.eclipse.sirius.diagram.description.Layer;
+import org.eclipse.sirius.diagram.model.business.internal.helper.LayerModelHelper;
 import org.eclipse.sirius.table.metamodel.table.description.TableDescription;
 import org.eclipse.sirius.tree.description.TreeDescription;
 import org.eclipse.sirius.viewpoint.description.Group;
@@ -451,7 +451,7 @@ public final class M2DocHelpContentUtils {
                         if (representation instanceof DiagramImportDescription) {
                             representation = ((DiagramImportDescription) representation).getImportedDiagram();
                         }
-                        if (representation instanceof DiagramDescription) {
+                        if (representation instanceof DiagramDescription && !preconditionIsFalse(((DiagramDescription)representation).getPreconditionExpression())) {
                             if (representation.getLabel() != null) {
                                 buffer.append("            <h3>Diagram " + representation.getLabel() + "</h3>").append(LS);
                             } else {
@@ -469,7 +469,7 @@ public final class M2DocHelpContentUtils {
                                 }
                             }
                             buffer.append("    </ul></p>").append(LS);
-                        } else if (representation instanceof TableDescription) {
+                        } else if (representation instanceof TableDescription && !preconditionIsFalse(((TableDescription)representation).getPreconditionExpression())) {
                             if (representation.getLabel() != null) {
                                 buffer.append("            <h3>Table " + representation.getLabel() + "</h3>").append(LS);
                             } else {
@@ -490,6 +490,14 @@ public final class M2DocHelpContentUtils {
         buffer.append("  </body>").append(LS);
 
         return buffer;
+    }
+    
+    private static boolean preconditionIsFalse(String precondition) {
+    	if(precondition != null) {
+        	precondition = precondition.trim();
+        	return precondition.equals("aql:false") || precondition.equals("false");
+    	}
+    	return false;
     }
 
     private static boolean isRelated(String metamodelName, RepresentationDescription representation) {
