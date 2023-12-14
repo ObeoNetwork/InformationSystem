@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.obeonetwork.graal.design.extension.GraalSessionExtension;
 import org.osgi.framework.BundleContext;
 
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
@@ -48,6 +49,7 @@ public class Activator extends AbstractUIPlugin {
 	  viewpoints = new HashSet<Viewpoint>();
 	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/graal.odesign")); 
 	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/requirements.odesign"));
+	  GraalSessionExtension.addExtension();
     }
     
 	/*

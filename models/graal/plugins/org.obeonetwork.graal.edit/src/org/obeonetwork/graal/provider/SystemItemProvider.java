@@ -11,6 +11,7 @@
 package org.obeonetwork.graal.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,6 +30,8 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.graal.GraalFactory;
 import org.obeonetwork.graal.GraalPackage;
 
+import org.obeonetwork.graal.System;
+
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.graal.System} object.
  * <!-- begin-user-doc -->
@@ -36,6 +39,8 @@ import org.obeonetwork.graal.GraalPackage;
  * @generated
  */
 public class SystemItemProvider extends NamedElementItemProvider {
+	private System system;
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -44,6 +49,22 @@ public class SystemItemProvider extends NamedElementItemProvider {
 	 */
 	public SystemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	protected List children = null;
+	
+	@Override
+	public Collection<?> getChildren(Object object) {
+		if (children == null) {
+			System system = (System)object;
+			children = new ArrayList();
+			children.add(new TasksItemProvider(adapterFactory, system));
+		}
+		return children;
+	}
+
+	public Object getTasks() {
+		return children.get(0);
 	}
 
 	/**
