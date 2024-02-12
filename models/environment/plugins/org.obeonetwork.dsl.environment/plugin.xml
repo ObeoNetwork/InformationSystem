@@ -14,7 +14,7 @@
 
 <plugin>
    <extension-point id="providedEnvironmentModel" name="providedEnvironmentModel" schema="schema/providedEnvironmentModel.exsd"/>
-
+   <extension-point id="providedMetaDataDefinitionsModels" name="providedMetaDataDefinitionsModels" schema="schema/providedMetaDataDefinitionsModels.exsd"/>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.obeonetwork.org/dsl/environment/3.0.0" 
@@ -25,6 +25,14 @@
       <parser
             type="environment"
             class="org.obeonetwork.dsl.environment.util.EnvironmentResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated environment -->
+      <package
+            uri="http://www.obeonetwork.org/dsl/environment/metadatadef/1.0"
+            class="org.obeonetwork.dsl.environment.metadatadef.MetadatadefPackage"
+            genModel="model/environment.genmodel"/>
    </extension>
    <extension point="org.eclipse.core.contenttype.contentTypes">
      <file-association

@@ -66,6 +66,11 @@ public class EnvironmentSessionManagerListener extends Stub {
 				if (!isEnvironmentResourceRegistered(analysis)) {
 					addDefaultEnvironmentResourceToSemanticResource(updated);
 				}
+//				Uncomment the lines below if you what to include MetaDataDefinitions in session's resource set.
+//				Collection<URI> alreadyPresentMetaDataDefUris = MetaDataDefinitionsResourceUtil
+//						.getRegisteredMetaDataDefinitionsResources(analysis);
+//				MetaDataDefinitionsResourceUtil.addProvidedMetaDataDefintionsResourceToSemanticResource(updated,
+//						alreadyPresentMetaDataDefUris);
 				setSessionFirstOpeningFlag(updated, analysis);
 			}
 		}

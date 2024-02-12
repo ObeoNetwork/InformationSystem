@@ -42,7 +42,7 @@ public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 	public static final String copyright = "Copyright (c) 2008, 2024 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
 
 	private ComposedAdapterFactory composedAdapterFactory;
-	
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -211,9 +211,10 @@ public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 
 		return " ".equals(label) ? getString("_UI_BindingInfo_type") : getString("_UI_BindingInfo_type") + " " + label;
 	}
-	
+
 	private String getLabelFromProvider(Object object) {
-		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		IItemLabelProvider labelProvider = (IItemLabelProvider) composedAdapterFactory.adapt(object,
+				IItemLabelProvider.class);
 		if (labelProvider != null) {
 			return labelProvider.getText(object);
 		}

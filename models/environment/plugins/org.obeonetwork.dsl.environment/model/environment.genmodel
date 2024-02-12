@@ -164,5 +164,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ConstrainableElement/minimum"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ConstrainableElement/pattern"/>
     </genClasses>
+    <nestedGenPackages prefix="Metadatadef" basePackage="org.obeonetwork.dsl.environment"
+        disposableProviderFactory="true" ecorePackage="environment.ecore#//metadatadef">
+      <genClasses ecoreClass="environment.ecore#//metadatadef/MetaDataDefinitions">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//metadatadef/MetaDataDefinitions/metaDataDefinitions"/>
+      </genClasses>
+      <genClasses ecoreClass="environment.ecore#//metadatadef/MetaDataDefinition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//metadatadef/MetaDataDefinition/title"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//metadatadef/MetaDataDefinition/body"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//metadatadef/MetaDataDefinition/condition"/>
+      </genClasses>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

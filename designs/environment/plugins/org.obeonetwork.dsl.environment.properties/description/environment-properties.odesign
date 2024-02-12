@@ -477,6 +477,25 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
+          <customOperations name="EditFromProvidedMetaDataDefinitionsOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="environment::Metadata Edition From MetadataDefinitions" id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:returnCode='OK'">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setMetadata(selectedElements)"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <parameters name="windowTitle" value="Metadata Selection"/>
+                  <parameters name="message" value="aql:'Select the Metadata to apply to this '+self.eClass().name.toLower()+'.'"/>
+                  <parameters name="candidates" value="aql:let candidats=self.getApplicableMetadataList() in if self.metadatas&lt;> null then candidats+self.metadatas.metadatas else candidats endif"/>
+                  <parameters name="preSelection" value="aql:if self.metadatas&lt;> null then  self.metadatas.metadatas else Sequence{} endif"/>
+                  <parameters name="choiceOfValuesMessage" value="Applicable Metadata"/>
+                  <parameters name="selectedValuesMessage" value="Selected and current Metadata"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
         </controls>
       </groups>
     </categories>
