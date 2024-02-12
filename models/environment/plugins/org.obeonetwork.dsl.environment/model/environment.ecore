@@ -448,4 +448,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eSubpackages name="metadatadef" nsURI="http://www.obeonetwork.org/dsl/environment/metadatadef/1.0"
+      nsPrefix="metadatadef">
+    <eClassifiers xsi:type="ecore:EClass" name="MetaDataDefinitions" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metaDataDefinitions"
+          upperBound="-1" eType="#//metadatadef/MetaDataDefinition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaDataDefinition" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>
