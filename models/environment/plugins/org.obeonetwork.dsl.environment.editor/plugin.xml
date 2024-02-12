@@ -28,4 +28,32 @@
             contributorClass="org.obeonetwork.dsl.environment.presentation.EnvironmentActionBarContributor">
       </editor>
    </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated environment -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefModelWizardID"
+            name="%_UI_MetadatadefModelWizard_label"
+            class="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MetadatadefModelFile.gif">
+         <description>%_UI_MetadatadefModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated environment -->
+      <editor
+            id="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefEditorID"
+            name="%_UI_MetadatadefEditor_label"
+            icon="icons/full/obj16/MetadatadefModelFile.gif"
+            extensions="metadatadef"
+            class="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefEditor"
+            contributorClass="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefActionBarContributor">
+      </editor>
+   </extension>
 </plugin>

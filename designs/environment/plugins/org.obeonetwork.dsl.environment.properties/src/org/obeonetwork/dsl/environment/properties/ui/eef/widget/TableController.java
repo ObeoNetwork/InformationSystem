@@ -71,6 +71,14 @@ public class TableController extends AbstractEEFCustomWidgetController implement
 	 */
     private static final String EDIT_ELEMENT_OPERATION_ID = "EditElementOperation";
     
+    
+    /**
+	 * The ID of the edit element from provided metadata definitions expression.
+	 */
+    private static final String EDIT_FROM_PROVIDED_METADATA_DEFINITIONS_OPERATION_ID = "EditFromProvidedMetaDataDefinitionsOperation";
+    
+    
+    
     /**
      * The result of the {@link #REFERENCE_OWNER_EXPRESSION_ID} expression evaluation.
      */
@@ -252,6 +260,23 @@ public class TableController extends AbstractEEFCustomWidgetController implement
 	public void displayEditWizard() {
 		this.editingContextAdapter.performModelChange(() -> {
 			this.getCustomExpression(EDIT_ELEMENT_OPERATION_ID).ifPresent(editElementExpr -> {
+				EAttribute attr = EefPackage.Literals.EEF_CUSTOM_EXPRESSION__CUSTOM_EXPRESSION;
+				
+				Map<String,Object> variables = new HashMap<>();
+				variables.putAll(this.variableManager.getVariables());
+				variables.put(EEFExpressionUtils.EEFList.SELECTION, this.currentSelection);
+				
+				EvalFactory.of(this.interpreter, variables).logIfBlank(attr).call(editElementExpr);
+			});
+		});
+	}
+	
+	/**
+	 * Displays the wizard to add metadata from metadata definitions.
+	 */
+	public void displayMetadataSelectionWizard() {
+		this.editingContextAdapter.performModelChange(() -> {
+			this.getCustomExpression(EDIT_FROM_PROVIDED_METADATA_DEFINITIONS_OPERATION_ID).ifPresent(editElementExpr -> {
 				EAttribute attr = EefPackage.Literals.EEF_CUSTOM_EXPRESSION__CUSTOM_EXPRESSION;
 				
 				Map<String,Object> variables = new HashMap<>();

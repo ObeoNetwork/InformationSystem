@@ -208,9 +208,10 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 		return " ".equals(label) ? getString("_UI_BindingElement_type")
 				: getString("_UI_BindingElement_type") + " " + label;
 	}
-	
+
 	private String getLabelFromProvider(Object object) {
-		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		IItemLabelProvider labelProvider = (IItemLabelProvider) composedAdapterFactory.adapt(object,
+				IItemLabelProvider.class);
 		if (labelProvider != null) {
 			return labelProvider.getText(object);
 		}
