@@ -102,5 +102,30 @@
 			<img border="0" src="pics/Environment-ModelCreationWizard-02.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
+		<h2 id="Lemodlededfinitionsdemtadonnes">Le modèle de définitions de métadonnées</h2>
+		<p>Les modèles de définitions de métadonnées sont utlisés pour proposer à l&#8217;utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d&#8217;un élément.
+			<br/>Un exemple d&#8217;un tel modèle est accessible via l&#8217;URI: &#171;platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef&#187;.
+		</p>
+		<h3 id="metadata_definition_contribution">Contribution d&#8217;un modèle de définitions de métadonnées</h3>
+		<p>Afin de contribuer un tel modèle, il faut utliser le point d&#8217;extension: &#171;org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels&#187;.
+			<br/>Ce point d&#8217;extenion permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d&#8217;eux :
+		</p>
+		<ul>
+			<li>Un nom</li>
+			<li>Une URI de la ressource contenant le modèle. Cette URI doit commencer par "platform:/plugin"</li>
+		</ul>
+		<p>Ces modèles sont chargés une seule fois, lorsque l&#8217;utilisateur final ouvre la fenêtre de sélection de métadonnées pour la première fois.</p>
+		<h3 id="metadata_definition_use">Utilisation de métadonnées contribuées via un modèle de définitions de métadonnées</h3>
+		<p>Pour utiliser des métadonnées provenant d&#8217;un modèle de définitions de métadonnées (contribué via le point d&#8217;extension), l&#8217;utilisateur final doit:
+			<br/>Cliquer sur &#171;...&#187; dans l&#8217;onglet Metadatas de la vue Properties.
+			<br/>Si une définition de métadonnée est applicable pour l&#8217;objet contexte, l&#8217;Annotation équivalente s&#8217;affiche parmi les Annotations candidates (colonne &#171;Applicable Metadata&#187;) dans la fenêtre qui s&#8217;ouvre:
+		</p>
+		<p>
+			<img border="0" src="./pics/AddMetadataFromMetadataDefinitionDialog.png"/>
+		</p>
+		<p>Une définition de métadonnée est applicable sur un objet contexte si:
+			<br/>1. sa condition s'évalue à vrai sur l&#8217;objet contexte
+			<br/>2. l&#8217;objet contexte ne possède pas de métadonnée (Annotation) dont le titre est le même que celui de la définition de la métadonnée
+		</p>
 	</body>
 </html>

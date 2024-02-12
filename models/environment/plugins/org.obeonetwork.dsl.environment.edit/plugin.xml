@@ -27,6 +27,19 @@
           org.eclipse.emf.edit.provider.IItemPropertySource" />
   </extension>
 
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated environment -->
+      <factory
+            uri="http://www.obeonetwork.org/dsl/environment/metadatadef/1.0"
+            class="org.obeonetwork.dsl.environment.metadatadef.provider.MetadatadefItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
 	<!-- EEF extensions -->
 	<!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">

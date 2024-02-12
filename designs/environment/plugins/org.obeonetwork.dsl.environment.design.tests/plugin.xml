@@ -20,4 +20,11 @@
             uri="platform:plugin/org.obeonetwork.dsl.environment.design.tests/resources/environmentResourceContribution/TestEnvironment.environment">
       </model>
    </extension>
+   <extension 
+ 			point="org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels">
+ 		<model
+  			name="Metadata Definitions Test Sample"
+  			uri="platform:/plugin/org.obeonetwork.dsl.environment.design.tests/resources/metadatadefResourceContribution/sample.metadatadef">
+ 		</model>
+	</extension>
 </plugin>

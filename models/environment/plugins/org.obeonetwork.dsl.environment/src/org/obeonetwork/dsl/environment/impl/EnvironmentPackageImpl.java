@@ -51,6 +51,8 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.environment.metadatadef.MetadatadefPackage;
+import org.obeonetwork.dsl.environment.metadatadef.impl.MetadatadefPackageImpl;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
@@ -351,11 +353,19 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		// Initialize simple dependencies
 		TechnicalIDPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MetadatadefPackage.eNS_URI);
+		MetadatadefPackageImpl theMetadatadefPackage = (MetadatadefPackageImpl) (registeredPackage instanceof MetadatadefPackageImpl
+				? registeredPackage
+				: MetadatadefPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theEnvironmentPackage.createPackageContents();
+		theMetadatadefPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theEnvironmentPackage.initializePackageContents();
+		theMetadatadefPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theEnvironmentPackage.freeze();
@@ -1453,8 +1463,13 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		MetadatadefPackage theMetadatadefPackage = (MetadatadefPackage) EPackage.Registry.INSTANCE
+				.getEPackage(MetadatadefPackage.eNS_URI);
 		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage) EPackage.Registry.INSTANCE
 				.getEPackage(TechnicalIDPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theMetadatadefPackage);
 
 		// Create type parameters
 
