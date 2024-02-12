@@ -96,3 +96,29 @@ Cet assistant permet de définir
 !pics/Environment-ModelCreationWizard-02.png!
 
 Une fois l'assistant validé, le modèle est créé.
+
+h2. Le modèle de définitions de métadonnées
+
+Les modèles de définitions de métadonnées sont utlisés pour proposer à l'utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d'un élément.
+Un exemple d'un tel modèle est accessible via l'URI: "platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef".
+
+h3(#metadata_definition_contribution). Contribution d'un modèle de définitions de métadonnées
+
+Afin de contribuer un tel modèle, il faut utliser le point d'extension: "org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels".
+Ce point d'extenion permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d'eux :
+* Un nom
+* Une URI de la ressource contenant le modèle. Cette URI doit commencer par "platform:/plugin"
+
+Ces modèles sont chargés une seule fois, lorsque l'utilisateur final ouvre la fenêtre de sélection de métadonnées pour la première fois.
+
+h3(#metadata_definition_use). Utilisation de métadonnées contribuées via un modèle de définitions de métadonnées
+
+Pour utiliser des métadonnées provenant d'un modèle de définitions de métadonnées (contribué via le point d'extension), l'utilisateur final doit:
+Cliquer sur "..." dans l'onglet Metadatas de la vue Properties.
+Si une définition de métadonnée est applicable pour l'objet contexte, l'Annotation équivalente s'affiche parmi les Annotations candidates (colonne "Applicable Metadata") dans la fenêtre qui s'ouvre:
+
+!./pics/AddMetadataFromMetadataDefinitionDialog.png!
+
+Une définition de métadonnée est applicable sur un objet contexte si:
+1. sa condition s'évalue à vrai sur l'objet contexte
+2. l'objet contexte ne possède pas de métadonnée (Annotation) dont le titre est le même que celui de la définition de la métadonnée

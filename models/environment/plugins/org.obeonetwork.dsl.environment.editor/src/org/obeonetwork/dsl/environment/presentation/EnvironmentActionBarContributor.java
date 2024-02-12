@@ -171,6 +171,7 @@ public class EnvironmentActionBarContributor extends EditingDomainActionBarContr
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("environment-settings"));
 		toolBarManager.add(new Separator("environment-additions"));
 	}
