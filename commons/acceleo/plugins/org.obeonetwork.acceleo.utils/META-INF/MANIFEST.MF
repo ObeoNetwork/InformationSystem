@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Acceleo Utils
 Bundle-SymbolicName: org.obeonetwork.acceleo.utils;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: org.obeonetwork.acceleo.utils.NetworkAcceleoUtilsPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

@@ -164,7 +164,7 @@ location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/la
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
-location ISD "http://update.obeo.fr/integration/informationsystem/4.1.0/design/repository/" {
+location ISD "http://update.obeo.fr/integration/informationsystem/5.0.0/design/repository/" {
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy

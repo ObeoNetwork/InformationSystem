@@ -17,14 +17,14 @@
 		<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.0-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml
 		</relativePath>
 	</parent>
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.graal.m2doc.services.tests</artifactId>
-	<version>4.1.0-SNAPSHOT</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>eclipse-test-plugin</packaging>
 	<name>org.obeonetwork.dsl.graal.m2doc.services.tests</name>
 

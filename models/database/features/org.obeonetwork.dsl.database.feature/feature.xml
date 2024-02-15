@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.database.feature"
       label="Obeo Network - Database"
-      version="4.1.0.qualifier"
+      version="5.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="4.1.0.qualifier">
+      license-feature-version="5.0.0.qualifier">
 
    <description url="http://www.obeo.fr">
       Obeo - Database
