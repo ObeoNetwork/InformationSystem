@@ -14,13 +14,13 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.1-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml
 		</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.tools.projectlibrary.ui</artifactId>
-	<version>4.1.1-SNAPSHOT</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Modeling projects as libraries UI</name>
 </project>

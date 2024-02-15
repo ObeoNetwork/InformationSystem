@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="4.1.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="5.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about.gif"/>
       <text>
          Information System Designer
 
-Version  4.1.1
+Version  5.0.0
 
 
 Copyright Obeo, Thales, Eclipse contributors and others 2000, 2023.  All rights reserved.
@@ -49,6 +49,7 @@ Visit http://www.obeo.fr
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
@@ -138,9 +139,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <plugins>
-      <plugin id="slf4j.api"/>
-      <plugin id="slf4j.nop"/>
-      <plugin id="org.slf4j.api"/>
    </plugins>
 
    <features>
@@ -223,8 +221,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
-      <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
       <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
+      <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
 
    <preferencesInfo>

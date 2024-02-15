@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.feature.cinematic"
       label="Obeo Network - Cinematic"
-      version="4.1.1.qualifier"
+      version="5.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="4.1.1.qualifier">
+      license-feature-version="5.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Cinematic Designer
