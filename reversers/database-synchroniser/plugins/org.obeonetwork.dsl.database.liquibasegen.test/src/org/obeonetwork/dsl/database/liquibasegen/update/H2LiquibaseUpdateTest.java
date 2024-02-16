@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.update;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -30,5 +31,12 @@ public class H2LiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 		url = "jdbc:h2:tcp://localhost:1521/test";
 		username = "sa";
 		password = "";
+	}
+	
+	@Before
+	public void removeSchema() throws Exception {
+		//Delete a schema used in test in H2 database if existing before running  tests.
+		//Since liquibase.dropAll() doesn't drop all schemas.
+		applyChangeLog("update/update-clean-utils/run.schema.clean.changelog.xml") ;
 	}
 }

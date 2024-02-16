@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Create schema S1 if none exist</comment>
+        <sql splitStatements="true" stripComments="false">CREATE SCHEMA IF NOT EXISTS S1;</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Create table T1</comment>
+        <createTable schemaName="S1" tableName="T1">
+            <column autoIncrement="true" name="C1" type="int()">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="T1_PK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
+        <comment>Sequence Seq1 : null</comment>
+        <createSequence cycle="true" incrementBy="1" schemaName="S1" sequenceName="Seq1" startValue="10"/>
+    </changeSet>
+</databaseChangeLog>
