@@ -47,12 +47,16 @@ import liquibase.serializer.core.xml.XMLChangeLogSerializer;
 public class LiquibaseGenerator {
 
 	private TypesServices typesServices = new TypesServices();
-	
+
 	private Supplier<String> idPrefixProvider = () -> LocalDateTime.now()
 			.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss--"));
 
 	public IStatus doGenerate(Monitor monitor, Comparison comparisonModel, Path targetFolder) throws IOException {
+		return doGenerate(monitor, comparisonModel, targetFolder, false);
+	}
+	
 
+	public  IStatus doGenerate(Monitor monitor, Comparison comparisonModel, Path targetFolder, boolean createSchemaIfNoneExist) throws IOException {
 		File computeTargetFolder = computeTargetFolder(targetFolder.toFile(), comparisonModel);
 		File computeLastTargetFolder = computeLastGenerationTargetFolder(targetFolder.toFile(), comparisonModel);
 
@@ -68,7 +72,7 @@ public class LiquibaseGenerator {
 		}
 
 		ChangeLogBuilder changeLogBuilder = new ChangeLogBuilder();
-		List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel, idPrefixProvider.get());
+		List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel, idPrefixProvider.get(), createSchemaIfNoneExist);
 		if (!contents.isEmpty()) {
 			XMLChangeLogSerializer xmlSerializer = new XMLChangeLogSerializer();
 			try (OutputStream output = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -89,9 +93,7 @@ public class LiquibaseGenerator {
 		} else {
 			return StatusUtils.createMultiStatus("See message in the detail section", statuses);
 		}
-
 	}
-
 
 	private static final String EOL = System.lineSeparator();
 
