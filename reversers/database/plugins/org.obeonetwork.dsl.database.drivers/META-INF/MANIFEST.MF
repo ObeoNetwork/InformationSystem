@@ -4,7 +4,7 @@ Bundle-Name: Drivers
 Bundle-SymbolicName: org.obeonetwork.dsl.database.drivers
 Bundle-Version: 5.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.database.drivers
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ClassPath: .,
  lib/mariadb-java-client-3.0.7.jar,
  lib/mysql-connector-java-8.0.29.jar,

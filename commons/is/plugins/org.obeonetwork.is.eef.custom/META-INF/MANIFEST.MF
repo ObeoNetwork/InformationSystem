@@ -4,7 +4,7 @@ Bundle-Name: Obeo Network EEF Customization
 Bundle-SymbolicName: org.obeonetwork.is.eef.custom;singleton:=true
 Bundle-Version: 5.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.is.eef.custom
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.eef.common.ui,

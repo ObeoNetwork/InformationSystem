@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.dsl.cinematic.filters,
  org.obeonetwork.dsl.cinematic.flow.provider,
  org.obeonetwork.dsl.cinematic.provider,

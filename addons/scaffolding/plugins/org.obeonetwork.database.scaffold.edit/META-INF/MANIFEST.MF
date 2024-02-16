@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.database.scaffold.provider.ScaffoldEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.database.scaffold.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.database.scaffold;visibility:=reexport,

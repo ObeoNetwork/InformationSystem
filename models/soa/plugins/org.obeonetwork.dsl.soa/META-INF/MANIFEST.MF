@@ -22,4 +22,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.tools.migration,
  org.eclipse.sirius
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
