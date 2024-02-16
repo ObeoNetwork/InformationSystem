@@ -20,5 +20,5 @@ Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.obeonetwork.cinematic.gen.html.main,
  org.obeonetwork.cinematic.gen.html.services
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 

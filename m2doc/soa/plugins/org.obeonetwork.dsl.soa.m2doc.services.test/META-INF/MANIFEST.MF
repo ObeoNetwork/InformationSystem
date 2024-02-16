@@ -10,4 +10,4 @@ Require-Bundle: org.obeonetwork.dsl.soa.m2doc.services;bundle-version="1.0.0",
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment.m2doc.services
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17

@@ -20,6 +20,6 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design.services,
  org.eclipse.sirius.ext.base
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
 Bundle-ManifestVersion: 2

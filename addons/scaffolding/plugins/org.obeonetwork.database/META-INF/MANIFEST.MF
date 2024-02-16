@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design.services,
  org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.database.transfo,
  org.obeonetwork.database.transfo.collab,
  org.obeonetwork.database.transfo.impl,

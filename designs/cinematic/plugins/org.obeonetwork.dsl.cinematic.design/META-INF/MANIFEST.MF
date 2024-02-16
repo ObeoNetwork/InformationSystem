@@ -29,7 +29,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.properties,
  org.obeonetwork.dsl.environment.design
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.cinematic.design,
  org.obeonetwork.dsl.cinematic.design.services,

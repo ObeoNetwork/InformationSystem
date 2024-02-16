@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.statemachine.design.services
 Bundle-Vendor: Obeo Network

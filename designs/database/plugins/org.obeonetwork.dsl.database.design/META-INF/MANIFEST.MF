@@ -16,7 +16,7 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.sirius.diagram.ui,
  org.obeonetwork.dsl.environment.design
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.database.design,
  org.obeonetwork.dsl.database.design.services,
