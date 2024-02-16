@@ -40,6 +40,13 @@ public class AbstractLiquibaseTest extends AbstractGenerationTest {
 		generator.doGenerate(new BasicMonitor(), comparison, targetFolder.toPath());
 
 	}
+	
+	@Override
+	protected  void doGenerate(Comparison comparisonModel, File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
+		LiquibaseGenerator generator = new LiquibaseGenerator();
+		generator.setIdPrefixProvider(() -> "test");
+		generator.doGenerate(new BasicMonitor(), comparisonModel, targetFolder.toPath(), createSchemaIfNoneExist);
+	}
 
 	@Override
 	protected void compareFolders(File targetFolder, File expectationFolder) {

@@ -34,6 +34,11 @@ abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 		DatabaseGen generator = new DatabaseGen(comparison, targetFolder, Collections.emptyList());
 		generator.doGenerate(new BasicMonitor());
 	}
+	
+	@Override
+	protected  void doGenerate(Comparison comparisonModel, File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
+		doGenerate(comparisonModel,targetFolder);
+	}
 
 	protected void compareFolders(File targetfolder, File expectationsFolder) {
 		List<File> generatedFiles = getGeneratedFilesSortedByName(targetfolder);

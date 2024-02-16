@@ -245,21 +245,54 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 	public void representativeModelFromScratch_MySQL() throws Exception {
 		assertGenerationFromScratchEquals("38-representativeModel", "video-mysql.database", "mysql-expected");
 	}
+	
+	@Test
+	public void representativeModelFromScratch_MySQL_WithCreateSchemaIfNotExistsFalse() throws Exception {
+		//Passing false for parameter createSchemaSchemaIfNotExists must have no effect.
+		// * i.e., the same result as without that parameter.
+		assertGenerationFromScratchEquals("38-representativeModel", "video-mysql.database", "mysql-expected", false);
+	}
 
 	@Test
 	public void representativeModelFromScratch_Oracle() throws Exception {
 		assertGenerationFromScratchEquals("38-representativeModel", "video-oracle.database", "oracle-expected");
+	}
+	
+	@Test
+	public void representativeModelFromScratch_Oracle_WithCreateSchemaIfNotExistsFalse() throws Exception {
+		//Passing false for parameter createSchemaSchemaIfNotExists must have no effect.
+		// * i.e., the same result as without that parameter.
+		assertGenerationFromScratchEquals("38-representativeModel", "video-oracle.database", "oracle-expected", false);
 	}
 
 	@Test
 	public void representativeModelFromScratch_H2() throws Exception {
 		assertGenerationFromScratchEquals("38-representativeModel", "video-h2.database", "h2-expected");
 	}
+	
+	@Test
+	public void representativeModelFromScratch_H2_WithCreateSchemaIfNotExistsFalse() throws Exception {
+		//Passing false for parameter createSchemaSchemaIfNotExists must have no effect.
+		// * i.e., the same result as without that parameter.
+		assertGenerationFromScratchEquals("38-representativeModel", "video-h2.database", "h2-expected", false);
+	}
+	
 
 	@Test
 	public void representativeModelFromScratch_Postgres() throws Exception {
 		assertGenerationFromScratchEquals("38-representativeModel", "video-postgres.database", "postgres-expected");
 	}
-
-
+	
+	@Test
+	public void representativeModelFromScratch_WithCreateSchemaIfNotExistsFalse() throws Exception {
+		//Passing false for parameter createSchemaSchemaIfNotExists must have no effect.
+		// * i.e., the same result as without that parameter.
+		assertGenerationFromScratchEquals("38-representativeModel", "video-postgres.database", "postgres-expected", false);
+	}
+	
+	@Test
+	public void addSchemaWithCreateSchemaIfNotExists() {
+		assertGenerationEquals("03-add-schema", true);
+	}
+	
 }

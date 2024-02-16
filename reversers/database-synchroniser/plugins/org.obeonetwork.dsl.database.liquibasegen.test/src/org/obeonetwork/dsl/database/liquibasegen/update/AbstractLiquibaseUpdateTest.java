@@ -59,7 +59,8 @@ public abstract class AbstractLiquibaseUpdateTest {
 
 	@Parameters
 	public static List<String> parameters() {
-		return Arrays.asList(	"update/01-create-table/run.changelog.xml",
+		return Arrays.asList(	"update/00-add-schema/run.changelog.xml",
+								"update/01-create-table/run.changelog.xml",
 								"update/02-primary-key/run.changelog.xml",
 								"update/03-foreign-key/run.changelog.xml",
 								"update/04-sequence/run.changelog.xml",
@@ -75,42 +76,48 @@ public abstract class AbstractLiquibaseUpdateTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	@Test
 	public void testApplyChangelog() throws CoreException {
-		// https://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_on_a_file_outside_the_workspace%3F
-		File file = new java.io.File(fileName);
-		Assert.assertTrue(file.exists());
-		
-		IWorkspace ws = ResourcesPlugin.getWorkspace();
-		project = ws.getRoot().getProject("External Files");
-		if (!project.exists())
-		    project.create(null);
-		if (!project.isOpen())
-		    project.open(null);
-		
-		IPath location = new Path(file.getAbsolutePath());
-		
-		IFile ecfile = project.getFile(location.lastSegment());
-		ecfile.createLink(location, IResource.NONE, null);
-		
-		project.accept(new IResourceVisitor() {
-			
-			@Override
-			public boolean visit(IResource resource) throws CoreException {
-				System.out.println(resource.getLocationURI().toString());
-				return true;
-			}
-		});
-		
-		try {
-			new LiquibaseUpdater(ecfile).update(url, username, password);
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
+		applyChangeLog(fileName) ;
 
+	}
+	
+	protected void applyChangeLog(String fileName)  throws CoreException {
+		// https://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_on_a_file_outside_the_workspace%3F
+				File file = new java.io.File(fileName);
+				Assert.assertTrue(file.exists());
+				
+				IWorkspace ws = ResourcesPlugin.getWorkspace();
+				project = ws.getRoot().getProject("External Files");
+				if (!project.exists())
+				    project.create(null);
+				if (!project.isOpen())
+				    project.open(null);
+				
+				IPath location = new Path(file.getAbsolutePath());
+				
+				IFile ecfile = project.getFile(location.lastSegment());
+				
+				if(!ecfile.isLinked()) {
+					ecfile.createLink(location, IResource.NONE, null);
+				}
+				
+				project.accept(new IResourceVisitor() {
+					
+					@Override
+					public boolean visit(IResource resource) throws CoreException {
+						System.out.println(resource.getLocationURI().toString());
+						return true;
+					}
+				});
+				
+				try {
+					new LiquibaseUpdater(ecfile).update(url, username, password);
+				} catch (Exception e) {
+					Assert.fail(e.getMessage());
+				}
 	}
 	
 	@After
