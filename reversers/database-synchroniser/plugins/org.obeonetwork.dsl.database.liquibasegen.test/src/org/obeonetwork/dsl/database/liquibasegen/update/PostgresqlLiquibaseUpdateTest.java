@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.update;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -24,6 +25,7 @@ public class PostgresqlLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 	
 	/**
 	 * Requires a Postgresql server to be running. You can check the Docker configuration in org.obeonetwork.dsl.database.test
+	 * <code>docker run --name -d postgresInstance -p 5432:5432 -e POSTGRES_PASSWORD=password postgres</code>
 	 * @param fileName the {@link Parameters}
 	 * @throws Exception 
 	 */
@@ -32,5 +34,12 @@ public class PostgresqlLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 		url = "jdbc:postgresql://localhost:5432/";
 		username = "postgres";
 		password = "password";
+	}
+	
+	@Before
+	public void removeSchema() throws Exception {
+		//Delete a schema used in test in H2 database if existing before running  tests.
+		//Since liquibase.dropAll() doesn't drop all schemas.
+		applyChangeLog("update/update-clean-utils/run.schema.clean.changelog.xml") ;
 	}
 }
