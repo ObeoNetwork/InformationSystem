@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
+import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
@@ -58,6 +59,7 @@ import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddIndex;
 import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
+import org.obeonetwork.dsl.database.dbevolution.AddSchema;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.AddView;
@@ -77,7 +79,9 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.RenameSchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
+import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
@@ -94,11 +98,15 @@ import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.Liqu
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultValueConfigDelegate;
 import org.obeonetwork.dsl.database.liquibasegen.service.GenServices;
 import org.obeonetwork.dsl.database.liquibasegen.service.SQLService;
+import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.Type;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
+import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
 
 import liquibase.change.AddColumnConfig;
+import liquibase.change.Change;
 import liquibase.change.ColumnConfig;
 import liquibase.change.ConstraintsConfig;
 import liquibase.change.core.AddAutoIncrementChange;
@@ -162,13 +170,18 @@ public class ChangeLogBuilder {
 		return stream.filter(e -> type.isInstance(e)).map(e -> type.cast(e));
 	}
 
-	public List<ChangeLogChild> buildContent(Comparison comparisonModel, String changeLogIdPrexix) {
+	public List<ChangeLogChild> buildContent(Comparison comparisonModel, String changeLogIdPrexix,
+			boolean createSchemaIfNotExists) {
 		List<ChangeLogChild> result = new ArrayList<ChangeLogChild>();
 		genService = new GenServices();
 		sqlService = new SQLService();
 		timeStamp = changeLogIdPrexix;
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
+			if (createSchemaIfNotExists) {
+				List<ChangeSet> schemasChangeSetList = getChangeSetsForSchemas(diffs);
+				result.addAll(schemasChangeSetList);
+			}
 			result.addAll(getChangeSetsForTables(diffs)); // Needs to be handled before primary keys
 			result.addAll(getChangeSetsForPrimaryKeys(diffs));
 			result.addAll(getChangeSetsForConstraints(diffs));
@@ -742,9 +755,10 @@ public class ChangeLogBuilder {
 				List<Table> referencesTable = fk.getElements().stream().map(c -> c.getPkColumn().getOwner()).distinct()
 						.collect(toList());
 				if (referencesTable.size() > 1) {
-					String tableNames = referencesTable.stream().map(table -> table.getName()).collect(Collectors.joining(",", "[", "]"));
+					String tableNames = referencesTable.stream().map(table -> table.getName())
+							.collect(Collectors.joining(",", "[", "]"));
 					statuses.add(createErrorStatus(MessageFormat.format(
-							"Foreign key {0} references more than one external Table "+tableNames+".",
+							"Foreign key {0} references more than one external Table " + tableNames + ".",
 							fk.getName())));
 					return Optional.empty();
 				} else if (!referencesTable.isEmpty()) {
@@ -1061,13 +1075,14 @@ public class ChangeLogBuilder {
 	}
 
 	private List<ChangeSet> buildUpdateColumnCommentChangeSet(UpdateColumnCommentChange updateColumnCommentChange) {
-		
+
 		List<ChangeSet> result = new ArrayList<ChangeSet>();
 
 		Column column = updateColumnCommentChange.getColumn();
-		
+
 		// Update comment
-		if (hasAttributeChangeChanged(updateColumnCommentChange, DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
+		if (hasAttributeChangeChanged(updateColumnCommentChange,
+				DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
 			result.add(buildCommentOnColumn(column));
 		}
 		return result;
@@ -1311,4 +1326,68 @@ public class ChangeLogBuilder {
 		return timeStamp + String.valueOf(changeSetCounter++);
 	}
 
+	/**
+	 * The {@link ChangeSet}s returned are only those which require a creation of
+	 * schema if not exists.
+	 * 
+	 * @param schemaChange
+	 * @return a stream of ({@link ChangeSet} associated to schemaChange.
+	 */
+	private Stream<ChangeSet> buildSchemaChangeSet(SchemaChange schemaChange) {
+		final List<ChangeSet> result = new ArrayList<>();
+		if (schemaChange instanceof AddSchema) {
+			buildAddSchemaChangeSet((AddSchema) schemaChange).ifPresent(result::add);
+		}
+//		else {
+//			//AlterSchema, RemoveSchema, RenameSchemaChange, UpdateSchemaCommentChange
+//			//are not managed.
+//		}
+		return result.stream();
+	}
+
+	private Optional<ChangeSet> buildAddSchemaChangeSet(AddSchema addSchema) {
+		Schema schema = addSchema.getSchema();
+		return Optional.ofNullable(createSchemaIfNotExistsChangeSet(schema.getName(), (DataBase) schema.eContainer()));
+	}
+
+	private ChangeSet createSchemaIfNotExistsChangeSet(String schemaName, DataBase database) {
+		if (schemaName == null || schemaName.isBlank()) {
+			return null;
+		}
+		Change rawSqlQuery = null;
+		List<TypesLibrary> usedLibrairies = ((TypesLibraryUser) database).getUsedLibraries();
+		List<NativeTypesLibrary> nativeLibrairies = usedLibrairies.stream().filter(NativeTypesLibrary.class::isInstance)
+				.map(NativeTypesLibrary.class::cast).collect(Collectors.toList());
+		if (nativeLibrairies.stream().anyMatch(ntl -> ntl.getName().startsWith("SQLServer"))) {
+			// T-SQL query to add schema in MSSQL if not exists.
+			rawSqlQuery = new RawSQLChange(
+					"if schema_id('" + schemaName + "') is null exec('CREATE SCHEMA " + schemaName + "');");
+		} else if (nativeLibrairies.stream().anyMatch(ntl -> ntl.getName().startsWith("Oracle"))) {
+			// Not managed: a user with corresponding schema name should be created.
+		} else {
+			// All other databases (h2, maria, myssql, postgres) accept this sql query as
+			// is.
+			rawSqlQuery = new RawSQLChange("CREATE SCHEMA IF NOT EXISTS " + schemaName + ";");
+		}
+		if (rawSqlQuery == null) {
+			return null;
+		}
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Create schema " + schemaName + " if none exist");
+		changeSet.addChange(rawSqlQuery);
+		return changeSet;
+	}
+
+	/**
+	 * The {@link ChangeSet}s returned are only those which require a creation of
+	 * schema if not exists, i.e. {@link AddSchema} and {@link RenameSchemaChange}.
+	 * 
+	 * @param diffs
+	 * @return
+	 */
+	private List<ChangeSet> getChangeSetsForSchemas(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), SchemaChange.class)//
+				.flatMap(this::buildSchemaChangeSet)//
+				.collect(toList());
+	}
 }

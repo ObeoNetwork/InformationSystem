@@ -38,6 +38,17 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 		databaseGen.doGenerate(new BasicMonitor());
 		return Status.OK_STATUS;
 	}
+	
+	@Override
+	protected  IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
+		return doGenerateScripts(comparison, targetFolder);
+	}
+	
+	@Override
+	protected boolean isSchemaCreationOptionRequired() {
+		return false;
+	}
+			
 
 	@Override
 	public String getText() {
