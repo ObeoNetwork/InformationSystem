@@ -10,6 +10,11 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.update;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -23,15 +28,27 @@ import org.junit.runners.Parameterized.Parameters;
 public class MariaDBLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 	
 	/**
-	 * Requires a MySQL server to be running. You can check the Docker configuration in org.obeonetwork.dsl.database.test
+	 * Requires a Mariadb server to be running. You can check the Docker configuration in org.obeonetwork.dsl.database.test
+	 * A database named public must be (existing or) created too.
 	 * <code>docker run -p 3306:3306 --name mariadb10 -e MARIADB_ROOT_PASSWORD=password -d mariadb:10-focal</code>
-	 * @param fileName the {@link Parameters}
+	 * Within the container create database with commands:
+	 * <code>mariadb --user=root --password=password</code>
+	 * <code>create database public;</code>
+	 * 
+	 * @param fileName the {@link Parameters}drop 
 	 */
 	public MariaDBLiquibaseUpdateTest(String fileName) {
 		super(fileName);
 		url = "jdbc:mariadb://localhost:3306/public";
 		username = "root";
 		password = "password";
+	}
+	
+	@Before
+	public void removeSchema() throws Exception {
+		//Work around to delete a schema in mariadb (since a schema is a database)
+		//before running  tests.
+		applyChangeLog("update/update-clean-utils/run.schema.clean.changelog.xml") ;
 	}
 
 }

@@ -1,8 +1,15 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet author="IS Designer" id="test0">
-        <comment>Updating foreign key FK_1</comment>
-        <dropForeignKeyConstraint baseTableName="Table2" baseTableSchemaName="STOREBOOK" constraintName="FK_1"/>
-        <addForeignKeyConstraint baseColumnNames="ID" baseTableName="Table2" baseTableSchemaName="STOREBOOK" constraintName="FK_1_2" referencedColumnNames="ID" referencedTableName="Table1" referencedTableSchemaName="STOREBOOK"/>
+        <comment>Create schema S1 if none exist</comment>
+        <sql splitStatements="true" stripComments="false">if schema_id('S1') is null exec('create schema S1');</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Create table Table1</comment>
+        <createTable schemaName="S1" tableName="Table1">
+            <column name="column1" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
 </databaseChangeLog>
