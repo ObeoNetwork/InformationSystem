@@ -39,6 +39,17 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 	}
 	
 	@Override
+	protected  IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
+		LiquibaseGenerator gen = new LiquibaseGenerator();
+		return gen.doGenerate(new BasicMonitor(),comparison,targetFolder.toPath(), createSchemaIfNoneExist);
+	}
+	
+	@Override
+	protected boolean isSchemaCreationOptionRequired() {
+		return true;
+	}
+	
+	@Override
 	public String getText() {
 		return ACTION_TEXT;
 	}
