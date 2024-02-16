@@ -13,12 +13,14 @@ package org.obeonetwork.dsl.database.compare;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.extensions.services.DatabaseCompareService;
 import org.obeonetwork.dsl.database.util.DatabaseResourceImpl;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 
 /**
  * Util class to build a comparisons
@@ -61,12 +63,17 @@ public class DataBaseCompareUtil {
 		for (Schema schema : database.getSchemas()) {
 			newDatabase.getSchemas().add((Schema) copySchema(schema));
 		}
+		for (TypesLibrary lib : database.getUsedLibraries()) {
+			//For use in change analysis.
+			newDatabase.getUsedLibraries().add((TypesLibrary) EcoreUtil.copy(lib));
+		}
 		return newDatabase;
 	}
 
 	private static Schema copySchema(Schema schema) {
 		Schema newSchema = DatabaseFactory.eINSTANCE.createSchema();
-		newSchema.setName(schema.getName());
+		//Force account for AddSchema change in comparison.
+		newSchema.setName("");
 		return newSchema;
 	}
 

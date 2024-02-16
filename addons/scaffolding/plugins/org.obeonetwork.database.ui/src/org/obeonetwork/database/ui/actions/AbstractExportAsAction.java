@@ -42,6 +42,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Display;
@@ -55,57 +56,80 @@ import org.eclipse.ui.IWorkbenchPartConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
-import org.obeonetwork.dsl.database.DataBase;
-import org.obeonetwork.dsl.database.DatabasePackage;
-
 import org.obeonetwork.database.ui.Activator;
 import org.obeonetwork.database.ui.util.ScaffoldingUtils;
+import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.database.liquibasegen.ui.LiquibaseGenerationOptionsDialog;
 
 public abstract class AbstractExportAsAction extends Action implements IEditorActionDelegate {
 
 	private static final String COMPARE_RESULT_PROPERTY = "org.eclipse.emf.compare.ide.ui.COMPARE_RESULT";
-	
+
 	private static final String COMPARE_EDITOR_ID = "org.eclipse.compare.CompareEditor";
-	
+
 	/**
-	 * It listens the add of a "not empty" database comparison result on the compare configuration, in order to enable this action and to retrieve the comparison.
+	 * It listens the add of a "not empty" database comparison result on the compare
+	 * configuration, in order to enable this action and to retrieve the comparison.
 	 */
 //	private IPropertyChangeListener propertyChangeListener;
-	
+
 	private IAction editorPluginAction;
-	
+
 //	private Object eventBusChangeRecorder;
-	
+
 	private CompareConfiguration compareConfig;
-	
+
 	/**
 	 * The database comparison result.
 	 */
 	private Comparison comparison;
 
 	private IEditorPart activeEditor = null;
-	
+
 	public void exportComparison(final Comparison comparison) {
 		final IResource containingFolder = getContainingFolder(comparison);
-		if(containingFolder == null) {
+		if (containingFolder == null) {
 			// No containing folder means the user aborted the export action
-			return ;
+			return;
 		}
-		
+
 		final File targetFolder = getTargetfolder(containingFolder);
-		
-		// Initialize a resourceset to be sure the model is contained within a resource (or Acceleo will throw a NPE)
+
+		// Initialize a resourceset to be sure the model is contained within a resource
+		// (or Acceleo will throw a NPE)
 		ResourceSet set = new ResourceSetImpl();
 		Resource resource = new ResourceImpl();
 		resource.getContents().add(comparison);
 		set.getResources().add(resource);
-		
+
+		boolean createSchemaIfNoneExist0 = false;
+		if (isSchemaCreationOptionRequired()) {
+			LiquibaseGenerationOptionsDialog genOptionDialog = new LiquibaseGenerationOptionsDialog(
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+					true);
+			genOptionDialog.open();
+			if (genOptionDialog.getReturnCode() == Window.OK) {
+				createSchemaIfNoneExist0 = genOptionDialog.getCreateSchemaIfNotExists();
+			} else {
+				return;
+			}
+		} 
+		final boolean createSchemaIfNoneExist = createSchemaIfNoneExist0;
+
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-			
+
 			@Override
-			protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InvocationTargetException, InterruptedException {
 				try {
-					IStatus status = doGenerateScripts(comparison, targetFolder);
+					IStatus status0 = null;
+					if (isSchemaCreationOptionRequired()) {
+						status0 = doGenerateScripts(comparison, targetFolder, createSchemaIfNoneExist);
+					} else {
+						status0 = doGenerateScripts(comparison, targetFolder);
+					}
+					IStatus status = status0;
 					if (!status.isOK()) {
 						Activator.getDefault().getLog().log(status);
 						Display.getDefault().asyncExec(() -> {
@@ -114,21 +138,23 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 						});
 					} else {
 						Display.getDefault().asyncExec(() -> {
-							MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), 
-									"Database Generation", 
-									"Generation success. Generated files are in \n" + 
-									targetFolder.toString() + "\n" +
-									getSuccessInformationAddendum());
+							MessageDialog.openInformation(
+									PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+									"Database Generation", "Generation success. Generated files are in \n"
+											+ targetFolder.toString() + "\n" + getSuccessInformationAddendum());
 						});
 					}
 				} catch (IOException e) {
-					
-					Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
+
+					Activator.getDefault().getLog()
+							.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
 					Display.getDefault().asyncExec(() -> {
-						MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Database Generation", "A problem occured during the generation. See Error Log view for more details.");
+						MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+								"Database Generation",
+								"A problem occured during the generation. See Error Log view for more details.");
 					});
 				}
-				
+
 				// Refreshing the target folder
 				try {
 					containingFolder.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
@@ -138,34 +164,40 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 				}
 			}
 
-			
 		};
-		
+
 		// Launch operation
 		try {
 			PlatformUI.getWorkbench().getProgressService().run(true, false, operation);
 		} catch (Exception e) {
-			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "SQL Generation", "A problem occured during the generation. See Error Log view for more details.");
-			Activator.getDefault().getLog().log( new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "SQL Generation",
+					"A problem occured during the generation. See Error Log view for more details.");
+			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
 		}
-		
+
 	}
+
+	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder)
+			throws IOException;
 	
-	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder) throws IOException;
+	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist)
+			throws IOException;
 	
+	protected abstract boolean isSchemaCreationOptionRequired();
+
 	protected abstract String getSuccessInformationAddendum();
-	
+
 	private IResource getContainingFolder(Comparison comparison) {
 		if (comparison.getMatches() != null && comparison.getMatches().isEmpty() == false) {
 			Match match = comparison.getMatches().get(0);
 			Resource resource = match.getLeft().eResource();
 			if (resource instanceof CDOResource) {
 				return getModelingProject(resource);
-			} else if(resource.getURI().isPlatformResource()) {
+			} else if (resource.getURI().isPlatformResource()) {
 				String uri = resource.getURI().toPlatformString(true);
 				Path path = new Path(uri);
 				return ResourcesPlugin.getWorkspace().getRoot().getFile(path).getParent();
-			} else if(activeEditor.getEditorInput() instanceof ThreeWayResourceCompareInput) {
+			} else if (activeEditor.getEditorInput() instanceof ThreeWayResourceCompareInput) {
 				// The resource is a SVN resource
 				try {
 					IEditorInput editorInput = activeEditor.getEditorInput();
@@ -181,26 +213,27 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 					// The fallback case below will apply
 				}
 			}
-			
+
 			// Fallback case
-			
+
 			ContainerSelectionDialog projectSelectionDialog = new ContainerSelectionDialog(
 					activeEditor.getSite().getShell(), null, false, "Sélectionner le projet de destination :");
-			
+
 			projectSelectionDialog.setTitle("Sélection de projet");
 
-			if(projectSelectionDialog.open() == ContainerSelectionDialog.OK && projectSelectionDialog.getResult().length == 1) {
+			if (projectSelectionDialog.open() == ContainerSelectionDialog.OK
+					&& projectSelectionDialog.getResult().length == 1) {
 				Path projectPath = (Path) projectSelectionDialog.getResult()[0];
 				IResource selectedResource = ResourcesPlugin.getWorkspace().getRoot().findMember(projectPath);
-				if(selectedResource instanceof IProject) {
+				if (selectedResource instanceof IProject) {
 					return selectedResource;
 				}
 			}
-			
+
 		}
-		return null; 
+		return null;
 	}
-	
+
 	private IResource getModelingProject(Resource resource) {
 		Session session = SessionManager.INSTANCE.getSession(resource);
 		if (session != null) {
@@ -211,14 +244,13 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		}
 		return null;
 	}
-	
+
 	private File getTargetfolder(IResource containingFolder) {
 		File modelFile = containingFolder.getLocation().toFile();
-		return new File(modelFile,getMainFolderName() );
+		return new File(modelFile, getMainFolderName());
 	}
-	
-	protected abstract String getMainFolderName();
 
+	protected abstract String getMainFolderName();
 
 	@Override
 	public void run(IAction action) {
@@ -229,9 +261,9 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
-		
+
 	}
-	
+
 	@Override
 	public void setActiveEditor(final IAction action, final IEditorPart activeEditor) {
 		// Editor changed ?
@@ -243,13 +275,14 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		this.activeEditor = activeEditor;
 		this.editorPluginAction = action;
 		this.editorPluginAction.setEnabled(false);
-		if (activeEditor != null && activeEditor.getEditorSite() != null && COMPARE_EDITOR_ID.equals(activeEditor.getEditorSite().getId())) {
-			
+		if (activeEditor != null && activeEditor.getEditorSite() != null
+				&& COMPARE_EDITOR_ID.equals(activeEditor.getEditorSite().getId())) {
+
 			attachListenerToCompareconfiguration();
-			
+
 			// Attach listener to know when editor is reused for another comparison
 			activeEditor.addPropertyListener(new IPropertyListener() {
-				
+
 				@Override
 				public void propertyChanged(Object source, int propId) {
 					// Editor input changed
@@ -260,18 +293,18 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 			});
 		}
 	}
-	
+
 	private void attachListenerToCompareconfiguration() {
 		final IEditorInput editorInput = activeEditor.getEditorInput();
 		if (editorInput instanceof CompareEditorInput) {
-			final CompareConfiguration config = ((CompareEditorInput)editorInput).getCompareConfiguration();
+			final CompareConfiguration config = ((CompareEditorInput) editorInput).getCompareConfiguration();
 			if (config != this.compareConfig) {
 				this.compareConfig = config;
 				this.compareConfig.addPropertyChangeListener(new NewComparisonResultPropertyChangeListener());
 			}
 		}
 	}
-	
+
 	private class NewComparisonResultPropertyChangeListener implements IPropertyChangeListener {
 
 		@Override
@@ -279,7 +312,7 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 			if (COMPARE_RESULT_PROPERTY.equals(event.getProperty())) {
 				Object newValue = event.getNewValue();
 				if (newValue instanceof Comparison) {
-					comparison = (Comparison)newValue;
+					comparison = (Comparison) newValue;
 				} else {
 					comparison = null;
 				}
@@ -287,9 +320,10 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 			}
 		}
 	}
-	
+
 	/**
 	 * Checks whether the given {@link Comparison} is between two {@link DataBase}.
+	 * 
 	 * @param comparison
 	 * @return
 	 */
@@ -299,26 +333,25 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		}
 		for (Diff diff : comparison.getDifferences()) {
 			Match parentMatch = diff.getMatch();
-			while(ComparePackage.Literals.MATCH.isInstance(parentMatch.eContainer())){
+			while (ComparePackage.Literals.MATCH.isInstance(parentMatch.eContainer())) {
 				parentMatch = (Match) parentMatch.eContainer();
 			}
 			EObject left = parentMatch.getLeft(); // Should be DataBase
 			EObject right = parentMatch.getRight(); // Should be DataBase
-			
+
 			// Right and left should be from the database package
-			if (left == null || left.eClass().getEPackage() != DatabasePackage.eINSTANCE
-					|| right == null || right.eClass().getEPackage() != DatabasePackage.eINSTANCE) {
+			if (left == null || left.eClass().getEPackage() != DatabasePackage.eINSTANCE || right == null
+					|| right.eClass().getEPackage() != DatabasePackage.eINSTANCE) {
 				return false;
 			}
-			
+
 			// Should be disabled for Logical and not Physical types libraries
 			if (ScaffoldingUtils.isValidInputForMpd(left) && ScaffoldingUtils.isValidInputForMpd(right)) {
 				return true;
 			}
-			
+
 		}
 		return false;
 	}
 
 }
-
