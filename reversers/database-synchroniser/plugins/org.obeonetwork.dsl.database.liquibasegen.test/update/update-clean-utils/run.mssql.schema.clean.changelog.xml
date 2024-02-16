@@ -1,8 +1,7 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet author="IS Designer" id="test0">
-        <comment>Updating foreign key FK_1</comment>
-        <dropForeignKeyConstraint baseTableName="Table2" baseTableSchemaName="STOREBOOK" constraintName="FK_1"/>
-        <addForeignKeyConstraint baseColumnNames="ID" baseTableName="Table2" baseTableSchemaName="STOREBOOK" constraintName="FK_1_2" referencedColumnNames="ID" referencedTableName="Table1" referencedTableSchemaName="STOREBOOK"/>
+        <comment>Workaround to delete schema in MSSQL database when not supported by liquibase dropAll()</comment>
+        <sql splitStatements="true" stripComments="false">drop table if exists S1.Table1; drop schema if exists S1;</sql>
     </changeSet>
 </databaseChangeLog>
