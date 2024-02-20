@@ -10,10 +10,11 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.services;
 
+import static java.util.stream.Collectors.toSet;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,9 +33,7 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
-
-import com.google.common.collect.Iterators;
-import com.google.common.collect.Sets;
+import org.obeonetwork.utils.common.StreamUtils;
 
 public class DesignServices {
 
@@ -76,18 +75,14 @@ public class DesignServices {
 	 * @param clazz
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	private static <T extends EObject> Set<T> getDisplayedElementsByType(DSemanticDiagram diagram, Class<T> clazz) {
-		Set<T> result = Sets.newLinkedHashSet();
-		Iterator<DSemanticDecorator> it = Iterators.filter(diagram.eAllContents(), DSemanticDecorator.class);
-		while (it.hasNext()) {
-			DSemanticDecorator dec = it.next();
-			EObject target = dec.getTarget();
-			if (target != null && clazz.isAssignableFrom(target.getClass())) {
-				result.add((T) target);
-			}
-		}
-		return result;
+		return StreamUtils.asStream(diagram.eAllContents())
+			.filter(DSemanticDecorator.class::isInstance).map(DSemanticDecorator.class::cast)
+			.map(DSemanticDecorator::getTarget)
+			.filter(target -> target != null)
+			.filter(target -> clazz.isAssignableFrom(target.getClass()))
+			.map(clazz::cast)
+			.collect(toSet());
 	}
 	
 	/**

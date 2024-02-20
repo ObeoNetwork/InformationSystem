@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.environment.design.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,8 +22,6 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
-
-import com.google.common.collect.Sets;
 
 public class ReferencesService {
 	
@@ -50,7 +49,7 @@ public class ReferencesService {
 	
 	public List<Reference> getOppositeReferences(DSemanticDiagram diagram) {
 		Collection<StructuredType> structuredTypes = DesignServices.getDisplayedStructuredTypes(diagram);
-		Set<Reference> references = Sets.newLinkedHashSet();
+		Set<Reference> references = new LinkedHashSet<Reference>();
 		for (StructuredType structuredType : structuredTypes) {
 			references.addAll(structuredType.getOwnedReferences());
 		}

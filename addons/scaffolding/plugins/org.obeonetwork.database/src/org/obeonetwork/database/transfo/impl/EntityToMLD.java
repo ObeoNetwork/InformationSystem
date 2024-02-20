@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.database.transfo.impl;
 
+import static java.util.stream.Collectors.joining;
+
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,6 +33,13 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.obeonetwork.database.Activator;
+import org.obeonetwork.database.transfo.AbstractTransformation;
+import org.obeonetwork.database.transfo.util.AdditionalFieldsUtils;
+import org.obeonetwork.database.transfo.util.AnnotationHelper;
+import org.obeonetwork.database.transfo.util.EntityUtils;
+import org.obeonetwork.database.transfo.util.LabelProvider;
+import org.obeonetwork.database.transfo.util.StringUtils;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DataBase;
@@ -64,16 +73,6 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
-
-import com.google.common.base.Joiner;
-
-import org.obeonetwork.database.Activator;
-import org.obeonetwork.database.transfo.AbstractTransformation;
-import org.obeonetwork.database.transfo.util.AdditionalFieldsUtils;
-import org.obeonetwork.database.transfo.util.AnnotationHelper;
-import org.obeonetwork.database.transfo.util.EntityUtils;
-import org.obeonetwork.database.transfo.util.LabelProvider;
-import org.obeonetwork.database.transfo.util.StringUtils;
 
 public class EntityToMLD extends AbstractTransformation {
 	
@@ -903,7 +902,7 @@ public class EntityToMLD extends AbstractTransformation {
 		}
 		
 		// A check constraint is added with all literals
-		String expression = MessageFormat.format("{0} in ({1})", column.getName(), Joiner.on(",").join(literalValues));
+		String expression = MessageFormat.format("{0} in ({1})", column.getName(), literalValues.stream().collect(joining(",")));
 		Constraint validityConstraint = findOrCreateConstraint(table, expression);
 		validityConstraint.setName("ENUM_CONSTRAINT");
 		validityConstraint.setComments(MessageFormat.format(ENUM_CONSTRAINTS_COMMENTS, column.getName()));

@@ -19,10 +19,10 @@ import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.function.Predicate;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.CreateContainerCmd;
-import com.github.dockerjava.api.command.HealthState;
 import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.InspectContainerResponse.ContainerState;
 import com.github.dockerjava.api.command.ListImagesCmd;
@@ -31,7 +31,6 @@ import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
-import com.google.common.base.Predicate;
 
 public class DockerUtils {
 
@@ -55,14 +54,7 @@ public class DockerUtils {
 	
 	public boolean waitUntilContainerIsStarted(String containerId, long timeoutMillis) {
 		return waitUntilContainerStateVerify(containerId,
-				new Predicate<ContainerState>() {
-
-					@Override
-					public boolean apply(ContainerState state) {
-						HealthState health = state.getHealth();
-						return health != null && "healthy".equals(health.getStatus());
-					}
-				},
+				state -> state.getHealth() != null && "healthy".equals(state.getHealth().getStatus()),
 				timeoutMillis);
 	}
 	
@@ -70,9 +62,9 @@ public class DockerUtils {
 		boolean timeoutOccured = false;
 		boolean predicateVerified = false;
 		Instant start = Instant.now();
-		while (predicateVerified == false && timeoutOccured == false) {
+		while (!predicateVerified && !timeoutOccured) {
 			ContainerState state = getContainerState(containerId);
-			predicateVerified = predicate.apply(state);
+			predicateVerified = predicate.test(state);
 			timeoutOccured = Duration.between(start, Instant.now()).toMillis() > timeoutMillis;
 		}
 		

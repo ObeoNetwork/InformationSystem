@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.tools.projectlibrary.extension.point;
 
+import static java.util.stream.Collectors.joining;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -28,8 +30,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.sirius.business.api.helper.SiriusUtil;
-import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
 import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceCommand;
@@ -38,8 +38,6 @@ import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.imp.ImportData;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
 import org.obeonetwork.utils.common.SessionUtils;
-
-import com.google.common.base.Joiner;
 
 /**
  * Copies an imported resource into a local modeling project
@@ -217,7 +215,7 @@ public class DefaultImportHandler extends AbstractImportHandler {
 			final List<String> segments = getTargetResourcePathSegments(importData, sourceURI);
 			// Add Project name as URI first segment
 			segments.add(0, encode(importData.getTargetProject().getProject().getName()));
-			final String path = Joiner.on("/").join(segments);
+			final String path = segments.stream().collect(joining("/"));
 			
 			return URI.createPlatformResourceURI(path, false);
 		}

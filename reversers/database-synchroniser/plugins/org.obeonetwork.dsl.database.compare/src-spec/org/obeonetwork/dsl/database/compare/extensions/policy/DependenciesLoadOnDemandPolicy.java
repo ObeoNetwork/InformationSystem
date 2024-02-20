@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.compare.extensions.policy;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.rcp.policy.ILoadOnDemandPolicy;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
-
-import com.google.common.collect.Lists;
 
 public class DependenciesLoadOnDemandPolicy implements ILoadOnDemandPolicy {
 	
@@ -31,7 +30,7 @@ public class DependenciesLoadOnDemandPolicy implements ILoadOnDemandPolicy {
 	private List<String> pathmapToConsider = null;
 	
 	public DependenciesLoadOnDemandPolicy() {
-		pathmapToConsider = Lists.newArrayList(PATHMAP_TO_CONSIDER);
+		pathmapToConsider = Arrays.asList(PATHMAP_TO_CONSIDER);
 	}
 	
 	/**
