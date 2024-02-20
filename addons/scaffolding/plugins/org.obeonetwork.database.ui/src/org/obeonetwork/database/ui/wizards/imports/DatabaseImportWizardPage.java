@@ -10,14 +10,20 @@
  *******************************************************************************/
 package org.obeonetwork.database.ui.wizards.imports;
 
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.beans.BeanProperties;
-import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.beans.typed.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -26,7 +32,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
@@ -48,19 +54,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import org.obeonetwork.database.ui.dialogs.FileExtensionsViewerFilter;
 import org.obeonetwork.database.ui.dialogs.SpecificWorkspaceResourceDialog;
 import org.obeonetwork.utils.common.ui.services.WizardHelper;
 
 
-@SuppressWarnings("deprecation")
 public class DatabaseImportWizardPage extends WizardPage {
 	
 	private static final String DATABASE_FILE_EXTENSION = "database";
@@ -323,11 +321,10 @@ public class DatabaseImportWizardPage extends WizardPage {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void bindValues() {
 		// The DataBindingContext object will manage the databindings
-		// Lets bind it
 		DataBindingContext ctx = new DataBindingContext();
 		
-		IObservableValue widgetValue = WidgetProperties.selection().observe(comboDbVendor);
-		IObservableValue modelValue = BeansObservables.observeValue(databaseInfos, "vendor");
+		IObservableValue widgetValue = WidgetProperties.comboSelection().observe(comboDbVendor);
+		IObservableValue modelValue = BeanProperties.value(DatabaseInfos.class, "vendor").observe(databaseInfos);
 		ctx.bindValue(widgetValue, modelValue);
 		
 		widgetValue = WidgetProperties.text(SWT.Modify).observe(txtHost);

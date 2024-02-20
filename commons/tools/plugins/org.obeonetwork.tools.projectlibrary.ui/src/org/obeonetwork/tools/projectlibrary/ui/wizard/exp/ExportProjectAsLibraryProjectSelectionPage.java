@@ -17,15 +17,15 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.beans.BeanProperties;
-import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.databinding.beans.typed.BeanProperties;
+import org.eclipse.core.databinding.beans.typed.PojoProperties;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
-import org.eclipse.jface.databinding.viewers.ViewerProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -41,7 +41,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
 
-@SuppressWarnings("deprecation")
 public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 	
 	private ExportProjectAsLibraryWizardModel model;
@@ -143,7 +142,7 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
 		ObservableListContentProvider listContentProvider = new ObservableListContentProvider();
-		IObservableMap observeMap = PojoObservables.observeMap(listContentProvider.getKnownElements(), ModelingProject.class, "project.name");
+		IObservableMap observeMap = PojoProperties.value(ModelingProject.class, "project.name", String.class).observeDetail(listContentProvider.getKnownElements());
 		lstModelingProject.setLabelProvider(new ObservableMapLabelProvider(observeMap));
 		lstModelingProject.setContentProvider(listContentProvider);
 		//

@@ -19,13 +19,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.beans.BeanProperties;
-import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.databinding.beans.typed.BeanProperties;
+import org.eclipse.core.databinding.beans.typed.PojoProperties;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
@@ -60,7 +60,6 @@ import org.obeonetwork.utils.common.ui.services.WizardHelper;
  * Wizard page to set manifest informations
  * 
  */
-@SuppressWarnings("deprecation")
 public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	
 	private ExportProjectAsLibraryWizardModel model;
@@ -72,7 +71,6 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	private Table table;
 	private Text txtComment;
 	private StyledText txtMarFileName;
-	private Table updatedProjectsTable;
 	
 	private TableViewer tableViewer;
 	private CheckboxTableViewer updateTableViewer;
@@ -226,7 +224,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		compositeTbl2.setLayout(table_layout);
 		
 		updateTableViewer = CheckboxTableViewer.newCheckList(compositeTbl2, SWT.BORDER | SWT.FULL_SELECTION);
-		this.updatedProjectsTable = updateTableViewer.getTable();
+		updateTableViewer.getTable();
 		compositeTbl2GridData.heightHint = 26 * 4;
 		
 		// 
@@ -321,7 +319,11 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		bindingContext.bindValue(observeTextTxtCommentObserveWidget, commentWizardgetModelObserveValue, null, null);
 		//
 		ObservableListContentProvider listContentProvider = new ObservableListContentProvider();
-		IObservableMap[] observeMaps = PojoObservables.observeMaps(listContentProvider.getKnownElements(), MManifest.class, new String[]{"version", "projectId", "comment"});
+		IObservableMap[] observeMaps = new IObservableMap[]{
+		    PojoProperties.value(MManifest.class, "version", String.class).observeDetail(listContentProvider.getKnownElements()),
+		    PojoProperties.value(MManifest.class, "projectId", String.class).observeDetail(listContentProvider.getKnownElements()),
+		    PojoProperties.value(MManifest.class, "comment", String.class).observeDetail(listContentProvider.getKnownElements())
+		};
 		tableViewer.setLabelProvider(new ObservableMapLabelProvider(observeMaps));
 		tableViewer.setContentProvider(listContentProvider);
 		//

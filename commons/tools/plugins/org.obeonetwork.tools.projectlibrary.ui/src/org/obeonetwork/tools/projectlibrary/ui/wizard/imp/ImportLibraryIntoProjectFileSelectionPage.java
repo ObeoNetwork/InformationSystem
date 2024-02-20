@@ -20,15 +20,14 @@ import java.util.jar.Manifest;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
-import org.eclipse.core.databinding.beans.PojoObservables;
-import org.eclipse.core.databinding.beans.PojoProperties;
+import org.eclipse.core.databinding.beans.typed.PojoProperties;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
-import org.eclipse.jface.databinding.viewers.ViewerProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -63,9 +62,6 @@ import org.obeonetwork.tools.projectlibrary.ui.wizard.imp.ImportLibraryIntoProje
 public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	
-	@SuppressWarnings("unused")
-	private DataBindingContext m_bindingContext;
 	
 	private ImportLibraryIntoProjectWizard wizard;
 	
@@ -260,7 +256,7 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 		
 		setPageComplete(isInfoComplete());
 		
-		m_bindingContext = initDataBindings();
+		initDataBindings();
 	}
 	
 	private void extractInfoFromManifest(Manifest manifest) {
@@ -374,11 +370,13 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	public ImportLibraryIntoProjectWizard getWizard() {
 		return wizard;
 	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
 		ObservableListContentProvider listContentProvider = new ObservableListContentProvider();
-		IObservableMap observeMap = PojoObservables.observeMap(listContentProvider.getKnownElements(), ModelingProject.class, "project.name");
+		IObservableMap observeMap = PojoProperties.value(ModelingProject.class, "project.name", String.class).observeDetail(listContentProvider.getKnownElements());
 		comboViewer.setLabelProvider(new ObservableMapLabelProvider(observeMap));
 		comboViewer.setContentProvider(listContentProvider);
 		//
