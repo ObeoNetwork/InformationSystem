@@ -11,7 +11,9 @@
 package org.obeonetwork.tools.snapshot.viewer.wizards;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -33,8 +35,6 @@ import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.obeonetwork.tools.snapshot.viewer.Activator;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 /**
  * Wizard allowing one to import a CDO XML file into workspace
  * 
@@ -116,7 +116,7 @@ public class ImportModelFromXmlWizard extends Wizard implements IImportWizard {
 
             // Add modeling nature
             IProjectDescription description = project.getDescription();
-            Set<String> natures = Sets.newLinkedHashSet(Lists.newArrayList(description.getNatureIds()));
+            Set<String> natures = new LinkedHashSet<String>(Arrays.asList(description.getNatureIds()));
             natures.add(ModelingProject.NATURE_ID);
             String[] naturesAsArray = natures.toArray(new String[natures.size()]);
             description.setNatureIds(naturesAsArray);

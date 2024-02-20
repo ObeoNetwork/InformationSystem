@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.project.lifecycle;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -27,9 +29,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-
-import com.google.common.collect.Iterators;
-import com.google.common.collect.Lists;
+import org.obeonetwork.utils.common.StreamUtils;
 
 @SuppressWarnings("restriction")
 public class ImporterUtil {
@@ -84,17 +84,13 @@ public class ImporterUtil {
 	
 	
 	public static Collection<EObject> getAllElementsWithChildren(Collection<EObject> roots) {
-		Collection<EObject> children = new ArrayList<EObject>(roots);
-		// Collect all children
-		for (EObject root : roots) {
-			Collection<EObject> ownedChildren = Lists.newArrayList(root.eAllContents());
-			children.addAll(ownedChildren);
-		}
+		List<EObject> children = roots.stream().flatMap(root -> StreamUtils.asStream(root.eAllContents())).collect(toList());
+		children.addAll(roots);
 		return children;
 	}
 	
 	public static <T extends EObject> List<T> getAllContentsOfType(EObject root, Class<T> type) {
-		return Lists.newArrayList(Iterators.filter(root.eAllContents(), type));
+		return StreamUtils.asStream(root.eAllContents()).filter(type::isInstance).map(type::cast).collect(toList());
 	}
 	
 }

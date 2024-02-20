@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.graal.design.services.actor;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,9 +29,6 @@ import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
-
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 
 /**
  * Utilities services concerning Actors
@@ -64,18 +63,13 @@ public class ActorUtils {
 	private Collection<Actor> getVisibleLinksToActorsFromTask(Task task, final List<Task> tasksOnDiagram) {
 		if (task.getActors().isEmpty()) {
 			// Get using tasks that are displayed on diagram
-			List<Task> usingTasksOnDiagram = Lists.newArrayList(task.getUsedBy());
-			Iterables.retainAll(usingTasksOnDiagram, tasksOnDiagram);
+			List<Task> usingTasksOnDiagram = task.getUsedBy().stream().filter(t -> tasksOnDiagram.contains(t)).collect(toList());
 			
 			// Filter the related actors to keep those not already associated with a displayed using task
-			List<Actor> relatedActors = Lists.newArrayList(task.getRelatedActors());
-			for (Task usingTask : usingTasksOnDiagram) {
-				if (!relatedActors.isEmpty()) {
-					Iterables.removeAll(relatedActors, usingTask.getRelatedActors());
-				} else {
-					break;
-				}
-			}
+			List<Actor> relatedActors = new ArrayList<Actor>(task.getRelatedActors());
+			usingTasksOnDiagram.stream()
+			.flatMap(usingTask -> usingTask.getRelatedActors().stream())
+			.forEach(actor -> relatedActors.remove(actor));
 			// If some of the actors are not linked to displayed tasks
 			// we then have to display the whole actors list to prevent from misunderstanding
 			if (! relatedActors.isEmpty()) {

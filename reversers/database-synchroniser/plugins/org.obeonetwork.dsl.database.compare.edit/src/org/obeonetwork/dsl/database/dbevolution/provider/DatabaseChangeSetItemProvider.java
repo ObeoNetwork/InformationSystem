@@ -10,9 +10,6 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.dbevolution.provider;
 
-
-import static com.google.common.base.Predicates.instanceOf;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -24,8 +21,6 @@ import org.eclipse.emf.compare.provider.ComparisonItemProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
-
-import com.google.common.collect.Collections2;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet} object.
@@ -81,7 +76,7 @@ public class DatabaseChangeSetItemProvider
 	public String getText(Object object) {
 		if (object instanceof Match && ((Match)object).getLeft() instanceof DataBase) {		
 			Match match = (Match) object;
-			return getString("_UI_DatabaseChangeSet_type", new Object[] {Collections2.filter(match.getDifferences(), instanceOf(DBDiff.class)).size(), "Database"});
+			return getString("_UI_DatabaseChangeSet_type", new Object[] { match.getDifferences().stream().filter(DBDiff.class::isInstance).count(), "Database" });
 		}
 		return "";
 	}

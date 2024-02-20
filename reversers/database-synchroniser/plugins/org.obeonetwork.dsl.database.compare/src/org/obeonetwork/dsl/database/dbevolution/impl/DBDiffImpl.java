@@ -25,8 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 
-import com.google.common.collect.Iterables;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>DB Diff</b></em>'.
@@ -202,7 +200,7 @@ Copied from DiffSpec
 	
 	@Override
 	public Diff getPrimeRefining() {
-		return Iterables.getFirst(getRefinedBy(), null);
+		return getRefinedBy().stream().findFirst().orElse(null);
 	}
 
 } //DBDiffImpl

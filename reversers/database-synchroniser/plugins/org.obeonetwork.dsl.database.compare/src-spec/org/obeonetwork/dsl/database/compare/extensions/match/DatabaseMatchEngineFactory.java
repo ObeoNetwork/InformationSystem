@@ -33,9 +33,6 @@ import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-
 public class DatabaseMatchEngineFactory extends MatchEngineFactoryImpl {
 
 	private static final EditionDistance editionDistance = new EditionDistance() {
@@ -182,23 +179,15 @@ public class DatabaseMatchEngineFactory extends MatchEngineFactoryImpl {
 		protected boolean isExistInTheOtherSide(final EObject obj1, final EObject obj2) {
 			boolean result = false;
 			if (obj2.eContainer() != null) {
-				result = Iterables.any(obj2.eContainer().eContents(), new Predicate<EObject>() {
-					public boolean apply(EObject input) {
-						return input.eClass() == obj1.eClass() 
-								&& buildName(input).equals(buildName(obj1));
-					}
-				});
+				result = obj2.eContainer().eContents().stream()
+						.anyMatch(e -> e.eClass() == obj1.eClass() && buildName(e).equals(buildName(obj1)));
 			}
 			if (result) {
 				return true;
 			} else {
 				if (obj1.eContainer() != null && !result) {
-					result = Iterables.any(obj1.eContainer().eContents(), new Predicate<EObject>() {
-						public boolean apply(EObject input) {
-							return input.eClass() == obj2.eClass() 
-									&& buildName(input).equals(buildName(obj2));
-						}
-					});
+					result = obj1.eContainer().eContents().stream()
+							.anyMatch(e -> e.eClass() == obj2.eClass() && buildName(e).equals(buildName(obj2)));
 				}
 			}
 			return result;

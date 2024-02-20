@@ -10,11 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.project.lifecycle;
 
+import static java.util.stream.Collectors.joining;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -54,8 +55,6 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementFactory;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
 import org.obeonetwork.graal.GraalPackage;
-
-import com.google.common.base.Joiner;
 
 public class BusinessProjectImporter {
 	
@@ -380,7 +379,8 @@ public class BusinessProjectImporter {
 		final List<String> segments = getTargetResourcePathSegments(sourceObject);
 		// Add Project name as URI first segment
 		segments.add(0, getTargetProjectName());
-		final String path = Joiner.on("/").join(segments);
+		
+		final String path = segments.stream().collect(joining("/"));
 		
 		return path;
 	}

@@ -32,6 +32,4 @@ Export-Package: org.obeonetwork.dsl.manifest,
  org.obeonetwork.tools.projectlibrary.extension.point,
  org.obeonetwork.tools.projectlibrary.imp,
  org.obeonetwork.tools.projectlibrary.util
-Import-Package: com.google.common.base;version="[21.0.0,27.2.0)",
- com.google.common.collect;version="[21.0.0,27.2.0)"
 Automatic-Module-Name: org.obeonetwork.tools.projectlibrary

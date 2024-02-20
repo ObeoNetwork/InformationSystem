@@ -94,19 +94,16 @@ public class DiffContentService {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> ADD_SCHEMA_SUBDIFFS = or(
 			instanceOf(TableChange.class), 
 			instanceOf(SequenceChange.class),
 			instanceOf(ViewChange.class));
 	
-	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> REMOVE_SCHEMA_SUBDIFFS = or(
 			instanceOf(TableChange.class), 
 			instanceOf(SequenceChange.class),
 			instanceOf(ViewChange.class));
 	
-	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> ADD_TABLE_SUBDIFFS = or(
 			instanceOf(PrimaryKeyChange.class), 
 			instanceOf(ForeignKeyChange.class), 
