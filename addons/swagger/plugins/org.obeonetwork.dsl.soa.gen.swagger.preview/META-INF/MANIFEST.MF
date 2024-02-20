@@ -11,9 +11,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.soa.gen.swagger,
  org.eclipse.ui.workbench,
- javax.servlet,
  org.eclipse.osgi.services,
  com.google.guava,
- org.eclipse.equinox.http.jetty
+ org.eclipse.equinox.http.jetty,
+ jakarta.servlet-api
 Bundle-Activator: org.obeonetwork.dsl.soa.gen.swagger.preview.Activator
 Bundle-ActivationPolicy: lazy
