@@ -17,7 +17,7 @@ import java.util.Collection;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
-import org.eclipse.core.databinding.beans.PojoProperties;
+import org.eclipse.core.databinding.beans.typed.PojoProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -25,8 +25,8 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
-import org.eclipse.jface.databinding.viewers.ViewerProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
@@ -244,6 +244,7 @@ public class ImportXMLSnapshotWizardPage extends WizardPage {
 		return inputData;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//

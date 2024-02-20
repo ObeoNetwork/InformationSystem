@@ -18,10 +18,11 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.beans.BeanProperties;
+import org.eclipse.core.databinding.beans.typed.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
-import org.eclipse.jface.databinding.viewers.ViewerProperties;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.IViewerObservableValue;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -40,7 +41,6 @@ import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 import org.obeonetwork.utils.common.StringUtils;
 
-@SuppressWarnings("deprecation")
 public class SwaggerExportWizardPage extends WizardPage {
 
 	private SwaggerExportWizard wizard;
@@ -179,7 +179,7 @@ public class SwaggerExportWizardPage extends WizardPage {
 		bindingContext.bindValue(observeTextOutputDirPathObserveWidget, textOutputDirPathPathModelObserveValue, null, null);
 		
 		// mapperType
-		IObservableValue<MapperType> comboMapperTypeViewerObservable = ViewerProperties.singleSelection().observe(comboMapperTypeViewer);
+		IViewerObservableValue<Object> comboMapperTypeViewerObservable = ViewerProperties.singleSelection().observe(comboMapperTypeViewer);
 		IObservableValue mapperTypeModelObserveValue = BeanProperties.value(GenerateSwaggerWizardParameters.class, "mapperType").observe(model); //$NON-NLS-1$
 		bindingContext.bindValue(comboMapperTypeViewerObservable, mapperTypeModelObserveValue);
 		
