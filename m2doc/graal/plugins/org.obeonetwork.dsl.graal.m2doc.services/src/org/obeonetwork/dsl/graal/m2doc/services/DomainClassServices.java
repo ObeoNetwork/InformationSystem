@@ -49,7 +49,6 @@ import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
-@SuppressWarnings("restriction")
 public class DomainClassServices extends AbstractServiceProvider {
 
 	private static class GetOwnedElementsService extends JavaMethodService {
@@ -59,9 +58,10 @@ public class DomainClassServices extends AbstractServiceProvider {
 		 * 
 		 * @param publicMethod    the {@link Method}
 		 * @param serviceInstance the instance
+		 * @param forWorkspace 
 		 */
-		GetOwnedElementsService(Method publicMethod, Object serviceInstance) {
-			super(publicMethod, serviceInstance);
+		GetOwnedElementsService(Method publicMethod, Object serviceInstance, boolean forWorkspace) {
+			super(publicMethod, serviceInstance, forWorkspace);
 		}
 
 		@Override
@@ -97,13 +97,13 @@ public class DomainClassServices extends AbstractServiceProvider {
 	}
 
 	@Override
-	protected IService getService(Method method) {
-		final IService result;
+	protected IService<Method> getService(Method method, boolean forWorkspace) {
+		final IService<Method> result;
 
 		if ("getOwnedElements".equals(method.getName())) {
-			result = new GetOwnedElementsService(method, this);
+			result = new GetOwnedElementsService(method, this, forWorkspace);
 		} else {
-			result = new JavaMethodService(method, this);
+			result = new JavaMethodService(method, this, forWorkspace);
 		}
 
 		return result;
