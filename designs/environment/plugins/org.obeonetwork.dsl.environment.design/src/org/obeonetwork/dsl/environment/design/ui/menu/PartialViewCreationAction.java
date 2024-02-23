@@ -106,7 +106,7 @@ public class PartialViewCreationAction extends Action {
 		}
 		String representationName = promptName.getValue();
 		
-		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, representationDescription, representationName, context, new NullProgressMonitor());
+		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, context, representationDescription, representationName, new NullProgressMonitor());
 		
 		try {
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().run(false, false, motitor -> 
@@ -116,8 +116,6 @@ public class PartialViewCreationAction extends Action {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		DialectUIManager.INSTANCE.openEditor(session, diagram, new NullProgressMonitor());
 		
 		// Restore the "Synchronize diagram on creation" preference
 		diagramCorePreferences.putBoolean(SiriusDiagramInternalPreferencesKeys.PREF_SYNCHRONIZE_DIAGRAM_ON_CREATION.name(), syncOnCreation);

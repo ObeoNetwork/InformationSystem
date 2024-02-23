@@ -123,4 +123,24 @@ public class Activator extends AbstractUIPlugin {
 		}
 	}
 
+    public static void logError(String message) {
+        IStatus status = new Status(IStatus.ERROR, plugin.getBundle().getSymbolicName(), message);
+    	plugin.getLog().log(status);
+    }
+
+    public static void logWarning(String message) {
+        IStatus status = new Status(IStatus.WARNING, plugin.getBundle().getSymbolicName(), message);
+    	plugin.getLog().log(status);
+    }
+
+    public static void logInfo(String message) {
+        IStatus status = new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(), message);
+    	plugin.getLog().log(status);
+    }
+
+	public static void logError(String message, Throwable e) {
+        IStatus status = new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(), message, e);
+    	plugin.getLog().log(status);
+	}
+
 }

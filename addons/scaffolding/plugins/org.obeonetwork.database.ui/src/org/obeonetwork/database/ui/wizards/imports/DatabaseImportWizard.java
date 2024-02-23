@@ -11,6 +11,7 @@
 package org.obeonetwork.database.ui.wizards.imports;
 
 import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.database.ui.Activator.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -24,7 +25,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -47,7 +50,6 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
-import org.eclipse.jdt.core. IJavaProject;
 
 public class DatabaseImportWizard extends Wizard implements IImportWizard {
 	
@@ -81,7 +83,6 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 			}
 		}
 		
-		
 		String filename = mainPage.getModelFilePath();
 		boolean result = DatabaseImportHelper.importDatabaseIntoModel(databaseInfos, filename, mainPage.getReferencedFiles());
 		if (result == true) {
@@ -107,8 +108,9 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 				    }
 				});
 				PlatformUI.getWorkbench().getProgressService().run(false, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
-				    @Override
+					@Override
 				    protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+					    @SuppressWarnings("deprecation")
 						ModelingProject enclosingModelingProject = ModelingProject.asModelingProject(enclosingProject).get();
 						activateViewpoints(enclosingModelingProject, monitor);
 				    }
@@ -116,13 +118,18 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 				PlatformUI.getWorkbench().getProgressService().run(false, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
 				    @Override
 				    protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+						@SuppressWarnings("deprecation")
 						ModelingProject enclosingModelingProject = ModelingProject.asModelingProject(enclosingProject).get();
 						Session session = enclosingModelingProject.getSession();
+						logInfo("Creating representations.");
 						List<DRepresentation> representations = createRepresentations(session, generatedFile, monitor);
-						
+						logInfo(String.format("%d representations created.", representations.size()));
+						// Open representations
+						logInfo("Opening representations.");
 						for (DRepresentation representation : representations) {
 							DialectUIManager.INSTANCE.openEditor(session, representation, monitor);
 						}
+						logInfo("Done opening representations.");
 				    }
 				});
 			} catch (InvocationTargetException e) {
@@ -156,24 +163,29 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 	}
 
 	private List<DRepresentation> createRepresentations(Session session, IFile semanticResourceFile, IProgressMonitor monitor) {
-		List<DRepresentation> representations = new ArrayList<>();
-		
 		URI semanticResourceURI = URI.createPlatformResourceURI(semanticResourceFile.getFullPath().toString(), true);
 		Resource semanticResource = session.getSemanticResources().stream().filter(r -> r.getURI() == semanticResourceURI).findAny().orElse(null);
+		
+		List<EObject> contexts = new ArrayList<>();
+		List<String> representationDescriptionIds = new ArrayList<>();
 		
 		List<DataBase> databases = semanticResource.getContents().stream()
 				.filter(DataBase.class::isInstance).map(DataBase.class::cast)
 				.collect(toList());
 		for(DataBase database : databases) {
-			representations.add(SiriusUIUtils.createRepresentation(session, database, IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID, monitor));
+			contexts.add(database);
+			representationDescriptionIds.add(IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID);
 		}
 		
-		List<Schema> schemas = databases.stream().flatMap(db -> db.getSchemas().stream()).collect(toList());
+		List<Schema> schemas = databases.stream()
+				.flatMap(db -> db.getSchemas().stream())
+				.collect(toList());
 		for(Schema schema : schemas) {
-			representations.add(SiriusUIUtils.createRepresentation(session, schema, IDatabaseViewpointConstants.SCHEMA_DIAGRAM_ID, monitor));
+			contexts.add(schema);
+			representationDescriptionIds.add(IDatabaseViewpointConstants.SCHEMA_DIAGRAM_ID);
 		}
 		
-		return representations;
+		return SiriusUIUtils.createRepresentations(session, contexts, representationDescriptionIds, monitor);
 	}
 	
 	/* (non-Javadoc)

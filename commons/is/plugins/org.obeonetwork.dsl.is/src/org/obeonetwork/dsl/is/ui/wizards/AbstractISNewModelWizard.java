@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.eresource.CDOResourceFolder;
 import org.eclipse.emf.cdo.eresource.CDOResourceNode;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -36,6 +37,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
@@ -64,8 +66,6 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 	protected NewModelCreationPage modelCreationPage;
 	
 	private Resource createdResource;
-	
-	private Collection<DRepresentation> createdRepresentations = new ArrayList<>();
 	
 	public AbstractISNewModelWizard(String windowTitle, ImageDescriptor imageDescriptor) {
 		setWindowTitle(windowTitle);
@@ -125,35 +125,33 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 	
 	protected void initRepresentations(final Session session, Collection<EObject> initialObjects, IProgressMonitor monitor) {
 		if (session != null) {
+			CompoundCommand createRepresentationsCompoundCommand = new CompoundCommand();
 			Map<EClassifier, Collection<String>> mapDescIDs = getRepresentationDescriptionsIDToBeCreated();
 			if (!mapDescIDs.isEmpty()) {
-				for (EObject object : initialObjects) {
-					Collection<String> descIDs = mapDescIDs.get(object.eClass());
+				for (EObject context : initialObjects) {
+					Collection<String> descIDs = mapDescIDs.get(context.eClass());
 					for (String descID : descIDs) {
-						RepresentationDescription desc = SessionUtils.getRepresentationDescription(session, object, descID);
-						if (desc != null) {
+						RepresentationDescription representationDescription = SessionUtils.getRepresentationDescription(session, context, descID);
+						if (representationDescription != null) {
 							// Get name for the representation
-							String representationName = getRepresentationName(desc, object);
-							// and create representation
-							DRepresentation newRepresentation = SiriusUIUtils.createRepresentation(session, desc, representationName, object, monitor);
-							if (newRepresentation != null) {
-								createdRepresentations.add(newRepresentation);
-							}
-						}
-					}
-					// Open representations
-					for (DRepresentation createdRepresentation : createdRepresentations) {
-						if (shouldOpenRepresentation(createdRepresentation)) {
-							openRepresentation(session, createdRepresentation, monitor);
+							String representationName = getRepresentationName(representationDescription, context);
+							// Create representation
+							createRepresentationsCompoundCommand.append(new CreateRepresentationCommand(session, representationDescription, context, representationName, monitor));
 						}
 					}
 				}				
 			}
+			if(!createRepresentationsCompoundCommand.getCommandList().isEmpty()) {
+				SiriusUIUtils.executeCreateRepresentationCommand(createRepresentationsCompoundCommand, session);
+				// Open created representations if needed
+				createRepresentationsCompoundCommand.getCommandList().stream()
+				.map(CreateRepresentationCommand.class::cast)
+				.map(CreateRepresentationCommand::getCreatedRepresentation)
+				.filter(newRepresentation -> newRepresentation != null)
+				.filter(newRepresentation -> shouldOpenRepresentation(newRepresentation))
+				.forEach(newRepresentation -> DialectUIManager.INSTANCE.openEditor(session, newRepresentation, monitor));
+			}
 		}
-	}
-	
-	protected void openRepresentation(final Session session, DRepresentation representation,  IProgressMonitor monitor) {
-		DialectUIManager.INSTANCE.openEditor(session, representation, monitor);
 	}
 	
 	protected boolean isDataValid(ModelingProject targetModelingProject, Object targetContainer, String targetResourceName, IProgressMonitor monitor) {
