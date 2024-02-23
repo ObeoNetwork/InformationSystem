@@ -10,8 +10,14 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common.ui.services;
 
+import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.utils.common.ui.Activator.logInfo;
+import static org.obeonetwork.utils.common.ui.Activator.logWarning;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -23,6 +29,8 @@ import org.eclipse.eef.ide.ui.properties.api.EEFTabDescriptor;
 import org.eclipse.eef.properties.ui.api.EEFTabContents;
 import org.eclipse.eef.properties.ui.api.EEFTabbedPropertySheetPage;
 import org.eclipse.eef.properties.ui.api.IEEFTabDescriptor;
+import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -87,23 +95,70 @@ public class SiriusUIUtils {
 		}
 	}
 	
-	public static DRepresentation createRepresentation(Session session, RepresentationDescription description, String name, EObject context, IProgressMonitor monitor) {
-		// Ensure that there is no save in progress.
-		// Otherwise when the representation is added to the resource CreateRepresentationCommand can be problematic.
-		// Indeed, during the save the eSetDeliver is disabled at some point (ResourceSaveDiagnose.hasDifferentSerialization),
-		// preventing any adapter to be added to the new representation.
+	/**
+	 * Executes the given {@link CreateRepresentationCommand} or compound of {@link CreateRepresentationCommand}s.<br>
+	 * <p>
+	 * Joins on the save session job family to make sure that no session save is in progress.<br>
+	 * Otherwise, when the representation is added to the resource,
+	 * CreateRepresentationCommand can be problematic.
+	 * At some point during the save, the eSetDeliver is disabled
+	 * (ResourceSaveDiagnose.hasDifferentSerialization), preventing any adapter from
+	 * being added to the new representation.
+	 * </p>
+	 * <p>
+	 * Warning: This induce the following risk. If no dialect editors are open,
+	 * SaveSessionWhenNoDialectEditorsListener saves the session each time a command
+	 * is executed on the stack. Creating multiple representations with multiple
+	 * commands executed separately and at once may therefore cause a deadlock situation
+	 * (SAFRAN-1134). This is why this method accepts a compound of {@link CreateRepresentationCommand}s.
+	 * </p>
+		
+	 * @param command
+	 * @param session
+	 */
+	public static void executeCreateRepresentationCommand(AbstractCommand command, Session session) {
+		logInfo("Joining on Sirius save session job family.");
 		try {
 			Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
 		} catch (OperationCanceledException | InterruptedException e) {
-			// Ignore. The join is just here to avoid to have a save in progress.
+			logWarning(String.format("Join Sirius save session jobs aborted for '%s'.", command.getLabel()));
 		}
-		
-		CreateRepresentationCommand cmd = new CreateRepresentationCommand(session, description, context, name, monitor);
-		session.getTransactionalEditingDomain().getCommandStack().execute(cmd);
-		return cmd.getCreatedRepresentation();
+		logInfo("Joining on Sirius save session job family passed.");
+		logInfo(String.format("Executing command '%s'.", command.getLabel()));
+		session.getTransactionalEditingDomain().getCommandStack().execute(command);
+		logInfo(String.format("Command '%s' executed.", command.getLabel()));
+	}
+	
+	public static DRepresentation createRepresentation(Session session, EObject context, RepresentationDescription representationDescription, String title, IProgressMonitor monitor) {
+		CreateRepresentationCommand command = new CreateRepresentationCommand(session, representationDescription, context, title, monitor);
+		executeCreateRepresentationCommand(command, session);
+		return command.getCreatedRepresentation();
 	}
 	
 	public static DRepresentation createRepresentation(Session session, EObject context, String representationDescriptionId, IProgressMonitor monitor) {
+		CreateRepresentationCommand command = createRepresentationCommand(session, context, representationDescriptionId, monitor);
+		executeCreateRepresentationCommand(command, session);
+		return command.getCreatedRepresentation();
+	}
+	
+	public static List<DRepresentation> createRepresentations(Session session, List<EObject> contexts, List<String> representationDescriptionIds, IProgressMonitor monitor) {
+		CompoundCommand compoundCommand = new CompoundCommand();
+		
+		Iterator<EObject> contextIterator = contexts.iterator();
+		Iterator<String> representationDescriptionIdIterator = representationDescriptionIds.iterator();
+		while(contextIterator.hasNext() && representationDescriptionIdIterator.hasNext()) {
+			compoundCommand.append(createRepresentationCommand(session, contextIterator.next(), representationDescriptionIdIterator.next(), monitor));
+		}
+		
+		executeCreateRepresentationCommand(compoundCommand, session);
+
+		return compoundCommand.getCommandList().stream()
+		.map(CreateRepresentationCommand.class::cast)
+		.map(CreateRepresentationCommand::getCreatedRepresentation)
+		.collect(toList());
+	}
+	
+	private static CreateRepresentationCommand createRepresentationCommand(Session session, EObject context, String representationDescriptionId, IProgressMonitor monitor) {
 		
 		RepresentationDescription representationDescription = SessionUtils.getRepresentationDescription(session, context, representationDescriptionId);
 		String title = null;
@@ -119,7 +174,7 @@ public class SiriusUIUtils {
 			title = representationDescription.getLabel();
 		}
 		
-		return createRepresentation(session, representationDescription, title, context, monitor);
+		return new CreateRepresentationCommand(session, representationDescription, context, title, monitor);
 	}
 	
 	/**
