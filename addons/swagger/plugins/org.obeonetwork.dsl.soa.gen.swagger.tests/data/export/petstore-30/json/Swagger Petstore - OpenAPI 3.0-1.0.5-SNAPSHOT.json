@@ -1,13 +1,11 @@
 {
-  "openapi" : "3.0.1",
+  "openapi" : "3.1.0",
   "info" : {
     "title" : "Swagger Petstore - OpenAPI 3.0",
     "description" : "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) ",
-    "termsOfService" : "/tos",
+    "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
-      "name" : "Obeo",
-      "url" : "https://contact.obeosoft.com/",
-      "email" : "contact@obeosoft.com"
+      "email" : "apiteam@swagger.io"
     },
     "license" : {
       "name" : "Apache 2.0",
@@ -15,6 +13,9 @@
     },
     "version" : "1.0.5-SNAPSHOT"
   },
+  "servers" : [ {
+    "url" : "/v3"
+  } ],
   "tags" : [ {
     "name" : "User",
     "description" : "Access to Petstore orders"
@@ -33,32 +34,17 @@
         "operationId" : "createUser",
         "requestBody" : {
           "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            },
             "application/xml" : {
               "schema" : {
                 "$ref" : "#/components/schemas/User"
-              },
-              "examples" : {
-                "cat" : {
-                  "summary" : "a cat",
-                  "description" : "kitty kitty ",
-                  "value" : {
-                    "name" : "edwardo",
-                    "weight" : 2,
-                    "age" : 8
-                  }
-                },
-                "dog" : {
-                  "summary" : "a dog",
-                  "description" : "he is a good boy",
-                  "value" : {
-                    "name" : "bobby",
-                    "age" : 6,
-                    "weight" : 34
-                  }
-                }
               }
             },
-            "application/json" : {
+            "application/x-www-form-urlencoded" : {
               "schema" : {
                 "$ref" : "#/components/schemas/User"
               }
@@ -69,20 +55,14 @@
           "default" : {
             "description" : "successful operation",
             "content" : {
-              "application/yaml" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/User"
-                },
-                "examples" : {
-                  "dog" : {
-                    "summary" : "a dog",
-                    "description" : "he is a very good boy",
-                    "value" : {
-                      "name" : "bobby",
-                      "age" : 6,
-                      "weight" : 34
-                    }
-                  }
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
                 }
               }
             }
@@ -111,6 +91,11 @@
           "200" : {
             "description" : "OK\n\nSuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/User"
@@ -121,7 +106,8 @@
           "default" : {
             "description" : "successful operation"
           }
-        }
+        },
+        "x-swagger-router-controller" : "UserController"
       }
     },
     "/user/login" : {
@@ -149,6 +135,11 @@
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "type" : "string"
@@ -190,6 +181,11 @@
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/User"
@@ -224,6 +220,16 @@
               "schema" : {
                 "$ref" : "#/components/schemas/User"
               }
+            },
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            },
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
             }
           }
         },
@@ -231,7 +237,8 @@
           "default" : {
             "description" : "successful operation"
           }
-        }
+        },
+        "x-swagger-router-controller" : "UserController"
       },
       "delete" : {
         "tags" : [ "User" ],
@@ -272,7 +279,11 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-swagger-router-controller" : "OrderController"
       }
     },
     "/store/order" : {
@@ -283,6 +294,16 @@
         "requestBody" : {
           "content" : {
             "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            },
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            },
+            "application/x-www-form-urlencoded" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Order"
               }
@@ -303,7 +324,8 @@
           "405" : {
             "description" : "Method Not Allowed\n\nInvalid input"
           }
-        }
+        },
+        "x-swagger-router-controller" : "OrderController"
       }
     },
     "/store/order/{orderId}" : {
@@ -325,6 +347,11 @@
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Order"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Order"
@@ -338,7 +365,8 @@
           "404" : {
             "description" : "Not Found\n\nOrder not found"
           }
-        }
+        },
+        "x-swagger-router-controller" : "OrderController"
       },
       "delete" : {
         "tags" : [ "Store" ],
@@ -361,7 +389,8 @@
           "404" : {
             "description" : "Not Found\n\nOrder not found"
           }
-        }
+        },
+        "x-swagger-router-controller" : "OrderController"
       }
     },
     "/pet" : {
@@ -375,6 +404,16 @@
               "schema" : {
                 "$ref" : "#/components/schemas/Pet"
               }
+            },
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Pet"
+              }
+            },
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Pet"
+              }
             }
           }
         },
@@ -382,6 +421,11 @@
           "200" : {
             "description" : "OK\n\nSuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Pet"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Pet"
@@ -398,7 +442,10 @@
           "405" : {
             "description" : "Method Not Allowed\n\nValidation exception"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -410,6 +457,16 @@
               "schema" : {
                 "$ref" : "#/components/schemas/Pet"
               }
+            },
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Pet"
+              }
+            },
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Pet"
+              }
             }
           }
         },
@@ -417,6 +474,11 @@
           "200" : {
             "description" : "OK\n\nSuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Pet"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Pet"
@@ -427,7 +489,10 @@
           "405" : {
             "description" : "Method Not Allowed\n\nInvalid input"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       }
     },
     "/pet/findByStatus" : {
@@ -441,13 +506,39 @@
           "description" : "Status values that need to be considered for filter",
           "required" : false,
           "schema" : {
-            "$ref" : "#/components/schemas/PetStatus"
+            "$ref" : "#/components/schemas/Pet_FindPetsByStatusStatus"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The index of the page queried",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The number of elements per page",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Pet"
+                  }
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "type" : "array",
@@ -461,7 +552,11 @@
           "400" : {
             "description" : "Bad Request\n\nInvalid status value"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ],
+        "x-pagination" : "this is a pagination-related property extension"
       }
     },
     "/pet/findByTags" : {
@@ -480,27 +575,19 @@
               "type" : "string"
             }
           }
-        }, {
-          "name" : "size",
-          "in" : "query",
-          "required" : false,
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32"
-          }
-        }, {
-          "name" : "page",
-          "in" : "query",
-          "required" : false,
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32"
-          }
         } ],
         "responses" : {
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Pet"
+                  }
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "type" : "array",
@@ -515,7 +602,9 @@
             "description" : "Bad Request\n\nInvalid tag value"
           }
         },
-        "x-pagination" : "description"
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       }
     },
     "/pet/{petId}" : {
@@ -537,6 +626,11 @@
           "200" : {
             "description" : "OK\n\nsuccessful operation",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Pet"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Pet"
@@ -550,7 +644,12 @@
           "404" : {
             "description" : "Not Found\n\nPet not found"
           }
-        }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        }, {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -585,7 +684,10 @@
           "405" : {
             "description" : "Method Not Allowed\n\nInvalid input"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       },
       "delete" : {
         "tags" : [ "Pet" ],
@@ -611,7 +713,10 @@
           "400" : {
             "description" : "Bad Request\n\nInvalid pet value"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       }
     },
     "/pet/{petId}/uploadImage" : {
@@ -638,7 +743,7 @@
         } ],
         "requestBody" : {
           "content" : {
-            "application/json" : {
+            "application/octet-stream" : {
               "schema" : {
                 "type" : "string",
                 "format" : "binary"
@@ -657,7 +762,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ]
       }
     }
   },
@@ -688,7 +796,8 @@
             "type" : "integer",
             "format" : "int64"
           }
-        }
+        },
+        "x-swagger-router-model" : "io.swagger.petstore.model.Category"
       },
       "Order" : {
         "type" : "object",
@@ -715,22 +824,23 @@
           "status" : {
             "$ref" : "#/components/schemas/OrderStatus"
           }
-        }
+        },
+        "x-swagger-router-model" : "io.swagger.petstore.model.Order"
       },
       "OrderStatus" : {
         "type" : "string",
+        "description" : "Order Status",
         "enum" : [ "approved", "placed", "delivered" ]
       },
       "Pet" : {
-        "required" : [ "name", "photoUrls" ],
         "type" : "object",
         "properties" : {
           "photoUrls" : {
-            "minItems" : 1,
             "type" : "array",
             "items" : {
               "type" : "string"
-            }
+            },
+            "minItems" : 1
           },
           "name" : {
             "type" : "string"
@@ -751,9 +861,16 @@
               "$ref" : "#/components/schemas/Tag"
             }
           }
-        }
+        },
+        "required" : [ "name", "photoUrls" ],
+        "x-swagger-router-model" : "io.swagger.petstore.model.Pet"
       },
       "PetStatus" : {
+        "type" : "string",
+        "description" : "pet status in the store",
+        "enum" : [ "sold", "pending", "available" ]
+      },
+      "Pet_FindPetsByStatusStatus" : {
         "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
@@ -770,7 +887,8 @@
             "type" : "integer",
             "format" : "int64"
           }
-        }
+        },
+        "x-swagger-router-model" : "io.swagger.petstore.model.Tag"
       },
       "User" : {
         "type" : "object",
@@ -786,7 +904,8 @@
           },
           "userStatus" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "description" : "User Status"
           },
           "phone" : {
             "type" : "string"
@@ -801,7 +920,27 @@
           "username" : {
             "type" : "string"
           }
+        },
+        "x-swagger-router-model" : "io.swagger.petstore.model.User"
+      }
+    },
+    "securitySchemes" : {
+      "petstore_auth" : {
+        "type" : "oauth2",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "https://petstore.swagger.io/oauth/authorize",
+            "scopes" : {
+              "write:pets" : "modify pets in your account",
+              "read:pets" : "read your pets"
+            }
+          }
         }
+      },
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "key",
+        "in" : "header"
       }
     }
   }

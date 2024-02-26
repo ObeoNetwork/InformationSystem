@@ -30,24 +30,24 @@ import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 
 public class SwaggerImportTest {
-	
+
 	private static final String INPUT_FOLDER_PATH_FORMAT = "/data/import/%s/%s";
 	private static final String EXPECTED_FOLDER_PATH_FORMAT = "/data/import/%s/xmi";
-	
+
 	public void testImportFromFile(String testId, MapperType inputFormat) {
 		String inputFolderPath = String.format(INPUT_FOLDER_PATH_FORMAT, testId, inputFormat.toString().toLowerCase());
 		File inputFolder = createTempFolderFromBundleEntryPath(inputFolderPath);
 		File inputFile = findFirstFile(inputFolder);
-		
+
 		ResourceSet destinationResourceSet = createSoaResourceSet();
 		Environment environment = loadEnvironment(destinationResourceSet);
 		System destinationSystem = createSystem(destinationResourceSet);
-		
+
 		SwaggerImporter swaggerImporter = new SwaggerImporter(destinationSystem, environment);
 		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath(), "x-pagination");
-		
+
 		// save the model to file to ease understanding in case of error:
-		
+
 //		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 //        Map<String, Object> m = reg.getExtensionToFactoryMap();
 //        m.put("soa", new SoaResourceFactoryImpl());
@@ -59,59 +59,68 @@ public class SwaggerImportTest {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//        
+
 		String expectedBundleEntryFolderPath = String.format(EXPECTED_FOLDER_PATH_FORMAT, testId);
 		ResourceSet expectedResourceSet = createSoaResourceSetFromBundleEntryPath(expectedBundleEntryFolderPath);
-		System expectedSystem = expectedResourceSet.getResources().stream()
-		.flatMap(res -> res.getContents().stream())
-		.filter(root -> root instanceof org.obeonetwork.dsl.soa.System)
-		.map(root -> (org.obeonetwork.dsl.soa.System)root)
-		.findFirst().orElse(null);
-		
+		System expectedSystem = expectedResourceSet.getResources().stream().flatMap(res -> res.getContents().stream())
+				.filter(root -> root instanceof org.obeonetwork.dsl.soa.System)
+				.map(root -> (org.obeonetwork.dsl.soa.System) root).findFirst().orElse(null);
+
 		destinationSystem.setName(expectedSystem.getName());
-    
+
 		assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
-		assertObeoDSMEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
+		assertObeoDSMEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem,
+				destinationSystem);
 	}
 
 	@Test
 	public void testJsonImportPetstore() {
-		testImportFromFile("petstore", MapperType.JSON);
+		testImportFromFile("petstore-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlImportPetstore() {
-		testImportFromFile("petstore", MapperType.YAML);
+		testImportFromFile("petstore-30", MapperType.YAML);
 	}
 
 	@Test
 	public void testJsonImportThetvdb() {
-		testImportFromFile("thetvdb", MapperType.JSON);
+		testImportFromFile("thetvdb-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlImportThetvdb() {
-		testImportFromFile("thetvdb", MapperType.YAML);
+		testImportFromFile("thetvdb-30", MapperType.YAML);
 	}
-	
+
 	@Test
 	public void testJsonImportThetvdbExtensions() {
-		testImportFromFile("thetvdb-extensions", MapperType.JSON);
+		testImportFromFile("thetvdb-extensions-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlImportThetvdbExtensions() {
-		testImportFromFile("thetvdb-extensions", MapperType.YAML);
+		testImportFromFile("thetvdb-extensions-30", MapperType.YAML);
 	}
 
 	@Test
 	public void testJsonImportOdtsAdminWs() {
-		testImportFromFile("odts-admin-ws", MapperType.JSON);
+		testImportFromFile("odts-admin-ws-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlImportOdtsAdminWs() {
-		testImportFromFile("odts-admin-ws", MapperType.YAML);
+		testImportFromFile("odts-admin-ws-30", MapperType.YAML);
+	}
+
+	@Test
+	public void testJsonImportPetstore310() {
+		testImportFromFile("petstore-310", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlImportPetstore310() {
+		testImportFromFile("petstore-310", MapperType.YAML);
 	}
 
 }

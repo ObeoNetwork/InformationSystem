@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Obeo Designer Team Server - Administration Server
   description: |
@@ -20,11 +20,11 @@ info:
   version: 1.0.0
 tags:
 - name: Repositories
-  description: null
+  description: "null"
 - name: Projects
-  description: null
+  description: "null"
 - name: Users
-  description: null
+  description: "null"
 paths:
   /repositories:
     get:
@@ -34,7 +34,7 @@ paths:
         Retrieve all repositories on the current server.
       operationId: getRepositories
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/xml:
@@ -46,7 +46,7 @@ paths:
                   description: description
                   value:
                     attribute: value
-        404:
+        "404":
           description: Not Found
     post:
       tags:
@@ -83,17 +83,17 @@ paths:
             schema:
               $ref: '#/components/schemas/NewRepository'
       responses:
-        201:
+        "201":
           description: "Created\n\nRepository response"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_Output201Output200'
-        400:
+        "400":
           description: "Bad Request\n\nBad Request\n\nSome parameters depend on\
             \ the repository type (authentication and database), their validation\
             \ is done by the corresponding extensions. \n"
-        500:
+        "500":
           description: "Internal Server Error\n\nInternal error\n\nSomething unexpected\
             \ occurred during the repository creation.\n"
   /repositories/{repositoryId}:
@@ -122,17 +122,17 @@ paths:
         schema:
           type: boolean
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Output200'
-        204:
+        "204":
           description: No Content
-        404:
+        "404":
           description: Not Found
-        500:
+        "500":
           description: "Internal Server Error\n\nServer error for static repository"
   /repositories/start/{repositoryId}:
     get:
@@ -153,15 +153,15 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_Output201Output200'
-        400:
+        "400":
           description: "Bad Request\n\nKo"
-        404:
+        "404":
           description: Not Found
   /repositories/stop/{repositoryId}:
     get:
@@ -182,17 +182,17 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_StopRepositoryOutput200'
-        400:
+        "400":
           description: "Bad Request\n\nNot Found"
-        404:
+        "404":
           description: Not Found
-        500:
+        "500":
           description: "Internal Server Error\n\nServer error for static repository"
   /repositories/export/{repositoryId}:
     post:
@@ -220,11 +220,11 @@ paths:
             schema:
               $ref: '#/components/schemas/Repositories_ExportRepositoryBody'
       responses:
-        202:
+        "202":
           description: "Accepted\n\nOk"
-        400:
+        "400":
           description: "Bad Request\n\nBad request"
-        404:
+        "404":
           description: Not Found
   /repositories/import/{repositoryId}:
     post:
@@ -255,11 +255,11 @@ paths:
             schema:
               $ref: '#/components/schemas/Repositories_ImportRepositoryBody'
       responses:
-        202:
+        "202":
           description: "Accepted\n\nRequest accepted"
-        400:
+        "400":
           description: Bad Request
-        404:
+        "404":
           description: Not Found
   /projects:
     post:
@@ -279,13 +279,13 @@ paths:
             schema:
               $ref: '#/components/schemas/Projects_CreateSharedProjectBody'
       responses:
-        201:
+        "201":
           description: "Created\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Projects_CreateSharedProjectOutput201'
-        404:
+        "404":
           description: Not Found
   /users:
     get:
@@ -302,13 +302,13 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Users_ListUsersOutput200'
-        400:
+        "400":
           description: "Bad Request\n\nNot Found"
     post:
       tags:
@@ -336,13 +336,13 @@ paths:
             schema:
               $ref: '#/components/schemas/NewUser'
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Users_Output200'
-        400:
+        "400":
           description: Bad Request
   /users/{userName}:
     put:
@@ -374,15 +374,15 @@ paths:
             schema:
               $ref: '#/components/schemas/NewUser'
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Users_Output200'
-        400:
+        "400":
           description: Bad Request
-        404:
+        "404":
           description: Not Found
     delete:
       tags:
@@ -404,15 +404,15 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           description: "OK\n\nOk"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Output200'
-        404:
+        "404":
           description: Not Found
-        400:
+        "400":
           description: Bad Request
 components:
   schemas:
@@ -431,9 +431,6 @@ components:
       - H2_EMBEDDED
       - H2_SERVER
     NewRepository:
-      required:
-      - authenticationType
-      - datasourceType
       type: object
       properties:
         authenticationData:
@@ -446,10 +443,10 @@ components:
           type: string
         datasourceData:
           type: string
-    NewUser:
       required:
-      - id
-      - isAdmin
+      - authenticationType
+      - datasourceType
+    NewUser:
       type: object
       properties:
         password:
@@ -462,6 +459,9 @@ components:
           type: array
           items:
             type: string
+      required:
+      - id
+      - isAdmin
     Output200:
       type: object
       properties:
@@ -472,15 +472,15 @@ components:
         status:
           type: string
     Projects_CreateSharedProjectBody:
-      required:
-      - projectName
-      - repositoryName
       type: object
       properties:
         projectName:
           type: string
         repositoryName:
           type: string
+      required:
+      - projectName
+      - repositoryName
     Projects_CreateSharedProjectOutput201:
       type: object
       properties:
@@ -491,14 +491,14 @@ components:
         status:
           type: string
     Repositories_ExportRepositoryBody:
-      required:
-      - needsEncryption
       type: object
       properties:
         password:
           type: string
         needsEncryption:
           type: boolean
+      required:
+      - needsEncryption
     Repositories_GetRepositoriesOutput200:
       type: object
       properties:
