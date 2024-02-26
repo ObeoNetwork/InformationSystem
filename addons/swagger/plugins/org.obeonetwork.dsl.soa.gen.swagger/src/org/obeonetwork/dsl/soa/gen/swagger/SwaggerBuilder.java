@@ -240,6 +240,11 @@ public class SwaggerBuilder {
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
 			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
 			break;
+		case MUTUALTLS:
+			logWarning("SecuritySchemeType not supported : MUTUALTLS");
+			break;
+		default:
+			break;
 		}
 
 		addPropertiesExtensionsFromSoaToSwg(soaSecurityScheme, securityScheme);
@@ -593,6 +598,10 @@ public class SwaggerBuilder {
 		Schema<T> schema = new Schema<>();
 		schema.setType(type);
 		schema.setFormat(format);
+		// Account for Open API 3.1.0
+		Set types = new HashSet<>();
+		types.add(type);
+		schema.setTypes(types);
 		return schema;
 	}
 
@@ -656,7 +665,9 @@ public class SwaggerBuilder {
 	}
 
 	private void buildProperty(Schema<Object> schema, Property soaProperty) {
-		schema.addProperties(soaProperty.getName(), createSoaPropertySchema(soaProperty));
+		// schema.addProperties(soaProperty.getName(),
+		// createSoaPropertySchema(soaProperty));
+		schema.addProperty(soaProperty.getName(), createSoaPropertySchema(soaProperty));
 		if (PropertyGenUtil.isRequired(soaProperty)) {
 			schema.addRequiredItem(soaProperty.getName());
 		}
@@ -687,20 +698,23 @@ public class SwaggerBuilder {
 			addValueConstraintsFromSoaToSwg((ConstrainableElement) soaProperty, schema);
 		}
 
-		if(!StringUtils.isNullOrWhite(soaProperty.getDescription())) {
+		if (!StringUtils.isNullOrWhite(soaProperty.getDescription()) && schema.get$ref() == null) {
+			// Add description when the property does not reference another Schema
+			// where the description should be found.
 			schema.setDescription(soaProperty.getDescription());
 		}
-		
+
 		return schema;
 	}
 
-	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement, final Schema<Object> schema) {
+	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement,
+			final Schema<Object> schema) {
 		Objects.requireNonNull(constrainableElement);
 		Objects.requireNonNull(schema);
 
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM)) {
 			final String minimum = constrainableElement.getMinimum();
-			if(isTextual(constrainableElement)) {
+			if (isTextual(constrainableElement)) {
 				schema.setMinLength(Integer.valueOf(minimum));
 			} else {
 				schema.setMinimum(new BigDecimal(minimum));
@@ -708,7 +722,7 @@ public class SwaggerBuilder {
 		}
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM)) {
 			final String maximum = constrainableElement.getMaximum();
-			if(isTextual(constrainableElement)) {
+			if (isTextual(constrainableElement)) {
 				schema.setMaxLength(Integer.valueOf(maximum));
 			} else {
 				schema.setMaximum(new BigDecimal(maximum));
