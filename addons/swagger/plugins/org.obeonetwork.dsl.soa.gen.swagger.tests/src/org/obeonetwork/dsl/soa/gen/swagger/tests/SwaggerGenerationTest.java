@@ -54,51 +54,61 @@ public class SwaggerGenerationTest {
 
 	@Test
 	public void testJsonExportInDirPetstore() {
-		testExportInDir("petstore", MapperType.JSON);
+		testExportInDir("petstore-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlExportInDirPetstore() {
-		testExportInDir("petstore", MapperType.YAML);
+		testExportInDir("petstore-30", MapperType.YAML);
 	}
 	
 	@Test
 	public void testJsonExportInDirThetvdb() {
-		testExportInDir("thetvdb", MapperType.JSON);
+		testExportInDir("thetvdb-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlExportInDirThetvdb() {
-		testExportInDir("thetvdb", MapperType.YAML);
+		testExportInDir("thetvdb-30", MapperType.YAML);
 	}
 	
 	@Test
 	public void testJsonExportInDirThetvdbExtensions() {
-		testExportInDir("thetvdb-extensions", MapperType.JSON);
+		testExportInDir("thetvdb-extensions-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlExportInDirThetvdbExtensions() {
-		testExportInDir("thetvdb-extensions", MapperType.YAML);
+		testExportInDir("thetvdb-extensions-30", MapperType.YAML);
 	}
 	
 	@Test
 	public void testJsonExportInDirOdtsAdminWs() {
-		testExportInDir("odts-admin-ws", MapperType.JSON);
+		testExportInDir("odts-admin-ws-30", MapperType.JSON);
 	}
 
 	@Test
 	public void testYamlExportInDirOdtsAdminWs() {
-		testExportInDir("odts-admin-ws", MapperType.YAML);
+		testExportInDir("odts-admin-ws-30", MapperType.YAML);
 	}	
 	
 	@Test
 	public void testYamlExportInDirPetstoreEntity() {
-		testExportInDir("petstore-entity", MapperType.YAML);
+		testExportInDir("petstore-entity-30", MapperType.YAML);
 	}
 	
 	@Test
 	public void testJsonExportInDirPetstoreEntity() {
-		testExportInDir("petstore-entity", MapperType.JSON);
+		testExportInDir("petstore-entity-30", MapperType.JSON);
+	}
+	
+	@Test
+	public void testJsonExportInDirPetstore310() {
+		testExportInDir("petstore-310", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlExportInDirPetstore310() {
+		testExportInDir("petstore-310", MapperType.YAML);
 	}
 }
