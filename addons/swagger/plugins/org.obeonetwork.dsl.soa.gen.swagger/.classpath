@@ -3,17 +3,19 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/commons-lang3-3.7.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-annotations-2.8.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-core-2.8.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-databind-2.8.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-dataformat-yaml-2.8.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jaxb-api-2.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/slf4j-api-1.7.9.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/snakeyaml-1.18.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-annotations-2.0.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-core-2.0.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-models-2.0.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/validation-api-1.1.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/commons-lang3-3.14.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jackson-annotations-2.16.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jackson-core-2.16.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jackson-databind-2.16.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jackson-dataformat-yaml-2.16.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jackson-datatype-jsr310-2.16.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.activation-api-1.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.validation-api-2.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.xml.bind-api-2.3.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/slf4j-api-2.0.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/snakeyaml-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/swagger-annotations-2.2.20.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/swagger-core-2.2.20.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/swagger-models-2.2.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
