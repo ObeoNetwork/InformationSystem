@@ -21,6 +21,10 @@
             id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerImport"
             name="Import Swagger...">
       </command>
+      <command
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ToOpenAPI31"
+            name="To OpenAPI 3.1.0">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -43,6 +47,29 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
+         <menu
+               id="org.obeonetwork.dsl.soa.gen.swagger.ui.menu.swagger.convert"
+               icon="icons/swagger-logo-16x16.png"
+               label="Swagger convert">
+            <command
+                  commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ToOpenAPI31"
+                  label="To OpenAPI 3.1.0"
+                  style="push">
+	            <visibleWhen
+	                  checkEnabled="false">
+	               <with
+	                     variable="selection">
+	                  <iterate
+	                        ifEmpty="false">
+	                     <test
+	                           forcePluginActivation="true"
+	                           property="org.obeonetwork.dsl.soa.gen.swagger.ui.propertyTester.testConvertibleSwaggerFile">
+	                     </test>
+	                  </iterate>
+	               </with>
+	            </visibleWhen>
+            </command>
+         </menu>
       </menuContribution>
    </extension>
    <extension
@@ -96,6 +123,35 @@
             </with>
          </enabledWhen>
       </handler>
+      <handler
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.SwaggerConverterHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ToOpenAPI31">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                    ifEmpty="false">
+                 <test
+                       args="ToOpenAPI31Command"
+                       forcePluginActivation="true"
+                       property="org.obeonetwork.dsl.soa.gen.swagger.ui.propertyTester.testConvertibleSwaggerFile">
+                 </test>
+	           </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
-
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.actions.testers.TestConvertibleSwaggerFile"
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.propertyTester.testConvertibleSwaggerFile"
+            namespace="org.obeonetwork.dsl.soa.gen.swagger.ui.propertyTester"
+            properties="testConvertibleSwaggerFile"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
 </plugin>
