@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/btf-1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/checker-qual-3.37.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/commons-codec-1.11.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/commons-io-2.15.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/commons-logging-1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/error_prone_annotations-2.21.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/failureaccess-1.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/gson-2.10.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/guava-32.1.3-android.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/httpclient-4.5.14.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/httpcore-4.4.16.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/j2objc-annotations-2.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-coreutils-2.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jackson-coreutils-equivalence-1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/joda-time-2.10.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jopt-simple-5.0.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/json-patch-1.13.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/json-schema-core-1.2.14.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/json-schema-validator-2.2.14.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jsr305-3.0.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/libphonenumber-8.11.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/mailapi-1.6.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/msg-simple-1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/rhino-1.7.7.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-annotations-1.6.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-1.0.69.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-safe-url-resolver-1.0.69.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-safe-url-resolver-2.1.20.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-v2-converter-2.1.20.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-v3-2.1.20.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/uri-template-0.10.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/validation-api-1.1.0.Final.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-core-2.1.20.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-models-1.6.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-core-1.6.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-parser-2.1.20.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/swagger-compat-spec-parser-1.0.69.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/commons-lang3-3.14.0.jar"/>

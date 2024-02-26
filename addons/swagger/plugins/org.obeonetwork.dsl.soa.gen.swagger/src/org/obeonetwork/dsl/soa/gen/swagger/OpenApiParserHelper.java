@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2024 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -125,8 +125,9 @@ public class OpenApiParserHelper {
 	}
 
 	private static <T> Schema<T> createSchema(String type, String format) {
-		// OpenAPI 3.1.0 Schema.
 		Schema<T> schema = new Schema<>();
+		schema.setType(type);
+		// Account for OpenAPI 3.1.0
 		Set<String> types = new HashSet<>();
 		types.add(type);
 		schema.setTypes(types);
@@ -142,14 +143,11 @@ public class OpenApiParserHelper {
 
 	/**
 	 * <p>
-	 * Gets the single type of a Schema from an OpenAPI 3.1.0 version.<br>
-	 * Note: OpenAPI 3.0 schema is not managed here and should be converted into
-	 * OpenAPI 3.1.0 schema beforehand. Managing of Schema type in OpenAPI 3.0
-	 * version is different.
+	 * Gets the single type of a Schema whether it's from an OpenAPI 3.1 file or an
+	 * Open 3.0 file.
 	 * </p>
 	 * <p>
-	 * <b>Actually multiple types are possible, but for the moment only one type is
-	 * currently managed for a Schema.</b>
+	 * <b>Multiple values are not currently well-managed for type of Schema.</b>
 	 * </p>
 	 * <p>
 	 * By default, if several values are found including
@@ -164,10 +162,11 @@ public class OpenApiParserHelper {
 	 * @return
 	 */
 	public static String getSingleSchemaType(Schema schema) {
-		// OpenAPI 3.1
-		if(schema==null) {
-			return null;
+		if (schema.getType() != null) {
+			// OpenAPI 3.0
+			return schema.getType();
 		}
+		// OpenAPI 3.1
 		Set types = schema.getTypes();
 		if (types == null) {
 			return null;

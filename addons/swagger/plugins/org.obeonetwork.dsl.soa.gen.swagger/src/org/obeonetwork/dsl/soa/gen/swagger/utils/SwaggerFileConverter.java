@@ -10,19 +10,20 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger.utils;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
-import java.util.UUID;
 
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerFileQuery;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Files;
 
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Json31;
@@ -33,7 +34,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 
 /**
  * Converts a Swagger/OpenAPI file with supported version but version OpenAPI
- * 3.1.0, to an OpenAPI file with version OpenAPI 3.1.0.
+ * 3.1.0 to an OpenAPI file with version OpenAPI 3.1.0.
  * 
  * @author Obeo
  *
@@ -41,44 +42,46 @@ import io.swagger.v3.oas.models.OpenAPI;
 public class SwaggerFileConverter {
 
 	/**
-	 * Converts inputFile into the file represented by outputStream.
+	 * Converts inputFile into the file represented by outputStream. Errors are
+	 * logged in error log if they occur.
 	 * 
 	 * @param inputFile
 	 * @param outputStream
-	 * @return warnings from parsing if any.
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws UnsupportedSwagerFileException
 	 */
-	public static List<String> convert(File inputFile, OutputStream outputStream)
-			throws JsonParseException, JsonMappingException, IOException, UnsupportedSwagerFileException {
+	public static void convert(File inputFile, OutputStream outputStream) {
 		if (inputFile == null || outputStream == null) {
-			return null;
+			return;
 		}
 		SwaggerFileQuery fileQuery = null;
-		fileQuery = new SwaggerFileQuery(inputFile);
+		try {
+			fileQuery = new SwaggerFileQuery(inputFile);
+		} catch (JsonProcessingException e) {
+			logError(String.format("Invalid file content : %s.", inputFile.getAbsolutePath()), e);
+		} catch (IOException e) {
+			logError("I/O exception.", e);
+		}
+		if (fileQuery == null) {
+			return;
+		}
 		String version = fileQuery.getVersion();
 		if (!canConvertToOpenAPI310(version)) {
-			throw new UnsupportedSwagerFileException(String.format(
-					"Swagger/OpenAPI version is not supported for conversion to OpenAPI 3.1.0 for file: %s",
-					inputFile.getAbsolutePath()));
+			logWarning("The Swagger/OpenAPI version of the file is not supported for conversion to OpenAPI 3.1.0");
+			return;
 		}
 
-		List<String> parsingWarnings = null;
 		if (version.matches(SwaggerFileQuery.VERSION_NAME_OPEN_API + " 3.0(.[0-9])?")) {
 			// OpenAPI 3.0.x
 			convertOpenAPI30To310(inputFile, outputStream);
 		} else {
 			// Swagger 1.x or Swagger 2.x
-			parsingWarnings = convertSwaggerXToOpenAPI310(version, inputFile, outputStream);
+			convertSwaggerXToOpenAPI310(inputFile, outputStream);
 		}
 
-		return parsingWarnings;
+		return;
 	}
 
 	/**
-	 * Convertible versions are supported versions but OpenAPI 3.1.x., x>=0.
+	 * Convertible versions are supported versions but the OpenAPI 3.1.x., x>0.
 	 * 
 	 * @param version
 	 * @return
@@ -88,8 +91,7 @@ public class SwaggerFileConverter {
 				&& !version.matches(SwaggerFileQuery.VERSION_NAME_OPEN_API + " 3.1(.[0-9])?");
 	}
 
-	private static void convertOpenAPI30To310(File inputFile, OutputStream outputStream)
-			throws JsonParseException, JsonMappingException, IOException, UnsupportedSwagerFileException {
+	private static void convertOpenAPI30To310(File inputFile, OutputStream outputStream) {
 		// 3.0 version
 		String inputFilePath = inputFile.getAbsolutePath();
 		ObjectMapper objectMapper = null;
@@ -100,14 +102,24 @@ public class SwaggerFileConverter {
 			objectMapper = Json.mapper();
 		} else {
 			// Should not happen
-			throw new UnsupportedSwagerFileException(String.format(String.format(
+			logWarning(String.format(
 					"Conversion couldn't proceed, missing file extension: yaml or yml or json, for file: %s",
-					inputFilePath)));
+					inputFilePath));
+			return;
 		}
-		swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+		try {
+			swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+		} catch (JsonParseException e) {
+			logError("Parsing exception.", e);
+		} catch (JsonMappingException e) {
+			logError("Mapping exception.", e);
+		} catch (IOException e) {
+			logError("I/O exception.", e);
+		}
 		if (swagger == null) {
 			return;
 		}
+
 		OpenAPI30To31 oapi30To31 = new OpenAPI30To31();
 		oapi30To31.process(swagger);
 		ObjectMapper outputMapper = null;
@@ -119,40 +131,20 @@ public class SwaggerFileConverter {
 		// Single serialization option.
 		// Don't write JsonSchemaDialect.
 		swagger.setJsonSchemaDialect(null);
-		outputMapper.writerWithDefaultPrettyPrinter().writeValue(outputStream, swagger);
-		outputStream.flush();
+		try {
+
+			outputMapper.writerWithDefaultPrettyPrinter().writeValue(outputStream, swagger);
+			outputStream.flush();
+		} catch (JsonGenerationException e) {
+			logError("Generation exception.", e);
+		} catch (JsonMappingException e) {
+			logError("Mapping exception.", e);
+		} catch (IOException e) {
+			logError("I/O exception.", e);
+		}
 	}
 
-	private static List<String> convertSwaggerXToOpenAPI310(String inputSwaggerVersion, File inputFile,
-			OutputStream outputStream)
-			throws JsonParseException, JsonMappingException, IOException, UnsupportedSwagerFileException {
-		List<String> parsingWarnings = null;
-		if (inputSwaggerVersion == null || outputStream == null || inputFile == null) {
-			return parsingWarnings;
-		}
-		File tempOpenAPI3_0File = File.createTempFile(UUID.randomUUID().toString(),
-				"." + Files.getFileExtension(inputFile.getAbsolutePath()));
-		if (tempOpenAPI3_0File == null) {
-			return parsingWarnings;
-		}
-		OutputStream tempOutputStream = new FileOutputStream(tempOpenAPI3_0File);
-		if (inputSwaggerVersion.matches(SwaggerFileQuery.SWAGGER_1_X_VERSION_PATTERN)) {
-			parsingWarnings = SwaggerXToOpenAPI3Converter.convertSwagger1ToOpenAPI3(inputFile, tempOutputStream);
-		} else if (inputSwaggerVersion.matches(SwaggerFileQuery.SWAGGER_2_X_VERSION_PATTERN)) {
-			parsingWarnings = SwaggerXToOpenAPI3Converter.convertSwagger2ToOpenAPI3(inputFile, tempOutputStream);
-		}
-
-		if (tempOpenAPI3_0File != null && tempOpenAPI3_0File.exists()) {
-			tempOpenAPI3_0File.deleteOnExit();
-			convertOpenAPI30To310(tempOpenAPI3_0File, outputStream);
-			try {
-				tempOpenAPI3_0File.delete();
-			} catch (SecurityException e) {
-				if (e != null) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return parsingWarnings;
+	private static void convertSwaggerXToOpenAPI310(File inputFile, OutputStream outputStream) {
+		return;
 	}
 }
