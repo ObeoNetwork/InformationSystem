@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2024 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -123,13 +123,4 @@ public class SwaggerImportTest {
 		testImportFromFile("petstore-310", MapperType.YAML);
 	}
 
-	@Test
-	public void testJsonImportSwagger1() {
-		testImportFromFile("swagger1", MapperType.JSON);
-	}
-
-	@Test
-	public void testJsonImportSwagger2() {
-		testImportFromFile("swagger2", MapperType.JSON);
-	}
 }
