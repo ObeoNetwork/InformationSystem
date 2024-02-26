@@ -605,6 +605,14 @@ La fonctionnalité d'import Swagger est disponible en menu contextuel sur l'obje
 
 En cas de succès suite à l'import, un nouveau _Component_ est créé, prêt à être utilisé dans un ensemble plus vaste de _Components SOA_.
 
+h3. Conversion de fichier Swagger/OpenAPI vers le format OpenAPI 3.1.0
+
+Dans l'explorateur de modèles, tout fichier Json ou Yaml qui est au format OpenAPI 3.0.x est convertible en un nouveau fichier au format OpenAPI 3.1.0 via un menu dédié:
+
+!{width:60%}pics/exposition/Menu_SwaggerConvert.png!
+
+Si la conversion réussit, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de "-3.1.0" avant l'extension du fichier. Si la conversion échoue, des logs sont disponibles dans la vue Error Log.
+
 h2. Gestion des exigences
 
 La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir "Obeo Network - Requirements Tooling":../../org.obeonetwork.dsl.requirement.doc/doc/Obeo%20Network%20-%20Requirements%20tooling.html .

@@ -20,6 +20,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.SOA_PRIMITIVE_TYPE_NAME_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isArraySchema;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.ConstrainableElementGenUtil.isTextual;
@@ -99,6 +100,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.ComposedSchema;
+import io.swagger.v3.oas.models.media.JsonSchema;
 import io.swagger.v3.oas.models.media.MediaType;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.CookieParameter;
@@ -125,7 +127,7 @@ public class SoaComponentBuilder {
 	private static final int NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT = 4;
 	private static final String TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME = "InlineType";
 	private static final String NAME_INDEX_SEPARATOR = "_";
-	private static final String QUALIFIED_PATH_SEPARATOR = "/";	
+	private static final String QUALIFIED_PATH_SEPARATOR = "/";
 	private static final Set<String> PAGINATION_SIZE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("size", "taille"));
 	private static final Set<String> PAGINATION_PAGE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("page"));
 	private static final Predicate<String> PATH_PARAM_PATTERN_PREDICATE = Pattern.compile("\\{[^}]+\\}").asPredicate();
@@ -227,7 +229,7 @@ public class SoaComponentBuilder {
 		if (servers != null && !servers.isEmpty()) {
 			for (Server server : servers) {
 				soaComponent.getServers().add(createSoaServer(server));
-			}			
+			}
 		}
 
 		inlineTypes = new HashMap<>();
@@ -244,7 +246,7 @@ public class SoaComponentBuilder {
 
 		return soaComponent;
 	}
-	
+
 	private org.obeonetwork.dsl.soa.Server createSoaServer(Server server) {
 		org.obeonetwork.dsl.soa.Server soaServer = SoaFactory.eINSTANCE.createServer();
 		soaServer.setURL(server.getUrl());
@@ -276,10 +278,10 @@ public class SoaComponentBuilder {
 		if (swgSecurityScheme.getDescription() != null) {
 			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
 		}
-		
-		switch(soaSecurityScheme.getType()) {
+
+		switch (soaSecurityScheme.getType()) {
 		case API_KEY:
-			
+
 			if (swgSecurityScheme.getIn() != null) {
 				soaSecurityScheme.setApiKeyLocation(toSoa(swgSecurityScheme.getIn()));
 			}
@@ -303,7 +305,7 @@ public class SoaComponentBuilder {
 			if (swgSecurityScheme.getOpenIdConnectUrl() != null) {
 				soaSecurityScheme.setConnectURL(swgSecurityScheme.getOpenIdConnectUrl());
 			}
-			
+
 			if (swgSecurityScheme.getFlows() != null) {
 				soaSecurityScheme.getFlows().addAll(createSoaFlows(swgSecurityScheme.getFlows()));
 			}
@@ -338,10 +340,10 @@ public class SoaComponentBuilder {
 			Flow flow = createSoaFlow(flows.getPassword());
 			flow.setFlowType(FlowType.PASSWORD);
 			soaFlows.add(flow);
-		}		
+		}
 		return soaFlows;
 	}
-	
+
 	private Flow createSoaFlow(OAuthFlow swgOAuthFlow) {
 		Flow soaFlow = SoaFactory.eINSTANCE.createFlow();
 		soaFlow.setAuthorizationURL(swgOAuthFlow.getAuthorizationUrl());
@@ -355,7 +357,7 @@ public class SoaComponentBuilder {
 				soaFlow.getScopes().add(scope);
 			});
 		}
-		
+
 		return soaFlow;
 	}
 
@@ -374,6 +376,11 @@ public class SoaComponentBuilder {
 			break;
 		case OPENIDCONNECT:
 			soaSecuritySchemeType = SecuritySchemeType.OPEN_ID_CONNECT;
+			break;
+		case MUTUALTLS:
+			logWarning("SecuritySchemeType not supported : MUTUALTLS");
+			break;
+		default:
 			break;
 		}
 
@@ -449,13 +456,12 @@ public class SoaComponentBuilder {
 				Property usingProperty = usingProperties.get(0);
 				StructuredType usingType = (StructuredType) usingProperty.eContainer();
 				inlineTypeName = usingType.getName() + upperFirst(usingProperty.getName());
-			} else if(usingProperties.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
-				inlineTypeName = usingProperties.stream()
-						.map(p -> upperFirst(p.getName()))
-						.distinct().sorted()
+			} else if (usingProperties.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
+				inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).distinct().sorted()
 						.collect(joining());
 			} else {
-				inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME + usingProperties.size();
+				inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME
+						+ usingProperties.size();
 			}
 
 			inlineTypeName = toUniqueName(commonTypesContainer, inlineTypeName);
@@ -542,12 +548,11 @@ public class SoaComponentBuilder {
 				Set<String> distinctUsingPropertyNames = usingProperties.stream().map(p -> upperFirst(p.getName()))
 						.collect(toSet());
 				if (distinctUsingPropertyNames.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
-					inlineTypeName = usingProperties.stream()
-							.map(p -> upperFirst(p.getName()))
-							.distinct().sorted()
+					inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).distinct().sorted()
 							.collect(joining());
 				} else {
-					inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME + distinctUsingPropertyNames.size();
+					inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME
+							+ distinctUsingPropertyNames.size();
 				}
 			}
 
@@ -560,13 +565,13 @@ public class SoaComponentBuilder {
 
 	private String toUniqueName(TypesDefinition typesContainer, String inlineTypeName) {
 		Set<String> usedNames = typesContainer.getTypes().stream().map(t -> t.getName()).collect(toSet());
-		
-		if(!usedNames.contains(inlineTypeName)) {
+
+		if (!usedNames.contains(inlineTypeName)) {
 			return inlineTypeName;
 		}
-		
+
 		int suffix = 1;
-		while(usedNames.contains(inlineTypeName + NAME_INDEX_SEPARATOR + suffix)) {
+		while (usedNames.contains(inlineTypeName + NAME_INDEX_SEPARATOR + suffix)) {
 			suffix++;
 		}
 		return inlineTypeName + NAME_INDEX_SEPARATOR + suffix;
@@ -752,7 +757,7 @@ public class SoaComponentBuilder {
 			Operation swgOperation) {
 		Service soaService = getSoaServiceFromPath(path);
 		Interface soaInterface = getOrCreateInterface(soaService);
-		
+
 		org.obeonetwork.dsl.soa.Operation soaOperation = SoaFactory.eINSTANCE.createOperation();
 		soaInterface.getOwnedOperations().add(soaOperation);
 
@@ -799,7 +804,7 @@ public class SoaComponentBuilder {
 		}
 
 		createPaginationProperties(swgOperation, soaOperation);
-		
+
 		ApiResponses responses = swgOperation.getResponses();
 		extractPropertiesExtensions(responses, soaOperation);
 
@@ -815,18 +820,17 @@ public class SoaComponentBuilder {
 				if (!swgSecurityRequirement.keySet().isEmpty()) {
 					String ssKey = swgSecurityRequirement.keySet().iterator().next();
 
-					for(org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes().stream()
-							.filter(ss -> ssKey.equals(ss.getName())).collect(toList())) {
+					for (org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes()
+							.stream().filter(ss -> ssKey.equals(ss.getName())).collect(toList())) {
 						SecurityApplication soaSecurityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
 						soaSecurityApplication.setSecurityScheme(securityScheme);
 						soaOperation.getSecurityApplications().add(soaSecurityApplication);
-						
+
 						List<String> scopeNames = swgSecurityRequirement.get(ssKey);
-						if(scopeNames != null) {
-							for(String scopeName : scopeNames) {
+						if (scopeNames != null) {
+							for (String scopeName : scopeNames) {
 								List<Scope> soaScopes = securityScheme.getFlows().stream()
-										.flatMap(f -> f.getScopes().stream())
-										.filter(s -> s.getName().equals(scopeName))
+										.flatMap(f -> f.getScopes().stream()).filter(s -> s.getName().equals(scopeName))
 										.collect(toList());
 								soaSecurityApplication.getScopes().addAll(soaScopes);
 							}
@@ -838,82 +842,81 @@ public class SoaComponentBuilder {
 
 		PathItem swgPathItem = getPathItemFromPath(path);
 		extractPropertiesExtensions(swgPathItem, soaOperation);
-		
+
 		// Servers
 		if (swgPathItem.getServers() != null) {
 			for (Server swgServer : swgPathItem.getServers()) {
 				soaOperation.getServers().add(createSoaServer(swgServer));
 			}
 		}
-		
+
 		extractPropertiesExtensions(getPathItemFromPath(path), soaOperation);
 
 		return soaOperation;
 	}
 
 	private void createPaginationProperties(Operation swgOperation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-		boolean hasPaginationParameter = (swgOperation.getParameters() != null) && swgOperation.getParameters()
-				.stream()
-				.anyMatch(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName()) ||
-						PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName()));
-		
-		boolean hasPaginationPropertyExtension = (swgOperation.getExtensions() != null) && swgOperation.getExtensions().keySet().contains(paginationExtension);
-				
+		boolean hasPaginationParameter = (swgOperation.getParameters() != null)
+				&& swgOperation.getParameters().stream().filter(Objects::nonNull)
+						.anyMatch(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName())
+								|| PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName()));
+
+		boolean hasPaginationPropertyExtension = (swgOperation.getExtensions() != null)
+				&& swgOperation.getExtensions().keySet().contains(paginationExtension);
+
 		if (hasPaginationPropertyExtension || hasPaginationParameter) {
 			soaOperation.setPaged(true);
-			
+
 			if (hasPaginationPropertyExtension) {
-				setPaginationPropertyExtension(soaOperation);	
+				setPaginationPropertyExtension(soaOperation);
 			}
-			
+
 			if (hasPaginationParameter) {
 				setPaginationParameters(soaOperation);
 			}
 		} else {
 			soaOperation.setPaged(false);
 		}
-		
+
 	}
 
 	/**
-	 * Set the size and page {@link org.obeonetwork.dsl.soa.Parameter} references for a Soa {@link org.obeonetwork.dsl.soa.Operation}.
+	 * Set the size and page {@link org.obeonetwork.dsl.soa.Parameter} references
+	 * for a Soa {@link org.obeonetwork.dsl.soa.Operation}.
+	 * 
 	 * @param soaOperation an {@link org.obeonetwork.dsl.soa.Operation}
 	 */
 	private void setPaginationParameters(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		// if the input swg operation has a pagination extension, 
+		// if the input swg operation has a pagination extension,
 		// since it has already been mapped to the current soa operation,
 		// we can associate it with the pagination extension property of the operation.
-		
+
 		Optional<org.obeonetwork.dsl.soa.Parameter> inputPageParameter = soaOperation.getInput().stream()
-			.filter(parameter -> PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName()))
-			.findFirst();				
+				.filter(parameter -> PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName())).findFirst();
 		if (inputPageParameter.isPresent())
 			soaOperation.setPage(inputPageParameter.get());
-		
+
 		Optional<org.obeonetwork.dsl.soa.Parameter> inputSizeParameter = soaOperation.getInput().stream()
-				.filter(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName()))
-				.findFirst();				
+				.filter(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName())).findFirst();
 		if (inputSizeParameter.isPresent())
-				soaOperation.setSize(inputSizeParameter.get());
+			soaOperation.setSize(inputSizeParameter.get());
 	}
-	
+
 	/**
-	 * Set the {@link PropertiesExtension} reference for the {@link org.obeonetwork.dsl.soa.Operation}.
+	 * Set the {@link PropertiesExtension} reference for the
+	 * {@link org.obeonetwork.dsl.soa.Operation}.
+	 * 
 	 * @param soaOperation an {@link org.obeonetwork.dsl.soa.Operation}
 	 */
 	private void setPaginationPropertyExtension(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		if (soaOperation.getMetadatas() != null) {
-			soaOperation.setPaginationExtension(soaOperation
-				.getMetadatas()
-				.getMetadatas()
-				.stream()
-				.filter(PropertiesExtension.class::isInstance)
-				.map(PropertiesExtension.class::cast)
-				.filter(property -> ((PropertiesExtension) property).getTitle().equals(paginationExtension))
-				.findFirst().orElse(null));					
+			soaOperation.setPaginationExtension(soaOperation.getMetadatas().getMetadatas().stream()
+					.filter(PropertiesExtension.class::isInstance).map(PropertiesExtension.class::cast)
+					.filter(property -> ((PropertiesExtension) property).getTitle().equals(paginationExtension))
+					.findFirst().orElse(null));
 		}
 	}
-	
+
 	private String computeSoaOperationName(HttpMethod verb, String uri) {
 		List<String> segments = Arrays.asList(uri.split(QUALIFIED_PATH_SEPARATOR));
 
@@ -1007,8 +1010,15 @@ public class SoaComponentBuilder {
 	}
 
 	private Schema unwrapArrayOrComposedSchema(Schema schema) {
-		if (schema instanceof ArraySchema) {
-			return ((ArraySchema) schema).getItems();
+		if (isArraySchema(schema)) {
+			/**
+			 * Workaround for bug documented in OpenApiParserHelper#isArraySchema.
+			 */
+			if (schema instanceof ArraySchema) {
+				return ((ArraySchema) schema).getItems();
+			} else {
+				return ((JsonSchema) schema).getItems();
+			}
 		} else if (schema instanceof ComposedSchema) {
 			List<Schema> allOf = ((ComposedSchema) schema).getAllOf();
 			if (allOf.size() == 1) {
@@ -1278,14 +1288,12 @@ public class SoaComponentBuilder {
 	}
 
 	private void buildSoaExposedTypes() {
-		if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null ) {
-			openApi.getComponents().getSchemas().entrySet().stream()
-			.filter(entry -> !isPrimitiveType(entry.getValue()))
-			.forEach(entry -> touchExposedType(entry.getKey(), entry.getValue()));
-			
-			openApi.getComponents().getSchemas().entrySet().stream()
-			.filter(entry -> !isPrimitiveType(entry.getValue()))
-			.forEach(entry -> updateExposedType(getExposedTypeFromKey(entry.getKey()), entry.getValue()));
+		if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
+			openApi.getComponents().getSchemas().entrySet().stream().filter(entry -> !isPrimitiveType(entry.getValue()))
+					.forEach(entry -> touchExposedType(entry.getKey(), entry.getValue()));
+
+			openApi.getComponents().getSchemas().entrySet().stream().filter(entry -> !isPrimitiveType(entry.getValue()))
+					.forEach(entry -> updateExposedType(getExposedTypeFromKey(entry.getKey()), entry.getValue()));
 		}
 	}
 
@@ -1393,15 +1401,14 @@ public class SoaComponentBuilder {
 	}
 
 	private boolean isPrimitiveType(Schema schema) {
-		if(schema.get$ref() != null) {
+		if (schema.get$ref() != null) {
 			return isPrimitiveType(getReferencedSchema(schema.get$ref()));
 		}
-		
-		String type = schema.getType();
+
+		String type = OpenApiParserHelper.getSingleSchemaType(schema);
 		List _enum = schema.getEnum();
-		return OPEN_API_TYPE_INTEGER.equals(type) 
-				|| OPEN_API_TYPE_NUMBER.equals(type) 
-				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty())) 
+		return OPEN_API_TYPE_INTEGER.equals(type) || OPEN_API_TYPE_NUMBER.equals(type)
+				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty()))
 				|| OPEN_API_TYPE_BOOLEAN.equals(type);
 	}
 
@@ -1430,7 +1437,7 @@ public class SoaComponentBuilder {
 			updateEnumeration((Enumeration) exposedType, schema);
 			break;
 		}
-		
+
 		exposedType.setDescription(schema.getDescription());
 	}
 
@@ -1438,8 +1445,8 @@ public class SoaComponentBuilder {
 		Set<String> literalNames = new HashSet<>();
 		collectLiterals(literalNames, schema);
 		updateEnumeration(enumeration, literalNames);
-		
-		if(!StringUtils.isNullOrWhite(schema.getDescription())) {
+
+		if (!StringUtils.isNullOrWhite(schema.getDescription())) {
 			enumeration.setDescription(schema.getDescription());
 		}
 
@@ -1491,7 +1498,7 @@ public class SoaComponentBuilder {
 			// Terminal case of a structure defining properties
 			buildSoaProperties(dto, schema, getProperties(schema));
 		}
-		
+
 		return dto;
 	}
 
@@ -1578,7 +1585,8 @@ public class SoaComponentBuilder {
 		}
 	}
 
-	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey, Schema propertySchema) {
+	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey,
+			Schema propertySchema) {
 		Property soaProperty = null;
 
 		Schema unwrappedSchema = unwrapArrayOrComposedSchema(propertySchema);
@@ -1715,50 +1723,55 @@ public class SoaComponentBuilder {
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
 		attribute.setType(getPrimitiveTypeFromName(SOA_PRIMITIVE_TYPE_NAME_STRING));
-		
+
 		return attribute;
 	}
-	
+
 	private Attribute createPrimitiveTypeAttribute(StructuredType type, Schema propertySchema) {
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
 		DataType primitiveType = getPrimitiveType(propertySchema);
 		attribute.setType(primitiveType);
-		
+
 		setValueConstraints(attribute, propertySchema);
 
 		return attribute;
 	}
 
 	private DataType getPrimitiveType(Schema schema) {
-		if(schema.get$ref() != null) {
+		if (schema.get$ref() != null) {
 			return getPrimitiveType(getReferencedSchema(schema.get$ref()));
 		}
-		
+
 		String primitiveTypeName = getPrimitiveTypeName(schema);
 		if (primitiveTypeName != null) {
 			return getPrimitiveTypeFromName(primitiveTypeName);
 		} else {
 			logWarning(String.format("Primitive type mapping not found for schema type \"%s\" and format \"%s\".",
-					schema.getType(), schema.getFormat()));
+					OpenApiParserHelper.getSingleSchemaType(schema), schema.getFormat()));
 		}
 		return null;
 	}
 
 	private DataType getPrimitiveTypeFromName(String primitiveTypeName) {
-		return environment.getTypesDefinition().getTypes().stream()
-				.filter(DataType.class::isInstance)
-				.map(DataType.class::cast)
-				.filter(t -> primitiveTypeName.equals(t.getName()))
-				.findFirst().orElse(null);
+		return environment.getTypesDefinition().getTypes().stream().filter(DataType.class::isInstance)
+				.map(DataType.class::cast).filter(t -> primitiveTypeName.equals(t.getName())).findFirst().orElse(null);
 	}
 
 	private MultiplicityKind computeMultiplicity(boolean required, Schema schema) {
 		int min = 0;
 		int max = 1;
 
-		if (schema instanceof ArraySchema) {
-			ArraySchema arraySchema = (ArraySchema) schema;
+		if (isArraySchema(schema)) {
+			/**
+			 * Workaround for bug documented in OpenApiParserHelper#isArraySchema.
+			 */
+			Schema arraySchema = schema;
+//			if (schema instanceof ArraySchema) {
+//				arraySchema = (ArraySchema) schema;
+//			} else {
+//				arraySchema = (JsonSchema) schema;
+//			}
 			if ((arraySchema.getMinItems() != null && arraySchema.getMinItems() > 0)) {
 				min = 1;
 			}
@@ -1858,7 +1871,7 @@ public class SoaComponentBuilder {
 	private void extractPropertiesExtensions(Object swaggerElement, ObeoDSMObject soaElement) {
 		PropertiesExtensionsHelper.addPropertiesExtensionsFromSwgToSoa(swaggerElement, soaElement);
 	}
-	
+
 	/**
 	 * Sets the constraints of the {@link ConstrainableElement} being created, if
 	 * there are any on the given {@link Schema}.
@@ -1870,26 +1883,26 @@ public class SoaComponentBuilder {
 	private static void setValueConstraints(final ConstrainableElement constrainableElement, final Schema schema) {
 		Objects.requireNonNull(constrainableElement);
 		Objects.requireNonNull(schema);
-		
+
 		String minimum = null;
 		String maximum = null;
-		if(isTextual(constrainableElement)) {
-			if(schema.getMinLength() != null) {
+		if (isTextual(constrainableElement)) {
+			if (schema.getMinLength() != null) {
 				minimum = schema.getMinLength().toString();
 			}
-			if(schema.getMaxLength() != null) {
+			if (schema.getMaxLength() != null) {
 				maximum = schema.getMaxLength().toString();
 			}
 		} else {
-			if(schema.getMinimum() != null) {
+			if (schema.getMinimum() != null) {
 				minimum = schema.getMinimum().toString();
 			}
-			if(schema.getMaximum() != null) {
+			if (schema.getMaximum() != null) {
 				maximum = schema.getMaximum().toString();
 			}
 		}
 		final String pattern = schema.getPattern();
-		
+
 		if (minimum != null) {
 			constrainableElement.setMinimum(minimum.toString());
 		}
