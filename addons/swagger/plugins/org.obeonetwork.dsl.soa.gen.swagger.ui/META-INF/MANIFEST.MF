@@ -20,5 +20,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.emf.transaction,
  org.obeonetwork.utils.common,
- org.obeonetwork.utils.common.ui
+ org.obeonetwork.utils.common.ui,
+ org.eclipse.core.expressions;bundle-version="3.7.100",
+ com.google.guava;bundle-version="30.1.0"
 Import-Package: org.eclipse.jface.databinding.swt
