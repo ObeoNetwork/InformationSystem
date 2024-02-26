@@ -1,5 +1,5 @@
 {
-  "openapi" : "3.0.1",
+  "openapi" : "3.1.0",
   "info" : {
     "title" : "TheTVDB API v3",
     "description" : "API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.\n\n\nHow to use this API documentation\n----------------\n\n\nYou may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.\n1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.\n1. Paste the JWT token from the response into the \"JWT Token\" field at the top of the page and click the 'Add Token' button.\n\n\nYou will now be able to use the remaining routes to send requests to the API and get a response.\n\n\nLanguage Selection\n----------------\n\n\nLanguage selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..\n\n\nAuthentication\n----------------\n\n\nAuthentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.\n\n`{\"apikey\":\"APIKEY\",\"username\":\"USERNAME\",\"userkey\":\"USERKEY\"}`\n\nNote that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.\nThe token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer <yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.\n\n\nVersioning\n----------------\n\n\nYou may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.",
@@ -7,17 +7,31 @@
     "contact" : {
       "name" : "obeo",
       "url" : "https://contact.obeosoft.com/",
-      "email" : "contact@obeosoft.com"
+      "email" : "contact@obeosoft.com",
+      "x-ContactSurContact" : "Contact-Contact"
     },
     "license" : {
       "name" : "Apache 2.0",
-      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "extensions" : {
+        "x-LicenseSurLicense" : "License-License"
+      }
     },
-    "version" : "3.0.0"
+    "version" : "3.0.0",
+    "x-InformationSurInfo" : "Information-Info"
   },
+  "servers" : [ {
+    "url" : "testurl1",
+    "description" : "descriptionurl1",
+    "x-ServerSurServer" : "Server-Server"
+  }, {
+    "url" : "testurl2",
+    "description" : "descriptionurl2"
+  } ],
   "tags" : [ {
     "name" : "Series",
-    "description" : "Information about a specific series"
+    "description" : "Information about a specific series",
+    "x-ServiceSurTag" : "Service-Tag"
   }, {
     "name" : "Updates",
     "description" : "Series that have been recently updated."
@@ -41,7 +55,7 @@
     "description" : "Routes for handling user data."
   } ],
   "paths" : {
-    "/series/{id}" : {
+    "testuri/series/{id}" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns a series records that contains all information known about a particular series id.",
@@ -53,8 +67,10 @@
           "required" : true,
           "schema" : {
             "type" : "integer",
-            "format" : "int64"
-          }
+            "format" : "int64",
+            "x-ParameterSurSchema" : "Parameter-Schema"
+          },
+          "x-ParameterSurParameter" : "Parameter-Parameter"
         }, {
           "name" : "Accept-Language",
           "in" : "header",
@@ -68,12 +84,23 @@
           "200" : {
             "description" : "OK\n\nA series record.",
             "content" : {
-              "application/json" : {
+              "application/pdf" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SeriesData"
-                }
+                  "$ref" : "#/components/schemas/SeriesData",
+                  "x-ParameterSurSchema2" : "Parameter-Schema2"
+                },
+                "examples" : {
+                  "example for output200" : {
+                    "summary" : "summary example for output200",
+                    "description" : "description example for output200",
+                    "value" : "value example for output200",
+                    "x-ExampleExample" : "Example-Example"
+                  }
+                },
+                "x-MediaTypeMediaType" : "MediaType-MediaType"
               }
-            }
+            },
+            "x-ParameterSurApiResponse" : "Parameter-ApiResponse"
           },
           "401" : {
             "description" : "Unauthorized\n\nReturned if your JWT token is missing or expired",
@@ -94,14 +121,26 @@
                 }
               }
             }
-          }
+          },
+          "x-OperationSurApiResponses" : "Operation-ApiResponses"
         },
         "security" : [ {
           "jwtToken" : [ ]
-        } ]
-      }
+        } ],
+        "x-OperationSurOperation" : "Operation-Operation"
+      },
+      "servers" : [ {
+        "url" : "urlserver3",
+        "description" : "descriptionserver3",
+        "x-ServerSurServer" : "Server-Server",
+        "x-ServerSurServer2" : "Server-Server2"
+      }, {
+        "url" : "urlserver4",
+        "description" : "descriptionserver4"
+      } ],
+      "x-OperationSurPathItem" : "Operation-PathItem"
     },
-    "/series/{id}/actors" : {
+    "testuri/series/{id}/actors" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns actors for the given series id",
@@ -153,7 +192,7 @@
         } ]
       }
     },
-    "/series/{id}/episodes" : {
+    "testuri/series/{id}/episodes" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "All episodes for a given series. Paginated with 100 results per page.",
@@ -213,7 +252,7 @@
         } ]
       }
     },
-    "/series/{id}/episodes/query" : {
+    "testuri/series/{id}/episodes/query" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "This route allows the user to query against episodes for the given series. The response is a paginated array of episode records.",
@@ -329,7 +368,7 @@
         } ]
       }
     },
-    "/series/{id}/episodes/query/params" : {
+    "testuri/series/{id}/episodes/query/params" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns the allowed query keys for the `/series/{id}/episodes/query` route",
@@ -381,7 +420,7 @@
         } ]
       }
     },
-    "/series/{id}/episodes/summary" : {
+    "testuri/series/{id}/episodes/summary" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns a summary of the episodes and seasons available for the series.\n\n__Note__: Season \"0\" is for all episodes that are considered to be specials.",
@@ -433,7 +472,7 @@
         } ]
       }
     },
-    "/series/{id}/filter" : {
+    "testuri/series/{id}/filter" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route.",
@@ -501,7 +540,7 @@
         } ]
       }
     },
-    "/series/{id}/filter/params" : {
+    "testuri/series/{id}/filter/params" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns the list of keys available for the `/series/{id}/filter` route",
@@ -561,7 +600,7 @@
         } ]
       }
     },
-    "/series/{id}/images" : {
+    "testuri/series/{id}/images" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns a summary of the images for a particular series",
@@ -621,7 +660,7 @@
         } ]
       }
     },
-    "/series/{id}/images/query" : {
+    "testuri/series/{id}/images/query" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Query images for the given series ID.",
@@ -705,7 +744,7 @@
         } ]
       }
     },
-    "/series/{id}/images/query/params" : {
+    "testuri/series/{id}/images/query/params" : {
       "get" : {
         "tags" : [ "Series" ],
         "description" : "Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results.",
@@ -716,8 +755,6 @@
           "description" : "ID of the series",
           "required" : true,
           "schema" : {
-            "maximum" : 10000,
-            "minimum" : 0,
             "type" : "integer",
             "format" : "int64"
           }
@@ -727,9 +764,6 @@
           "description" : "Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.",
           "required" : false,
           "schema" : {
-            "maxLength" : 100,
-            "minLength" : 0,
-            "pattern" : "/^[a-zA-Z]+$/",
             "type" : "string"
           }
         } ],
@@ -770,7 +804,7 @@
         } ]
       }
     },
-    "/updated/query" : {
+    "testuri/updated/query" : {
       "get" : {
         "tags" : [ "Updates" ],
         "description" : "Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.\n\n\nThe user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically.",
@@ -837,7 +871,7 @@
         } ]
       }
     },
-    "/updated/query/params" : {
+    "testuri/updated/query/params" : {
       "get" : {
         "tags" : [ "Updates" ],
         "description" : "Returns an array of valid query keys for the `/updated/query/params` route.",
@@ -879,7 +913,7 @@
         } ]
       }
     },
-    "/login" : {
+    "testuri/login" : {
       "post" : {
         "tags" : [ "Authentication" ],
         "description" : "Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section",
@@ -891,7 +925,8 @@
                 "$ref" : "#/components/schemas/Auth"
               }
             }
-          }
+          },
+          "x-ParameterSurRequestBody" : "Parameter-RequestBody"
         },
         "responses" : {
           "200" : {
@@ -920,7 +955,7 @@
         } ]
       }
     },
-    "/refresh_token" : {
+    "testuri/refresh_token" : {
       "get" : {
         "tags" : [ "Authentication" ],
         "description" : "Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated.",
@@ -952,7 +987,7 @@
         } ]
       }
     },
-    "/search/series" : {
+    "testuri/search/series" : {
       "get" : {
         "tags" : [ "Search" ],
         "description" : "Allows the user to search for a series based on the following parameters.",
@@ -1035,7 +1070,7 @@
         } ]
       }
     },
-    "/search/series/params" : {
+    "testuri/search/series/params" : {
       "get" : {
         "tags" : [ "Search" ],
         "description" : "Returns an array of parameters to query by in the `/search/series` route.",
@@ -1067,7 +1102,7 @@
         } ]
       }
     },
-    "/episodes/{id}" : {
+    "testuri/episodes/{id}" : {
       "get" : {
         "tags" : [ "Episodes" ],
         "description" : "Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release.",
@@ -1121,13 +1156,10 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "jwtToken" : [ ]
-        } ]
+        }
       }
     },
-    "/languages" : {
+    "testuri/languages" : {
       "get" : {
         "tags" : [ "Languages" ],
         "description" : "All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records.",
@@ -1159,7 +1191,7 @@
         } ]
       }
     },
-    "/languages/{id}" : {
+    "testuri/languages/{id}" : {
       "get" : {
         "tags" : [ "Languages" ],
         "description" : "Information about a particular language, given the language ID.",
@@ -1210,7 +1242,7 @@
         } ]
       }
     },
-    "/movies/{id}" : {
+    "testuri/movies/{id}" : {
       "get" : {
         "tags" : [ "Movies" ],
         "description" : "Returns a movies records that contains all information known about a particular movies id.",
@@ -1270,7 +1302,7 @@
         } ]
       }
     },
-    "/movieupdates" : {
+    "testuri/movieupdates" : {
       "get" : {
         "tags" : [ "Movies" ],
         "description" : "Returns all movies ids updated since a given timestamp.",
@@ -1331,7 +1363,7 @@
         } ]
       }
     },
-    "/user" : {
+    "testuri/user" : {
       "get" : {
         "tags" : [ "Users" ],
         "description" : "Returns basic information about the currently authenticated user.",
@@ -1373,7 +1405,7 @@
         } ]
       }
     },
-    "/user/favorites" : {
+    "testuri/user/favorites" : {
       "get" : {
         "tags" : [ "Users" ],
         "description" : "Returns an array of favorite series for a given user, will be a blank array if no favorites exist.",
@@ -1415,7 +1447,7 @@
         } ]
       }
     },
-    "/user/favorites/{id}" : {
+    "testuri/user/favorites/{id}" : {
       "put" : {
         "tags" : [ "Users" ],
         "description" : "Adds the supplied series ID to the user’s favorite’s list and returns the updated list.",
@@ -1537,7 +1569,7 @@
         } ]
       }
     },
-    "/user/ratings" : {
+    "testuri/user/ratings" : {
       "get" : {
         "tags" : [ "Users" ],
         "description" : "Returns an array of ratings for the given user.",
@@ -1579,7 +1611,7 @@
         } ]
       }
     },
-    "/user/ratings/query" : {
+    "testuri/user/ratings/query" : {
       "get" : {
         "tags" : [ "Users" ],
         "description" : "Returns an array of ratings for a given user that match the query.",
@@ -1630,7 +1662,7 @@
         } ]
       }
     },
-    "/user/ratings/query/params" : {
+    "testuri/user/ratings/query/params" : {
       "get" : {
         "tags" : [ "Users" ],
         "description" : "Returns a list of query params for use in the `/user/ratings/query` route.",
@@ -1672,7 +1704,7 @@
         } ]
       }
     },
-    "/user/ratings/{itemType}/{itemId}" : {
+    "testuri/user/ratings/{itemType}/{itemId}" : {
       "delete" : {
         "tags" : [ "Users" ],
         "description" : "This route deletes a given rating of a given type.",
@@ -1732,7 +1764,7 @@
         } ]
       }
     },
-    "/user/ratings/{itemType}/{itemId}/{itemRating}" : {
+    "testuri/user/ratings/{itemType}/{itemId}/{itemRating}" : {
       "put" : {
         "tags" : [ "Users" ],
         "description" : "This route updates a given rating of a given type.",
@@ -1800,7 +1832,8 @@
           "jwtToken" : [ ]
         } ]
       }
-    }
+    },
+    "x-CptSurPaths" : "Component-Paths"
   },
   "components" : {
     "schemas" : {
@@ -1962,7 +1995,10 @@
         "type" : "object",
         "properties" : {
           "data" : {
-            "$ref" : "#/components/schemas/Episode"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Episode"
+            } ],
+            "x-ReferenceSurSchema" : "Reference-Schema"
           },
           "errors" : {
             "$ref" : "#/components/schemas/JSONErrors"
@@ -2012,21 +2048,16 @@
         "type" : "object",
         "properties" : {
           "name" : {
-            "minLength" : 0,
             "type" : "string"
           },
           "englishName" : {
-            "minLength" : 0,
             "type" : "string"
           },
           "id" : {
-            "maximum" : 100,
-            "minimum" : 3,
             "type" : "integer",
             "format" : "int64"
           },
           "abbreviation" : {
-            "pattern" : "\/^[a-zA-Z]+$\/",
             "type" : "string"
           }
         }
@@ -2068,7 +2099,8 @@
         "properties" : {
           "runtime" : {
             "type" : "integer",
-            "format" : "int64"
+            "format" : "int64",
+            "x-AttributeSurSchema" : "Attribute-Schema"
           },
           "id" : {
             "type" : "integer",
@@ -2081,7 +2113,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/MovieRemoteId"
-            }
+            },
+            "x-ReferenceSurSchema" : "Reference-Schema"
           },
           "artworks" : {
             "type" : "array",
@@ -2116,7 +2149,8 @@
               "$ref" : "#/components/schemas/MovieTrailer"
             }
           }
-        }
+        },
+        "x-DTOSurSchema" : "DTO-Schema"
       },
       "MovieArtwork" : {
         "type" : "object",
@@ -2881,5 +2915,6 @@
         "in" : "header"
       }
     }
-  }
+  },
+  "x-CptSurOpenApi" : "Component-OpenApi"
 }

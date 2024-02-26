@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Swagger Petstore - OpenAPI 3.0
   description: "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.\
@@ -9,15 +9,15 @@ info:
     \ the API in general, and expose some of the new features in OAS3.\n\nSome useful\
     \ links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n\
     - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) "
-  termsOfService: http://swagger.io/terms/
+  termsOfService: /tos
   contact:
-    email: apiteam@swagger.io
+    name: Obeo
+    url: https://contact.obeosoft.com/
+    email: contact@obeosoft.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.5-SNAPSHOT
-servers:
-- url: /v3
 tags:
 - name: User
   description: Access to Petstore orders
@@ -34,25 +34,42 @@ paths:
       operationId: createUser
       requestBody:
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
           application/xml:
             schema:
               $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
+            examples:
+              cat:
+                summary: a cat
+                description: 'kitty kitty '
+                value:
+                  name: edwardo
+                  weight: 2
+                  age: 8
+              dog:
+                summary: a dog
+                description: he is a good boy
+                value:
+                  name: bobby
+                  age: 6
+                  weight: 34
+          application/json:
             schema:
               $ref: '#/components/schemas/User'
       responses:
         default:
           description: successful operation
           content:
-            application/json:
+            application/yaml:
               schema:
                 $ref: '#/components/schemas/User'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
+              examples:
+                dog:
+                  summary: a dog
+                  description: he is a very good boy
+                  value:
+                    name: bobby
+                    age: 6
+                    weight: 34
   /user/createWithList:
     post:
       tags:
@@ -67,21 +84,14 @@ paths:
               items:
                 $ref: '#/components/schemas/User'
       responses:
-        200:
-          description: |-
-            OK
-
-            Successful operation
+        "200":
+          description: "OK\n\nSuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
         default:
           description: successful operation
-      x-swagger-router-controller: UserController
   /user/login:
     get:
       tags:
@@ -101,23 +111,14 @@ paths:
         schema:
           type: string
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                type: string
             application/json:
               schema:
                 type: string
-        400:
-          description: |-
-            Bad Request
-
-            Invalid username/password supplied
+        "400":
+          description: "Bad Request\n\nInvalid username/password supplied"
   /user/logout:
     get:
       tags:
@@ -139,28 +140,16 @@ paths:
         schema:
           type: string
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid username supplied
-        404:
-          description: |-
-            Not Found
-
-            User not found
+        "400":
+          description: "Bad Request\n\nInvalid username supplied"
+        "404":
+          description: "Not Found\n\nUser not found"
     put:
       tags:
       - User
@@ -178,16 +167,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
       responses:
         default:
           description: successful operation
-      x-swagger-router-controller: UserController
     delete:
       tags:
       - User
@@ -201,16 +183,10 @@ paths:
         schema:
           type: string
       responses:
-        400:
-          description: |-
-            Bad Request
-
-            Invalid username supplied
-        404:
-          description: |-
-            Not Found
-
-            User not found
+        "400":
+          description: "Bad Request\n\nInvalid username supplied"
+        "404":
+          description: "Not Found\n\nUser not found"
   /store/inventory:
     get:
       tags:
@@ -218,18 +194,12 @@ paths:
       description: Returns a map of status codes to quantities
       operationId: getInventory
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Store_GetInventoryOutput200'
-      security:
-      - api_key: []
-      x-swagger-router-controller: OrderController
   /store/order:
     post:
       tags:
@@ -241,28 +211,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Order'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Order'
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-        405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
-      x-swagger-router-controller: OrderController
+        "405":
+          description: "Method Not Allowed\n\nInvalid input"
   /store/order/{orderId}:
     get:
       tags:
@@ -279,29 +236,16 @@ paths:
           type: integer
           format: int64
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Order'
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
-        404:
-          description: |-
-            Not Found
-
-            Order not found
-      x-swagger-router-controller: OrderController
+        "400":
+          description: "Bad Request\n\nInvalid ID supplied"
+        "404":
+          description: "Not Found\n\nOrder not found"
     delete:
       tags:
       - Store
@@ -317,17 +261,10 @@ paths:
           type: integer
           format: int64
       responses:
-        400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
-        404:
-          description: |-
-            Not Found
-
-            Order not found
-      x-swagger-router-controller: OrderController
+        "400":
+          description: "Bad Request\n\nInvalid ID supplied"
+        "404":
+          description: "Not Found\n\nOrder not found"
   /pet:
     put:
       tags:
@@ -339,44 +276,19 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Pet'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Pet'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Pet'
       responses:
-        200:
-          description: |-
-            OK
-
-            Successful operation
+        "200":
+          description: "OK\n\nSuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
             application/json:
               schema:
                 $ref: '#/components/schemas/Pet'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
-        404:
-          description: |-
-            Not Found
-
-            Pet not found
-        405:
-          description: |-
-            Method Not Allowed
-
-            Validation exception
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "400":
+          description: "Bad Request\n\nInvalid ID supplied"
+        "404":
+          description: "Not Found\n\nPet not found"
+        "405":
+          description: "Method Not Allowed\n\nValidation exception"
     post:
       tags:
       - Pet
@@ -387,34 +299,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Pet'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Pet'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Pet'
       responses:
-        200:
-          description: |-
-            OK
-
-            Successful operation
+        "200":
+          description: "OK\n\nSuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
             application/json:
               schema:
                 $ref: '#/components/schemas/Pet'
-        405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "405":
+          description: "Method Not Allowed\n\nInvalid input"
   /pet/findByStatus:
     get:
       tags:
@@ -427,54 +320,24 @@ paths:
         description: Status values that need to be considered for filter
         required: false
         schema:
-          $ref: '#/components/schemas/Pet_FindPetsByStatusStatus'
-      - name: page
-        in: query
-        description: The index of the page queried
-        required: false
-        schema:
-          type: integer
-          format: int64
-      - name: size
-        in: query
-        description: The number of elements per page
-        required: false
-        schema:
-          type: integer
-          format: int64
+          $ref: '#/components/schemas/PetStatus'
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Pet'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid status value
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
-      x-pagination: this is a pagination-related property extension
+        "400":
+          description: "Bad Request\n\nInvalid status value"
   /pet/findByTags:
     get:
       tags:
       - Pet
-      description: Multiple tags can be provided with comma separated strings. Use
-        tag1, tag2, tag3 for testing.
+      description: "Multiple tags can be provided with comma separated strings. Use\
+        \ tag1, tag2, tag3 for testing."
       operationId: findPetsByTags
       parameters:
       - name: tags
@@ -485,32 +348,30 @@ paths:
           type: array
           items:
             type: string
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Pet'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid tag value
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "400":
+          description: "Bad Request\n\nInvalid tag value"
+      x-pagination: description
   /pet/{petId}:
     get:
       tags:
@@ -526,33 +387,16 @@ paths:
           type: integer
           format: int64
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
             application/json:
               schema:
                 $ref: '#/components/schemas/Pet'
-        400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
-        404:
-          description: |-
-            Not Found
-
-            Pet not found
-      security:
-      - api_key: []
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "400":
+          description: "Bad Request\n\nInvalid ID supplied"
+        "404":
+          description: "Not Found\n\nPet not found"
     post:
       tags:
       - Pet
@@ -578,15 +422,8 @@ paths:
         schema:
           type: string
       responses:
-        405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "405":
+          description: "Method Not Allowed\n\nInvalid input"
     delete:
       tags:
       - Pet
@@ -605,15 +442,8 @@ paths:
           type: integer
           format: int64
       responses:
-        400:
-          description: |-
-            Bad Request
-
-            Invalid pet value
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
+        "400":
+          description: "Bad Request\n\nInvalid pet value"
   /pet/{petId}/uploadImage:
     post:
       tags:
@@ -635,24 +465,17 @@ paths:
           type: string
       requestBody:
         content:
-          application/octet-stream:
+          application/json:
             schema:
               type: string
               format: binary
       responses:
-        200:
-          description: |-
-            OK
-
-            successful operation
+        "200":
+          description: "OK\n\nsuccessful operation"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
-      security:
-      - petstore_auth:
-        - write:pets
-        - read:pets
 components:
   schemas:
     ApiResponse:
@@ -673,7 +496,6 @@ components:
         id:
           type: integer
           format: int64
-      x-swagger-router-model: io.swagger.petstore.model.Category
     Order:
       type: object
       properties:
@@ -693,25 +515,20 @@ components:
           type: boolean
         status:
           $ref: '#/components/schemas/OrderStatus'
-      x-swagger-router-model: io.swagger.petstore.model.Order
     OrderStatus:
       type: string
-      description: Order Status
       enum:
       - approved
       - placed
       - delivered
     Pet:
-      required:
-      - name
-      - photoUrls
       type: object
       properties:
         photoUrls:
-          minItems: 1
           type: array
           items:
             type: string
+          minItems: 1
         name:
           type: string
         id:
@@ -725,15 +542,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-      x-swagger-router-model: io.swagger.petstore.model.Pet
+      required:
+      - name
+      - photoUrls
     PetStatus:
-      type: string
-      description: pet status in the store
-      enum:
-      - sold
-      - pending
-      - available
-    Pet_FindPetsByStatusStatus:
       type: string
       enum:
       - sold
@@ -749,7 +561,6 @@ components:
         id:
           type: integer
           format: int64
-      x-swagger-router-model: io.swagger.petstore.model.Tag
     User:
       type: object
       properties:
@@ -761,7 +572,6 @@ components:
           type: string
         userStatus:
           type: integer
-          description: User Status
           format: int32
         phone:
           type: string
@@ -772,17 +582,3 @@ components:
           type: string
         username:
           type: string
-      x-swagger-router-model: io.swagger.petstore.model.User
-  securitySchemes:
-    petstore_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://petstore.swagger.io/oauth/authorize
-          scopes:
-            write:pets: modify pets in your account
-            read:pets: read your pets
-    api_key:
-      type: apiKey
-      name: key
-      in: header
