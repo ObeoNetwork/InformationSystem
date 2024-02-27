@@ -48,9 +48,9 @@ public class SwaggerConverterHandler extends AbstractHandler implements IHandler
 		try {
 			outputStream = new FileOutputStream(outputFile);
 		} catch (FileNotFoundException e) {
-			logError(String.format("Cannot write file: %s",path), e);
+			logError(String.format("Cannot write file: %s",outputFile.getAbsolutePath()), e);
 		} catch (SecurityException e) {
-			logError(String.format("Cannot write file: %s",path), e);
+			logError(String.format("Cannot write file: %s",outputFile.getAbsolutePath()), e);
 		}
 		if(outputStream!=null) {
 			SwaggerFileConverter.convert(inputFile, outputStream);
