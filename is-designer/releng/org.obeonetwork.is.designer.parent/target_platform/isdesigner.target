@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1699525786">
+<target name="IS Designer Product Target Definition" sequenceNumber="1708954858">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.core.runtime.feature.feature.group" version="0.0.0"/>
@@ -137,7 +137,6 @@
       <unit id="org.junit" version="0.0.0"/>
       <unit id="org.objectweb.asm" version="0.0.0"/>
       <unit id="org.objectweb.asm.tree" version="0.0.0"/>
-      <unit id="org.slf4j.api" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.rcp" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.rcp.ui" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
@@ -155,6 +154,12 @@
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="0.0.0"/>
       <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/release/designer/11.7/community/latest/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="slf4j.api" version="0.0.0"/>
+      <unit id="slf4j.nop" version="0.0.0"/>
+      <unit id="org.slf4j.api" version="0.0.0"/>
+      <repository id="Eclipse-2023-03" location="https://download.eclipse.org/releases/2023-03/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab" version="0.0.0"/>

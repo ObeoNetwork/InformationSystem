@@ -140,7 +140,6 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/co
 	org.junit lazy
 	org.objectweb.asm lazy
 	org.objectweb.asm.tree lazy
-	org.slf4j.api lazy
 	org.eclipse.emf.compare.rcp lazy
 	org.eclipse.emf.compare.rcp.ui lazy
 	org.eclipse.sirius.runtime.acceleo.feature.group lazy
@@ -160,6 +159,11 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/co
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
 }
 
+location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
+    slf4j.api lazy
+    slf4j.nop lazy
+    org.slf4j.api lazy
+}
 location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }

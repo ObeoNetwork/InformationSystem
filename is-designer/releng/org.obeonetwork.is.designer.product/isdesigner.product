@@ -50,7 +50,6 @@ Visit http://www.obeo.fr
       </win>
    </launcher>
 
-
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
@@ -139,6 +138,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <plugins>
+      <plugin id="slf4j.api"/>
+      <plugin id="slf4j.nop"/>
+      <plugin id="org.slf4j.api"/>
    </plugins>
 
    <features>
@@ -221,8 +223,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
-      <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
+      <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
    </configurations>
 
    <preferencesInfo>
