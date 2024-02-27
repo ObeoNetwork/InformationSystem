@@ -36,3 +36,4 @@ Bundle-ClassPath: .,
  target/jars/swagger-models-2.2.20.jar
 Bundle-Activator: org.obeonetwork.dsl.soa.gen.swagger.Activator
 Bundle-ActivationPolicy: lazy
+Import-Package: com.google.common.io

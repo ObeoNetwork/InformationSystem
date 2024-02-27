@@ -112,7 +112,7 @@ public class SwaggerFileQuery {
 	 * @return whether a version returned by {@link SwaggerFileQuery#getVersion()}
 	 *         is equivalent to "OpenAPI 3.1.0".
 	 */
-	public static boolean isOpenAPI31Version(String version) {
+	public static boolean isOpenAPI3_1_0Version(String version) {
 		return version != null && version.matches(VERSION_NAME_OPEN_API + " 3.1(.0)?");
 	}
 

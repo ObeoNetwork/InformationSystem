@@ -11,9 +11,14 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logInfo;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.UUID;
 
 import org.eclipse.core.runtime.IStatus;
 import org.obeonetwork.dsl.environment.Environment;
@@ -21,16 +26,16 @@ import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerFileConverter;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.io.Files;
 
-import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Json31;
-import io.swagger.v3.core.util.Yaml;
 import io.swagger.v3.core.util.Yaml31;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -49,6 +54,18 @@ public class SwaggerImporter {
 		this.environment = environment;
 	}
 
+	/**
+	 * Imports inputFilePath as part of an SOA model.
+	 * <p>
+	 * If the file isn't in an OpenAPI 3.1.0 version, it's converted first.
+	 * </p>
+	 * 
+	 * @param inputFilePath       a supported Swagger/OpenAPI file, see
+	 *                            {@link SwaggerFileQuery#getSupportedVersions()}
+	 *                            for supported versions.
+	 * @param paginationExtension
+	 * @return
+	 */
 	public int importFromFile(String inputFilePath, String paginationExtension) {
 		int status = IStatus.OK;
 
@@ -73,29 +90,51 @@ public class SwaggerImporter {
 		}
 
 		OpenAPI swagger = null;
+		ObjectMapper objectMapper = null;
+		String inputTemporaryFilePathToImport = null;
+		// Write the temporary file to import, convert input file if necessary.
 		if (status != IStatus.ERROR) {
-
-			ObjectMapper objectMapper = null;
-
-			if (inputFilePath.endsWith(".yaml") || inputFilePath.endsWith(".yml")) {
-				if (SwaggerFileQuery.isOpenAPI31Version(swaggerVersion)) {
-					// "Yaml" mapper doesn't support all new OpenAPI 3.1.0 attributes.
-					objectMapper = Yaml31.mapper();
-				} else {
-					objectMapper = Yaml.mapper();
-				}
-
-			} else if (inputFilePath.endsWith(".json")) {
-				if (SwaggerFileQuery.isOpenAPI31Version(swaggerVersion)) {
-					// "Json" mapper doesn't support all new OpenAPI 3.1.0 attributes.
-					objectMapper = Json31.mapper();
-				} else {
-					objectMapper = Json.mapper();
-				}
-			}
-
 			try {
-				swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+				File openAPI310FileToImport = File.createTempFile(UUID.randomUUID().toString(),
+						"." + Files.getFileExtension(inputFilePath));
+				inputTemporaryFilePathToImport = openAPI310FileToImport.getAbsolutePath();
+				if (!SwaggerFileQuery.isOpenAPI3_1_0Version(swaggerVersion)) {
+					OutputStream outputStream = new FileOutputStream(openAPI310FileToImport);
+					SwaggerFileConverter.convert(inputFile, outputStream);
+				} else {
+					Files.copy(inputFile, openAPI310FileToImport);
+				}
+			} catch (FileNotFoundException e) {
+				logError(String.format("Cannot write file: %s", inputTemporaryFilePathToImport), e);
+				status = IStatus.ERROR;
+			} catch (SecurityException e) {
+				logError(String.format("Cannot write file: %s", inputTemporaryFilePathToImport), e);
+				status = IStatus.ERROR;
+			} catch (IOException e) {
+				logError(String.format("Cannot write file: %s", inputTemporaryFilePathToImport), e);
+				status = IStatus.ERROR;
+			} catch (IllegalArgumentException e) {
+				logError(String.format("Cannot write file: %s", inputTemporaryFilePathToImport), e);
+				status = IStatus.ERROR;
+			}
+		}
+
+		if (status != IStatus.ERROR
+				&& (inputTemporaryFilePathToImport == null || !(new File(inputTemporaryFilePathToImport)).exists())) {
+			logError(String.format("Cannot create a temporary file"));
+			status = IStatus.ERROR;
+		}
+
+		if (status != IStatus.ERROR) {
+			if (inputFilePath.endsWith(".yaml") || inputFilePath.endsWith(".yml")) {
+				objectMapper = Yaml31.mapper();
+			} else if (inputFilePath.endsWith(".json")) {
+				objectMapper = Json31.mapper();
+			}
+			File toImport = null;
+			try {
+				toImport = new File(inputTemporaryFilePathToImport);
+				swagger = objectMapper.readValue(toImport, OpenAPI.class);
 				// SAFRAN-961 - io.swagger.v3 doesn't support OpenId Connect security schemes
 				addFlowsToOpenIdConnectSchemes(swagger);
 			} catch (JsonParseException e) {
@@ -107,6 +146,14 @@ public class SwaggerImporter {
 			} catch (IOException e) {
 				logError("I/O exception.", e);
 				status = IStatus.ERROR;
+			} finally {
+				if (toImport != null && toImport.exists()) {
+					try {
+						toImport.delete();
+					} catch (SecurityException e) {
+						logInfo("Problem when deleting temporary file: " + inputTemporaryFilePathToImport);
+					}
+				}
 			}
 		}
 
@@ -168,5 +215,4 @@ public class SwaggerImporter {
 					});
 		}
 	}
-
 }
