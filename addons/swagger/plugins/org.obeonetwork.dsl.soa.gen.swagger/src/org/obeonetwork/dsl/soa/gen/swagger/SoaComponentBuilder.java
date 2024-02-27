@@ -1024,6 +1024,12 @@ public class SoaComponentBuilder {
 			if (allOf.size() == 1) {
 				return allOf.get(0);
 			}
+		} else if (null == schema.getTypes() && schema instanceof JsonSchema && schema.getAllOf() != null
+				&& schema.getAllOf().size() == 1) {
+			// Case when a schema type is null and allOf reference is defined:
+			// The OpenAPI 3.1.0 parser deserializes it as a JsonSchema.
+			// Processing of the case like a ComposedSchema.
+			return (Schema) schema.getAllOf().get(0);
 		}
 		return schema;
 	}
@@ -1767,11 +1773,6 @@ public class SoaComponentBuilder {
 			 * Workaround for bug documented in OpenApiParserHelper#isArraySchema.
 			 */
 			Schema arraySchema = schema;
-//			if (schema instanceof ArraySchema) {
-//				arraySchema = (ArraySchema) schema;
-//			} else {
-//				arraySchema = (JsonSchema) schema;
-//			}
 			if ((arraySchema.getMinItems() != null && arraySchema.getMinItems() > 0)) {
 				min = 1;
 			}
