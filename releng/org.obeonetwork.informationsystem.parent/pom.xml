@@ -445,7 +445,7 @@
 								<version>${target-artifact-version}</version>
 								<groupId>org.obeonetwork</groupId>
 								<artifactId>parent</artifactId>
-								<classifier>tp/isdesigner</classifier>
+								<classifier>../../is-designer/releng/org.obeonetwork.is.designer.parent/target_platform/isrepository</classifier>
 							</artifact>
 						</target>
 					</configuration>

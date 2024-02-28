@@ -1,0 +1,90 @@
+target "IS Designer Repository Target Definition" with source, requirements
+
+location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
+	com.google.guava lazy
+	fr.obeo.dsl.designer.ce.feature.feature.group lazy
+	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
+	org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
+	org.eclipse.eef.sdk.feature.feature.group lazy
+	org.eclipse.emf.compare.ide.ui.feature.group lazy
+	org.eclipse.emf.eef.runtime-feature.feature.group lazy
+}
+
+location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
+	org.eclipse.sirius.properties.feature.feature.group lazy
+	org.eclipse.sirius.properties.feature.source.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
+	org.eclipse.sirius.runtime.aql.feature.group lazy
+	org.eclipse.sirius.runtime.aql.source.feature.group lazy
+	org.eclipse.sirius.runtime.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.source.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.source.feature.group lazy
+	org.eclipse.sirius.tests.support.feature.group lazy
+	org.eclipse.sirius.tests.support.source.feature.group lazy
+}
+
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.acceleo.query.source.feature.group lazy
+}
+
+location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
+	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.commons.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.context_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.monitor.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.team_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.ide_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.tasks.ide.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.commons.sdk.feature.group [3.26.0,3.27.0)
+}
+
+location Obeo-Designer-Team-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
+	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
+	org.eclipse.emf.cdo.sdk.feature.group lazy
+}
+
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
+	org.eclipse.amalgam.discovery.feature.group lazy
+	org.eclipse.amalgam.explorer.activity.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
+}
+
+location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
+	org.junit lazy
+	org.slf4j.api lazy
+//	org.mockito lazy
+//	javax.servlet lazy
+}
+
+//location Orbit-2021-06 "https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/" {
+//	org.mockito lazy
+//}
+
+location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
+	org.eclipse.platform.feature.group lazy
+}
+
+location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4.8/release/latest/" {
+	org.eclipse.team.svn.feature.group lazy
+}
+
+location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+	org.obeonetwork.m2doc.feature.feature.group lazy
+	org.apache.poi.feature.feature.group lazy
+	org.obeonetwork.m2doc.cdo.feature.feature.group lazy
+	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+}
