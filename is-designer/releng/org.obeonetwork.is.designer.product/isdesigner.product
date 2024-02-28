@@ -52,10 +52,10 @@ Visit http://www.obeo.fr
 
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
    </vm>
 
    <license>
@@ -139,6 +139,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <plugins>
+      <plugin id="org.apache.felix.scr"/>
+      <plugin id="org.eclipse.osgi.services"/>
    </plugins>
 
    <features>
@@ -162,6 +164,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.emf.compare.ide.ui"/>
       <feature id="org.eclipse.emf.compare.ide.ui.source"/>
       <feature id="org.eclipse.emf.compare.source"/>
+      <feature id="org.eclipse.emf.ecoretools.design"/>
       <feature id="org.eclipse.emf.sdk"/>
       <feature id="org.eclipse.emf.transaction.sdk"/>
       <feature id="org.eclipse.emf.validation.sdk"/>
@@ -174,6 +177,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.gmf.runtime.sdk"/>
       <feature id="org.eclipse.gmf.runtime.thirdparty.source"/>
       <feature id="org.eclipse.gmf.source"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.sdk"/>
       <feature id="org.eclipse.sirius.doc.feature"/>
       <feature id="org.eclipse.sirius.interpreter.feature"/>
@@ -192,6 +197,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo.source"/>
       <feature id="org.eclipse.sirius.runtime.ide.ui.source"/>
       <feature id="org.eclipse.sirius.runtime.source"/>
+      <feature id="org.eclipse.sirius.samples"/>
       <feature id="org.eclipse.sirius.specifier.ide.ui"/>
       <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo"/>
       <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo.source"/>
@@ -207,8 +213,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.mylyn"/>
       <feature id="org.eclipse.team.svn.nl1"/>
       <feature id="org.eclipse.team.svn.pde.build"/>
-      <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.eclipse.team.svn.revision.graph"/>
+      <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
    </features>
@@ -221,6 +227,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
       <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
