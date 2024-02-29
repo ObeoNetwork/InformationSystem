@@ -12,11 +12,11 @@
 <feature
       id="liquibase.feature"
       label="Obeo Network - Liquibase"
-      version="4.1.0.qualifier"
+      version="4.1.1.qualifier"
       provider-name="Obeo Network"
       plugin="liquibase"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="4.1.0.qualifier">
+      license-feature-version="4.1.1.qualifier">
 
    <description url="https://www.liquibase.org/">
       Wrapping of liquibase into an Eclipse bundle
