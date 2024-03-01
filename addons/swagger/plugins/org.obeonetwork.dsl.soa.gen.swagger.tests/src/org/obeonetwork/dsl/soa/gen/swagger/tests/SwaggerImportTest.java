@@ -123,4 +123,13 @@ public class SwaggerImportTest {
 		testImportFromFile("petstore-310", MapperType.YAML);
 	}
 
+	@Test
+	public void testJsonImportSwagger1() {
+		testImportFromFile("swagger1", MapperType.JSON);
+	}
+
+	@Test
+	public void testJsonImportSwagger2() {
+		testImportFromFile("swagger2", MapperType.JSON);
+	}
 }

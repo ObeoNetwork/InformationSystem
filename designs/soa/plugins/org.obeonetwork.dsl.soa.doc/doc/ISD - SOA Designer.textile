@@ -607,11 +607,11 @@ En cas de succès suite à l'import, un nouveau _Component_ est créé, prêt à
 
 h3. Conversion de fichier Swagger/OpenAPI vers le format OpenAPI 3.1.0
 
-Dans l'explorateur de modèles, tout fichier Json ou Yaml qui est au format OpenAPI 3.0.x est convertible en un nouveau fichier au format OpenAPI 3.1.0 via un menu dédié:
+Dans l'explorateur de modèles, tout fichier Json ou Yaml qui est au format OpenAPI 3.0.x, Swagger 1.x ou Swagger 2.x est convertible en un nouveau fichier au format OpenAPI 3.1.0 via un menu dédié:
 
 !{width:60%}pics/exposition/Menu_SwaggerConvert.png!
 
-Si la conversion réussit, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de "-3.1.0" avant l'extension du fichier. Si la conversion échoue, des logs sont disponibles dans la vue Error Log.
+A la fin de l'opération, un message indique si la conversion a réussi, échoué ou s'est terminée avec des avertissements. Le cas échéant, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de "-3.1.0" avant l'extension du fichier.
 
 h2. Gestion des exigences
 

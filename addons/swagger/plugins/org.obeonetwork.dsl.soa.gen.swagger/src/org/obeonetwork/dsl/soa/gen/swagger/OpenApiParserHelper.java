@@ -165,6 +165,9 @@ public class OpenApiParserHelper {
 	 */
 	public static String getSingleSchemaType(Schema schema) {
 		// OpenAPI 3.1
+		if(schema==null) {
+			return null;
+		}
 		Set types = schema.getTypes();
 		if (types == null) {
 			return null;
