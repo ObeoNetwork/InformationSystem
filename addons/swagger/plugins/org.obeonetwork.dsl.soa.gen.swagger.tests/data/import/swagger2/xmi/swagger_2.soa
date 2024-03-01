@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="ASCII"?>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_E_sbkM9JEe6BLbuF5R9nNA" technicalid="_E_m8AM9JEe6BLbuF5R9nNA" createdOn="2024-02-19T18:05:26.976+0100" modifiedOn="2024-02-29T16:52:54.024+0100">
+  <ownedNamespaces xmi:id="_mYsqYNcaEe6DZvKpibJ-Ag" technicalid="_dvf8yNcWEe6DZvKpibJ-Ag" createdOn="2024-02-29T16:52:54.024+0100" modifiedOn="2024-02-29T16:52:54.024+0100" name="TheTVDB API v3">
+    <types xsi:type="oenv:DTO" xmi:id="_mYsqYdcaEe6DZvKpibJ-Ag" technicalid="_dvf8ydcWEe6DZvKpibJ-Ag" name="Auth">
+      <ownedAttributes xmi:id="_mYsqYtcaEe6DZvKpibJ-Ag" technicalid="_dvhK89cWEe6DZvKpibJ-Ag" name="apikey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqY9caEe6DZvKpibJ-Ag" technicalid="_dvhK9NcWEe6DZvKpibJ-Ag" name="userkey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqZNcaEe6DZvKpibJ-Ag" technicalid="_dvhK9dcWEe6DZvKpibJ-Ag" name="username">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYsqZdcaEe6DZvKpibJ-Ag" technicalid="_dvf8ytcWEe6DZvKpibJ-Ag" name="BasicEpisode">
+      <ownedAttributes xmi:id="_mYsqZtcaEe6DZvKpibJ-Ag" technicalid="_dvhK9tcWEe6DZvKpibJ-Ag" name="dvdSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqZ9caEe6DZvKpibJ-Ag" technicalid="_dvhK99cWEe6DZvKpibJ-Ag" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqaNcaEe6DZvKpibJ-Ag" technicalid="_dvhK-NcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqadcaEe6DZvKpibJ-Ag" technicalid="_dvhK-dcWEe6DZvKpibJ-Ag" name="absoluteNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqatcaEe6DZvKpibJ-Ag" technicalid="_dvhK-tcWEe6DZvKpibJ-Ag" name="episodeName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqa9caEe6DZvKpibJ-Ag" technicalid="_dvhK-9cWEe6DZvKpibJ-Ag" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqbNcaEe6DZvKpibJ-Ag" technicalid="_dvhK_NcWEe6DZvKpibJ-Ag" name="airedSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqbdcaEe6DZvKpibJ-Ag" technicalid="_dvhK_tcWEe6DZvKpibJ-Ag" name="dvdEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqbtcaEe6DZvKpibJ-Ag" technicalid="_dvhK_9cWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqb9caEe6DZvKpibJ-Ag" technicalid="_dvhLANcWEe6DZvKpibJ-Ag" name="airedEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_mYsqcNcaEe6DZvKpibJ-Ag" technicalid="_dvhK_dcWEe6DZvKpibJ-Ag" name="language" referencedType="_mYtRf9caEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYsqcdcaEe6DZvKpibJ-Ag" technicalid="_dvf8y9cWEe6DZvKpibJ-Ag" name="Conflict">
+      <ownedAttributes xmi:id="_mYsqctcaEe6DZvKpibJ-Ag" technicalid="_dvhLAdcWEe6DZvKpibJ-Ag" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYsqc9caEe6DZvKpibJ-Ag" technicalid="_dvf8zNcWEe6DZvKpibJ-Ag" name="Episode">
+      <ownedAttributes xmi:id="_mYsqdNcaEe6DZvKpibJ-Ag" technicalid="_dvhx8NcWEe6DZvKpibJ-Ag" name="thumbHeight">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqddcaEe6DZvKpibJ-Ag" technicalid="_dvhx8dcWEe6DZvKpibJ-Ag" name="dvdSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqdtcaEe6DZvKpibJ-Ag" technicalid="_dvhx8tcWEe6DZvKpibJ-Ag" name="airsBeforeEpisode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqd9caEe6DZvKpibJ-Ag" technicalid="_dvhx89cWEe6DZvKpibJ-Ag" name="imdbId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqeNcaEe6DZvKpibJ-Ag" technicalid="_dvhx9NcWEe6DZvKpibJ-Ag" name="directors" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqedcaEe6DZvKpibJ-Ag" technicalid="_dvhx9dcWEe6DZvKpibJ-Ag" name="thumbAdded">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqetcaEe6DZvKpibJ-Ag" technicalid="_dvhx9tcWEe6DZvKpibJ-Ag" name="airedSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqe9caEe6DZvKpibJ-Ag" technicalid="_dvhx99cWEe6DZvKpibJ-Ag" name="showUrl">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqfNcaEe6DZvKpibJ-Ag" technicalid="_dvhx-NcWEe6DZvKpibJ-Ag" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqfdcaEe6DZvKpibJ-Ag" technicalid="_dvhx-dcWEe6DZvKpibJ-Ag" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqftcaEe6DZvKpibJ-Ag" technicalid="_dvhx-tcWEe6DZvKpibJ-Ag" name="productionCode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqf9caEe6DZvKpibJ-Ag" technicalid="_dvhx-9cWEe6DZvKpibJ-Ag" name="thumbAuthor">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqgNcaEe6DZvKpibJ-Ag" technicalid="_dvhx_NcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqgdcaEe6DZvKpibJ-Ag" technicalid="_dvhx_dcWEe6DZvKpibJ-Ag" name="dvdDiscid">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqgtcaEe6DZvKpibJ-Ag" technicalid="_dvhx_tcWEe6DZvKpibJ-Ag" name="airedEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqg9caEe6DZvKpibJ-Ag" technicalid="_dvhx_9cWEe6DZvKpibJ-Ag" name="airsBeforeSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqhNcaEe6DZvKpibJ-Ag" technicalid="_dvhyANcWEe6DZvKpibJ-Ag" name="lastUpdatedBy">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYsqhdcaEe6DZvKpibJ-Ag" technicalid="_dvhyAdcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRcNcaEe6DZvKpibJ-Ag" technicalid="_dvhyAtcWEe6DZvKpibJ-Ag" name="airsAfterSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRcdcaEe6DZvKpibJ-Ag" technicalid="_dvhyA9cWEe6DZvKpibJ-Ag" name="siteRating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRctcaEe6DZvKpibJ-Ag" technicalid="_dvhyBNcWEe6DZvKpibJ-Ag" name="absoluteNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRc9caEe6DZvKpibJ-Ag" technicalid="_dvhyBdcWEe6DZvKpibJ-Ag" name="director">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRdNcaEe6DZvKpibJ-Ag" technicalid="_dvhyBtcWEe6DZvKpibJ-Ag" name="episodeName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRddcaEe6DZvKpibJ-Ag" technicalid="_dvhyB9cWEe6DZvKpibJ-Ag" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRdtcaEe6DZvKpibJ-Ag" technicalid="_dvhyCNcWEe6DZvKpibJ-Ag" name="thumbWidth">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRd9caEe6DZvKpibJ-Ag" technicalid="_dvhyCdcWEe6DZvKpibJ-Ag" name="writers" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtReNcaEe6DZvKpibJ-Ag" technicalid="_dvhyCtcWEe6DZvKpibJ-Ag" name="dvdChapter">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRedcaEe6DZvKpibJ-Ag" technicalid="_dvhyC9cWEe6DZvKpibJ-Ag" name="siteRatingCount">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRetcaEe6DZvKpibJ-Ag" technicalid="_dvhyDNcWEe6DZvKpibJ-Ag" name="filename">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRe9caEe6DZvKpibJ-Ag" technicalid="_dvhyDdcWEe6DZvKpibJ-Ag" name="guestStars" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRfNcaEe6DZvKpibJ-Ag" technicalid="_dvhyDtcWEe6DZvKpibJ-Ag" name="dvdEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRfdcaEe6DZvKpibJ-Ag" technicalid="_dvf8zdcWEe6DZvKpibJ-Ag" name="EpisodeDataQueryParams">
+      <ownedAttributes xmi:id="_mYtRftcaEe6DZvKpibJ-Ag" technicalid="_dvhyD9cWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRf9caEe6DZvKpibJ-Ag" technicalid="_dvf8ztcWEe6DZvKpibJ-Ag" name="EpisodeLanguageInfo">
+      <ownedAttributes xmi:id="_mYtRgNcaEe6DZvKpibJ-Ag" technicalid="_dvhyENcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRgdcaEe6DZvKpibJ-Ag" technicalid="_dvhyEdcWEe6DZvKpibJ-Ag" name="episodeName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRgtcaEe6DZvKpibJ-Ag" technicalid="_dvf8z9cWEe6DZvKpibJ-Ag" name="EpisodeRecordData">
+      <ownedReferences xmi:id="_mYtRg9caEe6DZvKpibJ-Ag" technicalid="_dvhyEtcWEe6DZvKpibJ-Ag" name="data" referencedType="_mYsqc9caEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRhNcaEe6DZvKpibJ-Ag" technicalid="_dvhyE9cWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRhdcaEe6DZvKpibJ-Ag" technicalid="_dvf80NcWEe6DZvKpibJ-Ag" name="FilterKeys">
+      <ownedAttributes xmi:id="_mYtRhtcaEe6DZvKpibJ-Ag" technicalid="_dvhyFNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRh9caEe6DZvKpibJ-Ag" technicalid="_dvf80dcWEe6DZvKpibJ-Ag" name="InvalidQueryParams">
+      <ownedAttributes xmi:id="_mYtRiNcaEe6DZvKpibJ-Ag" technicalid="_dvhyFdcWEe6DZvKpibJ-Ag" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRidcaEe6DZvKpibJ-Ag" technicalid="_dvf80tcWEe6DZvKpibJ-Ag" name="JSONErrors">
+      <ownedAttributes xmi:id="_mYtRitcaEe6DZvKpibJ-Ag" technicalid="_dvhyFtcWEe6DZvKpibJ-Ag" description="Invalid language or translation missing" name="invalidLanguage">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRi9caEe6DZvKpibJ-Ag" technicalid="_dvhyF9cWEe6DZvKpibJ-Ag" name="invalidQueryParams" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRjNcaEe6DZvKpibJ-Ag" technicalid="_dvhyGNcWEe6DZvKpibJ-Ag" name="invalidFilters" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRjdcaEe6DZvKpibJ-Ag" technicalid="_dvf809cWEe6DZvKpibJ-Ag" name="Language">
+      <ownedAttributes xmi:id="_mYtRjtcaEe6DZvKpibJ-Ag" technicalid="_dvhyGdcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRj9caEe6DZvKpibJ-Ag" technicalid="_dvhyGtcWEe6DZvKpibJ-Ag" name="englishName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRkNcaEe6DZvKpibJ-Ag" technicalid="_dvhyG9cWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRkdcaEe6DZvKpibJ-Ag" technicalid="_dvhyHNcWEe6DZvKpibJ-Ag" name="abbreviation">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRktcaEe6DZvKpibJ-Ag" technicalid="_dvf81NcWEe6DZvKpibJ-Ag" name="LanguageData">
+      <ownedReferences xmi:id="_mYtRk9caEe6DZvKpibJ-Ag" technicalid="_dvhyHdcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtRjdcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRlNcaEe6DZvKpibJ-Ag" technicalid="_dvf81dcWEe6DZvKpibJ-Ag" name="Links">
+      <ownedAttributes xmi:id="_mYtRldcaEe6DZvKpibJ-Ag" technicalid="_dvhyHtcWEe6DZvKpibJ-Ag" name="next">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRltcaEe6DZvKpibJ-Ag" technicalid="_dvhyH9cWEe6DZvKpibJ-Ag" name="last">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRl9caEe6DZvKpibJ-Ag" technicalid="_dvhyINcWEe6DZvKpibJ-Ag" name="previous">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRmNcaEe6DZvKpibJ-Ag" technicalid="_dvhyIdcWEe6DZvKpibJ-Ag" name="first">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRmdcaEe6DZvKpibJ-Ag" technicalid="_dvf81tcWEe6DZvKpibJ-Ag" name="Movie">
+      <ownedAttributes xmi:id="_mYtRmtcaEe6DZvKpibJ-Ag" technicalid="_dvhyJ9cWEe6DZvKpibJ-Ag" name="runtime">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRm9caEe6DZvKpibJ-Ag" technicalid="_dvhyKNcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRnNcaEe6DZvKpibJ-Ag" technicalid="_dviZAtcWEe6DZvKpibJ-Ag" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_mYtRndcaEe6DZvKpibJ-Ag" technicalid="_dvhyItcWEe6DZvKpibJ-Ag" name="remoteids" multiplicity="0..*" referencedType="_mYtRwdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRntcaEe6DZvKpibJ-Ag" technicalid="_dvhyI9cWEe6DZvKpibJ-Ag" name="artworks" multiplicity="0..*" referencedType="_mYtRpNcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRn9caEe6DZvKpibJ-Ag" technicalid="_dvhyJNcWEe6DZvKpibJ-Ag" name="genres" multiplicity="0..*" referencedType="_mYtRrdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRoNcaEe6DZvKpibJ-Ag" technicalid="_dvhyJdcWEe6DZvKpibJ-Ag" name="translations" multiplicity="0..*" referencedType="_mYtRytcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRodcaEe6DZvKpibJ-Ag" technicalid="_dvhyJtcWEe6DZvKpibJ-Ag" name="release_dates" multiplicity="0..*" referencedType="_mYtRvdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRotcaEe6DZvKpibJ-Ag" technicalid="_dviZAdcWEe6DZvKpibJ-Ag" name="people" referencedType="_mYtSW9caEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtRo9caEe6DZvKpibJ-Ag" technicalid="_dviZA9cWEe6DZvKpibJ-Ag" name="trailers" multiplicity="0..*" referencedType="_mYtRx9caEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRpNcaEe6DZvKpibJ-Ag" technicalid="_dvf819cWEe6DZvKpibJ-Ag" name="MovieArtwork">
+      <ownedAttributes xmi:id="_mYtRpdcaEe6DZvKpibJ-Ag" technicalid="_dviZBNcWEe6DZvKpibJ-Ag" name="thumb_url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRptcaEe6DZvKpibJ-Ag" technicalid="_dviZBdcWEe6DZvKpibJ-Ag" name="is_primary">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRp9caEe6DZvKpibJ-Ag" technicalid="_dviZBtcWEe6DZvKpibJ-Ag" name="width">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRqNcaEe6DZvKpibJ-Ag" technicalid="_dviZB9cWEe6DZvKpibJ-Ag" name="artwork_type">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRqdcaEe6DZvKpibJ-Ag" technicalid="_dviZCNcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRqtcaEe6DZvKpibJ-Ag" technicalid="_dviZCdcWEe6DZvKpibJ-Ag" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRq9caEe6DZvKpibJ-Ag" technicalid="_dviZCtcWEe6DZvKpibJ-Ag" name="height">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRrNcaEe6DZvKpibJ-Ag" technicalid="_dviZC9cWEe6DZvKpibJ-Ag" name="tags">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRrdcaEe6DZvKpibJ-Ag" technicalid="_dvf82NcWEe6DZvKpibJ-Ag" name="MovieGenre">
+      <ownedAttributes xmi:id="_mYtRrtcaEe6DZvKpibJ-Ag" technicalid="_dviZDNcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRr9caEe6DZvKpibJ-Ag" technicalid="_dviZDdcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRsNcaEe6DZvKpibJ-Ag" technicalid="_dviZDtcWEe6DZvKpibJ-Ag" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRsdcaEe6DZvKpibJ-Ag" technicalid="_dvgj0NcWEe6DZvKpibJ-Ag" name="MoviePeople">
+      <ownedAttributes xmi:id="_mYtRstcaEe6DZvKpibJ-Ag" technicalid="_dviZD9cWEe6DZvKpibJ-Ag" name="people_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRs9caEe6DZvKpibJ-Ag" technicalid="_dviZENcWEe6DZvKpibJ-Ag" name="role">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRtNcaEe6DZvKpibJ-Ag" technicalid="_dviZEdcWEe6DZvKpibJ-Ag" name="imdb_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRtdcaEe6DZvKpibJ-Ag" technicalid="_dviZEtcWEe6DZvKpibJ-Ag" name="people_facebook">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRttcaEe6DZvKpibJ-Ag" technicalid="_dviZE9cWEe6DZvKpibJ-Ag" name="people_instagram">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRt9caEe6DZvKpibJ-Ag" technicalid="_dvjAENcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRuNcaEe6DZvKpibJ-Ag" technicalid="_dvjAEdcWEe6DZvKpibJ-Ag" name="people_twitter">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRudcaEe6DZvKpibJ-Ag" technicalid="_dvjAEtcWEe6DZvKpibJ-Ag" name="role_image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRutcaEe6DZvKpibJ-Ag" technicalid="_dvjAE9cWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRu9caEe6DZvKpibJ-Ag" technicalid="_dvjAFNcWEe6DZvKpibJ-Ag" name="people_image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRvNcaEe6DZvKpibJ-Ag" technicalid="_dvjAFdcWEe6DZvKpibJ-Ag" name="is_featured">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRvdcaEe6DZvKpibJ-Ag" technicalid="_dvgj0dcWEe6DZvKpibJ-Ag" name="MovieReleaseDate">
+      <ownedAttributes xmi:id="_mYtRvtcaEe6DZvKpibJ-Ag" technicalid="_dvjAFtcWEe6DZvKpibJ-Ag" name="date">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRv9caEe6DZvKpibJ-Ag" technicalid="_dvjAF9cWEe6DZvKpibJ-Ag" name="country">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRwNcaEe6DZvKpibJ-Ag" technicalid="_dvjAGNcWEe6DZvKpibJ-Ag" name="type">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRwdcaEe6DZvKpibJ-Ag" technicalid="_dvgj0tcWEe6DZvKpibJ-Ag" name="MovieRemoteId">
+      <ownedAttributes xmi:id="_mYtRwtcaEe6DZvKpibJ-Ag" technicalid="_dvjAGdcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRw9caEe6DZvKpibJ-Ag" technicalid="_dvjAGtcWEe6DZvKpibJ-Ag" name="source_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRxNcaEe6DZvKpibJ-Ag" technicalid="_dvjAG9cWEe6DZvKpibJ-Ag" name="source_name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRxdcaEe6DZvKpibJ-Ag" technicalid="_dvjAHNcWEe6DZvKpibJ-Ag" name="source_url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRxtcaEe6DZvKpibJ-Ag" technicalid="_dvjAHdcWEe6DZvKpibJ-Ag" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRx9caEe6DZvKpibJ-Ag" technicalid="_dvgj09cWEe6DZvKpibJ-Ag" name="MovieTrailer">
+      <ownedAttributes xmi:id="_mYtRyNcaEe6DZvKpibJ-Ag" technicalid="_dvjAHtcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRydcaEe6DZvKpibJ-Ag" technicalid="_dvjAH9cWEe6DZvKpibJ-Ag" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtRytcaEe6DZvKpibJ-Ag" technicalid="_dvgj1NcWEe6DZvKpibJ-Ag" name="MovieTranslation">
+      <ownedAttributes xmi:id="_mYtRy9caEe6DZvKpibJ-Ag" technicalid="_dvjAINcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRzNcaEe6DZvKpibJ-Ag" technicalid="_dvjAIdcWEe6DZvKpibJ-Ag" name="language_code">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRzdcaEe6DZvKpibJ-Ag" technicalid="_dvjAItcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRztcaEe6DZvKpibJ-Ag" technicalid="_dvjAI9cWEe6DZvKpibJ-Ag" name="tagline">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtRz9caEe6DZvKpibJ-Ag" technicalid="_dvjAJNcWEe6DZvKpibJ-Ag" name="is_primary">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR0NcaEe6DZvKpibJ-Ag" technicalid="_dvgj1dcWEe6DZvKpibJ-Ag" name="NotAuthorized">
+      <ownedAttributes xmi:id="_mYtR0dcaEe6DZvKpibJ-Ag" technicalid="_dvjAJdcWEe6DZvKpibJ-Ag" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR0tcaEe6DZvKpibJ-Ag" technicalid="_dvgj1tcWEe6DZvKpibJ-Ag" name="NotFound">
+      <ownedAttributes xmi:id="_mYtR09caEe6DZvKpibJ-Ag" technicalid="_dvjAJtcWEe6DZvKpibJ-Ag" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR1NcaEe6DZvKpibJ-Ag" technicalid="_dvgj19cWEe6DZvKpibJ-Ag" name="Series">
+      <ownedAttributes xmi:id="_mYtR1dcaEe6DZvKpibJ-Ag" technicalid="_dvjAJ9cWEe6DZvKpibJ-Ag" name="airsDayOfWeek">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR1tcaEe6DZvKpibJ-Ag" technicalid="_dvjAKNcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR19caEe6DZvKpibJ-Ag" technicalid="_dvjAKdcWEe6DZvKpibJ-Ag" name="aliases" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR2NcaEe6DZvKpibJ-Ag" technicalid="_dvjAKtcWEe6DZvKpibJ-Ag" name="siteRating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR2dcaEe6DZvKpibJ-Ag" technicalid="_dvjAK9cWEe6DZvKpibJ-Ag" name="added">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR2tcaEe6DZvKpibJ-Ag" technicalid="_dvjALNcWEe6DZvKpibJ-Ag" name="imdbId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR29caEe6DZvKpibJ-Ag" technicalid="_dvjALdcWEe6DZvKpibJ-Ag" name="seriesName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR3NcaEe6DZvKpibJ-Ag" technicalid="_dvjALtcWEe6DZvKpibJ-Ag" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR3dcaEe6DZvKpibJ-Ag" technicalid="_dvjAL9cWEe6DZvKpibJ-Ag" name="rating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR3tcaEe6DZvKpibJ-Ag" technicalid="_dvjAMNcWEe6DZvKpibJ-Ag" name="banner">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR39caEe6DZvKpibJ-Ag" technicalid="_dvjAMdcWEe6DZvKpibJ-Ag" name="runtime">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR4NcaEe6DZvKpibJ-Ag" technicalid="_dvjAMtcWEe6DZvKpibJ-Ag" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR4dcaEe6DZvKpibJ-Ag" technicalid="_dvjAM9cWEe6DZvKpibJ-Ag" name="siteRatingCount">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR4tcaEe6DZvKpibJ-Ag" technicalid="_dvjANNcWEe6DZvKpibJ-Ag" name="network">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR49caEe6DZvKpibJ-Ag" technicalid="_dvjANdcWEe6DZvKpibJ-Ag" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR5NcaEe6DZvKpibJ-Ag" technicalid="_dvjANtcWEe6DZvKpibJ-Ag" name="airsTime">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR5dcaEe6DZvKpibJ-Ag" technicalid="_dvjAN9cWEe6DZvKpibJ-Ag" name="zap2itId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR5tcaEe6DZvKpibJ-Ag" technicalid="_dvjAONcWEe6DZvKpibJ-Ag" name="genre" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR59caEe6DZvKpibJ-Ag" technicalid="_dvjAOdcWEe6DZvKpibJ-Ag" name="networkId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR6NcaEe6DZvKpibJ-Ag" technicalid="_dvjAOtcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR6dcaEe6DZvKpibJ-Ag" technicalid="_dvjAO9cWEe6DZvKpibJ-Ag" name="slug">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR6tcaEe6DZvKpibJ-Ag" technicalid="_dvjAPNcWEe6DZvKpibJ-Ag" name="status">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR69caEe6DZvKpibJ-Ag" technicalid="_dvgj2NcWEe6DZvKpibJ-Ag" name="SeriesActors">
+      <ownedReferences xmi:id="_mYtR7NcaEe6DZvKpibJ-Ag" technicalid="_dvjAPdcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtR7tcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtR7dcaEe6DZvKpibJ-Ag" technicalid="_dvjAPtcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR7tcaEe6DZvKpibJ-Ag" technicalid="_dvgj2dcWEe6DZvKpibJ-Ag" name="SeriesActorsData">
+      <ownedAttributes xmi:id="_mYtR79caEe6DZvKpibJ-Ag" technicalid="_dvjAP9cWEe6DZvKpibJ-Ag" name="image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR8NcaEe6DZvKpibJ-Ag" technicalid="_dvjAQNcWEe6DZvKpibJ-Ag" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR8dcaEe6DZvKpibJ-Ag" technicalid="_dvjAQdcWEe6DZvKpibJ-Ag" name="role">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR8tcaEe6DZvKpibJ-Ag" technicalid="_dvjAQtcWEe6DZvKpibJ-Ag" name="imageAdded">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR89caEe6DZvKpibJ-Ag" technicalid="_dvjAQ9cWEe6DZvKpibJ-Ag" name="imageAuthor">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR9NcaEe6DZvKpibJ-Ag" technicalid="_dvjARNcWEe6DZvKpibJ-Ag" name="sortOrder">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR9dcaEe6DZvKpibJ-Ag" technicalid="_dvjARdcWEe6DZvKpibJ-Ag" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR9tcaEe6DZvKpibJ-Ag" technicalid="_dvjARtcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtR99caEe6DZvKpibJ-Ag" technicalid="_dvjAR9cWEe6DZvKpibJ-Ag" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR-NcaEe6DZvKpibJ-Ag" technicalid="_dvgj2tcWEe6DZvKpibJ-Ag" name="SeriesData">
+      <ownedReferences xmi:id="_mYtR-dcaEe6DZvKpibJ-Ag" technicalid="_dvjASNcWEe6DZvKpibJ-Ag" name="data" referencedType="_mYtR1NcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtR-tcaEe6DZvKpibJ-Ag" technicalid="_dvjASdcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR-9caEe6DZvKpibJ-Ag" technicalid="_dvgj29cWEe6DZvKpibJ-Ag" name="SeriesEpisodes">
+      <ownedReferences xmi:id="_mYtR_NcaEe6DZvKpibJ-Ag" technicalid="_dvjAStcWEe6DZvKpibJ-Ag" name="links" referencedType="_mYtRlNcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtR_dcaEe6DZvKpibJ-Ag" technicalid="_dvjAS9cWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYsqc9caEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtR_tcaEe6DZvKpibJ-Ag" technicalid="_dvjATNcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtR_9caEe6DZvKpibJ-Ag" technicalid="_dvgj3NcWEe6DZvKpibJ-Ag" name="SeriesEpisodesQuery">
+      <ownedReferences xmi:id="_mYtSANcaEe6DZvKpibJ-Ag" technicalid="_dvjATdcWEe6DZvKpibJ-Ag" name="links" referencedType="_mYtRlNcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSAdcaEe6DZvKpibJ-Ag" technicalid="_dvjATtcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYsqc9caEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSAtcaEe6DZvKpibJ-Ag" technicalid="_dvjAT9cWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSA9caEe6DZvKpibJ-Ag" technicalid="_dvgj3dcWEe6DZvKpibJ-Ag" name="SeriesEpisodesQueryParams">
+      <ownedAttributes xmi:id="_mYtSBNcaEe6DZvKpibJ-Ag" technicalid="_dvjAUNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSBdcaEe6DZvKpibJ-Ag" technicalid="_dvgj3tcWEe6DZvKpibJ-Ag" name="SeriesEpisodesSummary">
+      <ownedAttributes xmi:id="_mYtSBtcaEe6DZvKpibJ-Ag" technicalid="_dvjAUdcWEe6DZvKpibJ-Ag" description="Number of all dvd episodes for this series" name="dvdEpisodes">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSB9caEe6DZvKpibJ-Ag" technicalid="_dvjAUtcWEe6DZvKpibJ-Ag" name="dvdSeasons" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSCNcaEe6DZvKpibJ-Ag" technicalid="_dvjAU9cWEe6DZvKpibJ-Ag" name="airedSeasons" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSCdcaEe6DZvKpibJ-Ag" technicalid="_dvjAVNcWEe6DZvKpibJ-Ag" description="Number of all aired episodes for this series" name="airedEpisodes">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSCtcaEe6DZvKpibJ-Ag" technicalid="_dvgj39cWEe6DZvKpibJ-Ag" name="SeriesImageQueryResult">
+      <ownedAttributes xmi:id="_mYtSC9caEe6DZvKpibJ-Ag" technicalid="_dvjAVdcWEe6DZvKpibJ-Ag" name="fileName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSDNcaEe6DZvKpibJ-Ag" technicalid="_dvjAVtcWEe6DZvKpibJ-Ag" name="thumbnail">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSDdcaEe6DZvKpibJ-Ag" technicalid="_dvjAV9cWEe6DZvKpibJ-Ag" name="subKey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSDtcaEe6DZvKpibJ-Ag" technicalid="_dvjAXNcWEe6DZvKpibJ-Ag" name="languageId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSD9caEe6DZvKpibJ-Ag" technicalid="_dvjAXdcWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSENcaEe6DZvKpibJ-Ag" technicalid="_dvjAXtcWEe6DZvKpibJ-Ag" name="keyType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSEdcaEe6DZvKpibJ-Ag" technicalid="_dvjAX9cWEe6DZvKpibJ-Ag" name="resolution">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_mYtSEtcaEe6DZvKpibJ-Ag" technicalid="_dvjAW9cWEe6DZvKpibJ-Ag" name="ratingsInfo" referencedType="_mYtSWNcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSE9caEe6DZvKpibJ-Ag" technicalid="_dvgj4NcWEe6DZvKpibJ-Ag" name="SeriesImageQueryResults">
+      <ownedReferences xmi:id="_mYtSFNcaEe6DZvKpibJ-Ag" technicalid="_dvjAYNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSCtcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSFdcaEe6DZvKpibJ-Ag" technicalid="_dvjAYdcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSFtcaEe6DZvKpibJ-Ag" technicalid="_dvgj4dcWEe6DZvKpibJ-Ag" name="SeriesImagesCount">
+      <ownedAttributes xmi:id="_mYtSF9caEe6DZvKpibJ-Ag" technicalid="_dvjAYtcWEe6DZvKpibJ-Ag" name="fanart">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSGNcaEe6DZvKpibJ-Ag" technicalid="_dvjAY9cWEe6DZvKpibJ-Ag" name="season">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSGdcaEe6DZvKpibJ-Ag" technicalid="_dvjAZNcWEe6DZvKpibJ-Ag" name="poster">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSGtcaEe6DZvKpibJ-Ag" technicalid="_dvjAZdcWEe6DZvKpibJ-Ag" name="seasonwide">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSG9caEe6DZvKpibJ-Ag" technicalid="_dvjAZtcWEe6DZvKpibJ-Ag" name="series">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSHNcaEe6DZvKpibJ-Ag" technicalid="_dvhK4NcWEe6DZvKpibJ-Ag" name="SeriesImagesCounts">
+      <ownedReferences xmi:id="_mYtSHdcaEe6DZvKpibJ-Ag" technicalid="_dvjAZ9cWEe6DZvKpibJ-Ag" name="data" referencedType="_mYtSFtcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSHtcaEe6DZvKpibJ-Ag" technicalid="_dvhK4dcWEe6DZvKpibJ-Ag" name="SeriesImagesQueryParam">
+      <ownedAttributes xmi:id="_mYtSH9caEe6DZvKpibJ-Ag" technicalid="_dvjAaNcWEe6DZvKpibJ-Ag" name="languageId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSINcaEe6DZvKpibJ-Ag" technicalid="_dvjAadcWEe6DZvKpibJ-Ag" name="keyType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSIdcaEe6DZvKpibJ-Ag" technicalid="_dvjAatcWEe6DZvKpibJ-Ag" name="subKey" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSItcaEe6DZvKpibJ-Ag" technicalid="_dvjAa9cWEe6DZvKpibJ-Ag" name="resolution" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSI9caEe6DZvKpibJ-Ag" technicalid="_dvhK4tcWEe6DZvKpibJ-Ag" name="SeriesImagesQueryParams">
+      <ownedReferences xmi:id="_mYtSJNcaEe6DZvKpibJ-Ag" technicalid="_dvjAbNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSHtcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSJdcaEe6DZvKpibJ-Ag" technicalid="_dvhK49cWEe6DZvKpibJ-Ag" name="SeriesSearchResult">
+      <ownedAttributes xmi:id="_mYtSJtcaEe6DZvKpibJ-Ag" technicalid="_dvjAbdcWEe6DZvKpibJ-Ag" name="image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSJ9caEe6DZvKpibJ-Ag" technicalid="_dvjAbtcWEe6DZvKpibJ-Ag" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSKNcaEe6DZvKpibJ-Ag" technicalid="_dvjAb9cWEe6DZvKpibJ-Ag" name="aliases" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSKdcaEe6DZvKpibJ-Ag" technicalid="_dvjAcNcWEe6DZvKpibJ-Ag" name="seriesName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSKtcaEe6DZvKpibJ-Ag" technicalid="_dvjAcdcWEe6DZvKpibJ-Ag" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSK9caEe6DZvKpibJ-Ag" technicalid="_dvjActcWEe6DZvKpibJ-Ag" name="banner">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSLNcaEe6DZvKpibJ-Ag" technicalid="_dvjAc9cWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSLdcaEe6DZvKpibJ-Ag" technicalid="_dvjAdNcWEe6DZvKpibJ-Ag" name="poster">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSLtcaEe6DZvKpibJ-Ag" technicalid="_dvjAddcWEe6DZvKpibJ-Ag" name="slug">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSL9caEe6DZvKpibJ-Ag" technicalid="_dvjAdtcWEe6DZvKpibJ-Ag" name="network">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSMNcaEe6DZvKpibJ-Ag" technicalid="_dvjAd9cWEe6DZvKpibJ-Ag" name="status">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSMdcaEe6DZvKpibJ-Ag" technicalid="_dvhK5NcWEe6DZvKpibJ-Ag" name="SeriesSearchResults">
+      <ownedReferences xmi:id="_mYtSMtcaEe6DZvKpibJ-Ag" technicalid="_dvjAeNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSJdcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSM9caEe6DZvKpibJ-Ag" technicalid="_dvhK5dcWEe6DZvKpibJ-Ag" name="Token">
+      <ownedAttributes xmi:id="_mYtSNNcaEe6DZvKpibJ-Ag" technicalid="_dvjAedcWEe6DZvKpibJ-Ag" name="token">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSNdcaEe6DZvKpibJ-Ag" technicalid="_dvhK5tcWEe6DZvKpibJ-Ag" name="Update">
+      <ownedAttributes xmi:id="_mYtSNtcaEe6DZvKpibJ-Ag" technicalid="_dvjAetcWEe6DZvKpibJ-Ag" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSN9caEe6DZvKpibJ-Ag" technicalid="_dvjAe9cWEe6DZvKpibJ-Ag" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSONcaEe6DZvKpibJ-Ag" technicalid="_dvhK59cWEe6DZvKpibJ-Ag" name="UpdateData">
+      <ownedReferences xmi:id="_mYtSOdcaEe6DZvKpibJ-Ag" technicalid="_dvjnINcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSNdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSOtcaEe6DZvKpibJ-Ag" technicalid="_dvjnIdcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSO9caEe6DZvKpibJ-Ag" technicalid="_dvhK6NcWEe6DZvKpibJ-Ag" name="UpdateDataQueryParams">
+      <ownedAttributes xmi:id="_mYtSPNcaEe6DZvKpibJ-Ag" technicalid="_dvjnItcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSPdcaEe6DZvKpibJ-Ag" technicalid="_dvhK6dcWEe6DZvKpibJ-Ag" name="UpdatedMovies">
+      <ownedAttributes xmi:id="_mYtSPtcaEe6DZvKpibJ-Ag" technicalid="_dvjnI9cWEe6DZvKpibJ-Ag" name="movies" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSP9caEe6DZvKpibJ-Ag" technicalid="_dvhK6tcWEe6DZvKpibJ-Ag" name="User">
+      <ownedAttributes xmi:id="_mYtSQNcaEe6DZvKpibJ-Ag" technicalid="_dvjnJNcWEe6DZvKpibJ-Ag" name="language">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSQdcaEe6DZvKpibJ-Ag" technicalid="_dvjnJdcWEe6DZvKpibJ-Ag" name="favoritesDisplaymode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSQtcaEe6DZvKpibJ-Ag" technicalid="_dvjnJtcWEe6DZvKpibJ-Ag" name="userName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSQ9caEe6DZvKpibJ-Ag" technicalid="_dvhK69cWEe6DZvKpibJ-Ag" name="UserData">
+      <ownedReferences xmi:id="_mYtSRNcaEe6DZvKpibJ-Ag" technicalid="_dvjnJ9cWEe6DZvKpibJ-Ag" name="data" referencedType="_mYtSP9caEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSRdcaEe6DZvKpibJ-Ag" technicalid="_dvhK7NcWEe6DZvKpibJ-Ag" name="UserFavorites">
+      <ownedAttributes xmi:id="_mYtSRtcaEe6DZvKpibJ-Ag" technicalid="_dvjnKNcWEe6DZvKpibJ-Ag" name="favorites" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSR9caEe6DZvKpibJ-Ag" technicalid="_dvhK7dcWEe6DZvKpibJ-Ag" name="UserFavoritesData">
+      <ownedReferences xmi:id="_mYtSSNcaEe6DZvKpibJ-Ag" technicalid="_dvjnKdcWEe6DZvKpibJ-Ag" name="data" referencedType="_mYtSRdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSSdcaEe6DZvKpibJ-Ag" technicalid="_dvjnKtcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSStcaEe6DZvKpibJ-Ag" technicalid="_dvhK7tcWEe6DZvKpibJ-Ag" name="UserRatings">
+      <ownedAttributes xmi:id="_mYtSS9caEe6DZvKpibJ-Ag" technicalid="_dvjnK9cWEe6DZvKpibJ-Ag" name="rating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSTNcaEe6DZvKpibJ-Ag" technicalid="_dvjnLNcWEe6DZvKpibJ-Ag" name="ratingItemId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSTdcaEe6DZvKpibJ-Ag" technicalid="_dvjnLdcWEe6DZvKpibJ-Ag" name="ratingType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSTtcaEe6DZvKpibJ-Ag" technicalid="_dvhK79cWEe6DZvKpibJ-Ag" name="UserRatingsData">
+      <ownedReferences xmi:id="_mYtST9caEe6DZvKpibJ-Ag" technicalid="_dvjnLtcWEe6DZvKpibJ-Ag" name="links" referencedType="_mYtRlNcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSUNcaEe6DZvKpibJ-Ag" technicalid="_dvjnL9cWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSStcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSUdcaEe6DZvKpibJ-Ag" technicalid="_dvjnMNcWEe6DZvKpibJ-Ag" name="errors" referencedType="_mYtRidcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSUtcaEe6DZvKpibJ-Ag" technicalid="_dvhK8NcWEe6DZvKpibJ-Ag" name="UserRatingsDataNoLinks">
+      <ownedReferences xmi:id="_mYtSU9caEe6DZvKpibJ-Ag" technicalid="_dvjnMdcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYtSStcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSVNcaEe6DZvKpibJ-Ag" technicalid="_dvhK8dcWEe6DZvKpibJ-Ag" name="UserRatingsDataNoLinksEmptyArray">
+      <ownedReferences xmi:id="_mYtSVdcaEe6DZvKpibJ-Ag" technicalid="_dvjnM9cWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*" referencedType="_mYt4gNcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSVtcaEe6DZvKpibJ-Ag" technicalid="_dvhK8tcWEe6DZvKpibJ-Ag" name="UserRatingsQueryParams">
+      <ownedAttributes xmi:id="_mYtSV9caEe6DZvKpibJ-Ag" technicalid="_dvjnNNcWEe6DZvKpibJ-Ag" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSWNcaEe6DZvKpibJ-Ag" technicalid="_dvjAWNcWEe6DZvKpibJ-Ag" name="SeriesImageQueryResultRatingsInfo">
+      <ownedAttributes xmi:id="_mYtSWdcaEe6DZvKpibJ-Ag" technicalid="_dvjAWdcWEe6DZvKpibJ-Ag" description="Number of ratings for the given record." name="count">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mYtSWtcaEe6DZvKpibJ-Ag" technicalid="_dvjAWtcWEe6DZvKpibJ-Ag" description="Average rating for the given record." name="average">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYtSW9caEe6DZvKpibJ-Ag" technicalid="_dvhyKdcWEe6DZvKpibJ-Ag" name="MoviePeople_1">
+      <ownedReferences xmi:id="_mYtSXNcaEe6DZvKpibJ-Ag" technicalid="_dvhyKtcWEe6DZvKpibJ-Ag" name="actors" multiplicity="0..*" referencedType="_mYtRsdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSXdcaEe6DZvKpibJ-Ag" technicalid="_dvhyK9cWEe6DZvKpibJ-Ag" name="writers" multiplicity="0..*" referencedType="_mYtRsdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSXtcaEe6DZvKpibJ-Ag" technicalid="_dvhyLNcWEe6DZvKpibJ-Ag" name="directors" multiplicity="0..*" referencedType="_mYtRsdcaEe6DZvKpibJ-Ag"/>
+      <ownedReferences xmi:id="_mYtSX9caEe6DZvKpibJ-Ag" technicalid="_dviZANcWEe6DZvKpibJ-Ag" name="producers" multiplicity="0..*" referencedType="_mYtRsdcaEe6DZvKpibJ-Ag"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_mYt4gNcaEe6DZvKpibJ-Ag" technicalid="_dvjnMtcWEe6DZvKpibJ-Ag" name="UserRatingsDataNoLinksEmptyArrayData"/>
+  </ownedNamespaces>
+  <ownedComponents xmi:id="_mYlVoNcaEe6DZvKpibJ-Ag" technicalid="_dvf8wNcWEe6DZvKpibJ-Ag" description="API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.&#xA;&#xA;&#xA;How to use this API documentation&#xA;----------------&#xA;&#xA;&#xA;You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.&#xA;1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.&#xA;1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the 'Add Token' button.&#xA;&#xA;&#xA;You will now be able to use the remaining routes to send requests to the API and get a response.&#xA;&#xA;&#xA;Language Selection&#xA;----------------&#xA;&#xA;&#xA;Language selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..&#xA;&#xA;&#xA;Authentication&#xA;----------------&#xA;&#xA;&#xA;Authentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.&#xA;&#xA;`{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}`&#xA;&#xA;Note that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.&#xA;The token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer &lt;yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.&#xA;&#xA;&#xA;Versioning&#xA;----------------&#xA;&#xA;&#xA;You may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page." name="TheTVDB API v3" URI="" apiVersion="3.0.0">
+    <metadatas xmi:id="_mYl8sNcaEe6DZvKpibJ-Ag" technicalid="_dvf8xdcWEe6DZvKpibJ-Ag">
+      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_mYmjwNcaEe6DZvKpibJ-Ag" technicalid="_dvf8xNcWEe6DZvKpibJ-Ag" title="x-original-swagger-version" body="2.0" context="OpenAPI"/>
+    </metadatas>
+    <ownedServices xmi:id="_mYmjwdcaEe6DZvKpibJ-Ag" technicalid="_dvjnNdcWEe6DZvKpibJ-Ag" description="Information about a specific series" name="Series" URI="/series">
+      <ownedInterface xmi:id="_mYmjwtcaEe6DZvKpibJ-Ag" technicalid="_mWyl4NcaEe6DZvKpibJ-Ag" name="Series">
+        <ownedOperations xmi:id="_mYmjw9caEe6DZvKpibJ-Ag" technicalid="_mWyl4dcaEe6DZvKpibJ-Ag" description="Returns a series records that contains all information known about a particular series id." name="getFromId2" public="true" URI="/{id}" exposition="REST">
+          <securityApplications xmi:id="_mYmjxNcaEe6DZvKpibJ-Ag" technicalid="_mW23VtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmjxdcaEe6DZvKpibJ-Ag" technicalid="_mWyl4tcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmjxtcaEe6DZvKpibJ-Ag" technicalid="_mWyl49caEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmjx9caEe6DZvKpibJ-Ag" technicalid="_mW0bENcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmjyNcaEe6DZvKpibJ-Ag" technicalid="_mW1CINcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmjydcaEe6DZvKpibJ-Ag" technicalid="_mW23UNcaEe6DZvKpibJ-Ag" description="A series record." type="_mYtR-NcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmjytcaEe6DZvKpibJ-Ag" technicalid="_mW23UdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmjy9caEe6DZvKpibJ-Ag" technicalid="_mW23UtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmjzNcaEe6DZvKpibJ-Ag" technicalid="_mW23U9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmjzdcaEe6DZvKpibJ-Ag" technicalid="_mW23VNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmjztcaEe6DZvKpibJ-Ag" technicalid="_mW23VdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmjz9caEe6DZvKpibJ-Ag" technicalid="_mW23V9caEe6DZvKpibJ-Ag" description="Returns header information only about the given series ID." name="headFromId" public="true" URI="/{id}" verb="HEAD" exposition="REST">
+          <securityApplications xmi:id="_mYmj0NcaEe6DZvKpibJ-Ag" technicalid="_mW7v1dcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmj0dcaEe6DZvKpibJ-Ag" technicalid="_mW23WNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj0tcaEe6DZvKpibJ-Ag" technicalid="_mW23WdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj09caEe6DZvKpibJ-Ag" technicalid="_mW5TkNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj1NcaEe6DZvKpibJ-Ag" technicalid="_mW5TkdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmj1dcaEe6DZvKpibJ-Ag" technicalid="_mW7v0NcaEe6DZvKpibJ-Ag" description="Series header information. Good for getting the Last-Updated header to find out when the series was last modified." name="output200" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_mYmj1tcaEe6DZvKpibJ-Ag" technicalid="_mW7v0dcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmj19caEe6DZvKpibJ-Ag" technicalid="_mW7v0tcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmj2NcaEe6DZvKpibJ-Ag" technicalid="_mW7v09caEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmj2dcaEe6DZvKpibJ-Ag" technicalid="_mW7v1NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmj2tcaEe6DZvKpibJ-Ag" technicalid="_mW7v1tcaEe6DZvKpibJ-Ag" description="Returns actors for the given series id" name="getActorsFromId" public="true" URI="/{id}/actors" exposition="REST">
+          <securityApplications xmi:id="_mYmj29caEe6DZvKpibJ-Ag" technicalid="_mW-zJtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmj3NcaEe6DZvKpibJ-Ag" technicalid="_mW8W4NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj3dcaEe6DZvKpibJ-Ag" technicalid="_mW8W4dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmj3tcaEe6DZvKpibJ-Ag" technicalid="_mW-zINcaEe6DZvKpibJ-Ag" description="An array of actor objects for the given series id." type="_mYtR69caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmj39caEe6DZvKpibJ-Ag" technicalid="_mW-zIdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmj4NcaEe6DZvKpibJ-Ag" technicalid="_mW-zItcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmj4dcaEe6DZvKpibJ-Ag" technicalid="_mW-zI9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmj4tcaEe6DZvKpibJ-Ag" technicalid="_mW-zJNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmj49caEe6DZvKpibJ-Ag" technicalid="_mW-zJdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmj5NcaEe6DZvKpibJ-Ag" technicalid="_mW-zJ9caEe6DZvKpibJ-Ag" description="All episodes for a given series. Paginated with 100 results per page." name="getEpisodesFromId" public="true" URI="/{id}/episodes" exposition="REST">
+          <securityApplications xmi:id="_mYmj5dcaEe6DZvKpibJ-Ag" technicalid="_mXESttcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmj5tcaEe6DZvKpibJ-Ag" technicalid="_mW-zKNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj59caEe6DZvKpibJ-Ag" technicalid="_mW-zKdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj6NcaEe6DZvKpibJ-Ag" technicalid="_mXBPYNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj6dcaEe6DZvKpibJ-Ag" technicalid="_mXBPYdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmj6tcaEe6DZvKpibJ-Ag" technicalid="_mXESsNcaEe6DZvKpibJ-Ag" description="An array of episode objects for the given series id." type="_mYtR-9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmj69caEe6DZvKpibJ-Ag" technicalid="_mXESsdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmj7NcaEe6DZvKpibJ-Ag" technicalid="_mXESstcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmj7dcaEe6DZvKpibJ-Ag" technicalid="_mXESs9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmj7tcaEe6DZvKpibJ-Ag" technicalid="_mXEStNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmj79caEe6DZvKpibJ-Ag" technicalid="_mXEStdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmj8NcaEe6DZvKpibJ-Ag" technicalid="_mXESt9caEe6DZvKpibJ-Ag" description="This route allows the user to query against episodes for the given series. The response is a paginated array of episode records." name="getEpisodesQueryFromId" public="true" URI="/{id}/episodes/query" exposition="REST">
+          <securityApplications xmi:id="_mYmj8dcaEe6DZvKpibJ-Ag" technicalid="_mXZp49caEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmj8tcaEe6DZvKpibJ-Ag" technicalid="_mXESuNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj89caEe6DZvKpibJ-Ag" technicalid="_mXESudcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj9NcaEe6DZvKpibJ-Ag" technicalid="_mXGu8NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj9dcaEe6DZvKpibJ-Ag" technicalid="_mXGu8dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj9tcaEe6DZvKpibJ-Ag" technicalid="_mXJLMNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj99caEe6DZvKpibJ-Ag" technicalid="_mXJLMdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj-NcaEe6DZvKpibJ-Ag" technicalid="_mXLncNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj-dcaEe6DZvKpibJ-Ag" technicalid="_mXLncdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj-tcaEe6DZvKpibJ-Ag" technicalid="_mXODsNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj-9caEe6DZvKpibJ-Ag" technicalid="_mXODsdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj_NcaEe6DZvKpibJ-Ag" technicalid="_mXP44NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj_dcaEe6DZvKpibJ-Ag" technicalid="_mXP44dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmj_tcaEe6DZvKpibJ-Ag" technicalid="_mXSVINcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmj_9caEe6DZvKpibJ-Ag" technicalid="_mXSVIdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmkANcaEe6DZvKpibJ-Ag" technicalid="_mXUKUNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkAdcaEe6DZvKpibJ-Ag" technicalid="_mXUKUdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmkAtcaEe6DZvKpibJ-Ag" technicalid="_mXWmkNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkA9caEe6DZvKpibJ-Ag" technicalid="_mXXNoNcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmkBNcaEe6DZvKpibJ-Ag" technicalid="_mXZC0NcaEe6DZvKpibJ-Ag" description="An array of basic Episode results that matched the query" type="_mYtR_9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmkBdcaEe6DZvKpibJ-Ag" technicalid="_mXZC0dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmkBtcaEe6DZvKpibJ-Ag" technicalid="_mXZC0tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmkB9caEe6DZvKpibJ-Ag" technicalid="_mXZp4NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmkCNcaEe6DZvKpibJ-Ag" technicalid="_mXZp4dcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist or the query returns no results." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmkCdcaEe6DZvKpibJ-Ag" technicalid="_mXZp4tcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmkCtcaEe6DZvKpibJ-Ag" technicalid="_mXZp5NcaEe6DZvKpibJ-Ag" description="Returns the allowed query keys for the `/series/{id}/episodes/query` route" name="getEpisodesQueryParamsFromId" public="true" URI="/{id}/episodes/query/params" exposition="REST">
+          <securityApplications xmi:id="_mYmkC9caEe6DZvKpibJ-Ag" technicalid="_mXctNtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmkDNcaEe6DZvKpibJ-Ag" technicalid="_mXZp5dcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkDdcaEe6DZvKpibJ-Ag" technicalid="_mXZp5tcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmkDtcaEe6DZvKpibJ-Ag" technicalid="_mXctMNcaEe6DZvKpibJ-Ag" description="An array of query keys as strings" type="_mYtSA9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmkD9caEe6DZvKpibJ-Ag" technicalid="_mXctMdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmkENcaEe6DZvKpibJ-Ag" technicalid="_mXctMtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmkEdcaEe6DZvKpibJ-Ag" technicalid="_mXctM9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmkEtcaEe6DZvKpibJ-Ag" technicalid="_mXctNNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist or the query returns no results." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmkE9caEe6DZvKpibJ-Ag" technicalid="_mXctNdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmkFNcaEe6DZvKpibJ-Ag" technicalid="_mXctN9caEe6DZvKpibJ-Ag" description="Returns a summary of the episodes and seasons available for the series.&#xA;&#xA;__Note__: Season &quot;0&quot; is for all episodes that are considered to be specials." name="getEpisodesSummaryFromId" public="true" URI="/{id}/episodes/summary" exposition="REST">
+          <securityApplications xmi:id="_mYmkFdcaEe6DZvKpibJ-Ag" technicalid="_mXfJdtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmkFtcaEe6DZvKpibJ-Ag" technicalid="_mXctONcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkF9caEe6DZvKpibJ-Ag" technicalid="_mXctOdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmkGNcaEe6DZvKpibJ-Ag" technicalid="_mXfJcNcaEe6DZvKpibJ-Ag" description="A summary of the episodes and seasons avaialable for the given series." type="_mYtSBdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmkGdcaEe6DZvKpibJ-Ag" technicalid="_mXfJcdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmkGtcaEe6DZvKpibJ-Ag" technicalid="_mXfJctcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmkG9caEe6DZvKpibJ-Ag" technicalid="_mXfJc9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmkHNcaEe6DZvKpibJ-Ag" technicalid="_mXfJdNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmkHdcaEe6DZvKpibJ-Ag" technicalid="_mXfJddcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmkHtcaEe6DZvKpibJ-Ag" technicalid="_mXfJd9caEe6DZvKpibJ-Ag" description="Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route." name="getFilterFromId" public="true" URI="/{id}/filter" exposition="REST">
+          <securityApplications xmi:id="_mYmkH9caEe6DZvKpibJ-Ag" technicalid="_mXlQFdcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmkINcaEe6DZvKpibJ-Ag" technicalid="_mXfJeNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkIdcaEe6DZvKpibJ-Ag" technicalid="_mXfJedcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmkItcaEe6DZvKpibJ-Ag" technicalid="_mXg-oNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkI9caEe6DZvKpibJ-Ag" technicalid="_mXg-odcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmkJNcaEe6DZvKpibJ-Ag" technicalid="_mXja4NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkJdcaEe6DZvKpibJ-Ag" technicalid="_mXja4dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmkJtcaEe6DZvKpibJ-Ag" technicalid="_mXkpANcaEe6DZvKpibJ-Ag" description="A filtered series record" type="_mYtR-NcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmkJ9caEe6DZvKpibJ-Ag" technicalid="_mXlQENcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmkKNcaEe6DZvKpibJ-Ag" technicalid="_mXlQEdcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmkKdcaEe6DZvKpibJ-Ag" technicalid="_mXlQEtcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmkKtcaEe6DZvKpibJ-Ag" technicalid="_mXlQE9caEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmkK9caEe6DZvKpibJ-Ag" technicalid="_mXlQFNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmkLNcaEe6DZvKpibJ-Ag" technicalid="_mXlQFtcaEe6DZvKpibJ-Ag" description="Returns the list of keys available for the `/series/{id}/filter` route" name="getFilterParamsFromId" public="true" URI="/{id}/filter/params" exposition="REST">
+          <securityApplications xmi:id="_mYmkLdcaEe6DZvKpibJ-Ag" technicalid="_mXqIltcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYmkLtcaEe6DZvKpibJ-Ag" technicalid="_mXlQF9caEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkL9caEe6DZvKpibJ-Ag" technicalid="_mXlQGNcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYmkMNcaEe6DZvKpibJ-Ag" technicalid="_mXnsUNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYmkMdcaEe6DZvKpibJ-Ag" technicalid="_mXnsUdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYmkMtcaEe6DZvKpibJ-Ag" technicalid="_mXqIkNcaEe6DZvKpibJ-Ag" description="A list of keys to filter by" type="_mYtRhdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYmkM9caEe6DZvKpibJ-Ag" technicalid="_mXqIkdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYmkNNcaEe6DZvKpibJ-Ag" technicalid="_mXqIktcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYmkNdcaEe6DZvKpibJ-Ag" technicalid="_mXqIk9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYmkNtcaEe6DZvKpibJ-Ag" technicalid="_mXqIlNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYmkN9caEe6DZvKpibJ-Ag" technicalid="_mXqIldcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYmkONcaEe6DZvKpibJ-Ag" technicalid="_mXqvoNcaEe6DZvKpibJ-Ag" description="Returns a summary of the images for a particular series" name="getImagesFromId" public="true" URI="/{id}/images" exposition="REST">
+          <securityApplications xmi:id="_mYmkOdcaEe6DZvKpibJ-Ag" technicalid="_mXw2RtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnK0NcaEe6DZvKpibJ-Ag" technicalid="_mXqvodcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK0dcaEe6DZvKpibJ-Ag" technicalid="_mXqvotcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK0tcaEe6DZvKpibJ-Ag" technicalid="_mXtL4NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK09caEe6DZvKpibJ-Ag" technicalid="_mXtL4dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnK1NcaEe6DZvKpibJ-Ag" technicalid="_mXw2QNcaEe6DZvKpibJ-Ag" description="A summary of the image types and counts available for the given series." type="_mYtSHNcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnK1dcaEe6DZvKpibJ-Ag" technicalid="_mXw2QdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnK1tcaEe6DZvKpibJ-Ag" technicalid="_mXw2QtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnK19caEe6DZvKpibJ-Ag" technicalid="_mXw2Q9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnK2NcaEe6DZvKpibJ-Ag" technicalid="_mXw2RNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnK2dcaEe6DZvKpibJ-Ag" technicalid="_mXw2RdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnK2tcaEe6DZvKpibJ-Ag" technicalid="_mXw2R9caEe6DZvKpibJ-Ag" description="Query images for the given series ID." name="getImagesQueryFromId" public="true" URI="/{id}/images/query" exposition="REST">
+          <securityApplications xmi:id="_mYnK29caEe6DZvKpibJ-Ag" technicalid="_mX9qltcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnK3NcaEe6DZvKpibJ-Ag" technicalid="_mXxdUNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK3dcaEe6DZvKpibJ-Ag" technicalid="_mXxdUdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK3tcaEe6DZvKpibJ-Ag" technicalid="_mXzSgNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK39caEe6DZvKpibJ-Ag" technicalid="_mXzSgdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK4NcaEe6DZvKpibJ-Ag" technicalid="_mX1uwNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK4dcaEe6DZvKpibJ-Ag" technicalid="_mX1uwdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK4tcaEe6DZvKpibJ-Ag" technicalid="_mX4LANcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK49caEe6DZvKpibJ-Ag" technicalid="_mX4LAdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK5NcaEe6DZvKpibJ-Ag" technicalid="_mX6nQNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK5dcaEe6DZvKpibJ-Ag" technicalid="_mX6nQdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnK5tcaEe6DZvKpibJ-Ag" technicalid="_mX9qkNcaEe6DZvKpibJ-Ag" description="An array of basic Episode results that matched the query" type="_mYtSE9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnK59caEe6DZvKpibJ-Ag" technicalid="_mX9qkdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnK6NcaEe6DZvKpibJ-Ag" technicalid="_mX9qktcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnK6dcaEe6DZvKpibJ-Ag" technicalid="_mX9qk9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnK6tcaEe6DZvKpibJ-Ag" technicalid="_mX9qlNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist or the query returns no results." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnK69caEe6DZvKpibJ-Ag" technicalid="_mX9qldcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnK7NcaEe6DZvKpibJ-Ag" technicalid="_mX9ql9caEe6DZvKpibJ-Ag" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST">
+          <securityApplications xmi:id="_mYnK7dcaEe6DZvKpibJ-Ag" technicalid="_mYDKItcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnK7tcaEe6DZvKpibJ-Ag" technicalid="_mX-RoNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK79caEe6DZvKpibJ-Ag" technicalid="_mX-RodcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK8NcaEe6DZvKpibJ-Ag" technicalid="_mYAG0NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK8dcaEe6DZvKpibJ-Ag" technicalid="_mYAG0dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnK8tcaEe6DZvKpibJ-Ag" technicalid="_mYCjENcaEe6DZvKpibJ-Ag" description="An array of query keys as strings" type="_mYtSI9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnK89caEe6DZvKpibJ-Ag" technicalid="_mYCjEdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnK9NcaEe6DZvKpibJ-Ag" technicalid="_mYCjEtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnK9dcaEe6DZvKpibJ-Ag" technicalid="_mYCjE9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnK9tcaEe6DZvKpibJ-Ag" technicalid="_mYDKINcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist or the query returns no results." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnK99caEe6DZvKpibJ-Ag" technicalid="_mYDKIdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnK-NcaEe6DZvKpibJ-Ag" technicalid="_dvkOMNcWEe6DZvKpibJ-Ag" description="Series that have been recently updated." name="Updates" URI="/updated/query">
+      <ownedInterface xmi:id="_mYnK-dcaEe6DZvKpibJ-Ag" technicalid="_mYDKI9caEe6DZvKpibJ-Ag" name="Updates">
+        <ownedOperations xmi:id="_mYnK-tcaEe6DZvKpibJ-Ag" technicalid="_mYDKJNcaEe6DZvKpibJ-Ag" description="Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.&#xA;&#xA;&#xA;The user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically." name="get2" public="true" URI="" exposition="REST">
+          <securityApplications xmi:id="_mYnK-9caEe6DZvKpibJ-Ag" technicalid="_mYKe5dcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnK_NcaEe6DZvKpibJ-Ag" technicalid="_mYDKJdcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK_dcaEe6DZvKpibJ-Ag" technicalid="_mYDKJtcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnK_tcaEe6DZvKpibJ-Ag" technicalid="_mYFmYNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnK_9caEe6DZvKpibJ-Ag" technicalid="_mYFmYdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLANcaEe6DZvKpibJ-Ag" technicalid="_mYICoNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLAdcaEe6DZvKpibJ-Ag" technicalid="_mYICodcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLAtcaEe6DZvKpibJ-Ag" technicalid="_mYJ30NcaEe6DZvKpibJ-Ag" description="An array of Update objects that match the given timeframe." type="_mYtSONcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLA9caEe6DZvKpibJ-Ag" technicalid="_mYKe4NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLBNcaEe6DZvKpibJ-Ag" technicalid="_mYKe4dcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLBdcaEe6DZvKpibJ-Ag" technicalid="_mYKe4tcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLBtcaEe6DZvKpibJ-Ag" technicalid="_mYKe49caEe6DZvKpibJ-Ag" description="Returned if no records exist for the given timespan" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLB9caEe6DZvKpibJ-Ag" technicalid="_mYKe5NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLCNcaEe6DZvKpibJ-Ag" technicalid="_mYKe5tcaEe6DZvKpibJ-Ag" description="Returns an array of valid query keys for the `/updated/query/params` route." name="getParams1" public="true" URI="/params" exposition="REST">
+          <securityApplications xmi:id="_mYnLCdcaEe6DZvKpibJ-Ag" technicalid="_mYKe7dcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLCtcaEe6DZvKpibJ-Ag" technicalid="_mYKe59caEe6DZvKpibJ-Ag" description="An array of Update objects that match the given timeframe." type="_mYtSO9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLC9caEe6DZvKpibJ-Ag" technicalid="_mYKe6NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLDNcaEe6DZvKpibJ-Ag" technicalid="_mYKe6dcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLDdcaEe6DZvKpibJ-Ag" technicalid="_mYKe6tcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLDtcaEe6DZvKpibJ-Ag" technicalid="_mYKe69caEe6DZvKpibJ-Ag" description="Returned if no records exist for the given timespan" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLD9caEe6DZvKpibJ-Ag" technicalid="_mYKe7NcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLENcaEe6DZvKpibJ-Ag" technicalid="_dvkOMdcWEe6DZvKpibJ-Ag" description="Obtaining and refreshing your JWT token" name="Authentication" URI="">
+      <ownedInterface xmi:id="_mYnLEdcaEe6DZvKpibJ-Ag" technicalid="_mWcnp9caEe6DZvKpibJ-Ag" name="Authentication">
+        <ownedOperations xmi:id="_mYnLEtcaEe6DZvKpibJ-Ag" technicalid="_mWcnqNcaEe6DZvKpibJ-Ag" description="Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section" name="postLogin" public="true" URI="/login" verb="POST" exposition="REST">
+          <metadatas xmi:id="_mYnLE9caEe6DZvKpibJ-Ag" technicalid="_mWcnqtcaEe6DZvKpibJ-Ag">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_mYnLFNcaEe6DZvKpibJ-Ag" technicalid="_mWcnqdcaEe6DZvKpibJ-Ag" title="x-codegen-request-body-name" body="Authentication string" context="Operation"/>
+          </metadatas>
+          <input xmi:id="_mYnLFdcaEe6DZvKpibJ-Ag" technicalid="_mWcnq9caEe6DZvKpibJ-Ag" description="JSON string containing your authentication details." type="_mYsqYdcaEe6DZvKpibJ-Ag" name="body">
+            <mediaType xmi:id="_mYnLFtcaEe6DZvKpibJ-Ag" technicalid="_mWdOsdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+            <restData xmi:id="_mYnLF9caEe6DZvKpibJ-Ag" technicalid="_mWdOsNcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLGNcaEe6DZvKpibJ-Ag" technicalid="_mWdOstcaEe6DZvKpibJ-Ag" description="Returns a JWT token for use with the rest of the API routes" type="_mYtSM9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLGdcaEe6DZvKpibJ-Ag" technicalid="_mWdOs9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLGtcaEe6DZvKpibJ-Ag" technicalid="_mWdOtNcaEe6DZvKpibJ-Ag" description="Invalid credentials and/or API token" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLG9caEe6DZvKpibJ-Ag" technicalid="_mWdOtdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLHNcaEe6DZvKpibJ-Ag" technicalid="_mWlxlNcaEe6DZvKpibJ-Ag" description="Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated." name="getRefresh_token" public="true" URI="/refresh_token" exposition="REST">
+          <securityApplications xmi:id="_mYnLHdcaEe6DZvKpibJ-Ag" technicalid="_mWlxmdcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLHtcaEe6DZvKpibJ-Ag" technicalid="_mWlxldcaEe6DZvKpibJ-Ag" description="Returns a new token to use in your subsequent requests" type="_mYtSM9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLH9caEe6DZvKpibJ-Ag" technicalid="_mWlxltcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLINcaEe6DZvKpibJ-Ag" technicalid="_mWlxl9caEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLIdcaEe6DZvKpibJ-Ag" technicalid="_mWlxmNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLItcaEe6DZvKpibJ-Ag" technicalid="_dvkOMtcWEe6DZvKpibJ-Ag" description="Search for a particular series" name="Search" URI="/search/series">
+      <ownedInterface xmi:id="_mYnLI9caEe6DZvKpibJ-Ag" technicalid="_mWlxmtcaEe6DZvKpibJ-Ag" name="Search">
+        <ownedOperations xmi:id="_mYnLJNcaEe6DZvKpibJ-Ag" technicalid="_mWlxm9caEe6DZvKpibJ-Ag" description="Allows the user to search for a series based on the following parameters." name="get1" public="true" URI="" exposition="REST">
+          <securityApplications xmi:id="_mYnLJdcaEe6DZvKpibJ-Ag" technicalid="_mWx-1tcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLJtcaEe6DZvKpibJ-Ag" technicalid="_mWlxnNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLJ9caEe6DZvKpibJ-Ag" technicalid="_mWlxndcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLKNcaEe6DZvKpibJ-Ag" technicalid="_mWo04NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLKdcaEe6DZvKpibJ-Ag" technicalid="_mWo04dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLKtcaEe6DZvKpibJ-Ag" technicalid="_mWqqENcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLK9caEe6DZvKpibJ-Ag" technicalid="_mWqqEdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLLNcaEe6DZvKpibJ-Ag" technicalid="_mWtGUNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLLdcaEe6DZvKpibJ-Ag" technicalid="_mWtGUdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLLtcaEe6DZvKpibJ-Ag" technicalid="_mWvikNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLL9caEe6DZvKpibJ-Ag" technicalid="_mWvikdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLMNcaEe6DZvKpibJ-Ag" technicalid="_mWx-0NcaEe6DZvKpibJ-Ag" description="An array of results that match the provided query." type="_mYtSMdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLMdcaEe6DZvKpibJ-Ag" technicalid="_mWx-0dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLMtcaEe6DZvKpibJ-Ag" technicalid="_mWx-0tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLM9caEe6DZvKpibJ-Ag" technicalid="_mWx-09caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLNNcaEe6DZvKpibJ-Ag" technicalid="_mWx-1NcaEe6DZvKpibJ-Ag" description="Returned if no records are found that match your query." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLNdcaEe6DZvKpibJ-Ag" technicalid="_mWx-1dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLNtcaEe6DZvKpibJ-Ag" technicalid="_mWx-19caEe6DZvKpibJ-Ag" description="Returns an array of parameters to query by in the `/search/series` route." name="getParams" public="true" URI="/params" exposition="REST">
+          <securityApplications xmi:id="_mYnLN9caEe6DZvKpibJ-Ag" technicalid="_mWx-3NcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLONcaEe6DZvKpibJ-Ag" technicalid="_mWx-2NcaEe6DZvKpibJ-Ag" description="An array of query keys as strings" type="_mYtRfdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLOdcaEe6DZvKpibJ-Ag" technicalid="_mWx-2dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLOtcaEe6DZvKpibJ-Ag" technicalid="_mWx-2tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLO9caEe6DZvKpibJ-Ag" technicalid="_mWx-29caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLPNcaEe6DZvKpibJ-Ag" technicalid="_dvkOM9cWEe6DZvKpibJ-Ag" description="Information about a specific episode" name="Episodes" URI="/episodes">
+      <ownedInterface xmi:id="_mYnLPdcaEe6DZvKpibJ-Ag" technicalid="_dvk1QNcWEe6DZvKpibJ-Ag" name="Episodes">
+        <ownedOperations xmi:id="_mYnLPtcaEe6DZvKpibJ-Ag" technicalid="_dvk1QdcWEe6DZvKpibJ-Ag" description="Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release." name="getFromId" public="true" URI="/{id}" exposition="REST">
+          <securityApplications xmi:id="_mYnLP9caEe6DZvKpibJ-Ag" technicalid="_mWY9RNcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLQNcaEe6DZvKpibJ-Ag" technicalid="_dvk1QtcWEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLQdcaEe6DZvKpibJ-Ag" technicalid="_dvk1Q9cWEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLQtcaEe6DZvKpibJ-Ag" technicalid="_mWSPkNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLQ9caEe6DZvKpibJ-Ag" technicalid="_mWTdsNcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLRNcaEe6DZvKpibJ-Ag" technicalid="_mWWhANcaEe6DZvKpibJ-Ag" description="An array of query keys as strings" type="_mYtRgtcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLRdcaEe6DZvKpibJ-Ag" technicalid="_mWYWMNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLRtcaEe6DZvKpibJ-Ag" technicalid="_mWY9QNcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLR9caEe6DZvKpibJ-Ag" technicalid="_mWY9QdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLSNcaEe6DZvKpibJ-Ag" technicalid="_mWY9QtcaEe6DZvKpibJ-Ag" description="Returned if the given episode ID does not exist." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLSdcaEe6DZvKpibJ-Ag" technicalid="_mWY9Q9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLStcaEe6DZvKpibJ-Ag" technicalid="_dvkONNcWEe6DZvKpibJ-Ag" description="Available languages and information" name="Languages" URI="/languages">
+      <ownedInterface xmi:id="_mYnLS9caEe6DZvKpibJ-Ag" technicalid="_mWZkUNcaEe6DZvKpibJ-Ag" name="Languages">
+        <ownedOperations xmi:id="_mYnLTNcaEe6DZvKpibJ-Ag" technicalid="_mWZkUdcaEe6DZvKpibJ-Ag" description="All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records." name="get" public="true" URI="" exposition="REST">
+          <securityApplications xmi:id="_mYnLTdcaEe6DZvKpibJ-Ag" technicalid="_mWaLZNcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLTtcaEe6DZvKpibJ-Ag" technicalid="_mWaLYNcaEe6DZvKpibJ-Ag" description="An array of language objects." type="_mYtRktcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLT9caEe6DZvKpibJ-Ag" technicalid="_mWaLYdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLUNcaEe6DZvKpibJ-Ag" technicalid="_mWaLYtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLUdcaEe6DZvKpibJ-Ag" technicalid="_mWaLY9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLUtcaEe6DZvKpibJ-Ag" technicalid="_mWaLZdcaEe6DZvKpibJ-Ag" description="Information about a particular language, given the language ID." name="getFromId1" public="true" URI="/{id}" exposition="REST">
+          <securityApplications xmi:id="_mYnLU9caEe6DZvKpibJ-Ag" technicalid="_mWcnptcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLVNcaEe6DZvKpibJ-Ag" technicalid="_mWaLZtcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLVdcaEe6DZvKpibJ-Ag" technicalid="_mWaLZ9caEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLVtcaEe6DZvKpibJ-Ag" technicalid="_mWcnoNcaEe6DZvKpibJ-Ag" description="An array of language objects." type="_mYtRjdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLV9caEe6DZvKpibJ-Ag" technicalid="_mWcnodcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLWNcaEe6DZvKpibJ-Ag" technicalid="_mWcnotcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLWdcaEe6DZvKpibJ-Ag" technicalid="_mWcno9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLWtcaEe6DZvKpibJ-Ag" technicalid="_mWcnpNcaEe6DZvKpibJ-Ag" description="Returned if the given language ID does not exist." type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLW9caEe6DZvKpibJ-Ag" technicalid="_mWcnpdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLXNcaEe6DZvKpibJ-Ag" technicalid="_dvkONdcWEe6DZvKpibJ-Ag" description="Information about a specific movie" name="Movies" URI="">
+      <ownedInterface xmi:id="_mYnLXdcaEe6DZvKpibJ-Ag" technicalid="_mWdOttcaEe6DZvKpibJ-Ag" name="Movies">
+        <ownedOperations xmi:id="_mYnLXtcaEe6DZvKpibJ-Ag" technicalid="_mWdOt9caEe6DZvKpibJ-Ag" description="Returns a movies records that contains all information known about a particular movies id." name="getMoviesFromId" public="true" URI="/movies/{id}" exposition="REST">
+          <securityApplications xmi:id="_mYnLX9caEe6DZvKpibJ-Ag" technicalid="_mWiHNtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLYNcaEe6DZvKpibJ-Ag" technicalid="_mWdOuNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLYdcaEe6DZvKpibJ-Ag" technicalid="_mWdOudcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLYtcaEe6DZvKpibJ-Ag" technicalid="_mWfq8NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLY9caEe6DZvKpibJ-Ag" technicalid="_mWfq8dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLZNcaEe6DZvKpibJ-Ag" technicalid="_mWiHMNcaEe6DZvKpibJ-Ag" description="A movie record." type="_mYtRmdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLZdcaEe6DZvKpibJ-Ag" technicalid="_mWiHMdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLZtcaEe6DZvKpibJ-Ag" technicalid="_mWiHMtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLZ9caEe6DZvKpibJ-Ag" technicalid="_mWiHM9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLaNcaEe6DZvKpibJ-Ag" technicalid="_mWiHNNcaEe6DZvKpibJ-Ag" description="Returned if the given series ID does not exist" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLadcaEe6DZvKpibJ-Ag" technicalid="_mWiHNdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLatcaEe6DZvKpibJ-Ag" technicalid="_mWiuQNcaEe6DZvKpibJ-Ag" description="Returns all movies ids updated since a given timestamp." name="getMovieupdates" public="true" URI="/movieupdates" exposition="REST">
+          <securityApplications xmi:id="_mYnLa9caEe6DZvKpibJ-Ag" technicalid="_mWlxk9caEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLbNcaEe6DZvKpibJ-Ag" technicalid="_mWiuQdcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLbdcaEe6DZvKpibJ-Ag" technicalid="_mWiuQtcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLbtcaEe6DZvKpibJ-Ag" technicalid="_mWlKgNcaEe6DZvKpibJ-Ag" description="All movies ids updated since a given date" type="_mYtSPdcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLb9caEe6DZvKpibJ-Ag" technicalid="_mWlKgdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLcNcaEe6DZvKpibJ-Ag" technicalid="_mWlKgtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLcdcaEe6DZvKpibJ-Ag" technicalid="_mWlKg9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLctcaEe6DZvKpibJ-Ag" technicalid="_mWlKhNcaEe6DZvKpibJ-Ag" description="Missing query params are given" type="_mYtRh9caEe6DZvKpibJ-Ag" name="fault405" multiplicity="0..1" statusCode="405" statusMessage="Method Not Allowed">
+            <mediaType xmi:id="_mYnLc9caEe6DZvKpibJ-Ag" technicalid="_mWlxkNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLdNcaEe6DZvKpibJ-Ag" technicalid="_mWlxkdcaEe6DZvKpibJ-Ag" description="Invalid query params provided" type="_mYtRh9caEe6DZvKpibJ-Ag" name="fault422" multiplicity="0..1" statusCode="422" statusMessage="Unprocessable Entity">
+            <mediaType xmi:id="_mYnLddcaEe6DZvKpibJ-Ag" technicalid="_mWlxktcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_mYnLdtcaEe6DZvKpibJ-Ag" technicalid="_dvkONtcWEe6DZvKpibJ-Ag" description="Routes for handling user data." name="Users" URI="/user">
+      <ownedInterface xmi:id="_mYnLd9caEe6DZvKpibJ-Ag" technicalid="_mYKe7tcaEe6DZvKpibJ-Ag" name="Users">
+        <ownedOperations xmi:id="_mYnLeNcaEe6DZvKpibJ-Ag" technicalid="_mYKe79caEe6DZvKpibJ-Ag" description="Returns basic information about the currently authenticated user." name="get3" public="true" URI="" exposition="REST">
+          <securityApplications xmi:id="_mYnLedcaEe6DZvKpibJ-Ag" technicalid="_mYLF9tcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLetcaEe6DZvKpibJ-Ag" technicalid="_mYLF8NcaEe6DZvKpibJ-Ag" description="User information." type="_mYtSQ9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLe9caEe6DZvKpibJ-Ag" technicalid="_mYLF8dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLfNcaEe6DZvKpibJ-Ag" technicalid="_mYLF8tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLfdcaEe6DZvKpibJ-Ag" technicalid="_mYLF89caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLftcaEe6DZvKpibJ-Ag" technicalid="_mYLF9NcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLf9caEe6DZvKpibJ-Ag" technicalid="_mYLF9dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLgNcaEe6DZvKpibJ-Ag" technicalid="_mYLF99caEe6DZvKpibJ-Ag" description="Returns an array of favorite series for a given user, will be a blank array if no favorites exist." name="getFavorites" public="true" URI="/favorites" exposition="REST">
+          <securityApplications xmi:id="_mYnLgdcaEe6DZvKpibJ-Ag" technicalid="_mYLF_tcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLgtcaEe6DZvKpibJ-Ag" technicalid="_mYLF-NcaEe6DZvKpibJ-Ag" description="User favorites." type="_mYtSR9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLg9caEe6DZvKpibJ-Ag" technicalid="_mYLF-dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLhNcaEe6DZvKpibJ-Ag" technicalid="_mYLF-tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLhdcaEe6DZvKpibJ-Ag" technicalid="_mYLF-9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLhtcaEe6DZvKpibJ-Ag" technicalid="_mYLF_NcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLh9caEe6DZvKpibJ-Ag" technicalid="_mYLF_dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLiNcaEe6DZvKpibJ-Ag" technicalid="_mYLtANcaEe6DZvKpibJ-Ag" description="Adds the supplied series ID to the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="putFavoritesFromId" public="true" URI="/favorites/{id}" verb="PUT" exposition="REST">
+          <securityApplications xmi:id="_mYnLidcaEe6DZvKpibJ-Ag" technicalid="_mYPXaNcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLitcaEe6DZvKpibJ-Ag" technicalid="_mYLtAdcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLi9caEe6DZvKpibJ-Ag" technicalid="_mYLtAtcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLjNcaEe6DZvKpibJ-Ag" technicalid="_mYPXYNcaEe6DZvKpibJ-Ag" description="List of user favorites." type="_mYtSR9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLjdcaEe6DZvKpibJ-Ag" technicalid="_mYPXYdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLjtcaEe6DZvKpibJ-Ag" technicalid="_mYPXYtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLj9caEe6DZvKpibJ-Ag" technicalid="_mYPXY9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLkNcaEe6DZvKpibJ-Ag" technicalid="_mYPXZNcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLkdcaEe6DZvKpibJ-Ag" technicalid="_mYPXZdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLktcaEe6DZvKpibJ-Ag" technicalid="_mYPXZtcaEe6DZvKpibJ-Ag" description="Returned if requested record could not be updated" type="_mYsqcdcaEe6DZvKpibJ-Ag" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict">
+            <mediaType xmi:id="_mYnLk9caEe6DZvKpibJ-Ag" technicalid="_mYPXZ9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLlNcaEe6DZvKpibJ-Ag" technicalid="_mYPXadcaEe6DZvKpibJ-Ag" description="Deletes the given series ID from the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="deleteFavoritesFromId" public="true" URI="/favorites/{id}" verb="DELETE" exposition="REST">
+          <securityApplications xmi:id="_mYnLldcaEe6DZvKpibJ-Ag" technicalid="_mYTBwtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLltcaEe6DZvKpibJ-Ag" technicalid="_mYPXatcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLl9caEe6DZvKpibJ-Ag" technicalid="_mYPXa9caEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLmNcaEe6DZvKpibJ-Ag" technicalid="_mYSasNcaEe6DZvKpibJ-Ag" description="List of user favorites." type="_mYtSR9caEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLmdcaEe6DZvKpibJ-Ag" technicalid="_mYSasdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLmtcaEe6DZvKpibJ-Ag" technicalid="_mYSastcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLm9caEe6DZvKpibJ-Ag" technicalid="_mYSas9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLnNcaEe6DZvKpibJ-Ag" technicalid="_mYSatNcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLndcaEe6DZvKpibJ-Ag" technicalid="_mYSatdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLntcaEe6DZvKpibJ-Ag" technicalid="_mYTBwNcaEe6DZvKpibJ-Ag" description="Returned if requested record could not be deleted" type="_mYsqcdcaEe6DZvKpibJ-Ag" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict">
+            <mediaType xmi:id="_mYnLn9caEe6DZvKpibJ-Ag" technicalid="_mYTBwdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLoNcaEe6DZvKpibJ-Ag" technicalid="_mYTBw9caEe6DZvKpibJ-Ag" description="Returns an array of ratings for the given user." name="getRatings" public="true" URI="/ratings" exposition="REST">
+          <securityApplications xmi:id="_mYnLodcaEe6DZvKpibJ-Ag" technicalid="_mYTo1tcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLotcaEe6DZvKpibJ-Ag" technicalid="_mYTo0NcaEe6DZvKpibJ-Ag" description="Array of user ratings." type="_mYtSTtcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLo9caEe6DZvKpibJ-Ag" technicalid="_mYTo0dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLpNcaEe6DZvKpibJ-Ag" technicalid="_mYTo0tcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLpdcaEe6DZvKpibJ-Ag" technicalid="_mYTo09caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLptcaEe6DZvKpibJ-Ag" technicalid="_mYTo1NcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLp9caEe6DZvKpibJ-Ag" technicalid="_mYTo1dcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLqNcaEe6DZvKpibJ-Ag" technicalid="_mYTo19caEe6DZvKpibJ-Ag" description="Returns an array of ratings for a given user that match the query." name="getRatingsQuery" public="true" URI="/ratings/query" exposition="REST">
+          <securityApplications xmi:id="_mYnLqdcaEe6DZvKpibJ-Ag" technicalid="_mYWFFtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLqtcaEe6DZvKpibJ-Ag" technicalid="_mYTo2NcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLq9caEe6DZvKpibJ-Ag" technicalid="_mYTo2dcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLrNcaEe6DZvKpibJ-Ag" technicalid="_mYWFENcaEe6DZvKpibJ-Ag" description="List of user ratings that match the given query." type="_mYtSTtcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLrdcaEe6DZvKpibJ-Ag" technicalid="_mYWFEdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLrtcaEe6DZvKpibJ-Ag" technicalid="_mYWFEtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLr9caEe6DZvKpibJ-Ag" technicalid="_mYWFE9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLsNcaEe6DZvKpibJ-Ag" technicalid="_mYWFFNcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLsdcaEe6DZvKpibJ-Ag" technicalid="_mYWFFdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLstcaEe6DZvKpibJ-Ag" technicalid="_mYWFF9caEe6DZvKpibJ-Ag" description="Returns a list of query params for use in the `/user/ratings/query` route." name="getRatingsQueryParams" public="true" URI="/ratings/query/params" exposition="REST">
+          <securityApplications xmi:id="_mYnLs9caEe6DZvKpibJ-Ag" technicalid="_mYWFHtcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <output xmi:id="_mYnLtNcaEe6DZvKpibJ-Ag" technicalid="_mYWFGNcaEe6DZvKpibJ-Ag" description="Parameters to use for querying." type="_mYtSVtcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLtdcaEe6DZvKpibJ-Ag" technicalid="_mYWFGdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLttcaEe6DZvKpibJ-Ag" technicalid="_mYWFGtcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLt9caEe6DZvKpibJ-Ag" technicalid="_mYWFG9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLuNcaEe6DZvKpibJ-Ag" technicalid="_mYWFHNcaEe6DZvKpibJ-Ag" description="Returned if no information exists for the current user" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLudcaEe6DZvKpibJ-Ag" technicalid="_mYWFHdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLutcaEe6DZvKpibJ-Ag" technicalid="_mYWsINcaEe6DZvKpibJ-Ag" description="This route deletes a given rating of a given type." name="deleteRatingsFromItemTypeAndItemId" public="true" URI="/ratings/{itemType}/{itemId}" verb="DELETE" exposition="REST">
+          <securityApplications xmi:id="_mYnLu9caEe6DZvKpibJ-Ag" technicalid="_mYbkptcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLvNcaEe6DZvKpibJ-Ag" technicalid="_mYWsIdcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLvdcaEe6DZvKpibJ-Ag" technicalid="_mYWsItcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLvtcaEe6DZvKpibJ-Ag" technicalid="_mYZIYNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLv9caEe6DZvKpibJ-Ag" technicalid="_mYZIYdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLwNcaEe6DZvKpibJ-Ag" technicalid="_mYbkoNcaEe6DZvKpibJ-Ag" description="Returns OK if the delete was successful" type="_mYtSVNcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLwdcaEe6DZvKpibJ-Ag" technicalid="_mYbkodcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnLwtcaEe6DZvKpibJ-Ag" technicalid="_mYbkotcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnLw9caEe6DZvKpibJ-Ag" technicalid="_mYbko9caEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnLxNcaEe6DZvKpibJ-Ag" technicalid="_mYbkpNcaEe6DZvKpibJ-Ag" description="Returned if no rating is found that matches your given parameters" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnLxdcaEe6DZvKpibJ-Ag" technicalid="_mYbkpdcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+        <ownedOperations xmi:id="_mYnLxtcaEe6DZvKpibJ-Ag" technicalid="_mYbkp9caEe6DZvKpibJ-Ag" description="This route updates a given rating of a given type." name="putRatingsFromItemTypeAndItemIdAndItemRating" public="true" URI="/ratings/{itemType}/{itemId}/{itemRating}" verb="PUT" exposition="REST">
+          <securityApplications xmi:id="_mYnLx9caEe6DZvKpibJ-Ag" technicalid="_mYkuldcaEe6DZvKpibJ-Ag" securityScheme="_mYnL1NcaEe6DZvKpibJ-Ag"/>
+          <input xmi:id="_mYnLyNcaEe6DZvKpibJ-Ag" technicalid="_mYbkqNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLydcaEe6DZvKpibJ-Ag" technicalid="_mYbkqdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLytcaEe6DZvKpibJ-Ag" technicalid="_mYfPANcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLy9caEe6DZvKpibJ-Ag" technicalid="_mYfPAdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <input xmi:id="_mYnLzNcaEe6DZvKpibJ-Ag" technicalid="_mYhrQNcaEe6DZvKpibJ-Ag" multiplicity="0..1">
+            <restData xmi:id="_mYnLzdcaEe6DZvKpibJ-Ag" technicalid="_mYhrQdcaEe6DZvKpibJ-Ag"/>
+          </input>
+          <output xmi:id="_mYnLztcaEe6DZvKpibJ-Ag" technicalid="_mYkHgNcaEe6DZvKpibJ-Ag" description="Update OK if the update was successful" type="_mYtSUtcaEe6DZvKpibJ-Ag" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_mYnLz9caEe6DZvKpibJ-Ag" technicalid="_mYkukNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </output>
+          <fault xmi:id="_mYnL0NcaEe6DZvKpibJ-Ag" technicalid="_mYkukdcaEe6DZvKpibJ-Ag" description="Returned if your JWT token is missing or expired" type="_mYtR0NcaEe6DZvKpibJ-Ag" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
+            <mediaType xmi:id="_mYnL0dcaEe6DZvKpibJ-Ag" technicalid="_mYkuktcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+          <fault xmi:id="_mYnL0tcaEe6DZvKpibJ-Ag" technicalid="_mYkuk9caEe6DZvKpibJ-Ag" description="Returned if no rating is found that matches your given parameters" type="_mYtR0tcaEe6DZvKpibJ-Ag" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_mYnL09caEe6DZvKpibJ-Ag" technicalid="_mYkulNcaEe6DZvKpibJ-Ag" identifier="application/json"/>
+          </fault>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <securitySchemes xmi:id="_mYnL1NcaEe6DZvKpibJ-Ag" technicalid="_dvf8x9cWEe6DZvKpibJ-Ag" description="JWT token prefixed with &quot;Bearer &quot;" key="Authorization" name="jwtToken" apiKeyLocation="HEADER"/>
+    <license xmi:id="_mYnx4NcaEe6DZvKpibJ-Ag" technicalid="_dvf8wtcWEe6DZvKpibJ-Ag" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_mYnx4dcaEe6DZvKpibJ-Ag" technicalid="_dvf8wdcWEe6DZvKpibJ-Ag" apiVersion="3.0.0"/>
+    <contact xmi:id="_mYnx4tcaEe6DZvKpibJ-Ag" technicalid="_dvf8w9cWEe6DZvKpibJ-Ag"/>
+    <servers xmi:id="_mYnx49caEe6DZvKpibJ-Ag" technicalid="_dvf8xtcWEe6DZvKpibJ-Ag" URL="/"/>
+  </ownedComponents>
+</soa:System>
