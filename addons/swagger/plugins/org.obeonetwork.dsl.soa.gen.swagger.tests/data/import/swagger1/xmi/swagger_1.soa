@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_E_sbkM9JEe6BLbuF5R9nNA" technicalid="_E_m8AM9JEe6BLbuF5R9nNA" createdOn="2024-02-19T18:05:26.976+0100" modifiedOn="2024-02-29T15:20:03.916+0100">
+  <ownedNamespaces xmi:id="_oYBwwNcNEe6Cv6n9CCwb9Q" technicalid="_oXuOwNcNEe6Cv6n9CCwb9Q" createdOn="2024-02-29T15:20:03.916+0100" modifiedOn="2024-02-29T15:20:03.916+0100" name="Swagger 1 sample">
+    <types xsi:type="oenv:DTO" xmi:id="_oYBwwdcNEe6Cv6n9CCwb9Q" technicalid="_oXu10NcNEe6Cv6n9CCwb9Q" name="note">
+      <ownedAttributes xmi:id="_oYBwwtcNEe6Cv6n9CCwb9Q" technicalid="_oXvc4dcNEe6Cv6n9CCwb9Q" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_oYBww9cNEe6Cv6n9CCwb9Q" technicalid="_oXwrANcNEe6Cv6n9CCwb9Q" name="description">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_oYBwxNcNEe6Cv6n9CCwb9Q" technicalid="_oXwrAdcNEe6Cv6n9CCwb9Q" name="photo" referencedType="_oYBwxdcNEe6Cv6n9CCwb9Q"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_oYBwxdcNEe6Cv6n9CCwb9Q" technicalid="_oXvc4NcNEe6Cv6n9CCwb9Q" name="photo">
+      <ownedAttributes xmi:id="_oYBwxtcNEe6Cv6n9CCwb9Q" technicalid="_oXxSENcNEe6Cv6n9CCwb9Q" name="title">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_oYBwx9cNEe6Cv6n9CCwb9Q" technicalid="_oXxSFdcNEe6Cv6n9CCwb9Q" description="Url for photo" name="url" type="_oYBwyNcNEe6Cv6n9CCwb9Q"/>
+    </types>
+    <types xsi:type="oenv:Enumeration" xmi:id="_oYBwyNcNEe6Cv6n9CCwb9Q" technicalid="_oXxSEdcNEe6Cv6n9CCwb9Q" description="Url for photo" name="photoUrl">
+      <literals xmi:id="_oYBwydcNEe6Cv6n9CCwb9Q" technicalid="_oXxSEtcNEe6Cv6n9CCwb9Q" name="a"/>
+      <literals xmi:id="_oYBwytcNEe6Cv6n9CCwb9Q" technicalid="_oXxSE9cNEe6Cv6n9CCwb9Q" name="b"/>
+      <literals xmi:id="_oYBwy9cNEe6Cv6n9CCwb9Q" technicalid="_oXxSFNcNEe6Cv6n9CCwb9Q" name="c"/>
+    </types>
+    <ownedNamespaces xmi:id="_oYBwzNcNEe6Cv6n9CCwb9Q" technicalid="_oX6cANcNEe6Cv6n9CCwb9Q" name="Default">
+      <types xsi:type="oenv:Enumeration" xmi:id="_oYBwzdcNEe6Cv6n9CCwb9Q" technicalid="_oX3Ys9cNEe6Cv6n9CCwb9Q" name="GetPhotosByIdUserId">
+        <literals xmi:id="_oYBwztcNEe6Cv6n9CCwb9Q" technicalid="_oX3YtNcNEe6Cv6n9CCwb9Q" name="allowedId3"/>
+        <literals xmi:id="_oYBwz9cNEe6Cv6n9CCwb9Q" technicalid="_oX3YtdcNEe6Cv6n9CCwb9Q" name="allowedId2"/>
+        <literals xmi:id="_oYBw0NcNEe6Cv6n9CCwb9Q" technicalid="_oX3YttcNEe6Cv6n9CCwb9Q" name="allowedId1"/>
+      </types>
+    </ownedNamespaces>
+  </ownedNamespaces>
+  <ownedComponents xmi:id="_oX8RMNcNEe6Cv6n9CCwb9Q" technicalid="_oXpWQNcNEe6Cv6n9CCwb9Q" description="This is a sample Note server" name="Swagger 1 sample" URI="" apiVersion="1.0.1a">
+    <metadatas xmi:id="_oX8RMdcNEe6Cv6n9CCwb9Q" technicalid="_oXrLcdcNEe6Cv6n9CCwb9Q">
+      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_oX8RMtcNEe6Cv6n9CCwb9Q" technicalid="_oXrLcNcNEe6Cv6n9CCwb9Q" title="x-original-swagger-version" body="2.0" context="OpenAPI"/>
+    </metadatas>
+    <ownedServices xmi:id="_oX8RM9cNEe6Cv6n9CCwb9Q" technicalid="_oXygMNcNEe6Cv6n9CCwb9Q" description="" name="Default" URI="">
+      <ownedInterface xmi:id="_oX8RNNcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQNcNEe6Cv6n9CCwb9Q" name="Default">
+        <ownedOperations xmi:id="_oX8RNdcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQdcNEe6Cv6n9CCwb9Q" description="photos may appear in note" name="getNoteById" public="true" URI="/note/{noteId}" exposition="REST">
+          <input xmi:id="_oX8RNtcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQtcNEe6Cv6n9CCwb9Q" description="ID of note that needs to be fetched" name="noteId">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_oX8RN9cNEe6Cv6n9CCwb9Q" technicalid="_oXzHQ9cNEe6Cv6n9CCwb9Q" passingMode="PATH" restId="noteId"/>
+          </input>
+          <output xmi:id="_oX8RONcNEe6Cv6n9CCwb9Q" technicalid="_oXzHRNcNEe6Cv6n9CCwb9Q" description="success" type="_oYBwwdcNEe6Cv6n9CCwb9Q" name="outputdefault" multiplicity="0..1" statusCode="default" statusMessage="">
+            <mediaType xmi:id="_oX8ROdcNEe6Cv6n9CCwb9Q" technicalid="_oX2xoNcNEe6Cv6n9CCwb9Q" identifier="*/*"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_oX8ROtcNEe6Cv6n9CCwb9Q" technicalid="_oX3YsNcNEe6Cv6n9CCwb9Q" name="getPhotosById" public="true" URI="/photo/{userId}" exposition="REST">
+          <input xmi:id="_oX8RO9cNEe6Cv6n9CCwb9Q" technicalid="_oX3YsdcNEe6Cv6n9CCwb9Q" description="ID of User whose photos" type="_oYBwzdcNEe6Cv6n9CCwb9Q" name="userId">
+            <restData xmi:id="_oX8RPNcNEe6Cv6n9CCwb9Q" technicalid="_oX3YstcNEe6Cv6n9CCwb9Q" passingMode="PATH" restId="userId"/>
+          </input>
+          <output xmi:id="_oX8RPdcNEe6Cv6n9CCwb9Q" technicalid="_oX5N4NcNEe6Cv6n9CCwb9Q" description="success" name="outputdefault" statusCode="default" statusMessage=""/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <license xmi:id="_oX8RPtcNEe6Cv6n9CCwb9Q" technicalid="_oXpWQtcNEe6Cv6n9CCwb9Q" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_oX8RP9cNEe6Cv6n9CCwb9Q" technicalid="_oXpWQdcNEe6Cv6n9CCwb9Q" apiVersion="1.0.1a"/>
+    <contact xmi:id="_oX8RQNcNEe6Cv6n9CCwb9Q" technicalid="_oXpWQ9cNEe6Cv6n9CCwb9Q"/>
+    <servers xmi:id="_oX8RQdcNEe6Cv6n9CCwb9Q" technicalid="_oXsZkNcNEe6Cv6n9CCwb9Q" URL="/url"/>
+  </ownedComponents>
+</soa:System>
