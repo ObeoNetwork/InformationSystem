@@ -28,6 +28,11 @@ public class Messages extends NLS {
 	public static String SwaggerImportWizard_Title;
 	public static String SwaggerImportWizard_Unexpected_error_message;
 	public static String SwaggerImportWizard_Warning_message;
+	
+	public static String SwaggerConvertWizard_Title;
+	public static String SwaggerConvertWizard_Warning_message;
+	public static String SwaggerConvertWizard_Failure_message;
+	public static String SwaggerConvertWizard_Success_message;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
