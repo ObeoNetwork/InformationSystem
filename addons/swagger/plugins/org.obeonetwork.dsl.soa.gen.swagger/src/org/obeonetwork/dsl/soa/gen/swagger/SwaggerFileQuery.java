@@ -23,14 +23,20 @@ import io.swagger.v3.oas.models.security.OAuthFlows;
 
 public class SwaggerFileQuery {
 
-	private static final String KEY_SWAGGER = "swagger";
-	private static final String KEY_OPEN_API = "openapi";
-	private static final String KEY_COMPONENTS = "components";
-	private static final String KEY_SECURITY_SCHEMES = "securitySchemes";
-	private static final String KEY_FLOWS = "flows";
+	private static final String KEY_SWAGGER = "swagger";//$NON-NLS-1$
+	private static final String KEY_SWAGGER_VERSION = "swaggerVersion";//$NON-NLS-1$
+	private static final String KEY_OPEN_API = "openapi";//$NON-NLS-1$
+	private static final String KEY_COMPONENTS = "components";//$NON-NLS-1$
+	private static final String KEY_SECURITY_SCHEMES = "securitySchemes";//$NON-NLS-1$
+	private static final String KEY_FLOWS = "flows";//$NON-NLS-1$
 
-	public static final String VERSION_NAME_SWAGGER = "Swagger";
-	public static final String VERSION_NAME_OPEN_API = "OpenAPI";
+	public static final String VERSION_NAME_SWAGGER = "Swagger";//$NON-NLS-1$
+	public static final String VERSION_NAME_OPEN_API = "OpenAPI";//$NON-NLS-1$
+
+	public static final String OPEN_API_3_1_0_VERSION_PATTERN = VERSION_NAME_OPEN_API + " 3.1(.0)?";//$NON-NLS-1$
+	public static final String OPEN_API_3_0_VERSION_PATTERN = VERSION_NAME_OPEN_API + " 3.0(.[0-9]+)?";//$NON-NLS-1$
+	public static final String SWAGGER_2_X_VERSION_PATTERN = VERSION_NAME_SWAGGER + " 2(.[0-9]+)?";//$NON-NLS-1$
+	public static final String SWAGGER_1_X_VERSION_PATTERN = VERSION_NAME_SWAGGER + " 1(.[0-9]+)?";//$NON-NLS-1$
 
 	private ObjectMapper mapper;
 	private JsonNode root;
@@ -56,6 +62,8 @@ public class SwaggerFileQuery {
 		if (root != null) {
 			if (root.has(KEY_SWAGGER)) {
 				version = VERSION_NAME_SWAGGER + " " + root.get(KEY_SWAGGER).asText();
+			} else if (root.has(KEY_SWAGGER_VERSION)) {
+				version = VERSION_NAME_SWAGGER + " " + root.get(KEY_SWAGGER_VERSION).asText();
 			}
 
 			if (root.has(KEY_OPEN_API)) {
@@ -88,10 +96,9 @@ public class SwaggerFileQuery {
 	 */
 	public static boolean isVersionSupported(String version) {
 		//
-		return version != null && (version.matches(VERSION_NAME_OPEN_API + " 3.1(.0)?")
-				|| version.matches(VERSION_NAME_OPEN_API + " 3.0(.[0-9]+)?"));
-//				|| version.matches(VERSION_NAME_SWAGGER + " 2(.[0-9]+)?")
-//				|| version.matches(VERSION_NAME_SWAGGER + " 1(.[0-9]+)?"));
+		return version != null && (version.matches(OPEN_API_3_1_0_VERSION_PATTERN)
+				|| version.matches(OPEN_API_3_0_VERSION_PATTERN) || version.matches(SWAGGER_2_X_VERSION_PATTERN)
+				|| version.matches(SWAGGER_1_X_VERSION_PATTERN));
 	}
 
 	/**
@@ -101,9 +108,10 @@ public class SwaggerFileQuery {
 	 * @return
 	 */
 	public static List<String> getSupportedVersions() {
-		return List.of(VERSION_NAME_OPEN_API + " 3.1", VERSION_NAME_OPEN_API + " 3.0.x");
-//						VERSION_NAME_SWAGGER + " 2.x",
-//						VERSION_NAME_SWAGGER + " 1.x");
+		return List.of(VERSION_NAME_OPEN_API + " 3.1.0", //$NON-NLS-1$
+				VERSION_NAME_OPEN_API + " 3.0.x", //$NON-NLS-1$
+				VERSION_NAME_SWAGGER + " 2.x", //$NON-NLS-1$
+				VERSION_NAME_SWAGGER + " 1.x");//$NON-NLS-1$
 	}
 
 	/**
@@ -113,7 +121,7 @@ public class SwaggerFileQuery {
 	 *         is equivalent to "OpenAPI 3.1.0".
 	 */
 	public static boolean isOpenAPI3_1_0Version(String version) {
-		return version != null && version.matches(VERSION_NAME_OPEN_API + " 3.1(.0)?");
+		return version != null && version.matches(OPEN_API_3_1_0_VERSION_PATTERN);
 	}
 
 }

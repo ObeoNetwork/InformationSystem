@@ -994,7 +994,9 @@ public class SoaComponentBuilder {
 		} else if (swgParameter instanceof QueryParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.QUERY);
 		} else {
-			logError(String.format("Unsupported parameter type : %s.", swgParameter.getClass().getName()));
+			logWarning(
+					String.format("Parameter in Path:[%s] with no ParameterPassingMode(Cookie, Header, Path, Query).",
+							soaOperation.getName()));
 		}
 
 		Schema schema = unwrapArrayOrComposedSchema(swgParameter.getSchema());
@@ -1024,8 +1026,8 @@ public class SoaComponentBuilder {
 			if (allOf.size() == 1) {
 				return allOf.get(0);
 			}
-		} else if (null == schema.getTypes() && schema instanceof JsonSchema && schema.getAllOf() != null
-				&& schema.getAllOf().size() == 1) {
+		} else if (schema != null && null == schema.getTypes() && schema instanceof JsonSchema
+				&& schema.getAllOf() != null && schema.getAllOf().size() == 1) {
 			// Case when a schema type is null and allOf reference is defined:
 			// The OpenAPI 3.1.0 parser deserializes it as a JsonSchema.
 			// Processing of the case like a ComposedSchema.
