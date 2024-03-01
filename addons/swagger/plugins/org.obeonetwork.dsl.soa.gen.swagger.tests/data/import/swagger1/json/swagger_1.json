@@ -1,0 +1,127 @@
+{
+  "apiVersion":"1.0.1a",
+  "swaggerVersion":"1.0",
+  "basePath":"url",
+  "info":{
+  	"title":"Swagger 1 sample",
+  	"description": "This is a sample Note server"
+  },
+  "apis":[
+	{
+      "path":"/photo/{userId}",
+      "description":"",
+      "operations":[
+        {
+          "parameters":[
+            {
+              "name":"userId",
+              "description":"ID of User whose photos",
+              "dataType":"string",
+              "allowMultiple":false,
+              "required":true,
+              "allowableValues":{
+				  "valueType": "LIST",
+				  "values": [
+                "allowedId1",
+                "allowedId2",
+                "allowedId3"
+              ]},
+              "paramType":"path"
+            }
+          ],
+          "httpMethod":"GET",
+          "tags":[
+            "DM",
+            "PD"
+          ],
+          "nickname":"getPhotosById",
+          "responseClass":"List[photo]",
+          "deprecated":false,
+          "open":false,
+          "summary":"Fetches photos by UserId"
+        }
+      ],
+      "errorResponses":[
+        {
+          "reason":"Invalid ID supplied",
+          "code":400
+        },
+        {
+          "reason":"Not Authorized to access User",
+          "code":403
+        },
+        {
+          "reason":"User not found",
+          "code":404
+        }
+      ]
+    },
+	{
+	  "path": "/note/{noteId}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Find a note by ID",
+          "notes": "photos may appear in note",
+          "type": "note",
+          "nickname": "getNoteById",
+          "authorizations": {},
+          "parameters": [
+            {
+              "name": "noteId",
+              "description": "ID of note that needs to be fetched",
+              "required": true,
+              "type": "string",
+              "paramType": "path"
+            }
+          ]
+		}
+		],
+	  "responses": [
+			{
+			  "code": 400,
+			  "message": "Invalid ID supplied"
+			},
+			{
+			  "code": 404,
+			  "message": "Note not found"
+			}
+		  ]
+    }
+  ],
+  "models":{
+    "photo":{
+      "properties":{
+        "title":{
+          "type":"string"
+        },
+        "url":{
+          "type":"string",
+          "description":"Url for photo",
+          "access":"restricted",
+          "notes":"Sample note for a url",
+          "enum":[
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      },
+      "id":"photo"
+    },
+	"note":{
+		"properties":{
+			"description":{
+				"type":"string"
+			},
+			"name":{
+				"type":"string"
+			},
+			"photo":{
+				"type":"photo"
+			}
+		},
+		"id":"note"
+	}
+  }
+}
