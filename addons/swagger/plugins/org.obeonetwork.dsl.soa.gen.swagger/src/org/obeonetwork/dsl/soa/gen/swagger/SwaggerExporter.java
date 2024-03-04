@@ -28,35 +28,36 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.SwaggerExport
 import io.swagger.v3.oas.models.OpenAPI;
 
 public class SwaggerExporter {
-	
+
 	private Component component;
 	private MapperType mapperType = MapperType.YAML;
 	private OpenAPI swagger = null;
-    
-    public SwaggerExporter(Component component) {
-    	this.component = component;
-    }
-    
-    public void setOutputFormat(MapperType mapperType) {
-    	this.mapperType = mapperType;
-    }
+
+	public SwaggerExporter(Component component) {
+		this.component = component;
+	}
+
+	public void setOutputFormat(MapperType mapperType) {
+		this.mapperType = mapperType;
+	}
 
 	public int exportInDir(File outputDir) {
-        File outputFile = new File(outputDir, getOutputFileName());
-        
-        return exportInFile(outputFile);
+		File outputFile = new File(outputDir, getOutputFileName());
+
+		return exportInFile(outputFile);
 	}
-	
+
 	public String getOutputFileName() {
 		StringBuffer outputFileName = new StringBuffer();
 		outputFileName.append(ComponentGenUtil.getName(component));
-		if(!isNullOrWhite(component.getApiVersion())) {
+		String apiVersionToBeExported = ComponentGenUtil.getApiVersionOrDefault(component);
+		if (!isNullOrWhite(apiVersionToBeExported)) {
 			outputFileName.append("-");
-			outputFileName.append(component.getApiVersion());
+			outputFileName.append(apiVersionToBeExported);
 		}
 		outputFileName.append(".");
 		outputFileName.append(mapperType.toString().toLowerCase());
-		
+
 		return outputFileName.toString();
 	}
 
@@ -67,7 +68,7 @@ public class SwaggerExporter {
 	public int exportInFile(File outputFile) {
 
 		int status = IStatus.OK;
-		
+
 		FileOutputStream outputStream = null;
 		try {
 			outputStream = new FileOutputStream(outputFile);
@@ -75,18 +76,19 @@ public class SwaggerExporter {
 			logError("File not found exception.", e);
 			status = IStatus.ERROR;
 		}
-		
+
 		if (outputStream != null) {
 			SwaggerExportResult result = SwaggerExportUtil.export(component, mapperType, outputStream);
 			swagger = result.getSwagger();
 			status = result.getStatus();
 		}
-		
-		if(status != IStatus.ERROR) {
-			logInfo(String.format("Component %s exported in file %s.", component.getName(), outputFile.getAbsolutePath()));
+
+		if (status != IStatus.ERROR) {
+			logInfo(String.format("Component %s exported in file %s.", component.getName(),
+					outputFile.getAbsolutePath()));
 		}
-		
+
 		return status;
 	}
-	
+
 }
