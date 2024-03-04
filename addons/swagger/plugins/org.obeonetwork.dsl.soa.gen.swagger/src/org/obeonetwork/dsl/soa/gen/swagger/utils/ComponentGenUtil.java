@@ -21,6 +21,8 @@ import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Information;
+import org.obeonetwork.dsl.soa.impl.InformationImpl;
 
 public class ComponentGenUtil {
 
@@ -68,6 +70,17 @@ public class ComponentGenUtil {
 			collectExposedTypes(exposedTypes, structuredType.getSupertype());
 		}
 		
+	}
+	
+	public static String getApiVersionOrDefault(Component soaComponent) {
+		if(soaComponent==null) {
+			return null;
+		}
+		Information soaInformation = soaComponent.getInformation();
+		if(soaInformation!=null && !isNullOrWhite(soaComponent.getApiVersion())) {
+			return soaComponent.getApiVersion();
+		}
+		return  InformationImpl.getDefaultApiVersion();
 	}
 	
 }

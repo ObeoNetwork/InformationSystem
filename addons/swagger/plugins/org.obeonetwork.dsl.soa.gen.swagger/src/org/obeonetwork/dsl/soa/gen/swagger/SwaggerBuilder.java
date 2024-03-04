@@ -240,11 +240,6 @@ public class SwaggerBuilder {
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
 			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
 			break;
-		case MUTUALTLS:
-			logWarning("SecuritySchemeType not supported : MUTUALTLS");
-			break;
-		default:
-			break;
 		}
 
 		addPropertiesExtensionsFromSoaToSwg(soaSecurityScheme, securityScheme);
@@ -359,8 +354,9 @@ public class SwaggerBuilder {
 				info.setTermsOfService(soaInformation.getTermsOfService());
 			}
 
-			if (soaInformation.getApiVersion() != null) {
-				info.setVersion(soaInformation.getApiVersion());
+			String apiVersionToBeExported = ComponentGenUtil.getApiVersionOrDefault(soaComponent);
+			if (!isNullOrWhite(apiVersionToBeExported)) {
+				info.setVersion(apiVersionToBeExported);
 			}
 
 			addPropertiesExtensionsFromSoaToSwg(soaComponent.getInformation(), info);
@@ -598,10 +594,6 @@ public class SwaggerBuilder {
 		Schema<T> schema = new Schema<>();
 		schema.setType(type);
 		schema.setFormat(format);
-		// Account for Open API 3.1.0
-		Set types = new HashSet<>();
-		types.add(type);
-		schema.setTypes(types);
 		return schema;
 	}
 
@@ -665,9 +657,7 @@ public class SwaggerBuilder {
 	}
 
 	private void buildProperty(Schema<Object> schema, Property soaProperty) {
-		// schema.addProperties(soaProperty.getName(),
-		// createSoaPropertySchema(soaProperty));
-		schema.addProperty(soaProperty.getName(), createSoaPropertySchema(soaProperty));
+		schema.addProperties(soaProperty.getName(), createSoaPropertySchema(soaProperty));
 		if (PropertyGenUtil.isRequired(soaProperty)) {
 			schema.addRequiredItem(soaProperty.getName());
 		}
@@ -698,9 +688,7 @@ public class SwaggerBuilder {
 			addValueConstraintsFromSoaToSwg((ConstrainableElement) soaProperty, schema);
 		}
 
-		if (!StringUtils.isNullOrWhite(soaProperty.getDescription()) && schema.get$ref() == null) {
-			// Add description when the property does not reference another Schema
-			// where the description should be found.
+		if (!StringUtils.isNullOrWhite(soaProperty.getDescription())) {
 			schema.setDescription(soaProperty.getDescription());
 		}
 
