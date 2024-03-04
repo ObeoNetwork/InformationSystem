@@ -44,6 +44,7 @@ public interface Information extends ObeoDSMObject {
 
 	/**
 	 * Returns the value of the '<em><b>Api Version</b></em>' attribute.
+	 * The default value is <code>"0.0.1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -52,7 +53,7 @@ public interface Information extends ObeoDSMObject {
 	 * @return the value of the '<em>Api Version</em>' attribute.
 	 * @see #setApiVersion(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation_ApiVersion()
-	 * @model
+	 * @model default="0.0.1"
 	 * @generated
 	 */
 	String getApiVersion();

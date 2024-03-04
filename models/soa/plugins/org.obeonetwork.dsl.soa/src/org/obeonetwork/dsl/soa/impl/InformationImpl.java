@@ -48,7 +48,7 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String API_VERSION_EDEFAULT = null;
+	protected static final String API_VERSION_EDEFAULT = "0.0.1";
 
 	/**
 	 * The default value of the '{@link #getTermsOfService() <em>Terms Of Service</em>}' attribute.
@@ -185,6 +185,15 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 				return TERMS_OF_SERVICE_EDEFAULT == null ? getTermsOfService() != null : !TERMS_OF_SERVICE_EDEFAULT.equals(getTermsOfService());
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	/**
+	 * 
+	 * @return the default value of feature {@link SoaPackage#INFORMATION__API_VERSION}.
+	 * @generated-NOT
+	 */
+	public static final String getDefaultApiVersion() {
+		return API_VERSION_EDEFAULT;
 	}
 
 } //InformationImpl
