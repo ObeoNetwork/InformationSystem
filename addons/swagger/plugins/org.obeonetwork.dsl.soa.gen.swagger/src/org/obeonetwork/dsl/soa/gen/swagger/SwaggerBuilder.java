@@ -354,8 +354,9 @@ public class SwaggerBuilder {
 				info.setTermsOfService(soaInformation.getTermsOfService());
 			}
 
-			if (soaInformation.getApiVersion() != null) {
-				info.setVersion(soaInformation.getApiVersion());
+			String apiVersionToBeExported = ComponentGenUtil.getApiVersionOrDefault(soaComponent);
+			if (!isNullOrWhite(apiVersionToBeExported)) {
+				info.setVersion(apiVersionToBeExported);
 			}
 
 			addPropertiesExtensionsFromSoaToSwg(soaComponent.getInformation(), info);
@@ -687,20 +688,21 @@ public class SwaggerBuilder {
 			addValueConstraintsFromSoaToSwg((ConstrainableElement) soaProperty, schema);
 		}
 
-		if(!StringUtils.isNullOrWhite(soaProperty.getDescription())) {
+		if (!StringUtils.isNullOrWhite(soaProperty.getDescription())) {
 			schema.setDescription(soaProperty.getDescription());
 		}
-		
+
 		return schema;
 	}
 
-	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement, final Schema<Object> schema) {
+	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement,
+			final Schema<Object> schema) {
 		Objects.requireNonNull(constrainableElement);
 		Objects.requireNonNull(schema);
 
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM)) {
 			final String minimum = constrainableElement.getMinimum();
-			if(isTextual(constrainableElement)) {
+			if (isTextual(constrainableElement)) {
 				schema.setMinLength(Integer.valueOf(minimum));
 			} else {
 				schema.setMinimum(new BigDecimal(minimum));
@@ -708,7 +710,7 @@ public class SwaggerBuilder {
 		}
 		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM)) {
 			final String maximum = constrainableElement.getMaximum();
-			if(isTextual(constrainableElement)) {
+			if (isTextual(constrainableElement)) {
 				schema.setMaxLength(Integer.valueOf(maximum));
 			} else {
 				schema.setMaximum(new BigDecimal(maximum));
