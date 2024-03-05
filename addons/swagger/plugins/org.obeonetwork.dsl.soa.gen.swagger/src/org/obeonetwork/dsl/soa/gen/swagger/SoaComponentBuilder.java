@@ -307,7 +307,9 @@ public class SoaComponentBuilder {
 			}
 
 			if (swgSecurityScheme.getFlows() != null) {
-				soaSecurityScheme.getFlows().addAll(createSoaFlows(swgSecurityScheme.getFlows()));
+				logWarning(String.format(
+						"SecurityScheme[name=%s]: Flows not imported because they are not allowed for OPEN_ID_CONNECT type",
+						swgSecurityScheme.getName()));
 			}
 			break;
 		default:
