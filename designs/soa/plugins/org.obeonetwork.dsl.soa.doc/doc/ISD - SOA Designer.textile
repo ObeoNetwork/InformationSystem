@@ -487,13 +487,13 @@ Un _Security Scheme_ de type HTTP défini un schéma d'authentification de type 
 Dans le cas d'un schéma d'authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
 Dans le cas d'un schéma d'authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
 
+- *Open ID:*
+!{width:51.5%}pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png!
+
 - *OAuth2:*
 !pics/securityschemes/Dialog_SecurityScheme_Edition_OAuth2.png!
 
-- *Open ID:*
-!pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png!
-
-Les _Security Scheme_ de type OAuth2 et Open ID requièrent la spécification de _Flows_, ainsi que leurs _Scopes_ respectifs:
+Les _Security Scheme_ de type OAuth2 requièrent la spécification de _Flows_, ainsi que leurs _Scopes_ respectifs:
 !pics/securityschemes/Dialog_Flow_Edition.png!
 
 Les _Flows_ représentent des scénarios que le client effectue afin d'obtenir l'accès à un token d'authentification. 
@@ -520,7 +520,7 @@ La sélection des _Security Schemes_ ouvre une boîte de dialogue permettant d'a
 
 !pics/exposition/Dialog_SecurityScheme_Selection.png!
 
-Un double-clic sur un _Security Scheme_ de type _OAUTH2_ ou _OPEN_ID_CONNECT_ dans l'onglet _Security_ ouvre une boîte de dialogue permettant de sélectionner les scopes à appliquer :
+Un double-clic sur un _Security Scheme_ de type _OAUTH2_  dans l'onglet _Security_ ouvre une boîte de dialogue permettant de sélectionner les scopes à appliquer :
 
 !pics/exposition/Properties_SecurityScheme_Selection.png!
 
