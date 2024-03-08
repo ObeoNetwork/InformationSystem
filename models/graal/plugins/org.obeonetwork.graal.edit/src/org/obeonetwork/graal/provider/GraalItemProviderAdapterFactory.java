@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -54,6 +55,14 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+
+	/**
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Disposable disposable = new Disposable();
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -101,14 +110,6 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.graal.System} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemItemProvider systemItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.obeonetwork.graal.System}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,11 +117,7 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	 */
 	@Override
 	public Adapter createSystemAdapter() {
-		if (systemItemProvider == null) {
-			systemItemProvider = new SystemItemProvider(this);
-		}
-
-		return systemItemProvider;
+		return new SystemItemProvider(this);
 	}
 
 	/**
@@ -550,6 +547,20 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	}
 
 	/**
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void associate(Adapter adapter, Notifier target) {
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,24 +601,7 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (systemItemProvider != null) systemItemProvider.dispose();
-		if (operatorItemProvider != null) operatorItemProvider.dispose();
-		if (transitionItemProvider != null) transitionItemProvider.dispose();
-		if (taskReferenceItemProvider != null) taskReferenceItemProvider.dispose();
-		if (userViewItemProvider != null) userViewItemProvider.dispose();
-		if (userActionItemProvider != null) userActionItemProvider.dispose();
-		if (appliEventItemProvider != null) appliEventItemProvider.dispose();
-		if (appliActionItemProvider != null) appliActionItemProvider.dispose();
-		if (initialNodeItemProvider != null) initialNodeItemProvider.dispose();
-		if (finalNodeItemProvider != null) finalNodeItemProvider.dispose();
-		if (abortNodeItemProvider != null) abortNodeItemProvider.dispose();
-		if (loopItemProvider != null) loopItemProvider.dispose();
-		if (actorItemProvider != null) actorItemProvider.dispose();
-		if (tasksGroupItemProvider != null) tasksGroupItemProvider.dispose();
-		if (useCaseItemProvider != null) useCaseItemProvider.dispose();
-		if (userStoryItemProvider != null) userStoryItemProvider.dispose();
-		if (domainClassItemProvider != null) domainClassItemProvider.dispose();
+		disposable.dispose();
 	}
 
 }

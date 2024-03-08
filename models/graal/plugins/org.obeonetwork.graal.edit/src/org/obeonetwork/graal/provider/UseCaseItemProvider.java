@@ -279,5 +279,13 @@ public class UseCaseItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
+	
+	@Override
+	public Object getParent(Object object) {
+		Object system = super.getParent(object);
+		SystemItemProvider systemItemProvider =	(SystemItemProvider)adapterFactory.adapt(system, IEditingDomainItemProvider.class);
+
+		return systemItemProvider != null ? systemItemProvider.getSystemCustomContentItemProvider(GraalPackage.Literals.SYSTEM__USE_CASES) : null;
+	}
 
 }

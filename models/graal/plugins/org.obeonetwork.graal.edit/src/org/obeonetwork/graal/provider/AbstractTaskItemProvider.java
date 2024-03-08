@@ -138,5 +138,15 @@ public class AbstractTaskItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
+	@Override
+	public Object getParent(Object object) {
+		Object systemOrTaskGroup = super.getParent(object);
+		IEditingDomainItemProvider itemProvider =	(IEditingDomainItemProvider) adapterFactory.adapt(systemOrTaskGroup, IEditingDomainItemProvider.class);
+		if(itemProvider instanceof SystemItemProvider) {
+			return  ((SystemItemProvider)itemProvider).getSystemCustomContentItemProvider(GraalPackage.Literals.TASKS_CONTAINER__TASKS);
+		} 
+		//TasksGroupItemProvider
+		return systemOrTaskGroup;
+	}
 }

@@ -254,4 +254,41 @@
             descriptionName="Domain Classes Diagram">
       </partialView>
    </extension>
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+       <navigatorContent
+             activeByDefault="true"
+             contentProvider="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentProvider"
+             id="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContent"
+             labelProvider="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentLabelProvider"
+             name="Graal System content structure"
+             priority="higher"
+             providesSaveables="false">
+          <triggerPoints>
+                <instanceof value="org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider">
+                </instanceof>
+          </triggerPoints>
+       </navigatorContent>
+   </extension>
+    <extension
+       point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+          viewerId="org.eclipse.sirius.ui.tools.views.model.explorer">
+       <includes>
+          <contentExtension
+                pattern="org.obeonetwork.graal.design.ui.view.explorer.system.*">
+          </contentExtension>
+       </includes>
+    </viewerContentBinding>
+   </extension>
+   <!-- extension
+       point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+          viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+       <includes>
+          <contentExtension
+                pattern="org.obeonetwork.graal.design.ui.view.explorer.system.*">
+          </contentExtension>
+       </includes>
+    </viewerContentBinding>
+   </extension -->
 </plugin>
