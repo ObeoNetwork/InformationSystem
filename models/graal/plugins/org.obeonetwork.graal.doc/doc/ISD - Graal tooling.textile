@@ -446,6 +446,12 @@ La vue est consolidée au niveau use case, si par exemple une exigence est ratta
 
 !pics/requirements/Use%20case%20traceability%20matrix.png!
 
+h2. Regroupements des éléments constituant un Système par blocs logiques
+
+Dans l'explorateur de modèles, en dessous du noeud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.
+
+!pics/GraalSystemContentExplorerStructure.png!
+
 h2. Gestion de la documentation liée
 
 Il est possible d'attacher de la documentation aux éléments d'un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
