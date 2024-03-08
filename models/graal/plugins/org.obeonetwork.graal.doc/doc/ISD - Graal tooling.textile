@@ -410,6 +410,12 @@ Un double-clic sur une _User Story_ ou un clic sur le bouton !pics/userstories/d
 
 !{width:100%}pics/userstories/displayuserstory.png!
 
+h3. Regroupements des éléments constituant un Système par blocs logiques
+
+Dans l'explorateur de modèles, en dessous du noeud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.
+
+!pics/GraalSystemContentExplorerStructure.png!
+
 h2. Gestion des exigences
 
 La gestion des exigences pour un modèle Graal utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
