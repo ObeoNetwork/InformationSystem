@@ -288,7 +288,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link GraalPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -302,7 +302,8 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		if (isInited) return (GraalPackage)EPackage.Registry.INSTANCE.getEPackage(GraalPackage.eNS_URI);
 
 		// Obtain or create and register package
-		GraalPackageImpl theGraalPackage = (GraalPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GraalPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GraalPackageImpl());
+		Object registeredGraalPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		GraalPackageImpl theGraalPackage = registeredGraalPackage instanceof GraalPackageImpl ? (GraalPackageImpl)registeredGraalPackage : new GraalPackageImpl();
 
 		isInited = true;
 
@@ -319,7 +320,6 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		// Mark meta-data to indicate it can't be changed
 		theGraalPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(GraalPackage.eNS_URI, theGraalPackage);
 		return theGraalPackage;

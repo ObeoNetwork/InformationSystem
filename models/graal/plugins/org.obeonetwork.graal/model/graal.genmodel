@@ -29,7 +29,7 @@
       <genOperations ecoreOperation="graal.ecore#//Task/getUsedBy"/>
       <genOperations ecoreOperation="graal.ecore#//Task/getRelatedActors"/>
     </genClasses>
-    <genClasses ecoreClass="graal.ecore#//System">
+    <genClasses provider="Stateful" ecoreClass="graal.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/subSystems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/actors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/useCases"/>
