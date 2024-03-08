@@ -166,6 +166,7 @@ public class GraalActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("graal-settings"));
 		toolBarManager.add(new Separator("graal-additions"));
 	}
