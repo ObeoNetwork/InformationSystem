@@ -1,8 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Graal Model
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.graal;singleton:=true
 Bundle-Version: 5.1.1.qualifier
+Automatic-Module-Name: org.obeonetwork.graal
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-RequiredExecutionEnvironment: JavaSE-17

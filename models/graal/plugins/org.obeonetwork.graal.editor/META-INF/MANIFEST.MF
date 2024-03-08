@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Graal Editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.graal.editor;singleton:=true
 Bundle-Version: 5.1.1.qualifier
+Automatic-Module-Name: org.obeonetwork.graal.editor
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.graal.presentation.GraalEditorPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.graal.presentation
