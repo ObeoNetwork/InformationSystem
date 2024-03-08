@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2024 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -60,11 +60,11 @@ public class SystemItemProvider extends NamedElementItemProvider {
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-			//
-			addNamespacesPropertyDescriptor(object);
-			addTypesPropertyDescriptor(object);
-			addOwnedTasksPropertyDescriptor(object);
-			addOwnedGroupsPropertyDescriptor(object);
+
+//			addNamespacesPropertyDescriptor(object);
+//			addTypesPropertyDescriptor(object);
+//			addOwnedTasksPropertyDescriptor(object);
+//			addOwnedGroupsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,13 +171,12 @@ public class SystemItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			//
-			childrenFeatures.add(GraalPackage.Literals.SYSTEM__SUB_SYSTEMS);
-			childrenFeatures.add(GraalPackage.Literals.TASKS_CONTAINER__TASKS);
-			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USE_CASES);
-			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USER_STORIES);
-			childrenFeatures.add(GraalPackage.Literals.SYSTEM__ACTORS);
-			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+//			childrenFeatures.add(GraalPackage.Literals.SYSTEM__SUB_SYSTEMS);
+//			childrenFeatures.add(GraalPackage.Literals.TASKS_CONTAINER__TASKS);
+//			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USE_CASES);
+//			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USER_STORIES);
+//			childrenFeatures.add(GraalPackage.Literals.SYSTEM__ACTORS);
+//			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -260,41 +259,41 @@ public class SystemItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-		//
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.TASKS_CONTAINER__TASKS,
-				 GraalFactory.eINSTANCE.createTask()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.TASKS_CONTAINER__TASKS,
-				 GraalFactory.eINSTANCE.createTasksGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-				 EnvironmentFactory.eINSTANCE.createNamespace()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.SYSTEM__SUB_SYSTEMS,
-				 GraalFactory.eINSTANCE.createSystem()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.SYSTEM__ACTORS,
-				 GraalFactory.eINSTANCE.createActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.SYSTEM__USE_CASES,
-				 GraalFactory.eINSTANCE.createUseCase()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.SYSTEM__USER_STORIES,
-				 GraalFactory.eINSTANCE.createUserStory()));
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.TASKS_CONTAINER__TASKS,
+//				 GraalFactory.eINSTANCE.createTask()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.TASKS_CONTAINER__TASKS,
+//				 GraalFactory.eINSTANCE.createTasksGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+//				 EnvironmentFactory.eINSTANCE.createNamespace()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.SYSTEM__SUB_SYSTEMS,
+//				 GraalFactory.eINSTANCE.createSystem()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.SYSTEM__ACTORS,
+//				 GraalFactory.eINSTANCE.createActor()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.SYSTEM__USE_CASES,
+//				 GraalFactory.eINSTANCE.createUseCase()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(GraalPackage.Literals.SYSTEM__USER_STORIES,
+//				 GraalFactory.eINSTANCE.createUserStory()));
 	}
 
 	protected List children = null;
