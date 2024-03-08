@@ -111,7 +111,10 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 		if (this.addButton != null && !this.addButton.isDisposed()) {
 			this.addButton.setEnabled(isEnabled);
 		}
-		this.setEnableWidgetWithSelection(this.editButton, isEnabled);
+		if(this.editButton != null && !this.editButton.isDisposed()) {
+			//Enabling editButton is no longer dependent on selection from table
+			this.editButton.setEnabled(isEnabled);
+		}
 		this.setEnableWidgetWithSelection(this.removeButton, isEnabled);
 		this.handleUpDownButtons(isEnabled);
 	}
@@ -264,11 +267,11 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 	private void initializeEditButtonButton() {
 		this.editButtonListener = new ButtonSelectionListener(this.editingContextAdapter, () -> this.editButtonCallback());
 		this.editButton.addSelectionListener(this.editButtonListener);
-		this.editButton.setToolTipText("Button to edit the selected metadata");
+		this.editButton.setToolTipText("Button to add metadata from metadata definitions");
 	}
 
 	private void editButtonCallback() {
-		this.controller.displayEditWizard();
+		this.controller.displayMetadataSelectionWizard();
 		this.tableViewer.refresh();
 	}
 	

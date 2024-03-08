@@ -1,17 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Environment Edit Support
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.edit;singleton:=true
+Automatic-Module-Name: org.obeonetwork.dsl.environment.edit
 Bundle-Version: 4.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.environment.components,
  org.obeonetwork.dsl.environment.edit.specific.extensions,
  org.obeonetwork.dsl.environment.edit.specific.policies,
  org.obeonetwork.dsl.environment.filters,
  org.obeonetwork.dsl.environment.parts,
+ org.obeonetwork.dsl.environment.metadatadef.provider,
  org.obeonetwork.dsl.environment.provider,
  org.obeonetwork.dsl.environment.providers
 Require-Bundle: org.eclipse.core.runtime,
