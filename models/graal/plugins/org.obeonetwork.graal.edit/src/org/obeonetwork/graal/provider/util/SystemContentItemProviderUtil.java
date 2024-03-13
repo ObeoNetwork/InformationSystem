@@ -5,9 +5,7 @@ import java.util.Objects;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.graal.GraalFactory;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider;
@@ -29,22 +27,20 @@ public class SystemContentItemProviderUtil {
 		Objects.requireNonNull(adapterFactory);
 		// Index==0
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
-				GraalPackage.Literals.TASKS_CONTAINER__TASKS, () -> GraalFactory.eINSTANCE.createTask(), "Tasks"));
+				GraalPackage.Literals.TASKS_CONTAINER__TASKS, "Tasks"));
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
-				GraalPackage.Literals.SYSTEM__SUB_SYSTEMS, () -> GraalFactory.eINSTANCE.createSystem(), "SubSystems"));
+				GraalPackage.Literals.SYSTEM__SUB_SYSTEMS, "SubSystems"));
 
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system, GraalPackage.Literals.SYSTEM__ACTORS,
-				() -> GraalFactory.eINSTANCE.createActor(), "Actors"));
+				"Actors"));
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
-				GraalPackage.Literals.SYSTEM__USE_CASES, () -> GraalFactory.eINSTANCE.createUseCase(), "UseCases"));
+				GraalPackage.Literals.SYSTEM__USE_CASES, "UseCases"));
 
-		children.add(
-				new SystemCustomContentItemProvider(adapterFactory, system, GraalPackage.Literals.SYSTEM__USER_STORIES,
-						() -> GraalFactory.eINSTANCE.createUserStory(), "UserStories"));
+		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
+				GraalPackage.Literals.SYSTEM__USER_STORIES, "UserStories"));
 		// Index==5
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
-				EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces(),
-				() -> EnvironmentFactory.eINSTANCE.createNamespace(), "Namespaces"));
+				EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces(), "Namespaces"));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -62,34 +58,4 @@ public class SystemContentItemProviderUtil {
 			GraalPackage.Literals.SYSTEM__ACTORS, GraalPackage.Literals.SYSTEM__USE_CASES,
 			GraalPackage.Literals.SYSTEM__USER_STORIES,
 			EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces());
-
-	public static final String getFeatureText(EStructuralFeature reference) {
-
-		if (GraalPackage.Literals.TASKS_CONTAINER__TASKS.equals(reference)) {
-			return "Task";
-		}
-		if (GraalPackage.Literals.SYSTEM__SUB_SYSTEMS.equals(reference)) {
-			return "SubSystem";
-		}
-		if (GraalPackage.Literals.SYSTEM__ACTORS.equals(reference)) {
-			return "Actor";
-		}
-		if (GraalPackage.Literals.SYSTEM__USE_CASES.equals(reference)) {
-			return "Use Case";
-		}
-		if (GraalPackage.Literals.SYSTEM__USER_STORIES.equals(reference)) {
-			return "User Story";
-		}
-		if (EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces().equals(reference)) {
-			return "Namespace";
-		}
-		return null;
-//		#Added manually for custom nodes below System
-//		_UI_TasksContainer_tasks_feature = Task
-//		_UI_NamespacesContainer_ownedNamespaces_feature =  Namespace
-//		_UI_System_userStories_feature = User Story
-//		_UI_System_useCases_feature = Use Case
-//		_UI_System_subSystems_feature = SubSystem
-//		_UI_System_actors_feature =  Actor
-	}
 }
