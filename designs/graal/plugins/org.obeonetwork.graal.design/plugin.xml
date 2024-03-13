@@ -262,9 +262,10 @@
              labelProvider="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentLabelProvider"
              name="Graal System content structure"
              priority="higher"
-             providesSaveables="false">
+             providesSaveables="true">
           <triggerPoints>
-                <instanceof value="org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider">
+                <instanceof
+                      value="org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider">
                 </instanceof>
           </triggerPoints>
        </navigatorContent>
@@ -280,15 +281,4 @@
        </includes>
     </viewerContentBinding>
    </extension>
-   <!-- extension
-       point="org.eclipse.ui.navigator.viewer">
-    <viewerContentBinding
-          viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-       <includes>
-          <contentExtension
-                pattern="org.obeonetwork.graal.design.ui.view.explorer.system.*">
-          </contentExtension>
-       </includes>
-    </viewerContentBinding>
-   </extension -->
 </plugin>

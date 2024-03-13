@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2024 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -270,10 +270,13 @@ public class TaskItemProvider
 	
 	@Override
 	public Object getParent(Object object) {
-		Object system = super.getParent(object);
-		SystemItemProvider systemItemProvider =	(SystemItemProvider)adapterFactory.adapt(system, IEditingDomainItemProvider.class);
-
-		return systemItemProvider != null ? systemItemProvider.getSystemCustomContentItemProvider(GraalPackage.Literals.TASKS_CONTAINER__TASKS) : null;
+		Object systemOrTaskGroup = super.getParent(object);
+		IEditingDomainItemProvider itemProvider =	(IEditingDomainItemProvider) adapterFactory.adapt(systemOrTaskGroup, IEditingDomainItemProvider.class);
+		if(itemProvider instanceof SystemItemProvider) {
+			return  ((SystemItemProvider)itemProvider).getSystemCustomContentItemProvider(GraalPackage.Literals.TASKS_CONTAINER__TASKS);
+		} 
+		//TasksGroupItemProvider
+		return systemOrTaskGroup;
 	}
 
 }

@@ -191,27 +191,27 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
 				EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
-
-//	@Override
-//	public Object getParent(Object object) {
-//		Object parent = super.getParent(object);
-////		if (parent instanceof EObject
-////				&& "org.obeonetwork.graal.System".equals(((EObject) parent).eClass().getInstanceClassName())) {// $NON-NLS-N$
-////			final AdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
-////					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-////			Object systemItemProvider = composedAdapterFactory.adapt(parent, IEditingDomainItemProvider.class);
-////			if (systemItemProvider != null) {
-////				if (((IEditingDomainItemProvider) systemItemProvider).getChildren(parent) != null) {
-////					Collection<?> children = ((IEditingDomainItemProvider) systemItemProvider).getChildren(parent);
-////					if (children.size() == 6) {
-////						// "SystemCustomContentItemProvider".equals(object.getClass().getName())
-////						return children.toArray()[5];
-////					}
-////				}
-////			}
-////			return null;
-////		}
-//		return parent;
-//	}
+	
+	@Override
+	public Object getParent(Object object) {
+		Object parent = super.getParent(object);
+		if (parent instanceof EObject
+				&& "org.obeonetwork.graal.System".equals(((EObject) parent).eClass().getInstanceClassName())) {// $NON-NLS-N$
+			final AdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
+					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+			Object systemItemProvider = composedAdapterFactory.adapt(parent, IEditingDomainItemProvider.class);
+			if (systemItemProvider != null) {
+				if (((IEditingDomainItemProvider) systemItemProvider).getChildren(parent) != null) {
+					Collection<?> children = ((IEditingDomainItemProvider) systemItemProvider).getChildren(parent);
+					if (children.size() == 6) {
+						// "SystemCustomContentItemProvider".equals(object.getClass().getName())
+						return children.toArray()[5];
+					}
+				}
+			}
+			return null;
+		}
+		return parent;
+	}
 
 }
