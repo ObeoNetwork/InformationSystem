@@ -1,16 +1,11 @@
 package org.obeonetwork.graal.design.ui.view.explorer.system;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
-import org.obeonetwork.graal.GraalPackage;
-import org.obeonetwork.graal.provider.SystemItemProvider;
+import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider;
 
 /**
@@ -28,8 +23,12 @@ public class SystemTreeContentProvider implements ITreeContentProvider {
 		if (parentElement instanceof SystemCustomContentItemProvider) {
 			SystemCustomContentItemProvider systemCustomContentItemProvider = (SystemCustomContentItemProvider) parentElement;
 			return systemCustomContentItemProvider.getChildren(systemCustomContentItemProvider.getTarget()).toArray();
-		} else if (parentElement instanceof EObject) {//Below SystemCustomContentItemProvider
-			return ((EObject)parentElement).eContents().toArray();
+		} else if (parentElement instanceof EObject && !(parentElement instanceof System)) {// Below SystemCustomContentItemProvider
+			final AdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
+					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+			Object itemProvider = composedAdapterFactory.adapt((EObject) parentElement,
+					IEditingDomainItemProvider.class);
+			return ((IEditingDomainItemProvider) itemProvider).getChildren(parentElement).toArray();
 		}
 		return new Object[0];
 	}
@@ -39,26 +38,13 @@ public class SystemTreeContentProvider implements ITreeContentProvider {
 		if (element instanceof SystemCustomContentItemProvider) {
 			SystemCustomContentItemProvider systemCustomContentItemProvider = (SystemCustomContentItemProvider) element;
 			return systemCustomContentItemProvider.getParent(systemCustomContentItemProvider.getTarget());
-		}  else if(element instanceof EObject) {//Below SystemCustomContentItemProvider
-			EObject parent = ((EObject)element).eContainer();
-			if (parent instanceof org.obeonetwork.graal.System) {// $NON-NLS-N$
-				final AdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
-						ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-				Object systemElementItemProvider = composedAdapterFactory.adapt(element, IEditingDomainItemProvider.class);
-				
-				if(systemElementItemProvider instanceof NamespaceItemProvider) {
-					//This is to avoid overriding getParent() in NamespaceItemProvider that would yield do circular dependencies
-					Object system = ((IEditingDomainItemProvider) systemElementItemProvider).getParent(element);
-					SystemItemProvider systemItemProvider =	(SystemItemProvider)composedAdapterFactory.adapt(system, IEditingDomainItemProvider.class);
-					return systemItemProvider != null 
-							? systemItemProvider.getSystemCustomContentItemProvider(EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces()) 
-							: null;
-				} else if(systemElementItemProvider!=null) {
-					//Some getParent() have been overridden in ItemProvider to get the transient node instead of System
-					return ((IEditingDomainItemProvider) systemElementItemProvider).getParent(element);
-				}
+		} else if (element instanceof EObject && !(element instanceof System)) {// Below SystemCustomContentItemProvider
+			final AdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
+					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+			Object itemProvider = composedAdapterFactory.adapt(element, IEditingDomainItemProvider.class);
+			if (itemProvider != null) {
+				return ((IEditingDomainItemProvider) itemProvider).getParent(element);
 			}
-			return parent;
 		}
 		return null;
 	}
