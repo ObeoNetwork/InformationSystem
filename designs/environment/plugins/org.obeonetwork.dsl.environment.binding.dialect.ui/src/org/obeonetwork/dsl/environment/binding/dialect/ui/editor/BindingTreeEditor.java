@@ -614,7 +614,9 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 			public void run() {
 				if (notificationKind == PROP_TITLE) {
-					setPartName(getRepresentation().getName());
+					if(getRepresentation()!=null) {
+						setPartName(getRepresentation().getName());
+					}
 				}
 				firePropertyChange(notificationKind);
 			}

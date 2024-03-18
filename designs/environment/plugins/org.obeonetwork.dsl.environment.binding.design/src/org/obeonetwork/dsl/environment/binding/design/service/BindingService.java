@@ -44,12 +44,13 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.environment.binding.dialect.BindingDialectServices;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 
 public class BindingService {
-	
+
 	private static final String BINDING_EDITOR_DESCRIPTION_NAME = "Binding Details";
-	
+
 	public Collection<EObject> allRootsForBinding(EObject any) {
 		Collection<EObject> roots = new ArrayList<EObject>();
 
@@ -78,10 +79,10 @@ public class BindingService {
 
 		// First get all structured types
 		bindableElements.addAll(getAllStructuredTypes(structuredType));
-		
+
 		// Remove the target element
 		bindableElements.remove(structuredType);
-		
+
 		// Remove elements already bound with the target
 		for (BindingInfo bindingInfo : getAllBindingInfosOnDiagram(diagram)) {
 			if (bindingInfo.getLeft() == structuredType) {
@@ -91,20 +92,20 @@ public class BindingService {
 				bindableElements.remove(bindingInfo.getLeft());
 			}
 		}
-		
+
 		return bindableElements;
 	}
-	
+
 	private Collection<BindingInfo> getAllBindingInfosOnDiagram(DSemanticDiagram diagram) {
 		Collection<BindingInfo> bindingInfos = new ArrayList<BindingInfo>();
 		for (DNode node : diagram.getNodes()) {
 			if (node.getTarget() instanceof BindingInfo) {
-				bindingInfos.add((BindingInfo)node.getTarget());
+				bindingInfos.add((BindingInfo) node.getTarget());
 			}
 		}
 		return bindingInfos;
 	}
-	
+
 	private Collection<StructuredType> getAllStructuredTypes(EObject any) {
 		// Collect all structured types
 		Collection<StructuredType> structuredTypes = new ArrayList<StructuredType>();
@@ -119,8 +120,7 @@ public class BindingService {
 				if (eObject instanceof StructuredType) {
 					structuredTypes.add((StructuredType) eObject);
 				} else {
-					if (!(eObject instanceof TypesDefinition
-							|| eObject instanceof NamespacesContainer
+					if (!(eObject instanceof TypesDefinition || eObject instanceof NamespacesContainer
 							|| isOverviewRootInstance(eObject))) {
 						iterator.prune();
 					}
@@ -134,8 +134,7 @@ public class BindingService {
 	private boolean isOverviewRootInstance(EObject object) {
 		EClass eClass = object.eClass();
 		return "Root".equals(eClass.getName())
-				&& eClass.getEPackage().getNsURI()
-						.startsWith("http://www.obeonetwork.org/dsl/overview/");
+				&& eClass.getEPackage().getNsURI().startsWith("http://www.obeonetwork.org/dsl/overview/");
 	}
 
 	public Collection<BindingInfo> getRelatedBindingInfos(Namespace namespace) {
@@ -186,7 +185,8 @@ public class BindingService {
 		}
 	}
 
-	public BindingInfo reconnectBindingTarget(BindingInfo bindingInfo, BoundableElement oldTarget, BoundableElement newTarget) {
+	public BindingInfo reconnectBindingTarget(BindingInfo bindingInfo, BoundableElement oldTarget,
+			BoundableElement newTarget) {
 		if (bindingInfo.getLeft().equals(oldTarget)) {
 			bindingInfo.setLeft(newTarget);
 		} else if (bindingInfo.getRight().equals(oldTarget)) {
@@ -195,28 +195,29 @@ public class BindingService {
 
 		return bindingInfo;
 	}
-	
+
 	public String computeBindingEditorName(BindingInfo bindingInfo) {
-		return String.format("Binding %1s - %2s", getBoundElementName(bindingInfo.getLeft()), getBoundElementName(bindingInfo.getRight()));
+		return String.format("Binding %1s - %2s", getBoundElementName(bindingInfo.getLeft()),
+				getBoundElementName(bindingInfo.getRight()));
 	}
- 
+
 	private String getBoundElementName(EObject object) {
 		if ((object != null) && ((object instanceof StructuredType))) {
-			return ((StructuredType)object).getName();
+			return ((StructuredType) object).getName();
 		}
 		return null;
 	}
-	
+
 	public BindingInfo openBindingEditor(BindingInfo bindingInfo) {
 		DBindingEditor editor = null;
-		
+
 		final Session session = SessionManager.INSTANCE.getSession(bindingInfo);
-		
+
 		// Find an editor to open
 		Collection<DRepresentation> representations = DialectManager.INSTANCE.getRepresentations(bindingInfo, session);
 		for (DRepresentation representation : representations) {
 			if (representation instanceof DBindingEditor) {
-				editor = (DBindingEditor)representation;
+				editor = (DBindingEditor) representation;
 				break;
 			}
 		}
@@ -225,9 +226,11 @@ public class BindingService {
 		if (editor == null) {
 			RepresentationDescription representationDescription = getBindingEditorRepresentation(session);
 			if (representationDescription != null) {
-				DRepresentation representation = DialectManager.INSTANCE.createRepresentation(computeBindingEditorName(bindingInfo), bindingInfo, representationDescription, session, new NullProgressMonitor());
+				DRepresentation representation = BindingDialectServices.get().createRepresentation(
+						computeBindingEditorName(bindingInfo), bindingInfo, representationDescription,
+						new NullProgressMonitor());
 				if (representation != null && representation instanceof DBindingEditor) {
-					editor = (DBindingEditor)representation;
+					editor = (DBindingEditor) representation;
 				}
 			}
 		}
@@ -235,7 +238,7 @@ public class BindingService {
 		if (editor != null) {
 			UserSession.from(session).openRepresentation(new StructuredSelection(editor));
 		}
-		
+
 		return bindingInfo;
 	}
 
