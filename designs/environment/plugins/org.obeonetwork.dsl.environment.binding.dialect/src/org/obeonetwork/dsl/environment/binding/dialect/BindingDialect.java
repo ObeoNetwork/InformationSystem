@@ -38,7 +38,7 @@ public class BindingDialect implements Dialect {
 	 */
 	public DialectServices getServices() {
 		if (services == null) {
-			services = new BindingDialectServices();
+			services = BindingDialectServices.get();
 		}
 		return services;
 	}
