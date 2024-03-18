@@ -1579,7 +1579,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObeoDSMObject_BindingRegistries(), this.getBindingRegistry(), null, "bindingRegistries", null,
-				0, -1, ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				0, -1, ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObeoDSMObject_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, ObeoDSMObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
