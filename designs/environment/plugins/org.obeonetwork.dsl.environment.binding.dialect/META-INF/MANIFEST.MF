@@ -7,7 +7,8 @@ Bundle-Version: 5.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.obeonetwork.dsl.environment.bindingdialect,
+Export-Package: org.obeonetwork.dsl.environment.binding.dialect,
+ org.obeonetwork.dsl.environment.bindingdialect,
  org.obeonetwork.dsl.environment.bindingdialect.description,
  org.obeonetwork.dsl.environment.bindingdialect.description.impl,
  org.obeonetwork.dsl.environment.bindingdialect.description.util,
