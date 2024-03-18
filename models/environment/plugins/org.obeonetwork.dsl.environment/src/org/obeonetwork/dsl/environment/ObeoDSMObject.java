@@ -143,7 +143,7 @@ public interface ObeoDSMObject extends Identifiable {
 	EList<Behaviour> getBehaviours();
 
 	/**
-	 * Returns the value of the '<em><b>Binding Registries</b></em>' reference list.
+	 * Returns the value of the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.environment.BindingRegistry}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -154,9 +154,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * <!-- begin-model-doc -->
 	 * The binding registries of this object.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Binding Registries</em>' reference list.
+	 * @return the value of the '<em>Binding Registries</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_BindingRegistries()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<BindingRegistry> getBindingRegistries();
