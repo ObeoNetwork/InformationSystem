@@ -146,7 +146,8 @@ public class BindingDialectUIServices implements DialectUIServices {
 	@Override
 	public boolean isRepresentationManagedByEditor(DRepresentation representation, IEditorPart editor) {
 		if (canHandleEditor(editor)) {
-			return ((DialectEditor) editor).getRepresentation().equals(representation);
+			return representation!=null
+					&& representation.equals(((DialectEditor) editor).getRepresentation());
 		} else {
 			return false;
 		}

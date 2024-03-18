@@ -37,6 +37,17 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
  *
  */
 public class BindingDialectServices extends AbstractRepresentationDialectServices {
+	private static BindingDialectServices instance;
+
+	public static BindingDialectServices get() {
+		if (instance == null) {
+			instance = new BindingDialectServices();
+		}
+		return instance;
+	}
+
+	private BindingDialectServices() {
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -110,7 +121,8 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 			Session session = new EObjectQuery(semantic).getSession();
 			// If the semantic doesn't belong to a session we don't check
 			// viewpoint selection but only others things like domainClass
-			if (session == null || (checkSelectedViewpoint && isRelatedViewpointSelected(session, desc)) || !checkSelectedViewpoint) {
+			if (session == null || (checkSelectedViewpoint && isRelatedViewpointSelected(session, desc))
+					|| !checkSelectedViewpoint) {
 				result = canCreate(semantic, desc);
 			}
 		}
@@ -137,8 +149,9 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 			editor.setTarget(semantic);
 
 			refresh(editor, monitor);
-			
-			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor, (DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
+
+			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor,
+					(DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
 		}
 
 		return editor;
@@ -159,10 +172,8 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	/**
 	 * Refreshes an editor
 	 *
-	 * @param editor
-	 *            Editor to refresh
-	 * @param monitor
-	 *            Progress monitor
+	 * @param editor  Editor to refresh
+	 * @param monitor Progress monitor
 	 */
 	private void refreshEditor(DBindingEditor editor, IProgressMonitor monitor) {
 		// TODO implement refresh
@@ -182,8 +193,8 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 
 	}
 
-	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription, EObject semanticElement,
-			IProgressMonitor monitor) {
+	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription,
+			EObject semanticElement, IProgressMonitor monitor) {
 
 	}
 
@@ -209,5 +220,4 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	public boolean handles(RepresentationExtensionDescription representationExtensionDescription) {
 		return isSupported(representationExtensionDescription);
 	}
-
 }
