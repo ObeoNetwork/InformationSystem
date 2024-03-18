@@ -114,7 +114,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRegistries" upperBound="-1"
-        eType="#//BindingRegistry">
+        eType="#//BindingRegistry" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The binding registries of this object."/>
       </eAnnotations>

@@ -128,7 +128,7 @@ public interface EnvironmentPackage extends EPackage {
 	int OBEO_DSM_OBJECT__BEHAVIOURS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -228,7 +228,7 @@ public interface EnvironmentPackage extends EPackage {
 	int ENVIRONMENT__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -382,7 +382,7 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPE__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -500,7 +500,7 @@ public interface EnvironmentPackage extends EPackage {
 	int DATA_TYPE__BEHAVIOURS = TYPE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -618,7 +618,7 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIMITIVE_TYPE__BEHAVIOURS = DATA_TYPE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -745,7 +745,7 @@ public interface EnvironmentPackage extends EPackage {
 	int ENUMERATION__BEHAVIOURS = DATA_TYPE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -872,7 +872,7 @@ public interface EnvironmentPackage extends EPackage {
 	int LITERAL__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -981,7 +981,7 @@ public interface EnvironmentPackage extends EPackage {
 	int ACTION__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1090,7 +1090,7 @@ public interface EnvironmentPackage extends EPackage {
 	int INTER_DSM_LINK__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1319,7 +1319,7 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIORITY_DEFINITION__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1428,7 +1428,7 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIORITY__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1537,7 +1537,7 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPES_DEFINITION__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1646,7 +1646,7 @@ public interface EnvironmentPackage extends EPackage {
 	int BEHAVIOUR__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1746,7 +1746,7 @@ public interface EnvironmentPackage extends EPackage {
 	int STRUCTURED_TYPE__BEHAVIOURS = TYPE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1927,7 +1927,7 @@ public interface EnvironmentPackage extends EPackage {
 	int DTO__BEHAVIOURS = STRUCTURED_TYPE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2117,7 +2117,7 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER_CONTAINER__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2226,7 +2226,7 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2326,7 +2326,7 @@ public interface EnvironmentPackage extends EPackage {
 	int NAMESPACE__BEHAVIOURS = TYPES_DEFINITION__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2462,7 +2462,7 @@ public interface EnvironmentPackage extends EPackage {
 	int PROPERTY__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2589,7 +2589,7 @@ public interface EnvironmentPackage extends EPackage {
 	int ATTRIBUTE__BEHAVIOURS = PROPERTY__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2761,7 +2761,7 @@ public interface EnvironmentPackage extends EPackage {
 	int REFERENCE__BEHAVIOURS = PROPERTY__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2933,7 +2933,7 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_INFO__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3087,7 +3087,7 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_REFERENCE__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3205,7 +3205,7 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_ELEMENT__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3359,7 +3359,7 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_REGISTRY__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3811,10 +3811,10 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getObeoDSMObject_Behaviours();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getBindingRegistries <em>Binding Registries</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getBindingRegistries <em>Binding Registries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Binding Registries</em>'.
+	 * @return the meta object for the containment reference list '<em>Binding Registries</em>'.
 	 * @see org.obeonetwork.dsl.environment.ObeoDSMObject#getBindingRegistries()
 	 * @see #getObeoDSMObject()
 	 * @generated
@@ -4849,7 +4849,7 @@ public interface EnvironmentPackage extends EPackage {
 		EReference OBEO_DSM_OBJECT__BEHAVIOURS = eINSTANCE.getObeoDSMObject_Behaviours();
 
 		/**
-		 * The meta object literal for the '<em><b>Binding Registries</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Binding Registries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

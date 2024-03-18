@@ -333,6 +333,8 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 			return basicSetMetadatas(null, msgs);
 		case EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS:
 			return ((InternalEList<?>) getBehaviours()).basicRemove(otherEnd, msgs);
+		case EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES:
+			return ((InternalEList<?>) getBindingRegistries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
