@@ -217,7 +217,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
-      <feature id="org.eclipse.acceleo.aql.feature"/>
+      <!-- feature id="org.eclipse.acceleo.aql.feature"/ -->
    </features>
 
    <configurations>

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1710771997">
+<target name="IS Designer Product Target Definition" sequenceNumber="1710933457">
   <locations>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.query.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.aql.feature.feature.group" version="0.0.0"/>
-      <repository id="Acceleo4" location="https://download.eclipse.org/acceleo/updates/nightly/latest/"/>
-    </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
       <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
@@ -29,6 +23,10 @@
       <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.mockito" version="0.0.0"/>
+      <repository id="Orbit-2021-06" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.core.runtime.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
@@ -44,53 +42,6 @@
       <unit id="org.junit" version="0.0.0"/>
       <unit id="org.slf4j.api" version="0.0.0"/>
       <repository id="Orbit-2023-03" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.model.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.sample.ecore.design.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.sample.interactions.design.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.sample.interactions.edit.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.sample.interactions.editor.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.sample.interactions.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.samples.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.tests.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.tests.swtbot.source" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
-      <repository id="Sirius-AQL8" location="http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.inject" version="0.0.0"/>
@@ -151,6 +102,30 @@
       <unit id="org.hamcrest.library" version="0.0.0"/>
       <unit id="org.objectweb.asm" version="0.0.0"/>
       <unit id="org.objectweb.asm.tree" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.model.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.sample.ecore.design.source" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.sample.interactions.design.source" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.sample.interactions.edit.source" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.sample.interactions.editor.source" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.sample.interactions.source" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.samples.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.tests.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.tests.swtbot.source" version="0.0.0"/>
       <unit id="com.google.guava" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
@@ -159,6 +134,27 @@
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <repository id="Obeo-Designer-Community-11.9" location="http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -229,7 +225,7 @@
       <unit id="org.apache.poi.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.cdo.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
-      <repository id="M2Doc-AQL8" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/"/>
+      <repository id="M2Doc-Nightly" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.m2e.scm" version="0.0.0"/>

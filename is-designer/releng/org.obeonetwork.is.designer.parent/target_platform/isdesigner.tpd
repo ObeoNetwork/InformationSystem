@@ -16,32 +16,8 @@ location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops
 	org.antlr.runtime [4.10.1,4.10.2)
 }
 
-location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
-	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
-	org.eclipse.sirius.diagram.elk.feature.source.feature.group lazy
-	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
-	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
-	org.eclipse.sirius.doc.feature.feature.group lazy
-	org.eclipse.sirius.interpreter.feature.feature.group lazy
-	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
-	org.eclipse.sirius.model.feature.feature.group lazy
-	org.eclipse.sirius.runtime.ide.ui.source.feature.group lazy
-	org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
-	org.eclipse.sirius.runtime.ide.xtext.source.feature.group lazy
-	org.eclipse.sirius.runtime.source.feature.group lazy
-	org.eclipse.sirius.sample.ecore.design.source lazy
-	org.eclipse.sirius.sample.interactions.design.source lazy
-	org.eclipse.sirius.sample.interactions.edit.source lazy
-	org.eclipse.sirius.sample.interactions.editor.source lazy
-	org.eclipse.sirius.sample.interactions.source lazy
-	org.eclipse.sirius.samples.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
-	org.eclipse.sirius.tests.source.feature.group lazy
-	org.eclipse.sirius.tests.swtbot.source lazy
-}
+//location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
+//}
 
 location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
 	com.google.inject lazy
@@ -104,6 +80,31 @@ location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.
 	org.hamcrest.library lazy
 	org.objectweb.asm lazy
 	org.objectweb.asm.tree lazy
+	// Sirius
+	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.feature.source.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
+	org.eclipse.sirius.doc.feature.feature.group lazy
+	org.eclipse.sirius.interpreter.feature.feature.group lazy
+	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
+	org.eclipse.sirius.model.feature.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
+	org.eclipse.sirius.runtime.ide.xtext.source.feature.group lazy
+	org.eclipse.sirius.runtime.source.feature.group lazy
+	org.eclipse.sirius.sample.ecore.design.source lazy
+	org.eclipse.sirius.sample.interactions.design.source lazy
+	org.eclipse.sirius.sample.interactions.edit.source lazy
+	org.eclipse.sirius.sample.interactions.editor.source lazy
+	org.eclipse.sirius.sample.interactions.source lazy
+	org.eclipse.sirius.samples.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group lazy
+	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
+	org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
+	org.eclipse.sirius.tests.source.feature.group lazy
+	org.eclipse.sirius.tests.swtbot.source lazy
 }
 
 location Obeo-Designer-Team-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
@@ -166,7 +167,7 @@ location ISD "http://update.obeo.fr/integration/informationsystem/5.0.0/design/r
 	org.obeonetwork.utils.feature.feature.group lazy
 }
 
-location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/" {
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
