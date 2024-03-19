@@ -21,7 +21,7 @@
 
 	<groupId>org.obeonetwork.is.designer</groupId>
 	<artifactId>org.obeonetwork.is.designer.parent</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>5.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>org.obeonetwork.is.designer.parent</name>
 
@@ -38,7 +38,7 @@
 	<properties>
 		<tycho-version>2.7.5</tycho-version>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-        <target-artifact-version>5.0.0-SNAPSHOT</target-artifact-version>
+        <target-artifact-version>5.0.1-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<build>

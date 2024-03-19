@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Environment Metamodel Tests
 Bundle-SymbolicName: org.obeonetwork.dsl.migration.tests
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.0.1.qualifier
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.junit,
  org.eclipse.emf.common,

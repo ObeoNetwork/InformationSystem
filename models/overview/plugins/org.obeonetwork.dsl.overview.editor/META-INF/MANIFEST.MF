@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Overview Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.overview.editor;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.overview.presentation.OverviewEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network
