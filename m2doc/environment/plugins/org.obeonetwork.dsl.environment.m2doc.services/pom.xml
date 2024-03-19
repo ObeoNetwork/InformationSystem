@@ -16,12 +16,12 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
+		<version>5.0.1-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml
 		</relativePath>
 	</parent>
   <groupId>org.obeonetwork</groupId>
   <artifactId>org.obeonetwork.dsl.environment.m2doc.services</artifactId>
-  <version>5.0.0-SNAPSHOT</version>
+  <version>5.0.1-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>

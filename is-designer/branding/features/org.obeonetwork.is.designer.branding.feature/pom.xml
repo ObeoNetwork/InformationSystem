@@ -17,13 +17,13 @@
 	<parent>
 	    <groupId>org.obeonetwork.is.designer</groupId>
 	    <artifactId>org.obeonetwork.is.designer.parent</artifactId>
-	    <version>5.0.0-SNAPSHOT</version>
+	    <version>5.0.1-SNAPSHOT</version>
 	    <relativePath>../../../releng/org.obeonetwork.is.designer.parent/pom.xml</relativePath>
 	  </parent>
 	  
 	<groupId>org.obeonetwork.is.designer</groupId>
 	<artifactId>org.obeonetwork.is.designer.branding.feature</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>5.0.1-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 	<name>org.obeonetwork.is.designer.branding.feature</name>
 </project>
