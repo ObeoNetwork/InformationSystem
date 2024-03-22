@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
-import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.StructuredTypeLabelsSwitch;
+import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint.BoundableElementChildrenContributionsManager;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
 
@@ -28,18 +28,17 @@ import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectIte
 public class DBoundElementLabelProvider implements ILabelProvider {
 
 	final AdapterFactoryLabelProvider labelProvider;
-	final StructuredTypeLabelsSwitch dtoLabelsSwitch;
-	
+
 	/**
 	 * 
 	 */
 	public DBoundElementLabelProvider() {
-		final ComposedAdapterFactory factory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		final ComposedAdapterFactory factory = new ComposedAdapterFactory(
+				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		factory.addAdapterFactory(new BindingdialectItemProviderAdapterFactory());
 		factory.addAdapterFactory(new TreeItemProviderAdapterFactory());
 		labelProvider = new AdapterFactoryLabelProvider(factory);
-		
-		dtoLabelsSwitch = new StructuredTypeLabelsSwitch();
+
 	}
 
 	/**
@@ -62,7 +61,8 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang.Object, java.lang.String)
+	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang.Object,
+	 *      java.lang.String)
 	 */
 	public boolean isLabelProperty(Object element, String property) {
 		return true;
@@ -83,7 +83,7 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	 */
 	public Image getImage(Object element) {
 		if (element instanceof DBoundElement) {
-			return labelProvider.getImage(((DBoundElement)element).getTarget());
+			return labelProvider.getImage(((DBoundElement) element).getTarget());
 		}
 		return null;
 	}
@@ -95,19 +95,9 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	 */
 	public String getText(Object element) {
 		if (element instanceof DBoundElement) {
-			EObject target = ((DBoundElement)element).getTarget();
-			return dtoLabelsSwitch.getLabel(target);
+			EObject target = ((DBoundElement) element).getTarget();
+			return BoundableElementChildrenContributionsManager.getLabel(target);
 		}
 		return null;
 	}
-//	
-//	private boolean isFromEnvironmentMM(EObject eObject) {
-//		return eObject instanceof DTO
-//			|| eObject instanceof Attribute
-//			|| eObject instanceof Reference;
-//	}
-//	
-//	private boolean isFromEntityMM(EObject eObject) {
-//		return eObject instanceof Entity;
-//	}
 }

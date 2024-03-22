@@ -41,6 +41,7 @@ import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.common.ui.SiriusTransPlugin;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DefaultDialectEditorDialogFactory;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
@@ -49,7 +50,6 @@ import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -83,13 +83,13 @@ import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.Property;
-import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.editor.undoredo.UndoRedoActionHandler;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.BindingTreeMapper;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.BindingTreeSemanticSupport;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.TreeRoot;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.commands.CreateMappingsCommand;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.TreeDataProvider;
+import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint.BoundableElementChildrenContributionsManager;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
@@ -119,8 +119,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	private boolean closing = false;
 
 	/**
-	 * The {@link UndoRedoActionHandler} used to provide appropriate undo and
-	 * redo Action Handlers to this editor.
+	 * The {@link UndoRedoActionHandler} used to provide appropriate undo and redo
+	 * Action Handlers to this editor.
 	 */
 	protected UndoRedoActionHandler undoRedoActionHandler;
 
@@ -142,15 +142,16 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		parent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
 		editorManager = new BindingTreeEditorManager(getEditingDomain(), accessor);
-		BindingTreeSemanticSupport treeSemanticSupport = new BindingTreeSemanticSupport(getBindingInfo(), editorManager);
+		BindingTreeSemanticSupport treeSemanticSupport = new BindingTreeSemanticSupport(getBindingInfo(),
+				editorManager);
 		treeMapper = new BindingTreeMapper(sashForm, treeSemanticSupport);
 		getSite().setSelectionProvider(treeMapper);
 		treeMapper.getLeftTreeViewer().addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (event.getSelection() instanceof StructuredSelection) {
-					StructuredSelection strSelection = (StructuredSelection)event.getSelection();
+					StructuredSelection strSelection = (StructuredSelection) event.getSelection();
 					@SuppressWarnings("unchecked")
-					Collection<DBoundElement> selectedElements = (Collection<DBoundElement>)strSelection.toList();
+					Collection<DBoundElement> selectedElements = (Collection<DBoundElement>) strSelection.toList();
 					populateLTRMappingDetails(selectedElements);
 				}
 			}
@@ -158,9 +159,9 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		treeMapper.getRightTreeViewer().addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (event.getSelection() instanceof StructuredSelection) {
-					StructuredSelection strSelection = (StructuredSelection)event.getSelection();
+					StructuredSelection strSelection = (StructuredSelection) event.getSelection();
 					@SuppressWarnings("unchecked")
-					Collection<DBoundElement> selectedElements = (Collection<DBoundElement>)strSelection.toList();
+					Collection<DBoundElement> selectedElements = (Collection<DBoundElement>) strSelection.toList();
 					populateRTLMappingDetails(selectedElements);
 				}
 			}
@@ -177,7 +178,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		grpDetailsLTR.setText(getBindingDetailsLabel(left, right));
 		grpDetailsRTL.setText(getBindingDetailsLabel(right, left));
 
-		sashForm.setWeights(new int[] {70,30});
+		sashForm.setWeights(new int[] { 70, 30 });
 
 		// Expand the first levels on the two trees
 		treeMapper.getLeftTreeViewer().expandToLevel(2);
@@ -227,10 +228,10 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private void autoBind() {
-		TreeRoot leftRoot = (TreeRoot)treeMapper.getLeftTreeViewer().getInput();
+		TreeRoot leftRoot = (TreeRoot) treeMapper.getLeftTreeViewer().getInput();
 		DBoundElement leftRootElement = leftRoot.getElement();
 
-		TreeRoot rightRoot = (TreeRoot)treeMapper.getRightTreeViewer().getInput();
+		TreeRoot rightRoot = (TreeRoot) treeMapper.getRightTreeViewer().getInput();
 		DBoundElement rightRootElement = rightRoot.getElement();
 
 		// collect candidates to auto bind
@@ -261,7 +262,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 			}
 		}
 		if (leftElementsToBind.size() > 0) {
-			editorManager.execute(new CreateMappingsCommand(getEditingDomain(), getBindingInfo(), leftElementsToBind, rightElementsToBind));
+			editorManager.execute(new CreateMappingsCommand(getEditingDomain(), getBindingInfo(), leftElementsToBind,
+					rightElementsToBind));
 			doRefresh();
 		}
 	}
@@ -269,7 +271,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	private String getPropertyLabel(EObject property) {
 		String label = ""; //$NON-NLS-1$
 		if (property instanceof Property) {
-			label = ((Property)property).getName();
+			label = ((Property) property).getName();
 		}
 		return label;
 	}
@@ -277,7 +279,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.ui.part.EditorPart#init(org.eclipse.ui.IEditorSite, org.eclipse.ui.IEditorInput)
+	 * @see org.eclipse.ui.part.EditorPart#init(org.eclipse.ui.IEditorSite,
+	 *      org.eclipse.ui.IEditorInput)
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
@@ -297,13 +300,15 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		final IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(this.session);
 		uiSession.open();
 		uiSession.attachEditor(this);
-		setAccessor(SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(getBindingEditorRepresentation()));
+		setAccessor(SiriusPlugin.getDefault().getModelAccessorRegistry()
+				.getModelAccessor(getBindingEditorRepresentation()));
 
 		/*
 		 * let's activate the model listening
 		 */
-		//		final DTreeElementSynchronizer sync = new DTreeElementSynchronizerSpec(accessor, getInterpreter());
-		//		getTreeModel().activate(sync);
+		// final DTreeElementSynchronizer sync = new
+		// DTreeElementSynchronizerSpec(accessor, getInterpreter());
+		// getTreeModel().activate(sync);
 		/* Update title. Semantic tree could have been renamed */
 		notify(PROP_TITLE);
 	}
@@ -333,12 +338,15 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	 * @param save indicates whether the modifications should be saved or not
 	 */
 	public void close(final boolean save) {
-		Display display = getSite().getShell().getDisplay();
-		display.asyncExec(new Runnable() {
-			public void run() {
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closeEditor(BindingTreeEditor.this, save);
+			if (getSite() != null && getSite().getPart() != null) {
+				Display display = getSite().getShell().getDisplay();
+				display.asyncExec(new Runnable() {
+					public void run() {
+						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+								.closeEditor(BindingTreeEditor.this, save);
+					}
+				});
 			}
-		});
 	}
 
 	/**
@@ -391,15 +399,17 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private BindingInfo getBindingInfo() {
-		return (BindingInfo)getBindingEditorRepresentation().getTarget();
+		return (BindingInfo) getBindingEditorRepresentation().getTarget();
 	}
 
 	protected boolean isAutoRefresh() {
 		boolean autoRefresh = false;
 		try {
-			autoRefresh = SiriusPlugin.getDefault().getPluginPreferences().getBoolean(SiriusPreferencesKeys.PREF_AUTO_REFRESH.name());
+			autoRefresh = SiriusPlugin.getDefault().getPluginPreferences()
+					.getBoolean(SiriusPreferencesKeys.PREF_AUTO_REFRESH.name());
 		} catch (final IllegalArgumentException e) {
-			SiriusTransPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusTransPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e));
+			SiriusTransPlugin.getPlugin().getLog()
+					.log(new Status(IStatus.ERROR, SiriusTransPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e));
 		}
 		return autoRefresh;
 	}
@@ -448,10 +458,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * Performs the save and handles errors appropriately.
 	 * 
-	 * @param overwrite
-	 *            indicates whether or not overwriting is allowed
-	 * @param progressMonitor
-	 *            the monitor in which to run the operation
+	 * @param overwrite       indicates whether or not overwriting is allowed
+	 * @param progressMonitor the monitor in which to run the operation
 	 * 
 	 */
 	protected void performSave(final boolean overwrite, final IProgressMonitor progressMonitor) {
@@ -461,8 +469,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * Perform the saveAs action.
 	 * 
-	 * @param progressMonitor
-	 *            The progress monitor
+	 * @param progressMonitor The progress monitor
 	 */
 	private void performSaveAs(final IProgressMonitor progressMonitor) {
 		final Shell shell = getSite().getShell();
@@ -491,7 +498,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 			final IEditorInput newInput = new FileEditorInput(file);
 			// Check if the editor is already open
 			final IEditorMatchingStrategy matchingStrategy = getEditorDescriptor().getEditorMatchingStrategy();
-			final IEditorReference[] editorRefs = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+			final IEditorReference[] editorRefs = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+					.getEditorReferences();
 			for (int i = 0; i < editorRefs.length; i++) {
 				if (matchingStrategy.matches(editorRefs[i], newInput)) {
 					return;
@@ -544,11 +552,10 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private void checkSemanticAssociation() {
-		if (closing == false &&
-				(getBindingEditorRepresentation() == null
-				|| getBindingEditorRepresentation().eResource() == null
-				|| getBindingEditorRepresentation().getTarget() == null
-				|| getBindingEditorRepresentation().getTarget().eResource() == null)) {
+		if (closing == false
+				&& (getBindingEditorRepresentation() == null || getBindingEditorRepresentation().eResource() == null
+						|| getBindingEditorRepresentation().getTarget() == null
+						|| getBindingEditorRepresentation().getTarget().eResource() == null)) {
 			/*
 			 * The element has been deleted, we should close the editor
 			 */
@@ -578,7 +585,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private void launchRefresh() {
-		getEditingDomain().getCommandStack().execute(new RefreshRepresentationsCommand(getEditingDomain(), new NullProgressMonitor()));
+		getEditingDomain().getCommandStack()
+				.execute(new RefreshRepresentationsCommand(getEditingDomain(), new NullProgressMonitor()));
 		doRefresh();
 	}
 
@@ -595,10 +603,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 			isLastRefreshSuccess = Optional.of(Boolean.TRUE);
 		} catch (Exception e) {
 			BindingdialectEditPlugin.getPlugin().getLog()
-					.log(new Status(IStatus.WARNING, BindingdialectEditPlugin.ID,
-							MessageFormat.format(Messages.BindingTreeEditor_Error_representationRefresh,
-									getRepresentation().getName()),
-							e));
+					.log(new Status(IStatus.WARNING, BindingdialectEditPlugin.ID, MessageFormat.format(
+							Messages.BindingTreeEditor_Error_representationRefresh, getRepresentation().getName()), e));
 			isLastRefreshSuccess = Optional.of(Boolean.FALSE);
 		}
 	}
@@ -614,7 +620,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 			public void run() {
 				if (notificationKind == PROP_TITLE) {
-					if(getRepresentation()!=null) {
+					if (getRepresentation() != null) {
 						setPartName(getRepresentation().getName());
 					}
 				}
@@ -625,20 +631,21 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 
 	private String getBindingDetailsLabel(DBoundElement first, DBoundElement second) {
 		String label = Messages.BindingTreeEditor_Frame_Label_BindingDetails;
-		if (first.getTarget() instanceof Type) {
-			label += ((Type)first.getTarget()).getName();
+		if (second != null && second.getTarget() != null) {
+			label += BoundableElementChildrenContributionsManager.getLabel(second.getTarget());
 		}
+
 		label += Messages.BindingTreeEditor_Frame_Label_Separator;
-		if (second.getTarget() instanceof Type) {
-			label += ((Type)second.getTarget()).getName();
+		if (first != null && first.getTarget() != null) {
+			label += BoundableElementChildrenContributionsManager.getLabel(first.getTarget());
 		}
 
 		return label;
 	}
 
 	/**
-	 * Initializes an UndoRedoActionHandler, which purpose is to provide
-	 * appropriate undo and redo Action Handlers to this editor.
+	 * Initializes an UndoRedoActionHandler, which purpose is to provide appropriate
+	 * undo and redo Action Handlers to this editor.
 	 */
 	protected void setUpUndoRedoActionHandler() {
 		IWorkbenchWindow workbenchWindow = getEditorSite().getWorkbenchWindow();
@@ -669,12 +676,12 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 
 	public Saveable[] getSaveables() {
 		final IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(this.session);
-		return ((ISaveablesSource)uiSession).getSaveables();
+		return ((ISaveablesSource) uiSession).getSaveables();
 	}
 
 	public Saveable[] getActiveSaveables() {
 		final IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(this.session);
-		return ((ISaveablesSource)uiSession).getActiveSaveables();
+		return ((ISaveablesSource) uiSession).getActiveSaveables();
 	}
 
 	public int promptToSaveOnClose() {
@@ -700,7 +707,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 			}
 		} else if (propId == DialectEditor.PROP_FORCE_REFRESH) {
 			return true;
-		}		 
+		}
 		return false;
 	}
 

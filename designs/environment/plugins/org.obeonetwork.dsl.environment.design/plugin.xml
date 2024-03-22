@@ -97,5 +97,10 @@
            id="org.obeonetwork.dsl.environment.design.actions.ISObjectSelectionWizard">
      </javaActions>
   </extension>
-  
+  <extension
+         point="org.obeonetwork.dsl.environment.binding.dialect.ui.boundableElementChildrenDefinitions">
+      <client
+            definition="org.obeonetwork.dsl.environment.design.extension.StructuredTypeChildrenContribution">
+      </client>
+  </extension>
 </plugin>
