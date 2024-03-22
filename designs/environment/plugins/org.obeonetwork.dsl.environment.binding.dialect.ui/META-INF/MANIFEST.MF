@@ -8,7 +8,8 @@ Bundle-Activator: org.obeonetwork.dsl.environment.bindingdialect.provider.Bindin
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.obeonetwork.dsl.environment.bindingdialect.description.provider,
+Export-Package: org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint,
+ org.obeonetwork.dsl.environment.bindingdialect.description.provider,
  org.obeonetwork.dsl.environment.bindingdialect.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.binding.dialect;visibility:=reexport,

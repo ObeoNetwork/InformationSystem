@@ -35,4 +35,5 @@ Export-Package: org.obeonetwork.dsl.cinematic.design,
  org.obeonetwork.dsl.cinematic.design.services,
  org.obeonetwork.dsl.cinematic.design.services.label
 Bundle-ManifestVersion: 2
-Import-Package: com.google.common.collect
+Import-Package: com.google.common.collect,
+ org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint

@@ -19,8 +19,6 @@ import org.eclipse.sirius.business.api.dialect.AbstractRepresentationDialectServ
 import org.eclipse.sirius.business.api.dialect.description.IInterpretedExpressionQuery;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.internal.query.DRepresentationDescriptorInternalHelper;
-import org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
@@ -82,7 +80,8 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	 */
 	@Override
 	protected boolean isSupported(DRepresentationDescriptor representationDescriptor) {
-		return representationDescriptor.getDescription() instanceof DBindingEditor;
+		return representationDescriptor.getDescription() instanceof DBindingEditorDescription;
+		// DBindingEditor
 	}
 
 	/**
@@ -150,8 +149,8 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 
 			refresh(editor, monitor);
 
-			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor,
-					(DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
+//			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor,
+//					(DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
 		}
 
 		return editor;

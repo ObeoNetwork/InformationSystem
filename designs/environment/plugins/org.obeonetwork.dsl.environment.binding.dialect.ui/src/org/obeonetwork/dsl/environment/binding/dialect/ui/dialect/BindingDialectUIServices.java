@@ -83,7 +83,9 @@ public class BindingDialectUIServices implements DialectUIServices {
 		return editor instanceof BindingTreeEditor;
 	}
 
-	/** {@inheritDoc}
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandle(org.eclipse.sirius.viewpoint.DRepresentationDescriptor)
 	 */
 	@Override
@@ -110,7 +112,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 	@Override
 	public boolean closeEditor(IEditorPart editorPart, boolean save) {
 		boolean result = false;
-		if (canHandleEditor(editorPart)) {
+		if (canHandleEditor(editorPart) && editorPart.getSite() != null && editorPart.getSite().getPart() != null) {
 			try {
 				((BindingTreeEditor) editorPart).close(save);
 			} catch (NullPointerException e) {
@@ -146,8 +148,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 	@Override
 	public boolean isRepresentationManagedByEditor(DRepresentation representation, IEditorPart editor) {
 		if (canHandleEditor(editor)) {
-			return representation!=null
-					&& representation.equals(((DialectEditor) editor).getRepresentation());
+			return representation != null && representation.equals(((DialectEditor) editor).getRepresentation());
 		} else {
 			return false;
 		}
@@ -312,8 +313,8 @@ public class BindingDialectUIServices implements DialectUIServices {
 	}
 
 	@Override
-	public ExportResult exportWithResult(DRepresentation representation, Session session, IPath path, ExportFormat format,
-			IProgressMonitor monitor) throws SizeTooLargeException {
+	public ExportResult exportWithResult(DRepresentation representation, Session session, IPath path,
+			ExportFormat format, IProgressMonitor monitor) throws SizeTooLargeException {
 		// Nothing to do for binding trees
 		return null;
 	}

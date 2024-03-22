@@ -13,6 +13,7 @@
  -->
 
 <plugin>
+   <extension-point id="boundableElementChildrenDefinitions" name="BoundableElementChildrenDefinitions" schema="schema/BoundableElementChildrenDefinitions.exsd"/>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
@@ -52,5 +53,4 @@
             name="Binding Tree Editor">
       </editor>
    </extension>
-
 </plugin>

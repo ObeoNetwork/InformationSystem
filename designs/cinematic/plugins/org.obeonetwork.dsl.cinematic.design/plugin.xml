@@ -286,4 +286,10 @@
            descriptionName="Package Diagram">
      </partialView>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.binding.dialect.ui.boundableElementChildrenDefinitions">
+     <client
+           definition="org.obeonetwork.dsl.cinematic.design.extension.ViewContainerChildrenContribution">
+     </client>
+  </extension>
 </plugin>
