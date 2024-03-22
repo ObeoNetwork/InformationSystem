@@ -64,7 +64,6 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 
 			addDescriptionPropertyDescriptor(object);
 			addKeywordsPropertyDescriptor(object);
-			addBindingRegistriesPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addCreatedOnPropertyDescriptor(object);
 			addModifiedOnPropertyDescriptor(object);
@@ -102,21 +101,6 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 								"_UI_ObeoDSMObject_type"),
 						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Binding Registries feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBindingRegistriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ObeoDSMObject_bindingRegistries_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_bindingRegistries_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -181,6 +165,7 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS);
 			childrenFeatures.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS);
+			childrenFeatures.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES);
 		}
 		return childrenFeatures;
 	}
@@ -242,6 +227,7 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 			return;
 		case EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS:
 		case EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS:
+		case EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -261,6 +247,9 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 
 		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS,
 				EnvironmentFactory.eINSTANCE.createMetaDataContainer()));
+
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
+				EnvironmentFactory.eINSTANCE.createBindingRegistry()));
 	}
 
 	/**
