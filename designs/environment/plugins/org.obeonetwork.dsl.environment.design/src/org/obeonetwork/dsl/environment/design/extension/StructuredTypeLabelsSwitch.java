@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper;
+package org.obeonetwork.dsl.environment.design.extension;
 
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Attribute;
