@@ -58,7 +58,7 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/keywords"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/behaviours"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/bindingRegistries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/bindingRegistries"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/version"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/createdOn"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/modifiedOn"/>
