@@ -16,20 +16,15 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.obeonetwork.dsl.environment.Property;
-import org.obeonetwork.dsl.environment.Reference;
-import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.TreeRoot;
+import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint.BoundableElementChildrenContributionsManager;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
 public class DBoundElementContentProvider implements ITreeContentProvider {
-	
-//	private DBindingEditor bindingEditor;
-	
+
 	public DBoundElementContentProvider() {
 		super();
-//		this.bindingEditor = bindingEditor;
 	}
 
 	public void dispose() {
@@ -40,14 +35,14 @@ public class DBoundElementContentProvider implements ITreeContentProvider {
 
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof TreeRoot) {
-			return new Object[]{((TreeRoot) inputElement).getElement()};
+			return new Object[] { ((TreeRoot) inputElement).getElement() };
 		}
 		return null;
 	}
 
 	public Object[] getChildren(final Object parentElement) {
 		if (parentElement instanceof DBoundElement) {
-			DBoundElement boundElement = (DBoundElement)parentElement;
+			DBoundElement boundElement = (DBoundElement) parentElement;
 			if (boundElement.getChildren().isEmpty()) {
 				List<DBoundElement> children = new ArrayList<DBoundElement>();
 				EObject[] delegatedChildren = getDelegatedChildren(boundElement.getTarget());
@@ -65,31 +60,14 @@ public class DBoundElementContentProvider implements ITreeContentProvider {
 		}
 		return null;
 	}
-	
+
 	private EObject[] getDelegatedChildren(EObject object) {
-		if (object instanceof StructuredType) {
-			StructuredType structuredType = (StructuredType)object;
-			List<Property> properties = new ArrayList<Property>();
-			properties.addAll(structuredType.getAttributes());
-			for (StructuredType associatedType : structuredType.getAssociatedTypes()) {
-				properties.addAll(associatedType.getAttributes());
-			}
-			properties.addAll(structuredType.getReferences());
-			return (EObject[]) properties.toArray(new EObject[]{});
-		} else if (object instanceof Reference) {
-			Reference entityReference = (Reference)object;
-			if (entityReference.getReferencedType() != null) {
-				return getDelegatedChildren(entityReference.getReferencedType());
-			} else {
-				return new EObject[]{};
-			}
-		}
-		return new EObject[]{};
+		return BoundableElementChildrenContributionsManager.getChildren(object);
 	}
 
 	public Object getParent(Object element) {
 		if (element instanceof DBoundElement) {
-			return ((DBoundElement)element).getParent();
+			return ((DBoundElement) element).getParent();
 		}
 		return null;
 	}

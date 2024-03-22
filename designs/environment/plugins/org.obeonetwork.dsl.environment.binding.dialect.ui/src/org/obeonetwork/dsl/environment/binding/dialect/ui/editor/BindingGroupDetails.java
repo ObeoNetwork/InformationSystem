@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.commands.UpdateMappingExpressionCommand;
+import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint.BoundableElementChildrenContributionsManager;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
@@ -156,10 +157,8 @@ public class BindingGroupDetails {
 		private String getLabel() {
 			String label = null;
 			EObject target = element.getTarget();
-			if (target instanceof Property) {
-				label = ((Property)target).getName();
-			} else if (target instanceof Type) {
-				label = ((Type)target).getName();
+			if(target!=null) {
+				label = BoundableElementChildrenContributionsManager.getLabel(target);
 			}
 			return label + " =";
 		}
