@@ -12,6 +12,11 @@ location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
 	org.eclipse.emf.ecoretools.sdk.feature.group lazy
 }
 
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
+	  org.eclipse.acceleo.query.jdt.feature.group lazy
+	  org.eclipse.acceleo.query.jdt.source.feature.group lazy
+}
+
 location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
 	org.antlr.runtime [4.10.1,4.10.2)
 }
@@ -171,14 +176,14 @@ location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8
 }
 
 location SVN "https://download.eclipse.org/releases/oxygen/" {
-	org.eclipse.m2e.scm lazy
-	org.eclipse.m2e.scm.source lazy
+//	org.eclipse.m2e.scm lazy
+//	org.eclipse.m2e.scm.source lazy
 	org.eclipse.team.svn.revision.graph.feature.group lazy
 }
 
 location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4.8/release/latest/" {
 	org.eclipse.team.svn.core.feature.group lazy
-	org.eclipse.team.svn.m2e.feature.group lazy
+//	org.eclipse.team.svn.m2e.feature.group lazy
 	org.eclipse.team.svn.mylyn.feature.group lazy
 	org.eclipse.team.svn.nl1.feature.group lazy
 	org.eclipse.team.svn.pde.build.feature.group lazy
