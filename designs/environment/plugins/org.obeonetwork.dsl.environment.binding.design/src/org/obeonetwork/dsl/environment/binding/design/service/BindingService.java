@@ -33,11 +33,10 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.ui.business.api.session.UserSession;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
+import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.environment.BindingInfo;
@@ -71,7 +70,7 @@ public class BindingService {
 		return roots;
 	}
 
-	private Collection<Resource> getAllSemanticResourcesInSession(EObject any) {
+	private static Collection<Resource> getAllSemanticResourcesInSession(EObject any) {
 		Session session = SessionManager.INSTANCE.getSession(any);
 		if (session != null) {
 			return session.getSemanticResources();
@@ -79,7 +78,7 @@ public class BindingService {
 		return Collections.emptyList();
 	}
 
-	private Collection<BindingInfo> getAllBindingInfosOnDiagram(DSemanticDiagram diagram) {
+	private static Collection<BindingInfo> getAllBindingInfosOnDiagram(DSemanticDiagram diagram) {
 		Collection<BindingInfo> bindingInfos = new ArrayList<BindingInfo>();
 		for (DNode node : diagram.getNodes()) {
 			if (node.getTarget() instanceof BindingInfo) {
@@ -89,7 +88,7 @@ public class BindingService {
 		return bindingInfos;
 	}
 
-	private Collection<StructuredType> getAllStructuredTypes(EObject any) {
+	public static Collection<StructuredType> getAllStructuredTypes(EObject any) {
 		// Collect all structured types
 		Collection<StructuredType> structuredTypes = new ArrayList<StructuredType>();
 
@@ -114,7 +113,7 @@ public class BindingService {
 		return structuredTypes;
 	}
 
-	private boolean isOverviewRootInstance(EObject object) {
+	private static boolean isOverviewRootInstance(EObject object) {
 		EClass eClass = object.eClass();
 		return "Root".equals(eClass.getName())
 				&& eClass.getEPackage().getNsURI().startsWith("http://www.obeonetwork.org/dsl/overview/");
@@ -258,7 +257,9 @@ public class BindingService {
 	 * @param rootBindingInfos should either be environment's{@link Namespace}, or
 	 *                         view's {@link ViewContainer}.
 	 * 
-	 * @return all {@link BindingInfo} related to rootBindingInfos.
+	 * @return all {@link BindingInfo} related to rootBindingInfos. In the case of a
+	 *         ViewContainer, they are found in {@link CinematicRoot} its root
+	 *         container.
 	 */
 	public Collection<BindingInfo> getRelatedBindingInfos(ObeoDSMObject rootBindingInfos) {
 		if (rootBindingInfos instanceof Namespace) {
@@ -274,38 +275,14 @@ public class BindingService {
 		// Use of LinkedHashSet to keep order and avoid potential lock/unlock loops
 		// problems
 		Set<BindingInfo> results = new LinkedHashSet<BindingInfo>();
-		ViewContainer topParent = getViewContainerForBindingInfos((ViewContainer) viewContainer);
-		if (topParent != null) {
-			for (BindingRegistry bindingRegistry : ((ViewContainer) topParent).getBindingRegistries()) {
+		CinematicRoot registryContainer = getRegistryContainerForViewContainerBindingInfos(
+				(ViewContainer) viewContainer);
+		if (registryContainer != null) {
+			for (BindingRegistry bindingRegistry : registryContainer.getBindingRegistries()) {
 				results.addAll(bindingRegistry.getBindingInfos());
 			}
 		}
 		return results;
-	}
-
-	/**
-	 * The returned ViewContainer is such that it's
-	 * <p>
-	 * Either an ancestor of container that has no {@link ViewContainer} as a parent
-	 * but an {@link AbstractPackage} instead.
-	 * </p>
-	 * <p>
-	 * Or container itself if it has {@link AbstractPackage} as a parent.
-	 * </p>
-	 *
-	 * @param container
-	 * @return a ViewContainer that should contain the {@link BindingRegistry}
-	 *         containing {@link BindingInfo}s.
-	 */
-	private static ViewContainer getViewContainerForBindingInfos(ViewContainer container) {
-		EObject topParent = container;
-		while (topParent != null && !(topParent.eContainer() instanceof AbstractPackage)) {
-			topParent = topParent.eContainer();
-		}
-		if (topParent instanceof ViewContainer) {
-			return (ViewContainer) topParent;
-		}
-		return null;
 	}
 
 	public Collection<StructuredType> getAllBindableElements(DSemanticDiagram diagram,
@@ -338,7 +315,7 @@ public class BindingService {
 	 *                {@link ViewContainer}.
 	 * @return
 	 */
-	public BindingRegistry getBindingRegistry(ObeoDSMObject context) {
+	public static BindingRegistry getBindingRegistry(ObeoDSMObject context) {
 		if (context instanceof Namespace) {
 			if (context.getBindingRegistries().isEmpty()) {
 				return createBindingRegistry(context);
@@ -347,21 +324,33 @@ public class BindingService {
 			}
 		}
 		if (context instanceof ViewContainer) {
-			ViewContainer containerForRegistry = getViewContainerForBindingInfos((ViewContainer) context);
-			if (containerForRegistry != null) {
-				if (containerForRegistry.getBindingRegistries().isEmpty()) {
-					return createBindingRegistry(containerForRegistry);
+			EObject rootContainer = EcoreUtil.getRootContainer(context);
+			CinematicRoot cinematicRoot = null;
+			if (rootContainer instanceof CinematicRoot) {
+				cinematicRoot = (CinematicRoot) rootContainer;
+			}
+			if (cinematicRoot != null) {
+				if (cinematicRoot.getBindingRegistries().isEmpty()) {
+					return createBindingRegistry(cinematicRoot);
 				} else {
-					return containerForRegistry.getBindingRegistries().get(0);
+					return cinematicRoot.getBindingRegistries().get(0);
 				}
 			}
 		}
 		return null;
 	}
 
-	private BindingRegistry createBindingRegistry(ObeoDSMObject container) {
+	private static BindingRegistry createBindingRegistry(ObeoDSMObject container) {
 		BindingRegistry bindingRegistry = EnvironmentFactory.eINSTANCE.createBindingRegistry();
 		container.getBindingRegistries().add(bindingRegistry);
 		return bindingRegistry;
+	}
+
+	public static CinematicRoot getRegistryContainerForViewContainerBindingInfos(ViewContainer viewContainer) {
+		EObject rootContainer = EcoreUtil.getRootContainer(viewContainer);
+		if (rootContainer instanceof CinematicRoot) {
+			return (CinematicRoot) rootContainer;
+		}
+		return null;
 	}
 }
