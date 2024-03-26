@@ -81,8 +81,8 @@ h2. Fonctionnalités du modeleur
 Le modeleur Cinematic apporte les représentations suivantes :
 
 | **Package Diagram**        | : diagramme permettant de modéliser les Packages, Flows et ViewContainers. |
-| **UI Structure**           | : représentation aborescente permettant de modélise la description statique de l'IHM (écrans, panels, widgets, ...). |
-| **View Container Mockup**  | : diagramme permettant de modéliser la structure et l'apparence des IHM. |
+| **UI Structure**           | : représentation aborescente permettant de modéliser la description haut niveau statique de l'IHM. |
+| **View Container Mockup**  | : diagramme permettant de modéliser la structure et l'apparence des IHM et éditer les bindings. |
 | **Layout Diagram**         | : diagramme de consultation des composants et composites d'un Layout. |
 | **Flow Diagram**           | : diagramme permettant de modéliser la dynamique de l'IHM. |
 
@@ -133,12 +133,12 @@ h3. UI Structure
 
 h4. Contenu
 
-La représentation _UI Structure_ fournit une vue d'ensemble complète de la structure des écrans de l'application modélisée, sous forme arborescente.
+La représentation _UI Structure_ fournit une vue de haut niveau de la structure des écrans de l'application modélisée, sous forme arborescente.
 
-Les écrans sont décrit en termes de _View Containers_ pouvant contenir :
+Les écrans sont décrits en termes de _View Containers_ pouvant contenir :
 * d’autres _View Containers_,
-* des _View Elements_ représentant les instances de widgets
 * des _View Container Reference_ représentant la réutilisation de _View Container_.
+* les _ViewElements_ représentant les instances de widgets.
 
 Les _View Containers_ peuvent être contenus dans des _Package_, permettant une structuration de ces différents éléments.
 
@@ -150,24 +150,19 @@ Les éléments affichés sont :
 * le _Package_ principal et ses sous-packages,
 * les _View Containers_,
 ** quand un _View Container_ est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le _View Container_ est simplement référencé et non pas contenu (mention dans le libellé et décorateur d'icône).
-* les _View Element_,
-* les _Events_ associés aux _View Containers_ et _View Elements_,
-* les _Actions_ associées aux _View Container_ et _View Elements_.
+* les _ViewElements_ contenus dans les _ViewContainer_
+
 
 h4. Palette et outils
 
 Les outils disponibles sont :
-* création / suppression de Package,
-* création / suppression de ViewContainer,
-* création / suppression de ViewElement,
-* création / suppression de Event,
-* création / suppression de Action,
+* création / suppression de Package, ViewContainer et ViewElement,
 * modification de ces éléments via des vues de propriétés avancées,
 * déplacement et duplication d'élément dans l'arborescence.
 
 h3. View Container Mockup
 
-Cette représentation vient compléter la représentation _UI Structure_, apportant la modélisation de la disposition graphique des composants de l'IHM. Elle permet de créer et positionner les _View Elements_ dans les _View Containers_.
+Cette représentation vient compléter la représentation _UI Structure_, apportant la modélisation de la disposition graphique des composants de l'IHM. Elle permet de créer et positionner les _View Elements_ dans les _View Containers_. De plus, elle permet d'éditer les bindings sur ces derniers.
 
 h4. Eléments affichés et palette d'outils
 
@@ -205,6 +200,20 @@ Le choix de direction est déterminé par la direction dans laquelle l'espace se
 Un élément de _Layout_ peut être lié ou non à un _View Element_ suivant qu’il représente le Layout d’un _View Element_ ou bien le Layout d'un espace structurant (tel que le Layout qui englobe les deux boutons de l'exemple ci-dessus).
 
 Le diagram _Layout Diagram_ permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
+
+h4. Edition de bindings
+
+Afin d'éditer le binding d'un _ViewContainer_ ou d'un _ViewElement_, un menu "Binding..." s'affiche lors du clic droit sur ces éléments.
+Cet action menu ouvre une fenêtre permettant d'éditer la sélection
+i) dans le cas d'un ViewContainer: des types structurés liés:
+
+!{width:40%}pics/MockupDiagram/ViewContainerBinding.png!
+
+ii) dans le cas d'un ViewElement: des attributs ou références de types structurés liés. Ces types structurés doivent être préalablement liés à un ViewContainer parent du ViewElement.
+
+!{width:40%}pics/MockupDiagram/ViewElementBinding.png!
+
+Note: Lorsque des bindings sont définis sur un ViewElement ou un ViewContainer, le glisser-déposer de celui-ci sur un ViewContainer cible ne sera possible que si ses bindings restent valides avec la nouvelle cible. Ses bindings restent valides si leurs contextes liés aux BindingInfos associés aux ViewContainers parent (à l'élément à déplacer) sont conservés.
 
 h4. Navigation vers d'autres diagrammes
 

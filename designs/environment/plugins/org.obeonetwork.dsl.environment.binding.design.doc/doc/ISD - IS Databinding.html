@@ -16,11 +16,30 @@
 			<em>Entity</em> en 
 			<em>DTO</em>.
 		</p>
-		<h2 id="PointdevueISDatabading">Point de vue IS Databading</h2>
+		<p>Cet outillage peut également permettre d'éditer le databinding des vues 
+			<em>ViewContainer</em> et 
+			<em>ViewElement</em> avec les types structurés.
+			<br/>
+			<b>Mais il est recommandé d&#8217;utiliser la vue 
+				<em>View Container Mockup</em> pour éditer le databinding dans ce dernier cas.
+			</b>
+			<br/>En effet, la manière dont cet éditeur modifie le modèle n&#8217;est pas identique à la manière dont l'édition depuis la vue Mockup modifie le modèle:
+			<br/>Dans le Binding Editor (détaillé plus bas) une seule 
+			<em>BindingInfo</em> est modifiée alors que depuis la vue Mockup une 
+			<em>BindingInfo</em> peut être créée pour chaque 
+			<em>ViewContainer</em>.
+			<br/>Une évolution de l'éditeur est nécessaire afin d&#8217;avoir le même comportement.
+		</p>
+		<h2 id="PointdevueISDatabinding">Point de vue IS Databinding</h2>
 		<p>L&#8217;outillage de databinding embarque un point vue fournissant :</p>
 		<ul>
-			<li>Un diagramme permettant de créer un databinding entre deux types structurés</li>
-			<li>Un éditeur spécifique permettant de lier les attributs et références des types structurés</li>
+			<li>Un diagramme permettant de créer un databinding entre deux types structurés ou entre une vue (
+				<em>ViewContainer</em> ou 
+				<em>ViewElement</em>) et un type structuré.
+			</li>
+			<li>Un éditeur spécifique permettant de lier les attributs et références des types structurés entre eux ou avec les sous éléments d&#8217;un 
+				<em>ViewContainer</em>.
+			</li>
 		</ul>
 		<p>Pour activer le point de vue 
 			<em>IS Databinding</em>, sur une session 
@@ -48,6 +67,10 @@
 		</p>
 		<p>
 			<img border="0" src="pics/diagram/CreateDiagram.png"/>
+		</p>
+		<p>Le diagramme peut également être créé sur un 
+			<em>ViewContainer</em> n&#8217;ayant pas comme parent un autre 
+			<em>ViewContainer</em>.
 		</p>
 		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
 		<p>
@@ -87,6 +110,9 @@
 				</td>
 			</tr>
 		</table>
+		<p>Un comportement similaire s&#8217;applique également lorsqu&#8217;il s&#8217;agit d&#8217;un 
+			<em>ViewContainer</em> et d&#8217;un type structuré.
+		</p>
 		<h4 id="Navigationverslditeurdebinding">Navigation vers l'éditeur de binding</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers l'éditeur de binding :</p>
 		<ul>
@@ -98,11 +124,12 @@
 		</ul>
 		<h3 id="Bindingeditor">Binding editor</h3>
 		<p>Le 
-			<em>Binding editor</em> est un éditeur spécifique permettant décrire en détail le databinding entre deux types structurés. Le moyen le plus simple pour l&#8217;ouvrir est de double-cliquer sur le 
+			<em>Binding editor</em> est un éditeur spécifique permettant décrire en détail le databinding entre deux types structurés (ou un 
+			<em>ViewContainer</em> et un type structuré). Le moyen le plus simple pour l&#8217;ouvrir est de double-cliquer sur le 
 			<em>Binding</em> voulu sur le diagramme décrit au chapitre précédent.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/editor/BindingEditor.png"/>
+			<img style="width:100%" border="0" src="pics/editor/BindingEditor1.png"/>
 		</p>
 		<h4 id="Structuregnraledelditeur">Structure générale de l'éditeur</h4>
 		<p>L'éditeur est divisé en différentes parties :</p>
@@ -117,7 +144,7 @@
 		</ul>
 		<h4 id="Vuearborescenteduntypestructur">Vue arborescente d&#8217;un type structuré</h4>
 		<p>
-			<img border="0" src="pics/editor/VueArborescente.png"/>
+			<img border="0" src="pics/editor/VueArborescente1.png"/>
 		</p>
 		<p>Cette vue présente les attributs et les références du type structuré.
 			<br/>Dans le cas des références, il est possible de déplier la référence pour avoir accès aux attributs et références du type référencé.
@@ -126,7 +153,7 @@
 		<p>Lorsqu&#8217;un ou des éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.</p>
 		<h4 id="Zonecentrale">Zone centrale</h4>
 		<p>
-			<img border="0" src="pics/editor/ZoneCentrale.png"/>
+			<img border="0" src="pics/editor/ZoneCentrale1.png"/>
 		</p>
 		<p>La zone centrale permet de visualiser les liens entre éléments.</p>
 		<p>Il est possible de sélectionner un ou plusieurs liens pour les rendre plus visibles. La sélection multiple se fait en maintenant la touche Ctrl enfoncée.
@@ -135,7 +162,7 @@
 		<p>Quand des liens sont sélectionnées, un appui sur la touche Del permet de les supprimer après un message de confirmation.</p>
 		<h4 id="Zoneinfrieure">Zone inférieure</h4>
 		<p>
-			<img style="width:100%" border="0" src="pics/editor/ZoneInferieure.png"/>
+			<img style="width:100%" border="0" src="pics/editor/ZoneInferieure1.png"/>
 		</p>
 		<p>La zone inférieure affiche des champs de saisie en fonction des liens sélectionnés :</p>
 		<ul>
