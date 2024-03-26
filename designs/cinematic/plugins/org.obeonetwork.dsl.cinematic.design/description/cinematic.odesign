@@ -1422,6 +1422,14 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="BINDING_AbstractViewElement" label="Biding..." precondition="aql:self.oclIsKindOf(view::ViewContainer) or self.oclIsKindOf(view::ViewElement) " icon="/org.obeonetwork.dsl.environment.edit/icons/full/obj16/BindingInfo.gif">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views->first().target">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openBoundableElementsSelectionWizard()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Reuse">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainerReference" label="View Container Reference" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
@@ -1442,7 +1450,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability">
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_ViewContainer" precondition="aql:element.isDropAllowedForCinematicElementOn(newContainer)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_ViewContainer" precondition="aql:element.isDropAllowedForCinematicElementOn(newContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
