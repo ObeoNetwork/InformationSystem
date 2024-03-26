@@ -388,11 +388,9 @@ public class CinematicServices {
 	public List<EObject> uiStructure(ViewContainer viewContainer) {
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll(viewContainer.getViewContainers());
-		result.addAll(viewContainer.getViewElements());
+		//result.addAll(viewContainer.getViewElements());
 		result.addAll(viewContainer.getViewContainerReferences());
-		result.addAll(viewContainer.getEvents());
-		result.addAll(viewContainer.getActions());
-		result.addAll(bindingService.getCinematicBindingInfos(viewContainer));
+
 		
 		return result;
 	}
