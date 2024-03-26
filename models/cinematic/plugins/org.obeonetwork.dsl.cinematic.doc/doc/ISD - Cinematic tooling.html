@@ -120,13 +120,13 @@
 				<td>
 					<b>UI Structure</b>
 				</td>
-				<td>: représentation aborescente permettant de modélise la description statique de l&#8217;IHM (écrans, panels, widgets, ...).</td>
+				<td>: représentation aborescente permettant de modéliser la description haut niveau statique de l&#8217;IHM.</td>
 			</tr>
 			<tr>
 				<td>
 					<b>View Container Mockup</b>
 				</td>
-				<td>: diagramme permettant de modéliser la structure et l&#8217;apparence des IHM.</td>
+				<td>: diagramme permettant de modéliser la structure et l&#8217;apparence des IHM et éditer les bindings.</td>
 			</tr>
 			<tr>
 				<td>
@@ -242,9 +242,9 @@
 		<h3 id="UIStructure">UI Structure</h3>
 		<h4 id="Contenu2">Contenu</h4>
 		<p>La représentation 
-			<em>UI Structure</em> fournit une vue d&#8217;ensemble complète de la structure des écrans de l&#8217;application modélisée, sous forme arborescente.
+			<em>UI Structure</em> fournit une vue de haut niveau de la structure des écrans de l&#8217;application modélisée, sous forme arborescente.
 		</p>
-		<p>Les écrans sont décrit en termes de 
+		<p>Les écrans sont décrits en termes de 
 			<em>View Containers</em> pouvant contenir :
 		</p>
 		<ul>
@@ -252,11 +252,11 @@
 				<em>View Containers</em>,
 			</li>
 			<li>des 
-				<em>View Elements</em> représentant les instances de widgets
-			</li>
-			<li>des 
 				<em>View Container Reference</em> représentant la réutilisation de 
 				<em>View Container</em>.
+			</li>
+			<li>les 
+				<em>ViewElements</em> représentant les instances de widgets.
 			</li>
 		</ul>
 		<p>Les 
@@ -282,27 +282,14 @@
 				</ul>
 			</li>
 			<li>les 
-				<em>View Element</em>,
-			</li>
-			<li>les 
-				<em>Events</em> associés aux 
-				<em>View Containers</em> et 
-				<em>View Elements</em>,
-			</li>
-			<li>les 
-				<em>Actions</em> associées aux 
-				<em>View Container</em> et 
-				<em>View Elements</em>.
+				<em>ViewElements</em> contenus dans les 
+				<em>ViewContainer</em>
 			</li>
 		</ul>
 		<h4 id="Paletteetoutils2">Palette et outils</h4>
 		<p>Les outils disponibles sont :</p>
 		<ul>
-			<li>création / suppression de Package,</li>
-			<li>création / suppression de ViewContainer,</li>
-			<li>création / suppression de ViewElement,</li>
-			<li>création / suppression de Event,</li>
-			<li>création / suppression de Action,</li>
+			<li>création / suppression de Package, ViewContainer et ViewElement,</li>
 			<li>modification de ces éléments via des vues de propriétés avancées,</li>
 			<li>déplacement et duplication d'élément dans l&#8217;arborescence.</li>
 		</ul>
@@ -310,7 +297,7 @@
 		<p>Cette représentation vient compléter la représentation 
 			<em>UI Structure</em>, apportant la modélisation de la disposition graphique des composants de l&#8217;IHM. Elle permet de créer et positionner les 
 			<em>View Elements</em> dans les 
-			<em>View Containers</em>.
+			<em>View Containers</em>. De plus, elle permet d'éditer les bindings sur ces derniers.
 		</p>
 		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
 		<p>La palette propose un outil de création de 
@@ -406,6 +393,21 @@
 		<p>Le diagram 
 			<em>Layout Diagram</em> permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
 		</p>
+		<h4 id="Editiondebindings">Edition de bindings</h4>
+		<p>Afin d'éditer le binding d&#8217;un 
+			<em>ViewContainer</em> ou d&#8217;un 
+			<em>ViewElement</em>, un menu &#171;Binding...&#187; s&#8217;affiche lors du clic droit sur ces éléments.
+			<br/>Cet action menu ouvre une fenêtre permettant d'éditer la sélection
+			<br/>i) dans le cas d&#8217;un ViewContainer: des types structurés liés:
+		</p>
+		<p>
+			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewContainerBinding.png"/>
+		</p>
+		<p>ii) dans le cas d&#8217;un ViewElement: des attributs ou références de types structurés liés. Ces types structurés doivent être préalablement liés à un ViewContainer parent du ViewElement.</p>
+		<p>
+			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewElementBinding.png"/>
+		</p>
+		<p>Note: Lorsque des bindings sont définis sur un ViewElement ou un ViewContainer, le glisser-déposer de celui-ci sur un ViewContainer cible ne sera possible que si ses bindings restent valides avec la nouvelle cible. Ses bindings restent valides si leurs contextes liés aux BindingInfos associés aux ViewContainers parent (à l'élément à déplacer) sont conservés.</p>
 		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Le double clic sur les éléments du diagramme de mockup permet de naviguer vers d&#8217;autres diagrammes en les créant à la volée si ils n&#8217;existent pas :</p>
 		<ul>
