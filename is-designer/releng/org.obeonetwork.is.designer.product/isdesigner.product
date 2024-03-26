@@ -11,7 +11,7 @@
 Version  5.0.1
 
 
-Copyright Obeo, Thales, Eclipse contributors and others 2000, 2024.  All rights reserved.
+Copyright Obeo, Thales, Eclipse contributors and others 2000, 2023.  All rights reserved.
 Obeo, Obeo Designer, the Obeo logo, the Obeo Designer logo and splashscreen are trademarks of Obeo S.A.S. The Obeo logo and Obeo Designer logo and splashscreen cannot be altered without Obeo&apos;s permission. Obeo and Obeo Designer logos are provided for use under the Obeo logo and trademark guidelines.
 Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse&apos;s permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.
 
@@ -24,7 +24,6 @@ Visit http://www.obeo.fr
 
    <launcherArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=17
--XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.dataAreaRequiresExplicitInit=true
 --add-modules=ALL-SYSTEM
@@ -59,7 +58,7 @@ Visit http://www.obeo.fr
    <license>
         <url>http://www.obeodesigner.com/</url>
         <text>
-   Copyright Obeo, Thales, Eclipse contributors and others 2000, 2024.  All rights reserved.
+   Copyright Obeo, Thales, Eclipse contributors and others 2000, 2023.  All rights reserved.
 
 LICENSE TERMS
 
@@ -143,7 +142,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
-      
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.eclipse.acceleo.query"/>
       <feature id="org.eclipse.amalgam.discovery"/>
@@ -163,7 +161,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.emf.compare.ide.ui"/>
       <feature id="org.eclipse.emf.compare.ide.ui.source"/>
       <feature id="org.eclipse.emf.compare.source"/>
-      <feature id="org.eclipse.emf.ecoretools.sdk"/>
+      <feature id="org.eclipse.emf.ecoretools.design"/>
       <feature id="org.eclipse.emf.sdk"/>
       <feature id="org.eclipse.emf.transaction.sdk"/>
       <feature id="org.eclipse.emf.validation.sdk"/>
@@ -215,7 +213,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
-      <!-- feature id="org.eclipse.acceleo.aql.feature"/ -->
+      <feature id="org.eclipse.acceleo.aql.feature"/>
+      <feature id="org.eclipse.acceleo.query.jdt"/>
+      <feature id="org.eclipse.acceleo.query.jdt.source"/>
    </features>
 
    <configurations>
