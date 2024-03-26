@@ -27,7 +27,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gmf.runtime.diagram.ui,
  org.eclipse.sirius.diagram.ui.ext,
  org.obeonetwork.dsl.environment.properties,
- org.obeonetwork.dsl.environment.design
+ org.obeonetwork.dsl.environment.design,
+ org.obeonetwork.dsl.entity
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
@@ -36,4 +37,5 @@ Export-Package: org.obeonetwork.dsl.cinematic.design,
  org.obeonetwork.dsl.cinematic.design.services.label
 Bundle-ManifestVersion: 2
 Import-Package: com.google.common.collect,
+ org.obeonetwork.dsl.environment.binding.design.service,
  org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint
