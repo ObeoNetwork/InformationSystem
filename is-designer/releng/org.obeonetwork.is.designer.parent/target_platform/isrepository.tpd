@@ -35,14 +35,14 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11
 }
 
 location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
-	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
 	org.eclipse.mylyn.commons.feature.group [3.26.0,3.27.0)
-	org.eclipse.mylyn.context_feature.feature.group [3.26.0,3.27.0)
-	org.eclipse.mylyn.monitor.feature.group [3.26.0,3.27.0)
-	org.eclipse.mylyn.team_feature.feature.group [3.26.0,3.27.0)
-	org.eclipse.mylyn.ide_feature.feature.group [3.26.0,3.27.0)
-	org.eclipse.mylyn.tasks.ide.feature.group [3.26.0,3.27.0)
 	org.eclipse.mylyn.commons.sdk.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.context_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.ide_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.monitor.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.tasks.ide.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn.team_feature.feature.group [3.26.0,3.27.0)
+	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
 }
 
 location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
