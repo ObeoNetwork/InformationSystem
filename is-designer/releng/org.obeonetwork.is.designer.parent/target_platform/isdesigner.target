@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1711537244">
+<target name="IS Designer Product Target Definition" sequenceNumber="1711553051">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
       <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.monitor.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.ide_feature.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="3.26.0.v20221223-1911"/>
       <unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.26.0.v20230320-1407"/>
+      <unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.ide_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.monitor.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="3.26.0.v20221223-1911"/>
+      <unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
       <repository id="Mylyn-3.26" location="https://download.eclipse.org/mylyn/releases/3.26/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
