@@ -23,7 +23,7 @@ Visit http://www.obeo.fr
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=11
+      <vmArgs>-Dosgi.requiredJavaVersion=17
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Xms256m
@@ -209,7 +209,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.tests.support"/>
       <feature id="org.eclipse.sirius.tests.support.source"/>
       <feature id="org.eclipse.team.svn"/>
-      <feature id="org.eclipse.team.svn.m2e"/>
       <feature id="org.eclipse.team.svn.mylyn"/>
       <feature id="org.eclipse.team.svn.nl1"/>
       <feature id="org.eclipse.team.svn.pde.build"/>

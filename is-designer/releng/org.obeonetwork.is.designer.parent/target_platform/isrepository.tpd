@@ -1,6 +1,6 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
-location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
+location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
 	com.google.guava lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	org.eclipse.acceleo.feature.group lazy
@@ -34,14 +34,6 @@ location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.
 	org.eclipse.acceleo.query.feature.group lazy
 }
 
-//location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
-//}
-
-//location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
-//	org.eclipse.acceleo.query.source.feature.group lazy
-//	org.eclipse.acceleo.aql.feature.feature.group lazy
-//}
-
 location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
 	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
 	org.eclipse.mylyn.commons.feature.group [3.26.0,3.27.0)
@@ -53,7 +45,7 @@ location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
 	org.eclipse.mylyn.commons.sdk.feature.group [3.26.0,3.27.0)
 }
 
-location Obeo-Designer-Team-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
+location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
