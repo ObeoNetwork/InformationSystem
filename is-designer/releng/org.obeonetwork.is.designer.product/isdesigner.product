@@ -26,8 +26,6 @@ Visit http://www.obeo.fr
       <vmArgs>-Dosgi.requiredJavaVersion=17
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
--Xms256m
--Xmx1024m
 -Dosgi.dataAreaRequiresExplicitInit=true
 --add-modules=ALL-SYSTEM
       </vmArgs>
@@ -145,6 +143,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
+      
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.eclipse.acceleo.query"/>
       <feature id="org.eclipse.amalgam.discovery"/>
@@ -164,7 +163,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.emf.compare.ide.ui"/>
       <feature id="org.eclipse.emf.compare.ide.ui.source"/>
       <feature id="org.eclipse.emf.compare.source"/>
-      <feature id="org.eclipse.emf.ecoretools.design"/>
+      <feature id="org.eclipse.emf.ecoretools.sdk"/>
       <feature id="org.eclipse.emf.sdk"/>
       <feature id="org.eclipse.emf.transaction.sdk"/>
       <feature id="org.eclipse.emf.validation.sdk"/>
