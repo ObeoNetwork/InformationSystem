@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1710933457">
+<target name="IS Designer Product Target Definition" sequenceNumber="1711537244">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
@@ -155,13 +155,13 @@
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community-11.9" location="http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/"/>
+      <repository id="Obeo-Designer-Community-11.9" location="https://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Team-11.9" location="http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/"/>
+      <repository id="Obeo-Designer-Team-11.9" location="https://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="liquibase.feature.feature.group" version="0.0.0"/>
@@ -217,7 +217,7 @@
       <unit id="org.obeonetwork.tools.migration.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.projectlibrary.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
-      <repository id="ISD" location="http://update.obeo.fr/integration/informationsystem/5.0.0/design/repository/"/>
+      <repository id="ISD" location="https://update.obeo.fr/integration/informationsystem/5.0.0/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.m2doc.ui.feature.feature.group" version="0.0.0"/>
@@ -228,14 +228,11 @@
       <repository id="M2Doc-Nightly" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.m2e.scm" version="0.0.0"/>
-      <unit id="org.eclipse.m2e.scm.source" version="0.0.0"/>
       <unit id="org.eclipse.team.svn.revision.graph.feature.group" version="0.0.0"/>
       <repository id="SVN" location="https://download.eclipse.org/releases/oxygen/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.team.svn.core.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.team.svn.m2e.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.team.svn.mylyn.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.team.svn.nl1.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.team.svn.pde.build.feature.group" version="0.0.0"/>

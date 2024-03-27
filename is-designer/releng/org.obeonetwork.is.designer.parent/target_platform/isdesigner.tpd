@@ -16,10 +16,7 @@ location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops
 	org.antlr.runtime [4.10.1,4.10.2)
 }
 
-//location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
-//}
-
-location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
+location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
 	com.google.inject lazy
 	com.ibm.icu lazy
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
@@ -107,11 +104,11 @@ location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.
 	org.eclipse.sirius.tests.swtbot.source lazy
 }
 
-location Obeo-Designer-Team-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
+location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
-location ISD "http://update.obeo.fr/integration/informationsystem/5.0.0/design/repository/" {
+location ISD "https://update.obeo.fr/integration/informationsystem/5.0.0/design/repository/" {
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
@@ -172,14 +169,14 @@ location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/m
 }
 
 location SVN "https://download.eclipse.org/releases/oxygen/" {
-	org.eclipse.m2e.scm lazy
-	org.eclipse.m2e.scm.source lazy
+//	org.eclipse.m2e.scm lazy
+//	org.eclipse.m2e.scm.source lazy
 	org.eclipse.team.svn.revision.graph.feature.group lazy
 }
 
 location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4.8/release/latest/" {
 	org.eclipse.team.svn.core.feature.group lazy
-	org.eclipse.team.svn.m2e.feature.group lazy
+//	org.eclipse.team.svn.m2e.feature.group lazy
 	org.eclipse.team.svn.mylyn.feature.group lazy
 	org.eclipse.team.svn.nl1.feature.group lazy
 	org.eclipse.team.svn.pde.build.feature.group lazy
