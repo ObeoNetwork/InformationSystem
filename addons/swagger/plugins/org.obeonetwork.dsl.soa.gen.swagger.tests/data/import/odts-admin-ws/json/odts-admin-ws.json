@@ -4,7 +4,7 @@
     "title": "Obeo Designer Team Server - Administration Server",
     "description": "This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.\n\nRemark: The protocol, host and port can be different from your server configuration.\n\nIn this documentation we will use the web service API in the version **v1.0**.\n\n**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.\n",
     "license": {
-      "name": "Copyright (c) 2008, 2023 Obeo.",
+      "name": "Copyright (c) 2008, 2024 Obeo.",
       "url": "/doc/license.html"
     },
     "version": "1.0.0",
