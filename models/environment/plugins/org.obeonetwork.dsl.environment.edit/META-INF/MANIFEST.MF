@@ -11,6 +11,7 @@ Export-Package: org.obeonetwork.dsl.environment.components,
  org.obeonetwork.dsl.environment.edit.specific.extensions,
  org.obeonetwork.dsl.environment.edit.specific.policies,
  org.obeonetwork.dsl.environment.filters,
+ org.obeonetwork.dsl.environment.metadatadef.provider,
  org.obeonetwork.dsl.environment.parts,
  org.obeonetwork.dsl.environment.provider,
  org.obeonetwork.dsl.environment.providers
