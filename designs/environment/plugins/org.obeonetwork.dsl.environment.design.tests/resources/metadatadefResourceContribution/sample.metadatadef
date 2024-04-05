@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metadatadef:MetaDataDefinitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metadatadef="http://www.obeonetwork.org/dsl/environment/metadatadef/1.0" technicalid="_7PpD8MA4Ee65VJAo09i39w">
-  <metaDataDefinitions technicalid="_-QeXsMA4Ee65VJAo09i39w" title="Modelling studio" body="This element comes from an ISD modelling workbench" condition="aql:true"/>
-  <metaDataDefinitions technicalid="_xmhtUMHoEe60K5RfCQM4bw" title="Business Need layer" body="Entity or Graal element" condition="aql:Sequence{'entity', 'graal'}->includes(self.eClass().ePackage.name)"/>
-  <metaDataDefinitions technicalid="_yeOKUMHoEe60K5RfCQM4bw" title="Solution layer" body="SOA or Database or Cinematic element" condition="aql:Sequence{'soa', 'database', 'cinematic', 'flow'}->includes(self.eClass().ePackage.name)"/>
+<metadatadef:MetaDataDefinitions
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:metadatadef="http://www.obeonetwork.org/dsl/environment/metadatadef/1.0"
+    technicalid="_7PpD8MA4Ee65VJAo09i39w">
+  <metaDataDefinitions
+      technicalid="_-QeXsMA4Ee65VJAo09i39w"
+      title="Modeling studio"
+      body="This element comes from an ISD modeling workbench"
+      condition="aql:true"/>
+  <metaDataDefinitions
+      technicalid="_xmhtUMHoEe60K5RfCQM4bw"
+      title="Business Need layer"
+      body="Entity or Graal element"
+      condition="aql:Sequence{'entity', 'graal'}->includes(self.eClass().ePackage.name)"/>
+  <metaDataDefinitions
+      technicalid="_yeOKUMHoEe60K5RfCQM4bw"
+      title="Solution layer"
+      body="SOA or Database or Cinematic element"
+      condition="aql:Sequence{'soa', 'database', 'cinematic', 'flow'}->includes(self.eClass().ePackage.name)"/>
 </metadatadef:MetaDataDefinitions>
