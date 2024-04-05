@@ -34,8 +34,8 @@ public class MetadataDefinitionsManagementTest extends SiriusTestCase {
 	private static final String MISSING_META_DATA_DEFINITIONS_CONTRIBUTION_FROM_URI = "Missing MetaDataDefinitions contribution from URI: ";
 	private static final String MISSING_CONTRIBUTION_OF_EXTENSION_FOR_METADADEF = "Missing single contribution of extension for metadadef";
 	private static final String METADATADEF_RESOURCE_URI_STRING = "platform:/plugin/org.obeonetwork.dsl.environment.design.tests/resources/metadatadefResourceContribution/sample.metadatadef";
-	private static final String FIRST_METADATA_DEF_TITLE_IN_RESOURCE = "Modelling studio";
-	private static final String FIRST_METADATA_DEF_BODY_IN_RESOURCE = "This element comes from an ISD modelling workbench";
+	private static final String FIRST_METADATA_DEF_TITLE_IN_RESOURCE = "Modeling studio";
+	private static final String FIRST_METADATA_DEF_BODY_IN_RESOURCE = "This element comes from an ISD modeling workbench";
 	private static final String FIRST_METADATA_DEF_CONDITION_IN_RESOURCE = "aql:true";
 
 	private static final String METADATA_DEF_TITLE_APPLICABLE_TO_ENITY = "Business Need layer";
