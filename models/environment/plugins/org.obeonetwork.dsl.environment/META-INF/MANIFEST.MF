@@ -9,6 +9,9 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.impl,
+ org.obeonetwork.dsl.environment.metadatadef,
+ org.obeonetwork.dsl.environment.metadatadef.impl,
+ org.obeonetwork.dsl.environment.metadatadef.util,
  org.obeonetwork.dsl.environment.migration,
  org.obeonetwork.dsl.environment.session,
  org.obeonetwork.dsl.environment.spec,
