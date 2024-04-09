@@ -43,9 +43,6 @@ public class DataBaseCompareUtil {
 		if (rootContainer instanceof DataBase) {
 			newContainer = copyDatabase((DataBase) rootContainer);
 			resource.getContents().add(newContainer);
-		} else if (rootContainer instanceof Schema) {
-			newContainer = copySchema((Schema) rootContainer);
-			resource.getContents().add(newContainer);
 		}
 
 		// Then compare the two models
@@ -60,21 +57,11 @@ public class DataBaseCompareUtil {
 	private static DataBase copyDatabase(DataBase database) {
 		DataBase newDatabase = DatabaseFactory.eINSTANCE.createDataBase();
 		newDatabase.setName(database.getName());
-		for (Schema schema : database.getSchemas()) {
-			newDatabase.getSchemas().add((Schema) copySchema(schema));
-		}
 		for (TypesLibrary lib : database.getUsedLibraries()) {
-			//For use in change analysis.
+			// For use in change analysis.
 			newDatabase.getUsedLibraries().add((TypesLibrary) EcoreUtil.copy(lib));
 		}
 		return newDatabase;
-	}
-
-	private static Schema copySchema(Schema schema) {
-		Schema newSchema = DatabaseFactory.eINSTANCE.createSchema();
-		//Force account for AddSchema change in comparison.
-		newSchema.setName("");
-		return newSchema;
 	}
 
 }
