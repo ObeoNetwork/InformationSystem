@@ -865,7 +865,7 @@
             <variables name="element" documentation="The semantic currently edited element."/>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
-          <create name="CRE_ViewContainer" label="View Container" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
+          <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
@@ -917,7 +917,7 @@
               <newViewContainer name="newViewContainer"/>
               <precedingSiblings name="precedingSiblings" documentation="The list of all the preceding siblings in a Drag and Drop operation"/>
             </dropTools>
-            <create name="CRE_ViewContainer" label="View Container" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
+            <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
@@ -932,7 +932,7 @@
               </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
-            <create name="CRE_ViewElement" label="View Element" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
+            <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
@@ -947,7 +947,7 @@
               </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
-            <create name="CRE_ViewContainerReference" label="View Container Reference" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference']">
+            <create name="CRE_ViewContainerReference" label="View Container Reference" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainerReference" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
@@ -969,7 +969,7 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
           </subItemMappings>
-          <subItemMappings name="UIS_ViewElement" domainClass="view.ViewElement" preconditionExpression="aql:false" semanticCandidatesExpression="feature:viewElements">
+          <subItemMappings name="UIS_ViewElement" domainClass="view.ViewElement" semanticCandidatesExpression="feature:viewElements">
             <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1029,7 +1029,7 @@
             <newViewContainer name="newViewContainer"/>
             <precedingSiblings name="precedingSiblings" documentation="The list of all the preceding siblings in a Drag and Drop operation"/>
           </dropTools>
-          <create name="CRE_ViewContainer" label="View Container" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
+          <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
@@ -1044,7 +1044,7 @@
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
-          <create name="CRE_ViewElement" label="View Element" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
+          <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
@@ -1059,7 +1059,7 @@
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
-          <create name="CRE_ViewContainerReference" label="View Container Reference" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference']">
+          <create name="CRE_ViewContainerReference" label="View Container Reference" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainerReference" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
@@ -1116,7 +1116,7 @@
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
-        <create name="CRE_ViewContainer" label="View Container" precondition="aql:false" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
+        <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>

@@ -28,6 +28,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -82,7 +83,6 @@ import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.obeonetwork.dsl.environment.BindingInfo;
-import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.editor.undoredo.UndoRedoActionHandler;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.BindingTreeMapper;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.BindingTreeSemanticSupport;
@@ -94,6 +94,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectEditPlugin;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 /**
  * @author Obeo
@@ -253,7 +254,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		while (leftCandidates.isEmpty() == false && rightCandidates.isEmpty() == false) {
 			DBoundElement left = leftCandidates.remove(0);
 			for (DBoundElement right : rightCandidates) {
-				if (getPropertyLabel(left.getTarget()).equals(getPropertyLabel(right.getTarget()))) {
+				if (getBoundElementLabel(left.getTarget()).equals(getBoundElementLabel(right.getTarget()))) {
 					leftElementsToBind.add(left);
 					rightElementsToBind.add(right);
 					rightCandidates.remove(right);
@@ -268,12 +269,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		}
 	}
 
-	private String getPropertyLabel(EObject property) {
-		String label = ""; //$NON-NLS-1$
-		if (property instanceof Property) {
-			label = ((Property) property).getName();
-		}
-		return label;
+	private String getBoundElementLabel(EObject element) {
+		return EObjectUtils.getName(element);
 	}
 
 	/**
@@ -338,15 +335,15 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	 * @param save indicates whether the modifications should be saved or not
 	 */
 	public void close(final boolean save) {
-			if (getSite() != null && getSite().getPart() != null) {
-				Display display = getSite().getShell().getDisplay();
-				display.asyncExec(new Runnable() {
-					public void run() {
-						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-								.closeEditor(BindingTreeEditor.this, save);
-					}
-				});
-			}
+		if (getSite() != null && getSite().getPart() != null) {
+			Display display = getSite().getShell().getDisplay();
+			display.asyncExec(new Runnable() {
+				public void run() {
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+							.closeEditor(BindingTreeEditor.this, save);
+				}
+			});
+		}
 	}
 
 	/**
