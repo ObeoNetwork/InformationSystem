@@ -52,7 +52,7 @@ import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 
 /**
- * This class is used to handle binding informations
+ * This class is used to handle bindings in the Mockup View.
  * 
  * @author Obeo
  *
@@ -108,18 +108,29 @@ public class CinematicBindingServices {
 		}
 		List<EObject> addedElements, removedElements;
 
-		// Map necessary when viewElement is added from associatedTypes' attributes
-		// In case the parent ViewContainer is bound on 2 StructuredTypes having a
-		// non-empty intersection on their associatedTypes.
-		final Map<Object, Object> selectedElementToParentMap = new HashMap<>();
+		// Map of element to parent in the selection tree in the wizard
+		// Useful to directly obtain the parents of a selected element in the tree
+		// in order to avoid further computations.
+		final Map<Object, Object> elementToParentMap = new HashMap<>();
 
 		if (wizard != null && wizard.open() == Window.OK) {
 			Collection<ISObjectTreeItemWrapper> selectedTreeItemWrappers = wizard.getSelectedTreeItemWrappers();
 
-			selectedTreeItemWrappers.forEach(tiw -> {
-				selectedElementToParentMap.put(tiw.getWrappedObject(),
+			for (ISObjectTreeItemWrapper tiw : selectedTreeItemWrappers) {
+				elementToParentMap.put(tiw.getWrappedObject(),
 						tiw.getParent() != null ? tiw.getParent().getWrappedObject() : null);
-			});
+				ISObjectTreeItemWrapper parent = tiw.getParent();
+				// Add other ancestors (even if not selected)
+				// Will be useful when computing paths in BindingReference involving a
+				// ViewElement.
+				while (parent != null) {
+					if (parent.getWrappedObject() != null) {
+						elementToParentMap.put(parent.getWrappedObject(),
+								parent.getParent() != null ? parent.getParent().getWrappedObject() : null);
+					}
+					parent = parent.getParent();
+				}
+			}
 
 			addedElements = selectedTreeItemWrappers.stream()
 					.filter(tiw -> !alreadyBoundElements.contains(tiw.getWrappedObject()))
@@ -136,7 +147,7 @@ public class CinematicBindingServices {
 		if (element instanceof ViewContainer) {
 			processViewContainerBinding((ViewContainer) element, addedElements, removedElements, bindingRegistry);
 		} else {
-			processViewElementBinding((ViewElement) element, addedElements, removedElements, selectedElementToParentMap,
+			processViewElementBinding((ViewElement) element, addedElements, removedElements, elementToParentMap,
 					viewElementViewContainerParents, viewElementParentsBindingInfos);
 		}
 	}
@@ -489,7 +500,7 @@ public class CinematicBindingServices {
 			BindingInfo matchingBindingInfo = null;
 			ViewContainer matchingParent = null;
 			for (ViewContainer parent : parents) {
-				matchingBindingInfo = getMatchingBindingInfo(addedElement, st, parent, viewElementParentsBindingInfos,
+				matchingBindingInfo = getMatchingBindingInfo(addedElement, parent, viewElementParentsBindingInfos,
 						parentsBoundElements, selectedElementToParentMap);
 				if (matchingBindingInfo != null) {
 					// The closer parent for BindingInfo is found.
@@ -502,8 +513,8 @@ public class CinematicBindingServices {
 				// Delete any other BindingReference at a level greater than the one of
 				// matchingParent with bounds: element and addedElement.
 				for (ViewContainer parent : parents.subList(parents.indexOf(matchingParent) + 1, parents.size())) {
-					matchingBindingInfo = getMatchingBindingInfo(addedElement, st, parent,
-							viewElementParentsBindingInfos, parentsBoundElements, selectedElementToParentMap);
+					matchingBindingInfo = getMatchingBindingInfo(addedElement, parent, viewElementParentsBindingInfos,
+							parentsBoundElements, selectedElementToParentMap);
 					if (matchingBindingInfo != null) {
 						for (BindingReference bindingReference : matchingBindingInfo.getReferences()) {
 							if (isBindingReferenceMatching(bindingReference, element, addedElement)) {
@@ -512,59 +523,48 @@ public class CinematicBindingServices {
 						}
 					}
 				}
+			} else {
+				// Attribute or reference on a non-bound StructuredType
+				MessageDialog.openWarning(Display.getCurrent().getActiveShell(), "ViewElement binding",
+						String.format("No parent ViewContainer bound to %s[%s] containing the selected element.",
+								st.eClass().getName(), st.getName(), addedElement.eClass().getName()));
+				return;
 			}
 		}
 	}
 
-	private static BindingInfo getMatchingBindingInfo(BoundableElement addedElement, StructuredType st,
-			ViewContainer parent, Collection<BindingInfo> viewElementParentsBindingInfos,
+	private static BindingInfo getMatchingBindingInfo(BoundableElement addedElement, ViewContainer parent,
+			Collection<BindingInfo> viewElementParentsBindingInfos,
 			Map<ViewContainer, List<StructuredType>> parentsBoundElements,
 			Map<Object, Object> selectedElementToParentMap) {
-		BindingInfo matchingBindingInfo = null;
-		if (parentsBoundElements.getOrDefault(parent, Collections.emptyList()).contains(st)) {
-			matchingBindingInfo = viewElementParentsBindingInfos.stream()
-					.filter(bi -> isBindingInfoMatching(bi, parent, st)).findFirst().orElse(null);
-		} else {
-			// Case st is the indirect container, i.e., an element of associatedTypes of the
-			// right container to consider.
-			Set<StructuredType> stsPrim = getStructuredTypesFromAssociatedType(st);
-			if (parentsBoundElements.getOrDefault(parent, Collections.emptyList()).stream()
-					.anyMatch(stsPrim::contains)) {
-				StructuredType stPrim = null;
-				if (stsPrim.size() == 1) {
-					stPrim = (StructuredType) stsPrim.toArray()[0];
-				} else {
-					// When several values, take the one that is such that stPrim was the parent of
-					// addedElement
-					// in the selection wizard.
-					Object parentAddedElement = selectedElementToParentMap.getOrDefault(addedElement, null);
-					if (parentAddedElement != null && parentsBoundElements.getOrDefault(parent, Collections.emptyList())
-							.contains(parentAddedElement)) {
-						stPrim = (StructuredType) parentAddedElement;
-					}
-				}
-				final StructuredType finalStPrim = stPrim;
-				matchingBindingInfo = viewElementParentsBindingInfos.stream()
-						.filter(bi -> isBindingInfoMatching(bi, parent, finalStPrim)).findFirst().orElse(null);
+		EObject addedElementStructureTypeParent = (EObject) selectedElementToParentMap.getOrDefault(addedElement, null);
+		if (addedElementStructureTypeParent instanceof Reference) {
+			while (addedElementStructureTypeParent instanceof Reference) {
+				addedElementStructureTypeParent = (EObject) selectedElementToParentMap
+						.getOrDefault(addedElementStructureTypeParent, null);
 			}
 		}
+		// addedElementParent is either Null or StructuredType
+		if (addedElementStructureTypeParent == null || !(addedElementStructureTypeParent instanceof StructuredType)) {
+			return null;
+		}
+		List<StructuredType> candidateStructuredTypes = parentsBoundElements.getOrDefault(parent,
+				Collections.emptyList());
+		BindingInfo matchingBindingInfo = null;
+		if (candidateStructuredTypes.contains(addedElementStructureTypeParent)) {
+			final StructuredType st = (StructuredType) addedElementStructureTypeParent;
+			matchingBindingInfo = viewElementParentsBindingInfos.stream()
+					.filter(bi -> isBindingInfoMatching(bi, parent, Set.of(st))).findFirst().orElse(null);
+		}
+
 		return matchingBindingInfo;
 	}
 
-	private static Set<StructuredType> getStructuredTypesFromAssociatedType(StructuredType associatedType) {
-		if (associatedType == null) {
-			return Collections.emptySet();
-		}
-		EObjectQuery query = new EObjectQuery(associatedType);
-		return query.getInverseReferences(EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES).stream()
-				.filter(StructuredType.class::isInstance).map(StructuredType.class::cast).collect(Collectors.toSet());
-	}
-
-	private static void addBindingReference(BindingInfo bindingInfo, BoundableElement left, BoundableElement right,
+	private static void addBindingReference(BindingInfo bindingInfo, ViewElement left, BoundableElement right,
 			Map<Object, Object> selectedElementToParentMap) {
 		BindingReference bindingRef = EnvironmentFactory.eINSTANCE.createBindingReference();
-		BindingElement bidingEltLeft = createBindingElement(left, selectedElementToParentMap);
-		BindingElement bidingEltRight = createBindingElement(right, selectedElementToParentMap);
+		BindingElement bidingEltLeft = createBindingElementOfViewElement(left, bindingInfo);
+		BindingElement bidingEltRight = createBindingElementOfAttributeOrReference(right, selectedElementToParentMap);
 		bindingRef.setLeft(bidingEltLeft);
 		bindingRef.setRight(bidingEltRight);
 		bindingInfo.getElements().add(bidingEltLeft);
@@ -572,51 +572,77 @@ public class CinematicBindingServices {
 		bindingInfo.getReferences().add(bindingRef);
 	}
 
-	private static BindingElement createBindingElement(BoundableElement boundable,
+	private static BindingElement createBindingElementOfAttributeOrReference(BoundableElement right,
 			Map<Object, Object> selectedElementToParentMap) {
-		List<BoundableElement> globalPath = getGlobalPath(boundable, selectedElementToParentMap);
 		final BindingElement bindingElement = EnvironmentFactory.eINSTANCE.createBindingElement();
-		bindingElement.setBoundElement(boundable);
-		// globalPath.remove(globalPath.size() - 1);
+		bindingElement.setBoundElement(right);
+		List<BoundableElement> globalPath = new ArrayList<>();
+		globalPath = getAttributeOrReferenceGlobalPath(right, selectedElementToParentMap);
 		bindingElement.getPathReferences().addAll(globalPath);
 		return bindingElement;
 	}
 
-	private static List<BoundableElement> getGlobalPath(BoundableElement boundable,
+	private static List<BoundableElement> getAttributeOrReferenceGlobalPath(BoundableElement boundable,
 			Map<Object, Object> selectedElementToParentMap) {
 		List<BoundableElement> globalPath = new ArrayList<BoundableElement>();
-		EObject current = boundable;
-		while (current != null) {
+		EObject current = (EObject) selectedElementToParentMap.getOrDefault(boundable, null);
+		do {
 			if (current instanceof BoundableElement) {
 				globalPath.add((BoundableElement) current);
 			}
-			EObject parent = current.eContainer();
-			Object parentSelectedElement = selectedElementToParentMap.getOrDefault(current, null);
-			if (parent != null && parentSelectedElement != null
-					&& !((EObject) parentSelectedElement).eContents().contains(current)) {
-				// check through associatedType
-				if (parent instanceof StructuredType) {
-					Set<StructuredType> sts = getStructuredTypesFromAssociatedType((StructuredType) parent);
-					if (sts.size() == 1) {
-						parent = (StructuredType) sts.toArray()[0];
-					} else {
-						// When several values, take the one that is such that stPrim was the parent of
-						// addedElement
-						// in the selection wizard.
-						if (parentSelectedElement != null && sts.contains(parentSelectedElement)) {
-							parent = (StructuredType) parentSelectedElement;
-						}
-					}
+			if (current != null) {
+				current = (EObject) selectedElementToParentMap.getOrDefault(current, null);
+			}
+		} while (current != null);
+		Collections.reverse(globalPath);
+		return globalPath;
+	}
 
+	/**
+	 * 
+	 * @param viewElement
+	 * @param bindingInfo left or right of bindingInfo must be a ViewContainer and
+	 *                    an ancestor of viewElement.
+	 * @return
+	 */
+	private static BindingElement createBindingElementOfViewElement(ViewElement viewElement, BindingInfo bindingInfo) {
+		final BindingElement bindingElement = EnvironmentFactory.eINSTANCE.createBindingElement();
+		bindingElement.setBoundElement(viewElement);
+		List<BoundableElement> globalPath = getViewElementGlobalPath(viewElement, bindingInfo);
+		bindingElement.getPathReferences().addAll(globalPath);
+		return bindingElement;
+	}
+
+	private static boolean isLeftOrRightBound(BindingInfo bindingInfo, EObject leftOrRight) {
+		if (bindingInfo == null || leftOrRight == null) {
+			return false;
+		}
+		return bindingInfo.getTargets().contains(leftOrRight);
+	}
+
+	/**
+	 * For bindingInfo to be opened with the Binding editor, the viewElement path
+	 * must not go beyond viewElement's ancestor (a ViewContainer) involved in
+	 * bindingInfo.
+	 * 
+	 * @param viewElement
+	 * @param bindingInfo
+	 * @return
+	 */
+	private static List<BoundableElement> getViewElementGlobalPath(ViewElement viewElement, BindingInfo bindingInfo) {
+		List<BoundableElement> globalPath = new ArrayList<BoundableElement>();
+		EObject current = viewElement.eContainer();
+		do {
+			if (current instanceof BoundableElement) {
+				globalPath.add((BoundableElement) current);
+				if (isLeftOrRightBound(bindingInfo, current)) {
+					break;
 				}
 			}
-			current = parent;
-
-		}
-		if (!globalPath.isEmpty()) {
-			// We remove the first element in path because not necessary
-			globalPath.remove(0);
-		}
+			if (current != null) {
+				current = current.eContainer();
+			}
+		} while (current != null);
 		Collections.reverse(globalPath);
 		return globalPath;
 	}
@@ -633,14 +659,14 @@ public class CinematicBindingServices {
 	}
 
 	private static boolean isBindingInfoMatching(BindingInfo bindingInfo, BoundableElement left,
-			BoundableElement right) {
-		if (bindingInfo == null || left == null || right == null) {
+			Set<BoundableElement> rights) {
+		if (bindingInfo == null || left == null || rights == null) {
 			return false;
 		}
 		return (bindingInfo.getLeft() != null && left.equals(bindingInfo.getLeft()) && bindingInfo.getRight() != null
-				&& right.equals(bindingInfo.getRight()))
+				&& rights.contains(bindingInfo.getRight()))
 				|| (bindingInfo.getRight() != null && left.equals(bindingInfo.getRight())
-						&& bindingInfo.getLeft() != null && right.equals(bindingInfo.getLeft()));
+						&& bindingInfo.getLeft() != null && rights.contains(bindingInfo.getLeft()));
 	}
 
 	/**
@@ -696,8 +722,6 @@ public class CinematicBindingServices {
 			List<ViewContainer> newParents = getParentViewContainers(targetContainer);
 			newParents.add(targetContainer);
 			return newParents.containsAll(requireViewContainers);
-//			Map<ViewContainer, List<StructuredType>> parentsBoundElements = getViewContainersBoundStructuredTypes(
-//					viewElementParentsBindingInfos, parents);
 		} else if (element instanceof ViewContainer) {
 			// Get ViewContainer parents of element having BindingInfo
 			// Get BindingInfos whose BindingReferences contain objects that are below
@@ -720,8 +744,6 @@ public class CinematicBindingServices {
 			List<ViewContainer> newParents = getParentViewContainers(targetContainer);
 			newParents.add(targetContainer);
 			return newParents.containsAll(requireViewContainers);
-//			Map<ViewContainer, List<StructuredType>> parentsBoundElements = getViewContainersBoundStructuredTypes(
-//			bindingInfosInvolvingViewElements, parents);
 		}
 		return true;
 	}
