@@ -5,6 +5,7 @@ include "isrepository.tpd"
 location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
 	org.eclipse.core.runtime.feature.feature.group lazy
 	org.eclipse.ecf.core.feature.feature.group lazy
+	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group [1.1.701,1.1.702)
 	org.eclipse.equinox.executable.feature.group lazy
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 	org.eclipse.platform.sdk lazy
