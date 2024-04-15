@@ -205,7 +205,7 @@ Un _ChangeLog_ de création permet de générer la structure complète d’une b
 Puis une fenêtre proposant une option de création de schéma(s) si non existant(s):
 
 !{width:30%}pics/BDD_Liquibase_Gen_01_Options.png!
-Cette option n'a aucun impact sur les bases de données Oracle où un utilisateur doit être préalablement créé et qui est associé à un schéma.
+Cette option n'a aucun impact sur les bases de données Oracle pour lesquelles un schéma est nécessairement associé à un utilisateur.
 Cette option n'est prise en compte que lors de l'ajout d'un nouveau schema, toute  modification (suppression ou renommage de schéma) n'est pas gérée.
 
 Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.
