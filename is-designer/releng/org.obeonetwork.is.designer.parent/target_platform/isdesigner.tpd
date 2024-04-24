@@ -17,7 +17,7 @@ location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops
 	org.antlr.runtime [4.10.1,4.10.2)
 }
 
-location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
+location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240422/community/latest/repository/" {
 	com.google.inject lazy
 	com.ibm.icu lazy
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
@@ -105,7 +105,7 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11
 	org.eclipse.sirius.tests.swtbot.source lazy
 }
 
-location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
+location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240422/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
