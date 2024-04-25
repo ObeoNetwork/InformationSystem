@@ -30,4 +30,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.environment.design.extension,
+ org.obeonetwork.dsl.environment.design.views,
  org.obeonetwork.dsl.environment.design.wizards
