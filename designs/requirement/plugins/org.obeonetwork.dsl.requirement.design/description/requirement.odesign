@@ -165,7 +165,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/requirement/1.0#/"/>
     <categories name="Default Category">
-      <pages name="Requierment Page {tabOrder=100}" labelExpression="Requirement" domainClass="requirement::Requirement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Requirement Page {tabOrder=100}" labelExpression="Requirement" domainClass="requirement::Requirement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Advanced Page {tabOrder=200}" labelExpression="Advanced" domainClass="requirement::Requirement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
       <pages name="Category Page {tabOrder=100}" labelExpression="Category" domainClass="requirement::Category" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
       <pages name="Repository Page {tabOrder=100}" labelExpression="Repository" domainClass="requirement::Repository" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
