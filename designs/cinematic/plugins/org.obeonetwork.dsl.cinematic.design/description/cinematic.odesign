@@ -1414,8 +1414,8 @@
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view"/>
     <metamodels href="http://www.obeonetwork.org/dsl/soa/4.0.0#/"/>
     <categories name="Default Category">
-      <pages name="AbstractPackage Page" labelExpression="aql:self.eClass().name" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="Toolkits Page" labelExpression="Toolkits" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="AbstractPackage Page {tabOrder=100}" labelExpression="aql:self.eClass().name" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Toolkits Page {tabOrder=200}" labelExpression="Toolkits" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
       <groups name="AbstractPackage Group" labelExpression="Properties" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="cinematic::AbstractPackage name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1509,12 +1509,12 @@
       </groups>
     </categories>
     <categories name="View">
-      <pages name="ViewAction Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
-      <pages name="ViewEvent Page" labelExpression="ViewEvent" domainClass="view::ViewEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
-      <pages name="ViewElement Page" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3 //@extensions.0/@categories.1/@groups.7"/>
-      <pages name="ViewContainer Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4 //@extensions.0/@categories.1/@groups.7"/>
-      <pages name="ViewContainerReference Page" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
-      <pages name="Help Page" labelExpression="Help" domainClass="view::AbstractViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
+      <pages name="ViewAction Page {tabOrder=100}" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="ViewEvent Page {tabOrder=100}" labelExpression="ViewEvent" domainClass="view::ViewEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="ViewElement Page {tabOrder=100}" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3 //@extensions.0/@categories.1/@groups.7"/>
+      <pages name="ViewContainer Page {tabOrder=100}" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4 //@extensions.0/@categories.1/@groups.7"/>
+      <pages name="ViewContainerReference Page {tabOrder=100}" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Help Page {tabOrder=800}" labelExpression="Help" domainClass="view::AbstractViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
       <groups name="AbstractViewElement Group" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ViewElement Group, ViewContainer Group and ViewContainerReference Group." domainClass="view::AbstractViewElement">
         <controls xsi:type="properties:TextDescription" name="view::AbstractViewElement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1724,12 +1724,12 @@
       </groups>
     </categories>
     <categories name="Flow">
-      <pages name="SubFlowState Page" labelExpression="SubFlowState" domainClass="flow::SubflowState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.3"/>
-      <pages name="FlowEvent Page" labelExpression="FlowEvent" domainClass="flow::FlowEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
-      <pages name="NamedFlowState Page" labelExpression="aql:self.eClass().name" domainClass="flow::NamedFlowState" semanticCandidateExpression="var:self" preconditionExpression="aql:not(self.oclIsKindOf(flow::ViewState) or self.oclIsKindOf(flow::SubflowState))" groups="//@extensions.0/@categories.2/@groups.1"/>
-      <pages name="ViewState Page" labelExpression="ViewState" domainClass="flow::ViewState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.2"/>
-      <pages name="Transition Page" labelExpression="Transition" domainClass="flow::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.6"/>
-      <pages name="Flow Page" labelExpression="Flow" domainClass="flow::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.7"/>
+      <pages name="SubFlowState Page {tabOrder=100}" labelExpression="SubFlowState" domainClass="flow::SubflowState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.3"/>
+      <pages name="FlowEvent Page {tabOrder=100}" labelExpression="FlowEvent" domainClass="flow::FlowEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
+      <pages name="NamedFlowState Page {tabOrder=100}" labelExpression="aql:self.eClass().name" domainClass="flow::NamedFlowState" semanticCandidateExpression="var:self" preconditionExpression="aql:not(self.oclIsKindOf(flow::ViewState) or self.oclIsKindOf(flow::SubflowState))" groups="//@extensions.0/@categories.2/@groups.1"/>
+      <pages name="ViewState Page {tabOrder=100}" labelExpression="ViewState" domainClass="flow::ViewState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.2"/>
+      <pages name="Transition Page {tabOrder=100}" labelExpression="Transition" domainClass="flow::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.6"/>
+      <pages name="Flow Page {tabOrder=100}" labelExpression="Flow" domainClass="flow::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.7"/>
       <groups name="FlowState Goupe" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ... TOFINISH" domainClass="flow::FlowState">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowState actions" labelExpression="aql:'Actions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actions').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'actions'"/>
