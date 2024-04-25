@@ -504,11 +504,11 @@
     <metamodels href="http://www.obeonetwork.org/dsl/database/1.0#/"/>
     <metamodels href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#/"/>
     <categories name="Default Category">
-      <pages name="Sequence Page" labelExpression="Sequence" domainClass="database::Sequence" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="Constraint Page" labelExpression="Constraint" domainClass="database::Constraint" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="View Page" labelExpression="View" domainClass="database::View" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
-      <pages name="Schema Page" labelExpression="Schema" domainClass="database::Schema" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
-      <pages name="Database Page" labelExpression="Database" domainClass="database::DataBase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="Sequence Page {tabOrder=100}" labelExpression="Sequence" domainClass="database::Sequence" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Constraint Page {tabOrder=100}" labelExpression="Constraint" domainClass="database::Constraint" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="View Page {tabOrder=100}" labelExpression="View" domainClass="database::View" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="Schema Page {tabOrder=100}" labelExpression="Schema" domainClass="database::Schema" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="Database Page {tabOrder=100}" labelExpression="Database" domainClass="database::DataBase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
       <groups name="Sequence Group" labelExpression="Properties" domainClass="database::Sequence" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Sequence name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -651,12 +651,12 @@
       </groups>
     </categories>
     <categories name="Table">
-      <pages name="Table Page" labelExpression="Table" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
-      <pages name="Column Page" labelExpression="Column" domainClass="database::Column" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
-      <pages name="PrimaryKey Page" labelExpression="Primary Key" domainClass="database::PrimaryKey" semanticCandidateExpression="service:self.getPrimaryKey()" groups="//@extensions.0/@categories.1/@groups.2"/>
-      <pages name="ForeignKeys Page" labelExpression="Foreign Keys" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
-      <pages name="Indexes Page" labelExpression="Indexes" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="Constraints page" labelExpression="Constraints" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Table Page {tabOrder=100}" labelExpression="Table" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="Column Page {tabOrder=100}" labelExpression="Column" domainClass="database::Column" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="PrimaryKey Page {tabOrder=100}" labelExpression="Primary Key" domainClass="database::PrimaryKey" semanticCandidateExpression="service:self.getPrimaryKey()" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="ForeignKeys Page {tabOrder=200}" labelExpression="Foreign Keys" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
+      <pages name="Indexes Page {tabOrder=300}" labelExpression="Indexes" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
+      <pages name="Constraints page {tabOrder=400}" labelExpression="Constraints" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
       <groups name="Table Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Table name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1013,8 +1013,8 @@
       </groups>
     </categories>
     <categories name="Foreign Key">
-      <pages name="Foreign Key Page" labelExpression="Foreign Key" domainClass="database::ForeignKey" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
-      <pages name="Foreign Key Element Page" labelExpression="ForeignKeyElement" domainClass="database::ForeignKeyElement" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.2/@groups.1"/>
+      <pages name="Foreign Key Page {tabOrder=100}" labelExpression="Foreign Key" domainClass="database::ForeignKey" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
+      <pages name="Foreign Key Element Page {tabOrder=100}" labelExpression="ForeignKeyElement" domainClass="database::ForeignKeyElement" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.2/@groups.1"/>
       <groups name="Foreign Key Group" labelExpression="Properties" domainClass="database::ForeignKey" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::ForeignKey name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1098,8 +1098,8 @@
       </groups>
     </categories>
     <categories name="Index">
-      <pages name="Index Page" labelExpression="Index" domainClass="database::Index" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.3/@groups.0"/>
-      <pages name="Index Element Page" labelExpression="IndexElement" domainClass="database::IndexElement" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.3/@groups.1"/>
+      <pages name="Index Page {tabOrder=100}" labelExpression="Index" domainClass="database::Index" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.3/@groups.0"/>
+      <pages name="Index Element Page {tabOrder=100}" labelExpression="IndexElement" domainClass="database::IndexElement" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.3/@groups.1"/>
       <groups name="Index Group" labelExpression="Properties" domainClass="database::Index" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Index name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
