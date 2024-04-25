@@ -789,12 +789,6 @@
       <pages name="Entity Page" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self">
         <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
-      <pages name="Entity Metadata Page" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oclIsKindOf(entity::Entity)">
-        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.2/@pages.0"/>
-      </pages>
-      <pages name="Entity Attribute Page" documentation="The only purpose of this page extension is to ensure the Attribute tab is at the first position." labelExpression="Attribute" preconditionExpression="aql:self.oclIsKindOf(environment::Attribute) and self.eContainer().oclIsKindOf(entity::Entity)">
-        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.2"/>
-      </pages>
       <pages name="Persistence Page" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Root Page" labelExpression="Root" domainClass="entity::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
       <groups name="Persistence group" labelExpression="Properties" domainClass="entity::Entity" semanticCandidateExpression="var:self">
