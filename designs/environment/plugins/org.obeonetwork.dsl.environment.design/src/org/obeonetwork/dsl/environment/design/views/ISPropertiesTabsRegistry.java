@@ -17,7 +17,6 @@ public class ISPropertiesTabsRegistry extends EEFTabbedPropertyRegistry {
 	public static void install() {
 		EEFTabbedPropertyRegistry defaultRegistry = EEFTabbedPropertyRegistry.getDefault(null);
 		if (!(defaultRegistry instanceof ISPropertiesTabsRegistry)) {
-			// TODO Add a Junit test to ensure the presence of the "instance" field
 			IntrospectionUtils.setFieldValue(defaultRegistry, "instance", new ISPropertiesTabsRegistry());
 		}
 	}
