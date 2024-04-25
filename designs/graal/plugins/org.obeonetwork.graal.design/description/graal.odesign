@@ -2401,12 +2401,6 @@
     <categories name="Default Category">
       <pages name="System Page" labelExpression="System" domainClass="graal::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
       <pages name="DomainClass Page" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
-      <pages name="DomainClass Metadata Page" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oclIsKindOf(graal::DomainClass)">
-        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.2/@pages.0"/>
-      </pages>
-      <pages name="Graal Attribute Page" labelExpression="Attribute" preconditionExpression="aql:self.oclIsKindOf(environment::Attribute) and self.eContainer().oclIsKindOf(graal::DomainClass)">
-        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.2"/>
-      </pages>
       <pages name="Persistence Page" labelExpression="Persistence" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.1"/>
       <pages name="Risk Page" labelExpression="Risk" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.2"/>
       <pages name="Version Page" labelExpression="Version" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.3"/>
