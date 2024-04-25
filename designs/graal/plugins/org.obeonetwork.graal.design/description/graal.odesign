@@ -2025,19 +2025,19 @@
     <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
     <metamodels href="http://mindef.gouv.fr/dsl/safran/graal-extensions/1.0.0#/"/>
     <categories name="Task">
-      <pages name="Task Page" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
-      <pages name="Loop Page" labelExpression="Loop" domainClass="graal::Loop" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
-      <pages name="Operator Page" labelExpression="Operator" domainClass="graal::Operator" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
-      <pages name="Transition Page" labelExpression="Transition" domainClass="graal::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
-      <pages name="TaskReference Page" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="aql:self.task" preconditionExpression="aql:self.oclIsKindOf(graal::TaskReference)" groups="//@extensions.0/@categories.0/@groups.2"/>
-      <pages name="InitialNode Page" labelExpression="Initial Node" domainClass="graal::InitialNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="FinalNode Page" labelExpression="Final Node" domainClass="graal::FinalNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="AbortNode Page" labelExpression="Abort Node" domainClass="graal::AbortNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="User View Page" labelExpression="User View" domainClass="graal::UserView" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="User Action Page" labelExpression="User Action" domainClass="graal::UserAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="AppliEvent Page" labelExpression="Appli Event" domainClass="graal::AppliEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="AppliAction Page" labelExpression="Appli Action" domainClass="graal::AppliAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="TasksGroup Page" labelExpression="Tasks Group" domainClass="graal::TasksGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
+      <pages name="Task Page {tabOrder=100}" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="Loop Page {tabOrder=100}" labelExpression="Loop" domainClass="graal::Loop" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="Operator Page {tabOrder=100}" labelExpression="Operator" domainClass="graal::Operator" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="Transition Page {tabOrder=100}" labelExpression="Transition" domainClass="graal::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="TaskReference Page {tabOrder=200}" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="aql:self.task" preconditionExpression="aql:self.oclIsKindOf(graal::TaskReference)" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="InitialNode Page {tabOrder=100}" labelExpression="Initial Node" domainClass="graal::InitialNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="FinalNode Page {tabOrder=100}" labelExpression="Final Node" domainClass="graal::FinalNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="AbortNode Page {tabOrder=100}" labelExpression="Abort Node" domainClass="graal::AbortNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="User View Page {tabOrder=100}" labelExpression="User View" domainClass="graal::UserView" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="User Action Page {tabOrder=100}" labelExpression="User Action" domainClass="graal::UserAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="AppliEvent Page {tabOrder=100}" labelExpression="Appli Event" domainClass="graal::AppliEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="AppliAction Page {tabOrder=100}" labelExpression="Appli Action" domainClass="graal::AppliAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="TasksGroup Page {tabOrder=100}" labelExpression="Tasks Group" domainClass="graal::TasksGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
       <groups name="Node Group" labelExpression="Properties" domainClass="graal::Node" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextAreaDescription" name="graal::Node description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
@@ -2283,9 +2283,9 @@
       </groups>
     </categories>
     <categories name="Use Case">
-      <pages name="Actor Page" labelExpression="Actor" domainClass="graal::Actor" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
-      <pages name="UseCase Page" labelExpression="Use Case" domainClass="graal::UseCase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
-      <pages name="UserStory Page" labelExpression="UserStory" domainClass="graal::UserStory" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="Actor Page {tabOrder=100}" labelExpression="Actor" domainClass="graal::Actor" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="UseCase Page {tabOrder=100}" labelExpression="Use Case" domainClass="graal::UseCase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="UserStory Page {tabOrder=100}" labelExpression="UserStory" domainClass="graal::UserStory" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <groups name="Actor Group" labelExpression="Properties" domainClass="graal::Actor" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::Actor name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -2399,11 +2399,11 @@
       </groups>
     </categories>
     <categories name="Default Category">
-      <pages name="System Page" labelExpression="System" domainClass="graal::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
-      <pages name="DomainClass Page" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
-      <pages name="Persistence Page" labelExpression="Persistence" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.1"/>
-      <pages name="Risk Page" labelExpression="Risk" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.2"/>
-      <pages name="Version Page" labelExpression="Version" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.3"/>
+      <pages name="System Page {tabOrder=100}" labelExpression="System" domainClass="graal::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
+      <pages name="DomainClass Page {tabOrder=100}" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
+      <pages name="Persistence Page {tabOrder=200}" labelExpression="Persistence" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.1"/>
+      <pages name="Risk Page {tabOrder=600}" labelExpression="Risk" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.2"/>
+      <pages name="Version Page {tabOrder=700}" labelExpression="Version" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.3"/>
       <groups name="System Group" labelExpression="Properties" domainClass="graal::System" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::System name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
