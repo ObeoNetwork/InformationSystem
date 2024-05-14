@@ -33,22 +33,11 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 	private static final String ACTION_TEXT = "Generate SQL";
 
 	@Override
-	protected IStatus doGenerateScripts(Comparison comparison, File targetFolder) throws IOException {
+	protected IStatus doGenerateScripts(Comparison comparison, File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
 		DatabaseGen databaseGen = new DatabaseGen(comparison, targetFolder, Collections.emptyList());
 		databaseGen.doGenerate(new BasicMonitor());
 		return Status.OK_STATUS;
-	}
-	
-	@Override
-	protected  IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
-		return doGenerateScripts(comparison, targetFolder);
-	}
-	
-	@Override
-	protected boolean isSchemaCreationOptionRequired() {
-		return false;
-	}
-			
+	}		
 
 	@Override
 	public String getText() {
@@ -79,6 +68,10 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 	@Override
 	protected String getSuccessInformationAddendum() {
 		return "";
+	}
+
+	public boolean getSchemaCreationRequired() {
+		return false;
 	}
 
 }
