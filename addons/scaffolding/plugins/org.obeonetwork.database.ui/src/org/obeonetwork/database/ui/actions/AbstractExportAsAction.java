@@ -42,7 +42,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Display;
@@ -60,7 +59,6 @@ import org.obeonetwork.database.ui.Activator;
 import org.obeonetwork.database.ui.util.ScaffoldingUtils;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabasePackage;
-import org.obeonetwork.dsl.database.liquibasegen.ui.LiquibaseGenerationOptionsDialog;
 
 public abstract class AbstractExportAsAction extends Action implements IEditorActionDelegate {
 
@@ -86,6 +84,12 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 	private Comparison comparison;
 
 	private IEditorPart activeEditor = null;
+	
+	/**
+	 * 
+	 * @return whether schema creation is required or not
+	 */
+	public abstract boolean getSchemaCreationRequired();
 
 	public void exportComparison(final Comparison comparison) {
 		final IResource containingFolder = getContainingFolder(comparison);
@@ -103,19 +107,7 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		resource.getContents().add(comparison);
 		set.getResources().add(resource);
 
-		boolean createSchemaIfNoneExist0 = false;
-		if (isSchemaCreationOptionRequired()) {
-			LiquibaseGenerationOptionsDialog genOptionDialog = new LiquibaseGenerationOptionsDialog(
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-					true);
-			genOptionDialog.open();
-			if (genOptionDialog.getReturnCode() == Window.OK) {
-				createSchemaIfNoneExist0 = genOptionDialog.getCreateSchemaIfNotExists();
-			} else {
-				return;
-			}
-		} 
-		final boolean createSchemaIfNoneExist = createSchemaIfNoneExist0;
+		final boolean createSchemaRequired = getSchemaCreationRequired();
 
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 
@@ -123,13 +115,7 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InvocationTargetException, InterruptedException {
 				try {
-					IStatus status0 = null;
-					if (isSchemaCreationOptionRequired()) {
-						status0 = doGenerateScripts(comparison, targetFolder, createSchemaIfNoneExist);
-					} else {
-						status0 = doGenerateScripts(comparison, targetFolder);
-					}
-					IStatus status = status0;
+					IStatus status = doGenerateScripts(comparison, targetFolder, createSchemaRequired);
 					if (!status.isOK()) {
 						Activator.getDefault().getLog().log(status);
 						Display.getDefault().asyncExec(() -> {
@@ -176,14 +162,9 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		}
 
 	}
-
-	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder)
-			throws IOException;
 	
 	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist)
 			throws IOException;
-	
-	protected abstract boolean isSchemaCreationOptionRequired();
 
 	protected abstract String getSuccessInformationAddendum();
 
