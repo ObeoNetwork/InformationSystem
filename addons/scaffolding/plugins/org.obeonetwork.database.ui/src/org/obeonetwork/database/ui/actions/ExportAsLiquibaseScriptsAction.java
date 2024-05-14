@@ -19,8 +19,10 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.window.Window;
+import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseGenerator;
-
+import org.obeonetwork.dsl.database.liquibasegen.ui.LiquibaseGenerationOptionsDialog;
 import org.obeonetwork.database.ui.Activator;
 
 /**
@@ -31,22 +33,11 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 
 	
 	private static final String ACTION_TEXT = "Generate Liquibase changelog";
-
-	@Override
-	protected IStatus doGenerateScripts(Comparison comparison, File targetFolder) throws IOException {
-		LiquibaseGenerator gen = new LiquibaseGenerator();
-		return gen.doGenerate(new BasicMonitor(),comparison,targetFolder.toPath());
-	}
 	
 	@Override
 	protected  IStatus doGenerateScripts(final Comparison comparison, final File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
 		LiquibaseGenerator gen = new LiquibaseGenerator();
 		return gen.doGenerate(new BasicMonitor(),comparison,targetFolder.toPath(), createSchemaIfNoneExist);
-	}
-	
-	@Override
-	protected boolean isSchemaCreationOptionRequired() {
-		return true;
 	}
 	
 	@Override
@@ -79,6 +70,18 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 	@Override
 	protected String getSuccessInformationAddendum() {
 		return String.format("Liquibase version: %s.", getLiquibaseVersion());
+	}
+
+
+	public boolean getSchemaCreationRequired() {
+		boolean schemaCreationRequired = false;
+		LiquibaseGenerationOptionsDialog genOptionDialog = new LiquibaseGenerationOptionsDialog(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), true);
+		genOptionDialog.open();
+		if (genOptionDialog.getReturnCode() == Window.OK) {
+			schemaCreationRequired = genOptionDialog.getCreateSchemaIfNotExists();
+		}
+		return schemaCreationRequired;
 	}
 
 }
