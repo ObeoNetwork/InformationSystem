@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,30 +35,29 @@ public class SwaggerXToOpenAPI3Converter {
 	 * 
 	 * @param inputFile
 	 * @param outputStream
-	 * @return the messages returned by the conversion if any, null otherwise.
+	 * @return the messages returned by the conversion if any, an empty list otherwise.
 	 * @throws IOException
 	 * @throws JsonGenerationException
 	 * @throws JsonMappingException
 	 */
 	public static List<String> convertSwagger1ToOpenAPI3(File inputFile, OutputStream outputStream)
 			throws IOException, JsonGenerationException, JsonMappingException {
+		List<String> res = Collections.emptyList();
 		if (inputFile == null || outputStream == null) {
-			return null;
+			return res;
 		}
 
 		File tempSwagger2_0File = File.createTempFile(UUID.randomUUID().toString(),
 				"." + Files.getFileExtension(inputFile.getAbsolutePath()));
 		if (tempSwagger2_0File == null) {
-			return null;
+			return res;
 		}
 		OutputStream tempOutputStream = new FileOutputStream(tempSwagger2_0File);
 		convertSwagger1ToSwagger2(inputFile, tempOutputStream);
-		List<String> res = null;
 		if (tempSwagger2_0File != null && tempSwagger2_0File.exists()) {
 			try {
 				tempSwagger2_0File.deleteOnExit();
 				res = convertSwagger2ToOpenAPI3(tempSwagger2_0File, outputStream);
-				tempSwagger2_0File.delete();
 			} catch (SecurityException e) {
 				if (e != null) {
 					e.printStackTrace();
@@ -75,7 +75,7 @@ public class SwaggerXToOpenAPI3Converter {
 	 * 
 	 * @param inputFile
 	 * @param outputStream
-	 * @return the messages returned by the conversion if any, null otherwise.
+	 * @return the messages returned by the conversion if any, an empty list otherwise.
 	 * @throws IOException
 	 * @throws JsonGenerationException
 	 * @throws JsonMappingException
@@ -83,13 +83,13 @@ public class SwaggerXToOpenAPI3Converter {
 	public static List<String> convertSwagger2ToOpenAPI3(File inputFile, OutputStream outputStream)
 			throws IOException, JsonGenerationException, JsonMappingException {
 		if (inputFile == null || outputStream == null) {
-			return null;
+			return  Collections.emptyList();
 		}
 
 		SwaggerParseResult result = new OpenAPIParser().readLocation(inputFile.getAbsolutePath(), null, null);
 
 		if (result == null || result.getOpenAPI() == null) {
-			return null;
+			return  Collections.emptyList();
 		}
 
 		ObjectMapper outputMapper = null;

@@ -209,9 +209,6 @@ public class SwaggerImportWizardPage extends WizardPage {
 		Label supportedVersionsText = new Label(container, SWT.NONE);
 		supportedVersionsText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, true, 1, 1));
 		supportedVersionsText.setText(SwaggerFileQuery.getSupportedVersions().toString());
-		supportedVersionsText.setForeground(
-				container.getDisplay().getSystemColor(SWT.COLOR_WIDGET_DARK_SHADOW | SWT.COLOR_DARK_GREEN));
-
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

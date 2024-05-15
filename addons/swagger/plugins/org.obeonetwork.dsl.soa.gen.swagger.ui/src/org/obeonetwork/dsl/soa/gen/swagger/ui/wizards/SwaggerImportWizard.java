@@ -95,10 +95,7 @@ public class SwaggerImportWizard extends Wizard {
 		
 		ted.getCommandStack().execute(swaggerImportCommand);
 		
-		int status = IStatus.ERROR;
-		if (swaggerImportCommand.getSingleResult()!=null) {
-			status = swaggerImportCommand.getSingleResult();
-		}
+		int status =  swaggerImportCommand.getSingleResult();
 		
 		if(swaggerImportCommand.getException() != null) {
 			logError(Messages.SwaggerImportWizard_Unexpected_error_message, swaggerImportCommand.getException());

@@ -93,13 +93,13 @@ public class SwaggerImporter {
 
 		OpenAPI swagger = null;
 		ObjectMapper objectMapper = null;
-		String inputTemporaryFilePathToImport = null;
+		File openAPI310FileToImport = null;
 		// Write the temporary file to import, convert input file if necessary.
 		if (status != IStatus.ERROR) {
 			try {
-				File openAPI310FileToImport = File.createTempFile(UUID.randomUUID().toString(),
+				openAPI310FileToImport = File.createTempFile(UUID.randomUUID().toString(),
 						"." + Files.getFileExtension(inputFilePath));
-				inputTemporaryFilePathToImport = openAPI310FileToImport.getAbsolutePath();
+				openAPI310FileToImport.deleteOnExit();
 				if (!SwaggerFileQuery.isOpenAPI3_1_0Version(swaggerVersion)) {
 					OutputStream outputStream = new FileOutputStream(openAPI310FileToImport);
 					List<String> parsingWarnings = SwaggerFileConverter.convert(inputFile, outputStream);
@@ -118,7 +118,7 @@ public class SwaggerImporter {
 		}
 
 		if (status != IStatus.ERROR
-				&& (inputTemporaryFilePathToImport == null || !(new File(inputTemporaryFilePathToImport)).exists())) {
+				&& (openAPI310FileToImport == null || !openAPI310FileToImport.exists())) {
 			logError(String.format("Cannot create a temporary file"));
 			status = IStatus.ERROR;
 		}
@@ -129,10 +129,8 @@ public class SwaggerImporter {
 			} else if (inputFilePath.endsWith(".json")) {
 				objectMapper = Json31.mapper();
 			}
-			File toImport = null;
 			try {
-				toImport = new File(inputTemporaryFilePathToImport);
-				swagger = objectMapper.readValue(toImport, OpenAPI.class);
+				swagger = objectMapper.readValue(openAPI310FileToImport, OpenAPI.class);
 				// SAFRAN-961 - io.swagger.v3 doesn't support OpenId Connect security schemes
 				addFlowsToOpenIdConnectSchemes(swagger);
 			} catch (JsonParseException e) {
@@ -144,14 +142,6 @@ public class SwaggerImporter {
 			} catch (IOException e) {
 				logError("I/O exception.", e);
 				status = IStatus.ERROR;
-			} finally {
-				if (toImport != null && toImport.exists()) {
-					try {
-						toImport.delete();
-					} catch (SecurityException e) {
-						logInfo("Problem when deleting temporary file: " + inputTemporaryFilePathToImport);
-					}
-				}
 			}
 		}
 
