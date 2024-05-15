@@ -49,6 +49,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.binding.design.service.BindingService;
 import org.obeonetwork.dsl.environment.design.extension.StructuredTypeChildrenContribution;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 
 /**
@@ -150,6 +151,9 @@ public class CinematicBindingServices {
 			processViewElementBinding((ViewElement) element, addedElements, removedElements, elementToParentMap,
 					viewElementViewContainerParents, viewElementParentsBindingInfos);
 		}
+		if(bindingRegistry.getBindingInfos().isEmpty()) {
+			EcoreUtil.remove(bindingRegistry);
+		}
 	}
 
 	/**
@@ -221,6 +225,7 @@ public class CinematicBindingServices {
 		}
 		final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(windowTitle, message, null, treeRoot, true);
 		wizard.setLevelToExpand(2);
+		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
 		List<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = treeRoot.getAllSelectableTreeItemWrappers().stream()
 				.filter(tiw -> preSelectedElements.contains(tiw.getWrappedObject())).collect(toList());
 		wizard.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
@@ -230,8 +235,6 @@ public class CinematicBindingServices {
 	private ISObjectSelectionWizard getStructuredTypesContentsSelectionWizard(ViewElement viewElement,
 			HashSet<EObject> alreadyBoundElements, Collection<BindingInfo> viewElementParentsBindingInfos,
 			List<ViewContainer> viewElementParentsViewContainers) {
-		String windowTitle = "Entity/DTO attributes and references selection";
-		String message = "Select Attribute or Reference elements to bound";
 		// Get as roots, all Structured types bound to all ViewContainers that are
 		// parents of viewElement.
 		List<EObject> roots = new ArrayList<>();
@@ -251,7 +254,8 @@ public class CinematicBindingServices {
 		final Function<?, Boolean> selectableCondition = eObj -> (eObj instanceof Attribute)
 				|| (eObj instanceof Reference);
 
-		return getISObjectSelectionWizard(windowTitle, message, roots, childrenFunction, selectableCondition,
+		return getISObjectSelectionWizard("Entity/DTO attributes and references selection", 
+				"Select Attribute or Reference elements to bind", roots, childrenFunction, selectableCondition,
 				alreadyBoundElements);
 	}
 
@@ -304,8 +308,6 @@ public class CinematicBindingServices {
 
 	private ISObjectSelectionWizard getStructuredTypesSelectionWizard(ViewContainer context,
 			HashSet<EObject> alreadyBoundElements) {
-		String windowTitle = "Entity/DTO selection";
-		String message = "Select Entity or DTO elements to bound";
 		Collection<StructuredType> structuredTypes = BindingService.getAllStructuredTypes(context);
 		HashMap<EObject, List<EObject>> parentToChildren = new HashMap<>();
 		for (EObject elt : structuredTypes) {
@@ -328,8 +330,8 @@ public class CinematicBindingServices {
 				Collections.emptyList());
 		final Function<?, Boolean> selectableCondition = eObj -> (eObj instanceof DTO) || (eObj instanceof Entity);
 
-		return getISObjectSelectionWizard(windowTitle, message, roots, childrenFunction, selectableCondition,
-				alreadyBoundElements);
+		return getISObjectSelectionWizard("Entity/DTO selection", 
+				"Select Entity or DTO elements to bind", roots, childrenFunction, selectableCondition, alreadyBoundElements);
 	}
 
 	private Set<BoundableElement> getViewElementLinkedBoundableElements(ViewElement boundable,
