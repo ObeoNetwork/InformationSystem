@@ -1224,7 +1224,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:OperationAction" name="BINDING_AbstractViewElement" label="Biding..." precondition="aql:self.oclIsKindOf(view::ViewContainer) or self.oclIsKindOf(view::ViewElement) " icon="/org.obeonetwork.dsl.environment.edit/icons/full/obj16/BindingInfo.gif">
+          <ownedTools xsi:type="tool_1:OperationAction" name="BINDING_AbstractViewElement" label="Binding..." precondition="aql:self.oclIsKindOf(view::ViewContainer) or self.oclIsKindOf(view::ViewElement) " icon="/org.obeonetwork.dsl.environment.edit/icons/full/obj16/BindingInfo.gif">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views->first().target">

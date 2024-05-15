@@ -285,7 +285,7 @@ public class BindingService {
 		return results;
 	}
 
-	public Collection<StructuredType> getAllBindableElements(DSemanticDiagram diagram,
+	public Collection<StructuredType> getAllBoundableElements(DSemanticDiagram diagram,
 			BoundableElement boundableElement) {
 		// Collect all structured types
 		Collection<StructuredType> bindableElements = new ArrayList<StructuredType>();
