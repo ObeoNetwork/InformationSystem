@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -45,7 +46,7 @@ public class SwaggerFileConverter {
 	 * 
 	 * @param inputFile
 	 * @param outputStream
-	 * @return warnings from parsing if any.
+	 * @return warnings from parsing if any, an empty list otherwise.
 	 * @throws JsonParseException
 	 * @throws JsonMappingException
 	 * @throws IOException
@@ -53,8 +54,9 @@ public class SwaggerFileConverter {
 	 */
 	public static List<String> convert(File inputFile, OutputStream outputStream)
 			throws JsonParseException, JsonMappingException, IOException, UnsupportedSwagerFileException {
+		List<String> parsingWarnings = Collections.emptyList();
 		if (inputFile == null || outputStream == null) {
-			return null;
+			return parsingWarnings;
 		}
 		SwaggerFileQuery fileQuery = null;
 		fileQuery = new SwaggerFileQuery(inputFile);
@@ -64,8 +66,7 @@ public class SwaggerFileConverter {
 					"Swagger/OpenAPI version is not supported for conversion to OpenAPI 3.1.0 for file: %s",
 					inputFile.getAbsolutePath()));
 		}
-
-		List<String> parsingWarnings = null;
+		
 		if (version.matches(SwaggerFileQuery.VERSION_NAME_OPEN_API + " 3.0(.[0-9])?")) {
 			// OpenAPI 3.0.x
 			convertOpenAPI30To310(inputFile, outputStream);
@@ -126,7 +127,7 @@ public class SwaggerFileConverter {
 	private static List<String> convertSwaggerXToOpenAPI310(String inputSwaggerVersion, File inputFile,
 			OutputStream outputStream)
 			throws JsonParseException, JsonMappingException, IOException, UnsupportedSwagerFileException {
-		List<String> parsingWarnings = null;
+		List<String> parsingWarnings = Collections.emptyList();
 		if (inputSwaggerVersion == null || outputStream == null || inputFile == null) {
 			return parsingWarnings;
 		}

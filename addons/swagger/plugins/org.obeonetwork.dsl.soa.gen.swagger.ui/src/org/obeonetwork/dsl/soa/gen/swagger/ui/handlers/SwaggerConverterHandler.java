@@ -18,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -62,7 +63,7 @@ public class SwaggerConverterHandler extends AbstractHandler implements IHandler
 			anyError = true;
 			logError(String.format("Cannot write file: %s", outputFile.getAbsolutePath()), e);
 		}
-		List<String> parsingWarnings = null;
+		List<String> parsingWarnings = Collections.emptyList();
 		if (outputStream != null) {
 			try {
 				parsingWarnings = SwaggerFileConverter.convert(inputFile, outputStream);
@@ -85,7 +86,7 @@ public class SwaggerConverterHandler extends AbstractHandler implements IHandler
 						outputFile.getAbsolutePath()), e);
 			}
 		}
-		boolean anyWarning = parsingWarnings != null && !parsingWarnings.isEmpty();
+		boolean anyWarning = !parsingWarnings.isEmpty();
 		if (anyWarning) {
 			logWarning(String.format("Conversion of file[%s] to OpenAPI 3.1.0: parsing messages:\n%s",
 					inputFile.getAbsolutePath(), parsingWarnings.toString()));
