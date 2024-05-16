@@ -33,38 +33,30 @@ public class SwaggerXToOpenAPI3Converter {
 	 * by outputStream.
 	 * </p>
 	 * 
-	 * @param inputFile
+	 * @param inputSwagger1_XFile
 	 * @param outputStream
 	 * @return the messages returned by the conversion if any, an empty list otherwise.
 	 * @throws IOException
 	 * @throws JsonGenerationException
 	 * @throws JsonMappingException
 	 */
-	public static List<String> convertSwagger1ToOpenAPI3(File inputFile, OutputStream outputStream)
+	public static List<String> convertSwagger1ToOpenAPI3(File inputSwagger1_XFile, OutputStream openAPI3outputStream)
 			throws IOException, JsonGenerationException, JsonMappingException {
-		List<String> res = Collections.emptyList();
-		if (inputFile == null || outputStream == null) {
-			return res;
-		}
+		List<String> messages = Collections.emptyList();
 
+		// Create a temp file to hold the conversion to Swagger 2.0
 		File tempSwagger2_0File = File.createTempFile(UUID.randomUUID().toString(),
-				"." + Files.getFileExtension(inputFile.getAbsolutePath()));
-		if (tempSwagger2_0File == null) {
-			return res;
-		}
-		OutputStream tempOutputStream = new FileOutputStream(tempSwagger2_0File);
-		convertSwagger1ToSwagger2(inputFile, tempOutputStream);
-		if (tempSwagger2_0File != null && tempSwagger2_0File.exists()) {
-			try {
-				tempSwagger2_0File.deleteOnExit();
-				res = convertSwagger2ToOpenAPI3(tempSwagger2_0File, outputStream);
-			} catch (SecurityException e) {
-				if (e != null) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return res;
+				"." + Files.getFileExtension(inputSwagger1_XFile.getAbsolutePath()));
+		tempSwagger2_0File.deleteOnExit();
+
+		// Convert the given Swagger 1.X file to the Swagger 2.0 temp file
+		OutputStream tempSwagger2_0OutputStream = new FileOutputStream(tempSwagger2_0File);
+		convertSwagger1ToSwagger2(inputSwagger1_XFile, tempSwagger2_0OutputStream);
+		
+		// Convert the Swagger 2.0 temp file to OpenAPI 3.0.1 format in the given outputStream
+		messages = convertSwagger2ToOpenAPI3(tempSwagger2_0File, openAPI3outputStream);
+		
+		return messages;
 	}
 
 	/**
