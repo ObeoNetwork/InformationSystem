@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_5="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0 http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bindingdialect="http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:description_5="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0 http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _8YjgUJEcEeauDets12NBwQ _7lOZcB_GEeW_TuSj9xLcNQ _5oKhkCBREeePq_6Kzvn9AQ _T-FxwJEeEeauDets12NBwQ _7lGdoB_GEeW_TuSj9xLcNQ _5rs9wCBREeePq_6Kzvn9AQ _5sAfwCBREeePq_6Kzvn9AQ _5yEEcCBREeePq_6Kzvn9AQ _7l-nYB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _7mFVEB_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _yEgX0JKOEem6NOD0XGqP1Q _40lw4JsLEe2OfNHR_QLmug _s3r8YPELEe6qjPlA4YMKKg _3rFbQBggEe-7ctj0Z_Zn0g" version="105.0.0">
     <semanticResources>E-BookStore.cinematic</semanticResources>
     <semanticResources>pathmap://cinematic/toolkits/Web</semanticResources>
@@ -170,13 +170,13 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7mFVEB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_1Lta0CBFEee_JZNCQUcCsQ" name=" Databinding" repPath="#_1LuB4CBFEee_JZNCQUcCsQ" changeId="b28861d2-6350-4ddc-874b-7c3df6803e55">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
-        <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_f9TQcCBSEeePq_6Kzvn9AQ" name="main Databinding" repPath="#_f9UekCBSEeePq_6Kzvn9AQ" changeId="255d05cb-8e34-4a3a-a447-c91aa9aba4bb">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_f9TQcCBSEeePq_6Kzvn9AQ" name="main Databinding" repPath="#_f9UekCBSEeePq_6Kzvn9AQ" changeId="1716372199189">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
         <target xmi:type="oenv:Namespace" href="E-BookStore.soa#_JVvEMIjYEeGlA5e_Ze9-Rg"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hYjicBgiEe-7ctj0Z_Zn0g" name="Binding Author - Author" repPath="#_hYi7YBgiEe-7ctj0Z_Zn0g">
+        <description xmi:type="description_4:DBindingEditorDescription" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
+        <target xmi:type="oenv:BindingInfo" href="E-BookStore.entity#_pLFPwRWtEemPcZQonXs-Bw"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_8YjgUJEcEeauDets12NBwQ">
@@ -229,7 +229,7 @@
     <ownedViews xmi:type="viewpoint:DView" uid="_5sAfwCBREeePq_6Kzvn9AQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_UamWwCPMEem2jZ0_ML8PBQ" name="new Sequence diagram" repPath="#_UWJUkCPMEem2jZ0_ML8PBQ" changeId="dbb759eb-9c4c-41e4-bf58-d1d7e5c8aace">
-        <description xmi:type="description_4:SequenceDiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']"/>
+        <description xmi:type="description_5:SequenceDiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']"/>
         <target xmi:type="interaction:Interaction" href="E-BookStore.entity#_UWGRQCPMEem2jZ0_ML8PBQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -250,7 +250,7 @@
         <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
       </ownedRepresentationDescriptors>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kE3aYCBgEeepLOchfVBnlA" name="Binding Author - Author" repPath="#_kE7r0CBgEeepLOchfVBnlA" changeId="71561454-af80-49c7-a987-6d81426b4fd3">
-        <description xmi:type="description_5:DBindingEditorDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
+        <description xmi:type="description_4:DBindingEditorDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
         <target xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_joQ98CBgEeepLOchfVBnlA"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -7861,20 +7861,6 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer"/>
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_1LuB4CBFEee_JZNCQUcCsQ">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_1LuB4SBFEee_JZNCQUcCsQ" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_1LuB4iBFEee_JZNCQUcCsQ"/>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_1MrEICBFEee_JZNCQUcCsQ" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_1MrEISBFEee_JZNCQUcCsQ" type="Sirius" element="_1LuB4CBFEee_JZNCQUcCsQ" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_1MrEIiBFEee_JZNCQUcCsQ"/>
-      </data>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_1LuB4yBFEee_JZNCQUcCsQ"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
-    <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
-  </diagram:DSemanticDiagram>
   <table:DTable uid="_5lHNkSBREeePq_6Kzvn9AQ" headerColumnWidth="234">
     <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
     <lines xmi:type="table:DLine" uid="_5lHNkiBREeePq_6Kzvn9AQ" label="main">
@@ -8670,13 +8656,13 @@
   <diagram:DSemanticDiagram uid="_f9UekCBSEeePq_6Kzvn9AQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_f9UekSBSEeePq_6Kzvn9AQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_f9UekiBSEeePq_6Kzvn9AQ">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_wh_u8IMCEe6c4OyZn7kCyw" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[name + ' (' + eClass().name + ')'/]">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_g9pIEBgiEe-7ctj0Z_Zn0g" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="aql:self.name + ' (' + self.eClass().name + ')'">
           <borderColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']"/>
           <labelColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           <backgroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='EntityFillLight']"/>
           <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='EntityFillLight']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_wmKdQYMCEe6c4OyZn7kCyw" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[name + ' (' + eClass().name + ')'/]">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_g9qWMBgiEe-7ctj0Z_Zn0g" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="aql:self.name + ' (' + self.eClass().name + ')'">
           <borderColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']"/>
           <labelColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           <backgroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']"/>
@@ -8767,13 +8753,13 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wmJ2MYMCEe6c4OyZn7kCyw" labelColor="0,43,60" description="_wh_u8IMCEe6c4OyZn7kCyw" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundColor="179,222,255" foregroundColor="179,222,255"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_g9pIEhgiEe-7ctj0Z_Zn0g" labelColor="0,43,60" description="_g9pIEBgiEe-7ctj0Z_Zn0g" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundColor="179,222,255" foregroundColor="179,222,255"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rYovoBWxEemPcZQonXs-Bw" name="Author (DTO)" incomingEdges="_rY6cdBWxEemPcZQonXs-Bw">
       <target xmi:type="oenv:DTO" href="E-BookStore.soa#_yFpMYIjYEeGlA5e_Ze9-Rg"/>
       <semanticElements xmi:type="oenv:DTO" href="E-BookStore.soa#_yFpMYIjYEeGlA5e_Ze9-Rg"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wmWDcYMCEe6c4OyZn7kCyw" labelColor="0,43,60" description="_wmKdQYMCEe6c4OyZn7kCyw" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundColor="238,248,255" foregroundColor="238,248,255"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_g9qWMhgiEe-7ctj0Z_Zn0g" labelColor="0,43,60" description="_g9qWMBgiEe-7ctj0Z_Zn0g" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundColor="238,248,255" foregroundColor="238,248,255"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rY51YhWxEemPcZQonXs-Bw" sourceNode="_rTZDQBWxEemPcZQonXs-Bw" targetNode="_rTa4cBWxEemPcZQonXs-Bw">
@@ -10040,17 +10026,17 @@
           <ownedStyle xmi:type="diagram:Ellipse" uid="_VWf-UCPMEem2jZ0_ML8PBQ" labelColor="0,43,60" borderColor="136,136,136" horizontalDiameter="1" verticalDiameter="1" color="238,238,236">
             <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']/@style"/>
           </ownedStyle>
-          <actualMapping xmi:type="description_4:EndOfLifeMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']"/>
+          <actualMapping xmi:type="description_5:EndOfLifeMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']"/>
         </ownedBorderedNodes>
         <ownedStyle xmi:type="diagram:Square" uid="_VVstESPMEem2jZ0_ML8PBQ" showIcon="false" labelColor="0,43,60" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" width="1" height="40" color="0,43,60">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_4:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']"/>
+        <actualMapping xmi:type="description_5:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']"/>
       </ownedBorderedNodes>
       <ownedStyle xmi:type="diagram:Square" uid="_VRydcCPMEem2jZ0_ML8PBQ" showIcon="false" labelColor="0,43,60" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" labelPosition="node" width="12" height="5" color="255,255,255">
         <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_4:InstanceRoleMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']"/>
+      <actualMapping xmi:type="description_5:InstanceRoleMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_W3FnUCPMEem2jZ0_ML8PBQ" name="newParticipant2" width="12" height="5" resizeKind="NSEW">
       <target xmi:type="interaction:Participant" href="E-BookStore.entity#_W2kp8SPMEem2jZ0_ML8PBQ"/>
@@ -10065,7 +10051,7 @@
           <ownedStyle xmi:type="diagram:Ellipse" uid="_W7ls0SPMEem2jZ0_ML8PBQ" labelColor="0,43,60" borderColor="136,136,136" horizontalDiameter="1" verticalDiameter="1" color="238,238,236">
             <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']/@style"/>
           </ownedStyle>
-          <actualMapping xmi:type="description_4:EndOfLifeMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']"/>
+          <actualMapping xmi:type="description_5:EndOfLifeMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine_Redim']"/>
         </ownedBorderedNodes>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_XaRM4CPMEem2jZ0_ML8PBQ" incomingEdges="_Y-djgCPMEem2jZ0_ML8PBQ" width="2" height="5" resizeKind="NORTH_SOUTH">
           <target xmi:type="interaction:Execution" href="E-BookStore.entity#_XXOf8CPMEem2jZ0_ML8PBQ"/>
@@ -10074,17 +10060,17 @@
           <ownedStyle xmi:type="diagram:Square" uid="_XaRM4SPMEem2jZ0_ML8PBQ" labelColor="0,43,60" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" width="2" height="5" color="238,238,236">
             <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']/@style"/>
           </ownedStyle>
-          <actualMapping xmi:type="description_4:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']"/>
+          <actualMapping xmi:type="description_5:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']"/>
         </ownedBorderedNodes>
         <ownedStyle xmi:type="diagram:Square" uid="_W66XYiPMEem2jZ0_ML8PBQ" showIcon="false" labelColor="0,43,60" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" width="1" height="40" color="0,43,60">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_4:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']"/>
+        <actualMapping xmi:type="description_5:ExecutionMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']"/>
       </ownedBorderedNodes>
       <ownedStyle xmi:type="diagram:Square" uid="_W3FnUSPMEem2jZ0_ML8PBQ" showIcon="false" labelColor="0,43,60" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" labelPosition="node" width="12" height="5" color="255,255,255">
         <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_4:InstanceRoleMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']"/>
+      <actualMapping xmi:type="description_5:InstanceRoleMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Y-djgCPMEem2jZ0_ML8PBQ" name="m1" sourceNode="_VVstECPMEem2jZ0_ML8PBQ" targetNode="_XaRM4CPMEem2jZ0_ML8PBQ">
       <target xmi:type="interaction:CallMessage" href="E-BookStore.entity#_Y5qjESPMEem2jZ0_ML8PBQ"/>
@@ -10094,7 +10080,7 @@
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_CallMessage']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Y-djgiPMEem2jZ0_ML8PBQ" labelColor="0,43,60"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_4:BasicMessageMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_CallMessage']"/>
+      <actualMapping xmi:type="description_5:BasicMessageMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_CallMessage']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_bcFcgCPMEem2jZ0_ML8PBQ" name="ref.1">
       <target xmi:type="interaction:InteractionUse" href="E-BookStore.entity#_bW3lUSPMEem2jZ0_ML8PBQ"/>
@@ -10103,9 +10089,9 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_bcFcgSPMEem2jZ0_ML8PBQ" labelColor="0,43,60" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" foregroundColor="255,255,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_4:InteractionUseMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']"/>
+      <actualMapping xmi:type="description_5:InteractionUseMapping" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']"/>
     </ownedDiagramElements>
-    <description xmi:type="description_4:SequenceDiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']"/>
+    <description xmi:type="description_5:SequenceDiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_UWMX4CPMEem2jZ0_ML8PBQ"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer"/>
     <target xmi:type="interaction:Interaction" href="E-BookStore.entity#_UWGRQCPMEem2jZ0_ML8PBQ"/>
@@ -12852,4 +12838,8 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer"/>
     <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
+  <bindingdialect:DBindingEditor uid="_hYi7YBgiEe-7ctj0Z_Zn0g">
+    <target xmi:type="oenv:BindingInfo" href="E-BookStore.entity#_pLFPwRWtEemPcZQonXs-Bw"/>
+    <description xmi:type="description_4:DBindingEditorDescription" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
+  </bindingdialect:DBindingEditor>
 </xmi:XMI>
