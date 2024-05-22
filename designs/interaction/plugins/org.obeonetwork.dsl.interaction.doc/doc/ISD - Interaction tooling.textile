@@ -37,6 +37,10 @@ Il est possible de créer autant de diagrammes de séquence que voulu pour un m�
 
 !pics/DiagramInExplorer.png!
 
+h2. Navigation dans les diagrammes
+
+Etant donné qu'il y a très peu de contraintes sur l'emplacement d'un diagramme d'interaction, il peut être utile d'utiliser l'arborescence par point de vue pour les retrouver, tel que décrit dans le chapitre "ISD - Socle Obeo Designer":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html de la documentation.
+
 h2. Eléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
