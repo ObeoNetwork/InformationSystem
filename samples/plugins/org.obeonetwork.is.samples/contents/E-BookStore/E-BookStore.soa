@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg" technicalid="_4ZaR8BLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:12:20.726+0100" modifiedOn="2020-12-17T09:44:37.072+0100">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg" technicalid="_4ZaR8BLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:12:20.726+0100" modifiedOn="2020-12-17T09:44:37.072+0100">
   <ownedNamespaces xmi:id="_JVvEMIjYEeGlA5e_Ze9-Rg" technicalid="_4ZaR8RLIEeesAc7mKQrh4A" createdOn="2020-10-19T16:35:57.456+0200" modifiedOn="2020-11-26T19:49:04.968+0100" name="main">
     <types xsi:type="oenv:DTO" xmi:id="_D4-EEIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FBLIEeesAc7mKQrh4A" name="ShoppingCart">
       <ownedAttributes xmi:id="_KavH8IjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FRLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:15:16.998+0100" modifiedOn="2020-11-26T19:15:16.998+0100" name="status" multiplicity="1" type="_P99CADATEeujNIyxVl1uPg"/>
@@ -59,7 +59,7 @@
       <ownedReferences xmi:id="_5sZiYIjYEeGlA5e_Ze9-Rg" technicalid="_4Za5CxLIEeesAc7mKQrh4A" name="wrote" multiplicity="0..*" referencedType="_OwomoIjYEeGlA5e_Ze9-Rg"/>
     </types>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" URL="http://cmazone.fr" apiVersion="1.0.1">
+  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" apiVersion="1.0.1" URL="http://cmazone.fr">
     <ownedServices xmi:id="_9t2bEIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGhLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:55:07.996+0200" modifiedOn="2020-03-30T11:55:07.996+0200" name="BookService" URI="/book">
       <ownedInterface xmi:id="_D1a2QIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgGxLIEeesAc7mKQrh4A" createdOn="2020-04-06T12:11:48.966+0200" modifiedOn="2020-12-17T11:24:04.640+0100" name="BookService">
         <ownedOperations xmi:id="_D1bdUIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHBLIEeesAc7mKQrh4A" description="Get the books of interest to be shown on the homepage of the user." createdOn="2020-03-30T11:56:08.489+0200" modifiedOn="2020-12-17T11:31:05.381+0100" name="getHomePageBooks" public="true" URI="/homepage" exposition="REST" paged="true">
@@ -76,7 +76,24 @@
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
           </output>
         </ownedOperations>
-        <ownedOperations xmi:id="_wYy58IjhEeGllIuu_i41WA" technicalid="_4ZbgIxLIEeesAc7mKQrh4A" description="Get books from search criterias." createdOn="2020-10-02T11:48:43.289+0200" modifiedOn="2020-12-17T11:33:50.713+0100" name="searchBooks" public="true" exposition="REST" paged="true">
+        <ownedOperations xmi:id="_wYy58IjhEeGllIuu_i41WA" technicalid="_4ZbgIxLIEeesAc7mKQrh4A" description="Get books from search criterias." createdOn="2020-10-02T11:48:43.289+0200" modifiedOn="2024-05-22T12:14:23.924+0200" name="searchBooks" public="true" exposition="REST" paged="true">
+          <behaviours xsi:type="interaction:Interaction" xmi:id="_EBFnQRgkEe-7ctj0Z_Zn0g" technicalid="_EBFnQBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:14:48.011+0200" modifiedOn="2024-05-22T14:20:15.895+0200" name="searchBooks Sequence diagram">
+            <participants xmi:id="_HmzJsBgkEe-7ctj0Z_Zn0g" technicalid="_HmyioBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:14:48.013+0200" modifiedOn="2024-05-22T12:17:23.956+0200" name="bookService" type="_9t2bEIjXEeGlA5e_Ze9-Rg"/>
+            <participants xmi:id="_lu4XkBgkEe-7ctj0Z_Zn0g" technicalid="_lu3wgBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:18:10.185+0200" modifiedOn="2024-05-22T12:18:26.560+0200" name="book">
+              <type xsi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
+            </participants>
+            <messages xsi:type="interaction:CallMessage" xmi:id="_pFGsgBgkEe-7ctj0Z_Zn0g" technicalid="_pFGFcBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:18:32.649+0200" modifiedOn="2024-05-22T12:18:38.675+0200" name="query" startingEnd="_pFHTkRgkEe-7ctj0Z_Zn0g" finishingEnd="_pFH6oRgkEe-7ctj0Z_Zn0g"/>
+            <messages xsi:type="interaction:CallMessage" xmi:id="_h1mwMRg1Ee-7ctj0Z_Zn0g" technicalid="_h1mwMBg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:19:25.491+0200" modifiedOn="2024-05-22T14:20:31.566+0200" name="getBook" startingEnd="_h1olYBg1Ee-7ctj0Z_Zn0g" finishingEnd="_h1td4Bg1Ee-7ctj0Z_Zn0g"/>
+            <executions xmi:id="_UP8y0Rg1Ee-7ctj0Z_Zn0g" technicalid="_UP8y0Bg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:17:54.302+0200" modifiedOn="2024-05-22T14:17:54.306+0200" name="e1" startingEnd="_UP9Z4Rg1Ee-7ctj0Z_Zn0g" finishingEnd="_UP-A8Rg1Ee-7ctj0Z_Zn0g" owner="_lu4XkBgkEe-7ctj0Z_Zn0g"/>
+            <executions xmi:id="_h1nXQBg1Ee-7ctj0Z_Zn0g" technicalid="_h1mwMhg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:19:25.492+0200" modifiedOn="2024-05-22T14:19:25.503+0200" name="e3" startingEnd="_h1td4Bg1Ee-7ctj0Z_Zn0g" finishingEnd="_h1td4hg1Ee-7ctj0Z_Zn0g" owner="_HmzJsBgkEe-7ctj0Z_Zn0g"/>
+            <ends xmi:id="_UP9Z4Rg1Ee-7ctj0Z_Zn0g" technicalid="_UP9Z4Bg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:17:54.302+0200" modifiedOn="2024-05-22T14:17:54.306+0200" name="start_e1" context="_lu4XkBgkEe-7ctj0Z_Zn0g" owner="_UP8y0Rg1Ee-7ctj0Z_Zn0g"/>
+            <ends xmi:id="_pFHTkRgkEe-7ctj0Z_Zn0g" technicalid="_pFHTkBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:18:32.649+0200" modifiedOn="2024-05-22T12:18:32.650+0200" name="send_m1" context="_HmzJsBgkEe-7ctj0Z_Zn0g" owner="_pFGsgBgkEe-7ctj0Z_Zn0g"/>
+            <ends xmi:id="_pFH6oRgkEe-7ctj0Z_Zn0g" technicalid="_pFH6oBgkEe-7ctj0Z_Zn0g" createdOn="2024-05-22T12:18:32.650+0200" modifiedOn="2024-05-22T12:18:32.651+0200" name="receive_m1" context="_lu4XkBgkEe-7ctj0Z_Zn0g" owner="_pFGsgBgkEe-7ctj0Z_Zn0g"/>
+            <ends xmi:id="_UP-A8Rg1Ee-7ctj0Z_Zn0g" technicalid="_UP-A8Bg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:17:54.303+0200" modifiedOn="2024-05-22T14:17:54.306+0200" name="finish_e1" context="_lu4XkBgkEe-7ctj0Z_Zn0g" owner="_UP8y0Rg1Ee-7ctj0Z_Zn0g"/>
+            <ends xmi:id="_h1olYBg1Ee-7ctj0Z_Zn0g" technicalid="_h1n-UBg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:19:25.494+0200" modifiedOn="2024-05-22T14:19:25.494+0200" name="send_m3" context="_HmzJsBgkEe-7ctj0Z_Zn0g" owner="_h1mwMRg1Ee-7ctj0Z_Zn0g"/>
+            <ends xsi:type="interaction:CompoundEnd" xmi:id="_h1td4Bg1Ee-7ctj0Z_Zn0g" technicalid="_h1s20Bg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:19:25.502+0200" modifiedOn="2024-05-22T14:19:25.502+0200" name="start_e3" context="_HmzJsBgkEe-7ctj0Z_Zn0g" owner="_h1nXQBg1Ee-7ctj0Z_Zn0g" otherOwner="_h1mwMRg1Ee-7ctj0Z_Zn0g"/>
+            <ends xsi:type="interaction:CompoundEnd" xmi:id="_h1td4hg1Ee-7ctj0Z_Zn0g" technicalid="_h1td4Rg1Ee-7ctj0Z_Zn0g" createdOn="2024-05-22T14:19:25.503+0200" modifiedOn="2024-05-22T14:19:56.401+0200" name="finish_e3" context="_HmzJsBgkEe-7ctj0Z_Zn0g" owner="_h1nXQBg1Ee-7ctj0Z_Zn0g"/>
+          </behaviours>
           <input xmi:id="_xuKxcIjhEeGllIuu_i41WA" technicalid="_4ZbgJBLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:58:06.398+0200" modifiedOn="2020-12-17T11:05:46.468+0100" name="authorId" multiplicity="0..1" passingMode="QUERY">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_WNtoYUBEEeuJCsQ9JYmMWQ" technicalid="_WNtoYEBEEeuJCsQ9JYmMWQ" passingMode="QUERY" restId="author"/>
@@ -159,5 +176,8 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
+    <license xmi:id="_3rkjrhggEe-7ctj0Z_Zn0g" technicalid="_3rj8kBggEe-7ctj0Z_Zn0g" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_3rkjrxggEe-7ctj0Z_Zn0g" technicalid="_3rj8jxggEe-7ctj0Z_Zn0g" apiVersion="1.0.1"/>
+    <contact xmi:id="_3rkjsBggEe-7ctj0Z_Zn0g" technicalid="_3rj8kRggEe-7ctj0Z_Zn0g"/>
   </ownedComponents>
 </soa:System>
