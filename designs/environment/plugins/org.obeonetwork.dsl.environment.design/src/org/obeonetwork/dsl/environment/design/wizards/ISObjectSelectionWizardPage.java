@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -187,8 +188,23 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		if(expanded) {
             treeViewer.expandAll();
         } else if(levelToExpand != null) {
+            
+    		// Ensure checked elements are visible in the expanded tree
+    		
+    		// Unicity is needed for the 'elementsToExpand' collection because there may be 
+            // common ancestors in the tree of several checked elements. Insertion order 
+            // is also needed for the higher nodes to expand first. 
+    		LinkedHashSet<ISObjectTreeItemWrapper> elementsToExpand = new LinkedHashSet<>();
+    		for(ISObjectTreeItemWrapper tiw : selectedTreeItemWrapers) {
+    			elementsToExpand.addAll(tiw.getAncestors());
+    			elementsToExpand.add(tiw);
+    		}
+    		treeViewer.setExpandedElements(elementsToExpand.toArray());
+    		
+    		// Expand at least to the required level
             treeViewer.expandToLevel(levelToExpand);
         }
+		
 	}
 
     private Control createFilterCheckBox(Composite parent) {
