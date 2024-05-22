@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_5="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0 http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _8YjgUJEcEeauDets12NBwQ _7lOZcB_GEeW_TuSj9xLcNQ _5oKhkCBREeePq_6Kzvn9AQ _T-FxwJEeEeauDets12NBwQ _7lGdoB_GEeW_TuSj9xLcNQ _5rs9wCBREeePq_6Kzvn9AQ _5sAfwCBREeePq_6Kzvn9AQ _5yEEcCBREeePq_6Kzvn9AQ _7l-nYB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _7mFVEB_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _yEgX0JKOEem6NOD0XGqP1Q _40lw4JsLEe2OfNHR_QLmug _s3r8YPELEe6qjPlA4YMKKg _RD5iIEKpEe-gSpLdoukN4w" version="105.0.0">
+  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _8YjgUJEcEeauDets12NBwQ _7lOZcB_GEeW_TuSj9xLcNQ _5oKhkCBREeePq_6Kzvn9AQ _T-FxwJEeEeauDets12NBwQ _7lGdoB_GEeW_TuSj9xLcNQ _5rs9wCBREeePq_6Kzvn9AQ _5sAfwCBREeePq_6Kzvn9AQ _5yEEcCBREeePq_6Kzvn9AQ _7l-nYB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _7mFVEB_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _yEgX0JKOEem6NOD0XGqP1Q _40lw4JsLEe2OfNHR_QLmug _s3r8YPELEe6qjPlA4YMKKg _3rFbQBggEe-7ctj0Z_Zn0g" version="105.0.0">
     <semanticResources>E-BookStore.cinematic</semanticResources>
     <semanticResources>pathmap://cinematic/toolkits/Web</semanticResources>
     <semanticResources>E-BookStore.graal</semanticResources>
@@ -30,7 +30,7 @@
         <description xmi:type="description_2:TreeDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']"/>
         <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1721048106505">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1977eeb7-08ab-4359-8150-2c58c5dabf4c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
       </ownedRepresentationDescriptors>
@@ -50,7 +50,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="1721048170432">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="c64f39eb-9220-4625-a619-f561e1ee1276">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
       </ownedRepresentationDescriptors>
@@ -92,7 +92,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEsLbEeaKX_JUX0UT5w" name="Use Cases Main View" repPath="#_Ch8T8B_HEeW_TuSj9xLcNQ" changeId="1721049432361">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEsLbEeaKX_JUX0UT5w" name="Use Cases Main View" repPath="#_Ch8T8B_HEeW_TuSj9xLcNQ" changeId="42ec0b72-4b2e-45af-a730-8ef6ce14b886">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -263,7 +263,7 @@
     <ownedViews xmi:type="viewpoint:DView" uid="_s3r8YPELEe6qjPlA4YMKKg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@ownedViewpoints[name='Environment%20Views']"/>
     </ownedViews>
-    <ownedViews xmi:type="viewpoint:DView" uid="_RD5iIEKpEe-gSpLdoukN4w">
+    <ownedViews xmi:type="viewpoint:DView" uid="_3rFbQBggEe-7ctj0Z_Zn0g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@ownedViewpoints[name='Environment%20Views']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
@@ -963,11 +963,11 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CiREEx_HEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_CiREFB_HEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CiREFR_HEeW_TuSj9xLcNQ" x="-2" y="12"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CiREFR_HEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_CiQdBx_HEeW_TuSj9xLcNQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_CiQdCB_HEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CiQdCR_HEeW_TuSj9xLcNQ" points="[0, 0, -3, -61]$[3, 61, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CiQdCR_HEeW_TuSj9xLcNQ" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CiREFh_HEeW_TuSj9xLcNQ" id="(0.5,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CiREFx_HEeW_TuSj9xLcNQ" id="(0.5,0.0)"/>
         </edges>
@@ -4555,7 +4555,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb7PwhWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/HomePage_View_Container_Mockup-0.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb7PwhWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/HomePage_View_Container_Mockup-1.jpg">
         <customFeatures>labelPosition</customFeatures>
         <customFeatures>workspacePath</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -4569,7 +4569,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb720hWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/CreateAccount_View_Container_Mockup-0.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb720hWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/CreateAccount_View_Container_Mockup-1.jpg">
         <customFeatures>labelPosition</customFeatures>
         <customFeatures>workspacePath</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -8631,19 +8631,19 @@
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
     </lines>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKCBREeePq_6Kzvn9AQ" label="Name" cells="_5lHNlSBREeePq_6Kzvn9AQ _5lHNmyBREeePq_6Kzvn9AQ _5lHNoCBREeePq_6Kzvn9AQ _5lHNpyBREeePq_6Kzvn9AQ _5lHNrSBREeePq_6Kzvn9AQ _5lHNsyBREeePq_6Kzvn9AQ _5lHNuSBREeePq_6Kzvn9AQ _5lHNviBREeePq_6Kzvn9AQ _5lHNxSBREeePq_6Kzvn9AQ _5lHNyyBREeePq_6Kzvn9AQ _5lHN0SBREeePq_6Kzvn9AQ _5lHN1yBREeePq_6Kzvn9AQ _Op9GrOMUEeuQk8DSQ2l-0A _5lHN3CBREeePq_6Kzvn9AQ _5lHN4yBREeePq_6Kzvn9AQ _5lHN6SBREeePq_6Kzvn9AQ _5lHN7iBREeePq_6Kzvn9AQ _5lHN9SBREeePq_6Kzvn9AQ _5lHN-yBREeePq_6Kzvn9AQ _5lHOACBREeePq_6Kzvn9AQ _5lHOByBREeePq_6Kzvn9AQ _5lHODSBREeePq_6Kzvn9AQ _5lHOEyBREeePq_6Kzvn9AQ _5lHOGSBREeePq_6Kzvn9AQ _5lHOHiBREeePq_6Kzvn9AQ _5lHOIyBREeePq_6Kzvn9AQ" width="120" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKCBREeePq_6Kzvn9AQ" label="Name" cells="_5lHNlSBREeePq_6Kzvn9AQ _5lHNmyBREeePq_6Kzvn9AQ _5lHNoCBREeePq_6Kzvn9AQ _5lHNpyBREeePq_6Kzvn9AQ _5lHNrSBREeePq_6Kzvn9AQ _5lHNsyBREeePq_6Kzvn9AQ _5lHNuSBREeePq_6Kzvn9AQ _5lHNviBREeePq_6Kzvn9AQ _5lHNxSBREeePq_6Kzvn9AQ _5lHNyyBREeePq_6Kzvn9AQ _5lHN0SBREeePq_6Kzvn9AQ _5lHN1yBREeePq_6Kzvn9AQ _5lHN3CBREeePq_6Kzvn9AQ _5lHN4yBREeePq_6Kzvn9AQ _Op9GrOMUEeuQk8DSQ2l-0A _5lHN6SBREeePq_6Kzvn9AQ _5lHN7iBREeePq_6Kzvn9AQ _5lHN9SBREeePq_6Kzvn9AQ _5lHN-yBREeePq_6Kzvn9AQ _5lHOACBREeePq_6Kzvn9AQ _5lHOByBREeePq_6Kzvn9AQ _5lHODSBREeePq_6Kzvn9AQ _5lHOEyBREeePq_6Kzvn9AQ _5lHOGSBREeePq_6Kzvn9AQ _5lHOHiBREeePq_6Kzvn9AQ _5lHOIyBREeePq_6Kzvn9AQ" width="120" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_PhysicalName']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKSBREeePq_6Kzvn9AQ" label="Size" cells="_5lHNliBREeePq_6Kzvn9AQ _5lHNnCBREeePq_6Kzvn9AQ _5lHNoSBREeePq_6Kzvn9AQ _5lHNqCBREeePq_6Kzvn9AQ _5lHNriBREeePq_6Kzvn9AQ _5lHNtCBREeePq_6Kzvn9AQ _5lHNuiBREeePq_6Kzvn9AQ _5lHNvyBREeePq_6Kzvn9AQ _5lHNxiBREeePq_6Kzvn9AQ _5lHNzCBREeePq_6Kzvn9AQ _5lHN0iBREeePq_6Kzvn9AQ _5lHN2CBREeePq_6Kzvn9AQ _Op9GruMUEeuQk8DSQ2l-0A _5lHN3SBREeePq_6Kzvn9AQ _5lHN5CBREeePq_6Kzvn9AQ _5lHN6iBREeePq_6Kzvn9AQ _5lHN7yBREeePq_6Kzvn9AQ _5lHN9iBREeePq_6Kzvn9AQ _5lHN_CBREeePq_6Kzvn9AQ _5lHOASBREeePq_6Kzvn9AQ _5lHOCCBREeePq_6Kzvn9AQ _5lHODiBREeePq_6Kzvn9AQ _5lHOFCBREeePq_6Kzvn9AQ _5lHOGiBREeePq_6Kzvn9AQ _5lHOHyBREeePq_6Kzvn9AQ _5lHOJCBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKSBREeePq_6Kzvn9AQ" label="Size" cells="_5lHNliBREeePq_6Kzvn9AQ _5lHNnCBREeePq_6Kzvn9AQ _5lHNoSBREeePq_6Kzvn9AQ _5lHNqCBREeePq_6Kzvn9AQ _5lHNriBREeePq_6Kzvn9AQ _5lHNtCBREeePq_6Kzvn9AQ _5lHNuiBREeePq_6Kzvn9AQ _5lHNvyBREeePq_6Kzvn9AQ _5lHNxiBREeePq_6Kzvn9AQ _5lHNzCBREeePq_6Kzvn9AQ _5lHN0iBREeePq_6Kzvn9AQ _5lHN2CBREeePq_6Kzvn9AQ _5lHN3SBREeePq_6Kzvn9AQ _5lHN5CBREeePq_6Kzvn9AQ _Op9GruMUEeuQk8DSQ2l-0A _5lHN6iBREeePq_6Kzvn9AQ _5lHN7yBREeePq_6Kzvn9AQ _5lHN9iBREeePq_6Kzvn9AQ _5lHN_CBREeePq_6Kzvn9AQ _5lHOASBREeePq_6Kzvn9AQ _5lHOCCBREeePq_6Kzvn9AQ _5lHODiBREeePq_6Kzvn9AQ _5lHOFCBREeePq_6Kzvn9AQ _5lHOGiBREeePq_6Kzvn9AQ _5lHOHyBREeePq_6Kzvn9AQ _5lHOJCBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Size']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKiBREeePq_6Kzvn9AQ" label="Check" cells="_5lHNlyBREeePq_6Kzvn9AQ _5lHNnSBREeePq_6Kzvn9AQ _5lHNoiBREeePq_6Kzvn9AQ _5lHNqSBREeePq_6Kzvn9AQ _5lHNryBREeePq_6Kzvn9AQ _5lHNtSBREeePq_6Kzvn9AQ _5lHNuyBREeePq_6Kzvn9AQ _5lHNwCBREeePq_6Kzvn9AQ _5lHNxyBREeePq_6Kzvn9AQ _5lHNzSBREeePq_6Kzvn9AQ _5lHN0yBREeePq_6Kzvn9AQ _5lHN2SBREeePq_6Kzvn9AQ _Op9GsOMUEeuQk8DSQ2l-0A _5lHN3iBREeePq_6Kzvn9AQ _5lHN5SBREeePq_6Kzvn9AQ _5lHN6yBREeePq_6Kzvn9AQ _5lHN8CBREeePq_6Kzvn9AQ _5lHN9yBREeePq_6Kzvn9AQ _5lHN_SBREeePq_6Kzvn9AQ _5lHOAiBREeePq_6Kzvn9AQ _5lHOCSBREeePq_6Kzvn9AQ _5lHODyBREeePq_6Kzvn9AQ _5lHOFSBREeePq_6Kzvn9AQ _5lHOGyBREeePq_6Kzvn9AQ _5lHOICBREeePq_6Kzvn9AQ _5lHOJSBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKiBREeePq_6Kzvn9AQ" label="Check" cells="_5lHNlyBREeePq_6Kzvn9AQ _5lHNnSBREeePq_6Kzvn9AQ _5lHNoiBREeePq_6Kzvn9AQ _5lHNqSBREeePq_6Kzvn9AQ _5lHNryBREeePq_6Kzvn9AQ _5lHNtSBREeePq_6Kzvn9AQ _5lHNuyBREeePq_6Kzvn9AQ _5lHNwCBREeePq_6Kzvn9AQ _5lHNxyBREeePq_6Kzvn9AQ _5lHNzSBREeePq_6Kzvn9AQ _5lHN0yBREeePq_6Kzvn9AQ _5lHN2SBREeePq_6Kzvn9AQ _5lHN3iBREeePq_6Kzvn9AQ _5lHN5SBREeePq_6Kzvn9AQ _Op9GsOMUEeuQk8DSQ2l-0A _5lHN6yBREeePq_6Kzvn9AQ _5lHN8CBREeePq_6Kzvn9AQ _5lHN9yBREeePq_6Kzvn9AQ _5lHN_SBREeePq_6Kzvn9AQ _5lHOAiBREeePq_6Kzvn9AQ _5lHOCSBREeePq_6Kzvn9AQ _5lHODyBREeePq_6Kzvn9AQ _5lHOFSBREeePq_6Kzvn9AQ _5lHOGyBREeePq_6Kzvn9AQ _5lHOICBREeePq_6Kzvn9AQ _5lHOJSBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Check']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKyBREeePq_6Kzvn9AQ" label="Unique" cells="_5lHNmCBREeePq_6Kzvn9AQ _5lHNniBREeePq_6Kzvn9AQ _5lHNoyBREeePq_6Kzvn9AQ _5lHNqiBREeePq_6Kzvn9AQ _5lHNsCBREeePq_6Kzvn9AQ _5lHNtiBREeePq_6Kzvn9AQ _5lHNvCBREeePq_6Kzvn9AQ _5lHNwSBREeePq_6Kzvn9AQ _5lHNyCBREeePq_6Kzvn9AQ _5lHNziBREeePq_6Kzvn9AQ _5lHN1CBREeePq_6Kzvn9AQ _5lHN2iBREeePq_6Kzvn9AQ _Op9GsuMUEeuQk8DSQ2l-0A _5lHN3yBREeePq_6Kzvn9AQ _5lHN5iBREeePq_6Kzvn9AQ _5lHN7CBREeePq_6Kzvn9AQ _5lHN8SBREeePq_6Kzvn9AQ _5lHN-CBREeePq_6Kzvn9AQ _5lHN_iBREeePq_6Kzvn9AQ _5lHOAyBREeePq_6Kzvn9AQ _5lHOCiBREeePq_6Kzvn9AQ _5lHOECBREeePq_6Kzvn9AQ _5lHOFiBREeePq_6Kzvn9AQ _5lHOHCBREeePq_6Kzvn9AQ _5lHOISBREeePq_6Kzvn9AQ _5lHOJiBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKyBREeePq_6Kzvn9AQ" label="Unique" cells="_5lHNmCBREeePq_6Kzvn9AQ _5lHNniBREeePq_6Kzvn9AQ _5lHNoyBREeePq_6Kzvn9AQ _5lHNqiBREeePq_6Kzvn9AQ _5lHNsCBREeePq_6Kzvn9AQ _5lHNtiBREeePq_6Kzvn9AQ _5lHNvCBREeePq_6Kzvn9AQ _5lHNwSBREeePq_6Kzvn9AQ _5lHNyCBREeePq_6Kzvn9AQ _5lHNziBREeePq_6Kzvn9AQ _5lHN1CBREeePq_6Kzvn9AQ _5lHN2iBREeePq_6Kzvn9AQ _5lHN3yBREeePq_6Kzvn9AQ _5lHN5iBREeePq_6Kzvn9AQ _Op9GsuMUEeuQk8DSQ2l-0A _5lHN7CBREeePq_6Kzvn9AQ _5lHN8SBREeePq_6Kzvn9AQ _5lHN-CBREeePq_6Kzvn9AQ _5lHN_iBREeePq_6Kzvn9AQ _5lHOAyBREeePq_6Kzvn9AQ _5lHOCiBREeePq_6Kzvn9AQ _5lHOECBREeePq_6Kzvn9AQ _5lHOFiBREeePq_6Kzvn9AQ _5lHOHCBREeePq_6Kzvn9AQ _5lHOISBREeePq_6Kzvn9AQ _5lHOJiBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Unique']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOLCBREeePq_6Kzvn9AQ" label="Default" cells="_5lHNmSBREeePq_6Kzvn9AQ _5lHNnyBREeePq_6Kzvn9AQ _5lHNpCBREeePq_6Kzvn9AQ _5lHNqyBREeePq_6Kzvn9AQ _5lHNsSBREeePq_6Kzvn9AQ _5lHNtyBREeePq_6Kzvn9AQ _5lHNvSBREeePq_6Kzvn9AQ _5lHNwiBREeePq_6Kzvn9AQ _5lHNySBREeePq_6Kzvn9AQ _5lHNzyBREeePq_6Kzvn9AQ _5lHN1SBREeePq_6Kzvn9AQ _5lHN2yBREeePq_6Kzvn9AQ _Op9GtOMUEeuQk8DSQ2l-0A _5lHN4CBREeePq_6Kzvn9AQ _5lHN5yBREeePq_6Kzvn9AQ _5lHN7SBREeePq_6Kzvn9AQ _5lHN8iBREeePq_6Kzvn9AQ _5lHN-SBREeePq_6Kzvn9AQ _5lHN_yBREeePq_6Kzvn9AQ _5lHOBCBREeePq_6Kzvn9AQ _5lHOCyBREeePq_6Kzvn9AQ _5lHOESBREeePq_6Kzvn9AQ _5lHOFyBREeePq_6Kzvn9AQ _5lHOHSBREeePq_6Kzvn9AQ _5lHOIiBREeePq_6Kzvn9AQ _5lHOJyBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOLCBREeePq_6Kzvn9AQ" label="Default" cells="_5lHNmSBREeePq_6Kzvn9AQ _5lHNnyBREeePq_6Kzvn9AQ _5lHNpCBREeePq_6Kzvn9AQ _5lHNqyBREeePq_6Kzvn9AQ _5lHNsSBREeePq_6Kzvn9AQ _5lHNtyBREeePq_6Kzvn9AQ _5lHNvSBREeePq_6Kzvn9AQ _5lHNwiBREeePq_6Kzvn9AQ _5lHNySBREeePq_6Kzvn9AQ _5lHNzyBREeePq_6Kzvn9AQ _5lHN1SBREeePq_6Kzvn9AQ _5lHN2yBREeePq_6Kzvn9AQ _5lHN4CBREeePq_6Kzvn9AQ _5lHN5yBREeePq_6Kzvn9AQ _Op9GtOMUEeuQk8DSQ2l-0A _5lHN7SBREeePq_6Kzvn9AQ _5lHN8iBREeePq_6Kzvn9AQ _5lHN-SBREeePq_6Kzvn9AQ _5lHN_yBREeePq_6Kzvn9AQ _5lHOBCBREeePq_6Kzvn9AQ _5lHOCyBREeePq_6Kzvn9AQ _5lHOESBREeePq_6Kzvn9AQ _5lHOFyBREeePq_6Kzvn9AQ _5lHOHSBREeePq_6Kzvn9AQ _5lHOIiBREeePq_6Kzvn9AQ _5lHOJyBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Default']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_Op41NuMUEeuQk8DSQ2l-0A" label="Target Schema" cells="_Op6qZ-MUEeuQk8DSQ2l-0A _Op6qbuMUEeuQk8DSQ2l-0A _Op6qYOMUEeuQk8DSQ2l-0A _Op8fmOMUEeuQk8DSQ2l-0A _Op8fn-MUEeuQk8DSQ2l-0A _Op9GpeMUEeuQk8DSQ2l-0A _Op9GtuMUEeuQk8DSQ2l-0A _Op9tsOMUEeuQk8DSQ2l-0A _Op8fkeMUEeuQk8DSQ2l-0A _Op-UwOMUEeuQk8DSQ2l-0A _Op-Ux-MUEeuQk8DSQ2l-0A _Op-UzuMUEeuQk8DSQ2l-0A _Op-70uMUEeuQk8DSQ2l-0A _Op9tt-MUEeuQk8DSQ2l-0A _Op_i5eMUEeuQk8DSQ2l-0A _OqAJ9eMUEeuQk8DSQ2l-0A _Op-72eMUEeuQk8DSQ2l-0A _OqAxBOMUEeuQk8DSQ2l-0A _OqAxC-MUEeuQk8DSQ2l-0A _OqAJ_OMUEeuQk8DSQ2l-0A _OqBYFeMUEeuQk8DSQ2l-0A _OqBYHOMUEeuQk8DSQ2l-0A _OqBYI-MUEeuQk8DSQ2l-0A _OqB_JOMUEeuQk8DSQ2l-0A _OqAxEuMUEeuQk8DSQ2l-0A _Op5cQOMUEeuQk8DSQ2l-0A" width="60" featureName="name">
@@ -11442,7 +11442,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd8b47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/Login_View_Container_Mockup-0.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd8b47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/Login_View_Container_Mockup-1.jpg">
         <customFeatures>workspacePath</customFeatures>
         <customFeatures>labelPosition</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -11456,7 +11456,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd9L47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/PaymentForm_View_Container_Mockup-0.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd9L47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/PaymentForm_View_Container_Mockup-1.jpg">
         <customFeatures>workspacePath</customFeatures>
         <customFeatures>labelPosition</customFeatures>
         <labelFormat>bold</labelFormat>
