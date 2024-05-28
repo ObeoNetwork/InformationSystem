@@ -8,28 +8,28 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <defaultLayer name="Overview">
-        <nodeMappings name="RootEObject" labelDirectEdit="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Overview%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='Open%20main%20diagram']" domainClass="EObject">
+        <nodeMappings name="RootEObject" labelDirectEdit="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Overview%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='Open%20main%20diagram']" domainClass="ecore::EObject">
           <style xsi:type="style:BundledImageDescription" labelExpression="null">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="[oclIsKindOf(soa::System)/]">
-            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(soa::System).name->size() > 0 then 'SOA'.concat('::').concat(oclAsType(soa::System).name) else 'SOA' endif/]" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(soa::System)">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:if self.oclAsType(soa::System).name&lt;>null then 'SOA::' + self.oclAsType(soa::System).name else 'SOA' endif" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[oclIsKindOf(entity::Root)/]">
-            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(entity::Root).name->size() > 0 then 'Entity'.concat('::').concat(oclAsType(entity::Root).name) else 'Entity' endif/]" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(entity::Root)">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:if self.oclAsType(entity::Root).name&lt;>null then 'Entity::' + self.oclAsType(entity::Root).name else 'Entity' endif" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[oclIsKindOf(cinematic::CinematicRoot)/]">
-            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(cinematic::CinematicRoot).name->size() > 0 then 'Cinematic'.concat('::').concat(oclAsType(cinematic::CinematicRoot).name) else 'Cinematic' endif/]" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(cinematic::CinematicRoot)">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:if self.oclAsType(cinematic::CinematicRoot).name&lt;>null then 'Cinematic::' + self.oclAsType(cinematic::CinematicRoot).name else 'Cinematic' endif" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
@@ -43,7 +43,7 @@
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="entity.Root" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Root_'.concat(eContainer(overview::Root).ownedElements->filter(entity::Root)->size().toString())/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Root_' + self.eContainer(overview::Root).ownedElements->filter(entity::Root)->size()"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -51,8 +51,8 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.CinematicRoot" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Root_'.concat(eContainer(overview::Root).ownedElements->filter(cinematic::CinematicRoot)->size().toString())/]"/>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic::CinematicRoot" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Root_' + self.eContainer(overview::Root).ownedElements->filter(cinematic::CinematicRoot)->size()"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -61,7 +61,7 @@
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.System" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['System_'.concat(eContainer(overview::Root).ownedElements->filter(soa::System)->size().toString())/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Root_' + self.eContainer(overview::Root).ownedElements->filter(soa::System)->size()"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -72,17 +72,17 @@
               <elementView name="elementView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(soa::System)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(soa::System)">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
                       <diagramDescription href="../../org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(entity::Root)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(entity::Root)">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
                       <diagramDescription href="../../org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(cinematic::CinematicRoot)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(cinematic::CinematicRoot)">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
                       <diagramDescription href="../../org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']"/>
                     </subModelOperations>
