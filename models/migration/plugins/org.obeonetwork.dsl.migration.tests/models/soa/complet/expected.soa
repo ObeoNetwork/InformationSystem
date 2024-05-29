@@ -67,7 +67,7 @@
     </ownedNamespaces>
     <ownedNamespaces xmi:id="_DlM2gWBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:44.725+0100" modifiedOn="2014-10-30T15:36:03.278+0100" name="cat22"/>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_PLEi4GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:33:54.103+0100" modifiedOn="2014-10-30T15:34:38.072+0100" name="Cpt1">
+  <ownedComponents xmi:id="_PLEi4GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:33:54.103+0100" modifiedOn="2014-10-30T15:34:38.072+0100" name="Cpt1" apiVersion="0.0.1">
     <ownedServices xmi:id="_zGMGYGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:12.512+0100" modifiedOn="2014-11-03T14:51:47.382+0100" name="provided1">
       <ownedInterface xmi:id="_io_WEGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:47.382+0100" modifiedOn="2014-11-03T14:52:00.583+0100" name="Itf">
         <ownedOperations xmi:id="_kOIu8GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:54:12.092+0100" name="Ope1">
@@ -89,7 +89,7 @@
     <information xmi:id="_JxA9UeO6EeudZZy0f7SE1g"/>
     <contact xmi:id="_JxA9UuO6EeudZZy0f7SE1g"/>
   </ownedComponents>
-  <ownedComponents xmi:id="_yJPV8GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:00.503+0100" modifiedOn="2014-10-30T15:34:48.448+0100" name="Cpt2">
+  <ownedComponents xmi:id="_yJPV8GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:00.503+0100" modifiedOn="2014-10-30T15:34:48.448+0100" name="Cpt2" apiVersion="0.0.1">
     <ownedServices xmi:id="_5oOQAGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:53.518+0100" modifiedOn="2014-10-30T15:34:53.528+0100" name="provided21"/>
     <license xmi:id="_JxA9U-O6EeudZZy0f7SE1g"/>
     <information xmi:id="_JxA9VOO6EeudZZy0f7SE1g"/>
