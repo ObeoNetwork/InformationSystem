@@ -1,6 +1,6 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
-location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240422/community/latest/repository/" {
+location Obeo-Designer-Community-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240529/community/latest/repository/" {
 	com.google.guava lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	org.eclipse.acceleo.feature.group lazy
@@ -45,7 +45,7 @@ location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
 	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
 }
 
-location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240422/team/latest/repository/" {
+location Obeo-Designer-Team-11.9 "https://update.obeo.fr/stable/designer/11.9-S20240529/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
