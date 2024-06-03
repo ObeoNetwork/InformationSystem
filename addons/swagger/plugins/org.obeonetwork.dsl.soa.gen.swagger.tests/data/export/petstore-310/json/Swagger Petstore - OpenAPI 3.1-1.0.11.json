@@ -754,7 +754,6 @@
   "components" : {
     "schemas" : {
       "ApiResponse" : {
-        "type" : "object",
         "properties" : {
           "code" : {
             "type" : "integer",
@@ -769,7 +768,6 @@
         }
       },
       "Category" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -781,7 +779,6 @@
         }
       },
       "Order" : {
-        "type" : "object",
         "properties" : {
           "petId" : {
             "type" : "integer",
@@ -803,17 +800,16 @@
             "type" : "boolean"
           },
           "status" : {
-            "$ref" : "#/components/schemas/OrderStatus"
+            "$ref" : "#/components/schemas/OrderStatus",
+            "description" : "Order Status"
           }
         }
       },
       "OrderStatus" : {
-        "type" : "string",
         "description" : "Order Status",
         "enum" : [ "approved", "placed", "delivered" ]
       },
       "Pet" : {
-        "type" : "object",
         "properties" : {
           "photoUrls" : {
             "type" : "array",
@@ -830,7 +826,8 @@
             "format" : "int64"
           },
           "status" : {
-            "$ref" : "#/components/schemas/PetStatus"
+            "$ref" : "#/components/schemas/PetStatus",
+            "description" : "pet status in the store"
           },
           "category" : {
             "$ref" : "#/components/schemas/Category"
@@ -845,19 +842,14 @@
         "required" : [ "name", "photoUrls" ]
       },
       "PetStatus" : {
-        "type" : "string",
         "description" : "pet status in the store",
         "enum" : [ "sold", "pending", "available" ]
       },
       "Pet_FindPetsByStatusStatus" : {
-        "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
+      "Store_GetInventoryOutput200" : { },
       "Tag" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -869,7 +861,6 @@
         }
       },
       "User" : {
-        "type" : "object",
         "properties" : {
           "firstName" : {
             "type" : "string"
