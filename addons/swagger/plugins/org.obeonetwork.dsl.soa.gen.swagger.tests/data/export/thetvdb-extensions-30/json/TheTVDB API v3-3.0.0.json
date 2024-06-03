@@ -1838,7 +1838,6 @@
   "components" : {
     "schemas" : {
       "Auth" : {
-        "type" : "object",
         "properties" : {
           "apikey" : {
             "type" : "string"
@@ -1852,7 +1851,6 @@
         }
       },
       "Conflict" : {
-        "type" : "object",
         "properties" : {
           "Error" : {
             "type" : "string"
@@ -1860,7 +1858,6 @@
         }
       },
       "Episode" : {
-        "type" : "object",
         "properties" : {
           "thumbHeight" : {
             "type" : "string"
@@ -1981,7 +1978,6 @@
         }
       },
       "EpisodeDataQueryParams" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -1992,7 +1988,6 @@
         }
       },
       "EpisodeRecordData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "allOf" : [ {
@@ -2006,7 +2001,6 @@
         }
       },
       "FilterKeys" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2017,7 +2011,6 @@
         }
       },
       "InvalidQueryParams" : {
-        "type" : "object",
         "properties" : {
           "Error" : {
             "type" : "string"
@@ -2025,7 +2018,6 @@
         }
       },
       "JSONErrors" : {
-        "type" : "object",
         "properties" : {
           "invalidLanguage" : {
             "type" : "string"
@@ -2045,7 +2037,6 @@
         }
       },
       "Language" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -2063,7 +2054,6 @@
         }
       },
       "LanguageData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2074,7 +2064,6 @@
         }
       },
       "Links" : {
-        "type" : "object",
         "properties" : {
           "next" : {
             "type" : "integer",
@@ -2095,7 +2084,6 @@
         }
       },
       "Movie" : {
-        "type" : "object",
         "properties" : {
           "runtime" : {
             "type" : "integer",
@@ -2153,7 +2141,6 @@
         "x-DTOSurSchema" : "DTO-Schema"
       },
       "MovieArtwork" : {
-        "type" : "object",
         "properties" : {
           "thumb_url" : {
             "type" : "string"
@@ -2184,7 +2171,6 @@
         }
       },
       "MovieGenre" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -2199,7 +2185,6 @@
         }
       },
       "MoviePeople" : {
-        "type" : "object",
         "properties" : {
           "people_id" : {
             "type" : "string"
@@ -2237,7 +2222,6 @@
         }
       },
       "MoviePeople_1" : {
-        "type" : "object",
         "properties" : {
           "actors" : {
             "type" : "array",
@@ -2266,7 +2250,6 @@
         }
       },
       "MovieReleaseDate" : {
-        "type" : "object",
         "properties" : {
           "date" : {
             "type" : "string"
@@ -2280,7 +2263,6 @@
         }
       },
       "MovieRemoteId" : {
-        "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string"
@@ -2301,7 +2283,6 @@
         }
       },
       "MovieTrailer" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -2312,7 +2293,6 @@
         }
       },
       "MovieTranslation" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -2332,7 +2312,6 @@
         }
       },
       "NotAuthorized" : {
-        "type" : "object",
         "properties" : {
           "Error" : {
             "type" : "string"
@@ -2340,7 +2319,6 @@
         }
       },
       "NotFound" : {
-        "type" : "object",
         "properties" : {
           "Error" : {
             "type" : "string"
@@ -2348,7 +2326,6 @@
         }
       },
       "Series" : {
-        "type" : "object",
         "properties" : {
           "airsDayOfWeek" : {
             "type" : "string"
@@ -2429,7 +2406,6 @@
         }
       },
       "SeriesActors" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2443,7 +2419,6 @@
         }
       },
       "SeriesActorsData" : {
-        "type" : "object",
         "properties" : {
           "image" : {
             "type" : "string"
@@ -2479,7 +2454,6 @@
         }
       },
       "SeriesData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "$ref" : "#/components/schemas/Series"
@@ -2490,7 +2464,6 @@
         }
       },
       "SeriesEpisodes" : {
-        "type" : "object",
         "properties" : {
           "links" : {
             "$ref" : "#/components/schemas/Links"
@@ -2507,7 +2480,6 @@
         }
       },
       "SeriesEpisodesQuery" : {
-        "type" : "object",
         "properties" : {
           "links" : {
             "$ref" : "#/components/schemas/Links"
@@ -2524,7 +2496,6 @@
         }
       },
       "SeriesEpisodesQueryParams" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2535,7 +2506,6 @@
         }
       },
       "SeriesEpisodesSummary" : {
-        "type" : "object",
         "properties" : {
           "dvdEpisodes" : {
             "type" : "string"
@@ -2558,7 +2528,6 @@
         }
       },
       "SeriesImageQueryResult" : {
-        "type" : "object",
         "properties" : {
           "fileName" : {
             "type" : "string"
@@ -2589,7 +2558,6 @@
         }
       },
       "SeriesImageQueryResultRatingsInfo" : {
-        "type" : "object",
         "properties" : {
           "count" : {
             "type" : "integer",
@@ -2602,7 +2570,6 @@
         }
       },
       "SeriesImageQueryResults" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2616,7 +2583,6 @@
         }
       },
       "SeriesImagesCount" : {
-        "type" : "object",
         "properties" : {
           "fanart" : {
             "type" : "integer",
@@ -2641,7 +2607,6 @@
         }
       },
       "SeriesImagesCounts" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "$ref" : "#/components/schemas/SeriesImagesCount"
@@ -2649,7 +2614,6 @@
         }
       },
       "SeriesImagesQueryParam" : {
-        "type" : "object",
         "properties" : {
           "languageId" : {
             "type" : "string"
@@ -2672,7 +2636,6 @@
         }
       },
       "SeriesImagesQueryParams" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2683,7 +2646,6 @@
         }
       },
       "SeriesSearchResult" : {
-        "type" : "object",
         "properties" : {
           "image" : {
             "type" : "string"
@@ -2725,7 +2687,6 @@
         }
       },
       "SeriesSearchResults" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2736,7 +2697,6 @@
         }
       },
       "Token" : {
-        "type" : "object",
         "properties" : {
           "token" : {
             "type" : "string"
@@ -2744,7 +2704,6 @@
         }
       },
       "Update" : {
-        "type" : "object",
         "properties" : {
           "lastUpdated" : {
             "type" : "integer",
@@ -2757,7 +2716,6 @@
         }
       },
       "UpdateData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2771,7 +2729,6 @@
         }
       },
       "UpdateDataQueryParams" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2782,7 +2739,6 @@
         }
       },
       "UpdatedMovies" : {
-        "type" : "object",
         "properties" : {
           "movies" : {
             "type" : "array",
@@ -2794,7 +2750,6 @@
         }
       },
       "User" : {
-        "type" : "object",
         "properties" : {
           "language" : {
             "type" : "string"
@@ -2808,7 +2763,6 @@
         }
       },
       "UserData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "$ref" : "#/components/schemas/User"
@@ -2816,7 +2770,6 @@
         }
       },
       "UserFavorites" : {
-        "type" : "object",
         "properties" : {
           "favorites" : {
             "type" : "array",
@@ -2827,7 +2780,6 @@
         }
       },
       "UserFavoritesData" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "$ref" : "#/components/schemas/UserFavorites"
@@ -2838,7 +2790,6 @@
         }
       },
       "UserRatings" : {
-        "type" : "object",
         "properties" : {
           "rating" : {
             "type" : "integer",
@@ -2854,7 +2805,6 @@
         }
       },
       "UserRatingsData" : {
-        "type" : "object",
         "properties" : {
           "links" : {
             "$ref" : "#/components/schemas/Links"
@@ -2871,7 +2821,6 @@
         }
       },
       "UserRatingsDataNoLinks" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2882,7 +2831,6 @@
         }
       },
       "UserRatingsDataNoLinksEmptyArray" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
@@ -2892,11 +2840,8 @@
           }
         }
       },
-      "UserRatingsDataNoLinksEmptyArrayData" : {
-        "type" : "object"
-      },
+      "UserRatingsDataNoLinksEmptyArrayData" : { },
       "UserRatingsQueryParams" : {
-        "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
