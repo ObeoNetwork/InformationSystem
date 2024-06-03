@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Docker Common
 Bundle-SymbolicName: org.obeonetwork.docker.common
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Automatic-Module-Name: org.obeonetwork.docker.common
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ClassPath: lib/aopalliance-repackaged-2.5.0-b42.jar,

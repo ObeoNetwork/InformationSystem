@@ -13,10 +13,10 @@
 <feature
       id="org.obeonetwork.database.ui.feature"
       label="Obeo Network - Database"
-      version="5.0.0.qualifier"
+      version="5.1.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="5.0.0.qualifier">
+      license-feature-version="5.1.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeo Network - Database integration.
