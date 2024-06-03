@@ -174,7 +174,7 @@
           </output>
           <output xmi:id="_EKMYPGwOEe6_LoKeX5wKMw" technicalid="_EKLxSmwOEe6_LoKeX5wKMw" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYPWwOEe6_LoKeX5wKMw" technicalid="_EKLxS2wOEe6_LoKeX5wKMw" description="" name="loginUser" public="true" URI="/login" exposition="REST">
+        <ownedOperations xmi:id="_EKMYPWwOEe6_LoKeX5wKMw" technicalid="_EKLxS2wOEe6_LoKeX5wKMw" name="loginUser" public="true" URI="/login" exposition="REST">
           <input xmi:id="_EKMYPmwOEe6_LoKeX5wKMw" technicalid="_EKLxTGwOEe6_LoKeX5wKMw" description="The user name for login" name="username" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_EKMYP2wOEe6_LoKeX5wKMw" technicalid="_EKLxTWwOEe6_LoKeX5wKMw" passingMode="QUERY" restId="username"/>
@@ -190,10 +190,10 @@
           </output>
           <fault xmi:id="_EKMYRWwOEe6_LoKeX5wKMw" technicalid="_EKLxU2wOEe6_LoKeX5wKMw" description="Invalid username/password supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYRmwOEe6_LoKeX5wKMw" technicalid="_EKLxVGwOEe6_LoKeX5wKMw" description="" name="logoutUser" public="true" URI="/logout" exposition="REST">
+        <ownedOperations xmi:id="_EKMYRmwOEe6_LoKeX5wKMw" technicalid="_EKLxVGwOEe6_LoKeX5wKMw" name="logoutUser" public="true" URI="/logout" exposition="REST">
           <output xmi:id="_EKMYR2wOEe6_LoKeX5wKMw" technicalid="_EKLxVWwOEe6_LoKeX5wKMw" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYSGwOEe6_LoKeX5wKMw" technicalid="_EKLxVmwOEe6_LoKeX5wKMw" description="" name="getUserByName" public="true" URI="/{username}" exposition="REST">
+        <ownedOperations xmi:id="_EKMYSGwOEe6_LoKeX5wKMw" technicalid="_EKLxVmwOEe6_LoKeX5wKMw" name="getUserByName" public="true" URI="/{username}" exposition="REST">
           <input xmi:id="_EKMYSWwOEe6_LoKeX5wKMw" technicalid="_EKLxV2wOEe6_LoKeX5wKMw" description="The name that needs to be fetched. Use user1 for testing. " name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_EKMYSmwOEe6_LoKeX5wKMw" technicalid="_EKLxWGwOEe6_LoKeX5wKMw" passingMode="PATH" restId="username"/>
@@ -365,7 +365,7 @@
           <fault xmi:id="_EKMYvGwOEe6_LoKeX5wKMw" technicalid="_EKLKA2wOEe6_LoKeX5wKMw" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
           <fault xmi:id="_EKMYvWwOEe6_LoKeX5wKMw" technicalid="_EKLKBGwOEe6_LoKeX5wKMw" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYvmwOEe6_LoKeX5wKMw" technicalid="_EKLKB2wOEe6_LoKeX5wKMw" description="" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_EKMYvmwOEe6_LoKeX5wKMw" technicalid="_EKLKB2wOEe6_LoKeX5wKMw" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
           <securityApplications xmi:id="_EKMYv2wOEe6_LoKeX5wKMw" technicalid="_EKLxAGwOEe6_LoKeX5wKMw" securityScheme="_EKMY2WwOEe6_LoKeX5wKMw" scopes="_EKMY22wOEe6_LoKeX5wKMw _EKMY3GwOEe6_LoKeX5wKMw"/>
           <input xmi:id="_EKMYwGwOEe6_LoKeX5wKMw" technicalid="_EKLKCGwOEe6_LoKeX5wKMw" description="ID of pet that needs to be updated" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
@@ -381,9 +381,9 @@
           </input>
           <fault xmi:id="_EKMYxmwOEe6_LoKeX5wKMw" technicalid="_EKLKDmwOEe6_LoKeX5wKMw" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYx2wOEe6_LoKeX5wKMw" technicalid="_EKLxAWwOEe6_LoKeX5wKMw" description="" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST">
+        <ownedOperations xmi:id="_EKMYx2wOEe6_LoKeX5wKMw" technicalid="_EKLxAWwOEe6_LoKeX5wKMw" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST">
           <securityApplications xmi:id="_EKMYyGwOEe6_LoKeX5wKMw" technicalid="_EKLxB2wOEe6_LoKeX5wKMw" securityScheme="_EKMY2WwOEe6_LoKeX5wKMw" scopes="_EKMY22wOEe6_LoKeX5wKMw _EKMY3GwOEe6_LoKeX5wKMw"/>
-          <input xmi:id="_EKMYyWwOEe6_LoKeX5wKMw" technicalid="_EKLxAmwOEe6_LoKeX5wKMw" description="" name="api_key" multiplicity="0..1">
+          <input xmi:id="_EKMYyWwOEe6_LoKeX5wKMw" technicalid="_EKLxAmwOEe6_LoKeX5wKMw" name="api_key" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_EKMYymwOEe6_LoKeX5wKMw" technicalid="_EKLxA2wOEe6_LoKeX5wKMw" passingMode="HEADER" restId="api_key"/>
           </input>
@@ -393,7 +393,7 @@
           </input>
           <fault xmi:id="_EKMYzWwOEe6_LoKeX5wKMw" technicalid="_EKLxBmwOEe6_LoKeX5wKMw" description="Invalid pet value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_EKMYzmwOEe6_LoKeX5wKMw" technicalid="_EKLxCGwOEe6_LoKeX5wKMw" description="" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_EKMYzmwOEe6_LoKeX5wKMw" technicalid="_EKLxCGwOEe6_LoKeX5wKMw" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
           <securityApplications xmi:id="_EKMYz2wOEe6_LoKeX5wKMw" technicalid="_EKLxEmwOEe6_LoKeX5wKMw" securityScheme="_EKMY2WwOEe6_LoKeX5wKMw" scopes="_EKMY22wOEe6_LoKeX5wKMw _EKMY3GwOEe6_LoKeX5wKMw"/>
           <input xmi:id="_EKMY0GwOEe6_LoKeX5wKMw" technicalid="_EKLxCWwOEe6_LoKeX5wKMw" description="ID of pet to update" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
