@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Acceleo Cinematic to Html Module IDE
 Bundle-SymbolicName: org.obeonetwork.cinematic.gen.html.ui;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Activator: org.obeonetwork.cinematic.gen.html.ui.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.ui,
