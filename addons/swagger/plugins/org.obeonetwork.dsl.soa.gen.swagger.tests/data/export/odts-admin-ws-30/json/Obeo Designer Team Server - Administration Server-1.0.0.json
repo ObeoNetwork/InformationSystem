@@ -472,15 +472,12 @@
   "components" : {
     "schemas" : {
       "AuthenticationType" : {
-        "type" : "string",
         "enum" : [ "", "LDAP_FILE", "LDAP", "USERPROFILE", "LDAP_USERPROFILE", "FILE" ]
       },
       "DatasourceType" : {
-        "type" : "string",
         "enum" : [ "H2_EMBEDDED", "H2_SERVER" ]
       },
       "NewRepository" : {
-        "type" : "object",
         "properties" : {
           "authenticationData" : {
             "type" : "string"
@@ -501,7 +498,6 @@
         "required" : [ "authenticationType", "datasourceType" ]
       },
       "NewUser" : {
-        "type" : "object",
         "properties" : {
           "password" : {
             "type" : "string"
@@ -522,7 +518,6 @@
         "required" : [ "id", "isAdmin" ]
       },
       "Output200" : {
-        "type" : "object",
         "properties" : {
           "repositoryName" : {
             "type" : "string"
@@ -536,7 +531,6 @@
         }
       },
       "Projects_CreateSharedProjectBody" : {
-        "type" : "object",
         "properties" : {
           "projectName" : {
             "type" : "string"
@@ -548,7 +542,6 @@
         "required" : [ "projectName", "repositoryName" ]
       },
       "Projects_CreateSharedProjectOutput201" : {
-        "type" : "object",
         "properties" : {
           "projectName" : {
             "type" : "string"
@@ -562,7 +555,6 @@
         }
       },
       "Repositories_ExportRepositoryBody" : {
-        "type" : "object",
         "properties" : {
           "password" : {
             "type" : "string"
@@ -574,7 +566,6 @@
         "required" : [ "needsEncryption" ]
       },
       "Repositories_GetRepositoriesOutput200" : {
-        "type" : "object",
         "properties" : {
           "message" : {
             "type" : "string"
@@ -591,7 +582,6 @@
         }
       },
       "Repositories_ImportRepositoryBody" : {
-        "type" : "object",
         "properties" : {
           "upFile" : {
             "type" : "string",
@@ -600,7 +590,6 @@
         }
       },
       "Repositories_Output201Output200" : {
-        "type" : "object",
         "properties" : {
           "message" : {
             "type" : "string"
@@ -614,7 +603,6 @@
         }
       },
       "Repositories_StopRepositoryOutput200" : {
-        "type" : "object",
         "properties" : {
           "message" : {
             "type" : "string"
@@ -628,7 +616,6 @@
         }
       },
       "Repository" : {
-        "type" : "object",
         "properties" : {
           "datasourceType" : {
             "$ref" : "#/components/schemas/DatasourceType"
@@ -648,7 +635,6 @@
         }
       },
       "SimpleRepository" : {
-        "type" : "object",
         "properties" : {
           "repositorName" : {
             "type" : "string"
@@ -662,15 +648,12 @@
         }
       },
       "Status" : {
-        "type" : "string",
         "enum" : [ "ONLINE", "OFFLINE" ]
       },
       "Type" : {
-        "type" : "string",
         "enum" : [ "STATIC", "DYNAMIC" ]
       },
       "User" : {
-        "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string"
@@ -687,7 +670,6 @@
         }
       },
       "Users_ListUsersOutput200" : {
-        "type" : "object",
         "properties" : {
           "repositoryName" : {
             "type" : "string"
@@ -707,7 +689,6 @@
         }
       },
       "Users_Output200" : {
-        "type" : "object",
         "properties" : {
           "repositoryName" : {
             "type" : "string"

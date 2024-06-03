@@ -10,47 +10,37 @@ info:
 
     **Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.
   termsOfService: /tos
-  contact:
-    name: Obeo
-    url: https://contact.obeosoft.com/
-    email: contact@obeosoft.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact: {name: Obeo, url: 'https://contact.obeosoft.com/', email: contact@obeosoft.com}
+  license: {name: Apache 2.0, url: 'http://www.apache.org/licenses/LICENSE-2.0.html'}
   version: 1.0.0
 tags:
-- name: Repositories
-  description: "null"
-- name: Projects
-  description: "null"
-- name: Users
-  description: "null"
+- {name: Repositories, description: 'null'}
+- {name: Projects, description: 'null'}
+- {name: Users, description: 'null'}
 paths:
   /repositories:
     get:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Retrieve all repositories on the current server.
       operationId: getRepositories
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/xml:
-              schema:
-                $ref: '#/components/schemas/Repositories_GetRepositoriesOutput200'
+              schema: {$ref: '#/components/schemas/Repositories_GetRepositoriesOutput200'}
               examples:
                 name:
                   summary: summary
                   description: description
-                  value:
-                    attribute: value
-        "404":
-          description: Not Found
+                  value: {attribute: value}
+        '404': {description: Not Found}
     post:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         This request will allow you to creates a repository.
         The body of the request take a JSON object with the following parameters: *repositoryName*, *authenticationType* and *datasourceType* which are mandatory and also *authenticationData* and *datasourceData* which are optional.
@@ -80,26 +70,30 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/NewRepository'
+            schema: {$ref: '#/components/schemas/NewRepository'}
       responses:
-        "201":
-          description: "Created\n\nRepository response"
+        '201':
+          description: |-
+            Created
+
+            Repository response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Repositories_Output201Output200'
-        "400":
-          description: "Bad Request\n\nBad Request\n\nSome parameters depend on\
-            \ the repository type (authentication and database), their validation\
-            \ is done by the corresponding extensions. \n"
-        "500":
-          description: "Internal Server Error\n\nInternal error\n\nSomething unexpected\
-            \ occurred during the repository creation.\n"
+              schema: {$ref: '#/components/schemas/Repositories_Output201Output200'}
+        '400':
+          description: "Bad Request\n\nBad Request\n\nSome parameters depend on the\
+            \ repository type (authentication and database), their validation is done\
+            \ by the corresponding extensions. \n"
+        '500':
+          description: |
+            Internal Server Error
+
+            Internal error
+
+            Something unexpected occurred during the repository creation.
   /repositories/{repositoryId}:
     delete:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Delete a repository that was created using the *create repository* web service.
 
@@ -112,32 +106,32 @@ paths:
         in: path
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       - name: deleteDatabase
         in: query
         description: Parameter to indicate if the databse must be deleted or kep.
           true by default. No effect for the moment
         required: false
-        schema:
-          type: boolean
+        schema: {type: boolean}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Output200'
-        "204":
-          description: No Content
-        "404":
-          description: Not Found
-        "500":
-          description: "Internal Server Error\n\nServer error for static repository"
+              schema: {$ref: '#/components/schemas/Output200'}
+        '204': {description: No Content}
+        '404': {description: Not Found}
+        '500':
+          description: |-
+            Internal Server Error
+
+            Server error for static repository
   /repositories/start/{repositoryId}:
     get:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Start a repository that was created using the web service to create a repository.
 
@@ -150,23 +144,25 @@ paths:
         in: path
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Repositories_Output201Output200'
-        "400":
-          description: "Bad Request\n\nKo"
-        "404":
-          description: Not Found
+              schema: {$ref: '#/components/schemas/Repositories_Output201Output200'}
+        '400':
+          description: |-
+            Bad Request
+
+            Ko
+        '404': {description: Not Found}
   /repositories/stop/{repositoryId}:
     get:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Stop a repository that was created using the web service to create a repository.
 
@@ -179,25 +175,30 @@ paths:
         in: path
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Repositories_StopRepositoryOutput200'
-        "400":
-          description: "Bad Request\n\nNot Found"
-        "404":
-          description: Not Found
-        "500":
-          description: "Internal Server Error\n\nServer error for static repository"
+              schema: {$ref: '#/components/schemas/Repositories_StopRepositoryOutput200'}
+        '400':
+          description: |-
+            Bad Request
+
+            Not Found
+        '404': {description: Not Found}
+        '500':
+          description: |-
+            Internal Server Error
+
+            Server error for static repository
   /repositories/export/{repositoryId}:
     post:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Export the database of the repository into an xml file.
 
@@ -212,24 +213,26 @@ paths:
         in: path
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Repositories_ExportRepositoryBody'
+            schema: {$ref: '#/components/schemas/Repositories_ExportRepositoryBody'}
       responses:
-        "202":
-          description: "Accepted\n\nOk"
-        "400":
-          description: "Bad Request\n\nBad request"
-        "404":
-          description: Not Found
+        '202':
+          description: |-
+            Accepted
+
+            Ok
+        '400':
+          description: |-
+            Bad Request
+
+            Bad request
+        '404': {description: Not Found}
   /repositories/import/{repositoryId}:
     post:
-      tags:
-      - Repositories
+      tags: [Repositories]
       description: |
         Restore a repository from the uploaded xml file.
 
@@ -247,24 +250,22 @@ paths:
         in: path
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Repositories_ImportRepositoryBody'
+            schema: {$ref: '#/components/schemas/Repositories_ImportRepositoryBody'}
       responses:
-        "202":
-          description: "Accepted\n\nRequest accepted"
-        "400":
-          description: Bad Request
-        "404":
-          description: Not Found
+        '202':
+          description: |-
+            Accepted
+
+            Request accepted
+        '400': {description: Bad Request}
+        '404': {description: Not Found}
   /projects:
     post:
-      tags:
-      - Projects
+      tags: [Projects]
       description: |
         Create an empty shared modeling project.
 
@@ -276,21 +277,20 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Projects_CreateSharedProjectBody'
+            schema: {$ref: '#/components/schemas/Projects_CreateSharedProjectBody'}
       responses:
-        "201":
-          description: "Created\n\nOk"
+        '201':
+          description: |-
+            Created
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Projects_CreateSharedProjectOutput201'
-        "404":
-          description: Not Found
+              schema: {$ref: '#/components/schemas/Projects_CreateSharedProjectOutput201'}
+        '404': {description: Not Found}
   /users:
     get:
-      tags:
-      - Users
+      tags: [Users]
       description: |
         List all users the given repository.
       operationId: listUsers
@@ -299,20 +299,23 @@ paths:
         in: query
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Users_ListUsersOutput200'
-        "400":
-          description: "Bad Request\n\nNot Found"
+              schema: {$ref: '#/components/schemas/Users_ListUsersOutput200'}
+        '400':
+          description: |-
+            Bad Request
+
+            Not Found
     post:
-      tags:
-      - Users
+      tags: [Users]
       description: |
         Create a user in the repository.
 
@@ -328,26 +331,24 @@ paths:
         in: query
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/NewUser'
+            schema: {$ref: '#/components/schemas/NewUser'}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Users_Output200'
-        "400":
-          description: Bad Request
+              schema: {$ref: '#/components/schemas/Users_Output200'}
+        '400': {description: Bad Request}
   /users/{userName}:
     put:
-      tags:
-      - Users
+      tags: [Users]
       description: |
         Update user data.
 
@@ -360,33 +361,29 @@ paths:
         in: path
         description: id of a user
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       - name: repositoryName
         in: query
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/NewUser'
+            schema: {$ref: '#/components/schemas/NewUser'}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Users_Output200'
-        "400":
-          description: Bad Request
-        "404":
-          description: Not Found
+              schema: {$ref: '#/components/schemas/Users_Output200'}
+        '400': {description: Bad Request}
+        '404': {description: Not Found}
     delete:
-      tags:
-      - Users
+      tags: [Users]
       description: |
         Deletes the user from the repository.
       operationId: delteUser
@@ -395,217 +392,125 @@ paths:
         in: path
         description: id of a user
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       - name: repositoryName
         in: query
         description: id of a repository
         required: true
-        schema:
-          type: string
+        schema: {type: string}
       responses:
-        "200":
-          description: "OK\n\nOk"
+        '200':
+          description: |-
+            OK
+
+            Ok
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Output200'
-        "404":
-          description: Not Found
-        "400":
-          description: Bad Request
+              schema: {$ref: '#/components/schemas/Output200'}
+        '404': {description: Not Found}
+        '400': {description: Bad Request}
 components:
   schemas:
     AuthenticationType:
-      type: string
-      enum:
-      - ""
-      - LDAP_FILE
-      - LDAP
-      - USERPROFILE
-      - LDAP_USERPROFILE
-      - FILE
+      enum: ['', LDAP_FILE, LDAP, USERPROFILE, LDAP_USERPROFILE, FILE]
     DatasourceType:
-      type: string
-      enum:
-      - H2_EMBEDDED
-      - H2_SERVER
+      enum: [H2_EMBEDDED, H2_SERVER]
     NewRepository:
-      type: object
       properties:
-        authenticationData:
-          type: string
-        datasourceType:
-          $ref: '#/components/schemas/DatasourceType'
-        authenticationType:
-          $ref: '#/components/schemas/AuthenticationType'
-        repositorName:
-          type: string
-        datasourceData:
-          type: string
-      required:
-      - authenticationType
-      - datasourceType
+        authenticationData: {type: string}
+        datasourceType: {$ref: '#/components/schemas/DatasourceType'}
+        authenticationType: {$ref: '#/components/schemas/AuthenticationType'}
+        repositorName: {type: string}
+        datasourceData: {type: string}
+      required: [authenticationType, datasourceType]
     NewUser:
-      type: object
       properties:
-        password:
-          type: string
-        id:
-          type: string
-        isAdmin:
-          type: boolean
+        password: {type: string}
+        id: {type: string}
+        isAdmin: {type: boolean}
         permissions:
           type: array
-          items:
-            type: string
-      required:
-      - id
-      - isAdmin
+          items: {type: string}
+      required: [id, isAdmin]
     Output200:
-      type: object
       properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
+        repositoryName: {type: string}
+        message: {type: string}
+        status: {type: string}
     Projects_CreateSharedProjectBody:
-      type: object
       properties:
-        projectName:
-          type: string
-        repositoryName:
-          type: string
-      required:
-      - projectName
-      - repositoryName
+        projectName: {type: string}
+        repositoryName: {type: string}
+      required: [projectName, repositoryName]
     Projects_CreateSharedProjectOutput201:
-      type: object
       properties:
-        projectName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
+        projectName: {type: string}
+        message: {type: string}
+        status: {type: string}
     Repositories_ExportRepositoryBody:
-      type: object
       properties:
-        password:
-          type: string
-        needsEncryption:
-          type: boolean
-      required:
-      - needsEncryption
+        password: {type: string}
+        needsEncryption: {type: boolean}
+      required: [needsEncryption]
     Repositories_GetRepositoriesOutput200:
-      type: object
       properties:
-        message:
-          type: string
-        status:
-          type: string
+        message: {type: string}
+        status: {type: string}
         repositories:
           type: array
-          items:
-            $ref: '#/components/schemas/Repository'
+          items: {$ref: '#/components/schemas/Repository'}
     Repositories_ImportRepositoryBody:
-      type: object
       properties:
-        upFile:
-          type: string
-          format: binary
+        upFile: {type: string, format: binary}
     Repositories_Output201Output200:
-      type: object
       properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/Repository'
+        message: {type: string}
+        status: {type: string}
+        repository: {$ref: '#/components/schemas/Repository'}
     Repositories_StopRepositoryOutput200:
-      type: object
       properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/SimpleRepository'
+        message: {type: string}
+        status: {type: string}
+        repository: {$ref: '#/components/schemas/SimpleRepository'}
     Repository:
-      type: object
       properties:
-        datasourceType:
-          $ref: '#/components/schemas/DatasourceType'
-        authenticationType:
-          $ref: '#/components/schemas/AuthenticationType'
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
+        datasourceType: {$ref: '#/components/schemas/DatasourceType'}
+        authenticationType: {$ref: '#/components/schemas/AuthenticationType'}
+        repositorName: {type: string}
+        type: {$ref: '#/components/schemas/Type'}
+        status: {$ref: '#/components/schemas/Status'}
     SimpleRepository:
-      type: object
       properties:
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
+        repositorName: {type: string}
+        type: {$ref: '#/components/schemas/Type'}
+        status: {$ref: '#/components/schemas/Status'}
     Status:
-      type: string
-      enum:
-      - ONLINE
-      - OFFLINE
+      enum: [ONLINE, OFFLINE]
     Type:
-      type: string
-      enum:
-      - STATIC
-      - DYNAMIC
+      enum: [STATIC, DYNAMIC]
     User:
-      type: object
       properties:
-        id:
-          type: string
-        isAdmin:
-          type: boolean
+        id: {type: string}
+        isAdmin: {type: boolean}
         permissions:
           type: array
-          items:
-            type: string
+          items: {type: string}
     Users_ListUsersOutput200:
-      type: object
       properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
+        repositoryName: {type: string}
+        message: {type: string}
+        status: {type: string}
         users:
           type: array
-          items:
-            $ref: '#/components/schemas/User'
+          items: {$ref: '#/components/schemas/User'}
     Users_Output200:
-      type: object
       properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
+        repositoryName: {type: string}
+        message: {type: string}
         projectNames:
           type: array
-          items:
-            type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
+          items: {type: string}
+        status: {type: string}
+        user: {$ref: '#/components/schemas/User'}
   securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
+    basicAuth: {type: http, scheme: basic}

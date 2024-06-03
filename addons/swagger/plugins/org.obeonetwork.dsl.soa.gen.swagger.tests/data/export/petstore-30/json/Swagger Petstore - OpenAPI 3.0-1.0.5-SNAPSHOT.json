@@ -772,7 +772,6 @@
   "components" : {
     "schemas" : {
       "ApiResponse" : {
-        "type" : "object",
         "properties" : {
           "code" : {
             "type" : "integer",
@@ -787,7 +786,6 @@
         }
       },
       "Category" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -800,7 +798,6 @@
         "x-swagger-router-model" : "io.swagger.petstore.model.Category"
       },
       "Order" : {
-        "type" : "object",
         "properties" : {
           "petId" : {
             "type" : "integer",
@@ -822,18 +819,17 @@
             "type" : "boolean"
           },
           "status" : {
-            "$ref" : "#/components/schemas/OrderStatus"
+            "$ref" : "#/components/schemas/OrderStatus",
+            "description" : "Order Status"
           }
         },
         "x-swagger-router-model" : "io.swagger.petstore.model.Order"
       },
       "OrderStatus" : {
-        "type" : "string",
         "description" : "Order Status",
         "enum" : [ "approved", "placed", "delivered" ]
       },
       "Pet" : {
-        "type" : "object",
         "properties" : {
           "photoUrls" : {
             "type" : "array",
@@ -850,7 +846,8 @@
             "format" : "int64"
           },
           "status" : {
-            "$ref" : "#/components/schemas/PetStatus"
+            "$ref" : "#/components/schemas/PetStatus",
+            "description" : "pet status in the store"
           },
           "category" : {
             "$ref" : "#/components/schemas/Category"
@@ -866,19 +863,14 @@
         "x-swagger-router-model" : "io.swagger.petstore.model.Pet"
       },
       "PetStatus" : {
-        "type" : "string",
         "description" : "pet status in the store",
         "enum" : [ "sold", "pending", "available" ]
       },
       "Pet_FindPetsByStatusStatus" : {
-        "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
+      "Store_GetInventoryOutput200" : { },
       "Tag" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -891,7 +883,6 @@
         "x-swagger-router-model" : "io.swagger.petstore.model.Tag"
       },
       "User" : {
-        "type" : "object",
         "properties" : {
           "firstName" : {
             "type" : "string"

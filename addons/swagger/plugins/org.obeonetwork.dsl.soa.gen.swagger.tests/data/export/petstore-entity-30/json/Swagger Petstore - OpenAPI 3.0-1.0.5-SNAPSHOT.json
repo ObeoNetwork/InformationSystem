@@ -664,7 +664,6 @@
   "components" : {
     "schemas" : {
       "ApiResponse" : {
-        "type" : "object",
         "properties" : {
           "code" : {
             "type" : "integer",
@@ -679,7 +678,6 @@
         }
       },
       "Category" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -691,7 +689,6 @@
         }
       },
       "Order" : {
-        "type" : "object",
         "properties" : {
           "petId" : {
             "type" : "integer",
@@ -718,11 +715,9 @@
         }
       },
       "OrderStatus" : {
-        "type" : "string",
         "enum" : [ "approved", "placed", "delivered" ]
       },
       "Pet" : {
-        "type" : "object",
         "properties" : {
           "photoUrls" : {
             "type" : "array",
@@ -754,14 +749,10 @@
         "required" : [ "name", "photoUrls" ]
       },
       "PetStatus" : {
-        "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
+      "Store_GetInventoryOutput200" : { },
       "Tag" : {
-        "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string"
@@ -773,7 +764,6 @@
         }
       },
       "User" : {
-        "type" : "object",
         "properties" : {
           "firstName" : {
             "type" : "string"
