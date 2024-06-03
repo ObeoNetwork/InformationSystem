@@ -198,7 +198,7 @@ public class SwaggerBuilder {
 	private Tag createTag(Service soaService) {
 		Tag tag = new Tag();
 		tag.setName(soaService.getName());
-		if (soaService.getDescription() != null) {
+		if (!StringUtils.isNullOrWhite(soaService.getDescription())) {
 			tag.setDescription(soaService.getDescription());
 		}
 
@@ -215,7 +215,7 @@ public class SwaggerBuilder {
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
 
-		if (soaSecurityScheme.getDescription() != null) {
+		if (!StringUtils.isNullOrWhite(soaSecurityScheme.getDescription())) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
 		}
 
@@ -347,7 +347,7 @@ public class SwaggerBuilder {
 		Info info = new Info();
 		info.setTitle(ComponentGenUtil.getName(soaComponent));
 
-		if (soaComponent.getDescription() != null) {
+		if (!StringUtils.isNullOrWhite(soaComponent.getDescription())) {
 			info.setDescription(soaComponent.getDescription());
 		}
 
@@ -429,7 +429,9 @@ public class SwaggerBuilder {
 		soaComponent.getServers().stream().forEach(soaServer -> {
 			Server server = new Server();
 			server.setUrl(soaServer.getURL().trim());
-			server.setDescription(soaServer.getDescription());
+			if(!StringUtils.isNullOrWhite(soaServer.getDescription())) {
+				server.setDescription(soaServer.getDescription());
+			}
 
 			servers.add(server);
 
@@ -609,7 +611,7 @@ public class SwaggerBuilder {
 			schema = createSoaStructuredTypeSchema((StructuredType) soaType);
 		}
 
-		if (soaType.getDescription() != null) {
+		if (!StringUtils.isNullOrWhite(soaType.getDescription())) {
 			schema.setDescription(soaType.getDescription());
 		}
 
@@ -817,7 +819,9 @@ public class SwaggerBuilder {
 		soaOperation.getServers().stream().forEach(soaServer -> {
 			Server server = new Server();
 			server.setUrl(soaServer.getURL());
-			server.setDescription(soaServer.getDescription());
+			if(!StringUtils.isNullOrWhite(soaServer.getDescription())) {
+				server.setDescription(soaServer.getDescription());
+			}
 			addPropertiesExtensionsFromSoaToSwg(soaServer, server);
 			pathItem.addServersItem(server);
 		});
@@ -910,7 +914,10 @@ public class SwaggerBuilder {
 
 	private ApiResponse createApiResponse(org.obeonetwork.dsl.soa.Parameter soaOutputParameter) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setDescription(getDescription(soaOutputParameter));
+		String description = getDescription(soaOutputParameter);
+		if(!StringUtils.isNullOrWhite(description)) {
+			apiResponse.setDescription(description);
+		}
 		org.obeonetwork.dsl.soa.Operation soaOperation = ParameterGenUtil.getOperation(soaOutputParameter);
 
 		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).contains(soaOutputParameter)) {
@@ -994,7 +1001,10 @@ public class SwaggerBuilder {
 				ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
 		swgParameter.setSchema(createParameterSchema(soaParameter));
 
-		swgParameter.setDescription(getDescription(soaParameter));
+		String description = getDescription(soaParameter);
+		if(!StringUtils.isNullOrWhite(description)) {
+			swgParameter.setDescription(description);
+		}
 
 		addPropertiesExtensionsFromSoaToSwg(soaParameter, swgParameter);
 
@@ -1094,7 +1104,9 @@ public class SwaggerBuilder {
 
 	private Example createExamples(org.obeonetwork.dsl.soa.Example soaExample) {
 		Example example = new Example();
-		example.setDescription(soaExample.getDescription());
+		if(!StringUtils.isNullOrWhite(soaExample.getDescription())) {
+			example.setDescription(soaExample.getDescription());
+		}
 		example.setSummary(soaExample.getSummary());
 		example.setValue(ExampleGenUtil.getExampleObjectFromValue(soaExample.getValue()));
 
