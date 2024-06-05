@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Repository Target Definition" sequenceNumber="1721379261">
+<target name="IS Designer Repository Target Definition" sequenceNumber="1717590567">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="0.0.0"/>
@@ -12,6 +12,9 @@
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
+      <repository id="Obeo-Designer-Community-11.9" location="http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
@@ -32,24 +35,23 @@
       <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community-11.9" location="https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/"/>
+      <repository id="Sirius-AQL8" location="http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.26.0.v20230320-1407"/>
-      <unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.ide_feature.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.monitor.feature.group" version="3.26.0.v20221229-1738"/>
-      <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="3.26.0.v20221223-1911"/>
-      <unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.26.0.v20221229-1738"/>
       <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
+      <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.monitor.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.ide_feature.feature.group" version="3.26.0.v20221229-1738"/>
+      <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="3.26.0.v20221223-1911"/>
+      <unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.26.0.v20230320-1407"/>
       <repository id="Mylyn-3.26" location="https://download.eclipse.org/mylyn/releases/3.26/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Team-11.9" location="https://update.obeo.fr/release/designer/11.9/team/11.9.0/repository/"/>
+      <repository id="Obeo-Designer-Team-11.9" location="http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
@@ -57,16 +59,12 @@
       <unit id="org.eclipse.amalgam.explorer.contextual.core.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
-      <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/"/>
+      <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.junit" version="0.0.0"/>
       <unit id="org.slf4j.api" version="0.0.0"/>
       <repository id="Orbit-2023-03" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.mockito" version="0.0.0"/>
-      <repository id="Orbit-2021-06" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
@@ -81,7 +79,7 @@
       <unit id="org.apache.poi.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.cdo.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
-      <repository id="M2Doc-Nightly" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/"/>
+      <repository id="M2Doc-AQL8" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/"/>
     </location>
   </locations>
 </target>
