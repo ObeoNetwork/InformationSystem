@@ -37,6 +37,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
@@ -166,6 +167,17 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public void postLoadAlways(XMLResource resource, InputStream inputStream, Map<?, ?> options) {
+		// An OpenIDConnect security scheme must not have flows. Since ISD 5.1.0
+		resource.getContents().stream()
+		.filter(System.class::isInstance).map(System.class::cast)
+		.flatMap(s -> s.getOwnedComponents().stream())
+		.flatMap(c -> c.getSecuritySchemes().stream())
+		.filter(sc -> sc.getType() == SecuritySchemeType.OPEN_ID_CONNECT)
+		.forEach(oid -> oid.getFlows().clear());
 	}
 	
 	private void removeDtoRegistry(Namespace dtoRegistry) {
