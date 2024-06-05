@@ -143,7 +143,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
-      <feature id="org.eclipse.acceleo.query"/>
       <feature id="org.eclipse.amalgam.discovery"/>
       <feature id="org.eclipse.amalgam.explorer.contextual"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
@@ -213,9 +212,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
-      <feature id="org.eclipse.acceleo.aql.feature"/>
-      <feature id="org.eclipse.acceleo.query.jdt"/>
-      <feature id="org.eclipse.acceleo.query.jdt.source"/>
    </features>
 
    <configurations>
