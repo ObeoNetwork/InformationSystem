@@ -130,6 +130,10 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	}
 
 	@Override
+	public void postLoadAlways(XMLResource resource, InputStream inputStream,	Map<?, ?> options) {
+	}
+
+	@Override
 	public void handleUnknownFeaturesMixedValue(EObject owner, FeatureMap featureMap) {
 	}
 

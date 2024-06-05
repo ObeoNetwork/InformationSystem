@@ -47,6 +47,7 @@ public interface IMigrationHelper {
 	/* From ResourceHandler */
 	public void preLoad(XMLResource resource, InputStream inputStream, Map<?, ?> options);
 	public void postLoad(XMLResource resource, InputStream inputStream, Map<?, ?> options);
+	public void postLoadAlways(XMLResource resource, InputStream inputStream, Map<?, ?> options);
 	public void handleUnknownFeaturesMixedValue(final EObject owner, final FeatureMap featureMap);
 	public void handleUnknownFeaturesAnyAttribute(final EObject owner, final FeatureMap featureMap);
 	public boolean isADeletedFeature(EObject owner, EStructuralFeature eStructuralFeature);
