@@ -180,7 +180,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Flow" referenceName="flows" variableName="newFlow">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Flow' + eContainer(cinematic::AbstractPackage).flows->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.SubflowState" referenceName="states">
@@ -491,9 +491,9 @@
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_Existing_ViewContainer" label="Bind existing View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
             <variable name="container">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="[container.getAllRootsForCinematic()->collect(eAllContents(cinematic::view::ViewContainer))/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="aql:container.getAllRootsForCinematic()->collect(r|r.eAllContents(view::ViewContainer))"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getViewContainersPossible(allContainers)"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select a view container to bind with the view state"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates->select(c|c.eContainer()=null or (not allCandidates->includes(c.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to bind with the view state"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -515,7 +515,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer(cinematic::AbstractPackage)">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
@@ -560,10 +560,10 @@
             <element name="element"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="aql:edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(flow::ViewState).viewContainers->excludes(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target)">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="aql:edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -633,7 +633,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Package'+eContainer().oclAsType(cinematic::AbstractPackage).subPackages->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -644,7 +644,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Flow" referenceName="flows">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Flow' + eContainer(cinematic::AbstractPackage).flows->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -652,13 +652,13 @@
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainer" label="View Container" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']">
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[viewContainerTypes->union(viewContainerTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()/]" tree="true" rootExpression="[viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:viewContainerTypes->union(viewContainerTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -858,7 +858,7 @@
           <create name="CRE_SubSubPackage" label="Package" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_SubPackage']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Package'+eContainer().oclAsType(cinematic::AbstractPackage).subPackages->size()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -868,7 +868,7 @@
           <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
@@ -876,7 +876,7 @@
             <variables name="root" documentation="The semantic element of the tree."/>
             <variables name="element" documentation="The semantic currently edited element.">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[getToolkitsFromWidget(viewContainerTypes)/]" tree="true" rootExpression="[viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:self.getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
@@ -920,7 +920,7 @@
             <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
@@ -928,22 +928,22 @@
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element.">
                 <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[viewContainerTypes->union(viewContainerTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()/]" tree="true" rootExpression="[viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:viewContainerTypes->union(viewContainerTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
               </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
             <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetHavePropertyIsNotContainer(selectedType)"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element.">
-                <subVariables xsi:type="tool_1:AcceleoVariable" name="viewElementTypes" computationExpression="[eContainer(cinematic::CinematicRoot).toolkits.widgets->select(widgetIsContainer|widgetIsContainer.isContainer=false)/]"/>
-                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[viewElementTypes->union(viewElementTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()/]" tree="true" rootExpression="[viewElementTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view element"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="viewElementTypes" computationExpression="aql:self.eContainer(cinematic::CinematicRoot).toolkits.widgets->select(w|not w.isContainer)"/>
+                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:viewElementTypes->union(viewElementTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()" tree="true" rootExpression="aql:viewElementTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view element"/>
               </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
@@ -951,14 +951,14 @@
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainerReference" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[viewContainer.oclAsType(cinematic::view::ViewContainer).name.toLowerFirst()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:viewContainer.oclAsType(view::ViewContainer).name.toLowerFirst()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element.">
-                <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="[container.getAllRootsForCinematic()->collect(eAllContents(cinematic::view::ViewContainer))/]"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="aql:container.getAllRootsForCinematic()->collect(r|r.eAllContents(view::ViewContainer))"/>
                 <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getViewContainersPossible(allContainers)"/>
-                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select a view container to reference"/>
+                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates->select(c|c.eContainer()=null or (not allCandidates->includes(c.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to reference"/>
               </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
@@ -1032,7 +1032,7 @@
           <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
@@ -1040,22 +1040,22 @@
             <variables name="root" documentation="The semantic element of the tree."/>
             <variables name="element" documentation="The semantic currently edited element.">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[getToolkitsFromWidget(viewContainerTypes)/]" tree="true" rootExpression="[viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:self.getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
           <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetHavePropertyIsNotContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
             <variables name="element" documentation="The semantic currently edited element.">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="viewElementTypes" computationExpression="[eContainer(cinematic::CinematicRoot).toolkits.widgets->select(widgetIsContainer|widgetIsContainer.isContainer=false)/]"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[viewElementTypes->union(viewElementTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()/]" tree="true" rootExpression="[viewElementTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view element"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="viewElementTypes" computationExpression="aql:self.eContainer(cinematic::CinematicRoot).toolkits.widgets->select(w|not w.isContainer)"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:viewElementTypes->union(viewElementTypes.eContainer(toolkits::Toolkit))->asOrderedSet()->asSequence()" tree="true" rootExpression="aql:viewElementTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view element"/>
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
@@ -1063,14 +1063,14 @@
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainerReference" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[viewContainer.oclAsType(cinematic::view::ViewContainer).name.toLowerFirst()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:viewContainer.oclAsType(view::ViewContainer).name.toLowerFirst()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
             <variables name="element" documentation="The semantic currently edited element.">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="[container.getAllRootsForCinematic()->collect(eAllContents(cinematic::view::ViewContainer))/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="aql:container.getAllRootsForCinematic()->collect(r|r.eAllContents(view::ViewContainer))"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getViewContainersPossible(allContainers)"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select a view container to reference"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates->select(c|c.eContainer()=null or (not allCandidates->includes(c.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to reference"/>
             </variables>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
@@ -1109,7 +1109,7 @@
         <create name="CRE_SubPackage" label="Package" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_SubPackage']">
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Package'+eContainer().oclAsType(cinematic::AbstractPackage).subPackages->size()/]"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
             </subModelOperations>
           </firstModelOperation>
           <variables name="root" documentation="The semantic element of the tree."/>
@@ -1119,7 +1119,7 @@
         <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
             </subModelOperations>
@@ -1127,7 +1127,7 @@
           <variables name="root" documentation="The semantic element of the tree."/>
           <variables name="element" documentation="The semantic currently edited element.">
             <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
-            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="[getToolkitsFromWidget(viewContainerTypes)/]" tree="true" rootExpression="[viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
+            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="aql:self.getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="aql:viewContainerTypes.eContainer(toolkits::Toolkit)->asOrderedSet()->asSequence()" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
           </variables>
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
