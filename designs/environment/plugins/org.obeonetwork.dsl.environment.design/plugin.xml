@@ -81,6 +81,16 @@
            New environment model wizard
         </description>
      </wizard>
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.environment.design.wizards.NewMetaDataDefinitionsModelWizard"
+           icon="icons/full/obj16/MetaDataDefinition.gif"
+           id="org.obeonetwork.dsl.environment.design.wizards.NewMetaDataDefinitionsModelWizard"
+           name="Metadatadef Model">
+        <description>
+           New Metadatadef model wizard
+        </description>
+     </wizard>
   </extension>
   <extension
         point="org.eclipse.sirius.externalJavaAction">
