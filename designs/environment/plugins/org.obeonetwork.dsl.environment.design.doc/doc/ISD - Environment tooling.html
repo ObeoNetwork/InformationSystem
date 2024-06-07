@@ -135,6 +135,20 @@
 		<p>Les modèles de définitions de métadonnées sont utlisés pour proposer à l&#8217;utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d&#8217;un élément.
 			<br/>Un exemple d&#8217;un tel modèle est accessible via l&#8217;URI: &#171;platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef&#187;.
 		</p>
+		<p>Un modèle &#171;.metadatadef&#187; contient un élément racine de type 
+			<strong>MetaDataDefinitions</strong> contenant plusieurs éléments de type 
+			<strong>MetaDataDefinition</strong>.
+			<br/>Une MetaDataDefinition possède trois attributs: 
+			<strong>title</strong>, 
+			<strong>body</strong> et 
+			<strong>condition</strong>. 
+			<strong>title</strong> et 
+			<strong>body</strong> sont le titre et le corps; 
+			<strong>condition</strong> est une expression AQL qui sera évaluée sur un élément acceptant les métadonnées. Si l&#8217;expression retourne vrai, alors la MetaDataDefinition est proposée pour créer une métadonnée sur l'élément, sinon elle n&#8217;est pas proposée.
+			<br/>Si la métadonnée (Annotation) est créée sur l'élément, les attributs title et body de celle-ci auront comme valeurs celles de title et body de la MetaDataDefinition.
+			<br/>Exemple: Une MetaDataDefinition avec title=&#171;Modeling studio&#187;, body=&#171;This element comes from an ISD modeling workbench&#187; et condition="aql:true"
+			<br/>pourra être applicable sur tous les éléments qui supportent des métadonnées.
+		</p>
 		<h3 id="metadata_definition_contribution">Contribution d&#8217;un modèle de définitions de métadonnées</h3>
 		<p>Afin de contribuer un tel modèle, il faut utliser le point d&#8217;extension: &#171;org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels&#187;.
 			<br/>Ce point d&#8217;extenion permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d&#8217;eux :
