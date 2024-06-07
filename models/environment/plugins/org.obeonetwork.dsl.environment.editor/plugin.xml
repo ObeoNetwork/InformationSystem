@@ -30,7 +30,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated environment -->
+      <!-- @generated environment NOT>
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -38,11 +38,11 @@
             id="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefModelWizardID"
             name="%_UI_MetadatadefModelWizard_label"
             class="org.obeonetwork.dsl.environment.metadatadef.presentation.MetadatadefModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
             icon="icons/full/obj16/MetadatadefModelFile.gif">
          <description>%_UI_MetadatadefModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      </wizard-->
    </extension>
 
    <extension point="org.eclipse.ui.editors">
