@@ -295,4 +295,9 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("03-add-schema", true);
 	}
 	
+	@Test
+	public void addSchemaWithCreateSchemaInOracle() {
+		assertGenerationEquals("03-add-schema-oracle", true);
+	}
+	
 }

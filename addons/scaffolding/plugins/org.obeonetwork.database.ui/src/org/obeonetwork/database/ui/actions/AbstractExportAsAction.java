@@ -59,6 +59,7 @@ import org.obeonetwork.database.ui.Activator;
 import org.obeonetwork.database.ui.util.ScaffoldingUtils;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 
 public abstract class AbstractExportAsAction extends Action implements IEditorActionDelegate {
 
@@ -87,9 +88,11 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 	
 	/**
 	 * 
-	 * @return whether schema creation is required or not
+	 * @param isOracleDatabase
+	 * @return 1 if schema creation is required; 0 if schema creation is not
+	 *         required; -1 is the user cancels the operation.
 	 */
-	public abstract boolean getSchemaCreationRequired();
+	public abstract int getSchemaCreationRequired(boolean isOracleDatabase);
 
 	public void exportComparison(final Comparison comparison) {
 		final IResource containingFolder = getContainingFolder(comparison);
@@ -107,7 +110,17 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 		resource.getContents().add(comparison);
 		set.getResources().add(resource);
 
-		final boolean createSchemaRequired = getSchemaCreationRequired();
+		DataBase database = comparison.getMatches().stream()
+				.filter(match -> match.getLeft() instanceof DataBase)
+				.map(match -> (DataBase)match.getLeft())
+				.findAny().orElse(null);
+		TypesServices typesServices = new TypesServices();
+		
+		final int createSchemaRequired = getSchemaCreationRequired(typesServices.isTargetOracle(database));
+		
+		if(createSchemaRequired==-1) {
+			return;
+		}
 
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 
@@ -115,7 +128,7 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InvocationTargetException, InterruptedException {
 				try {
-					IStatus status = doGenerateScripts(comparison, targetFolder, createSchemaRequired);
+					IStatus status = doGenerateScripts(comparison, targetFolder, createSchemaRequired==1);
 					if (!status.isOK()) {
 						Activator.getDefault().getLog().log(status);
 						Display.getDefault().asyncExec(() -> {
