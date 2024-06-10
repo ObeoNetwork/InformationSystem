@@ -40,7 +40,7 @@ public class SystemContentItemProviderUtil {
 				GraalPackage.Literals.SYSTEM__USER_STORIES, "UserStories"));
 		// Index==5
 		children.add(new SystemCustomContentItemProvider(adapterFactory, system,
-				EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces(), "Namespaces"));
+				EnvironmentPackage.eINSTANCE.getNamespacesContainer_OwnedNamespaces(), "Domains"));
 	}
 
 	@SuppressWarnings("unchecked")
