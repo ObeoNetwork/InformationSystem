@@ -70,8 +70,8 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 		return "";
 	}
 
-	public boolean getSchemaCreationRequired() {
-		return false;
+	public int getSchemaCreationRequired(boolean isOracleDatabase) {
+		return 0;
 	}
 
 }
