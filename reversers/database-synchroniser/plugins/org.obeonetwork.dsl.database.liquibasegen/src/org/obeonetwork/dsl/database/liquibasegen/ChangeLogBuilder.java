@@ -93,17 +93,15 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
+import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.LiquibaseDefaultType;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultValueConfigDelegate;
 import org.obeonetwork.dsl.database.liquibasegen.service.GenServices;
 import org.obeonetwork.dsl.database.liquibasegen.service.SQLService;
-import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.Type;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
-import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
-import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
 
 import liquibase.change.AddColumnConfig;
 import liquibase.change.Change;
@@ -1355,25 +1353,23 @@ public class ChangeLogBuilder {
 			return null;
 		}
 		Change rawSqlQuery = null;
-		List<TypesLibrary> usedLibrairies = ((TypesLibraryUser) database).getUsedLibraries();
-		List<NativeTypesLibrary> nativeLibrairies = usedLibrairies.stream().filter(NativeTypesLibrary.class::isInstance)
-				.map(NativeTypesLibrary.class::cast).collect(Collectors.toList());
-		if (nativeLibrairies.stream().anyMatch(ntl -> ntl.getName().startsWith("SQLServer"))) {
+		TypesServices typesServices = new TypesServices();
+		Schema schema = database.getSchemas().get(0);
+		
+		if (typesServices.isTargetSqlServer(schema)){
 			// T-SQL query to add schema in MSSQL if not exists.
 			rawSqlQuery = new RawSQLChange(
 					"if schema_id('" + schemaName + "') is null exec('CREATE SCHEMA " + schemaName + "');");
-		} else if (nativeLibrairies.stream().anyMatch(ntl -> ntl.getName().startsWith("Oracle"))) {
-			// Not managed: a user with corresponding schema name should be created.
+		} else if (typesServices.isTargetOracle(schema)) {
+			//Oracle doesn't support create schema if not exists
+			rawSqlQuery = new RawSQLChange("CREATE SCHEMA " + schemaName + ";");
 		} else {
 			// All other databases (h2, maria, myssql, postgres) accept this sql query as
 			// is.
 			rawSqlQuery = new RawSQLChange("CREATE SCHEMA IF NOT EXISTS " + schemaName + ";");
 		}
-		if (rawSqlQuery == null) {
-			return null;
-		}
 		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.setComments("Create schema " + schemaName + " if none exist");
+		changeSet.setComments("Create schema " + schemaName +(typesServices.isTargetOracle(schema) ? "" : " if none exist"));
 		changeSet.addChange(rawSqlQuery);
 		return changeSet;
 	}

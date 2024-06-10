@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.database.gen.common.services;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.typeslibrary.NativeTypeKind;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -60,6 +61,11 @@ public class TypesServices {
 
 	public boolean isTargetOracle(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
+		return isTargetOracleTypesLibrary(physicalTypesLibrary);
+	}
+	
+	public boolean isTargetOracle(DataBase database) {
+		TypesLibrary physicalTypesLibrary = getTargetPhysicalTypesLibrary(database);
 		return isTargetOracleTypesLibrary(physicalTypesLibrary);
 	}
 

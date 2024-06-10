@@ -73,15 +73,18 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 	}
 
 
-	public boolean getSchemaCreationRequired() {
-		boolean schemaCreationRequired = false;
+	public int getSchemaCreationRequired(boolean isOracleDatabase) {
 		LiquibaseGenerationOptionsDialog genOptionDialog = new LiquibaseGenerationOptionsDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), true);
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), true, isOracleDatabase);
 		genOptionDialog.open();
 		if (genOptionDialog.getReturnCode() == Window.OK) {
-			schemaCreationRequired = genOptionDialog.getCreateSchemaIfNotExists();
+			if (genOptionDialog.getCreateSchemaIfNotExists()) {
+				return 1;
+			} else {
+				return 0;
+			}
 		}
-		return schemaCreationRequired;
+		return -1;
 	}
 
 }

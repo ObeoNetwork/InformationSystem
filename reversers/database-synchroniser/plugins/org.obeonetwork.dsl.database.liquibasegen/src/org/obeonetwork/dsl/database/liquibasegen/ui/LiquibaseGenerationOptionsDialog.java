@@ -31,17 +31,13 @@ import org.eclipse.swt.widgets.Shell;
 public class LiquibaseGenerationOptionsDialog extends Dialog {
 
 	private boolean createSchemaIfNotExists;
+	private boolean isOracleDatabase;
 	
-	/**
-	 * Create the dialog.
-	 * @param parentShell
-	 * @param url 
-	 * @param username 
-	 * @param password
-	 */
-	public LiquibaseGenerationOptionsDialog(Shell parentShell, boolean createSchemaIfNotExists) {
+
+	public LiquibaseGenerationOptionsDialog(Shell parentShell, boolean createSchemaIfNotExists, boolean isOracleDatabase) {
 		super(parentShell);
 		this.createSchemaIfNotExists = createSchemaIfNotExists;
+		this.isOracleDatabase = isOracleDatabase;
 	}
 
 	/**
@@ -58,7 +54,7 @@ public class LiquibaseGenerationOptionsDialog extends Dialog {
 		composite.setBounds(0, 0, 32, 32);
 		
 		Button createSchemaIfNotExistCheckBox =  new Button(parent, SWT.CHECK);
-		createSchemaIfNotExistCheckBox.setText("Create schema(s) if none exist");
+		createSchemaIfNotExistCheckBox.setText("Create schema(s)"+(isOracleDatabase ? "" :" if none exist"));
 		GridData gridData = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
 		gridData.heightHint = 50;
 		createSchemaIfNotExistCheckBox.setLayoutData(gridData);
