@@ -26,6 +26,8 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
@@ -59,6 +61,9 @@ import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
  *
  */
 public class CinematicBindingServices {
+	
+	private static AdapterFactoryLabelProvider adapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
+			new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
 	/**
 	 * Opens a wizard for selecting elements to bind with element a
 	 * {@link ViewElement} or {@link ViewContainer}. Then sets the selected
@@ -90,13 +95,19 @@ public class CinematicBindingServices {
 					"No CinematicRoot found.\nBinding cannot proceed.");
 			return;
 		}
-		Collection<BindingInfo> bindingInfos = cinematicRoot.getBindingRegistries().stream()
+		final Collection<BindingInfo> bindingInfos = cinematicRoot.getBindingRegistries().stream()
 				.map(BindingRegistry::getBindingInfos).flatMap(List::stream).collect(Collectors.toSet());
 
 		HashSet<EObject> alreadyBoundElements = new HashSet<>();
+		HashSet<EObject> elementsBoundToParents = new HashSet<>();
 		if (element instanceof ViewContainer) {
+			elementsBoundToParents.addAll(getParentViewContainers(element).stream()
+					.map(pa -> getViewContainerLinkedBoundableElements(pa, bindingInfos)).flatMap(Set::stream)
+					.toList());
 			alreadyBoundElements.addAll(getViewContainerLinkedBoundableElements((ViewContainer) element, bindingInfos));
-			wizard = getStructuredTypesSelectionWizard((ViewContainer) element, alreadyBoundElements);
+			alreadyBoundElements.addAll(elementsBoundToParents);
+			wizard = getStructuredTypesSelectionWizard((ViewContainer) element, alreadyBoundElements,
+					elementsBoundToParents);
 		} else {
 			// ViewElement
 			viewElementViewContainerParents = getParentViewContainers((ViewElement) element);
@@ -116,7 +127,7 @@ public class CinematicBindingServices {
 
 		if (wizard != null && wizard.open() == Window.OK) {
 			Collection<ISObjectTreeItemWrapper> selectedTreeItemWrappers = wizard.getSelectedTreeItemWrappers();
-
+			
 			for (ISObjectTreeItemWrapper tiw : selectedTreeItemWrappers) {
 				elementToParentMap.put(tiw.getWrappedObject(),
 						tiw.getParent() != null ? tiw.getParent().getWrappedObject() : null);
@@ -132,11 +143,12 @@ public class CinematicBindingServices {
 					parent = parent.getParent();
 				}
 			}
-
+			
 			addedElements = selectedTreeItemWrappers.stream()
 					.filter(tiw -> !alreadyBoundElements.contains(tiw.getWrappedObject()))
 					.map(ISObjectTreeItemWrapper::getWrappedObject).filter(EObject.class::isInstance)
 					.map(EObject.class::cast).collect(toList());
+			addedElements.removeAll(elementsBoundToParents);
 
 			removedElements = alreadyBoundElements.stream().filter(
 					elt -> selectedTreeItemWrappers.stream().noneMatch(tiw -> elt.equals(tiw.getWrappedObject())))
@@ -218,7 +230,8 @@ public class CinematicBindingServices {
 
 	private static ISObjectSelectionWizard getISObjectSelectionWizard(String windowTitle, String message,
 			List<EObject> roots, final Function<?, List<?>> childrenFunction,
-			final Function<?, Boolean> selectableCondition, Set<EObject> preSelectedElements) {
+			final Function<?, Boolean> selectableCondition, Set<EObject> preSelectedElements,
+			Set<EObject> alwaysSelectedElements) {
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(childrenFunction, selectableCondition);
 		for (EObject root : roots) {
 			new ISObjectTreeItemWrapper(treeRoot, root);
@@ -226,9 +239,12 @@ public class CinematicBindingServices {
 		final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(windowTitle, message, null, treeRoot, true);
 		wizard.setLevelToExpand(2);
 		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
-		List<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = treeRoot.getAllSelectableTreeItemWrappers().stream()
-				.filter(tiw -> preSelectedElements.contains(tiw.getWrappedObject())).collect(toList());
-		wizard.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
+		Function<Set<EObject>, List<ISObjectTreeItemWrapper>> objectsToISObjectTreeItemWrappers = set -> {
+			return treeRoot.getAllSelectableTreeItemWrappers().stream()
+					.filter(tiw -> set.contains(tiw.getWrappedObject())).toList();
+		};
+		wizard.setPreSelectedTreeItemWrappers(objectsToISObjectTreeItemWrappers.apply(preSelectedElements));
+		wizard.setAlwaysSelectedTreeItemWrappers(objectsToISObjectTreeItemWrappers.apply(alwaysSelectedElements));
 		return wizard;
 	}
 
@@ -256,7 +272,7 @@ public class CinematicBindingServices {
 
 		return getISObjectSelectionWizard("Entity/DTO attributes and references selection", 
 				"Select Attribute or Reference elements to bind", roots, childrenFunction, selectableCondition,
-				alreadyBoundElements);
+				alreadyBoundElements, Collections.emptySet());
 	}
 
 	/**
@@ -307,7 +323,7 @@ public class CinematicBindingServices {
 	}
 
 	private ISObjectSelectionWizard getStructuredTypesSelectionWizard(ViewContainer context,
-			HashSet<EObject> alreadyBoundElements) {
+			HashSet<EObject> alreadyBoundElements, Set<EObject> alwaysSelectedElements) {
 		Collection<StructuredType> structuredTypes = BindingService.getAllStructuredTypes(context);
 		HashMap<EObject, List<EObject>> parentToChildren = new HashMap<>();
 		for (EObject elt : structuredTypes) {
@@ -324,14 +340,36 @@ public class CinematicBindingServices {
 				parentToChildren.put(elt, Collections.emptyList());
 			}
 		}
+		
+		// Compute ancestors up to model root
+		Set<EObject> keys = new HashSet<>(parentToChildren.keySet());
+		for (EObject tempRoot : keys) {
+			EObject element = tempRoot;
+			while (element.eContainer() != null) {
+				EObject container = element.eContainer();
+				if (parentToChildren.containsKey(container)) {
+					if (!parentToChildren.get(container).contains(element)) {
+						parentToChildren.get(container).add(element);
+					}
+				} else {
+					ArrayList<EObject> sts = new ArrayList<>();
+					sts.add(element);
+					parentToChildren.put(container, sts);
+				}
+				element = element.eContainer();
+			}
+		}
+
 		List<EObject> roots = parentToChildren.isEmpty() ? Collections.emptyList()
-				: new ArrayList<EObject>(parentToChildren.keySet());
+				: parentToChildren.keySet().stream().filter(eo -> eo.eContainer() == null).toList();
+		
 		final Function<?, List<?>> childrenFunction = parent -> parentToChildren.getOrDefault(parent,
 				Collections.emptyList());
-		final Function<?, Boolean> selectableCondition = eObj -> (eObj instanceof DTO) || (eObj instanceof Entity);
-
-		return getISObjectSelectionWizard("Entity/DTO selection", 
-				"Select Entity or DTO elements to bind", roots, childrenFunction, selectableCondition, alreadyBoundElements);
+		final Function<?, Boolean> selectableCondition = eObj -> ((eObj instanceof DTO) || (eObj instanceof Entity));
+		final String title = "Select Entity or DTO elements to bind." + (alwaysSelectedElements.isEmpty() ? ""
+				: "\nElements already bound to parent view containers are always selected.\nThese elements are displayed in blue.");
+		return getISObjectSelectionWizard("Entity/DTO selection", title, roots, childrenFunction, selectableCondition,
+				alreadyBoundElements, alwaysSelectedElements);
 	}
 
 	private Set<BoundableElement> getViewElementLinkedBoundableElements(ViewElement boundable,
@@ -387,7 +425,8 @@ public class CinematicBindingServices {
 
 	/**
 	 * Removes any {@link BindingInfo} whose 2 bound elements are both:
-	 * otherBoundElement and element.
+	 * otherBoundElement and element. A confirmation is requested to the user if
+	 * some ViewElements are linked.
 	 * 
 	 * @param otherBoundElement
 	 * @param element
@@ -402,7 +441,21 @@ public class CinematicBindingServices {
 				.stream().filter(BindingInfo.class::isInstance).map(BindingInfo.class::cast)
 				.filter(bi -> bi.getLeft() == element).collect(Collectors.toSet()));
 
-		bindingInfosToProcess.stream().forEach(EcoreUtil::remove);
+		boolean deletionConfirmed = true;
+		List<BoundableElement> impacted = bindingInfosToProcess.stream().map(BindingInfo::getElements)
+				.flatMap(List::stream).map(BindingElement::getBoundElement).filter(ViewElement.class::isInstance)
+				.toList();
+
+		if (!impacted.isEmpty()) {
+			String msg = "The ViewElements below are currently involved in a binding to be removed.";
+			msg += "\nDo you want to proceed with the deletion?\n\n";
+			msg += buildImpactedElementsString(impacted, 10);
+			deletionConfirmed = MessageDialog.openConfirm(null,
+					"Removing a binding on " + adapterFactoryLabelProvider.getText(element), msg);
+		}
+		if (deletionConfirmed) {
+			bindingInfosToProcess.stream().forEach(EcoreUtil::remove);
+		}
 	}
 
 	/**
@@ -692,9 +745,10 @@ public class CinematicBindingServices {
 	 * 
 	 * @param element
 	 * @param targetContainer
-	 * @return
+	 * @return a list of impacted elements, each on a line, if any; an empty string
+	 *         otherwise.
 	 */
-	public static boolean canDropAbstractViewElementIntoViewContainer(AbstractViewElement element,
+	public static String canDropAbstractViewElementIntoViewContainer(AbstractViewElement element,
 			ViewContainer targetContainer) {
 		if (element instanceof ViewElement) {
 			// Get ViewContainer parents of element having BindingInfo
@@ -703,27 +757,31 @@ public class CinematicBindingServices {
 			// parents/ancestors of targetContainer (included)
 			List<ViewContainer> parents = getParentViewContainers((ViewElement) element);
 			if (parents.isEmpty()) {
-				return true;
+				return "";
 			}
 			CinematicRoot cinematicRoot = BindingService
 					.getRegistryContainerForViewContainerBindingInfos(parents.get(0));
 			if (cinematicRoot == null) {
-				return true;
+				return "";
 			}
 			Set<BindingInfo> bindingInfos = cinematicRoot.getBindingRegistries().stream()
 					.map(BindingRegistry::getBindingInfos).flatMap(List::stream).collect(Collectors.toSet());
 			Collection<BindingInfo> viewElementParentsBindingInfos = getViewElementParentBindingInfos(bindingInfos,
 					(ViewElement) element, parents);
 
-			Collection<ViewContainer> requireViewContainers = viewElementParentsBindingInfos.stream()
+			Collection<ViewContainer> requiredViewContainers = viewElementParentsBindingInfos.stream()
 					.map(bi -> getViewContainerBoundIfMatching(bi, (ViewElement) element)).filter(Objects::nonNull)
 					.collect(Collectors.toSet());
-			if (requireViewContainers.isEmpty()) {
-				return true;
+			if (requiredViewContainers.isEmpty()) {
+				return "";
 			}
 			List<ViewContainer> newParents = getParentViewContainers(targetContainer);
 			newParents.add(targetContainer);
-			return newParents.containsAll(requireViewContainers);
+			requiredViewContainers.removeAll(newParents);
+			if(requiredViewContainers.isEmpty()) {
+				return "";
+			}
+			return buildImpactedElementsString(new ArrayList<>(requiredViewContainers),10);
 		} else if (element instanceof ViewContainer) {
 			// Get ViewContainer parents of element having BindingInfo
 			// Get BindingInfos whose BindingReferences contain objects that are below
@@ -737,17 +795,37 @@ public class CinematicBindingServices {
 					.map(BindingRegistry::getBindingInfos).flatMap(List::stream)
 					.filter(bi -> isBindingInfoInvolvingViewElementWithGivenAncestorViewContainer(bi, parents))
 					.collect(Collectors.toSet());
-			Collection<ViewContainer> requireViewContainers = bindingInfosInvolvingViewElements.stream()
+			Collection<ViewContainer> requiredViewContainers = bindingInfosInvolvingViewElements.stream()
 					.map(bi -> getViewContainerBoundIfMatching(bi, null)).filter(Objects::nonNull)
 					.collect(Collectors.toSet());
-			if (requireViewContainers.isEmpty()) {
-				return true;
+			if (requiredViewContainers.isEmpty()) {
+				return "";
 			}
 			List<ViewContainer> newParents = getParentViewContainers(targetContainer);
 			newParents.add(targetContainer);
-			return newParents.containsAll(requireViewContainers);
+			requiredViewContainers.removeAll(newParents);
+			if(requiredViewContainers.isEmpty()) {
+				return "";
+			}
+			return buildImpactedElementsString(new ArrayList<>(requiredViewContainers),10);
 		}
-		return true;
+		return "";
+	}
+	
+	private static String buildImpactedElementsString(List<? extends EObject> impacted,  int limit) {
+		String res = "";
+		if (!impacted.isEmpty()) {
+			int impactedSize = impacted.size();
+			if (impactedSize > limit) {
+				impacted = impacted.subList(0, limit+1);
+			}
+			res = impacted.stream().map(e -> adapterFactoryLabelProvider.getText(e)).collect(Collectors.joining("\n"));
+			if (impactedSize > limit) {
+				res += "\n...";
+				res += "\n(" + impactedSize + " in total)";
+			}
+		}
+		return res;
 	}
 
 	private static ViewContainer getViewContainerBoundIfMatching(BindingInfo bindingInfo, ViewElement viewElement) {

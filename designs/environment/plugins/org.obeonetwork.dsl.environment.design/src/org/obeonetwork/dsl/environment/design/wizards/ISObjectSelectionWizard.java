@@ -84,6 +84,20 @@ public class ISObjectSelectionWizard extends Wizard {
     	page.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
     }
     
+	/**
+	 * 
+	 * @param treeItemWrappers must be a subset of the collection set with
+	 *                         {@link #setPreSelectedTreeItemWrappers(Collection)}
+	 *                         i.e. preselected elements.
+	 *                         <p>
+	 *                         many attribute must also be initialized to true.
+	 *                         </p>
+	 */
+	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> treeItemWrappers) {
+		page.setAlwaysSelectedTreeItemWrappers(treeItemWrappers);
+	}
+	
+	
     /**
      * @return the {@link WizardDialogClosableByWizard} containing this wizard. Null if no such element has been set.
      */
@@ -116,6 +130,10 @@ public class ISObjectSelectionWizard extends Wizard {
     public Collection<ISObjectTreeItemWrapper> getSelectedTreeItemWrappers() {
         return page.getSelectedTreeItemWrappers();
     }
+    
+	public Collection<ISObjectTreeItemWrapper> getAlwaysSelectedTreeItemWrappers() {
+		return page.getAlwaysSelectedTreeItemWrappers();
+	}
     
     public Collection<Object> getSelectedObjects() {
         return page.getSelectedObjects();
