@@ -595,6 +595,10 @@ Suite à la validation du Dialogue, un fichier est généré par _Component_, av
 
 @<Nom du Component>-<Version du Component>.<yaml|json>@
 
+Ainsi, si l'export est lancé depuis un objet racine _Components_ qui contient plusieurs _Component_, autant de fichiers sont générés qu'il y a de _Components_.
+
+La vue "Error Log":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#error_log peut donner plus de détails sur l'issue du traitement d'export.
+ 
 h4. Import d'un fichier de spécification Swagger
 
 La fonctionnalité d'import Swagger permet d'importer un fichier de spécifiction Swagger dans _SOA Designer_ sous forme d'un _Component_. L'import incrémental n'est pas supporté. Si un _Component_ du nom de l'API existe déjà dans le modèle SOA, alors l'import échoue avec un message d'erreur du type "Component with name BookStore already exist.".
@@ -604,6 +608,8 @@ La fonctionnalité d'import Swagger est disponible en menu contextuel sur l'obje
 !pics/exposition/Menu_SwaggerImport.png!
 
 En cas de succès suite à l'import, un nouveau _Component_ est créé, prêt à être utilisé dans un ensemble plus vaste de _Components SOA_.
+
+La vue "Error Log":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#error_log peut donner plus de détails sur l'issue du traitement d'import.
 
 h3. Conversion de fichier Swagger/OpenAPI vers le format OpenAPI 3.1.0
 
