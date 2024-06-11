@@ -66,6 +66,14 @@ La mise en forme d'un diagramme ou d'une vue partielle peut être reproduite sur
 * Dans le menu contextuel sur le fond d'une représentation, séléctionner _Edit > Copy format_.
 * Dans le menu contextuel sur le fond d'une autre représentation, séléctionner _Edit > Paste layout_.
 
+h2(#error_log). Vue error log
+
+Certaines fonctionnalités du studio peuvent sous certaines conditions signaler à l'utilisateur qu'il peut consulter la vue *Error Log* pour obtenir plus de détail. Cette vue peut être ouverte via le menu "Window > Show View > Error Log".
+
+Exemple de la vue Error Log suite à un traitement d'export Swagger avec messages d'avertissements :
+
+!./pics/ErrorLog.png!
+
 h2. Le modèle environnement
 
 Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
