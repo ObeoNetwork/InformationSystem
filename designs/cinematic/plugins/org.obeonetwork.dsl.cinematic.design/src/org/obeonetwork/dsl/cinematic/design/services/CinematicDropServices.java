@@ -50,10 +50,13 @@ public class CinematicDropServices {
 					protected void doExecute() {
 						// TODO Auto-generated method stub
 						if (element instanceof AbstractViewElement && container instanceof ViewContainer) {
-							if (!CinematicBindingServices.canDropAbstractViewElementIntoViewContainer(
-									(AbstractViewElement) element, (ViewContainer) container)) {
+							String impacted = CinematicBindingServices.canDropAbstractViewElementIntoViewContainer(
+									(AbstractViewElement) element, (ViewContainer) container);
+							if (!impacted.isEmpty()) {
 								MessageDialog.openWarning(null, "Drop into a ViewContainer",
-										"Cannot drop since parent ViewContainer(s) bindings will be lost.");
+										"The operation will be cancelled because the parent ViewContainers (below)"
+												+ "\n of the element to be moved are involved in a binding that would no longer be valid."
+												+ "\n\n" + impacted);
 								throw new OperationCanceledException();
 								// return element;
 							}

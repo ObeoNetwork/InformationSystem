@@ -33,8 +33,8 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
 public class BindingTreeMapper extends TreeMapper<DBindingEdge, DBoundElement, DBoundElement> {
-	private static final Color EDGE_DEFAULT_COLOR = new Color(Display.getCurrent(), new RGB(247, 206, 206));
-	private static final Color EDGE_SELECTED_COLOR = new Color(Display.getCurrent(), new RGB(147, 86, 111));
+	private static final Color EDGE_DEFAULT_COLOR = new Color(Display.getCurrent(), new RGB(54, 54, 54));
+	private static final Color EDGE_SELECTED_COLOR = new Color(Display.getCurrent(), new RGB(54, 54, 54));
 	
 	private static final int EDGE_DEFAULT_WIDTH = 1;
 	private static final int EDGE_SELECTED_WIDTH = 3;

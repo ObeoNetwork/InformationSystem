@@ -50,6 +50,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -73,6 +74,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     private Set<ISObjectTreeItemWrapper> ungrayedTreeItemWrapers = new HashSet<>();
     
     private Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = Collections.emptyList();
+    
+    private Collection<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers = Collections.emptyList();
     
     private boolean many = false;
     
@@ -167,6 +170,11 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         			.collect(toList()));
         }
         
+		if (!alwaysSelectedTreeItemWrappers.isEmpty()) {
+			changeAlwaysSelectedElementsForeground(treeViewer.getTree().getItems(),
+					parent.getDisplay().getSystemColor(SWT.COLOR_BLUE));
+		}
+        
         if(checkBoxFilter != null) {
     		viewerFilter.setFilterActive(checkBoxFilter.getDefaultCheckValue());
         }
@@ -183,6 +191,15 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         
         setControl(pageComposite);
     }
+    
+	private void changeAlwaysSelectedElementsForeground(TreeItem[] items, Color color) {
+		for (TreeItem item : items) {
+			if (alwaysSelectedTreeItemWrappers.contains(item.getData())) {
+				item.setForeground(color);
+			}
+			changeAlwaysSelectedElementsForeground(item.getItems(), color);
+		}
+	}
 
 	private void expandTreeViewer() {
 		if(expanded) {
@@ -253,6 +270,19 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
 	public void setPreSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers) {
 		this.preSelectedTreeItemWrappers = preSelectedTreeItemWrappers;
+	}
+	
+	/**
+	 * 
+	 * @param treeItemWrappers must be a subset of the collection set with
+	 *                         {@link #setPreSelectedTreeItemWrappers(Collection)}
+	 *                         i.e. preselected elements.
+	 *                         <p>
+	 *                         many attribute must also be initialized to true.
+	 *                         </p>
+	 */
+	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> treeItemWrappers) {
+		this.alwaysSelectedTreeItemWrappers = treeItemWrappers;
 	}
 
 	protected Composite createSelectionGroup(final Composite parent) {
@@ -414,6 +444,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
     public Collection<ISObjectTreeItemWrapper> getSelectedTreeItemWrappers() {
         return selectedTreeItemWrapers;
+    }
+    
+    public Collection<ISObjectTreeItemWrapper> getAlwaysSelectedTreeItemWrappers() {
+        return alwaysSelectedTreeItemWrappers;
     }
     
     /**
@@ -670,7 +704,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 			if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
 				ungrayTreeItemWrapper(treeItemWrapper);
 			} else if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
-				deselectTreeItemWrapper(treeItemWrapper);
+				if(!alwaysSelectedTreeItemWrappers.contains(treeItemWrapper)) {
+					deselectTreeItemWrapper(treeItemWrapper);
+				}
 			} else { // Element was unselected
 				selectTreeItemWrapper(treeItemWrapper);
 				if(selectionInductor != null) {
@@ -688,9 +724,11 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		private void deselectTreeItemWrapper(ISObjectTreeItemWrapper treeItemWrapper) {
 			switch(treeSelectMode) {
 			case HIERARCHIC:
-				selectedTreeItemWrapers.remove(treeItemWrapper);
-				if(selectedTreeItemWrapers.containsAll(treeItemWrapper.getChildren())) {
-					selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+				if (!alwaysSelectedTreeItemWrappers.contains(treeItemWrapper)) {
+					selectedTreeItemWrapers.remove(treeItemWrapper);
+					if (selectedTreeItemWrapers.containsAll(treeItemWrapper.getChildren())) {
+						selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+					}
 				}
 				treeItemWrapper.getAncestors().forEach(p -> {
 					if(p.getChildren().stream().anyMatch(c -> !selectedTreeItemWrapers.contains(c))) {
@@ -699,7 +737,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 				});
 				break;
 			case PICK_ANY:
-				selectedTreeItemWrapers.remove(treeItemWrapper);
+				if (!alwaysSelectedTreeItemWrappers.contains(treeItemWrapper)) {
+					selectedTreeItemWrapers.remove(treeItemWrapper);
+				}
 				break;
 			}
 		}
