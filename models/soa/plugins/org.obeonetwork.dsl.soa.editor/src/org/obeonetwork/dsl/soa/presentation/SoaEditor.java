@@ -120,6 +120,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.obeonetwork.dsl.environment.metadatadef.provider.MetadatadefItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 import org.obeonetwork.dsl.soa.provider.SoaItemProviderAdapterFactory;

@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.License#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.License#getURL <em>URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.License#getIdentifier <em>Identifier</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getLicense()
@@ -90,5 +91,27 @@ public interface License extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setURL(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Identifier</em>' attribute.
+	 * @see #setIdentifier(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getLicense_Identifier()
+	 * @model
+	 * @generated
+	 */
+	String getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.License#getIdentifier <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' attribute.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(String value);
 
 } // License
