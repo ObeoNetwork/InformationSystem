@@ -261,13 +261,17 @@
              id="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContent"
              labelProvider="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentLabelProvider"
              name="Graal System content structure"
-             priority="higher"
-             providesSaveables="true">
+             priority="highest"
+             sortOnly="false">
           <triggerPoints>
                 <instanceof
                       value="org.obeonetwork.graal.provider.custom.SystemCustomContentItemProvider">
                 </instanceof>
           </triggerPoints>
+          <commonSorter
+                class="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentViewerComparator"
+                id="org.obeonetwork.graal.design.ui.view.explorer.system.SystemTreeContentCommonSorter">
+          </commonSorter>
        </navigatorContent>
    </extension>
     <extension
