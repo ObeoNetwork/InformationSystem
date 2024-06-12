@@ -72,6 +72,7 @@ public class LicenseItemProvider
 
 			addNamePropertyDescriptor(object);
 			addURLPropertyDescriptor(object);
+			addIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class LicenseItemProvider
 				 getString("_UI_License_URL_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_License_URL_feature", "_UI_License_type"),
 				 SoaPackage.Literals.LICENSE__URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Identifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdentifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_License_identifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_License_identifier_feature", "_UI_License_type"),
+				 SoaPackage.Literals.LICENSE__IDENTIFIER,
 				 true,
 				 false,
 				 false,
@@ -170,6 +193,7 @@ public class LicenseItemProvider
 		switch (notification.getFeatureID(License.class)) {
 			case SoaPackage.LICENSE__NAME:
 			case SoaPackage.LICENSE__URL:
+			case SoaPackage.LICENSE__IDENTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
