@@ -495,6 +495,7 @@
         <details key="documentation" value="A URL to the license used for the API. MUST be in the format of a URL."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MediaType" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

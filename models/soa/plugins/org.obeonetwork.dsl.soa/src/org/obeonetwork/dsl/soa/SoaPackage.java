@@ -129,7 +129,7 @@ public interface SoaPackage extends EPackage {
 	int SYSTEM__BEHAVIOURS = EnvironmentPackage.NAMESPACE__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -283,7 +283,7 @@ public interface SoaPackage extends EPackage {
 	int COMPONENT__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -518,7 +518,7 @@ public interface SoaPackage extends EPackage {
 	int SERVICE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -708,7 +708,7 @@ public interface SoaPackage extends EPackage {
 	int WIRE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -826,7 +826,7 @@ public interface SoaPackage extends EPackage {
 	int BINDING__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -935,7 +935,7 @@ public interface SoaPackage extends EPackage {
 	int INTERFACE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1053,7 +1053,7 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__BEHAVIOURS = EnvironmentPackage.ACTION__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1307,7 +1307,7 @@ public interface SoaPackage extends EPackage {
 	int IMPLEMENTATION_COMPONENT__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1415,7 +1415,7 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1669,7 +1669,7 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1841,7 +1841,7 @@ public interface SoaPackage extends EPackage {
 	int FLOW__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1986,7 +1986,7 @@ public interface SoaPackage extends EPackage {
 	int INFORMATION__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2104,7 +2104,7 @@ public interface SoaPackage extends EPackage {
 	int CONTACT__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2231,7 +2231,7 @@ public interface SoaPackage extends EPackage {
 	int LICENSE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2285,13 +2285,22 @@ public interface SoaPackage extends EPackage {
 	int LICENSE__URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__IDENTIFIER = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>License</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LICENSE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int LICENSE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.MediaTypeImpl <em>Media Type</em>}' class.
@@ -2359,7 +2368,7 @@ public interface SoaPackage extends EPackage {
 	int MEDIA_TYPE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2467,7 +2476,7 @@ public interface SoaPackage extends EPackage {
 	int EXAMPLE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2649,7 +2658,7 @@ public interface SoaPackage extends EPackage {
 	int SERVER__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2758,7 +2767,7 @@ public interface SoaPackage extends EPackage {
 	int SCOPE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4000,6 +4009,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getLicense_URL();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.License#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see org.obeonetwork.dsl.soa.License#getIdentifier()
+	 * @see #getLicense()
+	 * @generated
+	 */
+	EAttribute getLicense_Identifier();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.MediaType <em>Media Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5101,6 +5121,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LICENSE__URL = eINSTANCE.getLicense_URL();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LICENSE__IDENTIFIER = eINSTANCE.getLicense_Identifier();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.MediaTypeImpl <em>Media Type</em>}' class.

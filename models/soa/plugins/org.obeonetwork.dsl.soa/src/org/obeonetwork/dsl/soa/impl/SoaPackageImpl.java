@@ -1279,6 +1279,16 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getLicense_Identifier() {
+		return (EAttribute)licenseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMediaType() {
 		return mediaTypeEClass;
 	}
@@ -1710,6 +1720,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		licenseEClass = createEClass(LICENSE);
 		createEAttribute(licenseEClass, LICENSE__NAME);
 		createEAttribute(licenseEClass, LICENSE__URL);
+		createEAttribute(licenseEClass, LICENSE__IDENTIFIER);
 
 		mediaTypeEClass = createEClass(MEDIA_TYPE);
 		createEAttribute(mediaTypeEClass, MEDIA_TYPE__IDENTIFIER);
@@ -1917,6 +1928,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLicense_Name(), ecorePackage.getEString(), "name", null, 0, 1, License.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLicense_URL(), ecorePackage.getEString(), "URL", null, 0, 1, License.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLicense_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, License.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mediaTypeEClass, MediaType.class, "MediaType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMediaType_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, MediaType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
