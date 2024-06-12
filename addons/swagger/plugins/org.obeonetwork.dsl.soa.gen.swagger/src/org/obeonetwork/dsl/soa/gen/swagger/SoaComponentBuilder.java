@@ -1856,6 +1856,7 @@ public class SoaComponentBuilder {
 		if (license != null && component.getLicense() != null) {
 			component.getLicense().setName(license.getName());
 			component.getLicense().setURL(license.getUrl());
+			component.getLicense().setIdentifier(license.getIdentifier());
 		}
 	}
 
