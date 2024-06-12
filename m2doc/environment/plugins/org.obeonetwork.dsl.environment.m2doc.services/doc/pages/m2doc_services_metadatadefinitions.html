@@ -24,23 +24,14 @@
     <!endif-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
-    <title>M2Doc Services and attributes for Layout</title>
+    <title>M2Doc Services and attributes for MetaDataDefinitions</title>
   </head>
 
   <body>
    <header class="jumbotron subhead" id="overview">
   </header>
 
-    <h1 id="Layout">Services and attributes for the Layout concept</h1>
-    <p>A Layout owned by a ViewContainer defines the layout of all the recursively owned ViewElements of the ViewContainer.
-It does not define the layout of the ViewElements owned by referenced ViewContainers.
-The viewElement reference defines the element on which the size and position attributes applies.
-Therefore, the viewElement of a Layout directly contained in a ViewContainer is this ViewContainer itself.
-A Layout always defines its x, y, width and height attribute values.
-If a Layout applies to a ViewConainer, then its owned layouts applies to nothing. In this case, an owned layout only defines a compartment of the horizontal or vertical stack.
-If a Layout applies to nothing, then its owened layouts applies to an element.
-If a Layout applies to a ViewElement, the direction is meaningless and it cannot own other layouts.
-</p>
+    <h1 id="MetaDataDefinitions">Services and attributes for the MetaDataDefinitions concept</h1>
     <div class="page-header">
       <h2 id="Attributes">Attributes</h2>
     </div>
@@ -56,53 +47,18 @@ If a Layout applies to a ViewElement, the direction is meaningless and it cannot
     </thead>
   <tbody>
     <tr>
-      <td colspan="1" rowspan="1"><strong>direction</strong></td>
-      <td colspan="1" rowspan="1">LayoutDirection</td>
-      <td colspan="1" rowspan="1">{m:layout.direction}</td>
+      <td colspan="1" rowspan="1"><strong>metaDataDefinitions</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatadefinition.html">MetaDataDefinition</a></td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinitions.metaDataDefinitions}</td>
       <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.direction}</td>
+      <td colspan="1" rowspan="1">{m:for metaDataDefinition | metaDataDefinitions.metaDataDefinitions} metaDataDefinition {m:metaDataDefinition.name}, {m:endfor}</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>height</strong></td>
-      <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:layout.height}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.height}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>ownedLayouts</strong></td>
-      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_layout.html">Layout</a></td>
-      <td colspan="1" rowspan="1">{m:layout.ownedLayouts}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:for layout | layout.ownedLayouts} layout {m:layout.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>viewElement</strong></td>
-      <td colspan="1" rowspan="1">AbstractViewElement</td>
-      <td colspan="1" rowspan="1">{m:layout.viewElement}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.viewElement}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>width</strong></td>
-      <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:layout.width}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.width}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>x</strong></td>
-      <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:layout.x}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.x}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>y</strong></td>
-      <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:layout.y}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:layout.y}</td>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinitions.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinitions.technicalid}</td>
     </tr>
     </tbody>
     </table>
@@ -126,27 +82,6 @@ If a Layout applies to a ViewElement, the direction is meaningless and it cannot
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asLayoutImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage(width, height)}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Layout Layout Diagrams scaled to the given width and heigth.</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage(400, 300)} returns: A sequence of images.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asLayoutImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage(width)}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Layout Layout Diagrams scaled to the given width keeping the initial image ratio.</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage(400)} returns: A sequence of images.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asLayoutImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage()}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Layout Layout Diagrams.</td>
-      <td colspan="1" rowspan="1">{m:layout.asLayoutImage()} returns: A sequence of images.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
