@@ -387,6 +387,7 @@ public class SwaggerBuilder {
 
 			license.setName(emptyIfNull(soaLicense.getName()));
 			license.setUrl(emptyIfNull(soaLicense.getURL()));
+			license.setIdentifier(emptyIfNull(soaLicense.getIdentifier()));
 
 			addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
 		}
