@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.LicenseImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.LicenseImpl#getURL <em>URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.LicenseImpl#getIdentifier <em>Identifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,16 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * @ordered
 	 */
 	protected static final String URL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,12 +136,34 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * @generated
 	 */
 	@Override
+	public String getIdentifier() {
+		return (String)eDynamicGet(SoaPackage.LICENSE__IDENTIFIER, SoaPackage.Literals.LICENSE__IDENTIFIER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIdentifier(String newIdentifier) {
+		eDynamicSet(SoaPackage.LICENSE__IDENTIFIER, SoaPackage.Literals.LICENSE__IDENTIFIER, newIdentifier);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SoaPackage.LICENSE__NAME:
 				return getName();
 			case SoaPackage.LICENSE__URL:
 				return getURL();
+			case SoaPackage.LICENSE__IDENTIFIER:
+				return getIdentifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -148,6 +181,9 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 				return;
 			case SoaPackage.LICENSE__URL:
 				setURL((String)newValue);
+				return;
+			case SoaPackage.LICENSE__IDENTIFIER:
+				setIdentifier((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,6 +203,9 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 			case SoaPackage.LICENSE__URL:
 				setURL(URL_EDEFAULT);
 				return;
+			case SoaPackage.LICENSE__IDENTIFIER:
+				setIdentifier(IDENTIFIER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -183,6 +222,8 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.LICENSE__URL:
 				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
+			case SoaPackage.LICENSE__IDENTIFIER:
+				return IDENTIFIER_EDEFAULT == null ? getIdentifier() != null : !IDENTIFIER_EDEFAULT.equals(getIdentifier());
 		}
 		return super.eIsSet(featureID);
 	}

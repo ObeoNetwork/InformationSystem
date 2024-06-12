@@ -4,10 +4,11 @@
     modelDirectory="/org.obeonetwork.dsl.soa/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.soa"
     modelName="Soa" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="8.0" suppressGenModelAnnotations="false" runtimeVersion="2.7"
+    complianceLevel="17.0" suppressGenModelAnnotations="false" runtimeVersion="2.7"
     usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <editPluginVariables>CDO_EDIT=org.eclipse.emf.cdo.edit</editPluginVariables>
   <genPackages prefix="Soa" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
       multipleEditorPages="false" generateModelWizard="false" ecorePackage="soa.ecore#/">
     <genEnums ecoreEnum="soa.ecore#//InterfaceKind">
@@ -179,6 +180,7 @@
     <genClasses ecoreClass="soa.ecore#//License">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/URL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/identifier"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//MediaType" labelFeature="#//soa/MediaType/identifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//MediaType/identifier"/>
