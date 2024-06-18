@@ -64,6 +64,7 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Scope;
@@ -238,7 +239,12 @@ public class SwaggerBuilder {
 			break;
 		case OPENIDCONNECT:
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
-			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
+			if(soaSecurityScheme.getFlows().stream().anyMatch(f -> f.getFlowType() == FlowType.AUTHORIZATIONCODE && 
+					soaSecurityScheme.getFlows().size() > 1)) {
+				logWarning(String.format(
+					"SecurityScheme[name=%s]: Flows not exported because they are not allowed for OPEN_ID_CONNECT type",
+					soaSecurityScheme.getName()));
+			}
 			break;
 		}
 
