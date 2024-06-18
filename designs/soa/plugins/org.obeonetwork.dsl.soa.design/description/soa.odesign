@@ -1714,7 +1714,7 @@
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation/>
                     </buttons>
-                    <page name="Default Page" labelExpression="Flow edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.22"/>
+                    <page name="Default Page" labelExpression="Flow edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.20"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1730,7 +1730,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Default Page" labelExpression="Flow edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.22"/>
+                  <page name="Default Page" labelExpression="Flow edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.20"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
