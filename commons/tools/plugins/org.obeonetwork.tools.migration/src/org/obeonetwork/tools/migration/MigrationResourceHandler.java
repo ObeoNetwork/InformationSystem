@@ -44,7 +44,6 @@ public class MigrationResourceHandler extends BasicResourceHandler {
 			processUnknownData(resource);
 			migrationHelper.postLoad(resource, inputStream, options);
 		}
-		migrationHelper.postLoadAlways(resource, inputStream, options);
 	}
 
 	protected void processUnknownData(final XMLResource resource) {
