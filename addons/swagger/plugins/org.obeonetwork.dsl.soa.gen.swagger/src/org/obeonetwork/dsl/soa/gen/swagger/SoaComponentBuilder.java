@@ -1457,16 +1457,18 @@ public class SoaComponentBuilder {
 	}
 
 	private void updateExposedType(Type exposedType, Schema schema) {
-		switch (exposedType.eClass().getClassifierID()) {
-		case EnvironmentPackage.DTO:
-			updateDto((DTO) exposedType, schema);
-			break;
-		case EnvironmentPackage.ENUMERATION:
-			updateEnumeration((Enumeration) exposedType, schema);
-			break;
-		}
+		if(exposedType != null) {
+			switch (exposedType.eClass().getClassifierID()) {
+			case EnvironmentPackage.DTO:
+				updateDto((DTO) exposedType, schema);
+				break;
+			case EnvironmentPackage.ENUMERATION:
+				updateEnumeration((Enumeration) exposedType, schema);
+				break;
+			}
 
-		exposedType.setDescription(schema.getDescription());
+			exposedType.setDescription(schema.getDescription());
+		}
 	}
 
 	private Enumeration updateEnumeration(Enumeration enumeration, Schema schema) {
