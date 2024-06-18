@@ -44,6 +44,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
@@ -307,8 +308,27 @@ public class SoaComponentBuilder {
 			}
 
 			if (swgSecurityScheme.getFlows() != null) {
-				soaSecurityScheme.getFlows().addAll(createSoaFlows(swgSecurityScheme.getFlows()));
+				logWarning(String.format(
+						"SecurityScheme[name=%s]: Flows not imported because they are not allowed for OPEN_ID_CONNECT type",
+						swgSecurityScheme.getName()));
 			}
+			
+			Flow soaFlow = SoaFactory.eINSTANCE.createFlow();
+			soaFlow.setFlowType(FlowType.AUTHORIZATIONCODE);
+			soaSecurityScheme.getFlows().add(soaFlow);
+			
+			openApi.getPaths().entrySet().stream().map(Map.Entry::getValue)//
+			.flatMap(pathItem -> pathItem.readOperations().stream())//
+			.flatMap(o -> o.getSecurity().stream())//
+			.flatMap(securityRequirement -> securityRequirement.entrySet().stream())//
+			.filter(secu -> secu.getKey().equals(key))//
+			.flatMap(secu -> secu.getValue().stream())//
+			.forEach(scopeName -> {
+				Scope scope = SoaFactory.eINSTANCE.createScope();
+				scope.setName(scopeName);
+				soaFlow.getScopes().add(scope);
+			});
+			
 			break;
 		default:
 			break;
