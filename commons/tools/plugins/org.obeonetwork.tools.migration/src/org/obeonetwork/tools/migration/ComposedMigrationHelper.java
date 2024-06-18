@@ -109,13 +109,6 @@ public class ComposedMigrationHelper extends BasicMigrationHelper {
 	}
 
 	@Override
-	public void postLoadAlways(XMLResource resource, InputStream inputStream, Map<?, ?> options) {
-		for (IMigrationHelper migrationHelper : migrationHelpers) {
-			migrationHelper.postLoadAlways(resource, inputStream, options);
-		}
-	}
-
-	@Override
 	public void handleUnknownFeaturesMixedValue(EObject owner, FeatureMap featureMap) {
 		for (IMigrationHelper migrationHelper : migrationHelpers) {
 			migrationHelper.handleUnknownFeaturesMixedValue(owner, featureMap);
