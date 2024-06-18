@@ -1653,7 +1653,7 @@
         </validationSet>
       </groups>
       <groups name="SecurityScheme Group" labelExpression="Properties" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:invocationContext=null or invocationContext='addButton'" valueExpression="aql:self.eClass().getEStructuralFeature('type').eType.getEEnumLiteralByLiteral(self.type.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('type').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+        <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:invocationContext='addButton'" valueExpression="aql:self.eClass().getEStructuralFeature('type').eType.getEEnumLiteralByLiteral(self.type.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('type').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:newValue.instance"/>
           </initialOperation>
@@ -1699,7 +1699,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="connectURL" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('flows')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flows'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('flows').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('flows')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flows'))" isEnabledExpression="aql:self.type&lt;>soa::SecuritySchemeType::OPEN_ID_CONNECT">
           <customExpressions name="referenceNameExpression" customExpression="flows"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -1777,22 +1777,22 @@
         </controls>
       </groups>
       <groups name="Flow Group" labelExpression="Properties" domainClass="soa::Flow" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:SelectDescription" name="soa::Flow flowType" labelExpression="Flow type:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flowType'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('flowType').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('flowType').eType.getEEnumLiteralByLiteral(self.flowType.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('flowType').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+        <controls xsi:type="properties:SelectDescription" name="soa::Flow flowType" labelExpression="Flow type:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flowType'))" isEnabledExpression="aql:self.eContainer(soa::SecurityScheme).type&lt;>soa::SecuritySchemeType::OPEN_ID_CONNECT" valueExpression="aql:self.eClass().getEStructuralFeature('flowType').eType.getEEnumLiteralByLiteral(self.flowType.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('flowType').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="flowType" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Flow authorizationURL" labelExpression="Authorization URL:" valueExpression="aql:self.authorizationURL">
+        <controls xsi:type="properties:TextDescription" name="soa::Flow authorizationURL" labelExpression="Authorization URL:" isEnabledExpression="aql:self.eContainer(soa::SecurityScheme).type&lt;>soa::SecuritySchemeType::OPEN_ID_CONNECT" valueExpression="aql:self.authorizationURL">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="authorizationURL" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Flow tokenURL" labelExpression="Token URL:" valueExpression="aql:self.tokenURL">
+        <controls xsi:type="properties:TextDescription" name="soa::Flow tokenURL" labelExpression="Token URL:" isEnabledExpression="aql:self.eContainer(soa::SecurityScheme).type&lt;>soa::SecuritySchemeType::OPEN_ID_CONNECT" valueExpression="aql:self.tokenURL">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="tokenURL" valueExpression="aql:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Flow refreshURL" labelExpression="Refresh URL:" valueExpression="aql:self.refreshURL">
+        <controls xsi:type="properties:TextDescription" name="soa::Flow refreshURL" labelExpression="Refresh URL:" isEnabledExpression="aql:self.eContainer(soa::SecurityScheme).type&lt;>soa::SecuritySchemeType::OPEN_ID_CONNECT" valueExpression="aql:self.refreshURL">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="refreshURL" valueExpression="var:newValue"/>
           </initialOperation>
@@ -1971,7 +1971,14 @@
                     </buttons>
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:Let" variableName="invocationContext"/>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                          <subModelOperations xsi:type="tool_1:Let" variableName="invocationContext"/>
+                          <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.type=soa::SecuritySchemeType::OPEN_ID_CONNECT">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Flow" referenceName="flows">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="flowType" valueExpression="aql:soa::FlowType::AUTHORIZATIONCODE"/>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </firstModelOperations>
                       </initialOperation>
                     </buttons>
                     <page name="Default Page" labelExpression="Security scheme edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.10"/>
