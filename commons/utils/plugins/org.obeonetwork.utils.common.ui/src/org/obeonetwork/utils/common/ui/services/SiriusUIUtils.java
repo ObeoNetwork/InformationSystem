@@ -18,6 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -38,9 +39,11 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.internal.session.danalysis.SaveSessionJob;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.tools.api.DiagramPlugin;
 import org.eclipse.sirius.diagram.ui.part.ValidateAction;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
@@ -213,6 +216,20 @@ public class SiriusUIUtils {
 		}
 		
 		return self;
+	}
+	
+	public static boolean safeTestStringVariable(EObject any, String variableName, String value) {
+		IInterpreter interpreter = new EObjectQuery(any).getSession().getInterpreter();
+		if(!interpreter.getVariables().keySet().contains(variableName)) {
+			return false;
+		}
+		
+		return Objects.equals(interpreter.getVariable(variableName), value);
+	}
+	
+	public static boolean variableIsDefined(EObject any, String variableName) {
+		IInterpreter interpreter = new EObjectQuery(any).getSession().getInterpreter();
+		return interpreter.getVariables().keySet().contains(variableName);
 	}
 	
 }
