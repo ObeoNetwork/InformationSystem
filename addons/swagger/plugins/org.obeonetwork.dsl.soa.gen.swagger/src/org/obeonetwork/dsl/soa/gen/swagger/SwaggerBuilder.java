@@ -238,11 +238,7 @@ public class SwaggerBuilder {
 			break;
 		case OPENIDCONNECT:
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
-			if (soaSecurityScheme.getFlows() != null && !soaSecurityScheme.getFlows().isEmpty()) {
-				logWarning(String.format(
-						"SecurityScheme[name=%s]: Flows not exported because they are not allowed for OPEN_ID_CONNECT type",
-						soaSecurityScheme.getName()));
-			}
+			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
 			break;
 		}
 
