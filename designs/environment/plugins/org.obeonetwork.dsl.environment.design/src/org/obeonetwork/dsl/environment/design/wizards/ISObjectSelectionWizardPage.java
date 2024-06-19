@@ -342,7 +342,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         viewer.getTree().setLinesVisible(false);
         viewer.setContentProvider(new ISTreeItemWrapperContentProvider());
         viewer.setLabelProvider(new ISObjectSelectionLabelProvider());
-        viewer.setComparator(new ViewerComparator());
+        // Sorting the tree nodes doesn't seem a good idea. We usually want to see the tree contents
+        // in the same sorting order than in the Model Explorer
+//        viewer.setComparator(new ViewerComparator());
         viewerFilter = new ISObjectSelectionFilter();
         viewer.addFilter(viewerFilter);
 
