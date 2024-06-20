@@ -106,7 +106,9 @@ public class PartialViewCreationAction extends Action {
 		}
 		String representationName = promptName.getValue();
 		
+		session.getInterpreter().setVariable("isPartialViewActionCreationInProgress", "true");
 		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, context, representationDescription, representationName, new NullProgressMonitor());
+		session.getInterpreter().unSetVariable("isPartialViewActionCreationInProgress");
 		
 		try {
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().run(false, false, motitor -> 
