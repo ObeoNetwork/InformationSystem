@@ -41,10 +41,12 @@ public class PartialViewMenuFactory extends ExtensionContributionFactory {
 
 		Set<String> partialViewDescriptionNames = PartialViewExtension.getPartialViewDescriptionNames();
 		
+		session.getInterpreter().setVariable("isPartialViewActionCreationInProgress", "true");
 		DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), context).stream()
 			.filter(rd -> partialViewDescriptionNames.contains(rd.getName()))
 			.forEach(representationDescription -> 
 				additions.addContributionItem(new ActionContributionItem(new PartialViewCreationAction(context, representationDescription)), null));
+		session.getInterpreter().unSetVariable("isPartialViewActionCreationInProgress");
 
 	}
 
