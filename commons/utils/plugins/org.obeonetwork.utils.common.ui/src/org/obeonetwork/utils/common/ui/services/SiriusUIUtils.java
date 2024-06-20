@@ -11,7 +11,6 @@
 package org.obeonetwork.utils.common.ui.services;
 
 import static java.util.stream.Collectors.toList;
-import static org.obeonetwork.utils.common.ui.Activator.logInfo;
 import static org.obeonetwork.utils.common.ui.Activator.logWarning;
 
 import java.lang.reflect.InvocationTargetException;
@@ -120,16 +119,12 @@ public class SiriusUIUtils {
 	 * @param session
 	 */
 	public static void executeCreateRepresentationCommand(AbstractCommand command, Session session) {
-		logInfo("Joining on Sirius save session job family.");
 		try {
 			Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
 		} catch (OperationCanceledException | InterruptedException e) {
 			logWarning(String.format("Join Sirius save session jobs aborted for '%s'.", command.getLabel()));
 		}
-		logInfo("Joining on Sirius save session job family passed.");
-		logInfo(String.format("Executing command '%s'.", command.getLabel()));
 		session.getTransactionalEditingDomain().getCommandStack().execute(command);
-		logInfo(String.format("Command '%s' executed.", command.getLabel()));
 	}
 	
 	public static DRepresentation createRepresentation(Session session, EObject context, RepresentationDescription representationDescription, String title, IProgressMonitor monitor) {
