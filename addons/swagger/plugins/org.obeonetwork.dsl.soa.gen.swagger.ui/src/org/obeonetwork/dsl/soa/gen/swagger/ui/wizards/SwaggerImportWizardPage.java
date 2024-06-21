@@ -44,7 +44,7 @@ public class SwaggerImportWizardPage extends WizardPage {
 
 	private DataBindingContext bindingContext;
 
-	SwaggerImportWizardParameters model;
+	private SwaggerImportWizardModel model;
 
 	private Text txtSwaggerFilePath;
 	private Text txtPaginationExtension;
@@ -52,7 +52,7 @@ public class SwaggerImportWizardPage extends WizardPage {
 
 	private PropertyChangeListener swaggerFilePathModelListener;
 
-	static class SwaggerImportWizardParameters {
+	static class SwaggerImportWizardModel {
 		private String swaggerFilePath = "";
 		private String paginationExtension = "";
 		private String validInputVersion = null;
@@ -67,23 +67,27 @@ public class SwaggerImportWizardPage extends WizardPage {
 			propertyChangeSupport.removePropertyChangeListener(listener);
 		}
 
+		public static final String SWAGGER_FILE_PATH_PROP = "swaggerFilePath";
+		
 		public String getSwaggerFilePath() {
 			return swaggerFilePath;
 		}
 
 		public void setSwaggerFilePath(String swaggerFilePath) {
 			if (!Objects.equals(this.swaggerFilePath, swaggerFilePath))
-				propertyChangeSupport.firePropertyChange("swaggerFilePath", this.swaggerFilePath, //$NON-NLS-1$
+				propertyChangeSupport.firePropertyChange(SWAGGER_FILE_PATH_PROP, this.swaggerFilePath, //$NON-NLS-1$
 						this.swaggerFilePath = swaggerFilePath);
 		}
 
+		public static final String PAGINATION_EXTENSION_PROP = "paginationExtension";
+		
 		public String getPaginationExtension() {
 			return paginationExtension;
 		}
 
 		public void setPaginationExtension(String paginationExtension) {
 			if (!Objects.equals(this.paginationExtension, paginationExtension))
-				propertyChangeSupport.firePropertyChange("paginationExtension", this.paginationExtension, //$NON-NLS-1$
+				propertyChangeSupport.firePropertyChange(PAGINATION_EXTENSION_PROP, this.paginationExtension, //$NON-NLS-1$
 						this.paginationExtension = paginationExtension);
 		}
 
@@ -102,7 +106,7 @@ public class SwaggerImportWizardPage extends WizardPage {
 		setTitle("Swagger import");
 		setDescription("Select file to import.");
 		this.wizard = wizard;
-		this.model = new SwaggerImportWizardParameters();
+		this.model = new SwaggerImportWizardModel();
 	}
 
 	@Override
@@ -192,7 +196,7 @@ public class SwaggerImportWizardPage extends WizardPage {
 			}
 
 		};
-		model.addPropertyChangeListener("swaggerFilePath", swaggerFilePathModelListener); //$NON-NLS-1$
+		model.addPropertyChangeListener(SwaggerImportWizardModel.SWAGGER_FILE_PATH_PROP, swaggerFilePathModelListener); //$NON-NLS-1$
 
 		Label labelInputVersion = new Label(container, SWT.NONE);
 		labelInputVersion.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -216,19 +220,14 @@ public class SwaggerImportWizardPage extends WizardPage {
 		DataBindingContext bindingContext = new DataBindingContext();
 
 		// swaggerFilePath
-		IObservableValue observeTextSwaggerFilePathObserveWidget = WidgetProperties.text(SWT.Modify)
-				.observe(txtSwaggerFilePath);
-		IObservableValue textTxtSwaggerFilePathObserveValue = BeanProperties.value("swaggerFilePath").observe(model);
-		bindingContext.bindValue(observeTextSwaggerFilePathObserveWidget, textTxtSwaggerFilePathObserveValue, null,
-				null);
+		IObservableValue observeTextSwaggerFilePathObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtSwaggerFilePath);
+		IObservableValue textTxtSwaggerFilePathObserveValue = BeanProperties.value(SwaggerImportWizardModel.SWAGGER_FILE_PATH_PROP).observe(model);
+		bindingContext.bindValue(observeTextSwaggerFilePathObserveWidget, textTxtSwaggerFilePathObserveValue, null, null);
 
 		// paginationExtension
-		IObservableValue observeTextTxtPaginationExtensionObserveWidget = WidgetProperties.text(SWT.Modify)
-				.observe(txtPaginationExtension);
-		IObservableValue textTxtPaginationExtensionObserveValue = BeanProperties.value("paginationExtension")
-				.observe(model);
-		bindingContext.bindValue(observeTextTxtPaginationExtensionObserveWidget, textTxtPaginationExtensionObserveValue,
-				null, null);
+		IObservableValue observeTextTxtPaginationExtensionObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtPaginationExtension);
+		IObservableValue textTxtPaginationExtensionObserveValue = BeanProperties.value(SwaggerImportWizardModel.PAGINATION_EXTENSION_PROP).observe(model);
+		bindingContext.bindValue(observeTextTxtPaginationExtensionObserveWidget, textTxtPaginationExtensionObserveValue, null, null);
 
 		return bindingContext;
 	}
