@@ -160,18 +160,20 @@ public class SoaComponentBuilder {
 		operationNamesDisambiguationIndex = new HashMap<>();
 
 		reservedOperationNames = new HashSet<>();
-		for (Operation operation : openApi.getPaths().entrySet().stream().map(Map.Entry::getValue)
-				.flatMap(pathItem -> pathItem.readOperations().stream()).collect(toList())) {
-			if (operation.getOperationId() != null) {
-				String operationId = operation.getOperationId();
-				if (reservedOperationNames.contains(operationId)) {
-					logWarning(String.format("Operation Id \"%s\" used on more than one operation.", operationId));
-				} else {
-					reservedOperationNames.add(operationId);
-				}
+		
+		openApi.getPaths().entrySet().stream()//
+		.map(Map.Entry::getValue)//
+		.flatMap(pathItem -> pathItem.readOperations().stream())//
+		.filter(operation -> operation.getOperationId() != null)//
+		.forEach(operation -> {
+			String operationId = operation.getOperationId();
+			if (reservedOperationNames.contains(operationId)) {
+				logWarning(String.format("Operation Id \"%s\" used on more than one operation.", operationId), List.of("paths", "**"));
+			} else {
+				reservedOperationNames.add(operationId);
 			}
-		}
-
+		});
+		
 		createSoaComponent();
 
 		return status;
@@ -185,13 +187,21 @@ public class SoaComponentBuilder {
 		return soaComponent;
 	}
 
-	private void logError(String message) {
-		Activator.logError(message);
+	private String formatMessage(String message, List<String> debugPath) {
+		if(debugPath == null) {
+			return message;
+		}
+		return message + "\n  OpenAPI Location: " + 
+			debugPath.stream().collect(joining(":"));
+	}
+
+	private void logError(String message, List<String> debugPath) {
+		Activator.logError(formatMessage(message, debugPath));
 		status = IStatus.ERROR;
 	}
 
-	private void logWarning(String message) {
-		Activator.logWarning(message);
+	private void logWarning(String message, List<String> debugPath) {
+		Activator.logWarning(formatMessage(message, debugPath));
 		if (status != IStatus.ERROR) {
 			status = IStatus.WARNING;
 		}
@@ -201,7 +211,7 @@ public class SoaComponentBuilder {
 
 		String soaComponentName = getSoaComponentName();
 		if (soaComponentName == null) {
-			logError("Component name could not be computed.");
+			logError("Component name could not be computed.", List.of("info", "title"));
 			return null;
 		}
 
@@ -257,22 +267,24 @@ public class SoaComponentBuilder {
 
 	private void buildSoaSecuritySchemes() {
 		if (openApi.getComponents() != null && openApi.getComponents().getSecuritySchemes() != null) {
+			List<String> debugPath = List.of("components", "securitySchemes");
+
 			Map<String, SecurityScheme> swgSecuritySchemes = openApi.getComponents().getSecuritySchemes();
 
 			for (String key : swgSecuritySchemes.keySet()) {
 				SecurityScheme swgSecurityScheme = swgSecuritySchemes.get(key);
-				soaComponent.getSecuritySchemes().add(createSecurityScheme(key, swgSecurityScheme));
+				soaComponent.getSecuritySchemes().add(createSecurityScheme(key, swgSecurityScheme, newDebugPath(debugPath, key)));
 			}
 		}
 	}
 
-	private org.obeonetwork.dsl.soa.SecurityScheme createSecurityScheme(String key, SecurityScheme swgSecurityScheme) {
+	private org.obeonetwork.dsl.soa.SecurityScheme createSecurityScheme(String key, SecurityScheme swgSecurityScheme, List<String> debugPath) {
 		org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = SoaFactory.eINSTANCE.createSecurityScheme();
 
 		soaSecurityScheme.setName(key);
 
 		if (swgSecurityScheme.getType() != null) {
-			soaSecurityScheme.setType(toSoa(swgSecurityScheme.getType()));
+			soaSecurityScheme.setType(toSoa(swgSecurityScheme.getType(), debugPath));
 		}
 
 		if (swgSecurityScheme.getDescription() != null) {
@@ -307,9 +319,9 @@ public class SoaComponentBuilder {
 			}
 
 			if (swgSecurityScheme.getFlows() != null) {
-				logWarning(String.format(
-						"SecurityScheme[name=%s]: Flows not imported because they are not allowed for OPEN_ID_CONNECT type",
-						swgSecurityScheme.getName()));
+				logWarning(String.format("Security scheme '%s': Flows not imported because they are not allowed for OPEN_ID_CONNECT type",
+								swgSecurityScheme.getName()),
+							debugPath);
 			}
 			
 			Flow soaFlow = SoaFactory.eINSTANCE.createFlow();
@@ -380,7 +392,7 @@ public class SoaComponentBuilder {
 		return soaFlow;
 	}
 
-	private SecuritySchemeType toSoa(SecurityScheme.Type swgSecuritySchemeType) {
+	private SecuritySchemeType toSoa(SecurityScheme.Type swgSecuritySchemeType, List<String> debugPath) {
 		SecuritySchemeType soaSecuritySchemeType = null;
 
 		switch (swgSecuritySchemeType) {
@@ -397,7 +409,7 @@ public class SoaComponentBuilder {
 			soaSecuritySchemeType = SecuritySchemeType.OPEN_ID_CONNECT;
 			break;
 		case MUTUALTLS:
-			logWarning("SecuritySchemeType not supported : MUTUALTLS");
+			logWarning("SecuritySchemeType not supported : MUTUALTLS", debugPath);
 			break;
 		default:
 			break;
@@ -456,8 +468,10 @@ public class SoaComponentBuilder {
 	}
 
 	private void processParameterSubInlineType(Type inlineType) {
-		List<Property> usingProperties = inlineTypes.get(inlineType).stream().filter(Property.class::isInstance)
-				.map(Property.class::cast).filter(p -> p.eContainer().eContainer() != null).collect(toList());
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()//
+				.filter(Property.class::isInstance).map(Property.class::cast)//
+				.filter(p -> p.eContainer().eContainer() != null)//
+				.collect(toList());
 
 		if (!usingProperties.isEmpty()) {
 
@@ -466,7 +480,7 @@ public class SoaComponentBuilder {
 				Namespace typesNamesapce = getOrCreateTypesNamespace();
 				logWarning(String.format("Could not find common types container for %s. Using %s instead.",
 						usingProperties.stream().map(p -> ((Type) p.eContainer()).getName()).collect(joining(", ")),
-						typesNamesapce.getName()));
+						typesNamesapce.getName()), null);
 				commonTypesContainer = typesNamesapce;
 			}
 
@@ -476,7 +490,9 @@ public class SoaComponentBuilder {
 				StructuredType usingType = (StructuredType) usingProperty.eContainer();
 				inlineTypeName = usingType.getName() + upperFirst(usingProperty.getName());
 			} else if (usingProperties.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
-				inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).distinct().sorted()
+				inlineTypeName = usingProperties.stream()//
+						.map(p -> upperFirst(p.getName()))//
+						.distinct().sorted()//
 						.collect(joining());
 			} else {
 				inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME
@@ -502,7 +518,8 @@ public class SoaComponentBuilder {
 			destinationNamespace = getOrCreateNamespace(destinationNamespace, soaService.getName());
 		}
 
-		String inlineTypeName = usingParameters.stream().map(p -> upperFirst(p.getName())).collect(toSet()).stream()
+		String inlineTypeName = usingParameters.stream()//
+				.map(p -> upperFirst(p.getName())).distinct()//
 				.collect(joining());
 
 		org.obeonetwork.dsl.soa.Operation soaOperation = getCommonAncestor(usingParameters,
@@ -553,8 +570,10 @@ public class SoaComponentBuilder {
 	}
 
 	private void processSchemaInlineType(Type inlineType) {
-		List<Property> usingProperties = inlineTypes.get(inlineType).stream().filter(Property.class::isInstance)
-				.map(Property.class::cast).filter(p -> p.eContainer().eContainer() != null).collect(toList());
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()//
+				.filter(Property.class::isInstance).map(Property.class::cast)//
+				.filter(p -> p.eContainer().eContainer() != null)//
+				.collect(toList());
 		if (!usingProperties.isEmpty()) {
 			TypesDefinition typesContainer = getCommonAncestor(usingProperties, TypesDefinition.class);
 
@@ -564,10 +583,13 @@ public class SoaComponentBuilder {
 				StructuredType usingType = (StructuredType) usingProperty.eContainer();
 				inlineTypeName = usingType.getName() + upperFirst(usingProperty.getName());
 			} else {
-				Set<String> distinctUsingPropertyNames = usingProperties.stream().map(p -> upperFirst(p.getName()))
+				Set<String> distinctUsingPropertyNames = usingProperties.stream()//
+						.map(p -> upperFirst(p.getName()))//
 						.collect(toSet());
 				if (distinctUsingPropertyNames.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
-					inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).distinct().sorted()
+					inlineTypeName = usingProperties.stream()//
+							.map(p -> upperFirst(p.getName()))//
+							.distinct().sorted()//
 							.collect(joining());
 				} else {
 					inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME
@@ -583,7 +605,9 @@ public class SoaComponentBuilder {
 	}
 
 	private String toUniqueName(TypesDefinition typesContainer, String inlineTypeName) {
-		Set<String> usedNames = typesContainer.getTypes().stream().map(t -> t.getName()).collect(toSet());
+		Set<String> usedNames = typesContainer.getTypes().stream()//
+				.map(t -> t.getName())//
+				.collect(toSet());
 
 		if (!usedNames.contains(inlineTypeName)) {
 			return inlineTypeName;
@@ -597,7 +621,9 @@ public class SoaComponentBuilder {
 	}
 
 	private List<Type> getUnprocessedSchemaInlineTypes() {
-		return inlineTypes.keySet().stream().filter(t -> t.eContainer() == null).filter(t -> isSchemaInlineType(t))
+		return inlineTypes.keySet().stream()//
+				.filter(t -> t.eContainer() == null)//
+				.filter(t -> isSchemaInlineType(t))//
 				.collect(toList());
 	}
 
@@ -612,14 +638,17 @@ public class SoaComponentBuilder {
 			return false;
 		}
 
-		List<Property> usingProperties = inlineTypes.get(inlineType).stream().filter(Property.class::isInstance)
-				.map(Property.class::cast).collect(toList());
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()//
+				.filter(Property.class::isInstance).map(Property.class::cast)//
+				.collect(toList());
 
 		if (usingProperties.isEmpty()) {
 			return false;
 		}
 
-		List<Type> usingTypes = usingProperties.stream().map(p -> (Type) p.eContainer()).collect(toList());
+		List<Type> usingTypes = usingProperties.stream()//
+				.map(p -> (Type) p.eContainer())//
+				.collect(toList());
 
 		if (usingTypes.stream().anyMatch(t -> t.eContainer() != null)) {
 			return true;
@@ -629,21 +658,25 @@ public class SoaComponentBuilder {
 	}
 
 	private List<Type> getUnprocessedParameterInlineTypes() {
-		return inlineTypes.keySet().stream().filter(t -> t.eContainer() == null)
-				.filter(t -> inlineTypes.get(t).stream().anyMatch(org.obeonetwork.dsl.soa.Parameter.class::isInstance))
+		return inlineTypes.keySet().stream()//
+				.filter(t -> t.eContainer() == null)//
+				.filter(t -> inlineTypes.get(t).stream().anyMatch(org.obeonetwork.dsl.soa.Parameter.class::isInstance))//
 				.collect(toList());
 	}
 
 	private List<Type> getUnprocessedInlineTypes() {
-		return inlineTypes.keySet().stream().filter(t -> t.eContainer() == null).collect(toList());
+		return inlineTypes.keySet().stream()//
+				.filter(t -> t.eContainer() == null)//
+				.collect(toList());
 	}
 
 	private <T extends Type> T registerInlineType(ObeoDSMObject context, T soaType) {
 		// context is of type Attribute, Reference or Parameter
 		// soaType is of type DTO or Enumeration
 
-		T registeredType = (T) inlineTypes.keySet().stream().filter(t -> soaEquals(soaType, t)).findFirst()
-				.orElse(soaType);
+		T registeredType = (T) inlineTypes.keySet().stream()//
+				.filter(t -> soaEquals(soaType, t))//
+				.findFirst().orElse(soaType);
 
 		List<ObeoDSMObject> contexts = inlineTypes.get(registeredType);
 		if (contexts == null) {
@@ -674,33 +707,40 @@ public class SoaComponentBuilder {
 
 		EClass eClass = a.eClass();
 
-		boolean attributesEquals = eClass.getEAllAttributes().stream()
-				.filter(attribute -> !IGNORED_FEATURES.contains(attribute)).filter(attribute -> !attribute.isDerived())
-				.map(attr -> Objects.equals(a.eGet(attr), b.eGet(attr))).reduce((t1, t2) -> t1 && t2).orElse(true);
+		boolean attributesEquals = eClass.getEAllAttributes().stream()//
+				.filter(attribute -> !IGNORED_FEATURES.contains(attribute))//
+				.filter(attribute -> !attribute.isDerived())//
+				.map(attr -> Objects.equals(a.eGet(attr), b.eGet(attr))).reduce((t1, t2) -> t1 && t2)//
+				.orElse(true);
 
-		boolean containmentReferencesMono = eClass.getEAllContainments().stream()
-				.filter(containment -> !containment.isMany())
-				.map(containment -> soaEquals((EObject) a.eGet(containment), (EObject) b.eGet(containment)))
-				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		boolean containmentReferencesMono = eClass.getEAllContainments().stream()//
+				.filter(containment -> !containment.isMany())//
+				.map(containment -> soaEquals((EObject) a.eGet(containment), (EObject) b.eGet(containment)))//
+				.reduce((t1, t2) -> t1 && t2)//
+				.orElse(true);
 
-		boolean containmentReferencesMulti = eClass.getEAllContainments().stream()
-				.filter(containment -> containment.isMany())
-				.map(containment -> soaContentMultiEquals((List<?>) a.eGet(containment), (List<?>) b.eGet(containment)))
-				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		boolean containmentReferencesMulti = eClass.getEAllContainments().stream()//
+				.filter(containment -> containment.isMany())//
+				.map(containment -> soaContentMultiEquals((List<?>) a.eGet(containment), (List<?>) b.eGet(containment)))//
+				.reduce((t1, t2) -> t1 && t2)//
+				.orElse(true);
 
-		boolean referencesMono = eClass.getEAllReferences().stream().filter(reference -> !reference.isContainment())
-				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())
-				.filter(reference -> !reference.isDerived()).filter(reference -> !reference.isMany())
-				.map(reference -> a.eGet(reference) == b.eGet(reference)).reduce((t1, t2) -> t1 && t2).orElse(true);
+		boolean referencesMono = eClass.getEAllReferences().stream()//
+				.filter(reference -> !reference.isContainment())//
+				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())//
+				.filter(reference -> !reference.isDerived()).filter(reference -> !reference.isMany())//
+				.map(reference -> a.eGet(reference) == b.eGet(reference)).reduce((t1, t2) -> t1 && t2)//
+				.orElse(true);
 
-		boolean referencesMulti = eClass.getEAllReferences().stream().filter(reference -> !reference.isContainment())
-				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())
-				.filter(reference -> !reference.isDerived()).filter(reference -> reference.isMany())
-				.map(reference -> soaReferenceMultiEquals((List<?>) a.eGet(reference), (List<?>) b.eGet(reference)))
-				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		boolean referencesMulti = eClass.getEAllReferences().stream()//
+				.filter(reference -> !reference.isContainment())//
+				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())//
+				.filter(reference -> !reference.isDerived()).filter(reference -> reference.isMany())//
+				.map(reference -> soaReferenceMultiEquals((List<?>) a.eGet(reference), (List<?>) b.eGet(reference)))//
+				.reduce((t1, t2) -> t1 && t2)//
+				.orElse(true);
 
-		return attributesEquals && containmentReferencesMono && containmentReferencesMulti && referencesMono
-				&& referencesMulti;
+		return attributesEquals && containmentReferencesMono && containmentReferencesMulti && referencesMono && referencesMulti;
 	}
 
 	private boolean soaContentMultiEquals(List<?> la, List<?> lb) {
@@ -766,14 +806,17 @@ public class SoaComponentBuilder {
 
 	private void buildSoaOperations() {
 		for (String path : openApi.getPaths().keySet()) {
+			List<String> debugPath = newDebugPath(List.of("paths"), path);
 			openApi.getPaths().get(path).readOperationsMap().entrySet().stream()
-					.forEach(operationsMapEntry -> createSoaOperation(path, operationsMapEntry.getKey(),
-							operationsMapEntry.getValue()));
+					.forEach(operationsMapEntry -> createSoaOperation(
+							path, 
+							operationsMapEntry.getKey(), 
+							operationsMapEntry.getValue(), 
+							newDebugPath(debugPath, operationsMapEntry.getKey().toString())));
 		}
 	}
 
-	private org.obeonetwork.dsl.soa.Operation createSoaOperation(String path, HttpMethod swgVerb,
-			Operation swgOperation) {
+	private org.obeonetwork.dsl.soa.Operation createSoaOperation(String path, HttpMethod swgVerb, Operation swgOperation, List<String> debugPath) {
 		Service soaService = getSoaServiceFromPath(path);
 		Interface soaInterface = getOrCreateInterface(soaService);
 
@@ -806,20 +849,20 @@ public class SoaComponentBuilder {
 		if (soaVerb != null) {
 			soaOperation.setVerb(soaVerb);
 		} else {
-			logError(String.format("Unsupported verb %s for path %s.", swgVerb.toString(), path));
+			logError(String.format("Unsupported verb %s for path %s.", swgVerb.toString(), path), debugPath);
 		}
 
 		if (swgOperation.getParameters() != null) {
 			for (Parameter parameter : swgOperation.getParameters()) {
 				if (parameter != null) {
-					createSoaInputParameter(soaOperation, parameter);
+					createSoaInputParameter(soaOperation, parameter, newDebugPath(debugPath, parameter.getName()));
 				}
 			}
 		}
 
 		RequestBody requestBody = swgOperation.getRequestBody();
 		if (requestBody != null) {
-			createSoaBodyParameter(soaOperation, requestBody);
+			createSoaBodyParameter(soaOperation, requestBody, newDebugPath(debugPath, "requestBody"));
 		}
 
 		createPaginationProperties(swgOperation, soaOperation);
@@ -829,7 +872,7 @@ public class SoaComponentBuilder {
 
 		if (responses != null) {
 			for (String responseKey : responses.keySet()) {
-				createSoaResponseParameter(soaOperation, responseKey, responses.get(responseKey));
+				createSoaResponseParameter(soaOperation, responseKey, responses.get(responseKey), newDebugPath(debugPath, responseKey));
 			}
 		}
 
@@ -839,8 +882,9 @@ public class SoaComponentBuilder {
 				if (!swgSecurityRequirement.keySet().isEmpty()) {
 					String ssKey = swgSecurityRequirement.keySet().iterator().next();
 
-					for (org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes()
-							.stream().filter(ss -> ssKey.equals(ss.getName())).collect(toList())) {
+					for (org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes().stream()//
+							.filter(ss -> ssKey.equals(ss.getName()))//
+							.collect(toList())) {
 						SecurityApplication soaSecurityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
 						soaSecurityApplication.setSecurityScheme(securityScheme);
 						soaOperation.getSecurityApplications().add(soaSecurityApplication);
@@ -848,8 +892,8 @@ public class SoaComponentBuilder {
 						List<String> scopeNames = swgSecurityRequirement.get(ssKey);
 						if (scopeNames != null) {
 							for (String scopeName : scopeNames) {
-								List<Scope> soaScopes = securityScheme.getFlows().stream()
-										.flatMap(f -> f.getScopes().stream()).filter(s -> s.getName().equals(scopeName))
+								List<Scope> soaScopes = securityScheme.getFlows().stream()//
+										.flatMap(f -> f.getScopes().stream()).filter(s -> s.getName().equals(scopeName))//
 										.collect(toList());
 								soaSecurityApplication.getScopes().addAll(soaScopes);
 							}
@@ -929,9 +973,9 @@ public class SoaComponentBuilder {
 	 */
 	private void setPaginationPropertyExtension(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		if (soaOperation.getMetadatas() != null) {
-			soaOperation.setPaginationExtension(soaOperation.getMetadatas().getMetadatas().stream()
-					.filter(PropertiesExtension.class::isInstance).map(PropertiesExtension.class::cast)
-					.filter(property -> ((PropertiesExtension) property).getTitle().equals(paginationExtension))
+			soaOperation.setPaginationExtension(soaOperation.getMetadatas().getMetadatas().stream()//
+					.filter(PropertiesExtension.class::isInstance).map(PropertiesExtension.class::cast)//
+					.filter(property -> ((PropertiesExtension) property).getTitle().equals(paginationExtension))//
 					.findFirst().orElse(null));
 		}
 	}
@@ -942,11 +986,15 @@ public class SoaComponentBuilder {
 		StringBuffer name = new StringBuffer();
 		name.append(verb.toString().toLowerCase());
 
-		name.append(segments.stream().filter(PATH_PARAM_PATTERN_PREDICATE.negate()).map(segment -> upperFirst(segment))
+		name.append(segments.stream()//
+				.filter(PATH_PARAM_PATTERN_PREDICATE.negate())//
+				.map(segment -> upperFirst(segment))//
 				.collect(joining()));
 
-		String suffix = segments.stream().filter(PATH_PARAM_PATTERN_PREDICATE)
-				.map(segment -> upperFirst(segment.substring(1, segment.length() - 1))).collect(joining("And"));
+		String suffix = segments.stream()//
+				.filter(PATH_PARAM_PATTERN_PREDICATE)//
+				.map(segment -> upperFirst(segment.substring(1, segment.length() - 1)))//
+				.collect(joining("And"));
 
 		if (!suffix.isEmpty()) {
 			name.append("From");
@@ -987,8 +1035,7 @@ public class SoaComponentBuilder {
 		return soaInterface;
 	}
 
-	private org.obeonetwork.dsl.soa.Parameter createSoaInputParameter(org.obeonetwork.dsl.soa.Operation soaOperation,
-			Parameter swgParameter) {
+	private org.obeonetwork.dsl.soa.Parameter createSoaInputParameter(org.obeonetwork.dsl.soa.Operation soaOperation, Parameter swgParameter, List<String> debugPath) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
 
@@ -1013,14 +1060,12 @@ public class SoaComponentBuilder {
 		} else if (swgParameter instanceof QueryParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.QUERY);
 		} else {
-			logWarning(
-					String.format("Parameter in Path:[%s] with no ParameterPassingMode(Cookie, Header, Path, Query).",
-							soaOperation.getName()));
+			logWarning("Parameter with no passing mode (Cookie, Header, Path, Query).", debugPath);
 		}
 
 		Schema schema = unwrapArrayOrComposedSchema(swgParameter.getSchema());
 		if (schema != null) {
-			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
+			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter, debugPath);
 			soaParameter.setType(soaParameterType);
 			setValueConstraints(soaParameter, schema);
 		}
@@ -1055,8 +1100,7 @@ public class SoaComponentBuilder {
 		return schema;
 	}
 
-	private org.obeonetwork.dsl.soa.Parameter createSoaBodyParameter(org.obeonetwork.dsl.soa.Operation soaOperation,
-			RequestBody requestBody) {
+	private org.obeonetwork.dsl.soa.Parameter createSoaBodyParameter(org.obeonetwork.dsl.soa.Operation soaOperation, RequestBody requestBody, List<String> debugPath) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		extractPropertiesExtensions(requestBody, soaParameter);
 
@@ -1072,15 +1116,15 @@ public class SoaComponentBuilder {
 		if (requestBody.getContent() != null && !requestBody.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = requestBody.getContent().entrySet();
 
-			Schema schema = contents.stream().map(c -> c.getValue()).filter(m -> m.getSchema() != null)
+			Schema schema = contents.stream()//
+					.map(c -> c.getValue()).filter(m -> m.getSchema() != null)//
 					.map(m -> m.getSchema()).findFirst().orElse(null);
 
 			if (schema != null) {
-				soaParameter.setMultiplicity(
-						computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
+				soaParameter.setMultiplicity(computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
 
 				Schema unwrappedSchema = unwrapArrayOrComposedSchema(schema);
-				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter, debugPath);
 				soaParameter.setType(soaParameterType);
 				setValueConstraints(soaParameter, schema);
 			}
@@ -1104,11 +1148,12 @@ public class SoaComponentBuilder {
 		List<Example> examples = new ArrayList<>();
 
 		if (mediaType.getExamples() != null) {
-			List<Example> collect = mediaType.getExamples().entrySet().stream().map(entrySet -> {
-				String name = entrySet.getKey();
-				io.swagger.v3.oas.models.examples.Example example = entrySet.getValue();
-				return createSoaExample(name, example);
-			}).collect(Collectors.toList());
+			List<Example> collect = mediaType.getExamples().entrySet().stream()//
+					.map(entrySet -> {
+						String name = entrySet.getKey();
+						io.swagger.v3.oas.models.examples.Example example = entrySet.getValue();
+						return createSoaExample(name, example);
+					}).collect(Collectors.toList());
 			examples.addAll(collect);
 		}
 
@@ -1127,24 +1172,23 @@ public class SoaComponentBuilder {
 		return soaExample;
 	}
 
-	private Type getOrCreateSoaParameterType(org.obeonetwork.dsl.soa.Operation soaOperation, Schema schema,
-			org.obeonetwork.dsl.soa.Parameter soaParameter) {
+	private Type getOrCreateSoaParameterType(org.obeonetwork.dsl.soa.Operation soaOperation, Schema schema, org.obeonetwork.dsl.soa.Parameter soaParameter, List<String> debugPath) {
 		Type soaParameterType = null;
 
 		if (schema.get$ref() != null) {
-			soaParameterType = getExposedTypeFrom$ref(schema.get$ref());
-		} else if (isPrimitiveType(schema)) {
-			soaParameterType = getPrimitiveType(schema);
+			soaParameterType = getExposedTypeFrom$ref(schema.get$ref(), debugPath);
+		} else if (isPrimitiveType(schema, debugPath)) {
+			soaParameterType = getPrimitiveType(schema, debugPath);
 		} else {
 			if (isEnum(schema)) {
 				Enumeration soaEnumeration = EnvironmentFactory.eINSTANCE.createEnumeration();
 
-				updateEnumeration(soaEnumeration, schema);
+				updateEnumeration(soaEnumeration, schema, debugPath);
 				soaParameterType = registerInlineType(soaParameter, soaEnumeration);
 			} else if (isObject(schema)) {
 				DTO soaDto = EnvironmentFactory.eINSTANCE.createDTO();
 
-				updateDto(soaDto, schema);
+				updateDto(soaDto, schema, debugPath);
 				soaParameterType = registerInlineType(soaParameter, soaDto);
 			}
 		}
@@ -1154,8 +1198,7 @@ public class SoaComponentBuilder {
 		return soaParameterType;
 	}
 
-	private org.obeonetwork.dsl.soa.Parameter createSoaResponseParameter(org.obeonetwork.dsl.soa.Operation soaOperation,
-			String responseKey, ApiResponse apiResponse) {
+	private org.obeonetwork.dsl.soa.Parameter createSoaResponseParameter(org.obeonetwork.dsl.soa.Operation soaOperation, String responseKey, ApiResponse apiResponse, List<String> debugPath) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		extractPropertiesExtensions(apiResponse, soaParameter);
 		String parameterName = null;
@@ -1167,7 +1210,7 @@ public class SoaComponentBuilder {
 			parameterName = "fault" + responseKey;
 		} else {
 			logError(String.format("Unsupported status code : %s for operation %s with path %s.", responseKey,
-					soaOperation.getName(), soaComponent.getURI() + soaOperation.getURI()));
+					soaOperation.getName(), soaComponent.getURI() + soaOperation.getURI()), debugPath);
 			return null;
 		}
 		soaParameter.setName(parameterName);
@@ -1179,7 +1222,8 @@ public class SoaComponentBuilder {
 		if (apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();
 
-			Schema schema = contents.stream().map(c -> c.getValue()).filter(m -> m.getSchema() != null)
+			Schema schema = contents.stream()//
+					.map(c -> c.getValue()).filter(m -> m.getSchema() != null)//
 					.map(m -> m.getSchema()).findFirst().orElse(null);
 
 			if (schema != null) {
@@ -1187,7 +1231,7 @@ public class SoaComponentBuilder {
 
 				Schema unwrappedSchema = unwrapArrayOrComposedSchema(schema);
 
-				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter, debugPath);
 				soaParameter.setType(soaParameterType);
 				setValueConstraints(soaParameter, schema);
 			}
@@ -1210,8 +1254,9 @@ public class SoaComponentBuilder {
 	private Service getSoaServiceFromPath(String path) {
 		String soaServiceName = getSoaServiceNameFromPath(path);
 
-		return soaComponent.getProvidedServices().stream()
-				.filter(soaService -> Objects.equals(soaServiceName, soaService.getName())).findFirst().orElse(null);
+		return soaComponent.getProvidedServices().stream()//
+				.filter(soaService -> Objects.equals(soaServiceName, soaService.getName()))//
+				.findFirst().orElse(null);
 	}
 
 	private void buildSoaServices() {
@@ -1248,10 +1293,10 @@ public class SoaComponentBuilder {
 			soaService.setURI(soaServiceUri);
 			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
 
-			List<String> soaServiceTags = soaServicesPaths.get(soaServiceName).stream()
-					.flatMap(path -> openApi.getPaths().get(path).readOperations().stream())
-					.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream()).collect(toSet()).stream()
-					.sorted().collect(toList());
+			List<String> soaServiceTags = soaServicesPaths.get(soaServiceName).stream()//
+					.flatMap(path -> openApi.getPaths().get(path).readOperations().stream())//
+					.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream())//
+					.distinct().sorted().collect(toList());
 
 			StringBuffer soaServiceDescription = new StringBuffer();
 			for (int tagIndex = 0; tagIndex < soaServiceTags.size(); tagIndex++) {
@@ -1262,7 +1307,8 @@ public class SoaComponentBuilder {
 
 				Tag tagElement = null;
 				if (openApi.getTags() != null) {
-					tagElement = openApi.getTags().stream().filter(t -> tagName.equals(t.getName())).findFirst()
+					tagElement = openApi.getTags().stream()//
+							.filter(t -> tagName.equals(t.getName())).findFirst()//
 							.orElse(null);
 				}
 				if (tagElement != null) {
@@ -1303,9 +1349,11 @@ public class SoaComponentBuilder {
 	}
 
 	private String getSoaServiceNameFromPath(String path) {
-		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()
-				.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream()).collect(toSet()).stream()
-				.map(tag -> upperFirst(tag)).sorted().collect(joining());
+		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()//
+				.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream())//
+				.distinct()//
+				.map(tag -> upperFirst(tag))//
+				.sorted().collect(joining());
 
 		if (soaServiceName.isEmpty()) {
 			soaServiceName = upperFirst(DEFAULT_SERVICE_NAME);
@@ -1315,22 +1363,25 @@ public class SoaComponentBuilder {
 	}
 
 	private void buildSoaExposedTypes() {
+		List<String> debugPath = List.of("components", "schemas");
 		if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
-			openApi.getComponents().getSchemas().entrySet().stream().filter(entry -> !isPrimitiveType(entry.getValue()))
-					.forEach(entry -> touchExposedType(entry.getKey(), entry.getValue()));
+			openApi.getComponents().getSchemas().entrySet().stream()//
+				.filter(entry -> !isPrimitiveType(entry.getValue(), newDebugPath(debugPath, entry.getKey())))//
+				.forEach(entry -> touchExposedType(entry.getKey(), entry.getValue(), newDebugPath(debugPath, entry.getKey())));
 
-			openApi.getComponents().getSchemas().entrySet().stream().filter(entry -> !isPrimitiveType(entry.getValue()))
-					.forEach(entry -> updateExposedType(getExposedTypeFromKey(entry.getKey()), entry.getValue()));
+			openApi.getComponents().getSchemas().entrySet().stream()//
+				.filter(entry -> !isPrimitiveType(entry.getValue(), newDebugPath(debugPath, entry.getKey())))//
+				.forEach(entry -> updateExposedType(getExposedTypeFromKey(entry.getKey()), entry.getValue(), newDebugPath(debugPath, entry.getKey())));
 		}
 	}
 
-	private Type touchExposedType(String key, Schema schema) {
+	private Type touchExposedType(String key, Schema schema, List<String> debugPath) {
 		Type exposedType = getExposedTypeFromKey(key);
 		if (exposedType != null) {
-			logError(String.format("Could not create exposed type %s : type already exists.", key));
+			logError(String.format("Could not create exposed type %s : type already exists.", key), debugPath);
 			return null;
 		}
-		int soaTypeId = computeSoaType(schema);
+		int soaTypeId = computeSoaType(schema, debugPath);
 		switch (soaTypeId) {
 		case EnvironmentPackage.DTO:
 			exposedType = touchDto(key);
@@ -1400,19 +1451,19 @@ public class SoaComponentBuilder {
 		return namespace;
 	}
 
-	private int computeSoaType(Schema schema) {
+	private int computeSoaType(Schema schema, List<String> debugPath) {
 		int typeId = -1;
 
 		if (schema instanceof ComposedSchema) {
 			ComposedSchema composedSchema = (ComposedSchema) schema;
 			if (!composedSchema.getAllOf().isEmpty()) {
 				Schema subSchema = composedSchema.getAllOf().get(0);
-				typeId = computeSoaType(subSchema);
+				typeId = computeSoaType(subSchema, newDebugPath(debugPath, "allOf"));
 			}
 		} else if (schema.get$ref() != null) {
-			Schema refSchema = getReferencedSchema(schema.get$ref());
+			Schema refSchema = getReferencedSchema(schema.get$ref(), newDebugPath(debugPath, schema.get$ref()));
 			if (refSchema != null) {
-				typeId = computeSoaType(refSchema);
+				typeId = computeSoaType(refSchema, newDebugPath(debugPath, schema.get$ref()));
 			}
 		} else if (isEnum(schema)) {
 			typeId = EnvironmentPackage.ENUMERATION;
@@ -1421,15 +1472,15 @@ public class SoaComponentBuilder {
 		}
 
 		if (typeId == -1) {
-			logError("Schema type not supported : type=" + schema.getType() + " format=" + schema.getFormat());
+			logError("Schema type not supported : types=" + schema.getTypes() + " format=" + schema.getFormat(), debugPath);
 		}
 
 		return typeId;
 	}
 
-	private boolean isPrimitiveType(Schema schema) {
+	private boolean isPrimitiveType(Schema schema, List<String> debugPath) {
 		if (schema.get$ref() != null) {
-			return isPrimitiveType(getReferencedSchema(schema.get$ref()));
+			return isPrimitiveType(getReferencedSchema(schema.get$ref(), newDebugPath(debugPath, schema.get$ref())), newDebugPath(debugPath, schema.get$ref()));
 		}
 
 		String type = OpenApiParserHelper.getSingleSchemaType(schema);
@@ -1439,30 +1490,30 @@ public class SoaComponentBuilder {
 				|| OPEN_API_TYPE_BOOLEAN.equals(type);
 	}
 
-	private Schema getReferencedSchema(String $ref) {
+	private Schema getReferencedSchema(String $ref, List<String> debugPath) {
 		Schema schema = null;
 
 		if (!$ref.startsWith(COMPONENT_SCHEMA_$REF)) {
-			logError("Unmanaged reference : " + $ref);
+			logError("Unmanaged reference : " + $ref, debugPath);
 		} else {
 			String key = $ref.substring(COMPONENT_SCHEMA_$REF.length());
 			schema = openApi.getComponents().getSchemas().get(key);
 			if (schema == null) {
-				logError(String.format("Reference \"%s\" cannot be resolved.", $ref));
+				logError(String.format("Reference \"%s\" cannot be resolved.", $ref), debugPath);
 			}
 		}
 
 		return schema;
 	}
 
-	private void updateExposedType(Type exposedType, Schema schema) {
+	private void updateExposedType(Type exposedType, Schema schema, List<String> debugPath) {
 		if(exposedType != null) {
 			switch (exposedType.eClass().getClassifierID()) {
 			case EnvironmentPackage.DTO:
-				updateDto((DTO) exposedType, schema);
+				updateDto((DTO) exposedType, schema, debugPath);
 				break;
 			case EnvironmentPackage.ENUMERATION:
-				updateEnumeration((Enumeration) exposedType, schema);
+				updateEnumeration((Enumeration) exposedType, schema, debugPath);
 				break;
 			}
 
@@ -1470,9 +1521,9 @@ public class SoaComponentBuilder {
 		}
 	}
 
-	private Enumeration updateEnumeration(Enumeration enumeration, Schema schema) {
+	private Enumeration updateEnumeration(Enumeration enumeration, Schema schema, List<String> debugPath) {
 		Set<String> literalNames = new HashSet<>();
-		collectLiterals(literalNames, schema);
+		collectLiterals(literalNames, schema, debugPath);
 		updateEnumeration(enumeration, literalNames);
 
 		if (!StringUtils.isNullOrWhite(schema.getDescription())) {
@@ -1483,17 +1534,17 @@ public class SoaComponentBuilder {
 
 	}
 
-	private void collectLiterals(Set<String> literalNames, Schema schema) {
+	private void collectLiterals(Set<String> literalNames, Schema schema, List<String> debugPath) {
 
 		if (schema instanceof ComposedSchema) {
 			ComposedSchema composedSchema = (ComposedSchema) schema;
 			for (Schema subSchema : composedSchema.getAllOf()) {
-				collectLiterals(literalNames, subSchema);
+				collectLiterals(literalNames, subSchema, newDebugPath(debugPath, "allOf"));
 			}
 		} else if (schema.get$ref() != null) {
-			Schema refSchema = getReferencedSchema(schema.get$ref());
+			Schema refSchema = getReferencedSchema(schema.get$ref(), newDebugPath(debugPath, schema.get$ref()));
 			if (refSchema != null) {
-				collectLiterals(literalNames, refSchema);
+				collectLiterals(literalNames, refSchema, newDebugPath(debugPath, schema.get$ref()));
 			}
 		} else if (schema.getEnum() != null) {
 			schema.getEnum().forEach(e -> literalNames.add(e.toString()));
@@ -1510,45 +1561,45 @@ public class SoaComponentBuilder {
 		return enumeration;
 	}
 
-	private DTO updateDto(DTO dto, Schema schema) {
+	private DTO updateDto(DTO dto, Schema schema, List<String> debugPath) {
 		if (conformsToGeneratizationPattern(schema)) {
 			Schema parentSchema = getParentFromGeneralizationSchema(schema);
-			DTO superType = (DTO) getExposedTypeFrom$ref(parentSchema.get$ref());
+			DTO superType = (DTO) getExposedTypeFrom$ref(parentSchema.get$ref(), newDebugPath(debugPath, "allOf"));
 			Schema baseSchema = getBaseFromGeneralizationSchema(schema);
 			dto.setSupertype(superType);
-			buildSoaProperties(dto, schema, getProperties(baseSchema));
+			buildSoaProperties(dto, schema, getProperties(baseSchema), debugPath);
 		} else if (schema instanceof ComposedSchema) {
-			buildSoaProperties(dto, schema, getAllProperties(schema));
+			buildSoaProperties(dto, schema, getAllProperties(schema, debugPath), debugPath);
 		} else if (schema.get$ref() != null) {
 			// Case of a pass-trough type
-			DTO superType = (DTO) getExposedTypeFrom$ref(schema.get$ref());
+			DTO superType = (DTO) getExposedTypeFrom$ref(schema.get$ref(), newDebugPath(debugPath, schema.get$ref()));
 			dto.setSupertype(superType);
 		} else {
 			// Terminal case of a structure defining properties
-			buildSoaProperties(dto, schema, getProperties(schema));
+			buildSoaProperties(dto, schema, getProperties(schema), debugPath);
 		}
 
 		return dto;
 	}
 
-	private Map<String, Schema> getAllProperties(Schema schema) {
+	private Map<String, Schema> getAllProperties(Schema schema, List<String> debugPath) {
 		Map<String, Schema> allProperties = new HashMap<>();
-		collectAllProperties(allProperties, schema);
+		collectAllProperties(allProperties, schema, debugPath);
 
 		return allProperties;
 	}
 
-	private void collectAllProperties(Map<String, Schema> allProperties, Schema schema) {
+	private void collectAllProperties(Map<String, Schema> allProperties, Schema schema, List<String> debugPath) {
 		allProperties.putAll(getProperties(schema));
 		if (schema instanceof ComposedSchema) {
 			ComposedSchema composedSchema = (ComposedSchema) schema;
 			for (Schema subSchema : composedSchema.getAllOf()) {
-				collectAllProperties(allProperties, subSchema);
+				collectAllProperties(allProperties, subSchema, newDebugPath(debugPath, "allOf"));
 			}
 		} else if (schema.get$ref() != null) {
-			Schema refSchema = getReferencedSchema(schema.get$ref());
+			Schema refSchema = getReferencedSchema(schema.get$ref(), newDebugPath(debugPath, schema.get$ref()));
 			if (refSchema != null) {
-				collectAllProperties(allProperties, refSchema);
+				collectAllProperties(allProperties, refSchema, newDebugPath(debugPath, schema.get$ref()));
 			}
 		}
 	}
@@ -1603,31 +1654,29 @@ public class SoaComponentBuilder {
 		return schema2;
 	}
 
-	private void buildSoaProperties(StructuredType type, Schema enclosingSchema, Map<String, Schema> properties) {
+	private void buildSoaProperties(StructuredType type, Schema enclosingSchema, Map<String, Schema> properties, List<String> debugPath) {
 		for (String propertyKey : properties.keySet()) {
 			Schema property = properties.get(propertyKey);
-			Property soaProperty = createSoaProperty(type, enclosingSchema, propertyKey, property);
+			Property soaProperty = createSoaProperty(type, enclosingSchema, propertyKey, property, newDebugPath(debugPath, propertyKey));
 			if (soaProperty == null) {
-				logError(String.format("Unsupported property type : %s for key %s.", property.getClass().getName(),
-						propertyKey));
+				logError(String.format("Unsupported property type : %s for key %s.", property.getClass().getName(), propertyKey), newDebugPath(debugPath, propertyKey));
 			}
 		}
 	}
 
-	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey,
-			Schema propertySchema) {
+	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey, Schema propertySchema, List<String> debugPath) {
 		Property soaProperty = null;
 
 		Schema unwrappedSchema = unwrapArrayOrComposedSchema(propertySchema);
 		if (unwrappedSchema == null) {
 			soaProperty = createStringAttribute(type);
-			logWarning(String.format("Untyped property (%s). Use String as the default type.", propertyKey));
-		} else if (isPrimitiveType(unwrappedSchema)) {
-			soaProperty = createPrimitiveTypeAttribute(type, unwrappedSchema);
+			logWarning(String.format("Untyped property (%s). Use String as the default type.", propertyKey), debugPath);
+		} else if (isPrimitiveType(unwrappedSchema, debugPath)) {
+			soaProperty = createPrimitiveTypeAttribute(type, unwrappedSchema, debugPath);
 		} else if (unwrappedSchema.get$ref() != null) {
-			soaProperty = createReferencedTypeProperty(type, unwrappedSchema);
+			soaProperty = createReferencedTypeProperty(type, unwrappedSchema, debugPath);
 		} else {
-			soaProperty = createInlineTypeProperty(type, propertyKey, unwrappedSchema);
+			soaProperty = createInlineTypeProperty(type, propertyKey, unwrappedSchema, debugPath);
 		}
 
 		if (soaProperty != null) {
@@ -1644,41 +1693,41 @@ public class SoaComponentBuilder {
 		return soaProperty;
 	}
 
-	private Property createReferencedTypeProperty(StructuredType type, Schema propertySchema) {
+	private Property createReferencedTypeProperty(StructuredType type, Schema propertySchema, List<String> debugPath) {
 		Property soaProperty = null;
 
-		switch (computeSoaType(propertySchema)) {
+		switch (computeSoaType(propertySchema, debugPath)) {
 		case EnvironmentPackage.DTO:
-			soaProperty = createReferencedDtoReference(type, propertySchema);
+			soaProperty = createReferencedDtoReference(type, propertySchema, debugPath);
 			break;
 		case EnvironmentPackage.ENUMERATION:
-			soaProperty = createReferencedEnumerationAttribute(type, propertySchema);
+			soaProperty = createReferencedEnumerationAttribute(type, propertySchema, debugPath);
 			break;
 		}
 
 		return soaProperty;
 	}
 
-	private Attribute createReferencedEnumerationAttribute(StructuredType type, Schema propertySchema) {
+	private Attribute createReferencedEnumerationAttribute(StructuredType type, Schema propertySchema, List<String> debugPath) {
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
-		attribute.setType((DataType) getExposedTypeFrom$ref(propertySchema.get$ref()));
+		attribute.setType((DataType) getExposedTypeFrom$ref(propertySchema.get$ref(), debugPath));
 
 		return attribute;
 	}
 
-	private Reference createReferencedDtoReference(StructuredType type, Schema propertySchema) {
+	private Reference createReferencedDtoReference(StructuredType type, Schema propertySchema, List<String> debugPath) {
 		Reference reference = EnvironmentFactory.eINSTANCE.createReference();
 		type.getOwnedReferences().add(reference);
-		reference.setReferencedType((StructuredType) getExposedTypeFrom$ref(propertySchema.get$ref()));
+		reference.setReferencedType((StructuredType) getExposedTypeFrom$ref(propertySchema.get$ref(), debugPath));
 
 		return reference;
 	}
 
-	private Type getExposedTypeFrom$ref(String $ref) {
+	private Type getExposedTypeFrom$ref(String $ref, List<String> debugPath) {
 		Type exposedType = null;
 		if (!$ref.startsWith(COMPONENT_SCHEMA_$REF)) {
-			logWarning("Unmanaged reference : " + $ref);
+			logWarning("Unmanaged reference : " + $ref, debugPath);
 		} else {
 			String key = $ref.substring(COMPONENT_SCHEMA_$REF.length());
 			exposedType = getExposedTypeFromKey(key);
@@ -1687,25 +1736,25 @@ public class SoaComponentBuilder {
 		return exposedType;
 	}
 
-	private Property createInlineTypeProperty(StructuredType type, String propertyKey, Schema propertySchema) {
+	private Property createInlineTypeProperty(StructuredType type, String propertyKey, Schema propertySchema, List<String> debugPath) {
 		Property soaProperty = null;
 
-		switch (computeSoaType(propertySchema)) {
+		switch (computeSoaType(propertySchema, debugPath)) {
 		case EnvironmentPackage.DTO:
-			soaProperty = createInlineDtoReference(type, propertyKey, propertySchema);
+			soaProperty = createInlineDtoReference(type, propertyKey, propertySchema, debugPath);
 			break;
 		case EnvironmentPackage.ENUMERATION:
-			soaProperty = createInlineEnumerationAttribute(type, propertyKey, propertySchema);
+			soaProperty = createInlineEnumerationAttribute(type, propertyKey, propertySchema, debugPath);
 			break;
 		}
 
 		return soaProperty;
 	}
 
-	private Reference createInlineDtoReference(StructuredType type, String propertyKey, Schema propertySchema) {
+	private Reference createInlineDtoReference(StructuredType type, String propertyKey, Schema propertySchema, List<String> debugPath) {
 		DTO soaDto = EnvironmentFactory.eINSTANCE.createDTO();
 
-		updateDto(soaDto, propertySchema);
+		updateDto(soaDto, propertySchema, debugPath);
 
 		Reference reference = EnvironmentFactory.eINSTANCE.createReference();
 		type.getOwnedReferences().add(reference);
@@ -1725,10 +1774,10 @@ public class SoaComponentBuilder {
 		return soaDto;
 	}
 
-	private Attribute createInlineEnumerationAttribute(StructuredType type, String propertyKey, Schema propertySchema) {
+	private Attribute createInlineEnumerationAttribute(StructuredType type, String propertyKey, Schema propertySchema, List<String> debugPath) {
 		Enumeration soaEnumeration = EnvironmentFactory.eINSTANCE.createEnumeration();
 
-		updateEnumeration(soaEnumeration, propertySchema);
+		updateEnumeration(soaEnumeration, propertySchema, debugPath);
 
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
@@ -1756,10 +1805,10 @@ public class SoaComponentBuilder {
 		return attribute;
 	}
 
-	private Attribute createPrimitiveTypeAttribute(StructuredType type, Schema propertySchema) {
+	private Attribute createPrimitiveTypeAttribute(StructuredType type, Schema propertySchema, List<String> debugPath) {
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
-		DataType primitiveType = getPrimitiveType(propertySchema);
+		DataType primitiveType = getPrimitiveType(propertySchema, debugPath);
 		attribute.setType(primitiveType);
 
 		setValueConstraints(attribute, propertySchema);
@@ -1767,24 +1816,27 @@ public class SoaComponentBuilder {
 		return attribute;
 	}
 
-	private DataType getPrimitiveType(Schema schema) {
+	private DataType getPrimitiveType(Schema schema, List<String> debugPath) {
 		if (schema.get$ref() != null) {
-			return getPrimitiveType(getReferencedSchema(schema.get$ref()));
+			List<String> newDebugPath = newDebugPath(debugPath, schema.get$ref());
+			return getPrimitiveType(getReferencedSchema(schema.get$ref(), newDebugPath), newDebugPath);
 		}
 
 		String primitiveTypeName = getPrimitiveTypeName(schema);
 		if (primitiveTypeName != null) {
 			return getPrimitiveTypeFromName(primitiveTypeName);
 		} else {
-			logWarning(String.format("Primitive type mapping not found for schema type \"%s\" and format \"%s\".",
-					OpenApiParserHelper.getSingleSchemaType(schema), schema.getFormat()));
+			logWarning(String.format("Primitive type mapping not found for schema type=%s and format=%s.",
+					OpenApiParserHelper.getSingleSchemaType(schema), schema.getFormat()), debugPath);
 		}
 		return null;
 	}
 
 	private DataType getPrimitiveTypeFromName(String primitiveTypeName) {
-		return environment.getTypesDefinition().getTypes().stream().filter(DataType.class::isInstance)
-				.map(DataType.class::cast).filter(t -> primitiveTypeName.equals(t.getName())).findFirst().orElse(null);
+		return environment.getTypesDefinition().getTypes().stream()//
+				.filter(DataType.class::isInstance).map(DataType.class::cast)//
+				.filter(t -> primitiveTypeName.equals(t.getName()))//
+				.findFirst().orElse(null);
 	}
 
 	private MultiplicityKind computeMultiplicity(boolean required, Schema schema) {
@@ -1938,4 +1990,11 @@ public class SoaComponentBuilder {
 			constrainableElement.setPattern(pattern);
 		}
 	}
+	
+	private List<String> newDebugPath(List<String> debugPath, String segment) {
+		List<String> newDebugPath = new ArrayList<>(debugPath);
+		newDebugPath.add(segment);
+		return newDebugPath;
+	}
+
 }

@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
-import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logInfo;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
 
 import java.io.File;
