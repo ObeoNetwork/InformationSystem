@@ -34,37 +34,33 @@ public class DebugServices {
 	
 	public EObject traceVars(EObject self) {
 		trace(self);
+		
 		Session session = new EObjectQuery(self).getSession();
 		Map<String, ?> vars = session.getInterpreter().getVariables();
 		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
-		for(String var : vars.keySet()) {
-			java.lang.System.out.println("- " + var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")");
-		}
+		vars.keySet().forEach(var -> 
+			java.lang.System.out.println("- " + var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")"));
 		
 		return self;
 	}
 
-	public EObject traceVars(EObject self, String expr) {
+	public EObject traceExpr(EObject self, String expr) {
+		traceVars(self);
 		
 		if(!expr.startsWith("aql:")) {
 			expr = "aql:" + expr;
 		}
-		traceVars(self);
-		printExpression(self, expr);
 		
-		return self;
-	}
-	
-	private void printExpression(EObject self, String expr) {
 		IInterpreter interpreter = new EObjectQuery(self).getSession().getInterpreter();
 		
 		try {
 			Object value = interpreter.evaluate(self, expr);
 			java.lang.System.out.println(expr + " --> " + value);
 		} catch (EvaluationException e) {
-			java.lang.System.out.println("WARNING: Could not evaluate " + expr);
+			java.lang.System.out.println("WARNING: Could not evaluate expression: " + expr);
 		}
 		
+		return self;
 	}
 	
 }
