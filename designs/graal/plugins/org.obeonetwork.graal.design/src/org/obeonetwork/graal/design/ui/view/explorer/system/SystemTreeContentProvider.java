@@ -39,7 +39,7 @@ public class SystemTreeContentProvider implements ITreeContentProvider {
 		if (parentElement instanceof SystemCustomContentItemProvider) {
 			SystemCustomContentItemProvider systemCustomContentItemProvider = (SystemCustomContentItemProvider) parentElement;
 			return systemCustomContentItemProvider.getChildren(systemCustomContentItemProvider.getTarget()).toArray();
-		} else if (parentElement instanceof EObject && !(parentElement instanceof System)) {// Below SystemCustomContentItemProvider
+		} else if (parentElement instanceof EObject) {// Below SystemCustomContentItemProvider
 			List<Object> result = new ArrayList<>();
 			result.addAll(getRepresentationDescriptorsAssociatedToEObject((EObject) parentElement));
 			Object itemProvider = composedAdapterFactory.adapt((EObject) parentElement,
