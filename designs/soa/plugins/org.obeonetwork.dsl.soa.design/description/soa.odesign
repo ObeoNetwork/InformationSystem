@@ -2077,6 +2077,13 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component License Identifier" labelExpression="aql:input.emfEditServices(self.license).getText(self.license.eClass().getEStructuralFeature('identifier')) + ':'" helpExpression="aql:input.emfEditServices(self.license).getDescription(self.license.eClass().getEStructuralFeature('identifier'))" valueExpression="aql:self.license.identifier">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.license">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="identifier" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
         <validationSet>
           <propertyValidationRules name="soa::Component License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.24/@controls.1">
             <audits auditExpression="aql:self.license.URL.isValidURL()"/>
