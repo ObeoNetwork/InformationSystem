@@ -1013,14 +1013,14 @@
 			<em>Security Scheme</em>.
 		</p>
 		<p>- 
-			<strong>Api Key:</strong>
+			<strong>Api Key :</strong>
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_ApiKey.png"/>
 			<br/>Un 
 			<em>Security Scheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
 		</p>
 		<p>- 
-			<strong>HTTP:</strong>
+			<strong>HTTP :</strong>
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_HTTP.png"/>
 			<br/>Un 
@@ -1029,19 +1029,14 @@
 			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
 		</p>
 		<p>- 
-			<strong>OAuth2:</strong>
+			<strong>OAuth2 :</strong>
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OAuth2.png"/>
 		</p>
-		<p>- 
-			<strong>Open ID:</strong>
-			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png"/>
-		</p>
-		<p>Les 
-			<em>Security Scheme</em> de type OAuth2 et Open ID requièrent la spécification de 
-			<em>Flows</em>, ainsi que leurs 
-			<em>Scopes</em> respectifs:
+		<p>Un 
+			<em>Security Scheme</em> de type OAuth2 requière la spécification de 
+			<em>Flows</em>, ainsi que de leurs 
+			<em>Scopes</em> :
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_Flow_Edition.png"/>
 		</p>
@@ -1049,6 +1044,18 @@
 			<em>Flows</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification. 
 			<br/>Chaque flow propose des 
 			<em>Scopes</em>. Ces scopes définissent un droit d&#8217;accès (restreint) a une fonctionnalité prodiguée par le serveur. 
+		</p>
+		<p>- 
+			<strong>Open ID Connect :</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png"/>
+		</p>
+		<p>Open ID Connect est une couche d&#8217;identification construite sur le protocole OAuth2, avec quelques restrictions.
+			<br/>A la création d&#8217;un Security Scheme de type Open ID Connect, un Flow de type AUTHORIZATIONCODE est automatiquement créé. Ce Flow ne peut pas être supprimé, et d&#8217;autres flows ne peuvent pas être créés.
+			<br/>Le Flow AUTHORIZATIONCODE peut être édité dans le seul but d&#8217;y ajouter des scopes. Les champs URL sont inactivés :
+		</p>
+		<p>
+			<img border="0" src="pics/securityschemes/Dialog_Flow_Edition_OpenID.png"/>
 		</p>
 		<p>L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un 
 			<em>SecurityScheme</em> dans cette même vue de propriétés, ou bien dans la vue de propriétés d&#8217;un 
