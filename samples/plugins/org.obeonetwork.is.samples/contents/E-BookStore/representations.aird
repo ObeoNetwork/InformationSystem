@@ -92,7 +92,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEsLbEeaKX_JUX0UT5w" name="Use Cases Main View" repPath="#_Ch8T8B_HEeW_TuSj9xLcNQ" changeId="42ec0b72-4b2e-45af-a730-8ef6ce14b886">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEsLbEeaKX_JUX0UT5w" name="Use Cases Main View" repPath="#_Ch8T8B_HEeW_TuSj9xLcNQ" changeId="1719914852061">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -144,7 +144,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_rsf00E04EeyoZJeIZDQFwQ" name="Constitute shopping&#xD;&#xA;cart Actions Plan" repPath="#_rsDI4E04EeyoZJeIZDQFwQ" changeId="faae2759-6a1f-4116-b383-5ce0c7fa7344">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_rsf00E04EeyoZJeIZDQFwQ" name="Constitute shopping&#xD;cart Actions Plan" repPath="#_rsDI4E04EeyoZJeIZDQFwQ" changeId="faae2759-6a1f-4116-b383-5ce0c7fa7344">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']"/>
         <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -621,7 +621,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_qvJtxBWxEemPcZQonXs-Bw" name="Enter payment&#xD;&#xA;informations" outgoingEdges="_q1b78BWxEemPcZQonXs-Bw" incomingEdges="_q1dxIBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_qvJtxBWxEemPcZQonXs-Bw" name="Enter payment informations" outgoingEdges="_q1b78BWxEemPcZQonXs-Bw" incomingEdges="_q1dxIBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qvJtxRWxEemPcZQonXs-Bw" labelSize="10" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/shape_graal_base.svg">
@@ -630,7 +630,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_qvKU0RWxEemPcZQonXs-Bw" name="Constitute shopping&#xD;&#xA;cart" outgoingEdges="_q1cjABWxEemPcZQonXs-Bw _q1dxKhWxEemPcZQonXs-Bw _q1dxLxWxEemPcZQonXs-Bw _q1dxNBWxEemPcZQonXs-Bw" incomingEdges="_q1dKFRWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_qvKU0RWxEemPcZQonXs-Bw" name="Constitute shopping cart" outgoingEdges="_q1cjABWxEemPcZQonXs-Bw _q1dxKhWxEemPcZQonXs-Bw _q1dxLxWxEemPcZQonXs-Bw _q1dxNBWxEemPcZQonXs-Bw" incomingEdges="_q1dKFRWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qvKU0hWxEemPcZQonXs-Bw" labelSize="10" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/shape_graal_base.svg">
@@ -1058,7 +1058,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q17EIhWxEemPcZQonXs-Bw" name="UC - Search and add&#xD;&#xA;books to basket" outgoingEdges="_q18SQBWxEemPcZQonXs-Bw" incomingEdges="_q23fUBWxEemPcZQonXs-Bw" width="16" height="16" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q17EIhWxEemPcZQonXs-Bw" name="UC - Search and add books to basket" outgoingEdges="_q18SQBWxEemPcZQonXs-Bw" incomingEdges="_q23fUBWxEemPcZQonXs-Bw" width="16" height="16" resizeKind="NSEW">
       <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_q17EIxWxEemPcZQonXs-Bw" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
@@ -1082,7 +1082,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q17rMhWxEemPcZQonXs-Bw" name="UC - Constitute shopping&#xD;&#xA;cart" outgoingEdges="_q185VRWxEemPcZQonXs-Bw" incomingEdges="_njqmYJsxEe2OfNHR_QLmug" width="16" height="16" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q17rMhWxEemPcZQonXs-Bw" name="UC - Constitute shopping cart" outgoingEdges="_q185VRWxEemPcZQonXs-Bw" incomingEdges="_njqmYJsxEe2OfNHR_QLmug" width="16" height="16" resizeKind="NSEW">
       <target xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
       <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_q17rMxWxEemPcZQonXs-Bw" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
@@ -1230,7 +1230,7 @@
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MEgzUEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:ElementColumnMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0"/>
     </columns>
-    <columns xmi:type="table:DTargetColumn" uid="_DPv1MB_HEeW_TuSj9xLcNQ" label="Task Constitute shopping&#xD;&#xA;cart" cells="_DPv1Ix_HEeW_TuSj9xLcNQ" width="178">
+    <columns xmi:type="table:DTargetColumn" uid="_DPv1MB_HEeW_TuSj9xLcNQ" label="Task Constitute shopping cart" cells="_DPv1Ix_HEeW_TuSj9xLcNQ" width="178">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:ElementColumnMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0"/>
@@ -1250,7 +1250,7 @@
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MOaWMEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:ElementColumnMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0"/>
     </columns>
-    <columns xmi:type="table:DTargetColumn" uid="_DPv1NB_HEeW_TuSj9xLcNQ" label="Task Enter payment&#xD;&#xA;informations" cells="_DPv1Jx_HEeW_TuSj9xLcNQ _DPv1LR_HEeW_TuSj9xLcNQ" width="147">
+    <columns xmi:type="table:DTargetColumn" uid="_DPv1NB_HEeW_TuSj9xLcNQ" label="Task Enter payment informations" cells="_DPv1Jx_HEeW_TuSj9xLcNQ _DPv1LR_HEeW_TuSj9xLcNQ" width="147">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:ElementColumnMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0"/>
@@ -1537,7 +1537,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_TaskReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q9YXAxWxEemPcZQonXs-Bw" name="Constitute shopping&#xD;&#xA;cart" incomingEdges="_q_OKFBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_q9YXAxWxEemPcZQonXs-Bw" name="Constitute shopping cart" incomingEdges="_q_OKFBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:TaskReference" href="E-BookStore.graal#_N63Q8EjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:TaskReference" href="E-BookStore.graal#_N63Q8EjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -5634,7 +5634,7 @@
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MEgzUEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']"/>
     </lines>
-    <lines xmi:type="table:DLine" uid="_q0Gm8ZsyEe2OfNHR_QLmug" label="Constitute shopping&#xD;&#xA;cart">
+    <lines xmi:type="table:DLine" uid="_q0Gm8ZsyEe2OfNHR_QLmug" label="Constitute shopping cart">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']"/>
@@ -5678,7 +5678,7 @@
         <intersectionMapping xmi:type="description_3:IntersectionMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@intersection.0"/>
       </cells>
     </lines>
-    <lines xmi:type="table:DLine" uid="_q_5fghWxEemPcZQonXs-Bw" label="Constitute shopping&#xD;&#xA;cart">
+    <lines xmi:type="table:DLine" uid="_q_5fghWxEemPcZQonXs-Bw" label="Constitute shopping cart">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']"/>
@@ -5717,7 +5717,7 @@
   </table:DTable>
   <table:DTable uid="_UgUVcRLNEeesAc7mKQrh4A" headerColumnWidth="166">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
-    <lines xmi:type="table:DLine" uid="_q_77wBWxEemPcZQonXs-Bw" label="Enter payment&#xD;&#xA;informations">
+    <lines xmi:type="table:DLine" uid="_q_77wBWxEemPcZQonXs-Bw" label="Enter payment informations">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']"/>
@@ -5756,7 +5756,7 @@
         <intersectionMapping xmi:type="description_3:IntersectionMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@intersection.0"/>
       </cells>
     </lines>
-    <lines xmi:type="table:DLine" uid="_q_9w8hWxEemPcZQonXs-Bw" label="Constitute shopping&#xD;&#xA;cart">
+    <lines xmi:type="table:DLine" uid="_q_9w8hWxEemPcZQonXs-Bw" label="Constitute shopping cart">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']"/>
@@ -6568,7 +6568,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_hmlHd5syEe2OfNHR_QLmug" name="Constitute shopping&#xD;&#xA;cart" outgoingEdges="_hmmVkJsyEe2OfNHR_QLmug" incomingEdges="_hmm8pJsyEe2OfNHR_QLmug" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_hmlHd5syEe2OfNHR_QLmug" name="Constitute shopping cart" outgoingEdges="_hmmVkJsyEe2OfNHR_QLmug" incomingEdges="_hmm8pJsyEe2OfNHR_QLmug" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -6790,7 +6790,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rACpcBWxEemPcZQonXs-Bw" name="Constitute shopping&#xD;&#xA;cart" outgoingEdges="_rAFFsBWxEemPcZQonXs-Bw _rAFswBWxEemPcZQonXs-Bw _rAFsxRWxEemPcZQonXs-Bw _rAGT0hWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rACpcBWxEemPcZQonXs-Bw" name="Constitute shopping cart" outgoingEdges="_rAFFsBWxEemPcZQonXs-Bw _rAFswBWxEemPcZQonXs-Bw _rAFsxRWxEemPcZQonXs-Bw _rAGT0hWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -7014,7 +7014,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAIJARWxEemPcZQonXs-Bw" name="Enter payment&#xD;&#xA;informations" outgoingEdges="_rAJXIBWxEemPcZQonXs-Bw" incomingEdges="_rAKlQBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAIJARWxEemPcZQonXs-Bw" name="Enter payment informations" outgoingEdges="_rAJXIBWxEemPcZQonXs-Bw" incomingEdges="_rAKlQBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_rAIJAhWxEemPcZQonXs-Bw" labelSize="10" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/shape_graal_base.svg">
@@ -7193,7 +7193,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAMacBWxEemPcZQonXs-Bw" name="Constitute shopping&#xD;&#xA;cart" outgoingEdges="_rAO2sBWxEemPcZQonXs-Bw _rAPdwBWxEemPcZQonXs-Bw _rAPdxRWxEemPcZQonXs-Bw _rAPdyhWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAMacBWxEemPcZQonXs-Bw" name="Constitute shopping cart" outgoingEdges="_rAO2sBWxEemPcZQonXs-Bw _rAPdwBWxEemPcZQonXs-Bw _rAPdxRWxEemPcZQonXs-Bw _rAPdyhWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -7644,7 +7644,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_FinalNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAR6AhWxEemPcZQonXs-Bw" name="Get authors&#xD;&#xA;and book types" outgoingEdges="_rAYApBWxEemPcZQonXs-Bw" incomingEdges="_rAWLcBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAR6AhWxEemPcZQonXs-Bw" name="Get authors and book types" outgoingEdges="_rAYApBWxEemPcZQonXs-Bw" incomingEdges="_rAWLcBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:AppliAction" href="E-BookStore.graal#_bdJbIEjSEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:AppliAction" href="E-BookStore.graal#_bdJbIEjSEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -7666,7 +7666,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAShFBWxEemPcZQonXs-Bw" name="Display&#xD;&#xA;search screen" outgoingEdges="_rAYnshWxEemPcZQonXs-Bw _rAZ10BWxEemPcZQonXs-Bw _rAac5BWxEemPcZQonXs-Bw _rAbrABWxEemPcZQonXs-Bw _rAcSFBWxEemPcZQonXs-Bw" incomingEdges="_rAYApBWxEemPcZQonXs-Bw _rAiYtBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_rAShFBWxEemPcZQonXs-Bw" name="Display search screen" outgoingEdges="_rAYnshWxEemPcZQonXs-Bw _rAZ10BWxEemPcZQonXs-Bw _rAac5BWxEemPcZQonXs-Bw _rAbrABWxEemPcZQonXs-Bw _rAcSFBWxEemPcZQonXs-Bw" incomingEdges="_rAYApBWxEemPcZQonXs-Bw _rAiYtBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:UserView" href="E-BookStore.graal#_b_kLsEjSEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:UserView" href="E-BookStore.graal#_b_kLsEjSEeGbkNJePX2AYQ"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_rAShFRWxEemPcZQonXs-Bw" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/shape_graal_blue.svg">
