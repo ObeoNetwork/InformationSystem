@@ -477,27 +477,33 @@ La création d'un _Security Scheme_ déclenche l'affichage d'une boîte de dialo
 
 Un double clic sur un _Security Scheme_ déclenche l'affichge d'un dialogue d'édition permettant de spécifier les données spécifiques au type de _Security Scheme_.
 
-- *Api Key:*
+- *Api Key :*
 !pics/securityschemes/Dialog_SecurityScheme_Edition_ApiKey.png!
 Un _Security Scheme_ de type Api key permet la définition d'une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
 
-- *HTTP:*
+- *HTTP :*
 !pics/securityschemes/Dialog_SecurityScheme_Edition_HTTP.png!
 Un _Security Scheme_ de type HTTP défini un schéma d'authentification de type Basic, ou Bearer. 
 Dans le cas d'un schéma d'authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
 Dans le cas d'un schéma d'authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
 
-- *OAuth2:*
+- *OAuth2 :*
 !pics/securityschemes/Dialog_SecurityScheme_Edition_OAuth2.png!
 
-- *Open ID:*
-!pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png!
-
-Les _Security Scheme_ de type OAuth2 et Open ID requièrent la spécification de _Flows_, ainsi que leurs _Scopes_ respectifs:
+Un _Security Scheme_ de type OAuth2 requière la spécification de _Flows_, ainsi que de leurs _Scopes_ :
 !pics/securityschemes/Dialog_Flow_Edition.png!
 
 Les _Flows_ représentent des scénarios que le client effectue afin d'obtenir l'accès à un token d'authentification. 
 Chaque flow propose des _Scopes_. Ces scopes définissent un droit d'accès (restreint) a une fonctionnalité prodiguée par le serveur. 
+
+- *Open ID Connect :*
+!pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png!
+
+Open ID Connect est une couche d'identification construite sur le protocole OAuth2, avec quelques restrictions.
+A la création d'un Security Scheme de type Open ID Connect, un Flow de type AUTHORIZATIONCODE est automatiquement créé. Ce Flow ne peut pas être supprimé, et d'autres flows ne peuvent pas être créés.
+Le Flow AUTHORIZATIONCODE peut être édité dans le seul but d'y ajouter des scopes. Les champs URL sont inactivés :
+
+!pics/securityschemes/Dialog_Flow_Edition_OpenID.png!
 
 L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un _SecurityScheme_ dans cette même vue de propriétés, ou bien dans la vue de propriétés d'un _SecurityScheme_ lorsque celui-ci est séléctionné dans la vue _Model Explorer_ :
 
