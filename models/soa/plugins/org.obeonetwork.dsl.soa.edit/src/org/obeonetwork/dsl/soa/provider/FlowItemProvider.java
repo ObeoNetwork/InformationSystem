@@ -244,7 +244,10 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Flow)object).getFlowType().getName()+" : "+ ((Flow)object).getAuthorizationURL();
+		String label = ((Flow)object).getFlowType().getName();
+		if(((Flow)object).getAuthorizationURL() != null) {
+			label += " : " + ((Flow)object).getAuthorizationURL();
+		}
 		
 		return label == null || label.length() == 0 ?
 			getString("_UI_Flow_type") :
