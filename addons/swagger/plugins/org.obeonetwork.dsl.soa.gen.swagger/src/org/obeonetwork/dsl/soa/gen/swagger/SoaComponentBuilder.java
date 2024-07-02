@@ -812,7 +812,7 @@ public class SoaComponentBuilder {
 							path, 
 							operationsMapEntry.getKey(), 
 							operationsMapEntry.getValue(), 
-							newDebugPath(debugPath, operationsMapEntry.getKey().toString())));
+							newDebugPath(debugPath, operationsMapEntry.getKey().toString().toLowerCase())));
 		}
 	}
 
@@ -854,8 +854,9 @@ public class SoaComponentBuilder {
 
 		if (swgOperation.getParameters() != null) {
 			for (Parameter parameter : swgOperation.getParameters()) {
+				List<String> parametersDebugPath = newDebugPath(debugPath, "parameters");
 				if (parameter != null) {
-					createSoaInputParameter(soaOperation, parameter, newDebugPath(debugPath, parameter.getName()));
+					createSoaInputParameter(soaOperation, parameter, newDebugPath(parametersDebugPath, parameter.getName()));
 				}
 			}
 		}
@@ -1068,6 +1069,8 @@ public class SoaComponentBuilder {
 			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter, debugPath);
 			soaParameter.setType(soaParameterType);
 			setValueConstraints(soaParameter, schema);
+		} else {
+			logWarning("Parameter with no type (or invalid type).", debugPath);
 		}
 
 		extractPropertiesExtensions(swgParameter, soaParameter);
