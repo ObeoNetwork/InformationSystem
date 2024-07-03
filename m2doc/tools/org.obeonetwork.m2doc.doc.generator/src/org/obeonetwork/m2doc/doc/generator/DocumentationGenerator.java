@@ -84,7 +84,7 @@ public class DocumentationGenerator {
 	}
 	
 	// Absolute path to InformationSystem git working copy
-	private static String gitRepoRootPath = "/home/vrichard/git/InformationSystem-od11.9/";
+	private static String gitRepoRootPath = "/home/obeo/git/InformationSystem/";
 
 	private static List<Configuration> initializeConfigurations() {
 		final List<Configuration> res = new ArrayList<>();
