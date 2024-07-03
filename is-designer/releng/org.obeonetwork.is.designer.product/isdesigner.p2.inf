@@ -1,6 +1,6 @@
 instructions.configure=\
-addRepository(type:0,location:https${#58}//download.eclipse.org/acceleo/updates/nightly/latest/,name:Acceleo4);\
-addRepository(type:1,location:https${#58}//download.eclipse.org/acceleo/updates/nightly/latest/,name:Acceleo4);\
+addRepository(type:0,location:https${#58}//download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/,name:Acceleo4);\
+addRepository(type:1,location:https${#58}//download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/,name:Acceleo4);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/,name:Amalgam);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/,name:Amalgam);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/releases/2023-03/,name:Eclipse-2023-03);\

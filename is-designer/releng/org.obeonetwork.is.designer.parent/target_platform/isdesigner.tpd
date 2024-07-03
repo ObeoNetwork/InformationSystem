@@ -13,10 +13,10 @@ location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
 	org.eclipse.emf.ecoretools.sdk.feature.group lazy
 }
 
-//location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
-//	  org.eclipse.acceleo.query.jdt.feature.group lazy
-//	  org.eclipse.acceleo.query.jdt.source.feature.group lazy
-//}
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/" {
+	  org.eclipse.acceleo.query.jdt.feature.group lazy
+	  org.eclipse.acceleo.query.jdt.source.feature.group lazy
+}
 
 location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
 	org.antlr.runtime [4.10.1,4.10.2)

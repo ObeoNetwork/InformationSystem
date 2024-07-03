@@ -34,12 +34,12 @@ location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius
 	org.eclipse.sirius.tests.support.source.feature.group lazy
 }
 
-//location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
-//	org.eclipse.acceleo.query.feature.group lazy
-//	org.eclipse.acceleo.query.source.feature.group lazy
-//	
-//	org.eclipse.acceleo.aql.feature.feature.group lazy
-//}
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/" {
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.acceleo.query.source.feature.group lazy
+	
+	org.eclipse.acceleo.aql.feature.feature.group lazy
+}
 
 location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
 	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)

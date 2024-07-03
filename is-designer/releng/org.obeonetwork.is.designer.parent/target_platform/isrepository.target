@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Repository Target Definition" sequenceNumber="1717590567">
+<target name="IS Designer Repository Target Definition" sequenceNumber="1720010712">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="0.0.0"/>
@@ -36,6 +36,12 @@
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
       <repository id="Sirius-AQL8" location="http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.query.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.aql.feature.feature.group" version="0.0.0"/>
+      <repository id="Acceleo4" location="https://download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
