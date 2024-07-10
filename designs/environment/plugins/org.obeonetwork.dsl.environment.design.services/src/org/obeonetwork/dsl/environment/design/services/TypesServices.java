@@ -470,7 +470,9 @@ public class TypesServices {
 				+ "(e.oclIsKindOf(environment::Reference) and e.referencedType.ancestors()->intersection(roots)->notEmpty()))";
 		final String selectableCondition = "aql:self.oclIsTypeOf(environment::Namespace) or self.oclIsKindOf(environment::StructuredType) or self.oclIsKindOf(environment::Reference)";
 		ISObjectTreeItemWrapper input = new ISObjectTreeItemWrapper(
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression));
+		
+		input.getConfiguration().setSelectableCondition(
 				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
 		
 		for(EObject root : roots) {

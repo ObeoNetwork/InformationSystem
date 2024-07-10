@@ -78,8 +78,11 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         }
         
 		ISObjectTreeItemWrapper input = new ISObjectTreeItemWrapper(
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression));
+		
+		input.getConfiguration().setSelectableCondition(
 				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToBoolean(interpreter, (EObject) wrappedEObject, selectableCondition, true));
+		
         for(EObject root : roots) {
         	new ISObjectTreeItemWrapper(input, root);
         }

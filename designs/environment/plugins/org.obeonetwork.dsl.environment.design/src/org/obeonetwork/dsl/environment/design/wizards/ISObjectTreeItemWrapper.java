@@ -27,29 +27,61 @@ public class ISObjectTreeItemWrapper {
     private Object wrappedObject = null;
 
     // Behavior functional data
-	private Function<Object, List<?>> childrenFunction;
-	private Function<Object, Boolean> selectableCondition;
+    private ISObjectTreeItemWrapperConfiguration configuration;
 
 	// Cached data
     private List<ISObjectTreeItemWrapper> children = null;
 	private Boolean selectable = null;
 	
+	public static class ISObjectTreeItemWrapperConfiguration {
+		private Function<Object, List<?>> childrenFunction;
+		private Function<Object, Boolean> selectableCondition = null;
+		private int maxDuplicateAncestorsAllowed = 0;
+		
+		public Function<Object, List<?>> getChildrenFunction() {
+			return childrenFunction;
+		}
+		
+		@SuppressWarnings("unchecked")
+		public void setChildrenFunction(final Function<?, List<?>> childrenFunction) {
+			this.childrenFunction = (Function<Object, List<?>>) childrenFunction;
+		}
+		
+		public Function<Object, Boolean> getSelectableCondition() {
+			return selectableCondition;
+		}
+		
+		@SuppressWarnings("unchecked")
+		public void setSelectableCondition(final Function<?, Boolean> selectableCondition) {
+			this.selectableCondition = (Function<Object, Boolean>) selectableCondition;
+		}
+		
+		public int getMaxDuplicateAncestorsAllowed() {
+			return maxDuplicateAncestorsAllowed;
+		}
+		
+		public void setMaxDuplicateAncestorsAllowed(int maxDuplicateAncestorsAllowed) {
+			this.maxDuplicateAncestorsAllowed = maxDuplicateAncestorsAllowed;
+		}
+		
+	}
 	
     /**
-     * Create a root node
+     * Create a root node.
+     * 
+     * Instantiates the configuration that will be shared by all the tree nodes.
+     * The childrenFunction goes into the configuration.
      * 
      * @param childrenFunction
-     * @param selectableCondition
      */
-    @SuppressWarnings("unchecked")
-	public ISObjectTreeItemWrapper(final Function<?, List<?>> childrenFunction, final Function<?, Boolean> selectableCondition) {
-    	this.childrenFunction = (Function<Object, List<?>>) childrenFunction;
-    	this.selectableCondition = (Function<Object, Boolean>) selectableCondition;
+	public ISObjectTreeItemWrapper(final Function<?, List<?>> childrenFunction) {
+    	this.configuration = new ISObjectTreeItemWrapperConfiguration();
+    	configuration.setChildrenFunction(childrenFunction);
     	this.children = new ArrayList<>();
     }
     
     /**
-     * Create a child node
+     * Create a child node.
      * 
      * @param parent
      * @param wrappedObject
@@ -58,13 +90,22 @@ public class ISObjectTreeItemWrapper {
         this.parent = parent;
         this.wrappedObject = wrappedObject;
         if(parent != null) {
-            this.childrenFunction = parent.childrenFunction;
-            this.selectableCondition = parent.selectableCondition;
+            this.configuration = parent.configuration;
             parent.addChild(this);
         }
     }
+    
+    /**
+     * The configuration instance is unique for a given ISObjectTreeItemWrapper tree.
+     * Changes made on the configuration thus impact all the tree.
+     * 
+     * @return The shared configuration for this tree.
+     */
+    public ISObjectTreeItemWrapperConfiguration getConfiguration() {
+		return configuration;
+	}
 
-    private void addChild(ISObjectTreeItemWrapper treeItemWrapper) {
+	private void addChild(ISObjectTreeItemWrapper treeItemWrapper) {
     	children.add(treeItemWrapper);
 	}
 
@@ -75,11 +116,11 @@ public class ISObjectTreeItemWrapper {
     public List<ISObjectTreeItemWrapper> getChildren() {
     	if(children == null) {
     		children = new ArrayList<>();
-    		if(childrenFunction != null) {
+    		if(configuration.getChildrenFunction() != null) {
     			@SuppressWarnings("unchecked")
-				List<Object> childObjects = (List<Object>) childrenFunction.apply(wrappedObject);
+				List<Object> childObjects = (List<Object>) configuration.getChildrenFunction().apply(wrappedObject);
 				for(Object childObject : childObjects) {
-					if(!knownAsAncestor(childObject)) {
+					if(!maxDuplicateAncestorsReached(childObject)) {
 						new ISObjectTreeItemWrapper(this, childObject);
 					}
 				}
@@ -97,17 +138,24 @@ public class ISObjectTreeItemWrapper {
      * 
      * @param obj Object to be tested
      * 
-     * @return true if this or one of the parent {@link ISObjectTreeItemWrapper} already wraps the given object.
+     * @return true if the count of this or one of the parent {@link ISObjectTreeItemWrapper} already 
+     * wraps the given object.
      */
-    private boolean knownAsAncestor(final Object object) {
-    	return Objects.equals(wrappedObject, object) || (parent != null && parent.knownAsAncestor(object));
+    private boolean maxDuplicateAncestorsReached(final Object object) {
+    	long duplicateAncestorsCount = getAncestors().stream()
+    		.filter(ancestor -> Objects.equals(ancestor.getWrappedObject(), object))
+    		.count();
+    	if(this.getWrappedObject() == object) {
+    		duplicateAncestorsCount++;
+    	}
+    	return duplicateAncestorsCount > configuration.getMaxDuplicateAncestorsAllowed();
     }
 
 	public boolean isSelectable() {
 		if(selectable == null) {
 			selectable = true;
-            if(selectableCondition != null) {
-            	selectable = selectableCondition.apply(wrappedObject);
+            if(configuration.getSelectableCondition() != null) {
+            	selectable = configuration.getSelectableCondition().apply(wrappedObject);
             }
 		}
 		return selectable;

@@ -73,8 +73,10 @@ public class CinematicBindingServices {
 	private void openViewContainerBindingWizard(ViewContainer contextViewContainer) {
 		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				CinematicBindingServices::getViewContainerBindingWizardChildren, 
-				(wrappedEObject) -> wrappedEObject instanceof StructuredType);
+				CinematicBindingServices::getViewContainerBindingWizardChildren);
+		
+		treeRoot.getConfiguration().setSelectableCondition(StructuredType.class::isInstance);
+		treeRoot.getConfiguration().setMaxDuplicateAncestorsAllowed(3);
 		
 		// The tree roots are the NamespacesContainers directly contained in the
 		// Sirius session semantic resources
@@ -219,8 +221,10 @@ public class CinematicBindingServices {
 		
 		final StructuredTypeChildrenContribution structuredTypeChildrenContribution = new StructuredTypeChildrenContribution();
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				parent -> structuredTypeChildrenContribution.getChildren((EObject) parent), 
-				(wrappedEObject) -> wrappedEObject instanceof Property);
+				parent -> structuredTypeChildrenContribution.getChildren((EObject) parent));
+		
+		treeRoot.getConfiguration().setSelectableCondition(Property.class::isInstance);
+		treeRoot.getConfiguration().setMaxDuplicateAncestorsAllowed(3);
 		
 		BindingRegistry bindingRegistry = getOrCreateBindingRegistry(contextViewElement);
 		
@@ -258,7 +262,7 @@ public class CinematicBindingServices {
         		true);
 
         // Preselected tree item wrappers are found by browsing the tree following the 
-        // full path of the binding element.
+        // full path of the right binding elements.
         List<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = ancestorsBindingInfos.stream()//
 	        .flatMap(bindingInfo -> bindingInfo.getReferences().stream())//
 	        .filter(bindingReference -> bindingReference.getLeft().getBoundElement() == contextViewElement)//
@@ -337,9 +341,15 @@ public class CinematicBindingServices {
 		return path;
 	}
 
-	private static BindingReference createBindingReference(BindingInfo bindingInfo, BoundableElement leftBoundableElement, List<BoundableElement> rightPath) {
+	private static BindingReference createBindingReference(BindingInfo bindingInfo, ViewElement leftBoundableElement, List<BoundableElement> rightPath) {
 		BindingElement leftBindingElement = EnvironmentFactory.eINSTANCE.createBindingElement();
-		leftBindingElement.getPathReferences().add(bindingInfo.getLeft());
+		// Build the left path browsing up the ViewContainer ancestors
+		ViewContainer leftPathReference = EObjectUtils.getContainer(leftBoundableElement, ViewContainer.class);
+		while(leftPathReference != bindingInfo.getLeft()) {
+			leftBindingElement.getPathReferences().add(0, leftPathReference);
+			leftPathReference = EObjectUtils.getContainer(leftPathReference, ViewContainer.class);
+		}
+		leftBindingElement.getPathReferences().add(0, bindingInfo.getLeft());
 		leftBindingElement.setBoundElement(leftBoundableElement);
 		
 		BindingElement rightBindingElement = EnvironmentFactory.eINSTANCE.createBindingElement();
