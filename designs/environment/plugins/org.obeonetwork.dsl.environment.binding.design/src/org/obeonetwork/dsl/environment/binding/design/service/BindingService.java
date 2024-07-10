@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -285,8 +286,7 @@ public class BindingService {
 		return results;
 	}
 
-	public Collection<StructuredType> getAllBoundableElements(DSemanticDiagram diagram,
-			BoundableElement boundableElement) {
+	public Collection<StructuredType> getAllBoundableElements(DSemanticDiagram diagram, BoundableElement boundableElement) {
 		// Collect all structured types
 		Collection<StructuredType> bindableElements = new ArrayList<StructuredType>();
 
@@ -353,4 +353,49 @@ public class BindingService {
 		}
 		return null;
 	}
+	
+	public static BoundableElement getOtherBoundElement(BindingInfo bindingInfo, BoundableElement boundableElement) {
+		if (bindingInfo.getLeft() == boundableElement) {
+			return bindingInfo.getRight();
+		}
+		if (bindingInfo.getRight() == boundableElement) {
+			return bindingInfo.getLeft();
+		}
+		return null;
+	}
+
+	public static List<BindingInfo> getBindingInfos(BindingRegistry bindingRegistry, BoundableElement boundableElement) {
+		return bindingRegistry.getBindingInfos().stream()//
+		.filter(bindingInfo -> bindingInfo.getLeft() == boundableElement || bindingInfo.getRight() == boundableElement)//
+		.toList();
+	}
+	
+	/**
+	 * Returns the first {@link BindingInfo} with the given left and right {@link BoundableElement}s, null if none is found.
+	 * 
+	 * @param bindingRegistry
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	public static BindingInfo getBindingInfo(BindingRegistry bindingRegistry, BoundableElement left, BoundableElement right) {
+		return bindingRegistry.getBindingInfos().stream()//
+		.filter(bindingInfo -> bindingInfo.getLeft() == left && bindingInfo.getRight() == right)//
+		.findAny().orElse(null);
+	}
+	
+	public static List<BoundableElement> getOtherBoundElements(BindingRegistry bindingRegistry, BoundableElement boundableElement) {
+		return getBindingInfos(bindingRegistry, boundableElement).stream()//
+		.map(bindingInfo -> getOtherBoundElement(bindingInfo, boundableElement))//
+		.toList();
+	}
+	
+	public static BindingInfo createBindingInfo(BindingRegistry bindingRegistry, BoundableElement left, BoundableElement right) {
+		BindingInfo bindingInfo = EnvironmentFactory.eINSTANCE.createBindingInfo();
+		bindingInfo.setLeft(left);
+		bindingInfo.setRight(right);
+		bindingRegistry.getBindingInfos().add(bindingInfo);
+		return bindingInfo;
+	}
+
 }

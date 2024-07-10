@@ -18,6 +18,7 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.ex
  *
  */
 public class StructuredTypeChildrenContribution implements IBoundableElementChildren {
+	
 	private final StructuredTypeLabelsSwitch dtoLabelsSwitch = new StructuredTypeLabelsSwitch();
 
 	@Override
@@ -42,8 +43,11 @@ public class StructuredTypeChildrenContribution implements IBoundableElementChil
 
 	@Override
 	public List<EClass> getApplicableEClasses() {
-		return List.of(EnvironmentPackage.eINSTANCE.getStructuredType(), EnvironmentPackage.eINSTANCE.getReference(),
-				EnvironmentPackage.eINSTANCE.getAttribute(), EnvironmentPackage.eINSTANCE.getProperty());
+		return List.of(
+				EnvironmentPackage.eINSTANCE.getStructuredType(), 
+				EnvironmentPackage.eINSTANCE.getReference(),
+				EnvironmentPackage.eINSTANCE.getAttribute(), 
+				EnvironmentPackage.eINSTANCE.getProperty());
 	}
 
 	@Override

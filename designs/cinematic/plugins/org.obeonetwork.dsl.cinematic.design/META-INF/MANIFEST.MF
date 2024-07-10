@@ -28,7 +28,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram.ui.ext,
  org.obeonetwork.dsl.environment.properties,
  org.obeonetwork.dsl.environment.design,
- org.obeonetwork.dsl.entity
+ org.obeonetwork.dsl.environment
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
