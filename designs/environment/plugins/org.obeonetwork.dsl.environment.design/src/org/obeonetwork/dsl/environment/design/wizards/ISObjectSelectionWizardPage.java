@@ -30,6 +30,8 @@ import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ICheckStateProvider;
+import org.eclipse.jface.viewers.IColorProvider;
+import org.eclipse.jface.viewers.IFontProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -38,7 +40,6 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.sirius.common.tools.api.util.StringMatcher;
 import org.eclipse.sirius.common.ui.tools.api.selection.page.AbstractSelectionWizardPage;
@@ -51,6 +52,8 @@ import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -59,6 +62,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.wb.swt.SWTResourceManager;
 import org.obeonetwork.utils.common.ui.handlers.SelectionHelper;
 
 public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
@@ -73,9 +77,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
     private Set<ISObjectTreeItemWrapper> ungrayedTreeItemWrapers = new HashSet<>();
     
-    private Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = Collections.emptyList();
+    private Set<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers = new HashSet<>();
     
-    private Collection<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers = Collections.emptyList();
+    private Set<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers = new HashSet<>();
     
     private boolean many = false;
     
@@ -136,6 +140,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	
     @Override
     public void createControl(final Composite parent) {
+    	
+    	preSelectedTreeItemWrappers.addAll(alwaysSelectedTreeItemWrappers);
+    	
         initializeDialogUnits(parent);
 
         pageComposite = new Composite(parent, SWT.NONE);
@@ -170,11 +177,6 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         			.collect(toList()));
         }
         
-		if (!alwaysSelectedTreeItemWrappers.isEmpty()) {
-			changeAlwaysSelectedElementsForeground(treeViewer.getTree().getItems(),
-					parent.getDisplay().getSystemColor(SWT.COLOR_BLUE));
-		}
-        
         if(checkBoxFilter != null) {
     		viewerFilter.setFilterActive(checkBoxFilter.getDefaultCheckValue());
         }
@@ -192,15 +194,6 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         setControl(pageComposite);
     }
     
-	private void changeAlwaysSelectedElementsForeground(TreeItem[] items, Color color) {
-		for (TreeItem item : items) {
-			if (alwaysSelectedTreeItemWrappers.contains(item.getData())) {
-				item.setForeground(color);
-			}
-			changeAlwaysSelectedElementsForeground(item.getItems(), color);
-		}
-	}
-
 	private void expandTreeViewer() {
 		if(expanded) {
             treeViewer.expandAll();
@@ -256,33 +249,29 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
 	public void setPreSelectedObjects(Collection<? extends Object> preSelectedObjects) {
 		preSelectedTreeItemWrappers = new HashSet<>();
-		collectPreSelectedTreeItemWrappers(preSelectedObjects, treeRoot);
+		collectTreeItemWrappers(preSelectedTreeItemWrappers, preSelectedObjects, treeRoot);
 	}
 
-	private void collectPreSelectedTreeItemWrappers(Collection<? extends Object> preSelectedObjects, ISObjectTreeItemWrapper treeItemWrapper) {
-		if(preSelectedObjects.contains(treeItemWrapper.getWrappedObject())) {
-			preSelectedTreeItemWrappers.add(treeItemWrapper);
+	private void collectTreeItemWrappers(Collection<ISObjectTreeItemWrapper> treeItemWrappers, Collection<? extends Object> objects, ISObjectTreeItemWrapper treeItemWrapper) {
+		if(objects.contains(treeItemWrapper.getWrappedObject())) {
+			treeItemWrappers.add(treeItemWrapper);
 		}
 		for(ISObjectTreeItemWrapper childTreeItemWrapper : treeItemWrapper.getChildren()) {
-			collectPreSelectedTreeItemWrappers(preSelectedObjects, childTreeItemWrapper);
+			collectTreeItemWrappers(treeItemWrappers, objects, childTreeItemWrapper);
 		}
 	}
 
 	public void setPreSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers) {
-		this.preSelectedTreeItemWrappers = preSelectedTreeItemWrappers;
+		this.preSelectedTreeItemWrappers = new HashSet<>(preSelectedTreeItemWrappers);
 	}
 	
-	/**
-	 * 
-	 * @param treeItemWrappers must be a subset of the collection set with
-	 *                         {@link #setPreSelectedTreeItemWrappers(Collection)}
-	 *                         i.e. preselected elements.
-	 *                         <p>
-	 *                         many attribute must also be initialized to true.
-	 *                         </p>
-	 */
-	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> treeItemWrappers) {
-		this.alwaysSelectedTreeItemWrappers = treeItemWrappers;
+	public void setAlwaysSelectedObjects(Collection<? extends Object> alwaysSelectedObjects) {
+		alwaysSelectedTreeItemWrappers = new HashSet<>();
+		collectTreeItemWrappers(alwaysSelectedTreeItemWrappers, alwaysSelectedObjects, treeRoot);
+	}
+	
+	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers) {
+		this.alwaysSelectedTreeItemWrappers = new HashSet<>(alwaysSelectedTreeItemWrappers);
 	}
 
 	protected Composite createSelectionGroup(final Composite parent) {
@@ -523,7 +512,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         }
     }
 
-    private class ISObjectSelectionLabelProvider extends LabelProvider {
+    private class ISObjectSelectionLabelProvider extends LabelProvider implements IColorProvider, IFontProvider {
 
         @Override
         public Image getImage(final Object element) {
@@ -543,6 +532,29 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             }
             return text;
         }
+
+		@Override
+		public Color getForeground(Object element) {
+			if(alwaysSelectedTreeItemWrappers.contains(element)) {
+				return treeViewer.getControl().getDisplay().getSystemColor(SWT.COLOR_DARK_GRAY);
+			}
+			return null;
+		}
+
+		@Override
+		public Color getBackground(Object element) {
+			return null;
+		}
+
+		@Override
+		public Font getFont(Object element) {
+			if(alwaysSelectedTreeItemWrappers.contains(element)) {
+				Font defaultFont = treeViewer.getControl().getFont();
+				FontData[] defaultFontData = defaultFont.getFontData();
+				return SWTResourceManager.getFont(defaultFontData[0].getName(), defaultFontData[0].getHeight(), SWT.ITALIC);
+			}
+			return null;
+		}
     }
 
     private static final Object[] EMPTY_ARRAY = {};
@@ -927,5 +939,5 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		}
 		
 	}
-	
+
 }

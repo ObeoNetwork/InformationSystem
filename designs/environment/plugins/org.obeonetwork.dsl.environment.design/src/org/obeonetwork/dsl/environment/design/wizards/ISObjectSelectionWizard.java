@@ -84,19 +84,13 @@ public class ISObjectSelectionWizard extends Wizard {
     	page.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
     }
     
-	/**
-	 * 
-	 * @param treeItemWrappers must be a subset of the collection set with
-	 *                         {@link #setPreSelectedTreeItemWrappers(Collection)}
-	 *                         i.e. preselected elements.
-	 *                         <p>
-	 *                         many attribute must also be initialized to true.
-	 *                         </p>
-	 */
-	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> treeItemWrappers) {
-		page.setAlwaysSelectedTreeItemWrappers(treeItemWrappers);
+    public void setAlwaysSelectedObjects(Collection<? extends Object> alwaysSelectedObjects) {
+    	page.setAlwaysSelectedObjects(alwaysSelectedObjects);
+    }
+    
+	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers) {
+		page.setAlwaysSelectedTreeItemWrappers(alwaysSelectedTreeItemWrappers);
 	}
-	
 	
     /**
      * @return the {@link WizardDialogClosableByWizard} containing this wizard. Null if no such element has been set.

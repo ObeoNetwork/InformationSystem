@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  */
 public class BoundableElementChildrenContributionsManager {
-	private static final String BOUNDABLE_ELEMNT_CHILDREN_EXTENSION_ID = "org.obeonetwork.dsl.environment.binding.dialect.ui.boundableElementChildrenDefinitions";//$NON-NLS-1$
-	private static final String BOUNDABLE_ELEMNT_CHILDREN_EXTENSION_DEFINITION_ATTRIBUTE = "definition";//$NON-NLS-1$
+	private static final String BOUNDABLE_ELEMENT_CHILDREN_EXTENSION_ID = "org.obeonetwork.dsl.environment.binding.dialect.ui.boundableElementChildrenDefinitions";//$NON-NLS-1$
+	private static final String BOUNDABLE_ELEMENT_CHILDREN_EXTENSION_DEFINITION_ATTRIBUTE = "definition";//$NON-NLS-1$
 
 	private static List<IBoundableElementChildren> DEFINITIONS;
 
@@ -32,7 +32,7 @@ public class BoundableElementChildrenContributionsManager {
 	 */
 	private static List<IConfigurationElement> getProvidedBoundableElementChildrenExtensions() {
 		IExtension[] extensions = Platform.getExtensionRegistry()
-				.getExtensionPoint(BOUNDABLE_ELEMNT_CHILDREN_EXTENSION_ID).getExtensions();
+				.getExtensionPoint(BOUNDABLE_ELEMENT_CHILDREN_EXTENSION_ID).getExtensions();
 		return Arrays.stream(extensions).map(IExtension::getConfigurationElements).flatMap(Arrays::stream)
 				.collect(Collectors.toList());
 	}
@@ -49,7 +49,7 @@ public class BoundableElementChildrenContributionsManager {
 		for (IConfigurationElement configurationElement : contributions) {
 			try {
 				final Object extension = configurationElement
-						.createExecutableExtension(BOUNDABLE_ELEMNT_CHILDREN_EXTENSION_DEFINITION_ATTRIBUTE);
+						.createExecutableExtension(BOUNDABLE_ELEMENT_CHILDREN_EXTENSION_DEFINITION_ATTRIBUTE);
 				if (extension instanceof IBoundableElementChildren) {
 					providedDefintions.add((IBoundableElementChildren) extension);
 				}
@@ -66,7 +66,7 @@ public class BoundableElementChildrenContributionsManager {
 	 *         contributions to the extension point with ID
 	 *         {@link BOUNDABLE_ELEMNT_CHILDREN_EXTENSION_ID}.
 	 */
-	public static List<IBoundableElementChildren> getDefinitions() {
+	private static List<IBoundableElementChildren> getDefinitions() {
 		if (DEFINITIONS == null) {
 			DEFINITIONS = getProvidedBoundableElementsChildren();
 		}
@@ -88,16 +88,12 @@ public class BoundableElementChildrenContributionsManager {
 		}
 		List<IBoundableElementChildren> definitions = getDefinitions();
 		for (IBoundableElementChildren definition : definitions) {
-			try {
-				List<EClass> eclasses = definition.getApplicableEClasses();
-				if (eclasses != null && eclasses.stream().anyMatch(cla -> cla.isInstance(object))) {
-					List<? extends EObject> children = definition.getChildren(object);
-					if (children != null) {
-						return children.toArray(new EObject[] {});
-					}
+			List<EClass> eclasses = definition.getApplicableEClasses();
+			if (eclasses != null && eclasses.stream().anyMatch(cla -> cla.isInstance(object))) {
+				List<? extends EObject> children = definition.getChildren(object);
+				if (children != null) {
+					return children.toArray(new EObject[] {});
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 		return results;
@@ -114,13 +110,9 @@ public class BoundableElementChildrenContributionsManager {
 	public static String getLabel(EObject object) {
 		List<IBoundableElementChildren> definitions = getDefinitions();
 		for (IBoundableElementChildren definition : definitions) {
-			try {
-				List<EClass> eclasses = definition.getApplicableEClasses();
-				if (eclasses != null && eclasses.stream().anyMatch(cla -> cla.isInstance(object))) {
-					return definition.getLabel(object);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+			List<EClass> eclasses = definition.getApplicableEClasses();
+			if (eclasses != null && eclasses.stream().anyMatch(cla -> cla.isInstance(object))) {
+				return definition.getLabel(object);
 			}
 		}
 		return null;

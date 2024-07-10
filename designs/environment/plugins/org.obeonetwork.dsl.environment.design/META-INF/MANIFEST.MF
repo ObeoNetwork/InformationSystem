@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.utils.common,
  org.obeonetwork.utils.common.ui,
  org.eclipse.eef.properties.ui,
- org.obeonetwork.dsl.environment.binding.dialect.ui
+ org.obeonetwork.dsl.environment.binding.dialect.ui,
+ org.eclipse.swt
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
