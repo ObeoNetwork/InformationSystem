@@ -81,9 +81,9 @@ public class LinkRequirementAction extends EObjectLinksViewAction {
 		
 		EObject context = linksView.getInput();
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				LinkRequirementAction::getRequirementTreeNodeChildren,
-				(wrappedEObject) -> wrappedEObject instanceof Requirement
-			);
+				LinkRequirementAction::getRequirementTreeNodeChildren);
+		
+		treeRoot.getConfiguration().setSelectableCondition(Requirement.class::isInstance);
 		
 		for(Resource repositoryResource : RequirementService.findRequirementsRepositories(context)) {
 			new ISObjectTreeItemWrapper(treeRoot, repositoryResource);
