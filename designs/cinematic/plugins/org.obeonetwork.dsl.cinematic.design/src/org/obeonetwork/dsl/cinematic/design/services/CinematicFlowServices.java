@@ -156,8 +156,11 @@ public class CinematicFlowServices {
 		roots.addAll(cinematicRoot.getSubPackages());
 		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				CinematicFlowServices::getEventSelectionDialogChildren, 
+				CinematicFlowServices::getEventSelectionDialogChildren);
+		
+		treeRoot.getConfiguration().setSelectableCondition(
 				(wrappedEObject) -> wrappedEObject instanceof FlowEvent || wrappedEObject instanceof WidgetEventType);
+		
 		for(EObject root : roots) {
 			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
@@ -253,8 +256,10 @@ public class CinematicFlowServices {
 		String childrenExpression = "aql:self.viewContainers + if self.oclIsKindOf(cinematic::Package) then self.subPackages else Sequence{} endif";
 		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression), 
-				ViewContainer.class::isInstance);
+				(wrappedEObject) -> SiriusInterpreterUtils.evaluateToEObjectList(interpreter, (EObject) wrappedEObject, childrenExpression));
+		
+		treeRoot.getConfiguration().setSelectableCondition(ViewContainer.class::isInstance);
+		
 		for(EObject root : roots) {
 			new ISObjectTreeItemWrapper(treeRoot, root);
 		}
