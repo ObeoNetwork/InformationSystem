@@ -46,6 +46,7 @@ import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.binding.design.service.BindingService;
 import org.obeonetwork.dsl.environment.design.extension.StructuredTypeChildrenContribution;
+import org.obeonetwork.dsl.environment.design.extension.StructuredTypeLabelsSwitch;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
@@ -119,6 +120,9 @@ public class CinematicBindingServices {
         wizard.setLevelToExpand(2);
         
 		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
+		
+		StructuredTypeLabelsSwitch structuredTypeLabelsSwitch = new StructuredTypeLabelsSwitch();
+		wizard.setCustomLabelProvider(element -> structuredTypeLabelsSwitch.getLabel((EObject) element));
 		
         if(wizard.open() == Window.OK) {
         	Set<StructuredType> selectedElements = wizard.getSelectedObjects().stream().map(StructuredType.class::cast).collect(toSet());
@@ -292,6 +296,9 @@ public class CinematicBindingServices {
         wizard.setLevelToExpand(2);
         
 		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
+		
+		StructuredTypeLabelsSwitch structuredTypeLabelsSwitch = new StructuredTypeLabelsSwitch();
+		wizard.setCustomLabelProvider(element -> structuredTypeLabelsSwitch.getLabel((EObject) element));
 		
         if(wizard.open() == Window.OK) {
         	
