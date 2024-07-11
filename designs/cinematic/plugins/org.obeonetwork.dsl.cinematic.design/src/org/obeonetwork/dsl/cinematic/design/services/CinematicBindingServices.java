@@ -202,16 +202,30 @@ public class CinematicBindingServices {
 	public static BindingRegistry getOrCreateBindingRegistry(ObeoDSMObject object) {
 		BindingRegistry bindingRegistry = null;
 		
-		ObeoDSMObject rootContainer = EObjectUtils.getAncestors(object).stream()//
-		.filter(ObeoDSMObject.class::isInstance).map(ObeoDSMObject.class::cast)//
-		.findFirst().orElse(null);
+		ObeoDSMObject rootContainer = getBindingRegistryContainer(object);
 		
-		EList<BindingRegistry> bindingRegistries = ((ObeoDSMObject) rootContainer).getBindingRegistries();
+		EList<BindingRegistry> bindingRegistries = rootContainer.getBindingRegistries();
 		if(bindingRegistries.isEmpty()) {
 			bindingRegistry = EnvironmentFactory.eINSTANCE.createBindingRegistry();
 			bindingRegistries.add(bindingRegistry);
 		} else {
 			bindingRegistry = bindingRegistries.get(0);
+		}
+		
+		return bindingRegistry;
+	}
+
+	private static ObeoDSMObject getBindingRegistryContainer(ObeoDSMObject object) {
+		return EObjectUtils.getAncestors(object).stream()//
+		.filter(ObeoDSMObject.class::isInstance).map(ObeoDSMObject.class::cast)//
+		.findFirst().orElse(null);
+	}
+	
+	private static BindingRegistry getBindingRegistry(ObeoDSMObject object) {
+		BindingRegistry bindingRegistry = null;
+		ObeoDSMObject rootContainer = getBindingRegistryContainer(object);
+		if(!rootContainer.getBindingRegistries().isEmpty()) {
+			bindingRegistry = rootContainer.getBindingRegistries().get(0);
 		}
 		
 		return bindingRegistry;
@@ -226,7 +240,13 @@ public class CinematicBindingServices {
 		treeRoot.getConfiguration().setSelectableCondition(Property.class::isInstance);
 		treeRoot.getConfiguration().setMaxDuplicateAncestorsAllowed(3);
 		
-		BindingRegistry bindingRegistry = getOrCreateBindingRegistry(contextViewElement);
+		BindingRegistry bindingRegistry = getBindingRegistry(contextViewElement);
+		// If no BindingRegistry is found no Property can be bound.
+		if(bindingRegistry == null) {
+			// Warn the user and exit.
+			openWarningNoParentViewContainerBound();
+			return;
+		}
 		
 		List<BindingInfo> ancestorsBindingInfos = EObjectUtils.getAncestors(contextViewElement).stream()//
 			.filter(ViewContainer.class::isInstance).map(ViewContainer.class::cast)//
@@ -236,10 +256,7 @@ public class CinematicBindingServices {
 		// If no ancestors of the context ViewElement is binded, no Property can be bound.
 		if(ancestorsBindingInfos.isEmpty()) {
 			// Warn the user and exit.
-			MessageDialog.openWarning(Display.getCurrent().getActiveShell(), 
-					"Entity/DTO attributes and references binding",
-					"No ViewContainer parent is bound.\n" +
-					"At least one parent ViewContainer should be bound.");
+			openWarningNoParentViewContainerBound();
 			return;
 		}
 		
@@ -306,6 +323,13 @@ public class CinematicBindingServices {
         		.forEach(CinematicBindingServices::removeBindingReference);
         }
         
+	}
+
+	private void openWarningNoParentViewContainerBound() {
+		MessageDialog.openWarning(Display.getCurrent().getActiveShell(), 
+				"Entity/DTO attributes and references binding",
+				"No parent ViewContainer is bound.\n" +
+				"At least one parent ViewContainer should be bound.");
 	}
 	
 	private static BindingReference getBindingReferenceFromPath(List<BindingInfo> bindingInfos, List<BoundableElement> rightPath) {
