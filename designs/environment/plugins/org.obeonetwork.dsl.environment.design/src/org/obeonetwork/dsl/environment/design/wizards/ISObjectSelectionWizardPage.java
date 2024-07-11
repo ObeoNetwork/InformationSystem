@@ -71,9 +71,11 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
     private ISObjectTreeItemWrapper treeRoot;
 
-    private final AdapterFactoryLabelProvider myAdapterFactoryLabelProvider;
+    private final AdapterFactoryLabelProvider defaultAdapterFactoryLabelProvider;
+    
+    private ISObjectCustomLabelProvider customLabelProvider = null;
 
-    private Set<ISObjectTreeItemWrapper> selectedTreeItemWrapers = new HashSet<>();
+	private Set<ISObjectTreeItemWrapper> selectedTreeItemWrapers = new HashSet<>();
 
     private Set<ISObjectTreeItemWrapper> ungrayedTreeItemWrapers = new HashSet<>();
     
@@ -111,9 +113,16 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         super(pageName, title, imageTitle);
         this.treeRoot = treeRoot;
         this.many = many;
-        this.myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        this.defaultAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
     }
 
+    /**
+     * Determines whether the tree should be unfolded by default.
+     * Default is true.
+     * @see ISObjectSelectionWizardPage#setExpandedByDefault
+     * 
+     * @param expanded
+     */
 	public void setExpandedByDefault(boolean expanded) {
 		this.expanded  = expanded;
 	}
@@ -138,6 +147,17 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		this.checkBoxFilter  = checkBoxFilter;
 	}
 	
+    /**
+     * Sets the ISObjectCustomLabelProvider. If ISObjectCustomLabelProvider.getText returns
+     * null or a blank string, or if the customLabelProvider is set to null, the text label
+     * generation falls back to the default label provider.
+     * 
+     * @param customLabelProvider
+     */
+    public void setCustomLabelProvider(ISObjectCustomLabelProvider customLabelProvider) {
+		this.customLabelProvider = customLabelProvider;
+	}
+
     @Override
     public void createControl(final Composite parent) {
     	
@@ -477,7 +497,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     @Override
     public void dispose() {
 
-        myAdapterFactoryLabelProvider.dispose();
+        defaultAdapterFactoryLabelProvider.dispose();
 
         if (pageComposite != null && !pageComposite.isDisposed()) {
             pageComposite.dispose();
@@ -511,6 +531,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	        }
         }
     }
+    
+    public static interface ISObjectCustomLabelProvider {
+    	 public String getText(Object element);
+    }
 
     private class ISObjectSelectionLabelProvider extends LabelProvider implements IColorProvider, IFontProvider {
 
@@ -519,7 +543,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             Image image = null;
             if (element instanceof ISObjectTreeItemWrapper) {
                 Object wrappedObject = ((ISObjectTreeItemWrapper) element).getWrappedObject();
-				image = myAdapterFactoryLabelProvider.getImage(wrappedObject);
+				image = defaultAdapterFactoryLabelProvider.getImage(wrappedObject);
             }
             return image;
         }
@@ -528,7 +552,13 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         public String getText(final Object element) {
             String text = null;
             if (element instanceof ISObjectTreeItemWrapper) {
-                text = myAdapterFactoryLabelProvider.getText(((ISObjectTreeItemWrapper) element).getWrappedObject());
+                Object wrappedObject = ((ISObjectTreeItemWrapper) element).getWrappedObject();
+                if(customLabelProvider != null) {
+                	text = customLabelProvider.getText(wrappedObject);
+                }
+                if(text == null || text.isBlank()) {
+    				text = defaultAdapterFactoryLabelProvider.getText(wrappedObject);
+                }
             }
             return text;
         }
