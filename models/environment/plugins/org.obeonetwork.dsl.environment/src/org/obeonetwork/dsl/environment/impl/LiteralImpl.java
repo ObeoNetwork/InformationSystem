@@ -69,6 +69,7 @@ public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.LITERAL__NAME, EnvironmentPackage.Literals.LITERAL__NAME, true,
 				true);
@@ -79,6 +80,7 @@ public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.LITERAL__NAME, EnvironmentPackage.Literals.LITERAL__NAME, newName);
 	}

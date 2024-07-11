@@ -380,6 +380,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnvironment() {
 		return environmentEClass;
 	}
@@ -389,6 +390,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnvironment_Name() {
 		return (EAttribute) environmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -398,6 +400,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnvironment_Actions() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -407,6 +410,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnvironment_Links() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(2);
 	}
@@ -416,6 +420,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnvironment_PriorityDefinitions() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(3);
 	}
@@ -425,6 +430,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnvironment_TypesDefinition() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(4);
 	}
@@ -434,6 +440,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getType() {
 		return typeEClass;
 	}
@@ -443,6 +450,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getType_Name() {
 		return (EAttribute) typeEClass.getEStructuralFeatures().get(0);
 	}
@@ -452,6 +460,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getType_TypeDefinition() {
 		return (EReference) typeEClass.getEStructuralFeatures().get(1);
 	}
@@ -461,6 +470,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPrimitiveType() {
 		return primitiveTypeEClass;
 	}
@@ -470,6 +480,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPrimitiveType_Kind() {
 		return (EAttribute) primitiveTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -479,6 +490,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumeration() {
 		return enumerationEClass;
 	}
@@ -488,6 +500,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnumeration_Literals() {
 		return (EReference) enumerationEClass.getEStructuralFeatures().get(0);
 	}
@@ -497,6 +510,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLiteral() {
 		return literalEClass;
 	}
@@ -506,6 +520,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLiteral_Name() {
 		return (EAttribute) literalEClass.getEStructuralFeatures().get(0);
 	}
@@ -515,6 +530,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -524,6 +540,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAction_Name() {
 		return (EAttribute) actionEClass.getEStructuralFeatures().get(0);
 	}
@@ -533,6 +550,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInterDSMLink() {
 		return interDSMLinkEClass;
 	}
@@ -542,6 +560,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInterDSMLink_Name() {
 		return (EAttribute) interDSMLinkEClass.getEStructuralFeatures().get(0);
 	}
@@ -551,6 +570,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInterDSMLink_Target() {
 		return (EReference) interDSMLinkEClass.getEStructuralFeatures().get(1);
 	}
@@ -560,6 +580,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObeoDSMObject() {
 		return obeoDSMObjectEClass;
 	}
@@ -569,6 +590,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObeoDSMObject_Metadatas() {
 		return (EReference) obeoDSMObjectEClass.getEStructuralFeatures().get(0);
 	}
@@ -578,6 +600,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObeoDSMObject_Description() {
 		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(1);
 	}
@@ -587,6 +610,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObeoDSMObject_Keywords() {
 		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(2);
 	}
@@ -596,6 +620,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObeoDSMObject_Behaviours() {
 		return (EReference) obeoDSMObjectEClass.getEStructuralFeatures().get(3);
 	}
@@ -605,6 +630,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObeoDSMObject_BindingRegistries() {
 		return (EReference) obeoDSMObjectEClass.getEStructuralFeatures().get(4);
 	}
@@ -614,6 +640,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObeoDSMObject_Version() {
 		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(5);
 	}
@@ -623,6 +650,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObeoDSMObject_CreatedOn() {
 		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(6);
 	}
@@ -632,6 +660,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObeoDSMObject_ModifiedOn() {
 		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(7);
 	}
@@ -641,6 +670,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMetaDataContainer() {
 		return metaDataContainerEClass;
 	}
@@ -650,6 +680,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMetaDataContainer_Metadatas() {
 		return (EReference) metaDataContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -659,6 +690,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAnnotation() {
 		return annotationEClass;
 	}
@@ -668,6 +700,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnnotation_Title() {
 		return (EAttribute) annotationEClass.getEStructuralFeatures().get(0);
 	}
@@ -677,6 +710,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnnotation_Body() {
 		return (EAttribute) annotationEClass.getEStructuralFeatures().get(1);
 	}
@@ -686,6 +720,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPriorityDefinition() {
 		return priorityDefinitionEClass;
 	}
@@ -695,6 +730,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPriorityDefinition_Priorities() {
 		return (EReference) priorityDefinitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -704,6 +740,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPriority() {
 		return priorityEClass;
 	}
@@ -713,6 +750,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPriority_Name() {
 		return (EAttribute) priorityEClass.getEStructuralFeatures().get(0);
 	}
@@ -722,6 +760,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMetaData() {
 		return metaDataEClass;
 	}
@@ -731,6 +770,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypesDefinition() {
 		return typesDefinitionEClass;
 	}
@@ -740,6 +780,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypesDefinition_Types() {
 		return (EReference) typesDefinitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -749,6 +790,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBehaviour() {
 		return behaviourEClass;
 	}
@@ -758,6 +800,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStructuredType() {
 		return structuredTypeEClass;
 	}
@@ -767,6 +810,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_Supertype() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -776,6 +820,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_AssociatedTypes() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -785,6 +830,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_OwnedAttributes() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -794,6 +840,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_Attributes() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -803,6 +850,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_OwnedReferences() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(4);
 	}
@@ -812,6 +860,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_References() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(5);
 	}
@@ -821,6 +870,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuredType_Properties() {
 		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(6);
 	}
@@ -830,6 +880,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDTO() {
 		return dtoEClass;
 	}
@@ -839,6 +890,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDTO_OwnedContainer() {
 		return (EReference) dtoEClass.getEStructuralFeatures().get(0);
 	}
@@ -848,6 +900,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFilterContainer() {
 		return filterContainerEClass;
 	}
@@ -857,6 +910,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFilterContainer_OwnedFilters() {
 		return (EReference) filterContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -866,6 +920,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFilter() {
 		return filterEClass;
 	}
@@ -875,6 +930,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamespace() {
 		return namespaceEClass;
 	}
@@ -884,6 +940,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNamespace_Owner() {
 		return (EReference) namespaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -893,6 +950,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNamespace_Name() {
 		return (EAttribute) namespaceEClass.getEStructuralFeatures().get(1);
 	}
@@ -902,6 +960,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -911,6 +970,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttribute_Type() {
 		return (EReference) attributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -920,6 +980,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttribute_ContainingType() {
 		return (EReference) attributeEClass.getEStructuralFeatures().get(1);
 	}
@@ -929,6 +990,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReference() {
 		return referenceEClass;
 	}
@@ -938,6 +1000,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReference_IsComposite() {
 		return (EAttribute) referenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -947,6 +1010,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReference_Navigable() {
 		return (EAttribute) referenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -956,6 +1020,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReference_OppositeOf() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(2);
 	}
@@ -965,6 +1030,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReference_ContainingType() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(3);
 	}
@@ -974,6 +1040,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReference_ReferencedType() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(4);
 	}
@@ -983,6 +1050,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -992,6 +1060,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Name() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1001,6 +1070,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Multiplicity() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1010,6 +1080,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_IsIdentifier() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1019,6 +1090,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBindingInfo() {
 		return bindingInfoEClass;
 	}
@@ -1028,6 +1100,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_References() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(0);
 	}
@@ -1037,6 +1110,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_Left() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(1);
 	}
@@ -1046,6 +1120,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_Right() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(2);
 	}
@@ -1055,6 +1130,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_SubBindingInfos() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(3);
 	}
@@ -1064,6 +1140,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_Targets() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(4);
 	}
@@ -1073,6 +1150,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingInfo_Elements() {
 		return (EReference) bindingInfoEClass.getEStructuralFeatures().get(5);
 	}
@@ -1082,6 +1160,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBindingReference() {
 		return bindingReferenceEClass;
 	}
@@ -1091,6 +1170,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingReference_Left() {
 		return (EReference) bindingReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -1100,6 +1180,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingReference_Right() {
 		return (EReference) bindingReferenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1109,6 +1190,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBindingElement() {
 		return bindingElementEClass;
 	}
@@ -1118,6 +1200,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingElement_BoundElement() {
 		return (EReference) bindingElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1127,6 +1210,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingElement_BindingExpression() {
 		return (EAttribute) bindingElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1136,6 +1220,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingElement_ReferencedByAsLeft() {
 		return (EReference) bindingElementEClass.getEStructuralFeatures().get(2);
 	}
@@ -1145,6 +1230,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingElement_ReferencedByAsRight() {
 		return (EReference) bindingElementEClass.getEStructuralFeatures().get(3);
 	}
@@ -1154,6 +1240,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingElement_ReferencedBy() {
 		return (EReference) bindingElementEClass.getEStructuralFeatures().get(4);
 	}
@@ -1163,6 +1250,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingElement_PathReferences() {
 		return (EReference) bindingElementEClass.getEStructuralFeatures().get(5);
 	}
@@ -1172,6 +1260,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBindingRegistry() {
 		return bindingRegistryEClass;
 	}
@@ -1181,6 +1270,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingRegistry_BindingInfos() {
 		return (EReference) bindingRegistryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1190,6 +1280,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBoundableElement() {
 		return boundableElementEClass;
 	}
@@ -1199,6 +1290,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataType() {
 		return dataTypeEClass;
 	}
@@ -1208,6 +1300,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamespacesContainer() {
 		return namespacesContainerEClass;
 	}
@@ -1217,6 +1310,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNamespacesContainer_OwnedNamespaces() {
 		return (EReference) namespacesContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1226,6 +1320,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConstrainableElement() {
 		return constrainableElementEClass;
 	}
@@ -1235,6 +1330,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConstrainableElement_Maximum() {
 		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1244,6 +1340,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConstrainableElement_Minimum() {
 		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1253,6 +1350,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConstrainableElement_Pattern() {
 		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(2);
 	}
@@ -1262,6 +1360,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPrimitiveTypeKind() {
 		return primitiveTypeKindEEnum;
 	}
@@ -1271,6 +1370,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getMultiplicityKind() {
 		return multiplicityKindEEnum;
 	}
@@ -1280,6 +1380,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnvironmentFactory getEnvironmentFactory() {
 		return (EnvironmentFactory) getEFactoryInstance();
 	}
@@ -1774,7 +1875,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getBindingElement_PathReferences(), this.getBoundableElement(), null, "pathReferences", null, 0,
 				-1, BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bindingRegistryEClass, BindingRegistry.class, "BindingRegistry", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

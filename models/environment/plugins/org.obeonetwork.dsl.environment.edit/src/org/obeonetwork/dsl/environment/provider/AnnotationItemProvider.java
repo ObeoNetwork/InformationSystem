@@ -124,7 +124,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((Annotation) object).getTitle()+": "+((Annotation) object).getBody();
+		return ((Annotation) object).getTitle() + ": " + ((Annotation) object).getBody();
 	}
 
 	/**

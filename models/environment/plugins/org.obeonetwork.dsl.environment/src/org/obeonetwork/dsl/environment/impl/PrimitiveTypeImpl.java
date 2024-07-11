@@ -70,6 +70,7 @@ public class PrimitiveTypeImpl extends DataTypeImpl implements PrimitiveType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PrimitiveTypeKind getKind() {
 		return (PrimitiveTypeKind) eDynamicGet(EnvironmentPackage.PRIMITIVE_TYPE__KIND,
 				EnvironmentPackage.Literals.PRIMITIVE_TYPE__KIND, true, true);
@@ -80,6 +81,7 @@ public class PrimitiveTypeImpl extends DataTypeImpl implements PrimitiveType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(PrimitiveTypeKind newKind) {
 		eDynamicSet(EnvironmentPackage.PRIMITIVE_TYPE__KIND, EnvironmentPackage.Literals.PRIMITIVE_TYPE__KIND, newKind);
 	}

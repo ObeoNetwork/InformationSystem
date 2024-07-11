@@ -8,7 +8,8 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.environment.presentation.EnvironmentEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.obeonetwork.dsl.environment.presentation
+Export-Package: org.obeonetwork.dsl.environment.metadatadef.presentation,
+ org.obeonetwork.dsl.environment.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,

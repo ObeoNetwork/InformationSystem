@@ -69,6 +69,7 @@ public class PriorityImpl extends ObeoDSMObjectImpl implements Priority {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.PRIORITY__NAME, EnvironmentPackage.Literals.PRIORITY__NAME, true,
 				true);
@@ -79,6 +80,7 @@ public class PriorityImpl extends ObeoDSMObjectImpl implements Priority {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.PRIORITY__NAME, EnvironmentPackage.Literals.PRIORITY__NAME, newName);
 	}

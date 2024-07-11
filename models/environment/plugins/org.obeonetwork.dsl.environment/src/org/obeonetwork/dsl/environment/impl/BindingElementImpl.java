@@ -86,6 +86,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BoundableElement getBoundElement() {
 		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, true, true);
@@ -106,6 +107,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBoundElement(BoundableElement newBoundElement) {
 		eDynamicSet(EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, newBoundElement);
@@ -116,6 +118,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBindingExpression() {
 		return (String) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION, true, true);
@@ -126,6 +129,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBindingExpression(String newBindingExpression) {
 		eDynamicSet(EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION, newBindingExpression);
@@ -137,6 +141,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingReference> getReferencedByAsLeft() {
 		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT, true, true);
@@ -148,6 +153,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingReference> getReferencedByAsRight() {
 		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT, true, true);
@@ -172,6 +178,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElem
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BoundableElement> getPathReferences() {
 		return (EList<BoundableElement>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__PATH_REFERENCES,
 				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES, true, true);

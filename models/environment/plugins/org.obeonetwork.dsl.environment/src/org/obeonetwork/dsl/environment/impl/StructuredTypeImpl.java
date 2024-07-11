@@ -80,6 +80,7 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructuredType getSupertype() {
 		return (StructuredType) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true, true);
@@ -151,6 +152,7 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<StructuredType> getAssociatedTypes() {
 		return (EList<StructuredType>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES, true, true);
@@ -162,6 +164,7 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Attribute> getOwnedAttributes() {
 		return (EList<Attribute>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES, true, true);
@@ -200,6 +203,7 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Reference> getOwnedReferences() {
 		return (EList<Reference>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES, true, true);

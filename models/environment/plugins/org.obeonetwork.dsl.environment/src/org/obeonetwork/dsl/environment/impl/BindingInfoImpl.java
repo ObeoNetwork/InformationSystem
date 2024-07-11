@@ -76,6 +76,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingReference> getReferences() {
 		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_INFO__REFERENCES,
 				EnvironmentPackage.Literals.BINDING_INFO__REFERENCES, true, true);
@@ -86,6 +87,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BoundableElement getLeft() {
 		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__LEFT,
 				EnvironmentPackage.Literals.BINDING_INFO__LEFT, true, true);
@@ -106,6 +108,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLeft(BoundableElement newLeft) {
 		eDynamicSet(EnvironmentPackage.BINDING_INFO__LEFT, EnvironmentPackage.Literals.BINDING_INFO__LEFT, newLeft);
 	}
@@ -115,6 +118,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BoundableElement getRight() {
 		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__RIGHT,
 				EnvironmentPackage.Literals.BINDING_INFO__RIGHT, true, true);
@@ -135,6 +139,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRight(BoundableElement newRight) {
 		eDynamicSet(EnvironmentPackage.BINDING_INFO__RIGHT, EnvironmentPackage.Literals.BINDING_INFO__RIGHT, newRight);
 	}
@@ -145,6 +150,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingInfo> getSubBindingInfos() {
 		return (EList<BindingInfo>) eDynamicGet(EnvironmentPackage.BINDING_INFO__SUB_BINDING_INFOS,
 				EnvironmentPackage.Literals.BINDING_INFO__SUB_BINDING_INFOS, true, true);
@@ -167,6 +173,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingElement> getElements() {
 		return (EList<BindingElement>) eDynamicGet(EnvironmentPackage.BINDING_INFO__ELEMENTS,
 				EnvironmentPackage.Literals.BINDING_INFO__ELEMENTS, true, true);

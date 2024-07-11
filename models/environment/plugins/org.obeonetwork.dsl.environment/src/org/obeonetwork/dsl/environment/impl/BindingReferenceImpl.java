@@ -63,6 +63,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements BindingRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BindingElement getLeft() {
 		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__LEFT,
 				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, true, true);
@@ -93,6 +94,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements BindingRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLeft(BindingElement newLeft) {
 		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__LEFT, EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT,
 				newLeft);
@@ -103,6 +105,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements BindingRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BindingElement getRight() {
 		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__RIGHT,
 				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, true, true);
@@ -133,6 +136,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements BindingRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRight(BindingElement newRight) {
 		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__RIGHT, EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT,
 				newRight);
