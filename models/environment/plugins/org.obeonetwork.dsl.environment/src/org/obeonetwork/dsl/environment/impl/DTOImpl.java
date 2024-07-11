@@ -62,6 +62,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FilterContainer getOwnedContainer() {
 		return (FilterContainer) eDynamicGet(EnvironmentPackage.DTO__OWNED_CONTAINER,
 				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER, true, true);
@@ -92,6 +93,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOwnedContainer(FilterContainer newOwnedContainer) {
 		eDynamicSet(EnvironmentPackage.DTO__OWNED_CONTAINER, EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
 				newOwnedContainer);

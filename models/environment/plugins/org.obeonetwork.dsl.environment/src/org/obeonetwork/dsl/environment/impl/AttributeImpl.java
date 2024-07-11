@@ -96,6 +96,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMaximum() {
 		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__MAXIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM, true, true);
@@ -106,6 +107,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(String newMaximum) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__MAXIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM,
 				newMaximum);
@@ -116,6 +118,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMinimum() {
 		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__MINIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM, true, true);
@@ -126,6 +129,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(String newMinimum) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__MINIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM,
 				newMinimum);
@@ -136,6 +140,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPattern() {
 		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__PATTERN,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN, true, true);
@@ -146,6 +151,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPattern(String newPattern) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__PATTERN, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN,
 				newPattern);
@@ -156,6 +162,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataType getType() {
 		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE, EnvironmentPackage.Literals.ATTRIBUTE__TYPE,
 				true, true);
@@ -176,6 +183,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(DataType newType) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__TYPE, EnvironmentPackage.Literals.ATTRIBUTE__TYPE, newType);
 	}
@@ -185,6 +193,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructuredType getContainingType() {
 		return (StructuredType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
 				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, true, true);
@@ -216,6 +225,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContainingType(StructuredType newContainingType) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
 				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, newContainingType);

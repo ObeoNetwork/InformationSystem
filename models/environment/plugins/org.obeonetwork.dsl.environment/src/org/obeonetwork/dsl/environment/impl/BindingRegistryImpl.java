@@ -67,6 +67,7 @@ public class BindingRegistryImpl extends ObeoDSMObjectImpl implements BindingReg
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingInfo> getBindingInfos() {
 		return (EList<BindingInfo>) eDynamicGet(EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS,
 				EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS, true, true);

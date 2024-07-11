@@ -67,6 +67,7 @@ public class FilterContainerImpl extends ObeoDSMObjectImpl implements FilterCont
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Filter> getOwnedFilters() {
 		return (EList<Filter>) eDynamicGet(EnvironmentPackage.FILTER_CONTAINER__OWNED_FILTERS,
 				EnvironmentPackage.Literals.FILTER_CONTAINER__OWNED_FILTERS, true, true);

@@ -92,6 +92,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.PROPERTY__NAME, EnvironmentPackage.Literals.PROPERTY__NAME, true,
 				true);
@@ -102,6 +103,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.PROPERTY__NAME, EnvironmentPackage.Literals.PROPERTY__NAME, newName);
 	}
@@ -111,6 +113,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MultiplicityKind getMultiplicity() {
 		return (MultiplicityKind) eDynamicGet(EnvironmentPackage.PROPERTY__MULTIPLICITY,
 				EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY, true, true);
@@ -121,6 +124,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiplicity(MultiplicityKind newMultiplicity) {
 		eDynamicSet(EnvironmentPackage.PROPERTY__MULTIPLICITY, EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY,
 				newMultiplicity);
@@ -131,6 +135,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsIdentifier() {
 		return (Boolean) eDynamicGet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
 				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true, true);
@@ -141,6 +146,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsIdentifier(boolean newIsIdentifier) {
 		eDynamicSet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER, EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER,
 				newIsIdentifier);
@@ -151,6 +157,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPathValid(BoundableElement root, String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

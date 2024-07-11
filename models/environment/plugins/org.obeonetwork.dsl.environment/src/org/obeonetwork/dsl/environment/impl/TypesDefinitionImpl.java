@@ -67,6 +67,7 @@ public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements TypesDefin
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Type> getTypes() {
 		return (EList<Type>) eDynamicGet(EnvironmentPackage.TYPES_DEFINITION__TYPES,
 				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES, true, true);

@@ -7,11 +7,12 @@
     editorPluginClass="org.obeonetwork.dsl.environment.presentation.EnvironmentEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic"
-    containmentProxies="true" complianceLevel="5.0" suppressGenModelAnnotations="false"
+    containmentProxies="true" complianceLevel="17.0" suppressGenModelAnnotations="false"
     runtimeVersion="2.7" usedGenPackages="../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid"
     interfaceNamePattern="" classNamePattern="">
   <foreignModel>environment.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <editPluginVariables>CDO_EDIT=org.eclipse.emf.cdo.edit</editPluginVariables>
   <genPackages prefix="Environment" basePackage="org.obeonetwork.dsl" resource="XMI"
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
       ecorePackage="environment.ecore#/">

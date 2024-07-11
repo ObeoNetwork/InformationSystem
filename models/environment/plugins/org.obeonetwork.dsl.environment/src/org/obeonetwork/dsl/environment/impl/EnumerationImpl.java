@@ -67,6 +67,7 @@ public class EnumerationImpl extends DataTypeImpl implements Enumeration {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Literal> getLiterals() {
 		return (EList<Literal>) eDynamicGet(EnvironmentPackage.ENUMERATION__LITERALS,
 				EnvironmentPackage.Literals.ENUMERATION__LITERALS, true, true);

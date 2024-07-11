@@ -69,6 +69,7 @@ public abstract class ActionImpl extends ObeoDSMObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.ACTION__NAME, EnvironmentPackage.Literals.ACTION__NAME, true,
 				true);
@@ -79,6 +80,7 @@ public abstract class ActionImpl extends ObeoDSMObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.ACTION__NAME, EnvironmentPackage.Literals.ACTION__NAME, newName);
 	}

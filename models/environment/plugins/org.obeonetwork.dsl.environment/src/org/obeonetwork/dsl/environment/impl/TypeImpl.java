@@ -74,6 +74,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.TYPE__NAME, EnvironmentPackage.Literals.TYPE__NAME, true, true);
 	}
@@ -83,6 +84,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.TYPE__NAME, EnvironmentPackage.Literals.TYPE__NAME, newName);
 	}
@@ -92,6 +94,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesDefinition getTypeDefinition() {
 		return (TypesDefinition) eDynamicGet(EnvironmentPackage.TYPE__TYPE_DEFINITION,
 				EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION, true, true);
@@ -122,6 +125,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypeDefinition(TypesDefinition newTypeDefinition) {
 		eDynamicSet(EnvironmentPackage.TYPE__TYPE_DEFINITION, EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION,
 				newTypeDefinition);
@@ -132,6 +136,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPathValid(BoundableElement root, String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

@@ -173,6 +173,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MetaDataContainer getMetadatas() {
 		return (MetaDataContainer) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, true, true);
@@ -203,6 +204,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMetadatas(MetaDataContainer newMetadatas) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, newMetadatas);
@@ -213,6 +215,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return (String) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, true, true);
@@ -223,6 +226,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, newDescription);
@@ -234,6 +238,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<String> getKeywords() {
 		return (EList<String>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true, true);
@@ -245,6 +250,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Behaviour> getBehaviours() {
 		return (EList<Behaviour>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS, true, true);
@@ -256,6 +262,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<BindingRegistry> getBindingRegistries() {
 		return (EList<BindingRegistry>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES, true, true);
@@ -266,6 +273,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getVersion() {
 		return (Integer) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__VERSION,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, true, true);
@@ -276,6 +284,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersion(int newVersion) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__VERSION, EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION,
 				newVersion);
@@ -286,6 +295,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getCreatedOn() {
 		return (Date) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, true, true);
@@ -296,6 +306,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCreatedOn(Date newCreatedOn) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, newCreatedOn);
@@ -306,6 +317,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getModifiedOn() {
 		return (Date) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, true, true);
@@ -316,6 +328,7 @@ public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements Obeo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setModifiedOn(Date newModifiedOn) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON,
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, newModifiedOn);
