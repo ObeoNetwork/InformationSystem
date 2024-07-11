@@ -394,20 +394,45 @@
 			<em>Layout Diagram</em> permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
 		</p>
 		<h4 id="Editiondebindings">Edition de bindings</h4>
-		<p>Afin d'éditer le binding d&#8217;un 
-			<em>ViewContainer</em> ou d&#8217;un 
-			<em>ViewElement</em>, un menu &#171;Binding...&#187; s&#8217;affiche lors du clic droit sur ces éléments.
-			<br/>Cet action menu ouvre une fenêtre permettant d'éditer la sélection
-			<br/>i) dans le cas d&#8217;un ViewContainer: des types structurés liés:
+		<p>Afin de faire le lien avec les couches SOA et Entity, les 
+			<em>ViewContainer</em> peuvent être bindés à des DTO ou des Entités, et les 
+			<em>ViewElements</em> peuvent être bindés à des attributs ou des références de DTO ou Entités.
 		</p>
-		<p>
+		<p>La fonctionnalité de binding est accessible en menu contextuel de la vue Mockup, sous l&#8217;entrée de menu &#171;Binding...&#187;.</p>
+		<p>Cette action de menu ouvre un dialogue de sélection permettant de binder des DTO/Entités à un 
+			<em>ViewContainer</em>, ou des attributs/références à un 
+			<em>ViewElement</em>.
+		</p>
+		<p>Pour un _ViewContainer, le dialogue présente les DTO/Entités accessibles :
+			<br/>
 			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewContainerBinding.png"/>
 		</p>
-		<p>ii) dans le cas d&#8217;un ViewElement: des attributs ou références de types structurés liés. Ces types structurés doivent être préalablement liés à un ViewContainer parent du ViewElement.</p>
+		<p>Plusieurs DTO/Entités peuvent être selectionnés. Chaque selection/désélection de DTO/Entité donne lieu à la création/suppression d&#8217;un objet de binding 
+			<em>BindingInfo</em>.
+		</p>
+		<p>Si un binding supprimé entraine la suppression de binding de références contenus, un dialogue de confirmation est affiché.</p>
+		<p>Si des 
+			<em>ViewContainer</em> parent sont déjà bindés à des DTO/Entités, ces DTO/Entités sont sélectionnés et leur désélection est inactivée. La modification de ce binding est faisable dans le dialogue de binding du 
+			<em>ViewContainer</em> parent en question.
+		</p>
+		<p>Pour un 
+			<em>ViewElement</em>, le dialogue présente les DTOs/Entités bindées sur les 
+			<em>ViewContainer</em> parent du 
+			<em>ViewElement</em> sélectionné :
+		</p>
 		<p>
 			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewElementBinding.png"/>
 		</p>
-		<p>Note: Lorsque des bindings sont définis sur un ViewElement ou un ViewContainer, le glisser-déposer de celui-ci sur un ViewContainer cible ne sera possible que si ses bindings restent valides avec la nouvelle cible. Ses bindings restent valides si leurs contextes liés aux BindingInfos associés aux ViewContainers parent (à l'élément à déplacer) sont conservés.</p>
+		<p>Les DTO/Entités peuvent être dépliés pour accéder à des propriétés de DTO/Entités référencés. Plusieurs attributs/références peuvent être sélectionnés. Chaque sélection/déselection donne lieu à la création/suppression d&#8217;un objet de binding 
+			<em>BindingReference</em> contenu dans le 
+			<em>BindingInfo</em> du 
+			<em>ViewContainer</em> correspondant.
+		</p>
+		<p>Lorsque des bindings sont définis sur un 
+			<em>ViewElement</em> ou un 
+			<em>ViewContainer</em>, le glisser-déposer dans le diagramme de Mockup n&#8217;est possible que si les bindings restent valides avec le 
+			<em>ViewContainer</em> destination.
+		</p>
 		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Le double clic sur les éléments du diagramme de mockup permet de naviguer vers d&#8217;autres diagrammes en les créant à la volée si ils n&#8217;existent pas :</p>
 		<ul>
@@ -680,11 +705,11 @@
 			<em>View State</em> à son apparence initiale.
 		</p>
 		<p>
-			<b>Dialogue de séléction d'événements déclencheurs:</b>
+			<b>Dialogue de sélection d'événements déclencheurs:</b>
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
 		</p>
-		<p>Ce dialogue permet de séléctionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
+		<p>Ce dialogue permet de sélectionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 			<br/>Les événements des widgets sont classés sous la hiérarchie des View Elements, les événements logiques sont regroupés sous un nœud virtuel « Flow events ».
 		</p>
 		<p>Les événements déclencheurs de la transition sont cochés.</p>
@@ -708,15 +733,15 @@
 			</li>
 		</ul>
 		<p>
-			<b>Dialogue de séléction de ViewContainer:</b>
+			<b>Dialogue de sélection de ViewContainer:</b>
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
 		</p>
-		<p>Ce dialogue permet de séléctionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.</p>
+		<p>Ce dialogue permet de selectionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.</p>
 		<p>Les View Containers associés au View State concerné sont cochés.</p>
 		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
 		<p>La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent cependant être affichés malgré le filtre.</p>
-		<p>L'état partiellement coché d&#8217;une case indique que des sous éléments sont séléctionnés. Les éléments partiellement cochés ne font pas partie de la séléction prise en compte à la validation du dialogue.</p>
+		<p>L'état partiellement coché d&#8217;une case indique que des sous éléments sont selectionnés. Les éléments partiellement cochés ne font pas partie de la selection prise en compte à la validation du dialogue.</p>
 		<p>A la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.</p>
 		<h3 id="Crationdetoolkits">Création de toolkits</h3>
 		<p>Un des objectifs du méta-modèle Cinematic est de permettre de créer facilement de nouveaux toolkits.</p>

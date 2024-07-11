@@ -39,7 +39,7 @@ public class CinematicLabelServices {
 	private static FlowEditLabelSwitch flowEditSwitch = new FlowEditLabelSwitch();
 	private static ViewEditLabelSwitch viewEditSwitch = new ViewEditLabelSwitch();
 
-	public String getCinematicLabel(EObject eObject) {
+	public static String getCinematicLabel(EObject eObject) {
 		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
 		if ("cinematic".equals(packagePrefix)) {
 			return cinematicLabelSwitch.doSwitch(eObject);
@@ -80,7 +80,7 @@ public class CinematicLabelServices {
 		return builder.toString();
 	}
 	
-	public String getCinematicLongLabel(EObject eObject) {
+	public static String getCinematicLongLabel(EObject eObject) {
 		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
 		if ("cinematic".equals(packagePrefix)) {
 			return cinematicLabelSwitch.doSwitch(eObject);
