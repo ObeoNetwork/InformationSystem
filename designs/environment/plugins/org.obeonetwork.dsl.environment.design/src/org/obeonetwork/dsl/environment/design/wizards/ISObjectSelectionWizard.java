@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ICheckBoxFilter;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectCustomLabelProvider;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISelectionInductor;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 
@@ -51,8 +52,7 @@ public class ISObjectSelectionWizard extends Wizard {
 	}
 
     /**
-     * Determines whether the tree should be unfolded by default.
-     * Default is true.
+     * @see ISObjectSelectionWizardPage#setExpandedByDefault
      * 
      * @param expanded
      */
@@ -60,38 +60,87 @@ public class ISObjectSelectionWizard extends Wizard {
     	page.setExpandedByDefault(expanded);
     }
 
+	/**
+     * @see ISObjectSelectionWizardPage#setLevelToExpand
+     * 
+	 * @param levelToExpand
+	 */
 	public void setLevelToExpand(int levelToExpand) {
 		page.setLevelToExpand(levelToExpand);
 	}
 	
+	/**
+     * @see ISObjectSelectionWizardPage#setTreeSelectMode
+     * 
+	 * @param treeSelectMode
+	 */
 	public void setTreeSelectMode(SelectMode treeSelectMode) {
 		page.setTreeSelectMode(treeSelectMode);
 	}
 	
+	/**
+     * @see ISObjectSelectionWizardPage#setCheckBoxFilter
+     * 
+	 * @param checkBoxFilter
+	 */
 	public void setCheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
 		page.setCheckBoxFilter(checkBoxFilter);
 	}
 	
+	/**
+     * @see ISObjectSelectionWizardPage#setSelectionInductor
+     * 
+	 * @param selectionInductor
+	 */
 	public void setSelectionInductor(ISelectionInductor selectionInductor) {
 		page.setSelectionInductor(selectionInductor);
 	}
     
+    /**
+     * @see ISObjectSelectionWizardPage#setPreSelectedObjects
+     * 
+     * @param preSelectedObjects
+     */
     public void setPreSelectedObjects(Collection<? extends Object> preSelectedObjects) {
     	page.setPreSelectedObjects(preSelectedObjects);
     }
     
+    /**
+     * @see ISObjectSelectionWizardPage#setPreSelectedTreeItemWrappers
+     * 
+     * @param preSelectedTreeItemWrappers
+     */
     public void setPreSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> preSelectedTreeItemWrappers) {
     	page.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
     }
     
+    /**
+     * @see ISObjectSelectionWizardPage#setAlwaysSelectedObjects
+     * 
+     * @param alwaysSelectedObjects
+     */
     public void setAlwaysSelectedObjects(Collection<? extends Object> alwaysSelectedObjects) {
     	page.setAlwaysSelectedObjects(alwaysSelectedObjects);
     }
     
+	/**
+     * @see ISObjectSelectionWizardPage#setAlwaysSelectedTreeItemWrappers
+     * 
+	 * @param alwaysSelectedTreeItemWrappers
+	 */
 	public void setAlwaysSelectedTreeItemWrappers(Collection<ISObjectTreeItemWrapper> alwaysSelectedTreeItemWrappers) {
 		page.setAlwaysSelectedTreeItemWrappers(alwaysSelectedTreeItemWrappers);
 	}
 	
+    /**
+     * @see ISObjectSelectionWizardPage#setCustomLabelProvider
+     * 
+     * @param customLabelProvider
+     */
+    public void setCustomLabelProvider(ISObjectCustomLabelProvider customLabelProvider) {
+		page.setCustomLabelProvider(customLabelProvider);
+	}
+    
     /**
      * @return the {@link WizardDialogClosableByWizard} containing this wizard. Null if no such element has been set.
      */

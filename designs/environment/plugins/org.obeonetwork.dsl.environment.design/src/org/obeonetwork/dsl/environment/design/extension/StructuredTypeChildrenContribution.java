@@ -19,7 +19,7 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.ex
  */
 public class StructuredTypeChildrenContribution implements IBoundableElementChildren {
 	
-	private final StructuredTypeLabelsSwitch dtoLabelsSwitch = new StructuredTypeLabelsSwitch();
+	private final StructuredTypeLabelsSwitch structuredTypeLabelsSwitch = new StructuredTypeLabelsSwitch();
 
 	@Override
 	public List<? extends EObject> getChildren(EObject object) {
@@ -52,6 +52,6 @@ public class StructuredTypeChildrenContribution implements IBoundableElementChil
 
 	@Override
 	public String getLabel(EObject eObject) {
-		return dtoLabelsSwitch.getLabel(eObject);
+		return structuredTypeLabelsSwitch.getLabel(eObject);
 	}
 }
