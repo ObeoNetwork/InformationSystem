@@ -71,6 +71,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.INTER_DSM_LINK__NAME,
 				EnvironmentPackage.Literals.INTER_DSM_LINK__NAME, true, true);
@@ -81,6 +82,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__NAME, EnvironmentPackage.Literals.INTER_DSM_LINK__NAME, newName);
 	}
@@ -90,6 +92,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getTarget() {
 		return (EObject) eDynamicGet(EnvironmentPackage.INTER_DSM_LINK__TARGET,
 				EnvironmentPackage.Literals.INTER_DSM_LINK__TARGET, true, true);
@@ -110,6 +113,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(EObject newTarget) {
 		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__TARGET, EnvironmentPackage.Literals.INTER_DSM_LINK__TARGET,
 				newTarget);

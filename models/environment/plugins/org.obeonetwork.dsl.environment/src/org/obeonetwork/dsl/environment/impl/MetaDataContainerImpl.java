@@ -68,6 +68,7 @@ public class MetaDataContainerImpl extends IdentifiableImpl implements MetaDataC
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<MetaData> getMetadatas() {
 		return (EList<MetaData>) eDynamicGet(EnvironmentPackage.META_DATA_CONTAINER__METADATAS,
 				EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS, true, true);

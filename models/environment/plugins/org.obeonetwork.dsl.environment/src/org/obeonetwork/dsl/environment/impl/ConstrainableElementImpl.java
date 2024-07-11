@@ -104,6 +104,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMaximum() {
 		return (String) eDynamicGet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__MAXIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM, true, true);
@@ -114,6 +115,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(String newMaximum) {
 		eDynamicSet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__MAXIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM, newMaximum);
@@ -124,6 +126,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMinimum() {
 		return (String) eDynamicGet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__MINIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM, true, true);
@@ -134,6 +137,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(String newMinimum) {
 		eDynamicSet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__MINIMUM,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM, newMinimum);
@@ -144,6 +148,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPattern() {
 		return (String) eDynamicGet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__PATTERN,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN, true, true);
@@ -154,6 +159,7 @@ public abstract class ConstrainableElementImpl extends CDOObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPattern(String newPattern) {
 		eDynamicSet(EnvironmentPackage.CONSTRAINABLE_ELEMENT__PATTERN,
 				EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN, newPattern);

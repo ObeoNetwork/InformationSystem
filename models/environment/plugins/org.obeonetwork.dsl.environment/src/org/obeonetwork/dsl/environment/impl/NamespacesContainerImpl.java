@@ -68,6 +68,7 @@ public abstract class NamespacesContainerImpl extends IdentifiableImpl implement
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Namespace> getOwnedNamespaces() {
 		return (EList<Namespace>) eDynamicGet(EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
 				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);

@@ -67,6 +67,7 @@ public class PriorityDefinitionImpl extends ObeoDSMObjectImpl implements Priorit
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Priority> getPriorities() {
 		return (EList<Priority>) eDynamicGet(EnvironmentPackage.PRIORITY_DEFINITION__PRIORITIES,
 				EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES, true, true);

@@ -86,6 +86,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsComposite() {
 		return (Boolean) eDynamicGet(EnvironmentPackage.REFERENCE__IS_COMPOSITE,
 				EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE, true, true);
@@ -96,6 +97,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsComposite(boolean newIsComposite) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__IS_COMPOSITE, EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE,
 				newIsComposite);
@@ -106,6 +108,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isNavigable() {
 		return (Boolean) eDynamicGet(EnvironmentPackage.REFERENCE__NAVIGABLE,
 				EnvironmentPackage.Literals.REFERENCE__NAVIGABLE, true, true);
@@ -116,6 +119,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNavigable(boolean newNavigable) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__NAVIGABLE, EnvironmentPackage.Literals.REFERENCE__NAVIGABLE,
 				newNavigable);
@@ -126,6 +130,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Reference getOppositeOf() {
 		return (Reference) eDynamicGet(EnvironmentPackage.REFERENCE__OPPOSITE_OF,
 				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, true, true);
@@ -146,6 +151,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOppositeOf(Reference newOppositeOf) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__OPPOSITE_OF, EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF,
 				newOppositeOf);
@@ -156,6 +162,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructuredType getContainingType() {
 		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
 				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, true, true);
@@ -187,6 +194,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContainingType(StructuredType newContainingType) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
 				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, newContainingType);
@@ -197,6 +205,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructuredType getReferencedType() {
 		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
 				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true, true);
@@ -217,6 +226,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReferencedType(StructuredType newReferencedType) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
 				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, newReferencedType);
@@ -227,6 +237,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean canBeOppositeOf(Reference opposite) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

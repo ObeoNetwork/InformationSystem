@@ -79,6 +79,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__TITLE, EnvironmentPackage.Literals.ANNOTATION__TITLE,
 				true, true);
@@ -89,6 +90,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		eDynamicSet(EnvironmentPackage.ANNOTATION__TITLE, EnvironmentPackage.Literals.ANNOTATION__TITLE, newTitle);
 	}
@@ -98,6 +100,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBody() {
 		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__BODY, EnvironmentPackage.Literals.ANNOTATION__BODY,
 				true, true);
@@ -108,6 +111,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBody(String newBody) {
 		eDynamicSet(EnvironmentPackage.ANNOTATION__BODY, EnvironmentPackage.Literals.ANNOTATION__BODY, newBody);
 	}

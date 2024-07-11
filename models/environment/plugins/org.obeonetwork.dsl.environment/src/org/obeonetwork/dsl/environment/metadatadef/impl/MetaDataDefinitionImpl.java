@@ -38,7 +38,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2024 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -94,6 +94,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return (String) eDynamicGet(MetadatadefPackage.META_DATA_DEFINITION__TITLE,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__TITLE, true, true);
@@ -104,6 +105,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		eDynamicSet(MetadatadefPackage.META_DATA_DEFINITION__TITLE,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__TITLE, newTitle);
@@ -114,6 +116,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBody() {
 		return (String) eDynamicGet(MetadatadefPackage.META_DATA_DEFINITION__BODY,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__BODY, true, true);
@@ -124,6 +127,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBody(String newBody) {
 		eDynamicSet(MetadatadefPackage.META_DATA_DEFINITION__BODY,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__BODY, newBody);
@@ -134,6 +138,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCondition() {
 		return (String) eDynamicGet(MetadatadefPackage.META_DATA_DEFINITION__CONDITION,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__CONDITION, true, true);
@@ -144,6 +149,7 @@ public class MetaDataDefinitionImpl extends IdentifiableImpl implements MetaData
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCondition(String newCondition) {
 		eDynamicSet(MetadatadefPackage.META_DATA_DEFINITION__CONDITION,
 				MetadatadefPackage.Literals.META_DATA_DEFINITION__CONDITION, newCondition);

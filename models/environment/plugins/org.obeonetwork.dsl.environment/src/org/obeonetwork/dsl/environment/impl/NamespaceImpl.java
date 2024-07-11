@@ -79,6 +79,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Namespace> getOwnedNamespaces() {
 		return (EList<Namespace>) eDynamicGet(EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES,
 				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);
@@ -89,6 +90,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NamespacesContainer getOwner() {
 		return (NamespacesContainer) eDynamicGet(EnvironmentPackage.NAMESPACE__OWNER,
 				EnvironmentPackage.Literals.NAMESPACE__OWNER, true, true);
@@ -119,6 +121,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOwner(NamespacesContainer newOwner) {
 		eDynamicSet(EnvironmentPackage.NAMESPACE__OWNER, EnvironmentPackage.Literals.NAMESPACE__OWNER, newOwner);
 	}
@@ -128,6 +131,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String) eDynamicGet(EnvironmentPackage.NAMESPACE__NAME, EnvironmentPackage.Literals.NAMESPACE__NAME,
 				true, true);
@@ -138,6 +142,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(EnvironmentPackage.NAMESPACE__NAME, EnvironmentPackage.Literals.NAMESPACE__NAME, newName);
 	}
