@@ -203,17 +203,28 @@ Le diagram _Layout Diagram_ permet de visualiser cette structure de Layout (déc
 
 h4. Edition de bindings
 
-Afin d'éditer le binding d'un _ViewContainer_ ou d'un _ViewElement_, un menu "Binding..." s'affiche lors du clic droit sur ces éléments.
-Cet action menu ouvre une fenêtre permettant d'éditer la sélection
-i) dans le cas d'un ViewContainer: des types structurés liés:
+Afin de faire le lien avec les couches SOA et Entity, les _ViewContainer_ peuvent être bindés à des DTO ou des Entités, et les _ViewElements_ peuvent être bindés à des attributs ou des références de DTO ou Entités.
 
+La fonctionnalité de binding est accessible en menu contextuel de la vue Mockup, sous l'entrée de menu "Binding...".
+
+Cette action de menu ouvre un dialogue de sélection permettant de binder des DTO/Entités à un _ViewContainer_, ou des attributs/références à un _ViewElement_.
+
+Pour un _ViewContainer, le dialogue présente les DTO/Entités accessibles :
 !{width:40%}pics/MockupDiagram/ViewContainerBinding.png!
 
-ii) dans le cas d'un ViewElement: des attributs ou références de types structurés liés. Ces types structurés doivent être préalablement liés à un ViewContainer parent du ViewElement.
+Plusieurs DTO/Entités peuvent être selectionnés. Chaque selection/désélection de DTO/Entité donne lieu à la création/suppression d'un objet de binding _BindingInfo_.
+
+Si un binding supprimé entraine la suppression de binding de références contenus, un dialogue de confirmation est affiché.
+
+Si des _ViewContainer_ parent sont déjà bindés à des DTO/Entités, ces DTO/Entités sont sélectionnés et leur désélection est inactivée. La modification de ce binding est faisable dans le dialogue de binding du _ViewContainer_ parent en question.
+
+Pour un _ViewElement_, le dialogue présente les DTOs/Entités bindées sur les _ViewContainer_ parent du _ViewElement_ sélectionné :
 
 !{width:40%}pics/MockupDiagram/ViewElementBinding.png!
 
-Note: Lorsque des bindings sont définis sur un ViewElement ou un ViewContainer, le glisser-déposer de celui-ci sur un ViewContainer cible ne sera possible que si ses bindings restent valides avec la nouvelle cible. Ses bindings restent valides si leurs contextes liés aux BindingInfos associés aux ViewContainers parent (à l'élément à déplacer) sont conservés.
+Les DTO/Entités peuvent être dépliés pour accéder à des propriétés de DTO/Entités référencés. Plusieurs attributs/références peuvent être sélectionnés. Chaque sélection/déselection donne lieu à la création/suppression d'un objet de binding _BindingReference_ contenu dans le _BindingInfo_ du _ViewContainer_ correspondant.
+
+Lorsque des bindings sont définis sur un _ViewElement_ ou un _ViewContainer_, le glisser-déposer dans le diagramme de Mockup n'est possible que si les bindings restent valides avec le _ViewContainer_ destination.
 
 h4. Navigation vers d'autres diagrammes
 
@@ -297,10 +308,10 @@ L'apparence d'un ViewState peut prendre celle du diagramme de Mockup du View Con
 !{width:100%}pics/FlowDiagram/FlowDiagram-02.png!
 L'action _Remove Mockup Image_ a pour effet de réinitialiser l'apparence du _View State_ à son apparence initiale.
 
-**Dialogue de séléction d'événements déclencheurs:**
+**Dialogue de sélection d'événements déclencheurs:**
 !{width:50%}pics/FlowDiagram/EventSelectionDialog.png!
 
-Ce dialogue permet de séléctionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
+Ce dialogue permet de sélectionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 Les événements des widgets sont classés sous la hiérarchie des View Elements, les événements logiques sont regroupés sous un nœud virtuel « Flow events ».
 
 Les événements déclencheurs de la transition sont cochés.
@@ -320,10 +331,10 @@ A la validation du dialogue,
 ** L’événement correspondant au type d’événement est ajouté à la liste des événements déclencheurs de la transition.
 ** Si le View State source n’est pas lié au View Container du type d’événement sélectionné, ce lien est créé.
 
-**Dialogue de séléction de ViewContainer:**
+**Dialogue de sélection de ViewContainer:**
 !{width:50%}pics/FlowDiagram/ViewContainerSelectionDialog.png!
 
-Ce dialogue permet de séléctionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.
+Ce dialogue permet de selectionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.
 
 Les View Containers associés au View State concerné sont cochés.
 
@@ -331,7 +342,7 @@ La zone de filtre textuel permet de réduire le contenu de l’arbre de manière
 
 La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent cependant être affichés malgré le filtre.
 
-L'état partiellement coché d'une case indique que des sous éléments sont séléctionnés. Les éléments partiellement cochés ne font pas partie de la séléction prise en compte à la validation du dialogue.
+L'état partiellement coché d'une case indique que des sous éléments sont selectionnés. Les éléments partiellement cochés ne font pas partie de la selection prise en compte à la validation du dialogue.
 
 A la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.
 

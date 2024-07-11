@@ -97,12 +97,12 @@ public class CinematicBindingServices {
 		.filter(StructuredType.class::isInstance).map(StructuredType.class::cast)//
 		.toList();
 		
-		String windowTitle = "Entity/DTO selection";
+		String windowTitle = "DTO/Entity selection";
 		
-		String message = "Select Entity or DTO elements to bind.";
+		String message = String.format("Select DTOs or Entities to bind to the %s View Container.", contextViewContainer.getName());
 		if(!alwaysSelectedElements.isEmpty()) {
 			message += "\n"
-					+ "Elements already bound to parent view containers cannot be unselected here.";
+					+ "DTOs/Entities already bound to parent View Containers cannot be unselected here.";
 		}
 
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -271,9 +271,9 @@ public class CinematicBindingServices {
 			.filter(StructuredType.class::isInstance).map(StructuredType.class::cast)//
 			.forEach(root -> new ISObjectTreeItemWrapper(treeRoot, root));
 		
-		String windowTitle = "Entity/DTO attributes and references selection";
+		String windowTitle = "Attributes/References selection";
 		
-		String message = "Select Attribute or Reference elements to bind.";
+		String message = String.format("Select the Attributes and References to bind to %s.", CinematicLabelServices.getCinematicLongLabel(contextViewElement));
 		
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
         		windowTitle, 
