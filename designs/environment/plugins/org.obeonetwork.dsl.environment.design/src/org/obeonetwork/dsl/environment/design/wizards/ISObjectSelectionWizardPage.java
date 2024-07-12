@@ -149,7 +149,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	
     /**
      * Sets the ISObjectCustomLabelProvider. If ISObjectCustomLabelProvider.getText returns
-     * null or a blank string, or if the customLabelProvider is set to null, the text label
+     * null or an empty string, or if the customLabelProvider is set to null, the text label
      * generation falls back to the default label provider.
      * 
      * @param customLabelProvider
@@ -533,7 +533,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     }
     
     public static interface ISObjectCustomLabelProvider {
-    	 public String getText(Object element);
+    	 public String getText(Object wrappedObject);
     }
 
     private class ISObjectSelectionLabelProvider extends LabelProvider implements IColorProvider, IFontProvider {
@@ -556,7 +556,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
                 if(customLabelProvider != null) {
                 	text = customLabelProvider.getText(wrappedObject);
                 }
-                if(text == null || text.isBlank()) {
+                if(text == null || text.isEmpty()) {
     				text = defaultAdapterFactoryLabelProvider.getText(wrappedObject);
                 }
             }
