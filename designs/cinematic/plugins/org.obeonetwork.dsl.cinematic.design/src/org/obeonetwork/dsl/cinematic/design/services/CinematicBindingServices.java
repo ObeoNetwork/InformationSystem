@@ -122,7 +122,17 @@ public class CinematicBindingServices {
 		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
 		
 		StructuredTypeLabelsSwitch structuredTypeLabelsSwitch = new StructuredTypeLabelsSwitch();
-		wizard.setCustomLabelProvider(element -> structuredTypeLabelsSwitch.getLabel((EObject) element));
+		wizard.setCustomLabelProvider(wrappedObject -> {
+			String label = structuredTypeLabelsSwitch.getLabel((EObject) wrappedObject);
+			if(alwaysSelectedElements.contains(wrappedObject)) {
+				label += bindingRegistry.getBindingInfos().stream()//
+					.filter(bindingInfo -> bindingInfo.getRight() == wrappedObject)//
+					.map(BindingInfo::getLeft)//
+					.map(CinematicLabelServices::getCinematicLabel)//
+					.collect(joining(", ", " (bound to ", ")"));
+			}
+			return label;
+		});
 		
         if(wizard.open() == Window.OK) {
         	Set<StructuredType> selectedElements = wizard.getSelectedObjects().stream().map(StructuredType.class::cast).collect(toSet());
@@ -298,7 +308,7 @@ public class CinematicBindingServices {
 		wizard.setTreeSelectMode(SelectMode.PICK_ANY);
 		
 		StructuredTypeLabelsSwitch structuredTypeLabelsSwitch = new StructuredTypeLabelsSwitch();
-		wizard.setCustomLabelProvider(element -> structuredTypeLabelsSwitch.getLabel((EObject) element));
+		wizard.setCustomLabelProvider(wrappedObject -> structuredTypeLabelsSwitch.getLabel((EObject) wrappedObject));
 		
         if(wizard.open() == Window.OK) {
         	
