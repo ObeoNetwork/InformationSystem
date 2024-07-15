@@ -7,10 +7,10 @@ addRepository(type:0,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc
 addRepository(type:1,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/,name:M2Doc-Nightly);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/mylyn/releases/3.26/,name:Mylyn-3.26);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/mylyn/releases/3.26/,name:Mylyn-3.26);\
-addRepository(type:0,location:https${#58}//update.obeo.fr/stable/designer/11.9-S20240529/community/latest/repository/,name:Obeo-Designer-Community-11.9);\
-addRepository(type:1,location:https${#58}//update.obeo.fr/stable/designer/11.9-S20240529/community/latest/repository/,name:Obeo-Designer-Community-11.9);\
-addRepository(type:0,location:https${#58}//update.obeo.fr/stable/designer/11.9-S20240529/team/latest/repository/,name:Obeo-Designer-Team-11.9);\
-addRepository(type:1,location:https${#58}//update.obeo.fr/stable/designer/11.9-S20240529/team/latest/repository/,name:Obeo-Designer-Team-11.9);\
+addRepository(type:0,location:https${#58}//update.obeo.fr/release/designer/11.9/community/11.9.0/repository/,name:Obeo-Designer-Community-11.9);\
+addRepository(type:1,location:https${#58}//update.obeo.fr/release/designer/11.9/community/11.9.0/repository/,name:Obeo-Designer-Community-11.9);\
+addRepository(type:0,location:https${#58}//update.obeo.fr/release/designer/11.9/team/11.9.0/repository/,name:Obeo-Designer-Team-11.9);\
+addRepository(type:1,location:https${#58}//update.obeo.fr/release/designer/11.9/team/11.9.0/repository/,name:Obeo-Designer-Team-11.9);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/,name:Orbit-2021-06);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/,name:Orbit-2021-06);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/,name:Orbit-2023-03);\

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1716989127">
+<target name="IS Designer Product Target Definition" sequenceNumber="1721031844">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
@@ -156,13 +156,13 @@
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community-11.9" location="https://update.obeo.fr/stable/designer/11.9-S20240529/community/latest/repository/"/>
+      <repository id="Obeo-Designer-Community-11.9" location="https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Team-11.9" location="https://update.obeo.fr/stable/designer/11.9-S20240529/team/latest/repository/"/>
+      <repository id="Obeo-Designer-Team-11.9" location="https://update.obeo.fr/release/designer/11.9/team/11.9.0/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="liquibase.feature.feature.group" version="0.0.0"/>
