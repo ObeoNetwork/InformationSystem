@@ -50,7 +50,7 @@ location Obeo-Designer-Team-11.9 "https://update.obeo.fr/release/designer/11.9/t
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
 
-location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/" {
 	org.eclipse.amalgam.discovery.feature.group lazy
 	org.eclipse.amalgam.explorer.activity.feature.group lazy
 	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
