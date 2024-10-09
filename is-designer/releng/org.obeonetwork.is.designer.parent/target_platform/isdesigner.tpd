@@ -13,7 +13,7 @@ location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
 	org.eclipse.emf.ecoretools.sdk.feature.group lazy
 }
 
-location Acceleo4 "https://download.eclipse.org/acceleo/updates/releases/4.0/R202407021157/" {
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
 	  org.eclipse.acceleo.query.jdt.feature.group lazy
 	  org.eclipse.acceleo.query.jdt.source.feature.group lazy
 }
@@ -49,7 +49,7 @@ location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius
 	org.eclipse.sirius.tests.swtbot.source lazy
 }
 
-location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/community/latest/repository/" {
+location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/" {
 	com.google.inject lazy
 	com.ibm.icu lazy
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
@@ -112,7 +112,7 @@ location Obeo-Designer-Community-11.9 "http://update.obeo.fr/stable/designer/11.
 	org.objectweb.asm.tree lazy
 }
 
-location Obeo-Designer-Team-11.9 "http://update.obeo.fr/stable/designer/11.9-S20240221/team/latest/repository/" {
+location Obeo-Designer-Team-11.9 "https://update.obeo.fr/release/designer/11.9/team/11.9.0/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
