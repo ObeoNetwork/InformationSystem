@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1728468492">
+<target name="IS Designer Product Target Definition" sequenceNumber="1728551650">
   <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.lsp4j" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4j.debug" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4j.jsonrpc" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4j.jsonrpc.debug" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4e" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4e.debug" version="0.0.0"/>
+      <unit id="a.jre.javase" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/lsp4e/releases/0.26.4/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.mylyn.wikitext.markdown" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/mylyn/updates/release/4.4.0/"/>
+    </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn_feature.feature.group" version="3.26.0.v20230416-1636"/>
       <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>

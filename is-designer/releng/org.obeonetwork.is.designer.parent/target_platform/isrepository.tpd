@@ -41,6 +41,21 @@ location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/"
 	org.eclipse.acceleo.aql.feature.feature.group lazy
 }
 
+location "https://download.eclipse.org/lsp4e/releases/0.26.4/" {
+	org.eclipse.lsp4j lazy
+	org.eclipse.lsp4j.debug lazy
+	org.eclipse.lsp4j.jsonrpc lazy
+	org.eclipse.lsp4j.jsonrpc.debug lazy
+
+	org.eclipse.lsp4e lazy
+	org.eclipse.lsp4e.debug lazy
+	a.jre.javase lazy
+}
+
+location "https://download.eclipse.org/mylyn/updates/release/4.4.0/" {
+	org.eclipse.mylyn.wikitext.markdown lazy
+}
+
 location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
 	org.eclipse.mylyn_feature.feature.group [3.26.0,3.27.0)
 	org.eclipse.mylyn.commons.feature.group [3.26.0,3.27.0)
