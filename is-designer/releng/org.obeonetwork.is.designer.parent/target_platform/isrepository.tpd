@@ -9,15 +9,14 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.eef.sdk.feature.feature.group lazy
 	org.eclipse.emf.compare.ide.ui.feature.group lazy
 	org.eclipse.emf.eef.runtime-feature.feature.group lazy
-}
-
-location Sirius-AQL8 "http://update.obeo.fr/integration/informationsystem/sirius-desktop-aql8/" {
+	
+	// Sirius
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.properties.feature.source.feature.group lazy
 	org.eclipse.sirius.runtime.acceleo.feature.group lazy
 	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
-	org.eclipse.sirius.runtime.aql.feature.group lazy
-	org.eclipse.sirius.runtime.aql.source.feature.group lazy
+//	org.eclipse.sirius.runtime.aql.feature.group lazy replaced by org.obeonetwork.is.designer.runtime.aql.feature.group (see isdesigner.tpd)
+//	org.eclipse.sirius.runtime.aql.source.feature.group lazy
 	org.eclipse.sirius.runtime.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.source.feature.group lazy

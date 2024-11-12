@@ -184,8 +184,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.runtime"/>
       <feature id="org.eclipse.sirius.runtime.acceleo"/>
       <feature id="org.eclipse.sirius.runtime.acceleo.source"/>
-      <feature id="org.eclipse.sirius.runtime.aql"/>
-      <feature id="org.eclipse.sirius.runtime.aql.source"/>
+      <!-- <feature id="org.eclipse.sirius.runtime.aql"/> -->
+      <!-- <feature id="org.eclipse.sirius.runtime.aql.source"/> -->
+      <feature id="org.obeonetwork.is.designer.runtime.aql"/>
       <feature id="org.eclipse.sirius.runtime.ide.eef"/>
       <feature id="org.eclipse.sirius.runtime.ide.eef.source"/>
       <feature id="org.eclipse.sirius.runtime.ide.ui"/>

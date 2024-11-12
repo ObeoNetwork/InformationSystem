@@ -361,6 +361,10 @@
 		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.ui</module>
 		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.tests</module>
 
+		<!-- ** ISD runtime support for AQL 8 ** -->
+		<module>../../commons/aql/features/org.obeonetwork.is.designer.runtime.aql</module>
+		<module>../../commons/aql/plugins/org.obeonetwork.is.designer.acceleo.aql</module>
+
 	</modules>
 
 

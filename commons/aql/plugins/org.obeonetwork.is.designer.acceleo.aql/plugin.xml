@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!--
+  Copyright (c) 2015 OBEO
+  This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License 2.0
+  which accompanies this distribution, and is available at
+  https://www.eclipse.org/legal/epl-2.0/
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+       Obeo - Initial API and implementation
+-->
+
+<plugin>
+   <extension
+         id="org.eclipse.sirius.common.acceleo.aql.AcceleoAQLInterpreter"
+         point="org.eclipse.sirius.common.expressionInterpreter">
+      <expressionInterpreterProvider
+            interpreterProviderClass="org.obeonetwork.is.designer.acceleo.aql.business.internal.AcceleoAQLInterpreterProvider">
+      </expressionInterpreterProvider>
+   </extension>   
+</plugin>
