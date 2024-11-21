@@ -69,7 +69,7 @@
             <product>
               <id>${product-id}</id>
               <rootFolder>${archive-prefix}</rootFolder>
-              <archiveFileName>${archive-prefix}-5.0.1-${maven.build.timestamp}</archiveFileName>
+              <archiveFileName>${archive-prefix}-5.0.1-WithAcceleo4-${maven.build.timestamp}</archiveFileName>
             </product>
           </products>
         </configuration>
