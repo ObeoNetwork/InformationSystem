@@ -13,10 +13,10 @@
 <feature
       id="org.obeonetwork.project.lifecycle.feature"
       label="Obeo Network - Project Lifecycle"
-      version="5.0.1.qualifier"
+      version="5.1.1.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="5.0.1.qualifier">
+      license-feature-version="5.1.1.qualifier">
 
    <description url="https://www.obeo.fr">
       Safr@n - Project lifecycle

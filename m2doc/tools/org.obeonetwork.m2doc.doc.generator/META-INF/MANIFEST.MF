@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Doc Generator
 Bundle-SymbolicName: org.obeonetwork.m2doc.doc.generator
-Bundle-Version: 5.0.1.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-Activator: org.obeonetwork.m2doc.doc.generator.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime,
