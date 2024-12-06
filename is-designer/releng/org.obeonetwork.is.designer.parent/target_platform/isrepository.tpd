@@ -25,9 +25,10 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.runtime.ocl.source.feature.group lazy
 	org.eclipse.sirius.tests.support.feature.group lazy
 	org.eclipse.sirius.tests.support.source.feature.group lazy
-	// Acceleo
-	org.eclipse.acceleo.feature.group lazy
-	org.eclipse.acceleo.query.feature.group lazy
+}
+
+location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
+	org.eclipse.acceleo.aql.feature.feature.group lazy
 }
 
 location Sirius-7.4.2 "https://download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/" {
@@ -75,7 +76,7 @@ location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location M2Doc-3.3.3 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.3/repository/" {
+location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/" {
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.cdo.feature.feature.group lazy
