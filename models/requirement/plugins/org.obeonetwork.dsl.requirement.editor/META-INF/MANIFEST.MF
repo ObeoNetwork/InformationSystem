@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Requirement Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.editor;singleton:=true
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.requirement.presentation.RequirementEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network

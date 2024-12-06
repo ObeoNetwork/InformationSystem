@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Scaffold Editor
 Bundle-SymbolicName: org.obeonetwork.database.scaffold.editor;singleton:=true
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.database.scaffold.presentation.ScaffoldEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network

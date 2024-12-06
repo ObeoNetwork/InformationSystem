@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tests
 Bundle-SymbolicName: org.obeonetwork.dsl.database.sqlgen.tests
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.compare,
  org.obeonetwork.dsl.database.sqlgen,

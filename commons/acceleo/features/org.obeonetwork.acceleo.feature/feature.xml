@@ -13,10 +13,10 @@
 <feature
       id="org.obeonetwork.acceleo.feature"
       label="Obeo Network - Common tools for Acceleo"
-      version="5.1.2.qualifier"
+      version="5.1.1.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="5.1.2.qualifier">
+      license-feature-version="5.1.1.qualifier">
 
    <description url="https://www.obeo.fr">
       Acceleo Pro JEE - Common module
