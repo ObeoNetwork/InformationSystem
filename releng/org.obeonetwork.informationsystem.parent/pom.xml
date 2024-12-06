@@ -364,6 +364,9 @@
 		<!-- ** ISD runtime support for AQL 8 ** -->
 		<module>../../commons/aql/features/org.obeonetwork.is.designer.runtime.aql</module>
 		<module>../../commons/aql/plugins/org.obeonetwork.is.designer.acceleo.aql</module>
+		<module>../../commons/aql/features/org.obeonetwork.is.designer.interpreter.feature</module>
+		<module>../../commons/aql/plugins/org.obeonetwork.is.designer.interpreter</module>
+		<module>../../commons/aql/plugins/org.obeonetwork.is.designer.interpreter.aql</module>
 
 	</modules>
 

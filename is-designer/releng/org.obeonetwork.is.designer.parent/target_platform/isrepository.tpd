@@ -15,8 +15,8 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.properties.feature.source.feature.group lazy
 	org.eclipse.sirius.runtime.acceleo.feature.group lazy
 	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
-//	org.eclipse.sirius.runtime.aql.feature.group lazy replaced by org.obeonetwork.is.designer.runtime.aql.feature.group (see isdesigner.tpd)
-//	org.eclipse.sirius.runtime.aql.source.feature.group lazy
+	org.eclipse.sirius.runtime.aql.feature.group lazy // replaced by org.obeonetwork.is.designer.runtime.aql.feature.group (see isdesigner.tpd)
+	org.eclipse.sirius.runtime.aql.source.feature.group lazy
 	org.eclipse.sirius.runtime.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.source.feature.group lazy
@@ -34,8 +34,11 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 }
 
 location Acceleo4 "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
-	org.eclipse.acceleo.query.feature.group lazy
-	org.eclipse.acceleo.query.source.feature.group lazy
+//	org.eclipse.acceleo.query.feature.group lazy // will be installed by org.eclipse.acceleo.aql.feature.feature.group
+//	org.eclipse.acceleo.query.source.feature.group lazy
+
+//	org.eclipse.acceleo.query lazy // ?
+//	org.eclipse.acceleo.query.source lazy
 	
 	org.eclipse.acceleo.aql.feature.feature.group lazy
 }
@@ -98,7 +101,8 @@ location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+//location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.3/repository/" {
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.cdo.feature.feature.group lazy

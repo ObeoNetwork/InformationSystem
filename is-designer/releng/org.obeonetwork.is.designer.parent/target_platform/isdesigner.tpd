@@ -90,6 +90,8 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
 	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
+//	org.eclipse.sirius.interpreter.feature.feature.group lazy replaced by org.obeonetwork.is.designer.interpreter.feature.group (see location ISD)
+//	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
 	org.eclipse.sirius.interpreter.feature.feature.group lazy
 	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
 	org.eclipse.sirius.model.feature.feature.group lazy
@@ -115,7 +117,8 @@ location Obeo-Designer-Team-11.9 "https://update.obeo.fr/release/designer/11.9/t
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
-location ISD "http://update.obeo.fr/integration/informationsystem/5.1.1/design/repository/" {
+//location ISD "http://update.obeo.fr/integration/informationsystem/5.1.1/design/repository/" {
+location ISD "file:///home/vrichard/git/InformationSystem-od11.9-aql8/releng/org.obeonetwork.informationsystem.design.repository/target/repository/" {
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
@@ -169,10 +172,12 @@ location ISD "http://update.obeo.fr/integration/informationsystem/5.1.1/design/r
 	org.obeonetwork.tools.migration.feature.feature.group lazy
 	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
 	org.obeonetwork.utils.feature.feature.group lazy
-	org.obeonetwork.is.designer.runtime.aql.feature.group lazy
+//	org.obeonetwork.is.designer.runtime.aql.feature.group lazy
+//	org.obeonetwork.is.designer.interpreter.feature.feature.group lazy
 }
 
-location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+//location M2Doc-AQL8 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/aql8/nightly/repository/" {
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.3/repository/" {
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 

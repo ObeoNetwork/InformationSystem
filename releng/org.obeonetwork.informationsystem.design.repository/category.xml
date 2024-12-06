@@ -187,9 +187,12 @@
    <feature url="features/org.obeonetwork.informationsystem.metamodels_0.0.0.jar" id="org.obeonetwork.dsl.informationsystem.metamodels.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.metamodels"/>
    </feature>
-   <feature url="features/org.obeonetwork.is.designer.runtime.aql_0.0.0.jar" id="org.obeonetwork.is.designer.runtime.aql" version="0.0.0">
+   <!-- <feature url="features/org.obeonetwork.is.designer.runtime.aql_0.0.0.jar" id="org.obeonetwork.is.designer.runtime.aql" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.aql8"/>
    </feature>
+   <feature url="features/org.obeonetwork.is.designer.interpreter.feature_0.0.0.jar" id="org.obeonetwork.is.designer.interpreter.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.aql8"/>
+   </feature> -->
    <category-def name="org.obeonetwork.informationsystem.metamodels" label="Information System - Meta Models"/>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
