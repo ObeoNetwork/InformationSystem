@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.annotations,
  org.obeonetwork.dsl.environment.m2doc.services,
  org.obeonetwork.dsl.entity,
- org.eclipse.acceleo.query
+ org.eclipse.acceleo.query;bundle-version="[7.0.0,8.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network

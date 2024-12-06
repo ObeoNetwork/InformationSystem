@@ -12,5 +12,5 @@ Require-Bundle: org.obeonetwork.dsl.graal.m2doc.services,
  org.obeonetwork.tools.migration,
  org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.entity,
- org.eclipse.acceleo.query,
+ org.eclipse.acceleo.query;bundle-version="[7.0.0,8.0.0)",
  org.obeonetwork.dsl.environment.m2doc.services

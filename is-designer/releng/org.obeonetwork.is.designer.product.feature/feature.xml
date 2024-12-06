@@ -221,9 +221,9 @@
          id="org.obeonetwork.m2doc.ui.feature"
          version="0.0.0"/>
 
-   <includes
+   <!-- <includes
          id="org.eclipse.acceleo"
-         version="0.0.0"/>
+         version="0.0.0"/> -->
 
    <includes
          id="org.obeonetwork.project.lifecycle.feature"

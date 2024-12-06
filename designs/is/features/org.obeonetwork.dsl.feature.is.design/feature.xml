@@ -36,8 +36,8 @@
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/>
+      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/> -->
+      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/> -->
       <import plugin="org.obeonetwork.dsl.environment.design.migration"/>
    </requires>
 
