@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Environment Common Services
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.design.services
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-Vendor: Obeo Network
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.obeonetwork.dsl.environment,

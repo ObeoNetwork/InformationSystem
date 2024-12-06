@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Reverse
 Bundle-SymbolicName: org.obeonetwork.dsl.database.reverse
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database.drivers,
  org.obeonetwork.dsl.database

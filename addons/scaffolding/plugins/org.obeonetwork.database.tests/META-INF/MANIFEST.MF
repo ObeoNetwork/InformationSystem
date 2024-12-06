@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Scaffolding Tests
 Bundle-SymbolicName: org.obeonetwork.database.tests
-Bundle-Version: 5.1.2.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.junit,
  org.eclipse.emf.compare,
