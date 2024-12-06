@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.feature.environment"
       label="Obeo Network - Environment"
-      version="5.1.0.qualifier"
+      version="5.1.1.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="5.1.0.qualifier">
+      license-feature-version="5.1.1.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Environment Designer

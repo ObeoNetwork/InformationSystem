@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.editor;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.soa.editor
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.soa.presentation.SoaEditorPlugin$Implementation
 Bundle-Vendor: %providerName

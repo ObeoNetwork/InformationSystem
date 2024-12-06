@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.graal.edit;singleton:=true
 Automatic-Module-Name: org.obeonetwork.graal.edit
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.graal.provider.GraalEditPlugin$Implementation
 Bundle-Vendor: %providerName
