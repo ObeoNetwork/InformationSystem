@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: org.obeonetwork.dsl.soa.design
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.design;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.1.1.qualifier
 Bundle-Activator: org.obeonetwork.dsl.soa.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
