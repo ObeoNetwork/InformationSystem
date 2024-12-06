@@ -30,7 +30,7 @@
         <description xmi:type="description_2:TreeDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']"/>
         <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1733493750062">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1733504287731">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
       </ownedRepresentationDescriptors>
@@ -69,6 +69,10 @@
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5X4Xg-MQEeuQk8DSQ2l-0A" name="PaymentForm Layout Diagram" repPath="#_5X4XgOMQEeuQk8DSQ2l-0A" changeId="1ceef019-bcaf-4bcd-a174-45d0fc818ab6">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']"/>
         <target xmi:type="cinematic-view:Layout" href="E-BookStore.cinematic#_e86UkOMQEeuQk8DSQ2l-0A"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ok7pALPzEe-Gb4g6_DqnRg" name="HomePage View Container Mockup_copy" repPath="#_ok5z0LPzEe-Gb4g6_DqnRg" changeId="1733504445389">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+        <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7lOZcB_GEeW_TuSj9xLcNQ">
@@ -147,6 +151,10 @@
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_rsf00E04EeyoZJeIZDQFwQ" name="Constitute shopping&#xD;cart Actions Plan" repPath="#_rsDI4E04EeyoZJeIZDQFwQ" changeId="faae2759-6a1f-4116-b383-5ce0c7fa7344">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']"/>
         <target xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_6MRTR7PzEe-Gb4g6_DqnRg" name="Use Cases Main View_copy" repPath="#_6MRTILPzEe-Gb4g6_DqnRg" changeId="1733504563568">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
+        <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7l-nYB_GEeW_TuSj9xLcNQ">
@@ -8617,19 +8625,19 @@
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
     </lines>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKCBREeePq_6Kzvn9AQ" label="Name" cells="_5lHNlSBREeePq_6Kzvn9AQ _5lHNmyBREeePq_6Kzvn9AQ _5lHNoCBREeePq_6Kzvn9AQ _5lHNpyBREeePq_6Kzvn9AQ _5lHNrSBREeePq_6Kzvn9AQ _5lHNsyBREeePq_6Kzvn9AQ _5lHNuSBREeePq_6Kzvn9AQ _5lHNviBREeePq_6Kzvn9AQ _5lHNxSBREeePq_6Kzvn9AQ _5lHNyyBREeePq_6Kzvn9AQ _5lHN0SBREeePq_6Kzvn9AQ _5lHN1yBREeePq_6Kzvn9AQ _5lHN3CBREeePq_6Kzvn9AQ _5lHN4yBREeePq_6Kzvn9AQ _Op9GrOMUEeuQk8DSQ2l-0A _5lHN6SBREeePq_6Kzvn9AQ _5lHN7iBREeePq_6Kzvn9AQ _5lHN9SBREeePq_6Kzvn9AQ _5lHN-yBREeePq_6Kzvn9AQ _5lHOACBREeePq_6Kzvn9AQ _5lHOByBREeePq_6Kzvn9AQ _5lHODSBREeePq_6Kzvn9AQ _5lHOEyBREeePq_6Kzvn9AQ _5lHOGSBREeePq_6Kzvn9AQ _5lHOHiBREeePq_6Kzvn9AQ _5lHOIyBREeePq_6Kzvn9AQ" width="120" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKCBREeePq_6Kzvn9AQ" label="Name" cells="_5lHNlSBREeePq_6Kzvn9AQ _5lHNmyBREeePq_6Kzvn9AQ _5lHNoCBREeePq_6Kzvn9AQ _5lHNpyBREeePq_6Kzvn9AQ _5lHNrSBREeePq_6Kzvn9AQ _5lHNsyBREeePq_6Kzvn9AQ _5lHNuSBREeePq_6Kzvn9AQ _5lHNviBREeePq_6Kzvn9AQ _5lHNxSBREeePq_6Kzvn9AQ _5lHNyyBREeePq_6Kzvn9AQ _5lHN0SBREeePq_6Kzvn9AQ _5lHN1yBREeePq_6Kzvn9AQ _5lHN3CBREeePq_6Kzvn9AQ _Op9GrOMUEeuQk8DSQ2l-0A _5lHN4yBREeePq_6Kzvn9AQ _5lHN6SBREeePq_6Kzvn9AQ _5lHN7iBREeePq_6Kzvn9AQ _5lHN9SBREeePq_6Kzvn9AQ _5lHN-yBREeePq_6Kzvn9AQ _5lHOACBREeePq_6Kzvn9AQ _5lHOByBREeePq_6Kzvn9AQ _5lHODSBREeePq_6Kzvn9AQ _5lHOEyBREeePq_6Kzvn9AQ _5lHOGSBREeePq_6Kzvn9AQ _5lHOHiBREeePq_6Kzvn9AQ _5lHOIyBREeePq_6Kzvn9AQ" width="120" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_PhysicalName']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKSBREeePq_6Kzvn9AQ" label="Size" cells="_5lHNliBREeePq_6Kzvn9AQ _5lHNnCBREeePq_6Kzvn9AQ _5lHNoSBREeePq_6Kzvn9AQ _5lHNqCBREeePq_6Kzvn9AQ _5lHNriBREeePq_6Kzvn9AQ _5lHNtCBREeePq_6Kzvn9AQ _5lHNuiBREeePq_6Kzvn9AQ _5lHNvyBREeePq_6Kzvn9AQ _5lHNxiBREeePq_6Kzvn9AQ _5lHNzCBREeePq_6Kzvn9AQ _5lHN0iBREeePq_6Kzvn9AQ _5lHN2CBREeePq_6Kzvn9AQ _5lHN3SBREeePq_6Kzvn9AQ _5lHN5CBREeePq_6Kzvn9AQ _Op9GruMUEeuQk8DSQ2l-0A _5lHN6iBREeePq_6Kzvn9AQ _5lHN7yBREeePq_6Kzvn9AQ _5lHN9iBREeePq_6Kzvn9AQ _5lHN_CBREeePq_6Kzvn9AQ _5lHOASBREeePq_6Kzvn9AQ _5lHOCCBREeePq_6Kzvn9AQ _5lHODiBREeePq_6Kzvn9AQ _5lHOFCBREeePq_6Kzvn9AQ _5lHOGiBREeePq_6Kzvn9AQ _5lHOHyBREeePq_6Kzvn9AQ _5lHOJCBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKSBREeePq_6Kzvn9AQ" label="Size" cells="_5lHNliBREeePq_6Kzvn9AQ _5lHNnCBREeePq_6Kzvn9AQ _5lHNoSBREeePq_6Kzvn9AQ _5lHNqCBREeePq_6Kzvn9AQ _5lHNriBREeePq_6Kzvn9AQ _5lHNtCBREeePq_6Kzvn9AQ _5lHNuiBREeePq_6Kzvn9AQ _5lHNvyBREeePq_6Kzvn9AQ _5lHNxiBREeePq_6Kzvn9AQ _5lHNzCBREeePq_6Kzvn9AQ _5lHN0iBREeePq_6Kzvn9AQ _5lHN2CBREeePq_6Kzvn9AQ _5lHN3SBREeePq_6Kzvn9AQ _Op9GruMUEeuQk8DSQ2l-0A _5lHN5CBREeePq_6Kzvn9AQ _5lHN6iBREeePq_6Kzvn9AQ _5lHN7yBREeePq_6Kzvn9AQ _5lHN9iBREeePq_6Kzvn9AQ _5lHN_CBREeePq_6Kzvn9AQ _5lHOASBREeePq_6Kzvn9AQ _5lHOCCBREeePq_6Kzvn9AQ _5lHODiBREeePq_6Kzvn9AQ _5lHOFCBREeePq_6Kzvn9AQ _5lHOGiBREeePq_6Kzvn9AQ _5lHOHyBREeePq_6Kzvn9AQ _5lHOJCBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Size']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKiBREeePq_6Kzvn9AQ" label="Check" cells="_5lHNlyBREeePq_6Kzvn9AQ _5lHNnSBREeePq_6Kzvn9AQ _5lHNoiBREeePq_6Kzvn9AQ _5lHNqSBREeePq_6Kzvn9AQ _5lHNryBREeePq_6Kzvn9AQ _5lHNtSBREeePq_6Kzvn9AQ _5lHNuyBREeePq_6Kzvn9AQ _5lHNwCBREeePq_6Kzvn9AQ _5lHNxyBREeePq_6Kzvn9AQ _5lHNzSBREeePq_6Kzvn9AQ _5lHN0yBREeePq_6Kzvn9AQ _5lHN2SBREeePq_6Kzvn9AQ _5lHN3iBREeePq_6Kzvn9AQ _5lHN5SBREeePq_6Kzvn9AQ _Op9GsOMUEeuQk8DSQ2l-0A _5lHN6yBREeePq_6Kzvn9AQ _5lHN8CBREeePq_6Kzvn9AQ _5lHN9yBREeePq_6Kzvn9AQ _5lHN_SBREeePq_6Kzvn9AQ _5lHOAiBREeePq_6Kzvn9AQ _5lHOCSBREeePq_6Kzvn9AQ _5lHODyBREeePq_6Kzvn9AQ _5lHOFSBREeePq_6Kzvn9AQ _5lHOGyBREeePq_6Kzvn9AQ _5lHOICBREeePq_6Kzvn9AQ _5lHOJSBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKiBREeePq_6Kzvn9AQ" label="Check" cells="_5lHNlyBREeePq_6Kzvn9AQ _5lHNnSBREeePq_6Kzvn9AQ _5lHNoiBREeePq_6Kzvn9AQ _5lHNqSBREeePq_6Kzvn9AQ _5lHNryBREeePq_6Kzvn9AQ _5lHNtSBREeePq_6Kzvn9AQ _5lHNuyBREeePq_6Kzvn9AQ _5lHNwCBREeePq_6Kzvn9AQ _5lHNxyBREeePq_6Kzvn9AQ _5lHNzSBREeePq_6Kzvn9AQ _5lHN0yBREeePq_6Kzvn9AQ _5lHN2SBREeePq_6Kzvn9AQ _5lHN3iBREeePq_6Kzvn9AQ _Op9GsOMUEeuQk8DSQ2l-0A _5lHN5SBREeePq_6Kzvn9AQ _5lHN6yBREeePq_6Kzvn9AQ _5lHN8CBREeePq_6Kzvn9AQ _5lHN9yBREeePq_6Kzvn9AQ _5lHN_SBREeePq_6Kzvn9AQ _5lHOAiBREeePq_6Kzvn9AQ _5lHOCSBREeePq_6Kzvn9AQ _5lHODyBREeePq_6Kzvn9AQ _5lHOFSBREeePq_6Kzvn9AQ _5lHOGyBREeePq_6Kzvn9AQ _5lHOICBREeePq_6Kzvn9AQ _5lHOJSBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Check']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKyBREeePq_6Kzvn9AQ" label="Unique" cells="_5lHNmCBREeePq_6Kzvn9AQ _5lHNniBREeePq_6Kzvn9AQ _5lHNoyBREeePq_6Kzvn9AQ _5lHNqiBREeePq_6Kzvn9AQ _5lHNsCBREeePq_6Kzvn9AQ _5lHNtiBREeePq_6Kzvn9AQ _5lHNvCBREeePq_6Kzvn9AQ _5lHNwSBREeePq_6Kzvn9AQ _5lHNyCBREeePq_6Kzvn9AQ _5lHNziBREeePq_6Kzvn9AQ _5lHN1CBREeePq_6Kzvn9AQ _5lHN2iBREeePq_6Kzvn9AQ _5lHN3yBREeePq_6Kzvn9AQ _5lHN5iBREeePq_6Kzvn9AQ _Op9GsuMUEeuQk8DSQ2l-0A _5lHN7CBREeePq_6Kzvn9AQ _5lHN8SBREeePq_6Kzvn9AQ _5lHN-CBREeePq_6Kzvn9AQ _5lHN_iBREeePq_6Kzvn9AQ _5lHOAyBREeePq_6Kzvn9AQ _5lHOCiBREeePq_6Kzvn9AQ _5lHOECBREeePq_6Kzvn9AQ _5lHOFiBREeePq_6Kzvn9AQ _5lHOHCBREeePq_6Kzvn9AQ _5lHOISBREeePq_6Kzvn9AQ _5lHOJiBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOKyBREeePq_6Kzvn9AQ" label="Unique" cells="_5lHNmCBREeePq_6Kzvn9AQ _5lHNniBREeePq_6Kzvn9AQ _5lHNoyBREeePq_6Kzvn9AQ _5lHNqiBREeePq_6Kzvn9AQ _5lHNsCBREeePq_6Kzvn9AQ _5lHNtiBREeePq_6Kzvn9AQ _5lHNvCBREeePq_6Kzvn9AQ _5lHNwSBREeePq_6Kzvn9AQ _5lHNyCBREeePq_6Kzvn9AQ _5lHNziBREeePq_6Kzvn9AQ _5lHN1CBREeePq_6Kzvn9AQ _5lHN2iBREeePq_6Kzvn9AQ _5lHN3yBREeePq_6Kzvn9AQ _Op9GsuMUEeuQk8DSQ2l-0A _5lHN5iBREeePq_6Kzvn9AQ _5lHN7CBREeePq_6Kzvn9AQ _5lHN8SBREeePq_6Kzvn9AQ _5lHN-CBREeePq_6Kzvn9AQ _5lHN_iBREeePq_6Kzvn9AQ _5lHOAyBREeePq_6Kzvn9AQ _5lHOCiBREeePq_6Kzvn9AQ _5lHOECBREeePq_6Kzvn9AQ _5lHOFiBREeePq_6Kzvn9AQ _5lHOHCBREeePq_6Kzvn9AQ _5lHOISBREeePq_6Kzvn9AQ _5lHOJiBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Unique']"/>
     </columns>
-    <columns xmi:type="table:DFeatureColumn" uid="_5lHOLCBREeePq_6Kzvn9AQ" label="Default" cells="_5lHNmSBREeePq_6Kzvn9AQ _5lHNnyBREeePq_6Kzvn9AQ _5lHNpCBREeePq_6Kzvn9AQ _5lHNqyBREeePq_6Kzvn9AQ _5lHNsSBREeePq_6Kzvn9AQ _5lHNtyBREeePq_6Kzvn9AQ _5lHNvSBREeePq_6Kzvn9AQ _5lHNwiBREeePq_6Kzvn9AQ _5lHNySBREeePq_6Kzvn9AQ _5lHNzyBREeePq_6Kzvn9AQ _5lHN1SBREeePq_6Kzvn9AQ _5lHN2yBREeePq_6Kzvn9AQ _5lHN4CBREeePq_6Kzvn9AQ _5lHN5yBREeePq_6Kzvn9AQ _Op9GtOMUEeuQk8DSQ2l-0A _5lHN7SBREeePq_6Kzvn9AQ _5lHN8iBREeePq_6Kzvn9AQ _5lHN-SBREeePq_6Kzvn9AQ _5lHN_yBREeePq_6Kzvn9AQ _5lHOBCBREeePq_6Kzvn9AQ _5lHOCyBREeePq_6Kzvn9AQ _5lHOESBREeePq_6Kzvn9AQ _5lHOFyBREeePq_6Kzvn9AQ _5lHOHSBREeePq_6Kzvn9AQ _5lHOIiBREeePq_6Kzvn9AQ _5lHOJyBREeePq_6Kzvn9AQ" width="80" featureName="name">
+    <columns xmi:type="table:DFeatureColumn" uid="_5lHOLCBREeePq_6Kzvn9AQ" label="Default" cells="_5lHNmSBREeePq_6Kzvn9AQ _5lHNnyBREeePq_6Kzvn9AQ _5lHNpCBREeePq_6Kzvn9AQ _5lHNqyBREeePq_6Kzvn9AQ _5lHNsSBREeePq_6Kzvn9AQ _5lHNtyBREeePq_6Kzvn9AQ _5lHNvSBREeePq_6Kzvn9AQ _5lHNwiBREeePq_6Kzvn9AQ _5lHNySBREeePq_6Kzvn9AQ _5lHNzyBREeePq_6Kzvn9AQ _5lHN1SBREeePq_6Kzvn9AQ _5lHN2yBREeePq_6Kzvn9AQ _5lHN4CBREeePq_6Kzvn9AQ _Op9GtOMUEeuQk8DSQ2l-0A _5lHN5yBREeePq_6Kzvn9AQ _5lHN7SBREeePq_6Kzvn9AQ _5lHN8iBREeePq_6Kzvn9AQ _5lHN-SBREeePq_6Kzvn9AQ _5lHN_yBREeePq_6Kzvn9AQ _5lHOBCBREeePq_6Kzvn9AQ _5lHOCyBREeePq_6Kzvn9AQ _5lHOESBREeePq_6Kzvn9AQ _5lHOFyBREeePq_6Kzvn9AQ _5lHOHSBREeePq_6Kzvn9AQ _5lHOIiBREeePq_6Kzvn9AQ _5lHOJyBREeePq_6Kzvn9AQ" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Default']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_Op41NuMUEeuQk8DSQ2l-0A" label="Target Schema" cells="_Op6qZ-MUEeuQk8DSQ2l-0A _Op6qbuMUEeuQk8DSQ2l-0A _Op6qYOMUEeuQk8DSQ2l-0A _Op8fmOMUEeuQk8DSQ2l-0A _Op8fn-MUEeuQk8DSQ2l-0A _Op9GpeMUEeuQk8DSQ2l-0A _Op9GtuMUEeuQk8DSQ2l-0A _Op9tsOMUEeuQk8DSQ2l-0A _Op8fkeMUEeuQk8DSQ2l-0A _Op-UwOMUEeuQk8DSQ2l-0A _Op-Ux-MUEeuQk8DSQ2l-0A _Op-UzuMUEeuQk8DSQ2l-0A _Op-70uMUEeuQk8DSQ2l-0A _Op9tt-MUEeuQk8DSQ2l-0A _Op_i5eMUEeuQk8DSQ2l-0A _OqAJ9eMUEeuQk8DSQ2l-0A _Op-72eMUEeuQk8DSQ2l-0A _OqAxBOMUEeuQk8DSQ2l-0A _OqAxC-MUEeuQk8DSQ2l-0A _OqAJ_OMUEeuQk8DSQ2l-0A _OqBYFeMUEeuQk8DSQ2l-0A _OqBYHOMUEeuQk8DSQ2l-0A _OqBYI-MUEeuQk8DSQ2l-0A _OqB_JOMUEeuQk8DSQ2l-0A _OqAxEuMUEeuQk8DSQ2l-0A _Op5cQOMUEeuQk8DSQ2l-0A" width="60" featureName="name">
@@ -13170,5 +13178,731 @@
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_uVSukBg2Ee-7ctj0Z_Zn0g"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.statemachine.design/description/statemachine.odesign#//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer"/>
     <target xmi:type="statemachine:StateMachine" href="E-BookStore.entity#_uVQSURg2Ee-7ctj0Z_Zn0g"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_ok5z0LPzEe-Gb4g6_DqnRg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_ok5z0bPzEe-Gb4g6_DqnRg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_ok9eMLPzEe-Gb4g6_DqnRg" type="Sirius" element="_ok5z0LPzEe-Gb4g6_DqnRg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_ok9eMbPzEe-Gb4g6_DqnRg" type="2002" element="_ok7B8rPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_ok9eMrPzEe-Gb4g6_DqnRg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_ok9eM7PzEe-Gb4g6_DqnRg" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_ok9eNLPzEe-Gb4g6_DqnRg" type="3008" element="_ok7B9LPzEe-Gb4g6_DqnRg">
+              <children xmi:type="notation:Node" xmi:id="_ok9eNbPzEe-Gb4g6_DqnRg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_ok9eNrPzEe-Gb4g6_DqnRg" type="7002">
+                <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eN7PzEe-Gb4g6_DqnRg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eOLPzEe-Gb4g6_DqnRg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eObPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12" underline="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eOrPzEe-Gb4g6_DqnRg" x="772" y="12" width="155" height="35"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ok9eO7PzEe-Gb4g6_DqnRg" type="3008" element="_ok7B9rPzEe-Gb4g6_DqnRg">
+              <children xmi:type="notation:Node" xmi:id="_ok9ePLPzEe-Gb4g6_DqnRg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_ok9ePbPzEe-Gb4g6_DqnRg" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_ok9ePrPzEe-Gb4g6_DqnRg" type="3008" element="_ok7B-bPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eP7PzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eQLPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eQbPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eQrPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eQ7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eRLPzEe-Gb4g6_DqnRg" x="20" y="14" width="263" height="39"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9eRbPzEe-Gb4g6_DqnRg" type="3008" element="_ok7B_LPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eRrPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eR7PzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eSLPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eSbPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eSrPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eS7PzEe-Gb4g6_DqnRg" x="20" y="72" width="263" height="39"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9eTLPzEe-Gb4g6_DqnRg" type="3008" element="_ok7B_7PzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eTbPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eTrPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eT7PzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eULPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eUbPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eUrPzEe-Gb4g6_DqnRg" x="20" y="128" width="263" height="39"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9eU7PzEe-Gb4g6_DqnRg" type="3008" element="_ok7CAbPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eVLPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eVbPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eVrPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eV7PzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eWLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eWbPzEe-Gb4g6_DqnRg" x="304" y="128" width="107" height="39"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eWrPzEe-Gb4g6_DqnRg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eW7PzEe-Gb4g6_DqnRg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eXLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eXbPzEe-Gb4g6_DqnRg" x="20" y="60" width="435" height="235"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ok9eXrPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CA7PzEe-Gb4g6_DqnRg">
+              <children xmi:type="notation:Node" xmi:id="_ok9eX7PzEe-Gb4g6_DqnRg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_ok9eYLPzEe-Gb4g6_DqnRg" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_ok9eYbPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CBbPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eYrPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eY7PzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eZLPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eZbPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eZrPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eZ7PzEe-Gb4g6_DqnRg" x="16" y="24" width="179" height="143"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9eaLPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CCLPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9eabPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9earPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9ea7PzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9ebLPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9ebbPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9ebrPzEe-Gb4g6_DqnRg" x="208" y="24" width="203" height="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9eb7PzEe-Gb4g6_DqnRg" type="3008" element="_ok7CCrPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9ecLPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9ecbPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9ecrPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9ec7PzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9edLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9edbPzEe-Gb4g6_DqnRg" x="208" y="76" width="203" height="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9edrPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CDLPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9ed7PzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9eeLPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eebPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eerPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9ee7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12" underline="true"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9efLPzEe-Gb4g6_DqnRg" x="208" y="136" width="99" height="31"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_ok9efbPzEe-Gb4g6_DqnRg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9efrPzEe-Gb4g6_DqnRg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9ef7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9egLPzEe-Gb4g6_DqnRg" x="476" y="60" width="451" height="235"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ok9egbPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CDrPzEe-Gb4g6_DqnRg">
+              <children xmi:type="notation:Node" xmi:id="_ok9egrPzEe-Gb4g6_DqnRg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_ok9eg7PzEe-Gb4g6_DqnRg" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_ok9ehLPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CEbPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9ehbPzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9ehrPzEe-Gb4g6_DqnRg" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_ok9eh7PzEe-Gb4g6_DqnRg" type="3008" element="_ok7CE7PzEe-Gb4g6_DqnRg">
+                      <children xmi:type="notation:Node" xmi:id="_ok9eiLPzEe-Gb4g6_DqnRg" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_ok9eibPzEe-Gb4g6_DqnRg" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eirPzEe-Gb4g6_DqnRg"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9ei7PzEe-Gb4g6_DqnRg"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9ejLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9ejbPzEe-Gb4g6_DqnRg" x="16" y="14" height="39"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_ok9ejrPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CFbPzEe-Gb4g6_DqnRg">
+                      <children xmi:type="notation:Node" xmi:id="_ok9ej7PzEe-Gb4g6_DqnRg" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_ok9ekLPzEe-Gb4g6_DqnRg" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_ok9ekbPzEe-Gb4g6_DqnRg"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9ekrPzEe-Gb4g6_DqnRg"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9ek7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9elLPzEe-Gb4g6_DqnRg" x="180" y="14" height="39"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_ok9elbPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CF7PzEe-Gb4g6_DqnRg">
+                      <children xmi:type="notation:Node" xmi:id="_ok9elrPzEe-Gb4g6_DqnRg" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_ok9el7PzEe-Gb4g6_DqnRg" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_ok9emLPzEe-Gb4g6_DqnRg"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9embPzEe-Gb4g6_DqnRg"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9emrPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9em7PzEe-Gb4g6_DqnRg" x="348" y="14" height="39"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_ok9enLPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CGbPzEe-Gb4g6_DqnRg">
+                      <children xmi:type="notation:Node" xmi:id="_ok9enbPzEe-Gb4g6_DqnRg" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_ok9enrPzEe-Gb4g6_DqnRg" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_ok9en7PzEe-Gb4g6_DqnRg"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eoLPzEe-Gb4g6_DqnRg"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eobPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eorPzEe-Gb4g6_DqnRg" x="516" y="14" height="39"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_ok9eo7PzEe-Gb4g6_DqnRg" type="3008" element="_ok7CG7PzEe-Gb4g6_DqnRg">
+                      <children xmi:type="notation:Node" xmi:id="_ok9epLPzEe-Gb4g6_DqnRg" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_ok9epbPzEe-Gb4g6_DqnRg" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eprPzEe-Gb4g6_DqnRg"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9ep7PzEe-Gb4g6_DqnRg"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eqLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9eqbPzEe-Gb4g6_DqnRg" x="684" y="14" height="39"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eqrPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eq7PzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9erLPzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9erbPzEe-Gb4g6_DqnRg" x="12" y="16" width="867" height="113"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_ok9errPzEe-Gb4g6_DqnRg" type="3008" element="_ok7CHbPzEe-Gb4g6_DqnRg">
+                  <children xmi:type="notation:Node" xmi:id="_ok9er7PzEe-Gb4g6_DqnRg" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_ok9esLPzEe-Gb4g6_DqnRg" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_ok9esbPzEe-Gb4g6_DqnRg"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9esrPzEe-Gb4g6_DqnRg"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9es7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9etLPzEe-Gb4g6_DqnRg" x="12" y="144" width="139" height="43"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_ok9etbPzEe-Gb4g6_DqnRg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9etrPzEe-Gb4g6_DqnRg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9et7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9euLPzEe-Gb4g6_DqnRg" x="20" y="316" width="907" height="249"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_ok9eubPzEe-Gb4g6_DqnRg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_ok9eurPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ok9eu7PzEe-Gb4g6_DqnRg" fontName="Noto Sans" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ok9evLPzEe-Gb4g6_DqnRg" x="20" y="20" width="967" height="635"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_ok9evbPzEe-Gb4g6_DqnRg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_ok7B8LPzEe-Gb4g6_DqnRg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_ok7B8bPzEe-Gb4g6_DqnRg">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ok9evrPzEe-Gb4g6_DqnRg" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ok9ev7PzEe-Gb4g6_DqnRg" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>underline</labelFormat>
+          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ok9ewLPzEe-Gb4g6_DqnRg" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ok9ewbPzEe-Gb4g6_DqnRg" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ok9ewrPzEe-Gb4g6_DqnRg" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B8rPzEe-Gb4g6_DqnRg" name="HomePage">
+      <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
+      <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7B87PzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9evrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B9LPzEe-Gb4g6_DqnRg" name="createAccount">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_c6KwUIjcEeGD_4FfK_oDsg"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_c6KwUIjcEeGD_4FfK_oDsg"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7B9bPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelColor="41,128,185" labelAlignment="LEFT" description="_ok9ev7PzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
+          <labelFormat>underline</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B9rPzEe-Gb4g6_DqnRg" name="SearchForm">
+        <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_wSq9cIjZEeGlA5e_Ze9-Rg"/>
+        <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_wSq9cIjZEeGlA5e_Ze9-Rg"/>
+        <decorations xmi:type="viewpoint:Decoration" uid="_ok7B97PzEe-Gb4g6_DqnRg">
+          <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='VCD_WidgetDecorator_NorthWest']"/>
+        </decorations>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7B-LPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9evrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B-bPzEe-Gb4g6_DqnRg" name="author">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_EmqbEIjaEeGlA5e_Ze9-Rg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_EmqbEIjaEeGlA5e_Ze9-Rg"/>
+          <decorations xmi:type="viewpoint:Decoration" uid="_ok7B-rPzEe-Gb4g6_DqnRg">
+            <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='VCD_WidgetDecorator_East']"/>
+          </decorations>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7B-7PzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewLPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B_LPzEe-Gb4g6_DqnRg" name="type">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_fYqd8IjaEeGlA5e_Ze9-Rg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_fYqd8IjaEeGlA5e_Ze9-Rg"/>
+          <decorations xmi:type="viewpoint:Decoration" uid="_ok7B_bPzEe-Gb4g6_DqnRg">
+            <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='VCD_WidgetDecorator_East']"/>
+          </decorations>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7B_rPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewLPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7B_7PzEe-Gb4g6_DqnRg" name="keywords">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_mhBAsIjaEeGlA5e_Ze9-Rg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_mhBAsIjaEeGlA5e_Ze9-Rg"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CALPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CAbPzEe-Gb4g6_DqnRg" name="search">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_pvknYIjaEeGlA5e_Ze9-Rg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_pvknYIjaEeGlA5e_Ze9-Rg"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CArPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CA7PzEe-Gb4g6_DqnRg" name="Books">
+        <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_Se8ZgIjaEeGlA5e_Ze9-Rg"/>
+        <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_Se8ZgIjaEeGlA5e_Ze9-Rg"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CBLPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9evrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CBbPzEe-Gb4g6_DqnRg" name="bookImage">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_BiTnUIjcEeGD_4FfK_oDsg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_BiTnUIjcEeGD_4FfK_oDsg"/>
+          <decorations xmi:type="viewpoint:Decoration" uid="_ok7CBrPzEe-Gb4g6_DqnRg">
+            <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='VCD_WidgetDecorator_West']"/>
+          </decorations>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CB7PzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewLPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CCLPzEe-Gb4g6_DqnRg" name="bookTitle">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Eu44EIjcEeGD_4FfK_oDsg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Eu44EIjcEeGD_4FfK_oDsg"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CCbPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CCrPzEe-Gb4g6_DqnRg" name="author">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_czj8kIjdEeGRPcmmS6YpZw"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_czj8kIjdEeGRPcmmS6YpZw"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CC7PzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CDLPzEe-Gb4g6_DqnRg" name="addToCart">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_He2eQIjcEeGD_4FfK_oDsg"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_He2eQIjcEeGD_4FfK_oDsg"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CDbPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelColor="41,128,185" labelAlignment="LEFT" description="_ok9ev7PzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
+            <labelFormat>underline</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CDrPzEe-Gb4g6_DqnRg" name="ShoppingCart">
+        <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_jir8cIjcEeGD_4FfK_oDsg"/>
+        <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_jir8cIjcEeGD_4FfK_oDsg"/>
+        <decorations xmi:type="viewpoint:Decoration" uid="_ok7CD7PzEe-Gb4g6_DqnRg">
+          <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='VCD_WidgetDecorator_NorthWest']"/>
+        </decorations>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CELPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9evrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CEbPzEe-Gb4g6_DqnRg" name="CartLines">
+          <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#__aksgIjgEeGllIuu_i41WA"/>
+          <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#__aksgIjgEeGllIuu_i41WA"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CErPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9evrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CE7PzEe-Gb4g6_DqnRg" name="title">
+            <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_D0ZzgIjhEeGllIuu_i41WA"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_D0ZzgIjhEeGllIuu_i41WA"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CFLPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CFbPzEe-Gb4g6_DqnRg" name="author">
+            <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_FtWSIIjhEeGllIuu_i41WA"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_FtWSIIjhEeGllIuu_i41WA"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CFrPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CF7PzEe-Gb4g6_DqnRg" name="price">
+            <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_HkGYYIjhEeGllIuu_i41WA"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_HkGYYIjhEeGllIuu_i41WA"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CGLPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CGbPzEe-Gb4g6_DqnRg" name="quantity">
+            <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_KO1gUIjhEeGllIuu_i41WA"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_KO1gUIjhEeGllIuu_i41WA"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CGrPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ok9ewbPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CG7PzEe-Gb4g6_DqnRg" name="removeFromCart">
+            <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_OdPacIjhEeGllIuu_i41WA"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_OdPacIjhEeGllIuu_i41WA"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CHLPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ok7CHbPzEe-Gb4g6_DqnRg" name="checkout">
+          <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_THKy8IjhEeGllIuu_i41WA"/>
+          <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_THKy8IjhEeGllIuu_i41WA"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ok7CHrPzEe-Gb4g6_DqnRg" labelSize="12" showIcon="false" description="_ok9ewrPzEe-Gb4g6_DqnRg" borderSize="2" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_ok7CH7PzEe-Gb4g6_DqnRg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer"/>
+    <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_6MRTILPzEe-Gb4g6_DqnRg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_6MRTIbPzEe-Gb4g6_DqnRg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_6MRTSLPzEe-Gb4g6_DqnRg" type="Sirius" element="_6MRTILPzEe-Gb4g6_DqnRg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_6MRTSbPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTJLPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTSrPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTS7PzEe-Gb4g6_DqnRg" x="31"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTTLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTJbPzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTTbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTTrPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTT7PzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTULPzEe-Gb4g6_DqnRg" x="195" y="250" width="37" height="58"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6MRTUbPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTJrPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTUrPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTU7PzEe-Gb4g6_DqnRg" x="31"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTVLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTJ7PzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTVbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTVrPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTV7PzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTWLPzEe-Gb4g6_DqnRg" x="525" y="250" width="37" height="58"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6MRTWbPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTKLPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTWrPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTW7PzEe-Gb4g6_DqnRg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTXLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTKbPzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTXbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTXrPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTX7PzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTYLPzEe-Gb4g6_DqnRg" x="20" y="135" width="160" height="54"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6MRTYbPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTKrPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTYrPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTY7PzEe-Gb4g6_DqnRg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTZLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTK7PzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTZbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTZrPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTZ7PzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTaLPzEe-Gb4g6_DqnRg" x="460" y="135" width="160" height="54"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6MRTabPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTLLPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTarPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTa7PzEe-Gb4g6_DqnRg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTbLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTLbPzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTbbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTbrPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTb7PzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MRTcLPzEe-Gb4g6_DqnRg" x="240" y="20" width="160" height="54"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6MRTcbPzEe-Gb4g6_DqnRg" type="2001" element="_6MRTLrPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MRTcrPzEe-Gb4g6_DqnRg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6MRTc7PzEe-Gb4g6_DqnRg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MRTdLPzEe-Gb4g6_DqnRg" type="3005" element="_6MRTL7PzEe-Gb4g6_DqnRg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6MRTdbPzEe-Gb4g6_DqnRg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6MLPzEe-Gb4g6_DqnRg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6MR6MbPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6MrPzEe-Gb4g6_DqnRg" x="240" y="135" width="160" height="54"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_6MR6M7PzEe-Gb4g6_DqnRg"/>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6NLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTMLPzEe-Gb4g6_DqnRg" source="_6MRTWbPzEe-Gb4g6_DqnRg" target="_6MRTSbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6NbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6NrPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6N7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6OLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6ObPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6OrPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6O7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6PLPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6PbPzEe-Gb4g6_DqnRg" points="[0, 0, -110, -60]$[110, 60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6PrPzEe-Gb4g6_DqnRg" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6P7PzEe-Gb4g6_DqnRg" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6QLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTNrPzEe-Gb4g6_DqnRg" source="_6MRTcbPzEe-Gb4g6_DqnRg" target="_6MRTSbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6QbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6QrPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6Q7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6RLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6RbPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6RrPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6R7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6SLPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6SbPzEe-Gb4g6_DqnRg" points="[0, 0, 110, -60]$[-110, 60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6SrPzEe-Gb4g6_DqnRg" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6S7PzEe-Gb4g6_DqnRg" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6TLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTM7PzEe-Gb4g6_DqnRg" source="_6MRTYbPzEe-Gb4g6_DqnRg" target="_6MRTUbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6TbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6TrPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6T7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6ULPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6UbPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6UrPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6U7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6VLPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6VbPzEe-Gb4g6_DqnRg" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6VrPzEe-Gb4g6_DqnRg" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6V7PzEe-Gb4g6_DqnRg" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6WLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTPLPzEe-Gb4g6_DqnRg" source="_6MRTabPzEe-Gb4g6_DqnRg" target="_6MRTWbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6WbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6WrPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6W7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6XLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6XbPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6XrPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6X7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6YLPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6YbPzEe-Gb4g6_DqnRg" points="[0, 0, 220, -60]$[-220, 60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6YrPzEe-Gb4g6_DqnRg" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6Y7PzEe-Gb4g6_DqnRg" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6ZLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTObPzEe-Gb4g6_DqnRg" source="_6MRTabPzEe-Gb4g6_DqnRg" target="_6MRTYbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6ZbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6ZrPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6Z7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6aLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6abPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6arPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6a7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6bLPzEe-Gb4g6_DqnRg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6bbPzEe-Gb4g6_DqnRg" points="[0, 0, -220, -60]$[220, 60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6brPzEe-Gb4g6_DqnRg" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6b7PzEe-Gb4g6_DqnRg" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6cLPzEe-Gb4g6_DqnRg" type="4001" element="_6MRTP7PzEe-Gb4g6_DqnRg" source="_6MRTabPzEe-Gb4g6_DqnRg" target="_6MRTcbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6cbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6crPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6c7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6dLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6dbPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6drPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6d7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6eLPzEe-Gb4g6_DqnRg" fontColor="3943168" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6ebPzEe-Gb4g6_DqnRg" points="[0, 27, 0, -88]$[0, 88, 0, -27]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6erPzEe-Gb4g6_DqnRg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6e7PzEe-Gb4g6_DqnRg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_6MR6fLPzEe-Gb4g6_DqnRg" visible="false" type="4001" element="_6MRTQrPzEe-Gb4g6_DqnRg" source="_6MRTabPzEe-Gb4g6_DqnRg" target="_6MRTSbPzEe-Gb4g6_DqnRg">
+          <children xmi:type="notation:Node" xmi:id="_6MR6fbPzEe-Gb4g6_DqnRg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6frPzEe-Gb4g6_DqnRg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6f7PzEe-Gb4g6_DqnRg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6gLPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6MR6gbPzEe-Gb4g6_DqnRg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6MR6grPzEe-Gb4g6_DqnRg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_6MR6g7PzEe-Gb4g6_DqnRg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6MR6hLPzEe-Gb4g6_DqnRg" fontColor="3943168" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6MR6hbPzEe-Gb4g6_DqnRg" points="[-15, 27, 110, -205]$[-125, 232, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6hrPzEe-Gb4g6_DqnRg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6MR6h7PzEe-Gb4g6_DqnRg" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_6MRTIrPzEe-Gb4g6_DqnRg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_6MRTI7PzEe-Gb4g6_DqnRg"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTJLPzEe-Gb4g6_DqnRg" name="Visitor" incomingEdges="_6MRTMLPzEe-Gb4g6_DqnRg _6MRTNrPzEe-Gb4g6_DqnRg _6MRTQrPzEe-Gb4g6_DqnRg" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTJbPzEe-Gb4g6_DqnRg" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.graal.design/images/Actor.svg">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTJrPzEe-Gb4g6_DqnRg" name="Customer" incomingEdges="_6MRTM7PzEe-Gb4g6_DqnRg" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTJ7PzEe-Gb4g6_DqnRg" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.graal.design/images/Actor.svg">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTKLPzEe-Gb4g6_DqnRg" name="UC - Search and add books to basket" outgoingEdges="_6MRTMLPzEe-Gb4g6_DqnRg" incomingEdges="_6MRTPLPzEe-Gb4g6_DqnRg" width="16" height="16" resizeKind="NSEW">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTKbPzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTKrPzEe-Gb4g6_DqnRg" name="UC - Proceed to checkout" outgoingEdges="_6MRTM7PzEe-Gb4g6_DqnRg" incomingEdges="_6MRTObPzEe-Gb4g6_DqnRg" width="16" height="16" resizeKind="NSEW">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTK7PzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTLLPzEe-Gb4g6_DqnRg" name="UC - Buy books" outgoingEdges="_6MRTObPzEe-Gb4g6_DqnRg _6MRTPLPzEe-Gb4g6_DqnRg _6MRTP7PzEe-Gb4g6_DqnRg _6MRTQrPzEe-Gb4g6_DqnRg" width="16" height="16" resizeKind="NSEW">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTLbPzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6MRTLrPzEe-Gb4g6_DqnRg" name="UC - Constitute shopping cart" outgoingEdges="_6MRTNrPzEe-Gb4g6_DqnRg" incomingEdges="_6MRTP7PzEe-Gb4g6_DqnRg" width="16" height="16" resizeKind="NSEW">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
+      <semanticElements xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6MRTL7PzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/UseCase.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTMLPzEe-Gb4g6_DqnRg" sourceNode="_6MRTKLPzEe-Gb4g6_DqnRg" targetNode="_6MRTJLPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTMbPzEe-Gb4g6_DqnRg" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTMrPzEe-Gb4g6_DqnRg" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTM7PzEe-Gb4g6_DqnRg" sourceNode="_6MRTKrPzEe-Gb4g6_DqnRg" targetNode="_6MRTJrPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTNLPzEe-Gb4g6_DqnRg" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTNbPzEe-Gb4g6_DqnRg" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTNrPzEe-Gb4g6_DqnRg" sourceNode="_6MRTLrPzEe-Gb4g6_DqnRg" targetNode="_6MRTJLPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTN7PzEe-Gb4g6_DqnRg" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTOLPzEe-Gb4g6_DqnRg" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTObPzEe-Gb4g6_DqnRg" name="&lt;&lt;include>>" sourceNode="_6MRTLLPzEe-Gb4g6_DqnRg" targetNode="_6MRTKrPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTOrPzEe-Gb4g6_DqnRg" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTO7PzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTPLPzEe-Gb4g6_DqnRg" name="&lt;&lt;include>>" sourceNode="_6MRTLLPzEe-Gb4g6_DqnRg" targetNode="_6MRTKLPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTPbPzEe-Gb4g6_DqnRg" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTPrPzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTP7PzEe-Gb4g6_DqnRg" name="&lt;&lt;include>>" sourceNode="_6MRTLLPzEe-Gb4g6_DqnRg" targetNode="_6MRTLrPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTQLPzEe-Gb4g6_DqnRg" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTQbPzEe-Gb4g6_DqnRg" showIcon="false" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@edgeMappings[name='UCM_Include']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6MRTQrPzEe-Gb4g6_DqnRg" visible="false" sourceNode="_6MRTLLPzEe-Gb4g6_DqnRg" targetNode="_6MRTJLPzEe-Gb4g6_DqnRg">
+      <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
+      <graphicalFilters xmi:type="diagram:HideFilter" uid="_6MRTQ7PzEe-Gb4g6_DqnRg"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6MRTRLPzEe-Gb4g6_DqnRg" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" strokeColor="0,43,60">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_6MRTRbPzEe-Gb4g6_DqnRg" labelColor="0,43,60"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@edgeMappings[name='UCM_ActorWorksOnUseCase']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_6MRTRrPzEe-Gb4g6_DqnRg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']"/>
+    <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
