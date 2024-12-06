@@ -13,8 +13,8 @@ location Eclipse-2023-03 "https://download.eclipse.org/releases/2023-03/" {
 	org.eclipse.emf.ecoretools.sdk.feature.group lazy
 }
 
-location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
-	org.antlr.runtime [4.10.1,4.10.2)
+location ANTLR "https://obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/" {
+	org.antlr.runtime lazy
 }
 
 location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/" {
@@ -25,9 +25,6 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.apache.log4j lazy
 	org.easymock lazy
 	
-	org.eclipse.acceleo.ide.ui lazy
-	org.eclipse.acceleo.ide.ui.source lazy
-	org.eclipse.acceleo.source.feature.group lazy
 	org.eclipse.draw2d.sdk.feature.group lazy
 	org.eclipse.eef.sdk.feature.source.feature.group lazy
 	org.eclipse.egit.feature.group lazy
@@ -161,7 +158,7 @@ location ISD "https://update.obeo.fr/integration/informationsystem/5.1.1/design/
 	org.obeonetwork.utils.feature.feature.group lazy
 }
 
-location M2Doc-3.3.3 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.3/repository/" {
+location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/" {
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
