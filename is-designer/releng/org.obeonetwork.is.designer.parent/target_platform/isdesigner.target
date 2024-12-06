@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1728391183">
+<target name="IS Designer Product Target Definition" sequenceNumber="1733495588">
   <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
+      <repository id="Sirius-7.4.2" location="https://download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/"/>
+    </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.mylyn.commons.feature.group" version="3.26.0.v20221229-1738"/>
       <unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.26.0.v20230320-1407"/>
@@ -121,15 +125,10 @@
       <unit id="org.eclipse.sirius.sample.interactions.editor.source" version="0.0.0"/>
       <unit id="org.eclipse.sirius.sample.interactions.source" version="0.0.0"/>
       <unit id="org.eclipse.sirius.samples.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.swtbot.source" version="0.0.0"/>
       <unit id="com.google.guava" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
@@ -149,12 +148,9 @@
       <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <repository id="Obeo-Designer-Community-11.9" location="https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/"/>
     </location>

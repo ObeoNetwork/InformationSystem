@@ -97,10 +97,6 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.sample.interactions.editor.source lazy
 	org.eclipse.sirius.sample.interactions.source lazy
 	org.eclipse.sirius.samples.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
 	org.eclipse.sirius.tests.source.feature.group lazy
 	org.eclipse.sirius.tests.swtbot.source lazy
 }

@@ -146,6 +146,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.eclipse.acceleo.query"/>
+      <feature id="org.eclipse.sirius.specifier"/>
       <feature id="org.eclipse.amalgam.discovery"/>
       <feature id="org.eclipse.amalgam.explorer.contextual"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
@@ -197,14 +198,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.runtime.ide.ui.source"/>
       <feature id="org.eclipse.sirius.runtime.source"/>
       <feature id="org.eclipse.sirius.samples"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo.source"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui.aql"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui.aql.source"/>
-      <feature id="org.eclipse.sirius.specifier.ide.ui.source"/>
-      <feature id="org.eclipse.sirius.specifier.properties.feature"/>
-      <feature id="org.eclipse.sirius.specifier.properties.feature.source"/>
       <feature id="org.eclipse.sirius.tests.support"/>
       <feature id="org.eclipse.sirius.tests.support.source"/>
       <feature id="org.eclipse.team.svn"/>
@@ -215,7 +208,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
-      <!-- feature id="org.eclipse.acceleo.aql.feature"/ -->
    </features>
 
    <configurations>

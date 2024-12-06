@@ -3,7 +3,6 @@ target "IS Designer Repository Target Definition" with source, requirements
 location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/11.9/community/11.9.0/repository/" {
 	com.google.guava lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
-	org.eclipse.acceleo.feature.group lazy
 	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
 	org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 	org.eclipse.eef.sdk.feature.feature.group lazy
@@ -24,14 +23,15 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
 	org.eclipse.sirius.runtime.ocl.feature.group lazy
 	org.eclipse.sirius.runtime.ocl.source.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.source.feature.group lazy
 	org.eclipse.sirius.tests.support.feature.group lazy
 	org.eclipse.sirius.tests.support.source.feature.group lazy
 	// Acceleo
+	org.eclipse.acceleo.feature.group lazy
 	org.eclipse.acceleo.query.feature.group lazy
+}
+
+location Sirius-7.4.2 "https://download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/" {
+	org.eclipse.sirius.specifier.feature.group lazy
 }
 
 location Mylyn-3.26 "https://download.eclipse.org/mylyn/releases/3.26/" {
