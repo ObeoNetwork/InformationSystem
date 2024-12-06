@@ -145,7 +145,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
       
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
-      <feature id="org.eclipse.acceleo.query"/>
+      <feature id="org.eclipse.acceleo.aql.feature"/>
       <feature id="org.eclipse.sirius.specifier"/>
       <feature id="org.eclipse.amalgam.discovery"/>
       <feature id="org.eclipse.amalgam.explorer.contextual"/>
