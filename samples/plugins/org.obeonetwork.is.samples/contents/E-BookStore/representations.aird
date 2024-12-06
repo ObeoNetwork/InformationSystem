@@ -30,7 +30,7 @@
         <description xmi:type="description_2:TreeDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']"/>
         <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1977eeb7-08ab-4359-8150-2c58c5dabf4c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="1733493750062">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
       </ownedRepresentationDescriptors>
@@ -50,7 +50,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="c64f39eb-9220-4625-a619-f561e1ee1276">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="1733493780499">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
       </ownedRepresentationDescriptors>
@@ -4320,7 +4320,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__Fn-Ex_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__Fn-FB_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Fn-FR_GEeW_TuSj9xLcNQ" points="[64, -75, -41, 138]$[64, -185, -41, 28]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Fn-FR_GEeW_TuSj9xLcNQ" points="[64, -38, -41, 175]$[64, -177, -41, 36]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FolJB_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RSl-oL46EeuEY4x5nvvi9w" id="(0.8580246913580247,0.4876543209876544)"/>
         </edges>
@@ -4448,7 +4448,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__FxvEx_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__FxvFB_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FxvFR_GEeW_TuSj9xLcNQ" points="[-56, 29, 104, -185]$[-56, 139, 104, -75]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FxvFR_GEeW_TuSj9xLcNQ" points="[-56, 37, 104, -177]$[-56, 155, 104, -59]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fy9MB_GEeW_TuSj9xLcNQ" id="(1.617283950617284,0.48148148148148145)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fy9MR_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
         </edges>
@@ -4555,7 +4555,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb7PwhWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/HomePage_View_Container_Mockup-1.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb7PwhWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/HomePage_View_Container_Mockup-0.jpg">
         <customFeatures>labelPosition</customFeatures>
         <customFeatures>workspacePath</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -4569,7 +4569,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb720hWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/CreateAccount_View_Container_Mockup-1.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_qb720hWxEemPcZQonXs-Bw" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/CreateAccount_View_Container_Mockup-0.jpg">
         <customFeatures>labelPosition</customFeatures>
         <customFeatures>workspacePath</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -11044,7 +11044,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd8b47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/Login_View_Container_Mockup-1.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd8b47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/Login_View_Container_Mockup-0.jpg">
         <customFeatures>workspacePath</customFeatures>
         <customFeatures>labelPosition</customFeatures>
         <labelFormat>bold</labelFormat>
@@ -11058,7 +11058,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd9L47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/PaymentForm_View_Container_Mockup-1.jpg">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Fd9L47EeuEY4x5nvvi9w" labelSize="10" labelColor="0,43,60" workspacePath="/E-BookStore/mockups/PaymentForm_View_Container_Mockup-0.jpg">
         <customFeatures>workspacePath</customFeatures>
         <customFeatures>labelPosition</customFeatures>
         <labelFormat>bold</labelFormat>
