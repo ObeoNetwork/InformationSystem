@@ -15,6 +15,8 @@ addRepository(type:0,location:https${#58}//download.eclipse.org/tools/orbit/down
 addRepository(type:1,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/,name:Orbit-2021-06);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/,name:Orbit-2023-03);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/,name:Orbit-2023-03);\
+addRepository(type:0,location:https${#58}//download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/,name:Sirius-7.4.2);\
+addRepository(type:1,location:https${#58}//download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/,name:Sirius-7.4.2);\
 addRepository(type:0,location:https${#58}//osspit.org/eclipse/subversive-connectors/,name:Subversive-Connector-Plugin);\
 addRepository(type:1,location:https${#58}//osspit.org/eclipse/subversive-connectors/,name:Subversive-Connector-Plugin);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/technology/subversive/4.8/release/latest/,name:Subversive-Plugin);\
