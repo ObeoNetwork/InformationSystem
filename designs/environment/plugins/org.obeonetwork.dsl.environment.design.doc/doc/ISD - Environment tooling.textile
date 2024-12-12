@@ -28,7 +28,7 @@ La ressource aird peut elle aussi être dépliée pour laisser apparaître la st
 
 !./pics/ModelingProject_AirdUnfold.png!
 
-h1. ISD - Outillage environnement
+h1(#outillage_environnement). ISD - Outillage environnement
 
 L'outillage environnement est le socle commun aux différents types de modeleurs que le studio IS-Designer fournit.
 
@@ -74,7 +74,7 @@ Exemple de la vue Error Log suite à un traitement d'export Swagger avec message
 
 !./pics/ErrorLog.png!
 
-h2. Le modèle environnement
+h2(#modele_environnement). Le modèle environnement
 
 Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
 Avant la version Safr@n 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version Safr@n 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
@@ -117,7 +117,7 @@ Remarques :
 - Les changements sont appliqués mais pas sauvegardés
 - Il est possible d'annuler tous les changements opérés à l'aide du raccourci clavier "Ctrl+Z.
 
-h3. Création d'un modèle Environment
+h3(#error_log). Création d'un modèle Environment
 
 Un assistant de création de modèles Environment est accessible via le menu :
 
@@ -133,7 +133,7 @@ Cet assistant permet de définir
 
 Une fois l'assistant validé, le modèle est créé.
 
-h2. Le modèle de définitions de métadonnées
+h2(#metadata_definition). Le modèle de définitions de métadonnées
 
 Les modèles de définitions de métadonnées sont utlisés pour proposer à l'utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d'un élément.
 Un exemple d'un tel modèle est accessible via l'URI: "platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef".
