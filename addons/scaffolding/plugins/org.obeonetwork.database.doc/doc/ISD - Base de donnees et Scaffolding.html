@@ -7,8 +7,8 @@
 		<p>
 			<i>Copyright &#169; 2008, 2024 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDBasededonnesetScaffolding">ISD &#8211; Base de données et Scaffolding</h1>
-		<h2 id="Vuedensemble">Vue d&#8217;ensemble</h2>
+		<h1 id="database_and_scaffolding">ISD &#8211; Base de données et Scaffolding</h1>
+		<h2 id="database_and_scaffolding_overview">Vue d&#8217;ensemble</h2>
 		<p>Le 
 			<em>Scaffolding</em> est une technique popularisée par le socle de développement 
 			<em>Ruby on Rails</em> qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d&#8217;une base de données.
@@ -24,8 +24,8 @@
 			</li>
 			<li>un ensemble de transformations permettant d&#8217;automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu&#8217;entre un modèle logique et un modèle d&#8217;entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu&#8217;au modèle physique et vice versa).</li>
 		</ul>
-		<h2 id="Basededonnes">Base de données</h2>
-		<h3 id="Rtroingnierie">Rétro-ingénierie</h3>
+		<h2 id="database">Base de données</h2>
+		<h3 id="reverse_engineering">Rétro-ingénierie</h3>
 		<p>Cet outil permet d&#8217;initialiser un MPD à partir d&#8217;une base de données existante. Un assistant est accessible via le menu 
 			<em>File &gt; Import … &gt; Database &gt; Import Database</em>. Voici un exemple permettant d&#8217;extraire les informations d&#8217;un schéma Oracle nommé 
 			<em>RF</em> :
@@ -46,7 +46,7 @@
 		<p>
 			<img border="0" src="pics/BDD_Retro_02.png"/>
 		</p>
-		<h3 id="Basesdedonnessupportes">Bases de données supportées</h3>
+		<h3 id="supported_databases">Bases de données supportées</h3>
 		<p>Les types de bases de données suivants sont supportés :</p>
 		<table>
 			<tr>
@@ -86,7 +86,7 @@
 			</tr>
 		</table>
 		<p>La rétrocompatibilité des drivers permet en théorie d&#8217;importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.</p>
-		<h3 id="CrationdunmodleDatabase">Création d&#8217;un modèle Database</h3>
+		<h3 id="database_model_creation">Création d&#8217;un modèle Database</h3>
 		<p>Un assistant de création de modèles Database est accessible via le menu :</p>
 		<blockquote>
 			<p>File &gt; New &gt; Other ... &gt; Database Model (Catégorie IS Designer)</p>
@@ -112,8 +112,8 @@
 			<img border="0" src="pics/BDD-ModelCreationWizard-03.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
-		<h3 id="Modlisation">Modélisation</h3>
-		<h4 id="Vuedensemble2">Vue d&#8217;ensemble</h4>
+		<h3 id="database_modeling">Modélisation</h3>
+		<h4 id="database_overview">Vue d&#8217;ensemble</h4>
 		<p>Pour manipuler graphiquement le contenu d&#8217;une ressource 
 			<em>.database</em>, celle-ci doit se trouver dans un 
 			<em>Modeling Project</em> ouvert dans la vue 
@@ -158,7 +158,7 @@
 		<p>Le fonctionnement des Vues Partielles est décrit en détail dans la section 
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles">ISD – Outillage environnement / Vues Partielles</a>
 		</p>
-		<h4 id="ModlePhysiquedeDonnes">Modèle Physique de Données</h4>
+		<h4 id="database_physical_model">Modèle Physique de Données</h4>
 		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
 			<em>Used Libraries</em> disponible sur l'élément 
 			<em>Database</em> :
@@ -174,7 +174,7 @@
 			<br/>
 			<img border="0" src="pics/BDD_Column_Varchar.png"/>
 		</p>
-		<h4 id="ModleLogiquedeDonnes">Modèle Logique de Données</h4>
+		<h4 id="database_logical_model">Modèle Logique de Données</h4>
 		<p>L'édition de Modèle Logique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l&#8217;utilisation d&#8217;une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété 
 			<em>Used Libraries</em> disponible sur l'élément 
 			<em>Database</em> :
@@ -189,7 +189,7 @@
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
 		</p>
 		<p>La liste des types contenus dans chacune des librairies est paramétrable.</p>
-		<h3 id="CrationdunmodleTypeLibrary">Création d&#8217;un modèle TypeLibrary</h3>
+		<h3 id="database_type_library">Création d&#8217;un modèle TypeLibrary</h3>
 		<p>Un assistant de création de modèles TypeLibrary est accessible via le menu :</p>
 		<blockquote>
 			<p>File &gt; New &gt; Other ... &gt; TypeLibrary Model (Catégorie IS Designer)</p>
@@ -206,8 +206,8 @@
 			<img border="0" src="pics/TypeLibrary-ModelCreationWizard-02.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
-		<h3 id="ComparaisongnrationdesscriptsSQLLiquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
-		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
+		<h3 id="sql_and_liquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
+		<h4 id="database_comparison">Comparaison et fusion</h4>
 		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
 			<br/>Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser 
 			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l&#8217;exemple ci-dessous : 
@@ -236,7 +236,7 @@
 				<em>EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver</em>
 			</li>
 		</ul>
-		<h4 id="GnrationdescriptsSQL">Génération de scripts SQL</h4>
+		<h4 id="database_sql_generation">Génération de scripts SQL</h4>
 		<p>
 			<strong>Génération de scripts de modification</strong>
 		</p>
@@ -259,7 +259,7 @@
 		<p>
 			<img style="width:495px" border="0" src="pics/BDD_GenSQL_02.png"/>
 		</p>
-		<h4 id="GnrationdeChangeLogLiquibase">Génération de 
+		<h4 id="database_liquibase_generation">Génération de 
 			<em>ChangeLog</em> Liquibase
 		</h4>
 		<p>
@@ -332,7 +332,7 @@
 		<p>
 			<img style="width:480px" border="0" src="pics/BDD_ApplyChangelog_Connection.png"/>
 		</p>
-		<h2 id="Transformations">Transformations</h2>
+		<h2 id="database_transformations">Transformations</h2>
 		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>
 		<ul>
 			<li>transformation d&#8217;un MPD en MLD,</li>
@@ -341,7 +341,7 @@
 			<li>transformation d&#8217;un MLD en MPD.</li>
 		</ul>
 		<p>Le mode opératoire est le même pour chacune des transformations.</p>
-		<h3 id="Transformationdepuislesmodlessourceetcible">Transformation depuis les modèles source et cible</h3>
+		<h3 id="database_transformation_source_and_target">Transformation depuis les modèles source et cible</h3>
 		<p>Pour lancer une transformation, le modèle cible doit exister. Par exemple, pour une transformation d&#8217;un MPD en MLD, la première étape est la création d&#8217;un MLD vide.</p>
 		<p>La sélection doit porter sur un objet source et un objet cible, en dépliant les modèles dans la vue 
 			<em>Model Explorer</em>. Si la sélection porte sur les fichiers le traitement ne pourra pas être lancé.
@@ -370,7 +370,7 @@
 		<p>Une fois le traitement exécuté, un message de confirmation s&#8217;affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire 
 			<code>scaffold</code>. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
 		</p>
-		<h3 id="Transformationdepuisunmodledescaffold">Transformation depuis un modèle de scaffold</h3>
+		<h3 id="database_transformation_scaffolding">Transformation depuis un modèle de scaffold</h3>
 		<p>La transformation peut être lancée directement depuis un modèle de scaffold par :</p>
 		<ul>
 			<li>La sélection du modèle dans le 
@@ -384,7 +384,7 @@
 			<br/>Une entrée de menu permet d&#8217;ajouter des ressources pour résoudre les dépendances externes comme lorsque l&#8217;assistant est utilisé (cf. paragraphe précédent).
 		</p>
 		<p>A noter que lorsqu&#8217;une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.  </p>
-		<h3 id="ParamtragedelatransformationdunmodledentitsenMLD">Paramétrage de la transformation d&#8217;un modèle d&#8217;entités en MLD</h3>
+		<h3 id="database_transformations_parameters">Paramétrage de la transformation d&#8217;un modèle d&#8217;entités en MLD</h3>
 		<p>Dans le cas d&#8217;une transformation d&#8217;un modèle d&#8217;entités en MLD, deux colonnes techniques sont créées pour chaque table créée.
 			<br/>Ces colonnes sont :
 		</p>
@@ -406,7 +406,7 @@
 			</li>
 		</ul>
 		<p>Ces deux colonnes ne seront alors pas créées pour l&#8217;entité en question, ou pour toutes les entités contenues par le namespace en question. </p>
-		<h2 id="Notes">Notes</h2>
+		<h2 id="notes">Notes</h2>
 		<p>Les équivalences entre les types logiques et physiques, etc..., ainsi que les règles de nommage sont  paramétrables.</p>
 		<p>Aussi, dans le cas où une version du modèle cible existe déjà, il est conseillé d&#8217;effectuer la transformation vers un nouveau modèle puis d&#8217;utiliser l&#8217;outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Voici un exemple illustrant ce scénario :</p>
 		<ul>

@@ -1,8 +1,8 @@
 __Copyright (c) 2008, 2024 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Base de données et Scaffolding
+h1(#database_and_scaffolding). ISD - Base de données et Scaffolding
 
-h2. Vue d'ensemble
+h2(#database_and_scaffolding_overview). Vue d'ensemble
 
 Le _Scaffolding_ est une technique popularisée par le socle de développement _Ruby on Rails_ qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d'une base de données.
 En l’occurrence, l'outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
@@ -11,9 +11,9 @@ En l’occurrence, l'outillage de scaffolding IS Designer propose les fonctionna
 * un module de comparaison de modèles _Database_ et un générateur de scripts SQL capable de déduire les instructions SQL de mise à jour de la base de données,
 * un ensemble de transformations permettant d'automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu'entre un modèle logique et un modèle d'entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu'au modèle physique et vice versa).
 
-h2. Base de données
+h2(#database). Base de données
 
-h3. Rétro-ingénierie
+h3(#reverse_engineering). Rétro-ingénierie
 
 Cet outil permet d'initialiser un MPD à partir d'une base de données existante. Un assistant est accessible via le menu _File > Import … > Database > Import Database_. Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
 
@@ -29,7 +29,7 @@ Le résultat obtenu est le suivant :
 
 !pics/BDD_Retro_02.png!
 
-h3. Bases de données supportées
+h3(#supported_databases). Bases de données supportées
 
 Les types de bases de données suivants sont supportés :
 
@@ -43,7 +43,7 @@ Les types de bases de données suivants sont supportés :
 
 La rétrocompatibilité des drivers permet en théorie d'importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
 
-h3. Création d'un modèle Database
+h3(#database_model_creation). Création d'un modèle Database
 
 Un assistant de création de modèles Database est accessible via le menu :
 
@@ -66,9 +66,9 @@ La dernière page de l'assistant permet de définir
 
 Une fois l'assistant validé, le modèle est créé.
 
-h3. Modélisation
+h3(#database_modeling). Modélisation
 
-h4. Vue d'ensemble
+h4(#database_overview). Vue d'ensemble
 
 Pour manipuler graphiquement le contenu d'une ressource _.database_, celle-ci doit se trouver dans un _Modeling Project_ ouvert dans la vue _Model Explorer_ d'IS Designer.
 Le point de vue _Database_ doit être activé (via la boite de dialogue _Viewpoints Selection_ disponible en action du menu contextuel sur le _Modeling project_.
@@ -99,7 +99,7 @@ La couleur de fond de la vue permet de la distinguer de la vue synchronisée _Da
 
 Le fonctionnement des Vues Partielles est décrit en détail dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
 
-h4. Modèle Physique de Données
+h4(#database_physical_model). Modèle Physique de Données
 
 L'édition de Modèle Physique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l'utilisation d'une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_ :
 
@@ -111,7 +111,7 @@ Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "
 !pics/BDD_Column_Enum.png!
 !pics/BDD_Column_Varchar.png!
  
-h4. Modèle Logique de Données
+h4(#database_logical_model). Modèle Logique de Données
 
 L'édition de Modèle Logique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l'utilisation d'une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_ :
 
@@ -123,7 +123,7 @@ La sélection de cette librairie de types est également proposée dans l'assist
 
 La liste des types contenus dans chacune des librairies est paramétrable.
 
-h3. Création d'un modèle TypeLibrary
+h3(#database_type_library). Création d'un modèle TypeLibrary
 
 Un assistant de création de modèles TypeLibrary est accessible via le menu :
 
@@ -139,9 +139,9 @@ Cet assistant permet de définir
 
 Une fois l'assistant validé, le modèle est créé.
 
-h3. Comparaison & génération des scripts SQL/Liquibase
+h3(#sql_and_liquibase). Comparaison & génération des scripts SQL/Liquibase
 
-h4. Comparaison et fusion
+h4(#database_comparison). Comparaison et fusion
 
 L'outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d'une version locale avec une version stockée dans un référentiel de type subversion. L'outillage est basé sur EMF Compare et fournit une extension permettant d'améliorer la pertinence de la comparaison sur ce type particulier de modèle.
 Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser _Compare With > Each Other_ proposé dans le menu contextuel. Lors d'une comparaison de fichiers locaux (par opposition à la comparaison via l'outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l'exemple ci-dessous : 
@@ -158,7 +158,7 @@ En cas de problème lors de la comparaison d'une base de données ayant des lien
 * _EMF Compare Documentation/User/User Guide/Logical Model View_
 * _EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver_
 
-h4. Génération de scripts SQL
+h4(#database_sql_generation). Génération de scripts SQL
 
 *Génération de scripts de modification*
 
@@ -176,7 +176,7 @@ Un script SQL de création permet d'initialiser la structure d'une base de donn�
 
 !{width:495px}pics/BDD_GenSQL_02.png!
 
-h4. Génération de _ChangeLog_ Liquibase
+h4(#database_liquibase_generation). Génération de _ChangeLog_ Liquibase
 
 *Génération de _ChangeLog_ de modification*
 
@@ -217,7 +217,7 @@ Modifier ce fichier permet de remplir définir les url et identifiants de connec
 
 !{width:480px}pics/BDD_ApplyChangelog_Connection.png!
 
-h2. Transformations
+h2(#database_transformations). Transformations
 
 Les transformations suivantes sont proposées afin d'initialiser un modèle à partir d'un autre :
 * transformation d'un MPD en MLD,
@@ -227,7 +227,7 @@ Les transformations suivantes sont proposées afin d'initialiser un modèle à p
 
 Le mode opératoire est le même pour chacune des transformations.
 
-h3. Transformation depuis les modèles source et cible
+h3(#database_transformation_source_and_target). Transformation depuis les modèles source et cible
 
 Pour lancer une transformation, le modèle cible doit exister. Par exemple, pour une transformation d'un MPD en MLD, la première étape est la création d'un MLD vide.
 
@@ -243,7 +243,7 @@ Pour un modèle d'entités,  les objets source ou cible doivent être des _Entit
 
 Une fois le traitement exécuté, un message de confirmation s'affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire @scaffold@. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
 
-h3. Transformation depuis un modèle de scaffold
+h3(#database_transformation_scaffolding). Transformation depuis un modèle de scaffold
 
 La transformation peut être lancée directement depuis un modèle de scaffold par :
 
@@ -255,7 +255,7 @@ Une entrée de menu permet d'ajouter des ressources pour résoudre les dépendan
 
 A noter que lorsqu'une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il est proposé d'utiliser le modèle existant ou d'en créer un nouveau.  
 
-h3. Paramétrage de la transformation d'un modèle d'entités en MLD
+h3(#database_transformations_parameters). Paramétrage de la transformation d'un modèle d'entités en MLD
 
 Dans le cas d'une transformation d'un modèle d'entités en MLD, deux colonnes techniques sont créées pour chaque table créée.
 Ces colonnes sont :
@@ -268,7 +268,7 @@ La génération de ces colonnes peut être désactivée en ajoutant une metadata
 
 Ces deux colonnes ne seront alors pas créées pour l'entité en question, ou pour toutes les entités contenues par le namespace en question. 
 
-h2. Notes
+h2(#notes). Notes
 	
 Les équivalences entre les types logiques et physiques, etc..., ainsi que les règles de nommage sont  paramétrables.
 

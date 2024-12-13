@@ -1,6 +1,6 @@
 __Copyright (c) 2008, 2024 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Outillage Cinematic
+h1(#cinematic_tooling). ISD - Outillage Cinematic
 
 *Cinematic Designer* est un outil de conception d'écrans d'application, permettant de décrire la structure d'une IHM (modélisation statique) et son comportement (modélisation dynamique).
 
@@ -10,7 +10,7 @@ h1. ISD - Outillage Cinematic
 * Modéliser les états et le flot entre les états de l'application,
 * Organiser les _Flows_ et les _View Elements_ en packages.
 
-h2. Création d'un modèle Cinematic
+h2(#cinematic_model_creation). Création d'un modèle Cinematic
 
 Un assistant de création de modèles Cinematic est accessible via le menu :
 
@@ -44,7 +44,7 @@ Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vue
 
 Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes tel que décrit dans la section suivante. Le point de vue _Environment View_ contient la définition des vues de propriétés avancées (EEF).
 
-h2. Création d'un modèle Toolkits
+h2(#toolkit_model_creation). Création d'un modèle Toolkits
 
 Un assistant de création de modèles Toolkits est accessible via le menu :
 
@@ -60,15 +60,15 @@ Cet assistant permet de définir
 
 Une fois l'assistant validé, le modèle est créé.
 
-h2. Activation du point de vue
+h2(#viewpoint_activation). Activation du point de vue
 
-h3. Utilisation d'un modeling project
+h3(#modeling_project_usage). Utilisation d'un modeling project
 
 Si le fichier a été créé dans un modeling project, la seule étape nécessaire est l'activation du point de vue _Cinematic Views_. Pour ceci choisir _Viewpoints Selection_ dans le menu contextuel du _modeling project_.
 
 !pics/Cinematic-ViewpointSelection.jpg!
 
-h3. Utilisation d'un autre type de projet
+h3(#other_project_type_utilisation). Utilisation d'un autre type de projet
 
 Si le projet est d'un autre type, il manque alors un fichier _representations file_ (fichier .aird). L'action de menu contextuel @Configure > Convert to Modeling Project@  permet de remédier à cette situation.
 
@@ -76,7 +76,7 @@ Pour ajouter le modèle Cinematic à un _representations file_ existant, choisir
 
 L'activation d'un point de vue se fait en choisissant _Viewpoints Selection_ dans le menu contextuel du projet.
 
-h2. Fonctionnalités du modeleur
+h2(#designer_features). Fonctionnalités du modeleur
 
 Le modeleur Cinematic apporte les représentations suivantes :
 
@@ -90,9 +90,9 @@ Les représentations suivantes peuvent être ouverts en mode "Vue Partielle". Le
 * Flow Diagram
 * Package Diagram
 
-h3. Package Diagram
+h3(#package_diagram). Package Diagram
 
-h4. Contenu
+h4(#package_diagram_content). Contenu
 
 Le _Package Diagram_ est défini sur un objet de type Package, que nous appellerons par la suite package courant.
 
@@ -110,7 +110,7 @@ Pour un _ViewContainer_, sont affichés :
 * les _View Elements_ directement contenus ou référencés,
 * les _View Containers_ directement contenus ou référencés.
 
-h4. Palette et outils
+h4(#package_diagram_tools). Palette et outils
 
 Les outils fournis par la palette sont :
 
@@ -123,15 +123,15 @@ Les autres outils disponibles sont
 * La suppression des sous-packages, Flow et ViewContainer (mais pas de suppression du contenu d'un ViewContainer),
 * Le calque _Dependencies_ pour afficher ou non les dépendances.
 
-h4. Navigation vers d'autres diagrammes
+h4(#package_diagram_navigation_tools). Navigation vers d'autres diagrammes
 
 La création d'un diagramme sur un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _New > #Nom du diagramme#_.
 La navigation vers un diagramme existant lié à un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _Open > #Nom du diagramme#_.
 Un double clic sur un _Package_, un _Flow_ ou un _View Container_ déclenche la création d'un diagramme si il n'existe pas, ou bien son ouverture si il existe.
 
-h3. UI Structure
+h3(#ui_structure). UI Structure
 
-h4. Contenu
+h4(#ui_structure_contents). Contenu
 
 La représentation _UI Structure_ fournit une vue de haut niveau de la structure des écrans de l'application modélisée, sous forme arborescente.
 
@@ -153,18 +153,18 @@ Les éléments affichés sont :
 * les _ViewElements_ contenus dans les _ViewContainer_
 
 
-h4. Palette et outils
+h4(#ui_structure_tools). Palette et outils
 
 Les outils disponibles sont :
 * création / suppression de Package, ViewContainer et ViewElement,
 * modification de ces éléments via des vues de propriétés avancées,
 * déplacement et duplication d'élément dans l'arborescence.
 
-h3. View Container Mockup
+h3(#mockup_view). View Container Mockup
 
 Cette représentation vient compléter la représentation _UI Structure_, apportant la modélisation de la disposition graphique des composants de l'IHM. Elle permet de créer et positionner les _View Elements_ dans les _View Containers_. De plus, elle permet d'éditer les bindings sur ces derniers.
 
-h4. Eléments affichés et palette d'outils
+h4(#mockup_view_tools). Eléments affichés et palette d'outils
 
 La palette propose un outil de création de _View Element_ ou _View Container_ par widget disponible dans le toolkit utilisé. Son contenu dépend donc du toolkit actif sur le modèle Cinematic courant.
 
@@ -201,7 +201,7 @@ Un élément de _Layout_ peut être lié ou non à un _View Element_ suivant qu�
 
 Le diagram _Layout Diagram_ permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
 
-h4. Edition de bindings
+h4(#mockup_view_binding_edition). Edition de bindings
 
 Afin de faire le lien avec les couches SOA et Entity, les _ViewContainer_ peuvent être bindés à des DTO ou des Entités, et les _ViewElements_ peuvent être bindés à des attributs ou des références de DTO ou Entités.
 
@@ -226,7 +226,7 @@ Les DTO/Entités peuvent être dépliés pour accéder à des propriétés de DT
 
 Lorsque des bindings sont définis sur un _ViewElement_ ou un _ViewContainer_, le glisser-déposer dans le diagramme de Mockup n'est possible que si les bindings restent valides avec le _ViewContainer_ destination.
 
-h4. Navigation vers d'autres diagrammes
+h4(#mockup_view_navigation). Navigation vers d'autres diagrammes
 
 Le double clic sur les éléments du diagramme de mockup permet de naviguer vers d'autres diagrammes en les créant à la volée si ils n'existent pas :
 * depuis le _View Container_ racine vers le diagramme de Layout
@@ -235,7 +235,7 @@ Le double clic sur les éléments du diagramme de mockup permet de naviguer vers
 
 Lorsque des diagrammes sont créés pour un élément donné, ceux-ci sont navigables via le menu contextuel, dans le sous-menu _Open_.
 
-h3. Layout Diagram
+h3(#layout_diagram). Layout Diagram
 
 Ce diagramme a pour simple but de visualiser une structure de _Layout_. Il n'a pas vocation à éditer cette structure, et sa palette est vide.
 
@@ -249,9 +249,9 @@ Les Layouts liés à un View Element sont représentés avec une bordure en trai
 
 Les Layouts découpant l'espace verticalement sont présentés en rouge, ceux découpant l'espace horizontalement sont présentés en vert.
 
-h3. Flow Diagram
+h3(#flow_diagram). Flow Diagram
 
-h4. Contenu
+h4(#flow_diagram_contents). Contenu
 
 Le _Flow Diagram_ est défini sur un élément de type Flow.
 
@@ -268,7 +268,7 @@ Sont affichés sur ce diagramme :
 * Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque _View Containers_.
 ** Les informations affichées pour les _ViewContainer_ sont les mêmes que pour le diagramme de Package décrit plus haut.
 
-h4. Palette et outils 
+h4(#flow_diagram_tools). Palette et outils 
 
 Les outils proposés par la palette sont :
 
@@ -346,9 +346,9 @@ L'état partiellement coché d'une case indique que des sous éléments sont sel
 
 A la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.
 
-h3. Création de toolkits
+h3(#toolkit_creation). Création de toolkits
 
-Un des objectifs du méta-modèle Cinematic est de permettre de créer facilement de nouveaux toolkits.
+Le méta-modèle Cinematic est extensible par définition de toolkits.
 
 !pics/Toolkits/Toolkits-ClassDiagram.png!
 
