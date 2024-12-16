@@ -10,9 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.properties.internal.services;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -83,16 +84,16 @@ public class EnvironmentServices {
 				.filter(s -> s != null && !s.isEmpty()).findAny().orElse(null);
 	}
 
-	
-	
 	/**
 	 * 
 	 * @param elt
 	 * @return a list of a {@link Annotation} that may be apply to self.
 	 */
 	public List<Annotation> getApplicableMetadataList(ObeoDSMObject self) {
-		return getCandidateMetadataDefinitionList(self).stream().map(mdd -> convertToMetadata(mdd))
-				.filter(Annotation.class::isInstance).map(Annotation.class::cast).collect(Collectors.toList());
+		return getCandidateMetadataDefinitionList(self).stream()//
+				.map(mdd -> convertToMetadata(mdd))//
+				.filter(Annotation.class::isInstance).map(Annotation.class::cast)//
+				.collect(toList());
 	}
 	
 	/**
@@ -145,10 +146,22 @@ public class EnvironmentServices {
 	}
 
 	private List<MetaDataDefinition> getApplicableMetadataDefintionList(EObject elt) {
-		Collection<MetaDataDefinitions> definitions = ProvidedMetaDataDefinitionsModelsService
-				.getProvidedMetaDataDefinitionsModels();
-		return definitions.stream().map(MetaDataDefinitions::getMetaDataDefinitions).flatMap(List::stream)
-				.filter(mdd -> isMetaDataDefinitionApplicable(elt, mdd)).collect(Collectors.toList());
+		List<MetaDataDefinition> definitions = new ArrayList<>(); 
+		definitions.addAll(ProvidedMetaDataDefinitionsModelsService.getProvidedMetaDataDefinitionsModels().stream()//
+				.map(MetaDataDefinitions::getMetaDataDefinitions).flatMap(List::stream)//
+				.collect(Collectors.toList()));
+		definitions.addAll(getProjectMetaDataDefinitions(elt));
+		return definitions.stream()//
+				.filter(mdd -> isMetaDataDefinitionApplicable(elt, mdd))//
+				.collect(Collectors.toList());
+	}
+
+	private List<MetaDataDefinition> getProjectMetaDataDefinitions(EObject elt) {
+		return elt.eResource().getResourceSet().getResources().stream()//
+			.flatMap(r -> r.getContents().stream())//
+			.filter(MetaDataDefinitions.class::isInstance).map(MetaDataDefinitions.class::cast)//
+			.flatMap(mdds -> mdds.getMetaDataDefinitions().stream())//
+			.collect(toList());
 	}
 
 	private boolean isMetaDataDefinitionApplicable(EObject eObj, MetaDataDefinition metaDataDefinition) {

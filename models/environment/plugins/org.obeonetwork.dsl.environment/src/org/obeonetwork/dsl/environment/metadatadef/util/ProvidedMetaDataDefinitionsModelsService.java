@@ -31,10 +31,10 @@ public class ProvidedMetaDataDefinitionsModelsService {
 
 	private static final String PROVIDED_METADATA_DEFINITIONS_MODELS_EXTENSION_ID = "org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels";
 
-	public static Collection<MetaDataDefinitions> PROVIDED_METADATA_DEFINITIONS_MODELS = null;
+	private static Collection<MetaDataDefinitions> PROVIDED_METADATA_DEFINITIONS_MODELS = null;
 	
 	public static Collection<MetaDataDefinitions> getProvidedMetaDataDefinitionsModels() {
-		if(PROVIDED_METADATA_DEFINITIONS_MODELS==null) {
+		if(PROVIDED_METADATA_DEFINITIONS_MODELS == null) {
 			PROVIDED_METADATA_DEFINITIONS_MODELS = getProvidedMetaDataDefinitionsModels(Collections.emptyList());
 		}
 		return Collections.unmodifiableCollection(PROVIDED_METADATA_DEFINITIONS_MODELS);
@@ -47,8 +47,7 @@ public class ProvidedMetaDataDefinitionsModelsService {
 	 *         to the extension point with ID
 	 *         {@link PROVIDED_METADATA_DEFINITIONS_MODELS_EXTENSION_ID}.
 	 */
-	public static Collection<MetaDataDefinitions> getProvidedMetaDataDefinitionsModels(
-			Collection<URI> urisToExclude) {
+	private static Collection<MetaDataDefinitions> getProvidedMetaDataDefinitionsModels(Collection<URI> urisToExclude) {
 
 		Collection<URI> metaDataDefinitionsURI = getProvidedMetaDataDefinitionsModelsUris();
 		Collection<MetaDataDefinitions> metaDataDefinitions = new ArrayList<MetaDataDefinitions>();
