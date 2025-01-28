@@ -190,13 +190,12 @@ public class SiriusUIUtils {
 		if(part instanceof PropertySheet) {
 			PropertySheet sheet = (PropertySheet) part;
 			if(sheet.getCurrentPage() instanceof EEFTabbedPropertySheetPage) {
-				String eefTabDescriptorPrefix = String.format("%s Page%s", pageName, pageName);
 				EEFTabbedPropertySheetPage currentPage = (EEFTabbedPropertySheetPage) sheet.getCurrentPage();
 				// Warning: we use reflection here because we are limited by the EEF API.
 				@SuppressWarnings("unchecked")
 				HashMap<IEEFTabDescriptor, EEFTabContents> descriptorToTab = IntrospectionUtils.getFieldValue(currentPage, "descriptorToTab", HashMap.class);
 	            Optional<EEFTabDescriptor> tabDescriptor = descriptorToTab.keySet().stream()
-	            		.filter(tab -> tab.getId().startsWith(eefTabDescriptorPrefix))
+	            		.filter(tab -> tab.getId().startsWith(pageName))
 	            		.filter(EEFTabDescriptor.class::isInstance)
 	            		.map(tab -> (EEFTabDescriptor) tab)
 	            		.findFirst();

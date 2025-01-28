@@ -734,7 +734,7 @@
               <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="nativeType" valueExpression="var:newValue"/>
               </subModelOperations>
-              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.refreshPropertiesView('Column')"/>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.refreshPropertiesView('Column Page')"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
