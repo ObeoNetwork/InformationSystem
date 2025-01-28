@@ -1670,7 +1670,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="ApiKey Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::API_KEY and (invocationContext=null or invocationContext = 'doubleClick')">
+      <groups name="ApiKey Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::API_KEY and (not self.variableIsDefined('invocationContext') or invocationContext=null or invocationContext = 'doubleClick')">
         <controls xsi:type="properties:TextDescription" name="soa::SecurityScheme key" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('key')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('key'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
@@ -1682,7 +1682,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Http Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::HTTP and (invocationContext=null or invocationContext = 'doubleClick')">
+      <groups name="Http Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::HTTP and (not self.variableIsDefined('invocationContext') or invocationContext=null or invocationContext = 'doubleClick')">
         <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme httpScheme" labelExpression="Http scheme:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('httpScheme'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('httpScheme').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('httpScheme').eType.getEEnumLiteralByLiteral(self.httpScheme.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('httpScheme').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="httpScheme" valueExpression="aql:newValue.instance"/>
@@ -1738,7 +1738,7 @@
           </customOperations>
         </controls>
       </groups>
-      <groups name="OAUTH2 Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::OAUTH2 and (invocationContext=null or invocationContext = 'doubleClick')">
+      <groups name="OAUTH2 Group" labelExpression="aql:self.type.getName()" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" preconditionExpression="aql:self.type = soa::SecuritySchemeType::OAUTH2 and (not self.variableIsDefined('invocationContext') or invocationContext=null or invocationContext = 'doubleClick')">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('flows')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flows'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('flows').changeable">
           <customExpressions name="referenceNameExpression" customExpression="flows"/>
           <customOperations name="addButtonOperation">
