@@ -252,7 +252,8 @@ public class CinematicBindingServices {
 				parent -> structuredTypeChildrenContribution.getChildren((EObject) parent));
 		
 		treeRoot.getConfiguration().setSelectableCondition(Property.class::isInstance);
-		treeRoot.getConfiguration().setMaxDuplicateAncestorsAllowed(3);
+		treeRoot.getConfiguration().setMaxDuplicateAncestorsAllowed(1);
+		treeRoot.getConfiguration().setAsUnambiguousElementFunction(structuredTypeChildrenContribution::asUnambiguousElement);
 		
 		BindingRegistry bindingRegistry = getBindingRegistry(contextViewElement);
 		// If no BindingRegistry is found no Property can be bound.

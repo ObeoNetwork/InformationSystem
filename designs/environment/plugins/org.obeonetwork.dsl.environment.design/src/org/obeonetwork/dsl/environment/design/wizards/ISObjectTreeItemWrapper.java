@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -37,6 +36,7 @@ public class ISObjectTreeItemWrapper {
 		private Function<Object, List<?>> childrenFunction;
 		private Function<Object, Boolean> selectableCondition = null;
 		private int maxDuplicateAncestorsAllowed = 0;
+		private Function<Object, Object> asUnambiguousElementFunction = (e) -> e;
 		
 		public Function<Object, List<?>> getChildrenFunction() {
 			return childrenFunction;
@@ -63,7 +63,21 @@ public class ISObjectTreeItemWrapper {
 		public void setMaxDuplicateAncestorsAllowed(int maxDuplicateAncestorsAllowed) {
 			this.maxDuplicateAncestorsAllowed = maxDuplicateAncestorsAllowed;
 		}
+
+		public Function<Object, Object> getAsUnambiguousElementFunction() {
+			return asUnambiguousElementFunction;
+		}
 		
+		/**
+		 * The given function should return a unique object representing the given element.
+		 * @see IBoundableElementChildren#asUnambiguousElement(Object)
+		 * 
+		 * @param asUnambiguousElementFunction
+		 */
+		public void setAsUnambiguousElementFunction(Function<Object, Object> asUnambiguousElementFunction) {
+			this.asUnambiguousElementFunction = asUnambiguousElementFunction;
+		}
+
 	}
 	
     /**
@@ -136,20 +150,30 @@ public class ISObjectTreeItemWrapper {
     /**
      * Helper method to avoid cycles when building a tree.
      * 
-     * @param obj Object to be tested
+     * Return true if the count of the parent-child couples in the ancestors hierarchy equal 
+     * to the current parent-child is greater than the max duplicate ancestors allowed.
      * 
-     * @return true if the count of this or one of the parent {@link ISObjectTreeItemWrapper} already 
-     * wraps the given object.
+     * All of the children of every ancestors are considered in the count.
+     * 
+     * The current parent-child couple is formed by the current wrapped object and the given childObject.
+     * 
+     * The parents are made unambiguous with a call to {@link ISObjectTreeItemWrapper#asUnambiguousParent(Object)}
+     * 
+     * @param childObject Object to be tested
+     * 
+     * @return true the maximum representation of the current parent-child couple is reached.
      */
-    private boolean maxDuplicateAncestorsReached(final Object object) {
+    private boolean maxDuplicateAncestorsReached(final Object childObject) {
     	long duplicateAncestorsCount = getAncestors().stream()
-    		.filter(ancestor -> Objects.equals(ancestor.getWrappedObject(), object))
+    		.filter(ancestorTiw -> asUnambiguousParent(ancestorTiw.getWrappedObject()) == asUnambiguousParent(wrappedObject) && 
+    				ancestorTiw.getChildren().stream().anyMatch(tiw -> tiw.getWrappedObject() == childObject))
     		.count();
-    	if(this.getWrappedObject() == object) {
-    		duplicateAncestorsCount++;
-    	}
     	return duplicateAncestorsCount > configuration.getMaxDuplicateAncestorsAllowed();
     }
+
+	private Object asUnambiguousParent(Object element) {
+		return configuration.getAsUnambiguousElementFunction().apply(element);
+	}
 
 	public boolean isSelectable() {
 		if(selectable == null) {

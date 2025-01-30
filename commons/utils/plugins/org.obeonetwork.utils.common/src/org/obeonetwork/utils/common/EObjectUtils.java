@@ -172,7 +172,10 @@ public class EObjectUtils {
 		String name = null;
 		EStructuralFeature nameFeature = eObject.eClass().getEStructuralFeature("name");
 		if(nameFeature != null) {
-			name = eObject.eGet(nameFeature).toString();
+			Object value = eObject.eGet(nameFeature);
+			if(value != null) {
+				name = value.toString();
+			}
 		}
 		return name;
 	}

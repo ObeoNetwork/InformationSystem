@@ -64,4 +64,14 @@ public class StructuredTypeChildrenContribution implements IBoundableElementChil
 	public String getLabel(EObject eObject) {
 		return structuredTypeLabelsSwitch.getLabel(eObject);
 	}
+
+	@Override
+	public Object asUnambiguousElement(Object element) {
+		if(element instanceof Reference reference) {
+			return reference.getReferencedType();
+		}
+		return element;
+	}
+	
+	
 }

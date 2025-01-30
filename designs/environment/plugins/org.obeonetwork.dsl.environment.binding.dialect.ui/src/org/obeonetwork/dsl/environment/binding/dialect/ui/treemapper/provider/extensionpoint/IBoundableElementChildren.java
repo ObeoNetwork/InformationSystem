@@ -45,4 +45,28 @@ public interface IBoundableElementChildren {
 	 *         among values in {@link #getApplicableEClasses()}
 	 */
 	public String getLabel(EObject eObject);
+	
+	/**
+	 * <p>
+	 * Used to break cycles when building the elements tree and checking for non repeating
+	 * parent-child couples.
+	 * </p>
+	 * <p>
+	 * It addresses the case where a node in the tree can be represented by different elements.
+	 * This is typically the case for a StructuredElement that can be represented as the root 
+	 * element and a Reference typed with the same StructuredType. In such a case, the Reference
+	 * should be identified as the same object as the StructuredType when looking for cycles.
+	 * </p>
+	 * <p>
+	 * This method returns the unique object representing the given element.
+	 * Its default behavior is to return the given element as is.
+	 * </p>
+	 * 
+	 * @param element
+	 * @return the unambiguous corresponding element
+	 */
+	public default Object asUnambiguousElement(Object element) {
+		return element;
+	};
+	
 }
