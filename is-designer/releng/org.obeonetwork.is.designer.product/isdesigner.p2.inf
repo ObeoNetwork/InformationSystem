@@ -1,6 +1,6 @@
 instructions.configure=\
-addRepository(type:0,location:https${#58}//download.eclipse.org/acceleo/updates/nightly/latest/,name:Acceleo4);\
-addRepository(type:1,location:https${#58}//download.eclipse.org/acceleo/updates/nightly/latest/,name:Acceleo4);\
+addRepository(type:0,location:https${#58}//download.eclipse.org/acceleo/updates/releases/4.1/R202502130921/,name:Acceleo4);\
+addRepository(type:1,location:https${#58}//download.eclipse.org/acceleo/updates/releases/4.1/R202502130921/,name:Acceleo4);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/,name:Amalgam);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/,name:Amalgam);\
 addRepository(type:0,location:https${#58}//obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/,name:ANTLR);\
