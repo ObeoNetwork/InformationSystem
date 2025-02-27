@@ -60,8 +60,12 @@ public class SQLService {
 	 * @see #validateConstaint(Constraint)
 	 */
 	public String buildAddConstraintQuery(String tableQname, String constraintName, String expression) {
+		String checkExpression = trimEmptyOnNull(expression);
+		if(!checkExpression.matches("^CHECK\\s*\\((.*)\\)$")) {
+			checkExpression = " CHECK(" + checkExpression + ")";
+		}
 		return "ALTER TABLE " + trimEmptyOnNull(tableQname) + " ADD CONSTRAINT " + trimEmptyOnNull(constraintName)
-				+ " CHECK(" + trimEmptyOnNull(expression) + ");";
+				+ " " + checkExpression + ";";
 	}
 
 	/**
