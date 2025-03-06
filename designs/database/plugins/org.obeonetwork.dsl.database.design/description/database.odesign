@@ -178,7 +178,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_TableContainer_contents" precondition="aql:not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized and element.eContainer()=newContainer and Sequence{database::Table, database::View, database::Schema}->intersection(element.eClass().eAllSuperTypes->including(element.eClass()))->notEmpty()" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_TableContainer_contents" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and Sequence{database::Table, database::View, database::Schema}->intersection(element.eClass().eAllSuperTypes->including(element.eClass()))->notEmpty()) or (partialView and element.eContainer()=newContainer) endlet" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -186,17 +186,37 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="aql:element.oclIsKindOf(database::Table)">
-                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']" containerViewExpression="var:newContainerView"/>
-                  </cases>
-                  <cases conditionExpression="aql:element.oclIsKindOf(database::View)">
-                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View']" containerViewExpression="var:newContainerView"/>
-                  </cases>
-                  <cases conditionExpression="aql:element.oclIsKindOf(database::Schema)">
-                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']" containerViewExpression="var:newContainerView"/>
+                  <cases conditionExpression="aql:newContainerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+                    <subModelOperations xsi:type="tool_1:Switch">
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::Table)">
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="tables"/>
+                      </cases>
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::View)">
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="tables"/>
+                      </cases>
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::Schema)">
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="tables"/>
+                      </cases>
+                      <default>
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
+                      </default>
+                    </subModelOperations>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
+                    <subModelOperations xsi:type="tool_1:Switch">
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::Table)">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']" containerViewExpression="var:newContainerView"/>
+                      </cases>
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::View)">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View']" containerViewExpression="var:newContainerView"/>
+                      </cases>
+                      <cases conditionExpression="aql:element.oclIsKindOf(database::Schema)">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']" containerViewExpression="var:newContainerView"/>
+                      </cases>
+                      <default>
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self"/>
+                      </default>
+                    </subModelOperations>
                   </default>
                 </subModelOperations>
               </firstModelOperations>
