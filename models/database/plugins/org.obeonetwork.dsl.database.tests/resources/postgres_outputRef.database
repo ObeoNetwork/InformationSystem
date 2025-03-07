@@ -35,12 +35,12 @@
           <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
         </type>
       </columns>
-      <columns xmi:id="_Ap8Txj1uEe2X4ZyH4ARslg" techID="_AlUSYD1uEe2X4ZyH4ARslg" name="last_name" nullable="true" defaultValue="" indexElements="_Ap8TvT1uEe2X4ZyH4ARslg">
+      <columns xmi:id="_Ap8Txj1uEe2X4ZyH4ARslg" techID="_AlUSYD1uEe2X4ZyH4ARslg" name="last_name" nullable="true" defaultValue="'D''Obeo'" indexElements="_Ap8TvT1uEe2X4ZyH4ARslg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Ap8Txz1uEe2X4ZyH4ARslg" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
         </type>
       </columns>
-      <columns xmi:id="_Ap8TyD1uEe2X4ZyH4ARslg" techID="_AlUSYT1uEe2X4ZyH4ARslg" name="first_name" nullable="true" defaultValue="" indexElements="_Ap8Tuz1uEe2X4ZyH4ARslg">
+      <columns xmi:id="_Ap8TyD1uEe2X4ZyH4ARslg" techID="_AlUSYT1uEe2X4ZyH4ARslg" name="first_name" nullable="true" defaultValue="'John'" indexElements="_Ap8Tuz1uEe2X4ZyH4ARslg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Ap8TyT1uEe2X4ZyH4ARslg" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
         </type>

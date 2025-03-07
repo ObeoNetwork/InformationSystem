@@ -84,18 +84,14 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 		}
 		
 		String filename = mainPage.getModelFilePath();
-		boolean result = DatabaseImportHelper.importDatabaseIntoModel(databaseInfos, filename, mainPage.getReferencedFiles());
-		if (result == true) {
+		boolean importSuccess = DatabaseImportHelper.importDatabaseIntoModel(databaseInfos, filename, mainPage.getReferencedFiles());
+		if (importSuccess) {
 			MessageDialog.openInformation(getShell(), "Database imported", "The database has been imported.\nThe model file '" + filename + "' has been created.");
 			IViewPart explorer = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(ProjectExplorer.VIEW_ID);
 			final IFile generatedFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(filename));
-			if (explorer != null) {
-				if (explorer instanceof ProjectExplorer) {
-					ProjectExplorer projectExplorer = (ProjectExplorer)explorer;
-					
-					// Create a selection to point on the generated file
-					projectExplorer.selectReveal(new StructuredSelection(generatedFile));
-				}
+			if (explorer instanceof ProjectExplorer projectExplorer) {
+				// Create a selection to point on the generated file
+				projectExplorer.selectReveal(new StructuredSelection(generatedFile));
 			}
 			
 			// Convert containing project to modeling project, activate viewpoints and create representations.
@@ -144,7 +140,7 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 		} else {
 			MessageDialog.openError(getShell(), "Error while importing database", "The database could not be imported.");
 		}
-		return result;
+		return importSuccess;
 	}
 	 
 	private void convertToModelingProject(IProject enclosingProject, IProgressMonitor monitor) throws CoreException {

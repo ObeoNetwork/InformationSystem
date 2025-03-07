@@ -37,6 +37,7 @@ import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.util.DatabaseResourceFactoryImpl;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryResourceFactoryImpl;
 
@@ -187,7 +188,7 @@ public final class TestUtils {
 
 		@Override
 		protected boolean haveEqualFeature(EObject eObject1, EObject eObject2, EStructuralFeature feature) {
-			boolean result = super.haveEqualFeature(eObject1, eObject2, feature);
+			boolean result = feature == TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID || super.haveEqualFeature(eObject1, eObject2, feature);
 			assertTrue("The " + feature.getClass().getInterfaces()[0].getSimpleName() + " '" + feature.getName()
 					+ "' on " + getName(eObject1) + " is different. Expected "+eObject2.eGet(feature)+" but was: "+eObject1.eGet(feature), result);
 			return result;

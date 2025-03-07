@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
@@ -260,6 +262,14 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		if (defaultValue == null || defaultValue.length() == 0) {
 			defaultValue = "";
 		}
+		// Remove the type of the textual value if present
+		// Not sure this is specific to Postgres only but it shouldn't impact the other database types
+		final Pattern p = Pattern.compile("^('.*')::[^']*$");
+		Matcher matcher = p.matcher(defaultValue);
+		if(matcher.find()) {
+			defaultValue = matcher.group(1);
+		}
+
 		column.setDefaultValue(defaultValue.trim());
 		if (rs.getMetaData().getColumnCount() >= 23) {
 			column.setAutoincrement("YES".equals(rs.getString(23)));
