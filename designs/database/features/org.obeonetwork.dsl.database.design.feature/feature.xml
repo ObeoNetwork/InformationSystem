@@ -25,17 +25,6 @@
       %copyright
    </copyright>
 
-   <requires>
-      <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
-      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/> -->
-      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/> -->
-      <import feature="org.obeonetwork.dsl.database.feature"/>
-   </requires>
-
    <plugin
          id="org.obeonetwork.dsl.database.design"
          download-size="0"
