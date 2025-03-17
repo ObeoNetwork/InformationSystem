@@ -35,5 +35,18 @@
             type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
       </propertyTester>
    </extension>
+   <!-- TODO: Remove when dependency to Acceleo3 is removed -->
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="org.obeonetwork.is.capability.hideA3"
+            name="Hide Acceleo 3 Wizards">
+      </activity>
+      <activityPatternBinding
+            activityId="org.obeonetwork.is.capability.hideA3"
+            isEqualityPattern="false"
+            pattern="org\.eclipse\.acceleo\.ide\.ui.*">
+      </activityPatternBinding>
+   </extension>
 
 </plugin>
