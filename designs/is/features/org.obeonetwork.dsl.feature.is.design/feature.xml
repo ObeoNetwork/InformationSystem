@@ -25,22 +25,6 @@
       %copyright
    </copyright>
 
-   <requires>
-      <import feature="org.obeonetwork.dsl.cinematic.design.feature"/>
-      <import feature="org.obeonetwork.dsl.feature.entity"/>
-      <import feature="org.obeonetwork.dsl.feature.overview"/>
-      <import feature="org.obeonetwork.dsl.feature.soa"/>
-      <import feature="org.obeonetwork.dsl.environment.design.feature"/>
-      <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
-      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/> -->
-      <!-- <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/> -->
-      <import plugin="org.obeonetwork.dsl.environment.design.migration"/>
-   </requires>
-
    <plugin
          id="org.obeonetwork.dsl.is.design"
          download-size="0"
