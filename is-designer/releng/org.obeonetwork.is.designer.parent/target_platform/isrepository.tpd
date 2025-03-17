@@ -11,8 +11,6 @@ location Obeo-Designer-Community-11.9 "https://update.obeo.fr/release/designer/1
 	// Sirius
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.properties.feature.source.feature.group lazy
-	org.eclipse.sirius.runtime.acceleo.feature.group lazy
-	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
 	org.eclipse.sirius.runtime.aql.feature.group lazy
 	org.eclipse.sirius.runtime.aql.source.feature.group lazy
 	org.eclipse.sirius.runtime.feature.group lazy
