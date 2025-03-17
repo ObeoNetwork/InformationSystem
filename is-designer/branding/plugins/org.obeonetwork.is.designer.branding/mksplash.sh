@@ -12,14 +12,13 @@
 ###############################################################################
 
 YEAR=`date +"%Y"`
-VERSION=`grep -o '<version>[0-9]\+\.[0-9]\+\.[0-9]\+-SNAPSHOT</version>' ${WORKSPACE}/releng/org.obeonetwork.informationsystem.parent/pom.xml | grep -o '[0-9]\+\.[0-9]\+'`
+VERSION=`grep -o '<version>[0-9]\+\.[0-9]\+\.[0-9]\+-SNAPSHOT</version>' ${WORKSPACE}/releng/org.obeonetwork.informationsystem.parent/pom.xml | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+'`
 
 echo "[INFO] Build splash screen version ${VERSION} for year ${YEAR}"
 
 cd ${WORKSPACE}/is-designer/branding/plugins/org.obeonetwork.is.designer.branding
 convert \
- -pointsize 30 -font Liberation-Sans-Bold -fill white -draw "text 378,172 \"${VERSION}\"" \
- -pointsize 9 -font DejaVu-Sans-Bold -fill '#037788' -draw "text 275,316 \"${YEAR} Obeo - All rights reserved\"" \
- -pointsize 11 -font DejaVu-Sans-Bold -fill '#037788' -draw 'text 262,316 "©"' \
+ -pointsize 22 -font Lato-Light -fill white -draw "text 176,206 \"Version ${VERSION}\"" \
+ -pointsize 10.5 -font Lato-Regular -fill '#009DB5' -draw "text 22,316 \"© ${YEAR} Obeo. All rights reserved\"" \
  -type truecolor \
  splash.bmp BMP2:splash.bmp
