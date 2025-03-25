@@ -38,7 +38,7 @@ Visit http://www.obeo.fr
    <splash
       location="org.obeonetwork.is.designer.branding"
       startupProgressRect="0,328,458,18"
-      startupMessageRect="7,308,458,18"
+      startupMessageRect="23,221,400,18"
       startupForegroundColor="000000" />
    <launcher name="is-designer">
       <linux icon="/icons/logo_64.xpm"/>
@@ -219,7 +219,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
-      <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
+      <property name="eclipse.buildId" value="${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
 
