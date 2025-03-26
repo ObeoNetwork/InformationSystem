@@ -67,7 +67,7 @@ public class NewGraalModelWizard extends AbstractISNewModelWizard {
 		return Arrays.asList(
 				URI.createURI("viewpoint:/org.obeonetwork.dsl.environment.properties/Environment Views"),
 				URI.createURI("viewpoint:/org.obeonetwork.graal.design/Graal Methodology"),
-				URI.createURI("viewpoint:/org.obeonetwork.is.design/Graal Methodology (Safr@n consolidated view)"),
+				URI.createURI("viewpoint:/org.obeonetwork.is.design/Graal Methodology (ISD consolidated view)"),
 				URI.createURI("viewpoint:/org.obeonetwork.dsl.interaction.design/Interaction"),
 				URI.createURI("viewpoint:/org.obeonetwork.dsl.statemachine.design/State Machine")
 		);

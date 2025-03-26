@@ -236,7 +236,7 @@ La sélection doit porter sur un objet source et un objet cible, en dépliant le
 Pour un MPD ou un MLD, les objets source ou cible doivent être des _Data Base_ ou des _Schema_.
 Pour un modèle d'entités,  les objets source ou cible doivent être des _Entities_ ou des _Namespace_.
 
-* Le menu contextuel _Safr@n > Scaffolding_ permet de sélectionner le type de transformation à effectuer. Seules les transformations possibles en fonction des objets sélectionnés sont activées :
+* Le menu contextuel _ISD > Scaffolding_ permet de sélectionner le type de transformation à effectuer. Seules les transformations possibles en fonction des objets sélectionnés sont activées :
 !pics/BDD_Transfo_05.png!!
 * La sélection d'une entré de menu déclenche l'ouverture d'un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d'une transformation d'un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d'un autre MLD. Dans ce cas, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :
 !pics/BDD_Transfo_06.png!
@@ -248,7 +248,7 @@ h3(#database_transformation_scaffolding). Transformation depuis un modèle de sc
 La transformation peut être lancée directement depuis un modèle de scaffold par :
 
 * La sélection du modèle dans le _Model Explorer_
-* Le lancement de l'action de menu contextuel _Safr@n > Scaffolding_
+* Le lancement de l'action de menu contextuel _ISD > Scaffolding_
 
 Les transformations disponibles dans le menu dépendent des objets source et cible utilisés par le modèle de scaffolding.
 Une entrée de menu permet d'ajouter des ressources pour résoudre les dépendances externes comme lorsque l'assistant est utilisé (cf. paragraphe précédent).

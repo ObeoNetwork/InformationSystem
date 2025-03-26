@@ -76,8 +76,8 @@ Exemple de la vue Error Log suite à un traitement d'export Swagger avec message
 
 h2(#modele_environnement). Le modèle environnement
 
-Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
-Avant la version Safr@n 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version Safr@n 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
+Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles ISD.
+Avant la version ISD 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version ISD 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
 
 h3(#modeling_project_creation). Création d'un projet modeling
 

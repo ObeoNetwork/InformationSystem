@@ -65,7 +65,7 @@ public class NewEntityModelWizard extends AbstractISNewModelWizard {
 		return Arrays.asList(
 					URI.createURI("viewpoint:/org.obeonetwork.dsl.environment.properties/Environment Views"),
 					URI.createURI("viewpoint:/org.obeonetwork.dsl.entity.design/Entity Views"),
-					URI.createURI("viewpoint:/org.obeonetwork.is.design/Entity (Safr@n consolidated view)")
+					URI.createURI("viewpoint:/org.obeonetwork.is.design/Entity (ISD consolidated view)")
 		);
 	}
 	

@@ -31,7 +31,7 @@ with [get-editor "HomePage Layout Diagram" | get-diagram -index 1] {
         mouse-move 1036 157 button3 -height 655 -width 1133
         mouse-press 1036 157 button3 -height 655 -width 1133
     }
-    get-menu -path "Safr@n/Preview Layout" | click -metaKeys ""
+    get-menu -path "ISD/Preview Layout" | click -metaKeys ""
 }
 
 // Check layout

@@ -31,9 +31,9 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_p60wACg7Ee2WeZRyQpgSiQ">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_p7al5ig7Ee2WeZRyQpgSiQ" name="DTO Physical Names" repPath="#_p7WUcCg7Ee2WeZRyQpgSiQ">
-        <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']"/>
+        <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']"/>
         <target xmi:type="soa:System" href="My.soa#_p6D7ACg7Ee2WeZRyQpgSiQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -211,18 +211,18 @@
   <table:DTable uid="_p7WUcCg7Ee2WeZRyQpgSiQ" headerColumnWidth="80">
     <target xmi:type="soa:System" href="My.soa#_p6D7ACg7Ee2WeZRyQpgSiQ"/>
     <columns xmi:type="table:DFeatureColumn" uid="_p7ZXwCg7Ee2WeZRyQpgSiQ" label="Size" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Size']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Size']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_p7al4Cg7Ee2WeZRyQpgSiQ" label="Check" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Check']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Check']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_p7al4ig7Ee2WeZRyQpgSiQ" label="Unique" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Unique']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Unique']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_p7al5Cg7Ee2WeZRyQpgSiQ" label="Default" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Default']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedColumnMappings[name='DPN_Default']"/>
     </columns>
-    <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']"/>
+    <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='SOA%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']"/>
   </table:DTable>
   <diagram:DSemanticDiagram uid="_3Pr4UCg7Ee2WeZRyQpgSiQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_3Pu7oCg7Ee2WeZRyQpgSiQ" source="GMF_DIAGRAMS">

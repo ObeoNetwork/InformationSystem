@@ -39,9 +39,9 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_a46coAbzEeuD6rYgWOP-Jw">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_a5GC0AbzEeuD6rYgWOP-Jw" name="Entities Physical Names" repPath="#_a5FbwAbzEeuD6rYgWOP-Jw">
-        <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
+        <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
         <target xmi:type="oent:Root" href="referentiel.entity#_a3v_AAbzEeuD6rYgWOP-Jw"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -205,7 +205,7 @@
         <lines xmi:type="table:DLine" uid="_ce9_CAb0EeuD6rYgWOP-Jw" label="nom">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_t1ATMQbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_t1ATMQbzEeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_ce_NLgb0EeuD6rYgWOP-Jw" label="RF_PAYS_NOM" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_t1ATMQbzEeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_t1ATMQbzEeuD6rYgWOP-Jw"/>
@@ -228,7 +228,7 @@
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_na1sIQbzEeuD6rYgWOP-Jw"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
         <cells xmi:type="table:DCell" uid="_ce_NJAb0EeuD6rYgWOP-Jw" label="RF_PAYS" column="_a5FbwQbzEeuD6rYgWOP-Jw">
           <target xmi:type="oent:Entity" href="referentiel.entity#_na1sIQbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_na1sIQbzEeuD6rYgWOP-Jw"/>
@@ -255,7 +255,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mEAb0EeuD6rYgWOP-Jw" label="libelle">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_t-BFQQbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_t-BFQQbzEeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_ce_0Mwb0EeuD6rYgWOP-Jw" label="RF_GENRE_LIB" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_t-BFQQbzEeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_t-BFQQbzEeuD6rYgWOP-Jw"/>
@@ -278,7 +278,7 @@
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_oEDBMQbzEeuD6rYgWOP-Jw"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
         <cells xmi:type="table:DCell" uid="_ce_NOAb0EeuD6rYgWOP-Jw" label="RF_GENRE" column="_a5FbwQbzEeuD6rYgWOP-Jw">
           <target xmi:type="oent:Entity" href="referentiel.entity#_oEDBMQbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_oEDBMQbzEeuD6rYgWOP-Jw"/>
@@ -301,7 +301,7 @@
         </cells>
       </lines>
       <semanticElements xmi:type="oenv:Namespace" href="referentiel.entity#_fWGZoQbzEeuD6rYgWOP-Jw"/>
-      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']"/>
       <cells xmi:type="table:DCell" uid="_ce-mJwb0EeuD6rYgWOP-Jw" label="RF" column="_a5FbwQbzEeuD6rYgWOP-Jw">
         <target xmi:type="oenv:Namespace" href="referentiel.entity#_fWGZoQbzEeuD6rYgWOP-Jw"/>
         <semanticElements xmi:type="oenv:Namespace" href="referentiel.entity#_fWGZoQbzEeuD6rYgWOP-Jw"/>
@@ -330,7 +330,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mFgb0EeuD6rYgWOP-Jw" label="titre">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_BNr_IQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_BNr_IQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_cfAbTQb0EeuD6rYgWOP-Jw" label="GS_SERIE_TITRE" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_BNr_IQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_BNr_IQb0EeuD6rYgWOP-Jw"/>
@@ -355,7 +355,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mGAb0EeuD6rYgWOP-Jw" label="logo">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_KrnSIQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_KrnSIQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_cfAbVwb0EeuD6rYgWOP-Jw" label="GS_SERIE_LOGO" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_KrnSIQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_KrnSIQb0EeuD6rYgWOP-Jw"/>
@@ -380,7 +380,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mGgb0EeuD6rYgWOP-Jw" label="dateCreation">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_P4QWIQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_P4QWIQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_cfBCWQb0EeuD6rYgWOP-Jw" label="GS_SERIE_DTCREA" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_P4QWIQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_P4QWIQb0EeuD6rYgWOP-Jw"/>
@@ -405,7 +405,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mHAb0EeuD6rYgWOP-Jw" label="dateFin">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_XBykoQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_XBykoQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_cfBCYwb0EeuD6rYgWOP-Jw" label="GS_SERIE_DTFIN" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_XBykoQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_XBykoQb0EeuD6rYgWOP-Jw"/>
@@ -430,7 +430,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mHgb0EeuD6rYgWOP-Jw" label="aPourSaison">
           <target xmi:type="oenv:Reference" href="referentiel.entity#_EzCVMQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_EzCVMQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
           <cells xmi:type="table:DCell" uid="_cfBpYAb0EeuD6rYgWOP-Jw" label="" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Reference" href="referentiel.entity#_EzCVMQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_EzCVMQb0EeuD6rYgWOP-Jw"/>
@@ -455,7 +455,7 @@
         <lines xmi:type="table:DLine" uid="_4iQDnQb0EeuD6rYgWOP-Jw" label="aPourGenres">
           <target xmi:type="oenv:Reference" href="referentiel.entity#_4gV_EQb0EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_4gV_EQb0EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
           <cells xmi:type="table:DCell" uid="_4iRRvAb0EeuD6rYgWOP-Jw" label="" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Reference" href="referentiel.entity#_4gV_EQb0EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_4gV_EQb0EeuD6rYgWOP-Jw"/>
@@ -480,7 +480,7 @@
         <lines xmi:type="table:DLine" uid="_FLxv6Qb1EeuD6rYgWOP-Jw" label="aPourPaysOrigine">
           <target xmi:type="oenv:Reference" href="referentiel.entity#_FLe08Qb1EeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_FLe08Qb1EeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
           <cells xmi:type="table:DCell" uid="_FLxwMgb1EeuD6rYgWOP-Jw" label="" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Reference" href="referentiel.entity#_FLe08Qb1EeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Reference" href="referentiel.entity#_FLe08Qb1EeuD6rYgWOP-Jw"/>
@@ -503,7 +503,7 @@
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_16hBwAbzEeuD6rYgWOP-Jw"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
         <cells xmi:type="table:DCell" uid="_cfAbQwb0EeuD6rYgWOP-Jw" label="GS_SERIE" column="_a5FbwQbzEeuD6rYgWOP-Jw">
           <target xmi:type="oent:Entity" href="referentiel.entity#_16hBwAbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_16hBwAbzEeuD6rYgWOP-Jw"/>
@@ -530,7 +530,7 @@
         <lines xmi:type="table:DLine" uid="_ce-mIAb0EeuD6rYgWOP-Jw" label="numéro">
           <target xmi:type="oenv:Attribute" href="referentiel.entity#_8VzqMAbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_8VzqMAbzEeuD6rYgWOP-Jw"/>
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
           <cells xmi:type="table:DCell" uid="_cfBpdAb0EeuD6rYgWOP-Jw" label="GS_SAISON_NUM" column="_a5FbwQbzEeuD6rYgWOP-Jw">
             <target xmi:type="oenv:Attribute" href="referentiel.entity#_8VzqMAbzEeuD6rYgWOP-Jw"/>
             <semanticElements xmi:type="oenv:Attribute" href="referentiel.entity#_8VzqMAbzEeuD6rYgWOP-Jw"/>
@@ -553,7 +553,7 @@
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_48EHMQbzEeuD6rYgWOP-Jw"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
         <cells xmi:type="table:DCell" uid="_cfBpagb0EeuD6rYgWOP-Jw" label="GS_SAISON" column="_a5FbwQbzEeuD6rYgWOP-Jw">
           <target xmi:type="oent:Entity" href="referentiel.entity#_48EHMQbzEeuD6rYgWOP-Jw"/>
           <semanticElements xmi:type="oent:Entity" href="referentiel.entity#_48EHMQbzEeuD6rYgWOP-Jw"/>
@@ -576,7 +576,7 @@
         </cells>
       </lines>
       <semanticElements xmi:type="oenv:Namespace" href="referentiel.entity#_joO9MQbzEeuD6rYgWOP-Jw"/>
-      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']"/>
       <cells xmi:type="table:DCell" uid="_ce_0PQb0EeuD6rYgWOP-Jw" label="GS" column="_a5FbwQbzEeuD6rYgWOP-Jw">
         <target xmi:type="oenv:Namespace" href="referentiel.entity#_joO9MQbzEeuD6rYgWOP-Jw"/>
         <semanticElements xmi:type="oenv:Namespace" href="referentiel.entity#_joO9MQbzEeuD6rYgWOP-Jw"/>
@@ -599,21 +599,21 @@
       </cells>
     </lines>
     <columns xmi:type="table:DFeatureColumn" uid="_a5FbwQbzEeuD6rYgWOP-Jw" label="Name" cells="_ce-mJwb0EeuD6rYgWOP-Jw _ce_NJAb0EeuD6rYgWOP-Jw _ce_NLgb0EeuD6rYgWOP-Jw _ce_NOAb0EeuD6rYgWOP-Jw _ce_0Mwb0EeuD6rYgWOP-Jw _ce_0PQb0EeuD6rYgWOP-Jw _cfAbQwb0EeuD6rYgWOP-Jw _cfAbTQb0EeuD6rYgWOP-Jw _cfAbVwb0EeuD6rYgWOP-Jw _cfBCWQb0EeuD6rYgWOP-Jw _cfBCYwb0EeuD6rYgWOP-Jw _cfBpYAb0EeuD6rYgWOP-Jw _cfBpagb0EeuD6rYgWOP-Jw _cfBpdAb0EeuD6rYgWOP-Jw _4iRRvAb0EeuD6rYgWOP-Jw _FLxwMgb1EeuD6rYgWOP-Jw" width="120" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_PhysicalName']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_PhysicalName']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_a5FbwwbzEeuD6rYgWOP-Jw" label="Size" cells="_ce-mKQb0EeuD6rYgWOP-Jw _ce_NJgb0EeuD6rYgWOP-Jw _ce_NMAb0EeuD6rYgWOP-Jw _ce_NOgb0EeuD6rYgWOP-Jw _ce_0NQb0EeuD6rYgWOP-Jw _ce_0Pwb0EeuD6rYgWOP-Jw _cfAbRQb0EeuD6rYgWOP-Jw _cfAbTwb0EeuD6rYgWOP-Jw _cfBCUQb0EeuD6rYgWOP-Jw _cfBCWwb0EeuD6rYgWOP-Jw _cfBCZQb0EeuD6rYgWOP-Jw _cfBpYgb0EeuD6rYgWOP-Jw _cfBpbAb0EeuD6rYgWOP-Jw _cfBpdgb0EeuD6rYgWOP-Jw _4iRRvgb0EeuD6rYgWOP-Jw _FLxwNAb1EeuD6rYgWOP-Jw" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Size']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Size']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_a5FbxQbzEeuD6rYgWOP-Jw" label="Check" cells="_ce-mKwb0EeuD6rYgWOP-Jw _ce_NKAb0EeuD6rYgWOP-Jw _ce_NMgb0EeuD6rYgWOP-Jw _ce_NPAb0EeuD6rYgWOP-Jw _ce_0Nwb0EeuD6rYgWOP-Jw _ce_0QQb0EeuD6rYgWOP-Jw _cfAbRwb0EeuD6rYgWOP-Jw _cfAbUQb0EeuD6rYgWOP-Jw _cfBCUwb0EeuD6rYgWOP-Jw _cfBCXQb0EeuD6rYgWOP-Jw _cfBCZwb0EeuD6rYgWOP-Jw _cfBpZAb0EeuD6rYgWOP-Jw _cfBpbgb0EeuD6rYgWOP-Jw _cfBpeAb0EeuD6rYgWOP-Jw _4iRRwAb0EeuD6rYgWOP-Jw _FLxwNgb1EeuD6rYgWOP-Jw" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Check']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Check']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_a5FbxwbzEeuD6rYgWOP-Jw" label="Unique" cells="_ce_NIAb0EeuD6rYgWOP-Jw _ce_NKgb0EeuD6rYgWOP-Jw _ce_NNAb0EeuD6rYgWOP-Jw _ce_NPgb0EeuD6rYgWOP-Jw _ce_0OQb0EeuD6rYgWOP-Jw _ce_0Qwb0EeuD6rYgWOP-Jw _cfAbSQb0EeuD6rYgWOP-Jw _cfAbUwb0EeuD6rYgWOP-Jw _cfBCVQb0EeuD6rYgWOP-Jw _cfBCXwb0EeuD6rYgWOP-Jw _cfBCaQb0EeuD6rYgWOP-Jw _cfBpZgb0EeuD6rYgWOP-Jw _cfBpcAb0EeuD6rYgWOP-Jw _cfBpegb0EeuD6rYgWOP-Jw _4iRRwgb0EeuD6rYgWOP-Jw _FLxwOAb1EeuD6rYgWOP-Jw" width="218" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Unique']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Unique']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_a5FbyQbzEeuD6rYgWOP-Jw" label="Default" cells="_ce_NIgb0EeuD6rYgWOP-Jw _ce_NLAb0EeuD6rYgWOP-Jw _ce_NNgb0EeuD6rYgWOP-Jw _ce_0MQb0EeuD6rYgWOP-Jw _ce_0Owb0EeuD6rYgWOP-Jw _cfAbQQb0EeuD6rYgWOP-Jw _cfAbSwb0EeuD6rYgWOP-Jw _cfAbVQb0EeuD6rYgWOP-Jw _cfBCVwb0EeuD6rYgWOP-Jw _cfBCYQb0EeuD6rYgWOP-Jw _cfBCawb0EeuD6rYgWOP-Jw _cfBpaAb0EeuD6rYgWOP-Jw _cfBpcgb0EeuD6rYgWOP-Jw _cfCQcQb0EeuD6rYgWOP-Jw _4iRRxAb0EeuD6rYgWOP-Jw _FLxwOgb1EeuD6rYgWOP-Jw" width="80" featureName="name">
-      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Default']"/>
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Default']"/>
     </columns>
-    <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
+    <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.obeonetwork.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(ISD%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
   </table:DTable>
   <diagram:DSemanticDiagram uid="_m9__IAbzEeuD6rYgWOP-Jw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_m-CbYAbzEeuD6rYgWOP-Jw" source="DANNOTATION_CUSTOMIZATION_KEY">

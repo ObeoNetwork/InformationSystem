@@ -528,7 +528,7 @@ with [get-window "New Modeling Project"] {
 }
 get-view "Model Explorer" | get-tree | select Test | get-menu -path "New/Other..." | click -metaKeys ""
 with [get-window New] {
-    get-tree | select "Safr@n/Cinematic Model"
+    get-tree | select "ISD/Cinematic Model"
     get-button "Next >" | click -metaKeys ""
 }
 with [get-window "New Cinematic model"] {

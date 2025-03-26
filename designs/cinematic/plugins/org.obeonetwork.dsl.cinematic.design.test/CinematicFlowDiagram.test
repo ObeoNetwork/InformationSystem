@@ -1204,7 +1204,7 @@ with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
         mouse-move 499 26 button3 -height 344 -width 520
         mouse-press 499 26 button3 -height 344 -width 520
     }
-    get-menu -path "Safr@n/Remove Mockup Image" | click -metaKeys ""
+    get-menu -path "ISD/Remove Mockup Image" | click -metaKeys ""
 }
 // Check node
 with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
