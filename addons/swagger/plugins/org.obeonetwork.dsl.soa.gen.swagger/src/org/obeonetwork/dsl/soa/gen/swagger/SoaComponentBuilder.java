@@ -1482,6 +1482,10 @@ public class SoaComponentBuilder {
 	}
 
 	private boolean isPrimitiveType(Schema schema, List<String> debugPath) {
+		if(schema == null) {
+			return false;
+		}
+		
 		if (schema.get$ref() != null) {
 			return isPrimitiveType(getReferencedSchema(schema.get$ref(), newDebugPath(debugPath, schema.get$ref())), newDebugPath(debugPath, schema.get$ref()));
 		}
