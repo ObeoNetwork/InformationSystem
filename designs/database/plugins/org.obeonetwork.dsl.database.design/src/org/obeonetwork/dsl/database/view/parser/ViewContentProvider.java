@@ -14,6 +14,11 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.obeonetwork.dsl.database.DatabaseFactory;
+import org.obeonetwork.dsl.database.ViewColumn;
+import org.obeonetwork.dsl.database.ViewTable;
+import org.obeonetwork.utils.common.StringUtils;
+
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserManager;
 import net.sf.jsqlparser.schema.Table;
@@ -22,21 +27,14 @@ import net.sf.jsqlparser.statement.select.Select;
 
 public class ViewContentProvider {
 
-	private List<String> tables;
-	private List<ColObject> columns;
-	/**
-	 * Constructor;
-	 */
-	 public ViewContentProvider (){
-		 tables = new ArrayList<String>();
-		 columns = new ArrayList<ColObject>();
-	 }
+	private List<ViewTable> tables = null;
+	private List<ViewColumn> columns = null;
 
 	/**
 	 * Parse the query to find tables and columns used for the view.
 	 * @param query
 	 */
-	public void parseViewQuery(String query){
+	public void parseViewQuery(String query) {
 		Statement statement;
 		CCJSqlParserManager pm = new CCJSqlParserManager();
 		try {
@@ -46,29 +44,60 @@ public class ViewContentProvider {
 				ViewContentFinder viewContentFinder = new ViewContentFinder();
 				viewContentFinder.parseView(selectStatement);
 
-				for (Table table : viewContentFinder.getTables()){
-					tables.add(table.getName());
+				tables = new ArrayList<>();
+				for (Table table : viewContentFinder.getTables()) {
+					ViewTable viewTable = DatabaseFactory.eINSTANCE.createViewTable();
+					viewTable.setName(getFullTableName(table));
+					viewTable.setAlias(table.getAlias());
+					tables.add(viewTable);
 				}
-				columns= viewContentFinder.getColumns();
+				
+				columns= new ArrayList<>();
+				for(ColObject col : viewContentFinder.getColumns()) {
+					ViewColumn viewColumn = DatabaseFactory.eINSTANCE.createViewColumn();
+					viewColumn.setAlias(col.getAlias());
+					viewColumn.setName(col.getName());
+					// TODO Already handled by DatabaseServices.computeViewTableFromViewColumn(ViewColumn)
+					viewColumn.setFrom(getViewTable(col.getTable()));
+				}
 			}
 		} catch (JSQLParserException e) {
 			// nothing to do
 		}
 	}
 	
-	/**
-	 * Get list of tables.
-	 * @return list of table names.
-	 */
-	public List<String> getTables(){
+	private ViewTable getViewTable(String tableName) {
+		ViewTable viewTable = null;
+		viewTable = tables.stream().filter(t -> tableName.equalsIgnoreCase(t.getAlias())).findFirst().orElse(null);
+		
+		if(viewTable == null) {
+			viewTable = tables.stream().filter(t -> tableName.equalsIgnoreCase(t.getName())).findFirst().orElse(null);
+		}
+		
+		if(viewTable == null) {
+			viewTable = tables.stream()
+					.filter(t -> t.getName().contains("."))
+					.filter(t -> tableName.equalsIgnoreCase(t.getName().split("\\.")[1])).findFirst().orElse(null);
+		}
+		
+		return viewTable;
+	}
+
+	private String getFullTableName(Table table) {
+		String fullTableName;
+		if(!StringUtils.isNullOrWhite(table.getSchemaName())) {
+			fullTableName = table.getSchemaName() + "." + table.getName();
+		} else {
+			fullTableName = table.getName();
+		}
+		return fullTableName;
+	}
+	
+	public List<ViewTable> getTables(){
 		return tables;
 	}
 	
-	/**
-	 * Get list of Columns.
-	 * @return list of columns objects.
-	 */
-	public  List<ColObject> getColumns(){
+	public  List<ViewColumn> getColumns(){
 		return columns;
 	}
 }

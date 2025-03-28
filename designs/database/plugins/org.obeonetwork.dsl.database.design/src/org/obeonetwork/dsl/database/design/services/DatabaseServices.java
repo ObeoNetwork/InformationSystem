@@ -44,11 +44,9 @@ import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
-import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 import org.obeonetwork.utils.common.EObjectUtils;
-import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.common.ui.services.EclipseUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
@@ -361,38 +359,15 @@ public class DatabaseServices {
 		String query = Optional.ofNullable(view.getQuery()).orElse("");
 		viewContentProvider.parseViewQuery(query);
 
-		// Update tables
-		List<String> parsedTableNames = viewContentProvider.getTables();
-		if (parsedTableNames != null) {
-			for (String parsedTableName : parsedTableNames) {
-				ViewTable viewTable = DatabaseFactory.eINSTANCE.createViewTable();
-				viewTable.setName(parsedTableName);
-				view.getTables().add(viewTable);
-			}
-		}
+		view.getTables().addAll(viewContentProvider.getTables());
+		view.getColumns().addAll(viewContentProvider.getColumns());
 		
-		// Update columns
-		List<ColObject> parsedColumns = viewContentProvider.getColumns();
-		if (parsedColumns != null) {
-			for (ColObject parsedColumn : parsedColumns) {
-				ViewColumn viewColumn = DatabaseFactory.eINSTANCE.createViewColumn();
-				viewColumn.setName(parsedColumn.getName());
-				viewColumn.setAlias(parsedColumn.getAlias());
-				view.getColumns().add(viewColumn);
-				
-				if(!StringUtils.isNullOrWhite(parsedColumn.getTable())) {
-					Optional<ViewTable> fromTableOpt = view.getTables().stream()
-							.filter(t -> parsedColumn.getTable().equalsIgnoreCase(t.getName()) || 
-									parsedColumn.getTable().equalsIgnoreCase(t.getAlias()))
-							.findFirst();
-					if(fromTableOpt.isPresent()) {
-						viewColumn.setFrom(fromTableOpt.get());
-					}
-				} else {
-					ViewTable viewTable = computeViewTableFromViewColumn(viewColumn);
-					if(viewTable != null) {
-						viewColumn.setFrom(viewTable);
-					}
+		// Consolidate the ViewColumns model
+		for(ViewColumn viewColumn : viewContentProvider.getColumns()) {
+			if(viewColumn.getFrom() == null) {
+				ViewTable viewTable = computeViewTableFromViewColumn(viewColumn);
+				if(viewTable != null) {
+					viewColumn.setFrom(viewTable);
 				}
 			}
 		}
@@ -429,10 +404,17 @@ public class DatabaseServices {
 		if(column != null) {
 			Table table = column.getOwner();
 			return view.getTables().stream()
-					.filter(vt -> vt.getName().equalsIgnoreCase(table.getName())).findFirst().orElse(null);
+					.filter(vt -> getViewTableShortName(vt).equalsIgnoreCase(table.getName())).findFirst().orElse(null);
 		}
 		
 		return null;
+	}
+	
+	private static String getViewTableShortName(ViewTable viewTable) {
+		if(viewTable.getName().contains(".")) {
+			return viewTable.getName().split("\\.")[1];
+		}
+		return viewTable.getName();
 	}
 	
 	private static void validateViewQuery(View view) {
