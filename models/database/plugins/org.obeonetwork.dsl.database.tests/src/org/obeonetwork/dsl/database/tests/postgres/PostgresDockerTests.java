@@ -146,7 +146,7 @@ public class PostgresDockerTests extends AbstractDockerTests {
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		
 		if(this.containerImage.equals("postgres:9.6-alpine")) {
-			DataBase databaseRef = TestUtils.loadModel("resources/postgres/postgres_9.6-alpine.database", TypesLibraryUtil.POSTGRES_PATHMAP);	
+			DataBase databaseRef = TestUtils.loadModel("resources/postgres/postgres_9.6-alpine.database", TypesLibraryUtil.POSTGRES9_PATHMAP);	
 			TestUtils.checkEquality(database, databaseRef);
 		}
 		else {

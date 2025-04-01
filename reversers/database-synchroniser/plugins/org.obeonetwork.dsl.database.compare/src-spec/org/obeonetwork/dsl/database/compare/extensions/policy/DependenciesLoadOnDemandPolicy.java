@@ -23,6 +23,7 @@ public class DependenciesLoadOnDemandPolicy implements ILoadOnDemandPolicy {
 		TypesLibraryUtil.LOGICAL_PATHMAP,
 		TypesLibraryUtil.MYSQL_PATHMAP,
 		TypesLibraryUtil.ORACLE_PATHMAP,
+		TypesLibraryUtil.POSTGRES9_PATHMAP,
 		TypesLibraryUtil.POSTGRES_PATHMAP,
 		TypesLibraryUtil.SQLSERVER_PATHMAP
 	};

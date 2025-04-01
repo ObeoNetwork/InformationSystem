@@ -152,7 +152,8 @@ public class TypesServices {
 
 	private boolean isTargetPostgreSQLTypesLibrary(TypesLibrary targetTypesLibrary) {
 		return targetTypesLibrary != null
-				&& TypesLibraryUtil.POSTGRES_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
+				&& (TypesLibraryUtil.POSTGRES9_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString())
+						|| TypesLibraryUtil.POSTGRES_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString()));
 	}
 
 	public void dispose() {

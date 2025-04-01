@@ -102,9 +102,9 @@ abstract public class AbstractGenerationTest {
 		assertBaseGenerationEquals(inputFolderName,false,false);
 	}
 	
-	public void assertGenerationEquals(String inputFolderName, Boolean createSchemaIfNoneExist) {
-		assertBaseGenerationEquals(inputFolderName,true,createSchemaIfNoneExist);
-	}
+//	public void assertGenerationEquals(String inputFolderName, Boolean createSchemaIfNoneExist) {
+//		assertBaseGenerationEquals(inputFolderName,true,createSchemaIfNoneExist);
+//	}
 
 	private TableContainer getSourceModel(String inputFolderName) {
 		return loadTableContainerFromFile(inputFolderName, INPUT_FILENAME_1);
