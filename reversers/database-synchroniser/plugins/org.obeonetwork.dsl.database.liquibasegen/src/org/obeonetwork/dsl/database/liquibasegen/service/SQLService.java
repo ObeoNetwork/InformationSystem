@@ -62,7 +62,7 @@ public class SQLService {
 	public String buildAddConstraintQuery(String tableQname, String constraintName, String expression) {
 		String checkExpression = trimEmptyOnNull(expression);
 		if(!checkExpression.matches("^CHECK\\s*\\((.*)\\)$")) {
-			checkExpression = " CHECK(" + checkExpression + ")";
+			checkExpression = "CHECK(" + checkExpression + ")";
 		}
 		return "ALTER TABLE " + trimEmptyOnNull(tableQname) + " ADD CONSTRAINT " + trimEmptyOnNull(constraintName)
 				+ " " + checkExpression + ";";

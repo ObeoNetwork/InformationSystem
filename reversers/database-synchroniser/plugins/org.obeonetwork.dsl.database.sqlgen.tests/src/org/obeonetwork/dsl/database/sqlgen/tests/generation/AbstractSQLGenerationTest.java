@@ -37,7 +37,7 @@ abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 	
 	@Override
 	protected  void doGenerate(Comparison comparisonModel, File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
-		doGenerate(comparisonModel,targetFolder);
+		doGenerate(comparisonModel, targetFolder);
 	}
 
 	protected void compareFolders(File targetfolder, File expectationsFolder) {

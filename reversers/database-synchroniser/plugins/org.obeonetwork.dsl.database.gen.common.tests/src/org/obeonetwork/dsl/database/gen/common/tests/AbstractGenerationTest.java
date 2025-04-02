@@ -86,83 +86,50 @@ abstract public class AbstractGenerationTest {
 		return null;
 	}
 
-	private void assertBaseGenerationEquals(String inputFolderName, boolean optionCreateSchemaIfNoneExist, boolean createSchemaIfNoneExist) {
+	public void assertGenerationEquals(String inputFolderName, boolean createSchemaIfNoneExist) {
 		// Ease fixing failing tests.
 		System.out.println("Test on folder " + inputFolderName);
+		
 		TableContainer source = getSourceModel(inputFolderName);
 		TableContainer target = getSourceTarget(inputFolderName);
-		if(optionCreateSchemaIfNoneExist) {
-			assertGenerationEquals(source, target, INPUT + inputFolderName + "/expected", createSchemaIfNoneExist);
-		}else {
-			assertGenerationEquals(source, target, INPUT + inputFolderName + "/expected");
-		}
-	}
-	
-	public void assertGenerationEquals(String inputFolderName) {
-		assertBaseGenerationEquals(inputFolderName,false,false);
-	}
-	
-//	public void assertGenerationEquals(String inputFolderName, Boolean createSchemaIfNoneExist) {
-//		assertBaseGenerationEquals(inputFolderName,true,createSchemaIfNoneExist);
-//	}
-
-	private TableContainer getSourceModel(String inputFolderName) {
-		return loadTableContainerFromFile(inputFolderName, INPUT_FILENAME_1);
-	}
-
-	private TableContainer getSourceTarget(String inputFolderName) {
-		return loadTableContainerFromFile(inputFolderName, INPUT_FILENAME_2);
-	}
-	
-	private void assertBaseGenerationEquals(TableContainer source, TableContainer target, String expectationsFolderPath, boolean optionCreateSchemaIfNoneExist, boolean createSchemaIfNoneExist) {
+		String expectationsFolderPath = INPUT + inputFolderName + "/expected";
+		
 		File expectationsFolder = createExpectationsFolder(expectationsFolderPath);
 		try {
 			Comparison comparison = DatabaseCompareService.compare(source, target);
-			if(optionCreateSchemaIfNoneExist) {
-				doGenerate(comparison, targetFolder, createSchemaIfNoneExist);
-			} else {
-				doGenerate(comparison, targetFolder);
-			}
+			doGenerate(comparison, targetFolder, createSchemaIfNoneExist);
 		} catch (Exception e) {
 			fail("Comparison failed with an exception : " + e.getMessage());
 		}
 
 		compareFolders(targetFolder, expectationsFolder);
 	}
-
-	public void assertGenerationEquals(TableContainer source, TableContainer target, String expectationsFolderPath) {
-		assertBaseGenerationEquals(source, target, expectationsFolderPath, false, false);
-	}
-
-	public void assertGenerationEquals(TableContainer source, TableContainer target, String expectationsFolderPath, Boolean createSchemaIfNoneExist) {
-		assertBaseGenerationEquals(source, target, expectationsFolderPath, true, createSchemaIfNoneExist);
+	
+	public void assertGenerationEquals(String inputFolderName) {
+		assertGenerationEquals(inputFolderName, false);
 	}
 	
-	private void assertBaseGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName, boolean optionCreateSchemaIfNoneExist, boolean createSchemaIfNoneExist)
-			throws Exception {
+	public void assertGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName) throws Exception {
+		assertGenerationFromScratchEquals(folder, fileName, expectedFolderName, false);
+	}
 
+	public void assertGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName, boolean createSchemaIfNoneExist) throws Exception {
 		String expectationsFolderPath = INPUT + folder + "/" + expectedFolderName;
 		File expectationsFolder = createExpectationsFolder(expectationsFolderPath);
 
 		TableContainer rootContainer = loadTableContainerFromFile(folder, fileName);
 
 		Comparison comparison = DataBaseCompareUtil.buildFromScratchComparison(rootContainer);
-		if(optionCreateSchemaIfNoneExist) {
-			doGenerate(comparison, targetFolder, createSchemaIfNoneExist);
-		} else {
-			doGenerate(comparison, targetFolder);
-		}
+		doGenerate(comparison, targetFolder, createSchemaIfNoneExist);
 		compareFolders(targetFolder, expectationsFolder);
 	}
 	
-	public void assertGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName)
-			throws Exception {
-		assertBaseGenerationFromScratchEquals(folder, fileName, expectedFolderName, false, false);
+	private TableContainer getSourceModel(String inputFolderName) {
+		return loadTableContainerFromFile(inputFolderName, INPUT_FILENAME_1);
 	}
 
-	public void assertGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName, Boolean createSchemaIfNoneExist)
-			throws Exception {
-		assertBaseGenerationFromScratchEquals(folder, fileName, expectedFolderName, true, createSchemaIfNoneExist);
+	private TableContainer getSourceTarget(String inputFolderName) {
+		return loadTableContainerFromFile(inputFolderName, INPUT_FILENAME_2);
 	}
 	
 	protected abstract void doGenerate(Comparison comparison, File targetFolder) throws IOException;
