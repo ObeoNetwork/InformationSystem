@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.resource.URIConverter;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
+import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
 
 public class TypesLibraryUtil {
 	
@@ -51,18 +53,53 @@ public class TypesLibraryUtil {
 	public static void registerPathmaps() {
 		final URL mySqlUrl = TypesLibraryUtil.class.getClassLoader().getResource("MySQL-5.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(MYSQL_PATHMAP), URI.createURI(mySqlUrl.toString()));
+		
 		final URL mariaDBUrl = TypesLibraryUtil.class.getClassLoader().getResource("MariaDB-10.2.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(MARIADB_PATHMAP), URI.createURI(mariaDBUrl.toString()));
+		
 		final URL oracleUrl = TypesLibraryUtil.class.getClassLoader().getResource("Oracle-11g.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(ORACLE_PATHMAP), URI.createURI(oracleUrl.toString()));	
+		
 		final URL postgres9Url = TypesLibraryUtil.class.getClassLoader().getResource("Postgres-9.typeslibrary");
-		URIConverter.URI_MAP.put(URI.createURI(POSTGRES_PATHMAP), URI.createURI(postgres9Url.toString()));
+		URIConverter.URI_MAP.put(URI.createURI(POSTGRES9_PATHMAP), URI.createURI(postgres9Url.toString()));
+		
 		final URL postgresUrl = TypesLibraryUtil.class.getClassLoader().getResource("Postgres-9.5-13.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(POSTGRES_PATHMAP), URI.createURI(postgresUrl.toString()));
+		
 		final URL sqlserverUrl = TypesLibraryUtil.class.getClassLoader().getResource("SQLServer-2008.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(SQLSERVER_PATHMAP), URI.createURI(sqlserverUrl.toString()));
+		
 		final URL h2Url = TypesLibraryUtil.class.getClassLoader().getResource("H2-1.3.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(H2_PATHMAP), URI.createURI(h2Url.toString()));
 	}
 
+	public static boolean isMPD(TypesLibrary typesLibrary) {
+		return typesLibrary != null && typesLibrary.getKind() == TypesLibraryKind.PHYSICAL_TYPES;
+	}
+	
+	public static boolean isOracleMPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && TypesLibraryUtil.ORACLE_PATHMAP.equals(typesLibrary.eResource().getURI().toString());
+	}
+	
+	public static boolean isMysqlMPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && TypesLibraryUtil.MYSQL_PATHMAP.equals(typesLibrary.eResource().getURI().toString());
+	}
+	
+	public static boolean isMariaDBMPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && TypesLibraryUtil.MARIADB_PATHMAP.equals(typesLibrary.eResource().getURI().toString());
+	}
+	
+	public static boolean isPostgresMPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && (TypesLibraryUtil.POSTGRES9_PATHMAP.equals(typesLibrary.eResource().getURI().toString())
+				|| TypesLibraryUtil.POSTGRES_PATHMAP.equals(typesLibrary.eResource().getURI().toString()));
+	}
+	
+	public static boolean isSQLServerMPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && TypesLibraryUtil.SQLSERVER_PATHMAP.equals(typesLibrary.eResource().getURI().toString());
+	}
+	
+	public static boolean isH2MPD(TypesLibrary typesLibrary) {
+		return isMPD(typesLibrary) && TypesLibraryUtil.H2_PATHMAP.equals(typesLibrary.eResource().getURI().toString());
+	}
+	
 }

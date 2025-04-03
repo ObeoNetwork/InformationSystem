@@ -10,6 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.database.transfo.impl;
 
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isH2MPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMariaDBMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMysqlMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isOracleMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isPostgresMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isSQLServerMPD;
+
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
@@ -21,17 +28,17 @@ public class MLDToMPD extends MpdToMldBidiRules {
 
 	@Override
 	protected String getTypePropertiesFileName() {
-		if (isTargetOracleMPD()) {
+		if (isOracleMPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-Oracle.properties";
-		} else if (isTargetMysqlMPD()) {
+		} else if (isMysqlMPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-MySQL.properties";
-		} else if (isTargetMariaDBMPD()) {
+		} else if (isMariaDBMPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-MariaDB.properties";
-		} else if (isTargetPostgresMPD()) {
+		} else if (isPostgresMPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-Postgres.properties";
-		} else if (isTargetSQLServerMPD()) {
+		} else if (isSQLServerMPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-SQLServer.properties";
-		} else if (isTargetH2MPD()) {
+		} else if (isH2MPD(targetTypesLibrary)) {
 			return "LogicalTypes-to-H2.properties";
 		}
 		return null;

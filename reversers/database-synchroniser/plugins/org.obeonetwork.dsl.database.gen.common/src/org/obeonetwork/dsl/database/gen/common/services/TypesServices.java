@@ -10,6 +10,14 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.gen.common.services;
 
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isH2MPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMariaDBMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMysqlMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isOracleMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isPostgresMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isSQLServerMPD;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.database.DataBase;
@@ -17,10 +25,8 @@ import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.typeslibrary.NativeTypeKind;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
-import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory;
-import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class TypesServices {
 
@@ -61,12 +67,12 @@ public class TypesServices {
 
 	public boolean isTargetOracle(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetOracleTypesLibrary(physicalTypesLibrary);
+		return isOracleMPD(physicalTypesLibrary);
 	}
 	
 	public boolean isTargetOracle(DataBase database) {
 		TypesLibrary physicalTypesLibrary = getTargetPhysicalTypesLibrary(database);
-		return isTargetOracleTypesLibrary(physicalTypesLibrary);
+		return isOracleMPD(physicalTypesLibrary);
 	}
 
 	public boolean isTargetMySqlOrMariaDB(DatabaseElement element) {
@@ -75,27 +81,27 @@ public class TypesServices {
 
 	public boolean isTargetMySql(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetMysqlTypesLibrary(physicalTypesLibrary);
+		return isMysqlMPD(physicalTypesLibrary);
 	}
 
 	public boolean isTargetMariaDB(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetMariaDBTypesLibrary(physicalTypesLibrary);
+		return isMariaDBMPD(physicalTypesLibrary);
 	}
 
 	public boolean isTargetSqlServer(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetSqlServerTypesLibrary(physicalTypesLibrary);
+		return isSQLServerMPD(physicalTypesLibrary);
 	}
 
 	public boolean isTargetPostgreSQL(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetPostgreSQLTypesLibrary(physicalTypesLibrary);
+		return isPostgresMPD(physicalTypesLibrary);
 	}
 
 	public boolean isTargetH2(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
-		return isTargetH2TypesLibrary(physicalTypesLibrary);
+		return isH2MPD(physicalTypesLibrary);
 	}
 
 	private TypesLibraryUser getTypesLibraryUser(DatabaseElement element) {
@@ -113,47 +119,12 @@ public class TypesServices {
 	private TypesLibrary getTargetPhysicalTypesLibrary(TypesLibraryUser tlu) {
 		if (tlu != null) {
 			for (TypesLibrary library : tlu.getUsedLibraries()) {
-				if (isTargetPhysicalTypesLibrary(library)) {
+				if (isMPD(library)) {
 					return library;
 				}
 			}
 		}
 		return null;
-	}
-
-	private boolean isTargetPhysicalTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary.getKind() == TypesLibraryKind.PHYSICAL_TYPES;
-	}
-
-	private boolean isTargetOracleTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& TypesLibraryUtil.ORACLE_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
-	private boolean isTargetMysqlTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& TypesLibraryUtil.MYSQL_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
-	private boolean isTargetMariaDBTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& TypesLibraryUtil.MARIADB_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
-	private boolean isTargetSqlServerTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& TypesLibraryUtil.SQLSERVER_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
-	private boolean isTargetH2TypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& TypesLibraryUtil.H2_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
-	private boolean isTargetPostgreSQLTypesLibrary(TypesLibrary targetTypesLibrary) {
-		return targetTypesLibrary != null
-				&& (TypesLibraryUtil.POSTGRES9_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString())
-						|| TypesLibraryUtil.POSTGRES_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString()));
 	}
 
 	public void dispose() {

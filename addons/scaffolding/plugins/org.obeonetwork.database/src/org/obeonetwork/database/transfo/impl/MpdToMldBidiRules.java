@@ -10,6 +10,14 @@
  *******************************************************************************/
 package org.obeonetwork.database.transfo.impl;
 
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isH2MPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMariaDBMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isMysqlMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isOracleMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isPostgresMPD;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.isSQLServerMPD;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,6 +28,10 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.obeonetwork.database.Activator;
+import org.obeonetwork.database.transfo.AbstractTransformation;
+import org.obeonetwork.database.transfo.TransformationException;
+import org.obeonetwork.database.transfo.util.ModelUtils;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
@@ -39,13 +51,6 @@ import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.typeslibrary.NativeTypeKind;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
-import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
-import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
-
-import org.obeonetwork.database.Activator;
-import org.obeonetwork.database.transfo.AbstractTransformation;
-import org.obeonetwork.database.transfo.TransformationException;
-import org.obeonetwork.database.transfo.util.ModelUtils;
 
 public abstract class MpdToMldBidiRules extends AbstractTransformation {
 	
@@ -468,7 +473,7 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 			if (!targetPk.getColumns().contains(targetPkColumn)) {
 				targetPk.getColumns().add(targetPkColumn);
 			}
-			if (isTargetMysqlMPD() || isTargetMariaDBMPD()) {
+			if (isMysqlMPD(targetTypesLibrary) || isMariaDBMPD(targetTypesLibrary)) {
 				targetPkColumn.setAutoincrement(true);
 			}
 		}
@@ -506,7 +511,7 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 	}
 	
 	private void handleDefaultLengthAndPrecision(TypeInstance originType, TypeInstance targetType) {
-		if (isTargetMPD()) {
+		if (isMPD(targetTypesLibrary)) {
 			if (targetType.getNativeType().getSpec() == NativeTypeKind.LENGTH || targetType.getNativeType().getSpec() == NativeTypeKind.LENGTH_AND_PRECISION) {
 				// Target type needs a length value
 				if (originType.getLength() == null) {
@@ -525,37 +530,9 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 	}
 	
 	protected boolean doesTargetSupportSequences() {
-		return isTargetOracleMPD() || isTargetPostgresMPD() || isTargetH2MPD() || isTargetSQLServerMPD();
+		return isOracleMPD(targetTypesLibrary) || isPostgresMPD(targetTypesLibrary) || isH2MPD(targetTypesLibrary) || isSQLServerMPD(targetTypesLibrary);
 	}
 	
-	protected boolean isTargetMPD() {
-		return targetTypesLibrary.getKind() == TypesLibraryKind.PHYSICAL_TYPES;
-	}
-	
-	protected boolean isTargetOracleMPD() {
-		return isTargetMPD() && TypesLibraryUtil.ORACLE_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-	
-	protected boolean isTargetMysqlMPD() {
-		return isTargetMPD() && TypesLibraryUtil.MYSQL_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-	
-	protected boolean isTargetMariaDBMPD() {
-		return isTargetMPD() && TypesLibraryUtil.MARIADB_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-	
-	protected boolean isTargetPostgresMPD() {
-		return isTargetMPD() && TypesLibraryUtil.POSTGRES_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-	
-	protected boolean isTargetSQLServerMPD() {
-		return isTargetMPD() && TypesLibraryUtil.SQLSERVER_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-	
-	protected boolean isTargetH2MPD() {
-		return isTargetMPD() && TypesLibraryUtil.H2_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
-	}
-
 	protected abstract TypeInstance resolveType(TypeInstance typeSource);
 	
 	private TypesLibrary loadTargetTypesLibrary(TableContainer targetTableContainer) {
