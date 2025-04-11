@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres-9.5-14.3">
+<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres">
   <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" technicalid="_FO09UJn4EeaqGJZ6nXNZAQ" name="BIT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>

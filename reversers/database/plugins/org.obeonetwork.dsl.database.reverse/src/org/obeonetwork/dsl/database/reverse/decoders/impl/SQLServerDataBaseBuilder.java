@@ -32,14 +32,11 @@ import org.obeonetwork.dsl.database.reverse.utils.Queries;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	private static final Pattern VIEW_QUERY_PATTERN = Pattern.compile("create view .* as (.*)");
-	
-	private static final String TYPES_LIBRARY_SQLSERVER_PATHMAP = "pathmap://NativeDBTypes/SQLServer-2008";
-	
-	private static final String TYPES_LIBRARY_SQLSERVER_FILENAME = "SQLServer-2008.typeslibrary";
 	
 	public SQLServerDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
@@ -53,12 +50,12 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_SQLSERVER_PATHMAP;
+		return TypesLibraryUtil.SQLSERVER_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_SQLSERVER_FILENAME;
+		return TypesLibraryUtil.SQLSERVER_FILENAME;
 	}
 	
 	@Override

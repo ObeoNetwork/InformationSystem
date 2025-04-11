@@ -31,14 +31,11 @@ import org.obeonetwork.dsl.database.reverse.utils.Queries;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 import org.osgi.framework.Version;
 
 public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
-	private static final String TYPES_LIBRARY_POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
-
-	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
-	
 	private Version version;
 
 	private PostGresStatementBuilder builder;
@@ -53,12 +50,12 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_POSTGRES_PATHMAP;
+		return TypesLibraryUtil.POSTGRES9_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_POSTGRES_FILENAME;
+		return TypesLibraryUtil.POSTGRES9_FILENAME;
 	}
 
 	@Override

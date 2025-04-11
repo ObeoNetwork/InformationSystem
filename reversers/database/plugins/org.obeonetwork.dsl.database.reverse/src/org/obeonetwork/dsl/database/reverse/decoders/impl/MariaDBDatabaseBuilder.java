@@ -15,13 +15,10 @@ import java.sql.SQLException;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class MariaDBDatabaseBuilder extends MySQLDataBaseBuilder {
 	
-	private static final String TYPES_LIBRARY_MARIADB_PATHMAP = "pathmap://NativeDBTypes/MariaDB-10.2";
-	
-	private static final String TYPES_LIBRARY_MARIADB_FILENAME = "MariaDB-10.2.typeslibrary";
-
 	public MariaDBDatabaseBuilder(DataSource source, ProgressListener progressListener, Queries queries)
 			throws SQLException {
 		super(source, progressListener, queries);
@@ -29,12 +26,12 @@ public class MariaDBDatabaseBuilder extends MySQLDataBaseBuilder {
 	
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_MARIADB_PATHMAP;
+		return TypesLibraryUtil.MARIADB_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_MARIADB_FILENAME;
+		return TypesLibraryUtil.MARIADB_FILENAME;
 	}
 
 }

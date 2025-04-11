@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_oGtuUCY4EemALc7s7nxPuQ" kind="physicalTypes" name="MariaDB-10.2">
+<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_oGtuUCY4EemALc7s7nxPuQ" kind="physicalTypes" name="MariaDB">
   <nativeTypes xmi:id="_QeEzoCY5EemALc7s7nxPuQ" technicalid="_QMwaICY5EemALc7s7nxPuQ" name="bigint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>

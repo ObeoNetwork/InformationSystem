@@ -30,12 +30,9 @@ import org.obeonetwork.dsl.database.reverse.utils.Queries;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
-	
-	private static final String TYPES_LIBRARY_H2_PATHMAP = "pathmap://NativeDBTypes/H2-1.3";
-	
-	private static final String TYPES_LIBRARY_H2_FILENAME = "H2-1.3.typeslibrary";
 	
 	public H2DataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
@@ -44,12 +41,12 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_H2_PATHMAP;
+		return TypesLibraryUtil.H2_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_H2_FILENAME;
+		return TypesLibraryUtil.H2_FILENAME;
 	}
 	
 	@Override

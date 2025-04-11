@@ -28,12 +28,9 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
-	
-	private static final String TYPES_LIBRARY_MYSQL_PATHMAP = "pathmap://NativeDBTypes/MySQL-5";
-	
-	private static final String TYPES_LIBRARY_MYSQL_FILENAME = "MySQL-5.typeslibrary";
 	
 	public MySQLDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
@@ -46,12 +43,12 @@ public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 		
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_MYSQL_PATHMAP;
+		return TypesLibraryUtil.MYSQL_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_MYSQL_FILENAME;
+		return TypesLibraryUtil.MYSQL_FILENAME;
 	}
 	
 	@Override

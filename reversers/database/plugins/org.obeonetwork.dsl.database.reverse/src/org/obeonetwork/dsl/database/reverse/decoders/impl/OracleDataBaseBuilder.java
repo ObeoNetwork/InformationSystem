@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
-import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
@@ -35,13 +34,10 @@ import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 
-	private static final String TYPES_LIBRARY_ORACLE_PATHMAP = "pathmap://NativeDBTypes/Oracle-11g";
-	
-	private static final String TYPES_LIBRARY_ORACLE_FILENAME = "Oracle-11g.typeslibrary";
-	
 	private Map<String, String> cacheColumnComments = null;
 	private Map<String, String> cacheTableComments = null;
 	
@@ -57,12 +53,12 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		return TYPES_LIBRARY_ORACLE_PATHMAP;
+		return TypesLibraryUtil.ORACLE_PATHMAP;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		return TYPES_LIBRARY_ORACLE_FILENAME;
+		return TypesLibraryUtil.ORACLE_FILENAME;
 	}
 	
 	@Override
