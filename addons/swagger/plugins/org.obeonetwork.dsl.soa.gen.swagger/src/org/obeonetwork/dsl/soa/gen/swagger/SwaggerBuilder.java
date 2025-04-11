@@ -54,7 +54,6 @@ import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.Enumeration;
-import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -76,6 +75,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ServiceGenUtil;
+import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StringUtils;
 
 import io.swagger.v3.oas.models.Components;
@@ -136,13 +136,13 @@ public class SwaggerBuilder {
 		return status;
 	}
 
-	private void logError(String message) {
-		Activator.logError(message);
+	private void logError(String message, EObject incriminatedElement) {
+		Activator.logError(message + "\nModel path: " + EObjectUtils.getNameOrElseTypeNamesPath(incriminatedElement));
 		status = IStatus.ERROR;
 	}
 
-	private void logWarning(String message) {
-		Activator.logWarning(message);
+	private void logWarning(String message, EObject incriminatedElement) {
+		Activator.logError(message + "\nModel path: " + EObjectUtils.getNameOrElseTypeNamesPath(incriminatedElement));
 		if (status != IStatus.ERROR) {
 			status = IStatus.WARNING;
 		}
@@ -182,7 +182,7 @@ public class SwaggerBuilder {
 			if (operationNames.contains(soaOperation.getName())) {
 				logError(String.format(
 						"Multiple operations with the same name : \"%s\". Can't generate OpenAPI compliant specification file.",
-						soaOperation.getName()));
+						soaOperation.getName()), EObjectUtils.getContainer(soaOperation, Service.class));
 				validationOk = false;
 			} else {
 				operationNames.add(soaOperation.getName());
@@ -243,7 +243,7 @@ public class SwaggerBuilder {
 					soaSecurityScheme.getFlows().size() > 1)) {
 				logWarning(String.format(
 					"SecurityScheme[name=%s]: Flows not exported because they are not allowed for OPEN_ID_CONNECT type",
-					soaSecurityScheme.getName()));
+					soaSecurityScheme.getName()), soaSecurityScheme);
 			}
 			break;
 		}
@@ -704,31 +704,52 @@ public class SwaggerBuilder {
 		return schema;
 	}
 
-	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement,
-			final Schema<Object> schema) {
-		Objects.requireNonNull(constrainableElement);
-		Objects.requireNonNull(schema);
+	private void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement, final Schema<Object> schema) {
 
-		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM)) {
-			final String minimum = constrainableElement.getMinimum();
+		if(!isNullOrWhite(constrainableElement.getMinimum())) {
 			if (isTextual(constrainableElement)) {
-				schema.setMinLength(Integer.valueOf(minimum));
+				try {
+					Integer minimum = Integer.valueOf(constrainableElement.getMinimum());
+					schema.setMinLength(minimum);
+				} catch (NumberFormatException e) {
+					logError(String.format("Minimum length constraint of textual value cannot be parsed to integer: %s",
+							constrainableElement.getMinimum()), constrainableElement);
+				}
 			} else {
-				schema.setMinimum(new BigDecimal(minimum));
+				try {
+					BigDecimal minimum = new BigDecimal(constrainableElement.getMinimum());
+					schema.setMinimum(minimum);
+				} catch (Exception e) {
+					logError(String.format("Minimum value cannot be parsed to decimal number: %s",
+							constrainableElement.getMinimum()), constrainableElement);
+				}
 			}
 		}
-		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM)) {
-			final String maximum = constrainableElement.getMaximum();
+		
+		if(!isNullOrWhite(constrainableElement.getMaximum())) {
 			if (isTextual(constrainableElement)) {
-				schema.setMaxLength(Integer.valueOf(maximum));
+				try {
+					Integer maximum = Integer.valueOf(constrainableElement.getMaximum());
+					schema.setMaxLength(maximum);
+				} catch (NumberFormatException e) {
+					logError(String.format("Maximum length constraint of textual value cannot be parsed to integer: %s",
+							constrainableElement.getMaximum()), constrainableElement);
+				}
 			} else {
-				schema.setMaximum(new BigDecimal(maximum));
+				try {
+					BigDecimal maximum = new BigDecimal(constrainableElement.getMaximum());
+					schema.setMaximum(maximum);
+				} catch (Exception e) {
+					logError(String.format("Maximum value cannot be parsed to decimal number: %s",
+							constrainableElement.getMaximum()), constrainableElement);
+				}
 			}
 		}
-		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN)) {
-			final String pattern = constrainableElement.getPattern();
-			schema.setPattern(pattern);
+		
+		if(!isNullOrWhite(constrainableElement.getPattern())) {
+			schema.setPattern(constrainableElement.getPattern());
 		}
+		
 	}
 
 	private boolean shouldCreateAllOfSchema(Schema<Object> schema, Property soaProperty) {
@@ -764,7 +785,7 @@ public class SwaggerBuilder {
 		}
 
 		if (schema == null) {
-			logError(String.format("Unsupported type : %s.", soaType.getName()));
+			logError(String.format("Unsupported type : %s.", soaType.getName()), soaType);
 			schema = new Schema<>();
 		}
 		return schema;
@@ -864,8 +885,8 @@ public class SwaggerBuilder {
 //		swgOperation.deprecated(soaOperation.isDeprecated());
 
 		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).isEmpty()) {
-			logWarning(
-					String.format("Paged operation %s defines no paginable output parameter.", soaOperation.getName()));
+			logWarning(String.format("Paged operation %s defines no paginable output parameter.", 
+					soaOperation.getName()), soaOperation);
 		}
 
 		buildParameters(swgOperation, soaOperation);
@@ -907,7 +928,7 @@ public class SwaggerBuilder {
 		String statusCode = soaOutputParameter.getStatusCode();
 		if (isNullOrWhite(statusCode)) {
 			logError(String.format("Output parameter %s of operation %s doesn't define a status code.",
-					soaOutputParameter.getName(), ParameterGenUtil.getOperation(soaOutputParameter).getName()));
+					soaOutputParameter.getName(), ParameterGenUtil.getOperation(soaOutputParameter).getName()), soaOutputParameter);
 		} else {
 			ApiResponse apiResponse = createApiResponse(soaOutputParameter);
 			addPropertiesExtensionsFromSoaToSwg(soaOutputParameter, apiResponse);
@@ -1043,7 +1064,7 @@ public class SwaggerBuilder {
 	private void buildRequestBody(Operation operation, org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		if (operation.getRequestBody() != null) {
 			logError(String.format("Operation %s defines more than one request body.",
-					ParameterGenUtil.getOperation(soaParameter).getName()));
+					ParameterGenUtil.getOperation(soaParameter).getName()), ParameterGenUtil.getOperation(soaParameter));
 		} else {
 			operation.requestBody(createRequestBody(soaParameter));
 		}

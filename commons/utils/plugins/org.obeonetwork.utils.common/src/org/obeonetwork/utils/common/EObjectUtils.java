@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common;
 
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -178,6 +179,19 @@ public class EObjectUtils {
 			}
 		}
 		return name;
+	}
+
+	public static String getNameOrElseTypeName(EObject eObject) {
+		String name = getName(eObject);
+		if(name == null) {
+			name = eObject.eClass().getName();
+		}
+		return name;
+	}
+	
+	public static String getNameOrElseTypeNamesPath(EObject eObject) {
+		return eObject.eResource().getURI().lastSegment() + " > " + 
+				getAncestors(eObject).stream().map(EObjectUtils::getNameOrElseTypeName).collect(joining(" > "));
 	}
 	
 }
