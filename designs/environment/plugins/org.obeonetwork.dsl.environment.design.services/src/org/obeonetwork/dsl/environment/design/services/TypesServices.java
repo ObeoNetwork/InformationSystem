@@ -119,6 +119,9 @@ public class TypesServices {
 		}
 		createReferencesFromOthers(referencesWithOpposite, typesMap);
 		
+    	// Replicate the inheritance relationships where applicable
+    	copySuperTypeReferences(typesMap);
+    	
 		return createdStructuredTypes;
 	}
 
@@ -184,7 +187,22 @@ public class TypesServices {
     	// Create the copies of the references
     	createReferencesFromOthers(elementsToCopy.stream().filter(Reference.class::isInstance).map(Reference.class::cast).collect(toList()), structuredTypesMap);
     	
+    	// Replicate the inheritance relationships where applicable
+    	copySuperTypeReferences(structuredTypesMap);
+    	
 		return rootNamespacesCopy;
+	}
+	
+	private void copySuperTypeReferences(Map<StructuredType, StructuredType> structuredTypesMap) {
+		structuredTypesMap.keySet().forEach(structuredType -> {
+			if(structuredType.getSupertype() != null) {
+				StructuredType structuredTypeCopy = structuredTypesMap.get(structuredType);
+				StructuredType superTypeCopy = structuredTypesMap.get(structuredType.getSupertype());
+				if(superTypeCopy != null) {
+					structuredTypeCopy.setSupertype(superTypeCopy);
+				}
+			}
+		});
 	}
 	
 	private Namespace createNamespaceFromOther(NamespacesContainer parentContainer, Namespace namespace, Set<EObject> elementsToCopy, Supplier<StructuredType> structuredTypeSupplier, Map<StructuredType, StructuredType> structuredTypesMap) {
