@@ -102,6 +102,7 @@ public class PartialViewCreationAction extends Action {
 				getText(),
 				null);
 		if(promptName.open() != Window.OK) {
+			diagramCorePreferences.putBoolean(SiriusDiagramInternalPreferencesKeys.PREF_SYNCHRONIZE_DIAGRAM_ON_CREATION.name(), syncOnCreation);
 			return;
 		}
 		String representationName = promptName.getValue();
