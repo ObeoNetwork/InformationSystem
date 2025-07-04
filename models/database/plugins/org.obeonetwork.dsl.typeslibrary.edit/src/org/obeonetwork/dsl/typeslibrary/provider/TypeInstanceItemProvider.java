@@ -275,6 +275,8 @@ public class TypeInstanceItemProvider
 		String label = null;
 		String length = "";
 		String precision = "";
+		boolean hasLength = false;
+		boolean hasPrecision = false;
 		if (nativeType != null) {
 			label = nativeType.getName();
 			if (label == null || label.length() == 0) {
@@ -284,8 +286,9 @@ public class TypeInstanceItemProvider
 			case LENGTH :
 				if (typeInstance.getLength() != null) {
 					length = String.valueOf(typeInstance.getLength());
+					hasLength = true;
 				}
-				if (!label.contains("%n")) {
+				if (!label.contains("%n") && hasLength) {
 					label = label + "(%n)";
 				}
 				label = replacePlaceholders(label,
@@ -295,15 +298,17 @@ public class TypeInstanceItemProvider
 			case LENGTH_AND_PRECISION :
 				if (typeInstance.getLength() != null) {
 					length = String.valueOf(typeInstance.getLength());
+					hasLength = true;
 				}
 				if (typeInstance.getPrecision() != null) {
 					precision = String.valueOf(typeInstance.getPrecision());
+					hasPrecision = true;
 				}
-				if (!label.contains("%n") && !label.contains("%p")) {
+				if (!label.contains("%n") && hasLength && !label.contains("%p") && hasPrecision) {
 					label = label + "(%n, %p)";
-				} else if (!label.contains("%n")) {
+				} else if (!label.contains("%n") && hasLength) {
 					label = label + "(%n)";
-				} else if (!label.contains("%p")) {
+				} else if (!label.contains("%p") && hasPrecision) {
 					label = label + "(%p)";
 				}
 				label = replacePlaceholders(label,
