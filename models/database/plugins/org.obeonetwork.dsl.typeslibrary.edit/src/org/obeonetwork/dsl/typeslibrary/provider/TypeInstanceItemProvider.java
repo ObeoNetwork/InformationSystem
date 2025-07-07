@@ -35,6 +35,7 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.typeslibrary.TypeInstance} object.
@@ -275,9 +276,10 @@ public class TypeInstanceItemProvider
 		String label = null;
 		String length = "";
 		String precision = "";
-		boolean hasLength = false;
-		boolean hasPrecision = false;
 		if (nativeType != null) {
+			TypesLibrary typesLibrary = (TypesLibrary) nativeType.eContainer();
+			boolean hasLength = !TypesLibraryUtil.isPostgresMPD(typesLibrary);
+			boolean hasPrecision = !TypesLibraryUtil.isPostgresMPD(typesLibrary);
 			label = nativeType.getName();
 			if (label == null || label.length() == 0) {
 				label = "<undefined>";
