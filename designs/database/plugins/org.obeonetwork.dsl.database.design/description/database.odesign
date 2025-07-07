@@ -387,7 +387,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DB_Non_Referenced_External_Table" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DB_Non_Referenced_External_Table" precondition="aql:true" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -408,7 +408,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DB_Referenced_External_Table" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DB_Referenced_External_Table" precondition="aql:true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
