@@ -29,38 +29,53 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.environment.util.EnvironmentSwitch;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 public class DeleteServices {
 	
-	public void deleteObeoDSMObject(NamespacesContainer namespacesContainer) {
-		for (Namespace namespace : new ArrayList<Namespace>(namespacesContainer.getOwnedNamespaces())) {
-			deleteObeoDSMObject((NamespacesContainer)namespace);
-		}
-		if (namespacesContainer instanceof Namespace) {
-			Namespace namespace = (Namespace)namespacesContainer;
-			for (Type type : new ArrayList<Type>(namespace.getTypes())) {
-				deleteObeoDSMObject(type);
-			}
-		}
-		delete(namespacesContainer);
-		SiriusUtil.delete(namespacesContainer);
-	}
-	
-	public void deleteObeoDSMObject(StructuredType type) {
-		// First we have to delete all references pointing towards this type
-		Session session = getSession(type);
-		ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
-		Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(type, true);
-		for (Setting setting : inverseReferences) {
-			if (EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE == setting.getEStructuralFeature()) {
-				delete((ObeoDSMObject)setting.getEObject(), session);
-			}
-		}
-		delete(type);
-	}
+	public void deleteObeoDSMObject(Identifiable object) {
+		new EnvironmentSwitch<Boolean>() {
 
-	public void deleteObeoDSMObject(ObeoDSMObject object) {
-		delete(object);
+			@Override
+			public Boolean caseStructuredType(StructuredType type) {
+				// First we have to delete all references pointing towards this type
+				Session session = getSession(type);
+				ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+				Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(type, true);
+				for (Setting setting : inverseReferences) {
+					if (EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE == setting.getEStructuralFeature()) {
+						delete((ObeoDSMObject)setting.getEObject(), session);
+					}
+				}
+				delete(type);
+				return true;
+			}
+
+			@Override
+			public Boolean caseNamespacesContainer(NamespacesContainer namespacesContainer) {
+				for (Namespace namespace : new ArrayList<Namespace>(namespacesContainer.getOwnedNamespaces())) {
+					deleteObeoDSMObject((NamespacesContainer)namespace);
+				}
+				if (namespacesContainer instanceof Namespace) {
+					Namespace namespace = (Namespace)namespacesContainer;
+					for (Type type : new ArrayList<Type>(namespace.getTypes())) {
+						deleteObeoDSMObject(type);
+					}
+				}
+				delete(namespacesContainer);
+				SiriusUtil.delete(namespacesContainer);
+				return true;
+			}
+
+			@Override
+			public Boolean defaultCase(EObject object) {
+				delete(object);
+				return true;
+			}
+			
+		}.doSwitch(object);
+		
 	}
 	
 	private void delete(EObject object, Session session, ModelAccessor modelAccessor) {
