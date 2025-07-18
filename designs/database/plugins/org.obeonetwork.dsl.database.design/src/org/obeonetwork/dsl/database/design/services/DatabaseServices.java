@@ -24,6 +24,10 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -34,6 +38,7 @@ import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
+import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
 import org.obeonetwork.dsl.database.Sequence;
@@ -44,6 +49,7 @@ import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
+import org.obeonetwork.dsl.database.util.DatabaseSwitch;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
@@ -539,4 +545,45 @@ public class DatabaseServices {
 		return message.toString();
 	}
 
+	public void deleteDatabaseElement(EObject databaseElement) {
+		new DatabaseSwitch<Boolean>() {
+
+			@Override
+			public Boolean caseTable(Table table) {
+				Session session = Session.of(table).get();
+				ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+				Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(table, true);
+				for (Setting setting : inverseReferences) {
+					if (DatabasePackage.Literals.FOREIGN_KEY__TARGET == setting.getEStructuralFeature()) {
+						SiriusUtil.delete(setting.getEObject());
+					}
+				}
+				SiriusUtil.delete(table);
+				return true;
+			}
+
+			@Override
+			public Boolean caseColumn(Column column) {
+				Session session = Session.of(column).get();
+				ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+				Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(column, true);
+				for (Setting setting : inverseReferences) {
+					if (DatabasePackage.Literals.INDEX_ELEMENT__COLUMN == setting.getEStructuralFeature() || 
+							DatabasePackage.Literals.FOREIGN_KEY_ELEMENT__FK_COLUMN == setting.getEStructuralFeature() ||
+							DatabasePackage.Literals.FOREIGN_KEY_ELEMENT__PK_COLUMN == setting.getEStructuralFeature()) {
+						SiriusUtil.delete(setting.getEObject());
+					}
+				}
+				SiriusUtil.delete(column);
+				return true;
+			}
+
+			@Override
+			public Boolean defaultCase(EObject object) {
+				SiriusUtil.delete(object);
+				return true;
+			}
+			
+		}.doSwitch(databaseElement);
+	}
 }

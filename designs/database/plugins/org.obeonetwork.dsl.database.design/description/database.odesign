@@ -173,9 +173,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteDatabaseElement()"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_TableContainer_contents" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and Sequence{database::Table, database::View, database::Schema}->intersection(element.eClass().eAllSuperTypes->including(element.eClass()))->notEmpty()) or (partialView and element.eContainer()=newContainer) endlet" dragSource="PROJECT_EXPLORER">
