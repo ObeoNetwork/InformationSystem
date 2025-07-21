@@ -12,12 +12,12 @@
           </style>
         </edgeMappings>
         <containerMappings name="SOAD_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DEL_SOADiagram_directContent']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:ownedComponents" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa::Component" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
-          <borderedNodeMappings name="SOAD_Service_Provided" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DEL_SOAD_Service']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:providedServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" synchronizationLock="true" domainClass="soa::Service">
+          <borderedNodeMappings name="SOAD_Service_Provided" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DEL_SOADiagram_directContent']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:providedServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" synchronizationLock="true" domainClass="soa::Service">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Service.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="SOAD_Service_Required" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DEL_SOAD_Service']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:requiredServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" synchronizationLock="true" domainClass="soa::Service">
+          <borderedNodeMappings name="SOAD_Service_Required" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DEL_SOADiagram_directContent']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:requiredServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" synchronizationLock="true" domainClass="soa::Service">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Reference.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -167,19 +167,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </firstModelOperations>
-              </initialOperation>
-            </ownedTools>
-            <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_SOAD_Service" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
-              <element name="element"/>
-              <elementView name="elementView"/>
-              <containerView name="containerView"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </firstModelOperations>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteSoaElement()"/>
               </initialOperation>
             </ownedTools>
           </subSections>

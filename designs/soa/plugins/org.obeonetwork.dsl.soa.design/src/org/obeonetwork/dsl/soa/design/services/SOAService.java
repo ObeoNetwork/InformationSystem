@@ -26,9 +26,13 @@ import java.util.regex.Pattern;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
@@ -57,6 +61,7 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.dsl.soa.util.SoaSwitch;
 import org.obeonetwork.utils.common.EObjectUtils;
 
 public class SOAService {
@@ -400,5 +405,41 @@ public class SOAService {
 				&& theObject.eContainer().eContainer() != null 
 				&& theObject.eContainer().eContainer() instanceof Operation 
 				&& theObject.equals(((Operation) theObject.eContainer().eContainer()).getPaginationExtension()));
-	}	
+	}
+
+	public void deleteSoaElement(EObject soaElement) {
+		new SoaSwitch<Boolean>() {
+
+			@Override
+			public Boolean caseComponent(Component component) {
+				new ArrayList<>(component.getOwnedServices()).forEach(this::caseService);
+				SiriusUtil.delete(component);
+				return true;
+			}
+
+			@Override
+			public Boolean caseService(Service service) {
+				Session session = Session.of(service).get();
+				ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+				Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(service, true);
+				for (Setting setting : inverseReferences) {
+					if (SoaPackage.Literals.WIRE__SOURCE == setting.getEStructuralFeature() || 
+							SoaPackage.Literals.WIRE__DEST == setting.getEStructuralFeature()) {
+						SiriusUtil.delete(setting.getEObject());
+					}
+				}
+				SiriusUtil.delete(service);
+				return true;
+			}
+			
+			
+			@Override
+			public Boolean defaultCase(EObject object) {
+				SiriusUtil.delete(object);
+				return true;
+			}
+
+		}.doSwitch(soaElement);
+	}
+	
 }
