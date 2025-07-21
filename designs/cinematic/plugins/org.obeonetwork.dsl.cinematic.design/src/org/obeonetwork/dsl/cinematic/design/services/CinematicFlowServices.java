@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
@@ -44,6 +45,7 @@ import org.obeonetwork.dsl.cinematic.flow.InitialState;
 import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
+import org.obeonetwork.dsl.cinematic.flow.util.FlowSwitch;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
@@ -392,4 +394,32 @@ public class CinematicFlowServices {
 			}
 		}	
 	}
+	
+	public void deleteFlowElement(EObject element) {
+		new FlowSwitch<Boolean>() {
+
+			@Override
+			public Boolean caseFlowState(FlowState flowState) {
+				Session session = Session.of(flowState).get();
+				ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+				Collection<Setting> inverseReferences = crossReferencer.getInverseReferences(flowState, true);
+				for (Setting setting : inverseReferences) {
+					if (FlowPackage.Literals.TRANSITION__FROM == setting.getEStructuralFeature() || 
+							FlowPackage.Literals.TRANSITION__TO == setting.getEStructuralFeature()) {
+						SiriusUtil.delete(setting.getEObject());
+					}
+				}
+				SiriusUtil.delete(flowState);
+				return true;
+			}
+
+			@Override
+			public Boolean defaultCase(EObject object) {
+				SiriusUtil.delete(object);
+				return true;
+			}
+			
+		}.doSwitch(element);
+	}
+	
 }

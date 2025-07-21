@@ -328,9 +328,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteFlowElement()"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="FLD_SubflowState_FlowDiagram_Create" label="Flow Diagram" precondition="service:isSubFlowNotNull" browseExpression="feature:subflow" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']">
