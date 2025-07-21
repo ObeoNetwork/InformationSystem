@@ -1910,14 +1910,12 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability tools">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" precondition="aql:false" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:DeleteView"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New Domain Classes Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Diagram']">
@@ -1941,14 +1939,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_Referenced" precondition="aql:containerView.eContainerOrSelf(diagram::DSemanticDiagram).synchronized">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_Referenced" precondition="aql:false">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:DeleteView"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_ExternalStructuredType_Referenced" precondition="aql:let diagram=newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and newContainer.getAllReferencedStructuredTypes(diagram)->includes(element) endlet" dragSource="PROJECT_EXPLORER">
