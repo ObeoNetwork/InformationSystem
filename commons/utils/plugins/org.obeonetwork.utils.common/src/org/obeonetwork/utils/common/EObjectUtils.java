@@ -190,8 +190,11 @@ public class EObjectUtils {
 	}
 	
 	public static String getNameOrElseTypeNamesPath(EObject eObject) {
-		return eObject.eResource().getURI().lastSegment() + " > " + 
-				getAncestors(eObject).stream().map(EObjectUtils::getNameOrElseTypeName).collect(joining(" > "));
+		return eObject.eResource().getURI().lastSegment() + 
+				" > " + 
+				getAncestors(eObject).stream().map(EObjectUtils::getNameOrElseTypeName).collect(joining(" > ")) + 
+				" > " +
+				getNameOrElseTypeName(eObject);
 	}
 	
 }

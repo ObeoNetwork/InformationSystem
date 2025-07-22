@@ -209,8 +209,14 @@ public class SwaggerBuilder {
 	}
 
 	private void buildSecuritySchemes() {
-		soaComponent.getSecuritySchemes().forEach(soaSecurityScheme -> openApi.getComponents()
-				.addSecuritySchemes(soaSecurityScheme.getName(), createSecurityScheme(soaSecurityScheme)));
+		soaComponent.getSecuritySchemes().forEach(soaSecurityScheme -> { 
+			if(StringUtils.isNullOrWhite(soaSecurityScheme.getName())) {
+				logError("Cannot export a Security Scheme with no name.", soaSecurityScheme);
+			} else {
+				openApi.getComponents()
+				.addSecuritySchemes(soaSecurityScheme.getName(), createSecurityScheme(soaSecurityScheme));
+			}
+		});
 	}
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
@@ -287,7 +293,11 @@ public class SwaggerBuilder {
 		Scopes scopes = new Scopes();
 
 		flow.getScopes().forEach(scope -> {
-			scopes.addString(scope.getName(), scope.getSummary());
+			if(StringUtils.isNullOrWhite(scope.getName())) {
+				logError("Cannot export a Scope with no name.", scope);
+			} else {
+				scopes.addString(scope.getName(), scope.getSummary());
+			}
 		});
 
 		authFlow.setScopes(scopes);
