@@ -278,8 +278,7 @@ public class TypeInstanceItemProvider
 		String precision = "";
 		if (nativeType != null) {
 			TypesLibrary typesLibrary = (TypesLibrary) nativeType.eContainer();
-			boolean hasLength = !TypesLibraryUtil.isPostgresMPD(typesLibrary);
-			boolean hasPrecision = !TypesLibraryUtil.isPostgresMPD(typesLibrary);
+			boolean isPostgres = TypesLibraryUtil.isPostgresMPD(typesLibrary);
 			label = nativeType.getName();
 			if (label == null || label.length() == 0) {
 				label = "<undefined>";
@@ -288,9 +287,8 @@ public class TypeInstanceItemProvider
 			case LENGTH :
 				if (typeInstance.getLength() != null) {
 					length = String.valueOf(typeInstance.getLength());
-					hasLength = true;
 				}
-				if (!label.contains("%n") && hasLength) {
+				if (!label.contains("%n") && (typeInstance.getLength() != null || !isPostgres)) {
 					label = label + "(%n)";
 				}
 				label = replacePlaceholders(label,
@@ -300,17 +298,23 @@ public class TypeInstanceItemProvider
 			case LENGTH_AND_PRECISION :
 				if (typeInstance.getLength() != null) {
 					length = String.valueOf(typeInstance.getLength());
-					hasLength = true;
 				}
 				if (typeInstance.getPrecision() != null) {
 					precision = String.valueOf(typeInstance.getPrecision());
-					hasPrecision = true;
 				}
-				if (!label.contains("%n") && hasLength && !label.contains("%p") && hasPrecision) {
-					label = label + "(%n, %p)";
-				} else if (!label.contains("%n") && hasLength) {
+				if (!label.contains("%n") && !label.contains("%p")) {
+					if(!isPostgres) {
+						label = label + "(%n, %p)";
+					} else {
+						if(typeInstance.getLength() != null && typeInstance.getPrecision() == null) {
+							label = label + "(%n)";
+						} else if(typeInstance.getPrecision() != null) {
+							label = label + "(%n, %p)";
+						}
+					}
+				} else if (!label.contains("%n") && (typeInstance.getLength() != null || !isPostgres)) {
 					label = label + "(%n)";
-				} else if (!label.contains("%p") && hasPrecision) {
+				} else if (!label.contains("%p") && (typeInstance.getPrecision() != null || !isPostgres)) {
 					label = label + "(%p)";
 				}
 				label = replacePlaceholders(label,
