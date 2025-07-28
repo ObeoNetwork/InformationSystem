@@ -665,6 +665,14 @@ public class TypesServices {
 					.collect(joining("/"));
   }
 	
+	public static Collection<Attribute> getAssociatedTypesOwnedAttributes(StructuredType type) {
+		return type .getAssociatedTypes()
+					.stream()
+					.map(StructuredType::getOwnedAttributes)
+					.flatMap(EList::stream)
+					.collect(toList());
+	}
+	
 	public static Collection<Attribute> getAssociatedTypesAttributes(StructuredType type) {
 		return type .getAssociatedTypes()
 					.stream()
@@ -672,4 +680,5 @@ public class TypesServices {
 					.flatMap(EList::stream)
 					.collect(toList());
 	}
+	
 }
