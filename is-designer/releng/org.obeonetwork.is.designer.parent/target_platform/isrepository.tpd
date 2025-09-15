@@ -74,7 +74,7 @@ location Subversive-Plugin "https://download.eclipse.org/technology/subversive/4
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/" {
+location M2Doc-4.1.0 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/4.0.0/repository/" {
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.cdo.feature.feature.group lazy
