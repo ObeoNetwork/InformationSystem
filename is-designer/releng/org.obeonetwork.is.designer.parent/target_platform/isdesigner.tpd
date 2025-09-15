@@ -158,7 +158,7 @@ location ISD "https://update.obeo.fr/integration/informationsystem/5.1.1/design/
 	org.obeonetwork.utils.feature.feature.group lazy
 }
 
-location M2Doc-Nightly "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/" {
+location M2Doc-4.1.0 "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/4.0.0/repository/" {
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
