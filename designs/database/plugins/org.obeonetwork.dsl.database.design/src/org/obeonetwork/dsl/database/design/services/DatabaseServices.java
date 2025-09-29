@@ -23,6 +23,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
@@ -152,6 +153,27 @@ public class DatabaseServices {
 				// Remove all tables contained in AbstractDNode present in allNonReferencedExternalTables
 				allNonReferencedExternalTables.removeAll(tablesInDiagram);
 				return allNonReferencedExternalTables;
+	}
+	
+	/**
+	 * Retrieve all non referenced external tables excluding those already displayed on the diagram and those who don't match the corresponding database type
+	 * @param context the Table Container
+	 * @param diagram DSemanticDiagram diagram used to check for already displayed tables and database type
+	 * @return List of tables
+	 */
+	public List<Table> allMatchingExternalTables(TableContainer context, DSemanticDiagram diagram) {
+		// Retrieve all non Referenced External Tables
+		final List<Table> allSelectableExternalTables = allSelectableExternalTables(context, diagram);
+		final List<URI> usedLibStreamInDatabase = EObjectUtils.getContainerOrSelf(diagram.getTarget(), DataBase.class)
+				.getUsedLibraries().stream().map(lib -> lib.eResource().getURI()).toList();
+
+		final List<Table> allMatchingExternalTables = allSelectableExternalTables.stream()
+				.filter(table -> EObjectUtils.getContainerOrSelf(table, DataBase.class).getUsedLibraries().stream()
+						.map(lib -> lib.eResource().getURI())
+							.anyMatch(libKind -> usedLibStreamInDatabase.stream().anyMatch(dbLibKind -> dbLibKind.equals(libKind))))
+				.toList();
+
+		return allMatchingExternalTables;
 	}
 
 	/**
