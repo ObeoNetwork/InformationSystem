@@ -375,7 +375,7 @@
           </style>
         </containerMappings>
         <toolSections name="External Tables">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="WIZ_ExternalTable" label="External Table" precondition="aql:self.oclIsKindOf(database::TableContainer)" forceRefresh="true" candidatesExpression="aql:(diagram.target.allSelectableExternalTables(diagram) + diagram.target.allSelectableExternalTables(diagram).ancestors())->asSet()" tree="true" rootExpression="service:allRoots" childrenExpression="feature:eContents" message="Select an external table" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" windowTitle="Import external table" windowImagePath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="WIZ_ExternalTable" label="External Table" precondition="aql:self.oclIsKindOf(database::TableContainer)" forceRefresh="true" candidatesExpression="aql:(diagram.target.allMatchingExternalTables(diagram) + diagram.target.allMatchingExternalTables(diagram).ancestors())->asSet()" tree="true" rootExpression="service:allRoots" childrenExpression="feature:eContents" message="Select an external table" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" windowTitle="Import external table" windowImagePath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
