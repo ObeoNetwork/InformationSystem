@@ -7,8 +7,8 @@ addRepository(type:0,location:https${#58}//obeo-networkaggregation-releases.s3.e
 addRepository(type:1,location:https${#58}//obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/,name:ANTLR);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/releases/2023-03/,name:Eclipse-2023-03);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/releases/2023-03/,name:Eclipse-2023-03);\
-addRepository(type:0,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/,name:M2Doc-Nightly);\
-addRepository(type:1,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/,name:M2Doc-Nightly);\
+addRepository(type:0,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/4.0.0/repository/,name:M2Doc-4.1.0);\
+addRepository(type:1,location:https${#58}//s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/4.0.0/repository/,name:M2Doc-4.1.0);\
 addRepository(type:0,location:https${#58}//download.eclipse.org/mylyn/releases/3.26/,name:Mylyn-3.26);\
 addRepository(type:1,location:https${#58}//download.eclipse.org/mylyn/releases/3.26/,name:Mylyn-3.26);\
 addRepository(type:0,location:https${#58}//update.obeo.fr/release/designer/11.9/community/11.9.0/repository/,name:Obeo-Designer-Community-11.9);\
