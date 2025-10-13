@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.is.design.ui.providers;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -24,14 +23,11 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPar
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
-import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Reference;
@@ -68,20 +64,7 @@ public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 			return dEdgeEndPart;
 			
 		case DDiagramEditPart.VISUAL_ID:
-			DDiagramEditPart dDiagramEditPart = new DDiagramEditPart(view) {
-
-				@Override
-				public synchronized void configureBackground(IFigure fig) {
-			        if (resolveDDiagram().some() && fig != null) {
-			            DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
-			            final IInterpreter interpreter = InterpreterUtil.getInterpreter(dSemanticDiagram);
-			            interpreter.setVariable("diagram", dSemanticDiagram);
-			        }
-			        super.configureBackground(fig);
-				}
-				
-			};
-			return dDiagramEditPart;
+			return new DDiagramEditPart(view);
 		}
 		return null;
 	}
