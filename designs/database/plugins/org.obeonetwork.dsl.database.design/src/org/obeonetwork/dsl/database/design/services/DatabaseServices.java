@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -164,13 +165,15 @@ public class DatabaseServices {
 	public List<Table> allMatchingExternalTables(TableContainer context, DSemanticDiagram diagram) {
 		// Retrieve all non Referenced External Tables
 		final List<Table> allSelectableExternalTables = allSelectableExternalTables(context, diagram);
-		final List<URI> usedLibStreamInDatabase = EObjectUtils.getContainerOrSelf(diagram.getTarget(), DataBase.class)
-				.getUsedLibraries().stream().map(lib -> lib.eResource().getURI()).toList();
+		// Get the used lib type from the container database
+		final Set<URI> usedLibSetInDatabase = EObjectUtils.getContainerOrSelf(diagram.getTarget(), DataBase.class)
+				.getUsedLibraries().stream().map(lib -> lib.eResource().getURI()).collect(Collectors.toSet());
 
+		// Filter based on database type
 		final List<Table> allMatchingExternalTables = allSelectableExternalTables.stream()
 				.filter(table -> EObjectUtils.getContainerOrSelf(table, DataBase.class).getUsedLibraries().stream()
 						.map(lib -> lib.eResource().getURI())
-							.anyMatch(libKind -> usedLibStreamInDatabase.stream().anyMatch(dbLibKind -> dbLibKind.equals(libKind))))
+							.anyMatch(libKind -> usedLibSetInDatabase.contains(libKind)))
 				.toList();
 
 		return allMatchingExternalTables;
