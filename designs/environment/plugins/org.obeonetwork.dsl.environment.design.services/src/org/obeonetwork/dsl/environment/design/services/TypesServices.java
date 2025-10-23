@@ -43,7 +43,10 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
+import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -58,14 +61,20 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectSelectionInductor;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.SiriusInterpreterUtils;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectSelectionInductor;
 
 public class TypesServices {
+	
+	
+	/**
+	 * {@link DAnnotation} key used to store the non referenced external structured types in the {@link DAnalysis}
+	 */
+	private static final String NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY = "NonReferencedExternalStructuredTypes";
 	
 	private static final String ENTITY = "Entity";
 	private static final String DTO = "DTO";
@@ -392,14 +401,16 @@ public class TypesServices {
 		return notReferencedTypes;
 	}
 	
-	public Collection<StructuredType> getAllReferencedStructuredTypes(Namespace namespace, DSemanticDiagram diagram) {
+	public static Collection<StructuredType> getAllReferencedStructuredTypes(Namespace namespace, DSemanticDiagram diagram) {
 		Set<StructuredType> types = DesignServices.getDisplayedStructuredTypes(diagram);
 		types.retainAll(namespace.getTypes());
 		
 		Collection<StructuredType> referencedTypes = new HashSet<StructuredType>();
 		
 		for (StructuredType existingType : types) {
-			referencedTypes.add(existingType.getSupertype());
+			if(existingType.getSupertype() != null) {
+				referencedTypes.add(existingType.getSupertype());
+			}
 			for (Reference reference : existingType.getOwnedReferences()) {
 				referencedTypes.add(reference.getReferencedType());
 			}
@@ -411,7 +422,7 @@ public class TypesServices {
 		return referencedTypes;
 	}
 	
-	private Collection<StructuredType> getAllReferencingStructuredTypes(StructuredType referencedType) {
+	private static Collection<StructuredType> getAllReferencingStructuredTypes(StructuredType referencedType) {
 		Collection<StructuredType> referencingTypes = new HashSet<StructuredType>();
 		
 		Session session = new EObjectQuery(referencedType).getSession();
@@ -679,6 +690,54 @@ public class TypesServices {
 					.map(StructuredType::getAttributes)
 					.flatMap(EList::stream)
 					.collect(toList());
+	}
+	
+	public static StructuredType addNonReferencedStructuredTypeToDiagram(DSemanticDiagram diagram, StructuredType structuredType) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY);
+		if(annotation == null) {
+			annotation = DescriptionFactory.eINSTANCE.createDAnnotation();
+			annotation.setSource(NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY);
+			diagram.getEAnnotations().add(annotation);
+		}
+		
+		if(!annotation.getReferences().contains(structuredType)) {
+			annotation.getReferences().add(structuredType);
+		}
+		
+		return structuredType;
+	}
+	
+	public static StructuredType removeNonReferencedStructuredTypeFromDiagram(DSemanticDiagram diagram, StructuredType structuredType) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY);
+		if(annotation != null) {
+			annotation.getReferences().remove(structuredType);
+		}
+		
+		return structuredType;
+	}
+	
+	public static List<StructuredType> getNonReferencedStructuredTypesFromDiagram(DSemanticDiagram diagram) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY);
+		if(annotation != null) {
+			return annotation.getReferences().stream().filter(StructuredType.class::isInstance).map(StructuredType.class::cast).toList();
+		}
+		
+		return Collections.emptyList();
+	}
+	
+	public static DSemanticDiagram removeAllReferencedStructuredTypesFromDiagram(DSemanticDiagram diagram) {
+
+		Namespace namespace = (Namespace) diagram.getTarget();
+		Collection<StructuredType> referencedStructuredTypes = getAllReferencedStructuredTypes(namespace, diagram);
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_STRUCTURED_TYPES_KEY);
+		if(annotation != null) {
+			annotation.getReferences().removeAll(referencedStructuredTypes);
+		}
+		
+		return diagram;
 	}
 	
 }
