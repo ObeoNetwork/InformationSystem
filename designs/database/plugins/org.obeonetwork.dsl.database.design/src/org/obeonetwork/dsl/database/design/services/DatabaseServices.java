@@ -35,7 +35,10 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
+import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
+import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
@@ -61,6 +64,11 @@ import org.obeonetwork.utils.common.ui.services.EclipseUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 public class DatabaseServices {
+	
+	/**
+	 * {@link DAnnotation} key used to store the non referenced external tables in the {@link DAnalysis}
+	 */
+	private static final String NON_REFERENCED_EXTERNAL_TABLES_KEY = "NonReferencedExternalTables";
 	
 	/**
 	 * Return ForeignKeys from tables.
@@ -611,4 +619,53 @@ public class DatabaseServices {
 			
 		}.doSwitch(databaseElement);
 	}
+	
+	public static Table addNonReferencedTableToDiagram(DSemanticDiagram diagram, Table table) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_TABLES_KEY);
+		if(annotation == null) {
+			annotation = DescriptionFactory.eINSTANCE.createDAnnotation();
+			annotation.setSource(NON_REFERENCED_EXTERNAL_TABLES_KEY);
+			diagram.getEAnnotations().add(annotation);
+		}
+		
+		if(!annotation.getReferences().contains(table)) {
+			annotation.getReferences().add(table);
+		}
+		
+		return table;
+	}
+	
+	public static Table removeNonReferencedTableFromDiagram(DSemanticDiagram diagram, Table table) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_TABLES_KEY);
+		if(annotation != null) {
+			annotation.getReferences().remove(table);
+		}
+		
+		return table;
+	}
+	
+	public static List<Table> getNonReferencedTablesFromDiagram(DSemanticDiagram diagram) {
+		
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_TABLES_KEY);
+		if(annotation != null) {
+			return annotation.getReferences().stream().filter(Table.class::isInstance).map(Table.class::cast).toList();
+		}
+		
+		return Collections.emptyList();
+	}
+	
+	public DSemanticDiagram removeAllReferencedTablesFromDiagram(DSemanticDiagram diagram) {
+
+		TableContainer tableContainer = (TableContainer) diagram.getTarget();
+		List<Table> referencedTables = allReferencedExternalTables(tableContainer);
+		DAnnotation annotation = diagram.getDAnnotation(NON_REFERENCED_EXTERNAL_TABLES_KEY);
+		if(annotation != null) {
+			annotation.getReferences().removeAll(referencedTables);
+		}
+		
+		return diagram;
+	}
+	
 }
