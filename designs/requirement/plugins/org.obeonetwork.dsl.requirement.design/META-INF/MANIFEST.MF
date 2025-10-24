@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Requirement viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.design;singleton:=true
-Bundle-Version: 5.1.1.qualifier
+Bundle-Version: 5.1.3.qualifier
 Bundle-Activator: org.obeonetwork.dsl.requirement.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

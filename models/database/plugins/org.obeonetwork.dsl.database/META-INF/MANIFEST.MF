@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.database;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.database
-Bundle-Version: 5.1.1.qualifier
+Bundle-Version: 5.1.3.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network - Contextual Explorer UI
 Bundle-SymbolicName: org.obeonetwork.tools.contextual.explorer.ui;singleton:=true
-Bundle-Version: 5.1.1.qualifier
+Bundle-Version: 5.1.3.qualifier
 Bundle-Activator: org.obeonetwork.tools.contextual.explorer.ui.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.amalgam.explorer.contextual.core,

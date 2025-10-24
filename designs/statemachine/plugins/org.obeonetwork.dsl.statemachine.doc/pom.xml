@@ -18,14 +18,14 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>5.1.1-SNAPSHOT</version>
+		<version>5.1.3-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml
 		</relativePath>
 	</parent>
 
 	<artifactId>org.obeonetwork.dsl.statemachine.doc</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<version>5.1.1-SNAPSHOT</version>
+	<version>5.1.3-SNAPSHOT</version>
 	<name>StateMachine Designer Documentation</name>
 
 </project>
