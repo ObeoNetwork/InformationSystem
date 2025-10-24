@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Entity Viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.entity.design;singleton:=true
-Bundle-Version: 5.1.1.qualifier
+Bundle-Version: 5.1.3.qualifier
 Bundle-Activator: org.obeonetwork.dsl.entity.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

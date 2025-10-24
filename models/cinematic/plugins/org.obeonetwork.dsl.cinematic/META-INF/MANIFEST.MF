@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.cinematic;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.cinematic
-Bundle-Version: 5.1.1.qualifier
+Bundle-Version: 5.1.3.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

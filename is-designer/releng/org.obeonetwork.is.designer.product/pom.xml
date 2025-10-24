@@ -17,14 +17,14 @@
 	<parent>
 	    <groupId>org.obeonetwork.is.designer</groupId>
 	    <artifactId>org.obeonetwork.is.designer.parent</artifactId>
-	    <version>5.1.1-SNAPSHOT</version>
+	    <version>5.1.3-SNAPSHOT</version>
 	    <relativePath>../org.obeonetwork.is.designer.parent/pom.xml</relativePath>
 	  </parent>
 
 	<groupId>org.obeonetwork.is.designer</groupId>
 	<artifactId>org.obeonetwork.is.designer.product</artifactId>
 	<name>org.obeonetwork.is.designer.product</name>
-	<version>5.1.1-SNAPSHOT</version>
+	<version>5.1.3-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
   <properties>
@@ -69,7 +69,7 @@
             <product>
               <id>${product-id}</id>
               <rootFolder>${archive-prefix}</rootFolder>
-              <archiveFileName>${archive-prefix}-5.1.1-WithAcceleo4-${maven.build.timestamp}</archiveFileName>
+              <archiveFileName>${archive-prefix}-5.1.3-WithAcceleo4-${maven.build.timestamp}</archiveFileName>
             </product>
           </products>
         </configuration>
