@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: TypesLibrary Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.typeslibrary.edit;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.typeslibrary.edit
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.1.2.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
