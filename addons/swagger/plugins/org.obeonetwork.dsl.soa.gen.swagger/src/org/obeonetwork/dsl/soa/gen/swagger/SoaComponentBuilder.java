@@ -223,7 +223,9 @@ public class SoaComponentBuilder {
 		Info info = openApi.getInfo();
 
 		soaComponent.setName(info.getTitle());
-		soaComponent.setDescription(info.getDescription());
+		if(!StringUtils.isNullOrWhite(info.getDescription())) {
+			soaComponent.setDescription(info.getDescription());
+		}
 		soaComponent.setApiVersion(info.getVersion());
 
 		/** SAFRAN-936 **/
@@ -261,7 +263,9 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.Server createSoaServer(Server server) {
 		org.obeonetwork.dsl.soa.Server soaServer = SoaFactory.eINSTANCE.createServer();
 		soaServer.setURL(server.getUrl());
-		soaServer.setDescription(server.getDescription());
+		if(!StringUtils.isNullOrWhite(server.getDescription())) {
+			soaServer.setDescription(server.getDescription());
+		}
 		extractPropertiesExtensions(server, soaServer);
 		return soaServer;
 	}
@@ -288,7 +292,7 @@ public class SoaComponentBuilder {
 			soaSecurityScheme.setType(toSoa(swgSecurityScheme.getType(), debugPath));
 		}
 
-		if (swgSecurityScheme.getDescription() != null) {
+		if(!StringUtils.isNullOrWhite(swgSecurityScheme.getDescription())) {
 			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
 		}
 
@@ -844,7 +848,9 @@ public class SoaComponentBuilder {
 		}
 		soaOperation.setName(soaOperationName);
 
-		soaOperation.setDescription(swgOperation.getDescription());
+		if(!StringUtils.isNullOrWhite(swgOperation.getDescription())) {
+			soaOperation.setDescription(swgOperation.getDescription());
+		}
 
 		Verb soaVerb = Verb.get(swgVerb.toString());
 		if (soaVerb != null) {
@@ -1053,7 +1059,9 @@ public class SoaComponentBuilder {
 
 		soaParameter.setName(swgParameter.getName());
 
-		soaParameter.setDescription(swgParameter.getDescription());
+		if(!StringUtils.isNullOrWhite(swgParameter.getDescription())) {
+			soaParameter.setDescription(swgParameter.getDescription());
+		}
 
 		soaParameter.setMultiplicity(computeMultiplicity(
 				swgParameter.getRequired() != null && swgParameter.getRequired(), swgParameter.getSchema()));
@@ -1120,7 +1128,9 @@ public class SoaComponentBuilder {
 
 		soaParameter.setName(BODY_PARAMETER_NAME);
 
-		soaParameter.setDescription(requestBody.getDescription());
+		if(!StringUtils.isNullOrWhite(requestBody.getDescription())) {
+			soaParameter.setDescription(requestBody.getDescription());
+		}
 
 		if (requestBody.getContent() != null && !requestBody.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = requestBody.getContent().entrySet();
@@ -1173,7 +1183,9 @@ public class SoaComponentBuilder {
 		Example soaExample = SoaFactory.eINSTANCE.createExample();
 		soaExample.setName(name);
 		soaExample.setSummary(example.getSummary());
-		soaExample.setDescription(example.getDescription());
+		if(!StringUtils.isNullOrWhite(example.getDescription())) {
+			soaExample.setDescription(example.getDescription());
+		}
 		soaExample.setValue(ExampleGenUtil.getExampleValueFromObject(soaExample.getValue()));
 
 		extractPropertiesExtensions(example, soaExample);
@@ -1225,7 +1237,9 @@ public class SoaComponentBuilder {
 		soaParameter.setName(parameterName);
 
 		soaParameter.setStatusCode(responseKey);
-		soaParameter.setDescription(apiResponse.getDescription());
+		if(!StringUtils.isNullOrWhite(apiResponse.getDescription())) {
+			soaParameter.setDescription(apiResponse.getDescription());
+		}
 		soaParameter.setStatusMessage(emptyIfNull(HttpStatusService.getHttpMessage(responseKey)));
 
 		if (apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
@@ -1329,7 +1343,9 @@ public class SoaComponentBuilder {
 					soaServiceDescription.append(System.lineSeparator());
 				}
 			}
-			soaService.setDescription(soaServiceDescription.toString());
+			if(!StringUtils.isNullOrWhite(soaServiceDescription.toString())) {
+				soaService.setDescription(soaServiceDescription.toString());
+			}
 
 			soaComponent.getOwnedServices().add(soaService);
 		}
@@ -1530,7 +1546,9 @@ public class SoaComponentBuilder {
 				break;
 			}
 
-			exposedType.setDescription(schema.getDescription());
+			if(!StringUtils.isNullOrWhite(schema.getDescription())) {
+				exposedType.setDescription(schema.getDescription());
+			}
 		}
 	}
 
@@ -1694,7 +1712,9 @@ public class SoaComponentBuilder {
 
 		if (soaProperty != null) {
 			soaProperty.setName(propertyKey);
-			soaProperty.setDescription(unwrappedSchema.getDescription());
+			if(!StringUtils.isNullOrWhite(unwrappedSchema.getDescription())) {
+				soaProperty.setDescription(unwrappedSchema.getDescription());
+			}
 
 			soaProperty.setMultiplicity(computeMultiplicity(
 					enclosingSchema.getRequired() != null && enclosingSchema.getRequired().contains(propertyKey),

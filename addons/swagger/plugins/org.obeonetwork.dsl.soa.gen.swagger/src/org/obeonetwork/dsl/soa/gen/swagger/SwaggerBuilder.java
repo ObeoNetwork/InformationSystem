@@ -346,7 +346,10 @@ public class SwaggerBuilder {
 
 	private void buildHeader() {
 		openApi.setInfo(createInfo());
-		openApi.setServers(createServers());
+		final List<Server> servers = createServers();
+		if(!servers.isEmpty()) {
+			openApi.setServers(servers);
+		}
 	}
 
 	/**
@@ -399,7 +402,9 @@ public class SwaggerBuilder {
 
 			license.setName(emptyIfNull(soaLicense.getName()));
 			license.setUrl(emptyIfNull(soaLicense.getURL()));
-			license.setIdentifier(emptyIfNull(soaLicense.getIdentifier()));
+			if(!StringUtils.isNullOrWhite(soaLicense.getIdentifier())) {
+				license.setIdentifier(soaLicense.getIdentifier());
+			}
 
 			addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
 		}
@@ -889,7 +894,7 @@ public class SwaggerBuilder {
 
 		swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
 //		swgOperation.summary(soaOperation.getDescription());
-		if (soaOperation.getDescription() != null) {
+		if (!StringUtils.isNullOrWhite(soaOperation.getDescription())) {
 			swgOperation.description(soaOperation.getDescription());
 		}
 //		swgOperation.deprecated(soaOperation.isDeprecated());

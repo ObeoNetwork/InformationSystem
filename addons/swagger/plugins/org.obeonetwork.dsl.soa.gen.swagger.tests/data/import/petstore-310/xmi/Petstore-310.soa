@@ -156,7 +156,7 @@
           </output>
           <output xmi:id="_eQlPss_-Ee6bEoDPkPs7sg" technicalid="_eQlPe8_-Ee6bEoDPkPs7sg" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_eQlPs8_-Ee6bEoDPkPs7sg" technicalid="_eQlPfM_-Ee6bEoDPkPs7sg" description="" name="loginUser" public="true" URI="/login" exposition="REST">
+        <ownedOperations xmi:id="_eQlPs8_-Ee6bEoDPkPs7sg" technicalid="_eQlPfM_-Ee6bEoDPkPs7sg" name="loginUser" public="true" URI="/login" exposition="REST">
           <input xmi:id="_eQlPtM_-Ee6bEoDPkPs7sg" technicalid="_eQlPfc_-Ee6bEoDPkPs7sg" description="The user name for login" name="username" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_eQlPtc_-Ee6bEoDPkPs7sg" technicalid="_eQlPfs_-Ee6bEoDPkPs7sg" passingMode="QUERY" restId="username"/>
@@ -172,10 +172,10 @@
           </output>
           <fault xmi:id="_eQlPu8_-Ee6bEoDPkPs7sg" technicalid="_eQlPhM_-Ee6bEoDPkPs7sg" description="Invalid username/password supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_eQlPvM_-Ee6bEoDPkPs7sg" technicalid="_eQlPhc_-Ee6bEoDPkPs7sg" description="" name="logoutUser" public="true" URI="/logout" exposition="REST">
+        <ownedOperations xmi:id="_eQlPvM_-Ee6bEoDPkPs7sg" technicalid="_eQlPhc_-Ee6bEoDPkPs7sg" name="logoutUser" public="true" URI="/logout" exposition="REST">
           <output xmi:id="_eQlPvc_-Ee6bEoDPkPs7sg" technicalid="_eQlPhs_-Ee6bEoDPkPs7sg" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_eQlPvs_-Ee6bEoDPkPs7sg" technicalid="_eQlPh8_-Ee6bEoDPkPs7sg" description="" name="getUserByName" public="true" URI="/{username}" exposition="REST">
+        <ownedOperations xmi:id="_eQlPvs_-Ee6bEoDPkPs7sg" technicalid="_eQlPh8_-Ee6bEoDPkPs7sg" name="getUserByName" public="true" URI="/{username}" exposition="REST">
           <input xmi:id="_eQlPv8_-Ee6bEoDPkPs7sg" technicalid="_eQlPiM_-Ee6bEoDPkPs7sg" description="The name that needs to be fetched. Use user1 for testing. " name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_eQlPwM_-Ee6bEoDPkPs7sg" technicalid="_eQlPic_-Ee6bEoDPkPs7sg" passingMode="PATH" restId="username"/>
@@ -323,7 +323,7 @@
           <fault xmi:id="_eQlQJM_-Ee6bEoDPkPs7sg" technicalid="_eQlPLs_-Ee6bEoDPkPs7sg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
           <fault xmi:id="_eQlQJc_-Ee6bEoDPkPs7sg" technicalid="_eQlPL8_-Ee6bEoDPkPs7sg" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_eQlQJs_-Ee6bEoDPkPs7sg" technicalid="_eQlPMs_-Ee6bEoDPkPs7sg" description="" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_eQlQJs_-Ee6bEoDPkPs7sg" technicalid="_eQlPMs_-Ee6bEoDPkPs7sg" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
           <securityApplications xmi:id="_eQlQJ8_-Ee6bEoDPkPs7sg" technicalid="_eQlPOs_-Ee6bEoDPkPs7sg" securityScheme="_eQlQQc_-Ee6bEoDPkPs7sg" scopes="_eQlQQ8_-Ee6bEoDPkPs7sg _eQlQRM_-Ee6bEoDPkPs7sg"/>
           <input xmi:id="_eQlQKM_-Ee6bEoDPkPs7sg" technicalid="_eQlPM8_-Ee6bEoDPkPs7sg" description="ID of pet that needs to be updated" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
@@ -341,7 +341,7 @@
         </ownedOperations>
         <ownedOperations xmi:id="_eQlQL8_-Ee6bEoDPkPs7sg" technicalid="_eQlPO8_-Ee6bEoDPkPs7sg" description="delete a pet" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST">
           <securityApplications xmi:id="_eQlQMM_-Ee6bEoDPkPs7sg" technicalid="_eQlPQc_-Ee6bEoDPkPs7sg" securityScheme="_eQlQQc_-Ee6bEoDPkPs7sg" scopes="_eQlQQ8_-Ee6bEoDPkPs7sg _eQlQRM_-Ee6bEoDPkPs7sg"/>
-          <input xmi:id="_eQlQMc_-Ee6bEoDPkPs7sg" technicalid="_eQlPPM_-Ee6bEoDPkPs7sg" description="" name="api_key" multiplicity="0..1">
+          <input xmi:id="_eQlQMc_-Ee6bEoDPkPs7sg" technicalid="_eQlPPM_-Ee6bEoDPkPs7sg" name="api_key" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_eQlQMs_-Ee6bEoDPkPs7sg" technicalid="_eQlPPc_-Ee6bEoDPkPs7sg" passingMode="HEADER" restId="api_key"/>
           </input>
@@ -351,7 +351,7 @@
           </input>
           <fault xmi:id="_eQlQNc_-Ee6bEoDPkPs7sg" technicalid="_eQlPQM_-Ee6bEoDPkPs7sg" description="Invalid pet value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_eQlQNs_-Ee6bEoDPkPs7sg" technicalid="_eQlPQs_-Ee6bEoDPkPs7sg" description="" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_eQlQNs_-Ee6bEoDPkPs7sg" technicalid="_eQlPQs_-Ee6bEoDPkPs7sg" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
           <securityApplications xmi:id="_eQlQN8_-Ee6bEoDPkPs7sg" technicalid="_eQlPTM_-Ee6bEoDPkPs7sg" securityScheme="_eQlQQc_-Ee6bEoDPkPs7sg" scopes="_eQlQQ8_-Ee6bEoDPkPs7sg _eQlQRM_-Ee6bEoDPkPs7sg"/>
           <input xmi:id="_eQlQOM_-Ee6bEoDPkPs7sg" technicalid="_eQlPQ8_-Ee6bEoDPkPs7sg" description="ID of pet to update" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>

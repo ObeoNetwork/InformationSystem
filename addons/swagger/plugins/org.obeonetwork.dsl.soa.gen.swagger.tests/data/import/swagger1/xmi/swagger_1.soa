@@ -33,7 +33,7 @@
     <metadatas xmi:id="_oX8RMdcNEe6Cv6n9CCwb9Q" technicalid="_oXrLcdcNEe6Cv6n9CCwb9Q">
       <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_oX8RMtcNEe6Cv6n9CCwb9Q" technicalid="_oXrLcNcNEe6Cv6n9CCwb9Q" title="x-original-swagger-version" body="2.0" context="OpenAPI"/>
     </metadatas>
-    <ownedServices xmi:id="_oX8RM9cNEe6Cv6n9CCwb9Q" technicalid="_oXygMNcNEe6Cv6n9CCwb9Q" description="" name="Default" URI="">
+    <ownedServices xmi:id="_oX8RM9cNEe6Cv6n9CCwb9Q" technicalid="_oXygMNcNEe6Cv6n9CCwb9Q" name="Default" URI="">
       <ownedInterface xmi:id="_oX8RNNcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQNcNEe6Cv6n9CCwb9Q" name="Default">
         <ownedOperations xmi:id="_oX8RNdcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQdcNEe6Cv6n9CCwb9Q" description="photos may appear in note" name="getNoteById" public="true" URI="/note/{noteId}" exposition="REST">
           <input xmi:id="_oX8RNtcNEe6Cv6n9CCwb9Q" technicalid="_oXzHQtcNEe6Cv6n9CCwb9Q" description="ID of note that needs to be fetched" name="noteId">
