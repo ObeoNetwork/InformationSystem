@@ -131,6 +131,7 @@ public class SoaComponentBuilder {
 	private static final Set<String> PAGINATION_SIZE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("size", "taille"));
 	private static final Set<String> PAGINATION_PAGE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("page"));
 	private static final Predicate<String> PATH_PARAM_PATTERN_PREDICATE = Pattern.compile("\\{[^}]+\\}").asPredicate();
+	private static final String REF_COMPONENTS_PARAMETERS = "#/components/parameters/";
 
 	private int status;
 	private OpenAPI openApi;
@@ -1037,6 +1038,11 @@ public class SoaComponentBuilder {
 	}
 
 	private org.obeonetwork.dsl.soa.Parameter createSoaInputParameter(org.obeonetwork.dsl.soa.Operation soaOperation, Parameter swgParameter, List<String> debugPath) {
+		
+		if(swgParameter.get$ref() != null && swgParameter.get$ref().startsWith(REF_COMPONENTS_PARAMETERS)) {
+			swgParameter = openApi.getComponents().getParameters().get(swgParameter.get$ref().substring(REF_COMPONENTS_PARAMETERS.length()));
+		}
+		
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
 
