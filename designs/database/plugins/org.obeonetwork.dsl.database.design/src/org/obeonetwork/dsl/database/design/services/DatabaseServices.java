@@ -18,14 +18,17 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.sirius.business.api.helper.SiriusUtil;
@@ -42,10 +45,13 @@ import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
+import org.obeonetwork.dsl.database.NamedElement;
+import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
@@ -59,6 +65,9 @@ import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.TblObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
+import org.obeonetwork.dsl.typeslibrary.Type;
+import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.common.ui.services.EclipseUtils;
@@ -123,6 +132,54 @@ public class DatabaseServices {
 		return fk;
 	}
 	
+	/**
+	 * Copy table from diagram to diagram and clean type of columns if it come from
+	 * different diagram type
+	 * 
+	 * @param container
+	 * @param copiedElement
+	 */
+	public void copyTableFromDiagramToDiagram(TableContainer container, DatabaseElement copiedElement) {
+		databaseGenericCopy(container, copiedElement);
+		if (isTableOrColumnFromOtherDatabaseType((Table) copiedElement,  container)) {
+			for (Column column : ((Table) copiedElement).getColumns()) {
+				((TypeInstance) column.getType()).setNativeType(null);
+			}
+		}
+	}
+
+
+	/**
+	 * For database metamodel only; add copiedElement into the first compatible containment feature of container.
+	 * Supposes that no metaclass of the metamodel element defining at least two containment features of the same type exist
+	 * 
+	 * @param container
+	 * @param copiedElement
+	 */
+	private void databaseGenericCopy(DatabaseElement container, DatabaseElement copiedElement) {
+		EReference containementRef = container.eClass().getEAllStructuralFeatures().stream()
+				.filter(EReference.class::isInstance)
+				.map(EReference.class::cast)
+				.filter(eref -> eref.isContainment() && eref.isMany())
+				.filter(eref -> copiedElement.eClass().getEAllSuperTypes().contains(eref.getEReferenceType()))
+				.findFirst().get();
+		EList<DatabaseElement> containmentList =((EList<DatabaseElement>) container.eGet(containementRef));
+		containmentList.add(copiedElement);
+	}
+	
+	/**
+	 * Copy column from table to table and clean type of column if it come from
+	 * different diagram type
+	 * 
+	 * @param container
+	 * @param copiedElement
+	 */
+	public void copyColumnFromTableToTable(Table container, Column copiedElement) {
+		databaseGenericCopy(container, copiedElement);
+		if (isColumnFromOtherDatabaseSchemaType(container, copiedElement)) {
+				((TypeInstance) copiedElement.getType()).setNativeType(null);
+		}
+	}
 	private Column getOrCreateColumn(Table table, Column referenceColumn) {
 		
 		// Check if a column with the same name already exists
@@ -552,6 +609,30 @@ public class DatabaseServices {
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * @param table
+	 * @param container
+	 * @return if table come from a different database schema than the given container; false by default if table's column don't contain enough information
+	 */
+	public boolean isTableOrColumnFromOtherDatabaseType(Table table, NamedElement container) {
+		Column column = ((Table) table).getColumns().get(0);
+		return isColumnFromOtherDatabaseSchemaType(container, column);
+	}
+
+
+	/**
+	 * @param container
+	 * @param column
+	 * @return if column come from a different database schema than the given container; false by default if column don't contain enough information
+	 */
+	private boolean isColumnFromOtherDatabaseSchemaType(NamedElement container, Column column) {
+		Type columnType = column.getType();
+		if (columnType instanceof TypeInstance) {
+			return !EObjectUtils.getContainerOrSelf(((TypeInstance) columnType).getNativeType(),TypesLibrary.class).equals(EObjectUtils.getContainerOrSelf(container, DataBase.class).getUsedLibraries().get(0));
+		}
+		return false;
 	}
 
 	public String queryValidationMessage(View view) {
