@@ -16,19 +16,18 @@ import java.util.List;
 
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserManager;
-import net.sf.jsqlparser.schema.Table;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.Select;
 
 public class ViewContentProvider {
 
-	private List<String> tables;
+	private List<TblObject> tables;
 	private List<ColObject> columns;
 	/**
 	 * Constructor;
 	 */
 	 public ViewContentProvider (){
-		 tables = new ArrayList<String>();
+		 tables = new ArrayList<TblObject>();
 		 columns = new ArrayList<ColObject>();
 	 }
 
@@ -46,9 +45,7 @@ public class ViewContentProvider {
 				ViewContentFinder viewContentFinder = new ViewContentFinder();
 				viewContentFinder.parseView(selectStatement);
 
-				for (Table table : viewContentFinder.getTables()){
-					tables.add(table.getName());
-				}
+				tables = viewContentFinder.getTables();
 				columns= viewContentFinder.getColumns();
 			}
 		} catch (JSQLParserException e) {
@@ -56,19 +53,12 @@ public class ViewContentProvider {
 		}
 	}
 	
-	/**
-	 * Get list of tables.
-	 * @return list of table names.
-	 */
-	public List<String> getTables(){
+	public List<TblObject> getTables(){
 		return tables;
 	}
 	
-	/**
-	 * Get list of Columns.
-	 * @return list of columns objects.
-	 */
 	public  List<ColObject> getColumns(){
 		return columns;
 	}
+	
 }

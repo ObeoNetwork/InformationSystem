@@ -74,16 +74,16 @@ import net.sf.jsqlparser.statement.select.Union;
 
 public class ViewContentFinder implements SelectVisitor, FromItemVisitor, ExpressionVisitor, ItemsListVisitor, SelectItemVisitor {
 	
-	private List<Table> visitedTables = new ArrayList<Table>();
+	private List<TblObject> visitedTables = new ArrayList<TblObject>();
 	private List<ColObject> visitedColumns = new ArrayList<ColObject>();
 
-	private String lastVisitedAlias = "";
+	private String lastVisitedColumnAlias = "";
 
 	public void parseView(Select select) {
 		select.getSelectBody().accept(this);
 	}
 
-	public List<Table> getTables(){
+	public List<TblObject> getTables(){
 		return visitedTables;
 	}
 	public  List<ColObject> getColumns() {
@@ -105,7 +105,7 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 		@SuppressWarnings("unchecked")
 		List<SelectItem> selectItems = plainSelect.getSelectItems();
 		for (SelectItem selectItem : selectItems){
-			lastVisitedAlias = "";
+			lastVisitedColumnAlias = "";
 			selectItem.accept(this);
 		}
 	}
@@ -119,7 +119,7 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 
 	// FromItemVisitor methods
 	public void visit(Table table) {
-		visitedTables.add(table);
+		visitedTables.add(new TblObject(table.getName(), table.getAlias()));
 	}
 
 	public void visit(SubSelect subSelect) {
@@ -147,7 +147,7 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 				parameters += ", " + param.toString();
 			}
 		}
-		ColObject col = new ColObject(function.getName() + "("+parameters+")", "", lastVisitedAlias);
+		ColObject col = new ColObject(function.getName() + "("+parameters+")", "", lastVisitedColumnAlias);
 		visitedColumns.add(col);
 	}
 
@@ -257,47 +257,39 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 
 	public void visit(Column tableColumn) {
 		// Ensure alias is not null
-		if (lastVisitedAlias == null) {
-			lastVisitedAlias = "";
+		if (lastVisitedColumnAlias == null) {
+			lastVisitedColumnAlias = "";
 		}
-		// Check table is not already parsed. Table name may be an alias.
 		String tableName = null;
+		// Check table is not already parsed. Table name may be an alias.
 		if(tableColumn.getTable() != null && tableColumn.getTable().getName() != null) {
+			Table table = tableColumn.getTable();
 			tableName = tableColumn.getTable().getName();
-			boolean alreadyPresentTable = false;
-			for (Table table : visitedTables) {
-				if (table.getAlias() != null && table.getAlias().equals(tableName)) {
-					alreadyPresentTable = true;
-				} else if (table.getName().equals(tableName)) {
-					alreadyPresentTable = true;
-				}
-			}
+			boolean alreadyPresentTable = visitedTables.stream()
+					.anyMatch(tbl -> tbl.getAlias() != null && tbl.getAlias().equals(table.getName()) ||
+							tbl.getName().equals(table.getName()));
 			if (!alreadyPresentTable) {
-				visitedTables.add(tableColumn.getTable());
+				visitedTables.add(new TblObject(table.getName(), table.getAlias()));
 			}
 		}
 		
 		ColObject col = new ColObject(
 				tableColumn.getColumnName(),
 				tableName,
-				lastVisitedAlias);
+				lastVisitedColumnAlias);
 		visitedColumns.add(col);
 	}
 
 	public void visit(AllTableColumns allTableColumns) {
-		ColObject col = new ColObject("*", allTableColumns.getTable().getName(), lastVisitedAlias);
+		ColObject col = new ColObject("*", allTableColumns.getTable().getName(), lastVisitedColumnAlias);
 		if(allTableColumns.getTable() != null && allTableColumns.getTable().getName() != null) {
+			Table table = allTableColumns.getTable();
 			// Check table is not already parsed. Table name may be an alias.
-			boolean alreadyPresentTable = false;
-			for (Table table : visitedTables) {
-				if (table.getAlias() != null && table.getAlias().equals(allTableColumns.getTable().getName())) {
-					alreadyPresentTable = true;
-				} else if (table.getName().equals(allTableColumns.getTable().getName())) {
-					alreadyPresentTable = true;
-				}
-			}
+			boolean alreadyPresentTable = visitedTables.stream()
+					.anyMatch(tbl -> tbl.getAlias() != null && tbl.getAlias().equals(table.getName()) ||
+					tbl.getName().equals(table.getName()));
 			if (!alreadyPresentTable){
-				visitedTables.add(allTableColumns.getTable());
+				visitedTables.add(new TblObject(table.getName(), table.getAlias()));
 			}
 		}
 		visitedColumns.add(col);
@@ -358,12 +350,12 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 
 	// SelectItemVisitor methods
 	public void visit(AllColumns arg0) {
-		ColObject col = new ColObject("*","", lastVisitedAlias);
+		ColObject col = new ColObject("*","", lastVisitedColumnAlias);
 		visitedColumns.add(col);
 	}
 
 	public void visit(SelectExpressionItem selectExpressionItem) {
-		lastVisitedAlias = selectExpressionItem.getAlias();
+		lastVisitedColumnAlias = selectExpressionItem.getAlias();
 		selectExpressionItem.getExpression().accept(this);
 	}
 }

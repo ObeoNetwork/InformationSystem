@@ -56,6 +56,7 @@ import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.database.util.DatabaseSwitch;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
+import org.obeonetwork.dsl.database.view.parser.TblObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 import org.obeonetwork.utils.common.EObjectUtils;
@@ -395,17 +396,19 @@ public class DatabaseServices {
 		if (view.getTables() != null) {
 			view.getTables().clear();
 		}
+		
 		// Parse new query
 		ViewContentProvider viewContentProvider = new ViewContentProvider();
 		String query = Optional.ofNullable(view.getQuery()).orElse("");
 		viewContentProvider.parseViewQuery(query);
 
 		// Update tables
-		List<String> parsedTableNames = viewContentProvider.getTables();
-		if (parsedTableNames != null) {
-			for (String parsedTableName : parsedTableNames) {
+		List<TblObject> parsedTables = viewContentProvider.getTables();
+		if (parsedTables != null) {
+			for (TblObject parsedTable : parsedTables) {
 				ViewTable viewTable = DatabaseFactory.eINSTANCE.createViewTable();
-				viewTable.setName(parsedTableName);
+				viewTable.setName(parsedTable.getName());
+				viewTable.setAlias(parsedTable.getAlias());
 				view.getTables().add(viewTable);
 			}
 		}
