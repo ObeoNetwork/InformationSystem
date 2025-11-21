@@ -91,17 +91,20 @@ public class PostgresDockerTests extends AbstractDockerTests {
 	}
 	
 	@Before
-	public void setUpBeforeTest() throws LiquibaseException, InterruptedException {
+	public void setUpBeforeTest() throws LiquibaseException, InterruptedException, IOException {
 		
-		ProcessBuilder builder = new ProcessBuilder();
+		ProcessBuilder pullProcessBuilder = new ProcessBuilder();
+		pullProcessBuilder.command("docker", "pull", containerImage); // downloads the docker image if not available
+		Process process = pullProcessBuilder.start();
+		process.waitFor();
 		
-		builder.command("docker", "pull", containerImage); // downloads the docker image if not available
 		// starting the container
-		builder.command("docker", "run", "--name", containerName, "-p", POSTGRES_PORT_DEFAULT+":"+POSTGRES_PORT_DEFAULT, 
+		ProcessBuilder runProcessBuilder = new ProcessBuilder();
+		runProcessBuilder.command("docker", "run", "--name", containerName, "-p", POSTGRES_PORT_DEFAULT+":"+POSTGRES_PORT_DEFAULT, 
 				"-e", "POSTGRES_PASSWORD="+POSTGRES_PASSWORD_DEFAULT, 
 				"-e", "POSTGRES_DB="+DATABASE_NAME_DEFAULT, "-d", containerImage);
 		
-		runAndWaitContainerCreation(builder);
+		runAndWaitContainerCreation(runProcessBuilder);
 		
 		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
 		
@@ -143,15 +146,15 @@ public class PostgresDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
 		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_14);
 
-		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
+		DataBase databaseRev = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		
 		if(this.containerImage.equals("postgres:9.6-alpine")) {
 			DataBase databaseRef = TestUtils.loadModel("resources/postgres/postgres_9.6-alpine.database", TypesLibraryUtil.POSTGRES9_PATHMAP);	
-			TestUtils.checkEquality(database, databaseRef);
+			TestUtils.checkEquality(databaseRev, databaseRef);
 		}
 		else {
 			DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH, TypesLibraryUtil.POSTGRES_PATHMAP);	
-			TestUtils.checkEquality(database, databaseRef);
+			TestUtils.checkEquality(databaseRev, databaseRef);
 		}
 	}
 }

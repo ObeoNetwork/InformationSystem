@@ -41,11 +41,16 @@ public abstract class AbstractDockerTests {
 	
 	@After
 	public void tearDown() throws IOException, InterruptedException {
-		ProcessBuilder builder = new ProcessBuilder();
-		builder.command("docker", "kill", containerName); // shut down the container
-		builder.command("docker", "rm", "-f", containerName); // removes it from docker
-		Process process = builder.start();
-		process.waitFor();
+		
+		ProcessBuilder killProcessBuilder = new ProcessBuilder();
+		killProcessBuilder.command("docker", "kill", containerName); // shut down the container
+		Process killProcess = killProcessBuilder.start();
+		killProcess.waitFor();
+		
+		ProcessBuilder rmProcessBuilder = new ProcessBuilder();
+		rmProcessBuilder.command("docker", "rm", "-f", containerName); // removes it from docker
+		Process rmProcess = rmProcessBuilder.start();
+		rmProcess.waitFor();
 		
 		Thread.sleep(1000);
 		database = null;
@@ -64,11 +69,11 @@ public abstract class AbstractDockerTests {
 	/**
 	 * Run the docker command {@link builder} and wait for its creation.
 	 * 
-	 * @param builder the docker command.
+	 * @param runProcessBuilder the docker command.
 	 */
-	protected void runAndWaitContainerCreation(ProcessBuilder builder) {
+	protected void runAndWaitContainerCreation(ProcessBuilder runProcessBuilder) {
 		try {
-			Process process = builder.start();
+			Process process = runProcessBuilder.start();
 			StringBuilder output = new StringBuilder();
 
 	        BufferedReader reader = new BufferedReader(
