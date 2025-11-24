@@ -161,7 +161,7 @@ public class DatabaseServices {
 				.filter(EReference.class::isInstance)
 				.map(EReference.class::cast)
 				.filter(eref -> eref.isContainment() && eref.isMany())
-				.filter(eref -> copiedElement.eClass().getEAllSuperTypes().contains(eref.getEReferenceType()))
+				.filter(eref -> copiedElement.eClass().getEAllSuperTypes().contains(eref.getEReferenceType()) || copiedElement.eClass().equals(eref.getEReferenceType()))
 				.findFirst().get();
 		EList<DatabaseElement> containmentList =((EList<DatabaseElement>) container.eGet(containementRef));
 		containmentList.add(copiedElement);
@@ -180,6 +180,7 @@ public class DatabaseServices {
 				((TypeInstance) copiedElement.getType()).setNativeType(null);
 		}
 	}
+	
 	private Column getOrCreateColumn(Table table, Column referenceColumn) {
 		
 		// Check if a column with the same name already exists
