@@ -133,16 +133,16 @@ public class DatabaseServices {
 	}
 	
 	/**
-	 * Copy table from diagram to diagram and clean type of columns if it come from
-	 * different diagram type
+	 * Copy table from diagram to diagram and clean type of columns if they comes from
+	 * different database type.
 	 * 
-	 * @param container
-	 * @param copiedElement
+	 * @param tableContainer
+	 * @param copiedTable
 	 */
-	public void copyTableFromDiagramToDiagram(TableContainer container, DatabaseElement copiedElement) {
-		databaseGenericCopy(container, copiedElement);
-		if (isTableOrColumnFromOtherDatabaseType((Table) copiedElement,  container)) {
-			for (Column column : ((Table) copiedElement).getColumns()) {
+	public void pasteTableToTableContainer(TableContainer tableContainer, Table copiedTable) {
+		databaseGenericCopy(tableContainer, copiedTable);
+		if (isTableFromOtherDatabaseType(copiedTable,  tableContainer)) {
+			for (Column column : (copiedTable).getColumns()) {
 				((TypeInstance) column.getType()).setNativeType(null);
 			}
 		}
@@ -150,8 +150,7 @@ public class DatabaseServices {
 
 
 	/**
-	 * For database metamodel only; add copiedElement into the first compatible containment feature of container.
-	 * Supposes that no metaclass of the metamodel element defining at least two containment features of the same type exist
+	 * Add copiedElement into the first compatible containment feature of container.
 	 * 
 	 * @param container
 	 * @param copiedElement
@@ -163,7 +162,8 @@ public class DatabaseServices {
 				.filter(eref -> eref.isContainment() && eref.isMany())
 				.filter(eref -> copiedElement.eClass().getEAllSuperTypes().contains(eref.getEReferenceType()) || copiedElement.eClass().equals(eref.getEReferenceType()))
 				.findFirst().get();
-		EList<DatabaseElement> containmentList =((EList<DatabaseElement>) container.eGet(containementRef));
+		@SuppressWarnings("unchecked")
+		EList<EObject> containmentList =((EList<EObject>) container.eGet(containementRef));
 		containmentList.add(copiedElement);
 	}
 	
@@ -171,13 +171,13 @@ public class DatabaseServices {
 	 * Copy column from table to table and clean type of column if it come from
 	 * different diagram type
 	 * 
-	 * @param container
-	 * @param copiedElement
+	 * @param table
+	 * @param copiedColumn
 	 */
-	public void copyColumnFromTableToTable(Table container, Column copiedElement) {
-		databaseGenericCopy(container, copiedElement);
-		if (isColumnFromOtherDatabaseSchemaType(container, copiedElement)) {
-				((TypeInstance) copiedElement.getType()).setNativeType(null);
+	public void pasteColumnToTable(Table table, Column copiedColumn) {
+		databaseGenericCopy(table, copiedColumn);
+		if (isColumnFromOtherDatabaseType(copiedColumn, table)) {
+				((TypeInstance) copiedColumn.getType()).setNativeType(null);
 		}
 	}
 	
@@ -615,23 +615,28 @@ public class DatabaseServices {
 	/**
 	 * @param table
 	 * @param container
-	 * @return if table come from a different database schema than the given container; false by default if table's column don't contain enough information
+	 * @return <code>true</code> if table comes from a different database type than the given container,
+	 *  <code>false </code> by default if table's column doesn't contain enough information.
 	 */
-	public boolean isTableOrColumnFromOtherDatabaseType(Table table, NamedElement container) {
-		Column column = ((Table) table).getColumns().get(0);
-		return isColumnFromOtherDatabaseSchemaType(container, column);
+	private boolean isTableFromOtherDatabaseType(Table table, NamedElement container) {
+		if(!table.getColumns().isEmpty()) {
+			Column column = table.getColumns().get(0);
+			return isColumnFromOtherDatabaseType(column, container);
+		}
+		return false;
 	}
-
 
 	/**
 	 * @param container
 	 * @param column
-	 * @return if column come from a different database schema than the given container; false by default if column don't contain enough information
+	 * @return <code>true</code> if column comes from a different database type than the given container,
+	 *  <code>false</code> by default if column doesn't contain enough information.
 	 */
-	private boolean isColumnFromOtherDatabaseSchemaType(NamedElement container, Column column) {
+	private boolean isColumnFromOtherDatabaseType(Column column, NamedElement container) {
 		Type columnType = column.getType();
-		if (columnType instanceof TypeInstance) {
-			return !EObjectUtils.getContainerOrSelf(((TypeInstance) columnType).getNativeType(),TypesLibrary.class).equals(EObjectUtils.getContainerOrSelf(container, DataBase.class).getUsedLibraries().get(0));
+		if (columnType instanceof TypeInstance typeInstance) {
+			DataBase dataBase = EObjectUtils.getContainerOrSelf(container, DataBase.class);
+			return !dataBase.getUsedLibraries().contains(EObjectUtils.getContainerOrSelf(typeInstance.getNativeType(), TypesLibrary.class));
 		}
 		return false;
 	}
