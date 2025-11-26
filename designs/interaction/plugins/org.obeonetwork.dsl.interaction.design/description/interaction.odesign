@@ -73,7 +73,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Participant" referenceName="participants">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'newParticipant'+self.eContainer(interaction::Interaction).participants->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'Participant_'+self.eContainer(interaction::Interaction).participants->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:ExternalJavaAction" name="Move participant" icon="" id="org.eclipse.sirius.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="var:self"/>
@@ -91,7 +91,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Participant" referenceName="participants">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'newParticipant'+self.eContainer(interaction::Interaction).participants->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'Participant_'+self.eContainer(interaction::Interaction).participants->size()"/>
                     <subModelOperations xsi:type="tool_2:Let" variableName="participantType" valueExpression="aql:self.promptUserToSelectParticipantType()">
                       <subModelOperations xsi:type="tool_2:If" conditionExpression="aql: participantType &lt;> null">
                         <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:participantType"/>
@@ -118,7 +118,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:source.eContainer(interaction::Interaction)">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CallMessage" referenceName="messages" variableName="callMsg">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m' + self.eContainer(interaction::Interaction).messages->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_' + self.eContainer(interaction::Interaction).messages->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
@@ -162,15 +162,15 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:source.eContainer(interaction::Interaction)">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CallMessage" referenceName="messages" variableName="callMsg">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m' + self.eContainer(interaction::Interaction).messages->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_' + self.eContainer(interaction::Interaction).messages->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Execution" referenceName="executions" variableName="newExecution">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="service:target.currentParticipant()"/>
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e' + self.eContainer(interaction::Interaction).executions->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e_' + self.eContainer(interaction::Interaction).executions->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.ReturnMessage" referenceName="messages" variableName="returnMsg">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="invocationMessage" valueExpression="var:callMsg"/>
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_return' + self.eContainer(interaction::Interaction).messages->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_return_' + self.eContainer(interaction::Interaction).messages->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
@@ -255,11 +255,11 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:source.eContainer(interaction::Interaction)">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CallMessage" referenceName="messages" variableName="callMsg">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m' + self.eContainer(interaction::Interaction).messages->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_' + self.eContainer(interaction::Interaction).messages->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Execution" referenceName="executions" variableName="newExecution">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="service:target.currentParticipant()"/>
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e' + self.eContainer(interaction::Interaction).executions->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e_' + self.eContainer(interaction::Interaction).executions->size()"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
@@ -348,7 +348,7 @@
                   <parameters name="predecessor" value="aql:if (startingEndPredecessor &lt;> null) then startingEndPredecessor.oclAsType(ordering::EventEnd).semanticEnd else null endif"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_return' + self.eContainer(interaction::Interaction).messages->size()"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_return_' + self.eContainer(interaction::Interaction).messages->size()"/>
                   <subModelOperations xsi:type="tool_2:ExternalJavaActionCall" name="Adjust new return message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:sendingEnd">
@@ -396,7 +396,7 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool_2:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_create' + self.eContainer(interaction::Interaction).messages->size()"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_create_' + self.eContainer(interaction::Interaction).messages->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:sendingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'send_' + self.getMessage().name"/>
@@ -444,7 +444,7 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool_2:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_destroy' + self.eContainer(interaction::Interaction).messages->size()"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'m_destroy_' + self.eContainer(interaction::Interaction).messages->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:sendingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'send_' + self.getMessage().name"/>
@@ -493,7 +493,7 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newExecution">
                   <subModelOperations xsi:type="tool_2:ExternalJavaActionCall" name="Adjust new execution position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e' + self.eContainer(interaction::Interaction).executions->size()"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'e_' + self.eContainer(interaction::Interaction).executions->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:startingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'start_' + self.getExecution().name"/>
@@ -540,7 +540,7 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newState">
                   <subModelOperations xsi:type="tool_2:ExternalJavaActionCall" name="Adjust new state position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.2"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'s' + self.eContainer(interaction::Interaction).stateInvariants->size()"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'s_' + self.eContainer(interaction::Interaction).stateInvariants->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:startingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'start_' + self.getStateInvariant().name"/>
@@ -737,7 +737,7 @@
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newSemanticContainer">
                     <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Participant" referenceName="participants">
-                      <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'newParticipant'+self.eContainer(interaction::Interaction).participants->size()"/>
+                      <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'Participant_'+self.eContainer(interaction::Interaction).participants->size()"/>
                       <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:element"/>
                     </subModelOperations>
                   </firstModelOperations>
@@ -938,7 +938,7 @@
               <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:self.eContainer(interaction::Interaction)">
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Operand" referenceName="ownedOperands" variableName="newOperand">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'condition.' + self.eContainer(interaction::CombinedFragment).ownedOperands->size()"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'condition_' + self.eContainer(interaction::CombinedFragment).ownedOperands->size()"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="newOpEnd">
