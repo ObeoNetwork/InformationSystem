@@ -658,6 +658,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
