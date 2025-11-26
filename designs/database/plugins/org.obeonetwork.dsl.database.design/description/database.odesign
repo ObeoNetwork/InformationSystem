@@ -104,7 +104,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Table" referenceName="tables">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Table' + self.eContainer(database::TableContainer).tables->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Table_' + self.eContainer(database::TableContainer).tables->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -115,7 +115,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::View" referenceName="tables">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'View' + self.eContainer(database::DataBase).tables->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'View_' + self.eContainer(database::DataBase).tables->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -126,7 +126,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Column" referenceName="columns">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'column' + self.eContainer(database::Table).columns->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'column_' + self.eContainer(database::Table).columns->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -137,7 +137,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Column" referenceName="columns">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'column' + self.eContainer(database::Table).columns->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'column_' + self.eContainer(database::Table).columns->size()"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.addToPrimaryKey()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -358,7 +358,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Schema" referenceName="schemas">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Schema' + self.eContainer(database::DataBase).schemas->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Schema_' + self.eContainer(database::DataBase).schemas->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -468,7 +468,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Index" referenceName="indexes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Index' + self.eContainer(database::Table).indexes->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Index_' + self.eContainer(database::Table).indexes->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
