@@ -128,7 +128,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.ViewState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'View' + self.eContainer(flow::Flow).states->filter(flow::ViewState)->size()">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'View_' + self.eContainer(flow::Flow).states->filter(flow::ViewState)->size()">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:instance.openViewContainerSelectionDialog()"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -141,7 +141,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.ActionState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Action' + self.eContainer(flow::Flow).states->filter(flow::ActionState)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Action_' + self.eContainer(flow::Flow).states->filter(flow::ActionState)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -152,7 +152,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.AsyncEventState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AsyncEvent' + self.eContainer(flow::Flow).states->filter(flow::AsyncEventState)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AsyncEvent_' + self.eContainer(flow::Flow).states->filter(flow::AsyncEventState)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -180,7 +180,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Flow" referenceName="flows" variableName="newFlow">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow_' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.SubflowState" referenceName="states">
@@ -412,7 +412,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.FlowEvent" referenceName="events">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'event' + self.eContainer(flow::Flow).events->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'event_' + self.eContainer(flow::Flow).events->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -513,7 +513,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer(cinematic::AbstractPackage)">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
@@ -631,7 +631,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package_'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -642,7 +642,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Flow" referenceName="flows">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Flow_' + self.eContainer(cinematic::AbstractPackage).flows->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -656,7 +656,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers" variableName="newViewContainer">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
@@ -857,7 +857,7 @@
           <create name="CRE_SubSubPackage" label="Package" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_SubPackage']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package_'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -867,7 +867,7 @@
           <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
@@ -919,7 +919,7 @@
             <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
@@ -934,7 +934,7 @@
             <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement_'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetHavePropertyIsNotContainer(selectedType)"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
@@ -1031,7 +1031,7 @@
           <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_'+self.eContainer(view::ViewContainer).viewContainers->size()"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
@@ -1046,7 +1046,7 @@
           <create name="CRE_ViewElement" label="View Element" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement_'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetHavePropertyIsNotContainer(selectedType)"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
@@ -1108,7 +1108,7 @@
         <create name="CRE_SubPackage" label="Package" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_SubPackage']">
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.Package" referenceName="subPackages">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Package_'+self.eContainer(cinematic::AbstractPackage).subPackages->size()"/>
             </subModelOperations>
           </firstModelOperation>
           <variables name="root" documentation="The semantic element of the tree."/>
@@ -1118,7 +1118,7 @@
         <create name="CRE_ViewContainer" label="View Container" forceRefresh="true" elementsToSelect="service:stdEmptyCollection" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ViewContainer_' + self.eContainer(cinematic::AbstractPackage).viewContainers->size()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
             </subModelOperations>
@@ -1180,7 +1180,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainer" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewContainer)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement_'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewContainer)->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{container}}')"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" containerViewExpression="var:containerView">
@@ -1198,7 +1198,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement_'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
