@@ -95,7 +95,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.eContainer(graal::System).getNextAvailableTaskId()"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task' + self.id.substring(2)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task_' + self.id.substring(2)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -117,7 +117,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.TasksGroup" referenceName="tasks">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.eContainer(graal::System).getNextAvailableTasksGroupId()"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Group' + self.id.substring(1)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Group_' + self.id.substring(1)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -126,7 +126,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.System" referenceName="subSystems">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'SubSystem' + self.eContainer().oclAsType(graal::System).subSystems->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'SubSystem_' + self.eContainer().oclAsType(graal::System).subSystems->size()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -524,7 +524,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.AppliEvent" referenceName="nodes">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AppliEvent' + self.eContainer(graal::Activity).nodes->filter(graal::AppliEvent)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AppliEvent_' + self.eContainer(graal::Activity).nodes->filter(graal::AppliEvent)->size()"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.initNodeAfterCreation(self.eContainer(graal::System).userStories->asSequence())"/>
               </firstModelOperations>
             </initialOperation>
@@ -534,7 +534,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.AppliAction" referenceName="nodes">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AppliAction' + self.eContainer(graal::Activity).nodes->filter(graal::AppliAction)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'AppliAction_' + self.eContainer(graal::Activity).nodes->filter(graal::AppliAction)->size()"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.initNodeAfterCreation(self.eContainer(graal::System).userStories->asSequence())"/>
               </firstModelOperations>
             </initialOperation>
@@ -544,7 +544,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserView" referenceName="nodes">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserView' + self.eContainer(graal::Activity).nodes->filter(graal::UserView)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserView_' + self.eContainer(graal::Activity).nodes->filter(graal::UserView)->size()"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.initNodeAfterCreation(self.eContainer(graal::System).userStories->asSequence())"/>
               </firstModelOperations>
             </initialOperation>
@@ -554,7 +554,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserAction" referenceName="nodes">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserAction' + self.eContainer(graal::Activity).nodes->filter(graal::UserAction)->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserAction_' + self.eContainer(graal::Activity).nodes->filter(graal::UserAction)->size()"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.initNodeAfterCreation(self.eContainer(graal::System).userStories->asSequence())"/>
               </firstModelOperations>
             </initialOperation>
@@ -907,7 +907,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Actor" referenceName="actors">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Actor ' + self.eContainer(graal::System).actors->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Actor_' + self.eContainer(graal::System).actors->size()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -998,7 +998,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UseCase" referenceName="useCases">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UC - Use Case ' + self.eContainer(graal::System).useCases->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UC - Use Case_' + self.eContainer(graal::System).useCases->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1141,8 +1141,8 @@
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(graal::UseCase)">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer(graal::System)">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task' + self.eContainer(graal::System).tasks->size()"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'T' + self.eContainer(graal::System).tasks->size()"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task_' + self.eContainer(graal::System).tasks->size()"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'T_' + self.eContainer(graal::System).tasks->size()"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.oclAsType(diagram::DSemanticDiagram).target">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="tasks" valueExpression="var:newTask"/>
@@ -1151,8 +1151,8 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(graal::TasksGroup)">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask2">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task' + self.eContainer(graal::System).tasks->size()"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'T' + self.eContainer(graal::System).tasks->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Task_' + self.eContainer(graal::System).tasks->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'T_' + self.eContainer(graal::System).tasks->size()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1242,7 +1242,7 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
         <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:container">
           <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserStory" referenceName="userStories">
-            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserStory' + self.eContainer(graal::System).userStories->size()"/>
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'UserStory_' + self.eContainer(graal::System).userStories->size()"/>
           </subModelOperations>
         </firstModelOperation>
       </ownedCreateLine>
