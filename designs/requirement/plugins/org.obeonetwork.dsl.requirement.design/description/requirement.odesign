@@ -21,7 +21,7 @@
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement::Category" referenceName="subCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'CAT' + self.eContainer(requirement::Category).subCategories->size()"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'CAT_' + self.eContainer(requirement::Category).subCategories->size()"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </firstModelOperation>
@@ -88,7 +88,7 @@
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:element.oclIsKindOf(requirement::Repository)">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement::Category" referenceName="mainCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'CAT' + self.eContainer(requirement::CategoriesContainer).ownedCategories->size()"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'CAT_' + self.eContainer(requirement::CategoriesContainer).ownedCategories->size()"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </subModelOperations>
