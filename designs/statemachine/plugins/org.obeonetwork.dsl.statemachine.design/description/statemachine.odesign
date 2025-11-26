@@ -84,7 +84,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.Region" referenceName="regions">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new Region ' + self.eContainer(statemachine::StateMachine).regions->size()"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'Region_' + self.eContainer(statemachine::StateMachine).regions->size()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
