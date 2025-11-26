@@ -34,7 +34,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Component" referenceName="ownedComponents">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Component ' + self.eContainer(soa::System).ownedComponents->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Component_' + self.eContainer(soa::System).ownedComponents->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -48,7 +48,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService' + container.oclAsType(soa::Component).providedServices->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService_' + container.oclAsType(soa::Component).providedServices->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -60,7 +60,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService' + container.oclAsType(soa::Component).requiredServices->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService_' + container.oclAsType(soa::Component).requiredServices->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -291,7 +291,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService'+container.oclAsType(soa::Component).providedServices->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService_'+container.oclAsType(soa::Component).providedServices->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -303,7 +303,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService' + container.oclAsType(soa::Component).requiredServices->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService_' + container.oclAsType(soa::Component).requiredServices->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -366,7 +366,7 @@
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:ownedInterface">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Operation' + self.eContainer(soa::Interface).ownedOperations->size()"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Operation_' + self.eContainer(soa::Interface).ownedOperations->size()"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -380,7 +380,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="input">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'input' + self.eContainer(soa::Operation).input->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'input_' + self.eContainer(soa::Operation).input->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -392,7 +392,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'output' + self.eContainer(soa::Operation).input->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'output_' + self.eContainer(soa::Operation).input->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -404,7 +404,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="fault">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'fault' + self.eContainer(soa::Operation).fault->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'fault_' + self.eContainer(soa::Operation).fault->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -760,7 +760,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.DTO" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'DTO' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'DTO_' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -778,7 +778,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute_' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -792,7 +792,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum' + self.eContainer(environment::Namespace).types->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum_' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -803,7 +803,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Literal" referenceName="literals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'literal' + self.eContainer().literals->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'literal_' + self.eContainer().literals->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
