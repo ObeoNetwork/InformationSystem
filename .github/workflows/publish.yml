@@ -1,0 +1,129 @@
+name: Publish meta-model Eclipse Plugins to GitHub Packages
+
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - "releng/jar-for-github-publish/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+
+    steps:
+      # ------------------------------
+      # Checkout
+      # ------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ------------------------------
+      # Setup Java & Maven
+      # ------------------------------
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+
+      # ------------------------------
+      # Install all Eclipse-plugin JARs locally
+      # ------------------------------
+      - name: Install all plugin JARs into local Maven repo
+        run: |
+          cd releng/jar-for-github-publish
+          mkdir -p local-maven-repo
+
+          install_jars() {
+              GROUP_ID="$1"
+              JAR_PATHS="$2"
+              
+              for jar_path in $JAR_PATHS; do
+                  echo "Installing $jar_path"
+
+                  ARTIFACT_ID=$(basename "$jar_path" | sed 's/_.*//')
+                  VERSION=$(basename "$jar_path" | sed -n 's/.*_\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p')
+
+
+                  mvn install:install-file \
+                  -Dfile="$jar_path" \
+                  -DgroupId="$GROUP_ID" \
+                  -DartifactId="$ARTIFACT_ID" \
+                  -Dversion="$VERSION" \
+                  -Dpackaging=jar \
+                  -DgeneratePom=true \
+                  -DlocalRepositoryPath=local-maven-repo
+              done
+          }
+
+          ENTITY_JAR_PATHS=$(ls | grep -E ".*(org.obeonetwork.dsl.environment_|org.obeonetwork.dsl.environment.edit_)")
+          install_jars org.obeonetwork.dsl "$ENTITY_JAR_PATHS"
+
+          ENTITY_JAR_PATHS=$(ls | grep -E ".*(org.obeonetwork.dsl.entity_|org.obeonetwork.dsl.entity.edit_)")
+          install_jars org.obeonetwork.dsl "$ENTITY_JAR_PATHS"
+
+          ENTITY_JAR_PATHS=$(ls | grep -E ".*(org.obeonetwork.dsl.technicalid_|org.obeonetwork.dsl.technicalid.edit_)")
+          install_jars org.obeonetwork.dsl "$ENTITY_JAR_PATHS"
+
+          ENTITY_JAR_PATHS=$(ls | grep -E ".*net4j.util_")
+          install_jars org.eclipse.net4j.util "$ENTITY_JAR_PATHS"
+
+          ENTITY_JAR_PATHS=$(ls | grep -E ".*(cdo_|cdo.common_)")
+          install_jars org.eclipse.emf.cdo "$ENTITY_JAR_PATHS"
+
+      # ------------------------------
+      # Publish to GitHub Packages
+      # ------------------------------
+      - name: Deploy all installed artifacts to GitHub Packages
+        env:
+          GITHUB_USER: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd releng/jar-for-github-publish
+          for pom in $(find local-maven-repo -name "*.pom"); do
+              echo "Found POM: $pom"
+              ARTIFACT_DIR=$(dirname "$pom")
+              FILE_JAR=$(ls "$ARTIFACT_DIR"/*.jar | head -n 1)
+              echo "Found JAR: $FILE_JAR"
+              BASE_NAME=$(basename "$pom" .pom)
+
+              OUTPUT=$(mktemp)
+
+              if mvn deploy:deploy-file \
+              -DrepositoryId=github \
+              -Durl="https://maven.pkg.github.com/${{ github.repository }}" \
+              -Dfile="$FILE_JAR" \
+              -DpomFile="$pom" \
+              -Dpackaging=jar \
+              -DgeneratePom=false \
+              -Dtoken=${{ secrets.GITHUB_TOKEN }} \
+              >"$OUTPUT" 2>&1; then
+
+                echo $(cat "$OUTPUT")
+                echo "✔ Successfully deployed $BASE_NAME"
+
+              else
+                  # Read the error
+                  ERROR_MSG=$(cat "$OUTPUT")
+                  if echo "$ERROR_MSG" | grep -qiE "409|already exists|conflict|overwrite"; then
+                      echo "⚠ Artifact $BASE_NAME already exists — continuing..."
+                  else
+                      echo "❌ Deployment failed for $BASE_NAME"
+                      echo "---- Maven Error Output ----"
+                      echo "$ERROR_MSG"
+                      echo "----------------------------"
+                      exit 1
+                  fi
+              fi
+
+
+              
+
+          done
