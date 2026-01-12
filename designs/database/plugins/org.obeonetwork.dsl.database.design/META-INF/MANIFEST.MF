@@ -14,7 +14,10 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common,
  org.eclipse.sirius.diagram.ui,
- org.obeonetwork.dsl.environment.design
+ org.obeonetwork.dsl.environment.design,
+ org.eclipse.jface,
+ org.eclipse.ui,
+ org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ManifestVersion: 2

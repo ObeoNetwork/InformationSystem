@@ -17,7 +17,6 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.ui.ISharedImages;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
@@ -59,7 +58,7 @@ public class CreateRequirementAction extends EObjectLinksViewAction {
 			operation.execute(new NullProgressMonitor(), null);
 			linksView.refresh();
 		} catch (ExecutionException e) {
-			EEFRuntimePlugin.getDefault().logError("An error occured during wizard editing.", e); //$NON-NLS-1$
+			RequirementLinkerPlugin.getInstance().getLog().error("An error occured during wizard editing.", e); //$NON-NLS-1$
 		}
 	}
 

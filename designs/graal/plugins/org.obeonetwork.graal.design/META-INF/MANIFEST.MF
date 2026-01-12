@@ -5,7 +5,6 @@ Bundle-Version: 6.0.0.qualifier
 Bundle-Activator: org.obeonetwork.graal.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.emf.eef.runtime;visibility:=reexport,
  org.obeonetwork.dsl.requirement,
  org.eclipse.gmf.runtime.common.core,
  org.eclipse.gmf.runtime.notation,
@@ -29,7 +28,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.is,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.dsl.environment.design,
- org.eclipse.ui.navigator
+ org.eclipse.ui.navigator,
+ org.eclipse.emf.edit.ui
 Import-Package: com.google.common.collect
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17

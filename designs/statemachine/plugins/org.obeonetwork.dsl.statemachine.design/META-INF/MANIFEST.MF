@@ -5,7 +5,6 @@ Bundle-Version: 6.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.statemachine.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.emf.eef.runtime,
  org.eclipse.emf.transaction,
  org.eclipse.core.expressions,
  org.eclipse.ui.ide,
@@ -18,7 +17,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram,
  org.obeonetwork.dsl.environment.design.services,
  org.obeonetwork.utils.common.ui,
- org.obeonetwork.utils.common
+ org.obeonetwork.utils.common,
+ org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ManifestVersion: 2
