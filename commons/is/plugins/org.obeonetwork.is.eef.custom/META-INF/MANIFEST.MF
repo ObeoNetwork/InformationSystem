@@ -16,7 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.eef.ide.ui,
  org.eclipse.eef,
  org.eclipse.emf.ecore,
- org.eclipse.emf.eef.runtime,
  org.eclipse.emf.transaction,
  org.eclipse.jface,
  org.eclipse.sirius.common.interpreter,
@@ -27,5 +26,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius.ui,
  org.eclipse.sirius,
  org.eclipse.swt,
- org.eclipse.ui
+ org.eclipse.ui,
+ org.eclipse.emf.edit.ui
 Export-Package: org.obeonetwork.is.eef.custom.reference

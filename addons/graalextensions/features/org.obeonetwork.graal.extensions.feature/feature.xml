@@ -235,7 +235,6 @@ litigation.
       <import plugin="org.obeonetwork.graal"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.obeonetwork.dsl.environment.edit"/>
-      <import plugin="org.eclipse.emf.eef.runtime"/>
    </requires>
 
    <plugin

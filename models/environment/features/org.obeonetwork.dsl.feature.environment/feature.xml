@@ -25,10 +25,6 @@
       %copyright
    </copyright>
 
-   <requires>
-      <import feature="org.eclipse.emf.eef.runtime-feature" version="1.3.0" match="greaterOrEqual"/>
-   </requires>
-
    <plugin
          id="org.obeonetwork.dsl.environment"
          download-size="0"

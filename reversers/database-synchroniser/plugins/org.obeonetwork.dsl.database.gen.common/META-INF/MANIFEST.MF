@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.typeslibrary.edit,
  org.obeonetwork.dsl.database,
  org.eclipse.emf.compare,
- org.obeonetwork.dsl.database.compare
+ org.obeonetwork.dsl.database.compare,
+ org.eclipse.emf.edit.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.obeonetwork.dsl.database.gen.common
 Bundle-ActivationPolicy: lazy

@@ -17,6 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;visibility:=reexport,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
- org.eclipse.emf.eef.runtime
+ org.eclipse.ui.views.properties.tabbed
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
