@@ -9,9 +9,7 @@ Bundle-Activator: org.obeonetwork.graal.provider.GraalEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.obeonetwork.graal.filters,
- org.obeonetwork.graal.parts.forms,
- org.obeonetwork.graal.provider,
+Export-Package: org.obeonetwork.graal.provider,
  org.obeonetwork.graal.provider.custom
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.graal;visibility:=reexport,

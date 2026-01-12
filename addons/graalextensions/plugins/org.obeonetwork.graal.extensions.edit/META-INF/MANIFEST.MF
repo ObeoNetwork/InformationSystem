@@ -8,8 +8,7 @@ Bundle-Activator: org.obeonetwork.graalextensions.provider.Safrangraalextensions
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.obeonetwork.graalextensions.provider,
- org.obeonetwork.graalextensions.providers
+Export-Package: org.obeonetwork.graalextensions.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.graal.extensions;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
