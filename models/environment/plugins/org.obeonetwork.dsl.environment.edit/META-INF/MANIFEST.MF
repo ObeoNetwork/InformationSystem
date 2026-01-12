@@ -8,14 +8,9 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.obeonetwork.dsl.environment.components,
- org.obeonetwork.dsl.environment.edit.specific.extensions,
- org.obeonetwork.dsl.environment.edit.specific.policies,
- org.obeonetwork.dsl.environment.filters,
+Export-Package: org.obeonetwork.dsl.environment.edit.specific.extensions,
  org.obeonetwork.dsl.environment.metadatadef.provider,
- org.obeonetwork.dsl.environment.parts,
- org.obeonetwork.dsl.environment.provider,
- org.obeonetwork.dsl.environment.providers
+ org.obeonetwork.dsl.environment.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.cdo.edit;visibility:=reexport,
  org.obeonetwork.dsl.environment;visibility:=reexport,
