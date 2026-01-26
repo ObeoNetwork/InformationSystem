@@ -61,7 +61,8 @@ public class MySQLDockerTests extends AbstractDockerTests {
 	public static Collection<String> MySQLVersions() {
 		return Arrays.asList(	
 								"mysql:5.7",
-								"mysql:8.0.30"
+								"mysql:8.0.30",
+								"mysql:9.6.0"
 							);
 	}
 	

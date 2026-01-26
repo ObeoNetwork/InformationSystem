@@ -65,7 +65,8 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> SqlServerVersions() {
 		return Arrays.asList(	
-								"mcr.microsoft.com/mssql/server:2022-latest"
+								"mcr.microsoft.com/mssql/server:2022-latest",
+								"mcr.microsoft.com/mssql/server:2025-latest"
 							);
 	}
 	
