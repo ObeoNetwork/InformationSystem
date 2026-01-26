@@ -61,7 +61,8 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 	public static Collection<String> MariaDBVersions() {
 		return Arrays.asList(	
 								"mariadb/server:10.2",
-								"mariadb:10.6"
+								"mariadb:10.6",
+								"mariadb:12.1.2"
 							);
 	}
 	

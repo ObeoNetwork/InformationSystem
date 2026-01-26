@@ -86,7 +86,8 @@ public class PostgresDockerTests extends AbstractDockerTests {
 								"postgres:12.6-alpine",
 								"postgres:12.7-alpine",
 								"postgres:13.2-alpine",
-								"postgres:14.3-alpine"
+								"postgres:14.3-alpine",
+								"postgres:18.1-alpine"
 							);
 	}
 	

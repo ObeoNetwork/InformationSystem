@@ -45,7 +45,7 @@ public class TypesLibraryUtil {
 	public static final String POSTGRES9_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
 	public static final String POSTGRES9_FILENAME = "Postgres-9.typeslibrary";
 	
-	public static final String POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9.5-13";
+	public static final String POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres";
 	public static final String POSTGRES_FILENAME = "Postgres.typeslibrary";
 	
 	public static NativeType findLogicalType(TypeInstance physicalTypeInstance) {

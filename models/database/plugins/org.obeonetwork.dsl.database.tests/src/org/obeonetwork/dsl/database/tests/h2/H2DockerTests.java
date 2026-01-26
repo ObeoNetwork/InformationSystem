@@ -83,7 +83,7 @@ public class H2DockerTests {
 								"thibaultblf/h2:1.4.198",
 								"thibaultblf/h2:1.4.197",
 								"thibaultblf/h2:1.4.196",								
-								"thibaultblf/h2:1.3.176"								
+								"thibaultblf/h2:1.3.176"
 							);
 	}
 
