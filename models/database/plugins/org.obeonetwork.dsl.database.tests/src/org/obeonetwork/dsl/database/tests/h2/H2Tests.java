@@ -57,7 +57,7 @@ public class H2Tests extends AbstractTests {
 		String url = String.format(JDBC_H2_URL_PATTERN, H2_HOST_DEFAULT, H2_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
 		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "PUBLIC");
 		dataSource.setJdbcUrl(url);
-		dataSource.setVendor(DatabaseConstants.DB_H2_13);
+		dataSource.setVendor(DatabaseConstants.DB_H2_24);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 

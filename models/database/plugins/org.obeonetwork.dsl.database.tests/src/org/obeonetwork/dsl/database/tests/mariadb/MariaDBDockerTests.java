@@ -124,7 +124,7 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MARIADB_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MARIADB_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MARIADB_106);
+		dataSource.setVendor(DatabaseConstants.DB_MARIADB_121);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

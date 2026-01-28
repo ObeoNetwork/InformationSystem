@@ -52,7 +52,7 @@ public class SqlServerTests extends AbstractTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2025);
 		
 		TestUtils.executeStatement(dataSource, String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
 		
@@ -68,7 +68,7 @@ public class SqlServerTests extends AbstractTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2025);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		
