@@ -145,7 +145,7 @@ public class PostgresDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_14);
+		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_18);
 
 		DataBase databaseRev = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		
