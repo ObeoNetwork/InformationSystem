@@ -141,7 +141,7 @@ public class MySQLTests extends AbstractTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MYSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MYSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MYSQL_8);
+		dataSource.setVendor(DatabaseConstants.DB_MYSQL_9);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

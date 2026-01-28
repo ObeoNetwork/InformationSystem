@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.database.ui.wizards.imports;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_24;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_121;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_18;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2025;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -31,7 +31,7 @@ public class DatabaseInfos {
 	public static final String PORT_POSTGRES_9 = "5432";
 	public static final String PORT_SQLSERVER_2008 = "1433";
 	
-	private String vendor = DB_MYSQL_8;
+	private String vendor = DB_MYSQL_9;
 	private String host = "";
 	private String port = PORT_MYSQL_5;
 	private String database = "";
@@ -64,22 +64,22 @@ public class DatabaseInfos {
 	}
 	
 	public void computeUrl() {
-		if (DB_MYSQL_8.equals(vendor)) {
+		if (DB_MYSQL_9.equals(vendor)) {
 			String newUrl = "jdbc:mysql://" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
-		} else if (DB_MARIADB_106.equals(vendor)) {
+		} else if (DB_MARIADB_121.equals(vendor)) {
 			String newUrl = "jdbc:mariadb://" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
 		} else if (DB_ORACLE_21C.equals(vendor)) {
 			String newUrl = "jdbc:oracle:thin:" + getUser() + "/" + getPassword() + "@//" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
-		} else if (DB_H2_13.equals(vendor)) {
+		} else if (DB_H2_24.equals(vendor)) {
 			String newUrl = "jdbc:h2:" + getDatabase();
 			setUrl(newUrl);
-		} else if (DB_POSTGRES_14.equals(vendor)) {
+		} else if (DB_POSTGRES_18.equals(vendor)) {
 			String newUrl = "jdbc:postgresql://" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
-		} else if (DB_SQLSERVER_2008.equals(vendor)) {
+		} else if (DB_SQLSERVER_2025.equals(vendor)) {
 			String newUrl = "jdbc:sqlserver://" + getHost() + ":" + getPort() + ";databaseName=" + getDatabase();
 			setUrl(newUrl);
 		}
@@ -94,21 +94,21 @@ public class DatabaseInfos {
 			// Value did not change
 			return;
 		}
-		if (DB_MYSQL_8.equals(vendor) && DB_ORACLE_21C.equals(vendor)) {
+		if (DB_MYSQL_9.equals(vendor) && DB_ORACLE_21C.equals(vendor)) {
 			// Wrong value
 			return;
 		}
-		if (DB_MYSQL_8.equals(vendor)) {
+		if (DB_MYSQL_9.equals(vendor)) {
 			setPort(PORT_MYSQL_5);
-		} else if (DB_MARIADB_106.equals(vendor)) {
+		} else if (DB_MARIADB_121.equals(vendor)) {
 			setPort(PORT_MARIADB_102);
 		} else if (DB_ORACLE_21C.equals(vendor)) {
 			setPort(PORT_ORACLE_11G);
-		} else if (DB_H2_13.equals(vendor)) {
+		} else if (DB_H2_24.equals(vendor)) {
 			setPort(PORT_H2_13);
-		} else if (DB_POSTGRES_14.equals(vendor)) {
+		} else if (DB_POSTGRES_18.equals(vendor)) {
 			setPort(PORT_POSTGRES_9);
-		} else if (DB_SQLSERVER_2008.equals(vendor)) {
+		} else if (DB_SQLSERVER_2025.equals(vendor)) {
 			setPort(PORT_SQLSERVER_2008);
 		}
 		propertyChangeSupport.firePropertyChange("vendor", this.vendor, this.vendor = vendor);
