@@ -1066,7 +1066,7 @@
           <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
         </type>
       </columns>
-      <columns xmi:id="_zCiiBNAuEeurvfnIivq5Aw" techID="_zA9NQ9AuEeurvfnIivq5Aw" name="DEFAULT" defaultValue="FALSE">
+      <columns xmi:id="_zCiiBNAuEeurvfnIivq5Aw" techID="_zA9NQ9AuEeurvfnIivq5Aw" name="default" defaultValue="FALSE">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zCiiBdAuEeurvfnIivq5Aw" length="1" precision="0">
           <nativeType href="pathmap://NativeDBTypes/H2-1.3#_Ja9H8GBNEeS9uKH-UlSsiQ"/>
         </type>
