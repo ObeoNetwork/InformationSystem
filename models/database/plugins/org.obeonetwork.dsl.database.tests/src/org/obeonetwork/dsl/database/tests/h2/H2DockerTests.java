@@ -117,7 +117,7 @@ public class H2DockerTests {
 	
 
 	@Before
-	public void testWithPostgresVersion() {
+	public void testWithH2Version() {
 		ProcessBuilder builder = new ProcessBuilder();
 		
 		File localRepo = new File(String.format("%s/%s", H2_PATH_TO_LOCAL_DATABASE, containerName));
