@@ -2,13 +2,15 @@
 
 In order to execute tests always in the same context, this document explains how to lauch databases using docker with right parameters.
 
-## Launch database
-
-I recommend to start one container at once as some container are mapped on the same connection port.
-
 ### Prerequisites
 
 You need to install docker first.
+
+## Basic use
+
+Unit tests include setup phases that already pull, launch and then stop container when needed. Just launch the **DockerTest* to execute the full process.
+
+## Manual configuration 
 
 ### MariaDB
 
