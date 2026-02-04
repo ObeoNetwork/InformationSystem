@@ -60,8 +60,8 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> MariaDBVersions() {
 		return Arrays.asList(	
-								"mariadb/server:10.2",
 								"mariadb:10.6",
+								"mariadb:11.8",
 								"mariadb:12.1.2"
 							);
 	}
@@ -115,7 +115,7 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		
 		// Init DB
 		
-		database = TestUtils.openDatabaseConnection(url, MARIADB_USERNAME_DEFAULT, MARIADB_PASSWORD_DEFAULT);
+		//database = TestUtils.openDatabaseConnection(url, MARIADB_USERNAME_DEFAULT, MARIADB_PASSWORD_DEFAULT);
 		liquibase = TestUtils.createAndInitializeLiquibase("resources/northwind-liquibase.xml", database);
 		
 		// Run the test
