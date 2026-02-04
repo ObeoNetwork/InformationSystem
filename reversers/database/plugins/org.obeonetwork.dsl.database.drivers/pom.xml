@@ -52,6 +52,12 @@
 											<overWrite>true</overWrite>
 										</artifactItem>
 										<artifactItem>
+											<groupId>com.h2database</groupId>
+											<artifactId>h2</artifactId>
+											<version>1.4.200</version>
+											<overWrite>true</overWrite>
+										</artifactItem>
+										<artifactItem>
 											<groupId>org.mariadb.jdbc</groupId>
 											<artifactId>mariadb-java-client</artifactId>
 											<version>3.5.7</version>
@@ -71,7 +77,7 @@
 										</artifactItem>
 										<artifactItem>
 											<groupId>com.oracle.database.jdbc</groupId>
-											<artifactId>ojdbc11</artifactId>
+											<artifactId>ojdbc17</artifactId>
 											<version>23.26.0.0.0</version>
 											<overWrite>true</overWrite>
 										</artifactItem>
