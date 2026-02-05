@@ -86,7 +86,8 @@ public class PostgresDockerTests extends AbstractDockerTests {
 								"postgres:12.6-alpine",
 								"postgres:12.7-alpine",
 								"postgres:13.2-alpine",
-								"postgres:14.3-alpine"
+								"postgres:14.3-alpine",
+								"postgres:18.1-alpine"
 							);
 	}
 	
@@ -144,7 +145,7 @@ public class PostgresDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_14);
+		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_18);
 
 		DataBase databaseRev = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		

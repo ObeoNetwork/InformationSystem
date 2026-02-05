@@ -11,11 +11,13 @@
 package org.obeonetwork.dsl.database.tests.h2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.BeforeClass;
@@ -31,6 +33,7 @@ import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 import liquibase.exception.DatabaseException;
@@ -57,7 +60,7 @@ public class H2Tests extends AbstractTests {
 		String url = String.format(JDBC_H2_URL_PATTERN, H2_HOST_DEFAULT, H2_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
 		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "PUBLIC");
 		dataSource.setJdbcUrl(url);
-		dataSource.setVendor(DatabaseConstants.DB_H2_13);
+		dataSource.setVendor(DatabaseConstants.DB_H2_24);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 
@@ -87,6 +90,7 @@ public class H2Tests extends AbstractTests {
 				String refColumnDefaultValue = column.getDefaultValue();
 				String refSeqUUID = refColumnDefaultValue.substring("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_".length(), refColumnDefaultValue.length() - 2);
 				
+				
 				// Gets the sequence of the reference database associated with the column.
 				Optional<Sequence> optSeq = allSequences.stream().filter(seq -> seq.getName().contains(refSeqUUID)).findFirst();
 				if (optSeq.isPresent()) {
@@ -104,8 +108,32 @@ public class H2Tests extends AbstractTests {
 				column.setDefaultValue(((Column) eColumn).getDefaultValue());
 			}
 		}
+		// Cleaning date of creation and modification to compare only content
+		cleanDate(ref, database);
 	}
-	
+
+	/**
+	 * Clean every {@link ObeoDSMObject} in the given database of modified and
+	 * creation date
+	 * 
+	 * @param ref      - database to analyse
+	 * @param database - expected database
+	 */
+	private static void cleanDate(DataBase ref, DataBase database) {
+		for (DataBase aDatabase : Arrays.asList(ref, database)) {
+			for (TreeIterator<EObject> iterator = aDatabase.eAllContents(); iterator.hasNext();) {
+				EObject eObject = (EObject) iterator.next();
+				if (eObject instanceof ObeoDSMObject) {
+					ObeoDSMObject obeoObject = (ObeoDSMObject) eObject;
+					obeoObject.setCreatedOn(null);
+					obeoObject.setModifiedOn(null);
+				}
+
+			}
+		}
+
+	}
+
 	public static Collection<? extends Column> getColumnsWithDefaultValueFromDirectTableOfDatabase(DataBase ref) {
 		List<Column> columns = ref.getTables().stream()
 				.filter(Table.class::isInstance)

@@ -83,7 +83,7 @@ public class H2DockerTests {
 								"thibaultblf/h2:1.4.198",
 								"thibaultblf/h2:1.4.197",
 								"thibaultblf/h2:1.4.196",								
-								"thibaultblf/h2:1.3.176"								
+								"thibaultblf/h2:1.3.176"
 							);
 	}
 
@@ -98,7 +98,7 @@ public class H2DockerTests {
 		dataSource.setJdbcUsername(H2_USERNAME_DEFAULT);
 		//dataSource.setJdbcUrl("jdbc:h2:tcp://localhost:1521/test");
 		dataSource.setJdbcUrl(url);
-		dataSource.setVendor(DatabaseConstants.DB_H2_13);
+		dataSource.setVendor(DatabaseConstants.DB_H2_24);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		String modelRefURI = "resources/"+containerName+"/h2_outputRef.database";
@@ -117,7 +117,7 @@ public class H2DockerTests {
 	
 
 	@Before
-	public void testWithPostgresVersion() {
+	public void testWithH2Version() {
 		ProcessBuilder builder = new ProcessBuilder();
 		
 		File localRepo = new File(String.format("%s/%s", H2_PATH_TO_LOCAL_DATABASE, containerName));

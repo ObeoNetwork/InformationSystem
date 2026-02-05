@@ -65,7 +65,8 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> SqlServerVersions() {
 		return Arrays.asList(	
-								"mcr.microsoft.com/mssql/server:2022-latest"
+								"mcr.microsoft.com/mssql/server:2022-latest",
+								"mcr.microsoft.com/mssql/server:2025-latest"
 							);
 	}
 	
@@ -118,7 +119,7 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2025);
 		
 		TestUtils.executeStatement(dataSource, String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
 		
@@ -132,7 +133,7 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(databaseUrl);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2025);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

@@ -61,7 +61,8 @@ public class MySQLDockerTests extends AbstractDockerTests {
 	public static Collection<String> MySQLVersions() {
 		return Arrays.asList(	
 								"mysql:5.7",
-								"mysql:8.0.30"
+								"mysql:8.0.30",
+								"mysql:9.6.0"
 							);
 	}
 	
@@ -122,7 +123,7 @@ public class MySQLDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MYSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MYSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MYSQL_8);
+		dataSource.setVendor(DatabaseConstants.DB_MYSQL_9);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

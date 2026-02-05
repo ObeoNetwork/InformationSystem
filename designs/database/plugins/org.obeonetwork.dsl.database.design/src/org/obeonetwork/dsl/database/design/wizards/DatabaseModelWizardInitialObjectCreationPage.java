@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.wizards;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_24;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_121;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_9;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_18;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2025;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -215,12 +215,12 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 		if (dbVendors == null) {
 			dbVendors = new ArrayList<String>();
 			dbVendors.add(DB_LOGICAL_TYPES);
-			dbVendors.add(DB_MYSQL_8);
-			dbVendors.add(DB_MARIADB_106);
+			dbVendors.add(DB_MYSQL_9);
+			dbVendors.add(DB_MARIADB_121);
 			dbVendors.add(DB_ORACLE_21C);
-			dbVendors.add(DB_H2_13);
-			dbVendors.add(DB_POSTGRES_14);
-			dbVendors.add(DB_SQLSERVER_2008);
+			dbVendors.add(DB_H2_24);
+			dbVendors.add(DB_POSTGRES_18);
+			dbVendors.add(DB_SQLSERVER_2025);
 		}
 		return dbVendors;
 	}

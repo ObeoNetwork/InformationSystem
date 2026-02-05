@@ -76,7 +76,6 @@ public class OracleDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> OracleVersions() {
 		return Arrays.asList(	
-								"oracle/database:11.2.0.2-xe",
 								"container-registry.oracle.com/database/express:21.3.0-xe"
 							);
 	}

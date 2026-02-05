@@ -665,11 +665,11 @@
     </tables>
     <tables xsi:type="database:Table" xmi:id="_rOxveD9qEemuxfkvAcwbIQ" techID="_rMlWMj9qEemuxfkvAcwbIQ" name="order_details">
       <primaryKey xmi:id="_rOxveT9qEemuxfkvAcwbIQ" techID="_rMpnoD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyVrz9qEemuxfkvAcwbIQ"/>
-      <foreignKeys xmi:id="_rOxvej9qEemuxfkvAcwbIQ" techID="_rOOU8D9qEemuxfkvAcwbIQ" name="fk_order_details_orders1" target="_rOxvKD9qEemuxfkvAcwbIQ">
-        <elements xmi:id="_rOxvez9qEemuxfkvAcwbIQ" techID="_rOOU8T9qEemuxfkvAcwbIQ" fkColumn="_rOyVsT9qEemuxfkvAcwbIQ" pkColumn="_rOxvQD9qEemuxfkvAcwbIQ"/>
-      </foreignKeys>
       <foreignKeys xmi:id="_rOxvfD9qEemuxfkvAcwbIQ" techID="_rOOU8j9qEemuxfkvAcwbIQ" name="fk_order_details_order_details_status1" target="_rOyVwz9qEemuxfkvAcwbIQ">
         <elements xmi:id="_rOyVoD9qEemuxfkvAcwbIQ" techID="_rOOU8z9qEemuxfkvAcwbIQ" fkColumn="_rOyVuz9qEemuxfkvAcwbIQ" pkColumn="_rOyVxz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvej9qEemuxfkvAcwbIQ" techID="_rOOU8D9qEemuxfkvAcwbIQ" name="fk_order_details_orders1" target="_rOxvKD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvez9qEemuxfkvAcwbIQ" techID="_rOOU8T9qEemuxfkvAcwbIQ" fkColumn="_rOyVsT9qEemuxfkvAcwbIQ" pkColumn="_rOxvQD9qEemuxfkvAcwbIQ"/>
       </foreignKeys>
       <foreignKeys xmi:id="_rOyVoT9qEemuxfkvAcwbIQ" techID="_rOOU9D9qEemuxfkvAcwbIQ" name="fk_order_details_products1" target="_rOyV0z9qEemuxfkvAcwbIQ">
         <elements xmi:id="_rOyVoj9qEemuxfkvAcwbIQ" techID="_rOOU9T9qEemuxfkvAcwbIQ" fkColumn="_rOyVsz9qEemuxfkvAcwbIQ" pkColumn="_rOyV2z9qEemuxfkvAcwbIQ"/>
