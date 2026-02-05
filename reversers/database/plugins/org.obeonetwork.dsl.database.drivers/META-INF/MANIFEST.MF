@@ -9,9 +9,9 @@ Bundle-ClassPath: .,
  lib/mariadb-java-client-3.5.7.jar,
  lib/mssql-jdbc-13.2.1.jre11.jar,
  lib/mysql-connector-j-9.5.0.jar,
- lib/ojdbc11-23.26.0.0.0.jar,
  lib/postgresql-42.7.9.jar,
- lib/h2-1.4.200.jar
+ lib/h2-1.4.200.jar,
+ lib/ojdbc17-23.26.0.0.0.jar
 Export-Package: com.microsoft.sqlserver.jdbc,
  com.mysql.jdbc,
  com.mysql.cj.jdbc,
