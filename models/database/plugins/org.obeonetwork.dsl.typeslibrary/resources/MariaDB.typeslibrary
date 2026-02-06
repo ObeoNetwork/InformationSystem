@@ -108,4 +108,7 @@
   <nativeTypes xmi:id="_hlijgSY8EemALc7s7nxPuQ" technicalid="_hgIfECY8EemALc7s7nxPuQ" name="year(4)">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_b3lZgANlEfGEVo0VorPW2w" technicalid="_bj7dsANlEfGEVo0VorPW2w" name="uuid">
+    <mapsTo href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
+  </nativeTypes>
 </typeslibrary:NativeTypesLibrary>
