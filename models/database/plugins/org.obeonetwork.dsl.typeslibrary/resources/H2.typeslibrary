@@ -161,7 +161,9 @@
   <nativeTypes xmi:id="__xdE0WBREeS9uKH-UlSsiQ" technicalid="_E0Ce1pn4EeaqGJZ6nXNZAQ" name="TINYTEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_e7vWkGBSEeS9uKH-UlSsiQ" technicalid="_E0Ce2Jn4EeaqGJZ6nXNZAQ" name="UUID" mapsTo="_e7vWkGBSEeS9uKH-UlSsiQ"/>
+  <nativeTypes xmi:id="_e7vWkGBSEeS9uKH-UlSsiQ" technicalid="_E0Ce2Jn4EeaqGJZ6nXNZAQ" name="UUID">
+    <mapsTo href="pathmap://LogicalDBTypes#_XgEcIANkEfGEVo0VorPW2w"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_AVxaMGBPEeS9uKH-UlSsiQ" technicalid="_E0Ce2Zn4EeaqGJZ6nXNZAQ" name="VARBINARY" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
