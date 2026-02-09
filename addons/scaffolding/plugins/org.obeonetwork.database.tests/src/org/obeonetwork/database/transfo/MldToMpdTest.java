@@ -79,4 +79,9 @@ public class MldToMpdTest extends AbstractTransformationTest {
 	public void test12() {
 		testMldToMpd("12-mariadb-simple");
 	}
+	
+	@Test
+	public void test13RecentPostgre() {
+		testMldToMpd("13-postgres-post9-simple");
+	}
 }
