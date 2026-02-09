@@ -30,6 +30,11 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_LwgH8GW8EeSGPOrcarGX5w"/>
         </type>
       </columns>
+      <columns xmi:id="_3KS4YQW4EfG46dtrCczMZw" technicalid="_24bsUAW4EfG46dtrCczMZw" techID="_24bsUAW4EfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Pa3G3JazEea3rZOTd3d7bg">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_-5kxcGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jNca25wEeS2fLS2tY2BlQ" techID="_-ganEG5wEeS2fLS2tY2BlQ" name="CustomerCustomerDemo">
       <primaryKey xmi:id="_-jNccG5wEeS2fLS2tY2BlQ" techID="_-gdqYG5wEeS2fLS2tY2BlQ" name="PK_CustomerCustomerDemo" columns="_-jNcbG5wEeS2fLS2tY2BlQ _-jNcbm5wEeS2fLS2tY2BlQ"/>
