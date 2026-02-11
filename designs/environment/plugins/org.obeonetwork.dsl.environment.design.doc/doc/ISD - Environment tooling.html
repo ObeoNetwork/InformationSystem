@@ -2,8 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>ISD - Environment tooling</title>
 	</head>
 	<body>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<th style="width: 100%" align="center" colspan="3">ISD - Environment tooling</th>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="ISD-Outillage-environnement.html" title="ISD - Outillage environnement">
+						<img alt="Next" border="0" src="images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">ISD - Outillage environnement</td>
+			</tr>
+		</table><hr class="navigation-separator"/>
 		<p>
 			<i>Copyright &#169; 2008, 2025 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
@@ -35,148 +55,22 @@
 		</p>
 		<p>
 			<img border="0" src="./pics/ModelingProject_AirdUnfold.png"/>
-		</p>
-		<h1 id="outillage_environnement">ISD &#8211; Outillage environnement</h1>
-		<p>L&#8217;outillage environnement est le socle commun aux différents types de modeleurs que le studio IS-Designer fournit.</p>
-		<h2 id="vues_partielles">Vues partielles</h2>
-		<p>La fonctionnalité &#171;Vue Partielle&#187; permet de créer une représentation dont le contenu présenté n&#8217;est pas exhaustif.</p>
-		<p>Par défaut, les différents types de représentation fournis par le studio sont synchronisés avec le contenu du modèle. Ainsi par exemple pour un diagramme d&#8217;entités qui est créé sur un Namespace, le diagramme présente tout le contenu du Namespace. Ce mode de fonctionnement offre à l&#8217;utilisateur la garantie que le contenu des diagrammes est toujours en cohérence avec le contenu du modèle. Les diagrammes synchronisés ont une couleur de fond blanche :</p>
-		<p>
-			<img border="0" src="./pics/SynchronizedDiagram.png"/>
-		</p>
-		<p>Les &#171;Vues Partielles&#187; fournissent un moyen de constituer une représentation dont le contenu n&#8217;est pas exhaustif. Lorsqu&#8217;elle est créée, une Vue Partielle est vide, et elle est peuplée en y glissant et déposant des éléments depuis le Model Explorer. Ces vues peuvent être utiles pour faire un focus sur une sous partie d&#8217;un modèle , en particulier pour les gros modèles. Les vues partielles ont une couleur de fond spécifique les distinguant clairement des diagrammes classiques, et alertant sur le caractère non exaustif du contenu présenté :</p>
-		<p>
-			<img border="0" src="./pics/PartialViewDiagram.png"/>
-		</p>
-		<p>Les représentations classiques et les Vues Partielles peuvent être créées à partir du menu contextuel sur un élément du Model Explorer, dans le sous menu &#171;New Representation&#187;. La première partie du menu jusqu'à l&#8217;entrée &#171;Other...&#187; permet de créer des représentations classique, les entrées présentées après &#171;Other...&#187; permettent de créer des Vues Partielles :</p>
-		<p>
-			<img border="0" src="./pics/NewRepresentationMenu.png"/>
-		</p>
-		<p>Il est possible de convertir un diagramme synchronisé classique en Vue Partielle par l&#8217;action du menu contextuel &#171;Unsynchronized&#187; sur le fond du diagramme :</p>
-		<p>
-			<img border="0" src="./pics/UnsynchronizedMenu.png"/>
-		</p>
-		<p>Les vues partielles sont conçues de manière à ne pas permettre une suppression d'élément du modèle de manière accidentelle par une pression sur la touche Suppr. L&#8217;outil de suppression est donc désactivé, seul l&#8217;outil de suppression du diagramme est activé :</p>
-		<p>
-			<img border="0" src="./pics/PartialViewDiagram_ToolbarDeleteTool.png"/>
-		</p>
-		<p>Le raccourci clavier pour la suppression d&#8217;un élément du diagramme est 
-			<strong>Shift+Ctrl+D</strong>.
-		</p>
-		<p>Les éléments de liste contenue ne peuvent pas être supprimés du diagramme, par contre ils peuvent être cachés. Une fois caché, l'élément fait toujours partie du diagramme mais n&#8217;est simplement pas visible. Les éléments cachés peuvent être rendus visible en utilisant le mode &#171;Visibility&#187; du diagramme. Ils sont alors affichés de manière estompée :</p>
-		<p>
-			<img border="0" src="./pics/PartialViewDiagram_ToolbarVisibilityMode.png"/>
-		</p>
-		<p>La mise en forme d&#8217;un diagramme ou d&#8217;une vue partielle peut être reproduite sur une autre en utilisant les actions suivantes :</p>
-		<ul>
-			<li>Dans le menu contextuel sur le fond d&#8217;une représentation, séléctionner 
-				<em>Edit &gt; Copy format</em>.
-			</li>
-			<li>Dans le menu contextuel sur le fond d&#8217;une autre représentation, séléctionner 
-				<em>Edit &gt; Paste layout</em>.
-			</li>
-		</ul>
-		<h2 id="error_log">Vue error log</h2>
-		<p>Certaines fonctionnalités du studio peuvent sous certaines conditions signaler à l&#8217;utilisateur qu&#8217;il peut consulter la vue 
-			<strong>Error Log</strong> pour obtenir plus de détail. Cette vue peut être ouverte via le menu &#171;Window &gt; Show View &gt; Error Log&#187;.
-		</p>
-		<p>Exemple de la vue Error Log suite à un traitement d&#8217;export Swagger avec messages d&#8217;avertissements :</p>
-		<p>
-			<img border="0" src="./pics/ErrorLog.png"/>
-		</p>
-		<h2 id="modele_environnement">Le modèle environnement</h2>
-		<p>Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles ISD.
-			<br/>Avant la version ISD 1.9 le modèle &#171;obeo.environment&#187; était ajouté par défaut dans les dépendances des projets modeling. Depuis la version ISD 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d&#8217;un projet modeling, ainsi que de gérer les ressources environnement d&#8217;un projet.
-		</p>
-		<h3 id="modeling_project_creation">Création d&#8217;un projet modeling</h3>
-		<p>A la création d&#8217;un projet modeling la ressource &#171;obeo.environment&#187; est ajoutée par defaut.</p>
-		<p>Ce comportement repose sur l&#8217;utilisation du point d&#8217;extension &#171;org.obeonetwork.dsl.environment.providedEnvironmentModel&#187; qui permet de définir les modèles environnement utilisables dans le studio.</p>
-		<p>Ce point d&#8217;extenion permet de contribuer des modèles environement en définissant pour chacun d&#8217;eux :</p>
-		<ul>
-			<li>Un nom</li>
-			<li>Une URI</li>
-			<li>Une priorité</li>
-		</ul>
-		<p>A la création d&#8217;un projet modeling, seuls les modèles environnement dont la priorité est la plus élevée sont chargés. La ressource &#171;obeo.environment&#187; est contribuée à ce point d&#8217;extension avec la priorité 0. (Ainsi, si un autre modèle environement est contribué avec la priorité 0, ces deux modèles seront chargés par défaut à la création d&#8217;un projet modeling).</p>
-		<h3 id="manage_env_resource">Gestion des ressources environnement</h3>
-		<p>La boîte de dialogue &#171;Manage Environment&#187; permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l&#8217;action &#171;Manage environment resources&#187; du menu contextuel d&#8217;un projet modeling, d&#8217;une ressource aird, ou de l'élément &#171;Project Dependencies&#187; :</p>
-		<p>
-			<img style="width:100%" border="0" src="./pics/ManageEnvironmentResourcesActions.png"/>
-		</p>
-		<p>La boîte de dialogue est composée d&#8217;un tableau listant toutes les ressources environnements accessibles pour le projet modeling concerné.
-			<br/>Les ressources environnment se trouvant dans le projet sont automatiquement actives et ne peuvent pas être désactivées. Elles sont présentées en gris.
-			<br/>Les ressources environnement apportées par point d&#8217;extension sont désactivables en décochant la case à cocher en début de ligne. Elles sont présentées en noir.
-		</p>
-		<p>
-			<img style="width:100%" border="0" src="./pics/ManageEnvironmentResourcesDialog.png"/>
-		</p>
-		<p>Le résultat de la sélection est appliqué lors de la validation de la boîte de dialogue.</p>
-		<p>Dans le cas du décochage d&#8217;une ressource, une vérification est faite pour s&#8217;assurer que les éléments contenus dans la ressource ne sont pas utilisés dans le projet modeling. Si certains éléments d&#8217;une ressource retirée du projet sont utilisés, un dialogue d&#8217;avertissement s&#8217;affiche demandant confirmation à l&#8217;utilisateur :</p>
-		<p>
-			<img style="width:500px" border="0" src="./pics/ManageEnvironmentResourcesWarningDialog.png"/>
-		</p>
-		<p>Ce dialogue présente sous forme d&#8217;arbre les objets qui référencent des éléments de la ressource environnement sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si ce dialogue est validé, les références listées sont supprimées. Si le message d&#8217;avertissement est annulé la ressource environnement n&#8217;est pas retirée des dépendances du projet.
-			<br/>Il est possible que plusieurs messages d&#8217;avertissements se succèdent dans le cas où plusieurs ressources environnement sont retirées des dépendances du projet.
-		</p>
-		<p>Remarques :
-			<br/>- Les changements sont appliqués mais pas sauvegardés
-			<br/>- Il est possible d&#8217;annuler tous les changements opérés à l&#8217;aide du raccourci clavier "Ctrl+Z.
-		</p>
-		<h3 id="error_log">Création d&#8217;un modèle Environment</h3>
-		<p>Un assistant de création de modèles Environment est accessible via le menu :</p>
-		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Environment Model (Catégorie IS Designer)</p>
-		</blockquote>
-		<p>
-			<img border="0" src="pics/Environment-ModelCreationWizard-01.png"/>
-		</p>
-		<p>Cet assistant permet de définir </p>
-		<ul>
-			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
-			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
-		</ul>
-		<p>
-			<img border="0" src="pics/Environment-ModelCreationWizard-02.png"/>
-		</p>
-		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
-		<h2 id="metadata_definition">Le modèle de définitions de métadonnées</h2>
-		<p>Les modèles de définitions de métadonnées sont utlisés pour proposer à l&#8217;utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d&#8217;un élément.
-			<br/>Un exemple d&#8217;un tel modèle est accessible via l&#8217;URI: &#171;platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef&#187;.
-		</p>
-		<p>Un modèle &#171;.metadatadef&#187; contient un élément racine de type 
-			<strong>MetaDataDefinitions</strong> contenant plusieurs éléments de type 
-			<strong>MetaDataDefinition</strong>.
-			<br/>Une MetaDataDefinition possède trois attributs: 
-			<strong>title</strong>, 
-			<strong>body</strong> et 
-			<strong>condition</strong>. 
-			<strong>title</strong> et 
-			<strong>body</strong> sont le titre et le corps; 
-			<strong>condition</strong> est une expression AQL qui sera évaluée sur un élément acceptant les métadonnées. Si l&#8217;expression retourne vrai, alors la MetaDataDefinition est proposée pour créer une métadonnée sur l'élément, sinon elle n&#8217;est pas proposée.
-			<br/>Si la métadonnée (Annotation) est créée sur l'élément, les attributs title et body de celle-ci auront comme valeurs celles de title et body de la MetaDataDefinition.
-			<br/>Exemple: Une MetaDataDefinition avec title=&#171;Modeling studio&#187;, body=&#171;This element comes from an ISD modeling workbench&#187; et condition="aql:true"
-			<br/>pourra être applicable sur tous les éléments qui supportent des métadonnées.
-		</p>
-		<h3 id="metadata_definition_contribution">Contribution d&#8217;un modèle de définitions de métadonnées</h3>
-		<p>Afin de contribuer un tel modèle, il faut utliser le point d&#8217;extension: &#171;org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels&#187;.
-			<br/>Ce point d&#8217;extenion permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d&#8217;eux :
-		</p>
-		<ul>
-			<li>Un nom</li>
-			<li>Une URI de la ressource contenant le modèle. Cette URI doit commencer par "platform:/plugin"</li>
-		</ul>
-		<p>Ces modèles sont chargés une seule fois, lorsque l&#8217;utilisateur final ouvre la fenêtre de sélection de métadonnées pour la première fois.</p>
-		<h3 id="metadata_definition_use">Utilisation de métadonnées contribuées via un modèle de définitions de métadonnées</h3>
-		<p>Pour utiliser des métadonnées provenant d&#8217;un modèle de définitions de métadonnées (contribué via le point d&#8217;extension), l&#8217;utilisateur final doit:
-			<br/>Cliquer sur &#171;...&#187; dans l&#8217;onglet Metadatas de la vue Properties.
-			<br/>Si une définition de métadonnée est applicable pour l&#8217;objet contexte, l&#8217;Annotation équivalente s&#8217;affiche parmi les Annotations candidates (colonne &#171;Applicable Metadata&#187;) dans la fenêtre qui s&#8217;ouvre:
-		</p>
-		<p>
-			<img border="0" src="./pics/AddMetadataFromMetadataDefinitionDialog.png"/>
-		</p>
-		<p>Une définition de métadonnée est applicable sur un objet contexte si:
-			<br/>1. sa condition s'évalue à vrai sur l&#8217;objet contexte
-			<br/>2. l&#8217;objet contexte ne possède pas de métadonnée (Annotation) dont le titre est le même que celui de la définition de la métadonnée
-		</p>
+		</p><hr class="navigation-separator"/>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<td style="width: 20%" align="left"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="ISD-Outillage-environnement.html" title="ISD - Outillage environnement">
+						<img alt="Next" border="0" src="images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">ISD - Outillage environnement</td>
+			</tr>
+		</table>
 	</body>
 </html>
