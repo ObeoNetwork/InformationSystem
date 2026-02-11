@@ -29,4 +29,15 @@
 	<packaging>eclipse-plugin</packaging>
 	<name>org.obeonetwork.is.design.doc</name>
 
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.mylyn.docs</groupId>
+				<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
