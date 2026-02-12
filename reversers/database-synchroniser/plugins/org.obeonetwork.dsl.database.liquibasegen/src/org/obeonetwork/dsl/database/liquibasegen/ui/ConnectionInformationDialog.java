@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.ui;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
@@ -18,11 +22,13 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.dsl.database.liquibasegen.ConnectionInformation;
 
 /**
  * Creates a dialog for defining the identifiers of the database.
@@ -35,6 +41,7 @@ public class ConnectionInformationDialog extends Dialog {
 	private String url;
 	private String username;
 	private String password;
+	private List<ConnectionInformation> connectionInformations;
 	
 	/**
 	 * Create the dialog.
@@ -43,11 +50,12 @@ public class ConnectionInformationDialog extends Dialog {
 	 * @param username 
 	 * @param password
 	 */
-	public ConnectionInformationDialog(Shell parentShell, String url, String username, String password) {
+	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connectionInformations) {
 		super(parentShell);
-		this.url = url;
-		this.username = username;
-		this.password = password;
+		this.connectionInformations = connectionInformations;
+		url = connectionInformations.get(0).url();
+		username = "";
+		password = "";
 	}
 
 	/**
@@ -69,16 +77,6 @@ public class ConnectionInformationDialog extends Dialog {
 		lblNewLabel.setLayoutData(gd_lblNewLabel);
 		lblNewLabel.setText("URL");
 		
-		Text urlText = new Text(composite, SWT.BORDER);
-		urlText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		urlText.setText(url);
-		urlText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				url = ((Text) e.widget).getText();
-			}
-		});
-		
 		Composite composite_1 = new Composite(container, SWT.NONE);
 		composite_1.setLayout(new GridLayout(2, false));
 		GridData gd_composite_1 = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
@@ -92,16 +90,6 @@ public class ConnectionInformationDialog extends Dialog {
 		lblNewLabel_1.setLayoutData(gd_lblNewLabel_1);
 		lblNewLabel_1.setText("Username");
 		
-		Text usernameText = new Text(composite_1, SWT.BORDER);
-		usernameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		usernameText.setText(username);
-		usernameText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				username = ((Text) e.widget).getText();
-			}
-		});
-		
 		Composite composite_2 = new Composite(container, SWT.NONE);
 		composite_2.setLayout(new GridLayout(2, false));
 		composite_2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
@@ -113,7 +101,38 @@ public class ConnectionInformationDialog extends Dialog {
 		lblNewLabel_2.setLayoutData(gd_lblNewLabel_2);
 		lblNewLabel_2.setText("Password");
 		
+		Text usernameText = new Text(composite_1, SWT.BORDER);
 		Text passwordText = new Text(composite_2, SWT.BORDER);
+		
+		Combo urlCombo = new Combo(composite, SWT.BORDER);
+		urlCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		connectionInformations.stream().map(ConnectionInformation::url).forEach(ciUrl -> urlCombo.add(ciUrl));
+		urlCombo.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				url = ((Combo) e.widget).getText();
+				Optional<ConnectionInformation> selectedConInf = connectionInformations.stream().filter(ci -> ci.url().equals(url)).findFirst();
+				selectedConInf.ifPresentOrElse(
+						(ci) -> usernameText.setText( ci.username()),
+						() -> usernameText.setText(""));
+				selectedConInf.ifPresentOrElse(
+						(ci) -> passwordText.setText(ci.password()),
+						() -> passwordText.setText(""));
+			}
+		});
+		
+		
+		usernameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		usernameText.setText(username);
+		usernameText.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				username = ((Text) e.widget).getText();
+			}
+		});
+		
+		
 		passwordText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		passwordText.setText(password);
 		passwordText.addModifyListener(new ModifyListener() {
