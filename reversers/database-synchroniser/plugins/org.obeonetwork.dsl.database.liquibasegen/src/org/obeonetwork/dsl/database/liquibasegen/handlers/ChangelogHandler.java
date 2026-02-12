@@ -112,7 +112,10 @@ public class ChangelogHandler extends AbstractHandler {
 			credentialsProperties.setProperty("password.1", liquibaseProperties.getProperty("password", ""));
 			
 			final FileOutputStream credentialsFos = new FileOutputStream(credentialsPropertiesFile);
-			credentialsProperties.store(credentialsFos, "Credentials for database connections");
+			credentialsProperties.store(credentialsFos, "Credentials for database connections"+System.lineSeparator()+System.lineSeparator()+
+														"url.X = //url/database" +System.lineSeparator()+
+														"username.X = username"+System.lineSeparator()+
+														"password.X = password"+System.lineSeparator());
 			inputStream.close();
 			credentialsFos.close();
 		}else {
