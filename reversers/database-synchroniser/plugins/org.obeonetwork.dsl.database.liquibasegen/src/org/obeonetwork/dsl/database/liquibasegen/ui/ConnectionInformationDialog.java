@@ -114,11 +114,16 @@ public class ConnectionInformationDialog extends Dialog {
 				url = ((Combo) e.widget).getText();
 				Optional<ConnectionInformation> selectedConInf = connectionInformations.stream().filter(ci -> ci.url().equals(url)).findFirst();
 				selectedConInf.ifPresentOrElse(
-						(ci) -> usernameText.setText( ci.username()),
-						() -> usernameText.setText(""));
+						(ci) -> {usernameText.setText( ci.username());
+								username = ci.username();
+						},
+						() -> {usernameText.setText("");
+								username="";});
 				selectedConInf.ifPresentOrElse(
-						(ci) -> passwordText.setText(ci.password()),
-						() -> passwordText.setText(""));
+						(ci) -> {passwordText.setText(ci.password());
+								password=ci.password();},
+						() -> {passwordText.setText("");
+								password="";});
 			}
 		});
 		
