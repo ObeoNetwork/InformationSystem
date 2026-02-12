@@ -13,8 +13,12 @@ package org.obeonetwork.dsl.database.liquibasegen.handlers;
 import static org.obeonetwork.dsl.database.liquibasegen.Activator.getLiquibaseVersion;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -28,6 +32,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.obeonetwork.dsl.database.liquibasegen.ConnectionInformation;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
@@ -42,6 +47,8 @@ import liquibase.exception.LiquibaseException;
  */
 @SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
+	private static final String CREDENTIALS_PROPERTIES_FILE_NAME = "credentials.properties";
+
 	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties"; //$NON-NLS-1$
 	
 	private Shell shell;
@@ -89,15 +96,43 @@ public class ChangelogHandler extends AbstractHandler {
 	 * @throws IOException 
 	 */
 	private boolean openConnectionInformationDialog(File liquibasePropertiesFile) throws IOException {
-		Properties liquibaseProperties = new Properties();
-		InputStream inputStream = new FileInputStream(liquibasePropertiesFile.getLocation().toOSString());
-		liquibaseProperties.load(inputStream);
+		
+		java.io.File credentialsPropertiesFile = Paths.get(liquibasePropertiesFile.getParent().getLocationURI()).resolve(CREDENTIALS_PROPERTIES_FILE_NAME).toFile();
+		
+		Properties credentialsProperties = new Properties();
+		// Check if credentials file exist
+		if (!credentialsPropertiesFile.exists()) {
+			Properties liquibaseProperties = new Properties();
+			InputStream inputStream = new FileInputStream(liquibasePropertiesFile.getLocation().toOSString());
+			liquibaseProperties.load(inputStream);
+			
+			// initialize credentials file using default values in liquibase file
+			credentialsProperties.setProperty("url.1", liquibaseProperties.getProperty("url", ""));
+			credentialsProperties.setProperty("username.1", liquibaseProperties.getProperty("username", ""));
+			credentialsProperties.setProperty("password.1", liquibaseProperties.getProperty("password", ""));
+			
+			final FileOutputStream credentialsFos = new FileOutputStream(credentialsPropertiesFile);
+			credentialsProperties.store(credentialsFos, "Credentials for database connections");
+			inputStream.close();
+			credentialsFos.close();
+		}else {
+			final FileInputStream credentialsFis = new FileInputStream(credentialsPropertiesFile);
+			credentialsProperties.load(credentialsFis);
+			credentialsFis.close();
+		}
+		
+		int count = 1;
+		List<ConnectionInformation> connectionInformations = new ArrayList<>();
+		while (credentialsProperties.getProperty("url."+count)!=null) {
+			connectionInformations.add(new ConnectionInformation(credentialsProperties.getProperty("url."+count,""),
+																	credentialsProperties.getProperty("username."+count,""), 
+																		credentialsProperties.getProperty("password."+count,"")));
+			count++;
+		}
 		
 		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(
 				shell, 
-				liquibaseProperties.getProperty("url", ""), //$NON-NLS-1$ //$NON-NLS-2$
-				liquibaseProperties.getProperty("username", ""), //$NON-NLS-1$ //$NON-NLS-2$
-				liquibaseProperties.getProperty("password", ""));  //$NON-NLS-1$ //$NON-NLS-2$
+				connectionInformations);
 		
 		connectionInformationDialog.open();
 		
