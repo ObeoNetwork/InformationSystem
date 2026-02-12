@@ -28,6 +28,11 @@
         <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
       </type>
     </columns>
+    <columns xmi:id="_DBiZsAWZEfG46dtrCczMZw" technicalid="_BuI4JgWZEfG46dtrCczMZw" techID="_BuI4JgWZEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7de7AW8HEeSfI4W73AkhtA" length="2147483647" precision="0">
+        <nativeType href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
+      </type>
+    </columns>
   </tables>
   <tables xsi:type="database:Table" xmi:id="_7de7DW8HEeSfI4W73AkhtA" techID="_7de7DG8HEeSfI4W73AkhtA" name="customercustomerdemo">
     <primaryKey xmi:id="_7dlBlm8HEeSfI4W73AkhtA" techID="_7dlBlW8HEeSfI4W73AkhtA" name="PRIMARY" columns="_7de7D28HEeSfI4W73AkhtA _7dlBkm8HEeSfI4W73AkhtA"/>

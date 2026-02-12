@@ -48,6 +48,11 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
+      <columns xmi:id="_NvbCQAWlEfG46dtrCczMZw" technicalid="_NTXYYAWlEfG46dtrCczMZw" techID="_NTXYYAWlEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_NvbCQQWlEfG46dtrCczMZw">
+          <nativeType href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_kY2hx5bJEea3rZOTd3d7bg" comments="une compétence" techID="_h-7dFZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE">
       <primaryKey xmi:id="_kY2hyJbJEea3rZOTd3d7bg" techID="_h-8EBZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_PK" columns="_kY2hy5bJEea3rZOTd3d7bg"/>

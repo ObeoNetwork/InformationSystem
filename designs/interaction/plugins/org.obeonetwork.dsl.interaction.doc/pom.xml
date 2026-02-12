@@ -26,5 +26,17 @@
 	<packaging>eclipse-plugin</packaging>
 	<version>5.1.3-SNAPSHOT</version>
 	<name>Interaction Designer Documentation</name>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.mylyn.docs</groupId>
+				<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<toc topic="doc/ISD - Documentation Tooling.html" label="ISD - Documentation Tooling">
-	<topic href="doc/ISD - Documentation Tooling.html" label="ISD - Outillage de documentation">
-		<topic href="doc/ISD - Documentation Tooling.html#LavueRelatedDocumentation" label="La vue Related Documentation"></topic>
-		<topic href="doc/ISD - Documentation Tooling.html#Gestiondesliensdedocumentation" label="Gestion des liens de documentation">
-			<topic href="doc/ISD - Documentation Tooling.html#Ajoutdelien" label="Ajout de lien"></topic>
-			<topic href="doc/ISD - Documentation Tooling.html#ditiondelien" label="Édition de lien"></topic>
-			<topic href="doc/ISD - Documentation Tooling.html#Suppressiondelien" label="Suppression de lien"></topic>
+<toc topic="ISD - Documentation Tooling.html" label="ISD - Documentation Tooling">
+	<topic href="ISD - Documentation Tooling.html" label="ISD - Outillage de documentation">
+		<topic href="ISD - Documentation Tooling.html#LavueRelatedDocumentation" label="La vue Related Documentation"></topic>
+		<topic href="ISD - Documentation Tooling.html#Gestiondesliensdedocumentation" label="Gestion des liens de documentation">
+			<topic href="ISD - Documentation Tooling.html#Ajoutdelien" label="Ajout de lien"></topic>
+			<topic href="ISD - Documentation Tooling.html#ditiondelien" label="Édition de lien"></topic>
+			<topic href="ISD - Documentation Tooling.html#Suppressiondelien" label="Suppression de lien"></topic>
 		</topic>
-		<topic href="doc/ISD - Documentation Tooling.html#Accsladocumentation" label="Accès à la documentation "></topic>
+		<topic href="ISD - Documentation Tooling.html#Accsladocumentation" label="Accès à la documentation "></topic>
 	</topic>
+	<anchor id="additions"/>
 </toc>

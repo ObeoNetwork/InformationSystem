@@ -579,7 +579,7 @@ Les contextes possibles pour chaque type d'élément SOA sont présentés dans l
 
 Les extensions de propriétés sont générées lors d'un export Swagger et insérées dans le modèle lors d'un import Swagger.
 
-h3(#open_api). Export / Import au format Swagger OpenAPI
+h3(#open_api_swagger). Export / Import au format Swagger OpenAPI
 
 h4(#open_api_export). Export au format Swagger OpenAPI
 

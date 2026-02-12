@@ -28,6 +28,11 @@
         <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
       </type>
     </columns>
+    <columns xmi:id="_-FgvIAWZEfG46dtrCczMZw" technicalid="_9scH1gWZEfG46dtrCczMZw" techID="_9scH1gWZEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Rxj0eW8dEeSPHrasgwuxLg" length="2147483647" precision="0">
+        <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_b3lZgANlEfGEVo0VorPW2w"/>
+      </type>
+    </columns>
   </tables>
   <tables xsi:type="database:Table" xmi:id="_SzfoL1oMEeSHOPU96-6feg" techID="_SxZ9eFoMEeSHOPU96-6feg" name="customercustomerdemo">
     <primaryKey xmi:id="_SzfoNFoMEeSHOPU96-6feg" techID="_SxjucloMEeSHOPU96-6feg" name="PRIMARY" columns="_SzfoMFoMEeSHOPU96-6feg _SzfoMloMEeSHOPU96-6feg"/>

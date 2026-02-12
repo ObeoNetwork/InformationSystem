@@ -110,4 +110,7 @@
   <nativeTypes xmi:id="_oiGSQG5HEeS0qO0NdvQESw" technicalid="_FO09m5n4EeaqGJZ6nXNZAQ" name="XML">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_CpAawANxEfGxg86TqWHXPA" technicalid="_CYSeMANxEfGxg86TqWHXPA" name="UUID">
+    <mapsTo href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
+  </nativeTypes>
 </typeslibrary:NativeTypesLibrary>

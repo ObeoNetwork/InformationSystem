@@ -48,6 +48,11 @@
           <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
         </type>
       </columns>
+      <columns xmi:id="_PcJp0QWlEfG46dtrCczMZw" technicalid="_PL9RsAWlEfG46dtrCczMZw" techID="_PL9RsAWlEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PcJp0gWlEfG46dtrCczMZw">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_e7vWkGBSEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_IA1BOGNfEeSMo-qZKUo8Ng" comments="une comp&#xe9;tence" techID="_F2rdxWNfEeSMo-qZKUo8Ng" name="AW_COMPETENCE">
       <primaryKey xmi:id="_IA1BQWNfEeSMo-qZKUo8Ng" techID="_F2xkZGNfEeSMo-qZKUo8Ng" name="AW_COMPETENCE_PK" columns="_IA1BOWNfEeSMo-qZKUo8Ng"/>

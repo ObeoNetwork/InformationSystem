@@ -11,6 +11,11 @@
         <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
       </type>
     </columns>
+    <columns xmi:id="_1Yim4QW4EfG46dtrCczMZw" technicalid="_1Cal4AW4EfG46dtrCczMZw" techID="_1Cal4AW4EfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_1Yim4gW4EfG46dtrCczMZw">
+          <nativeType href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
+        </type>
+      </columns>
     <primaryKey xmi:id="_XVRkUDloEeKBAr0by_Z50A" name="PERSONNE_PK" columns="_XVQWMDloEeKBAr0by_Z50A"/>
     <foreignKeys xmi:id="_HA7LEDlzEeKuO7eSc6nNWw" name="EST_EMPLOYEE_PAR" target="_MnEVMDloEeKBAr0by_Z50A">
       <elements xmi:id="_HA_cgDlzEeKuO7eSc6nNWw" fkColumn="_DEa5QTlzEeKuO7eSc6nNWw" pkColumn="_UEyrADloEeKBAr0by_Z50A"/>

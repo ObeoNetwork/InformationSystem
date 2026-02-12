@@ -1,33 +1,34 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<toc topic="doc/ISD - Cinematic tooling.html" label="ISD - Cinematic tooling">
-	<topic href="doc/ISD - Cinematic tooling.html" label="ISD - Outillage Cinematic">
-		<topic href="doc/ISD - Cinematic tooling.html#cinematic_model_creation" label="Création d&apos;un modèle Cinematic"></topic>
-		<topic href="doc/ISD - Cinematic tooling.html#toolkit_model_creation" label="Création d&apos;un modèle Toolkits"></topic>
-		<topic href="doc/ISD - Cinematic tooling.html#viewpoint_activation" label="Activation du point de vue">
-			<topic href="doc/ISD - Cinematic tooling.html#modeling_project_usage" label="Utilisation d&apos;un modeling project"></topic>
-			<topic href="doc/ISD - Cinematic tooling.html#other_project_type_utilisation" label="Utilisation d&apos;un autre type de projet"></topic>
+<toc topic="ISD - Cinematic tooling.html" label="ISD - Cinematic tooling">
+	<topic href="ISD - Cinematic tooling.html" label="ISD - Outillage Cinematic">
+		<topic href="ISD - Cinematic tooling.html#cinematic_model_creation" label="Création d&apos;un modèle Cinematic"></topic>
+		<topic href="ISD - Cinematic tooling.html#toolkit_model_creation" label="Création d&apos;un modèle Toolkits"></topic>
+		<topic href="ISD - Cinematic tooling.html#viewpoint_activation" label="Activation du point de vue">
+			<topic href="ISD - Cinematic tooling.html#modeling_project_usage" label="Utilisation d&apos;un modeling project"></topic>
+			<topic href="ISD - Cinematic tooling.html#other_project_type_utilisation" label="Utilisation d&apos;un autre type de projet"></topic>
 		</topic>
-		<topic href="doc/ISD - Cinematic tooling.html#designer_features" label="Fonctionnalités du modeleur">
-			<topic href="doc/ISD - Cinematic tooling.html#package_diagram" label="Package Diagram">
-				<topic href="doc/ISD - Cinematic tooling.html#package_diagram_content" label="Contenu"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#package_diagram_tools" label="Palette et outils"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#package_diagram_navigation_tools" label="Navigation vers d&apos;autres diagrammes"></topic>
+		<topic href="ISD - Cinematic tooling.html#designer_features" label="Fonctionnalités du modeleur">
+			<topic href="ISD - Cinematic tooling.html#package_diagram" label="Package Diagram">
+				<topic href="ISD - Cinematic tooling.html#package_diagram_content" label="Contenu"></topic>
+				<topic href="ISD - Cinematic tooling.html#package_diagram_tools" label="Palette et outils"></topic>
+				<topic href="ISD - Cinematic tooling.html#package_diagram_navigation_tools" label="Navigation vers d&apos;autres diagrammes"></topic>
 			</topic>
-			<topic href="doc/ISD - Cinematic tooling.html#ui_structure" label="UI Structure">
-				<topic href="doc/ISD - Cinematic tooling.html#ui_structure_contents" label="Contenu"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#ui_structure_tools" label="Palette et outils"></topic>
+			<topic href="ISD - Cinematic tooling.html#ui_structure" label="UI Structure">
+				<topic href="ISD - Cinematic tooling.html#ui_structure_contents" label="Contenu"></topic>
+				<topic href="ISD - Cinematic tooling.html#ui_structure_tools" label="Palette et outils"></topic>
 			</topic>
-			<topic href="doc/ISD - Cinematic tooling.html#mockup_view" label="View Container Mockup">
-				<topic href="doc/ISD - Cinematic tooling.html#mockup_view_tools" label="Eléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#mockup_view_binding_edition" label="Edition de bindings"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#mockup_view_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			<topic href="ISD - Cinematic tooling.html#mockup_view" label="View Container Mockup">
+				<topic href="ISD - Cinematic tooling.html#mockup_view_tools" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="ISD - Cinematic tooling.html#mockup_view_binding_edition" label="Edition de bindings"></topic>
+				<topic href="ISD - Cinematic tooling.html#mockup_view_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
 			</topic>
-			<topic href="doc/ISD - Cinematic tooling.html#layout_diagram" label="Layout Diagram"></topic>
-			<topic href="doc/ISD - Cinematic tooling.html#flow_diagram" label="Flow Diagram">
-				<topic href="doc/ISD - Cinematic tooling.html#flow_diagram_contents" label="Contenu"></topic>
-				<topic href="doc/ISD - Cinematic tooling.html#flow_diagram_tools" label="Palette et outils "></topic>
+			<topic href="ISD - Cinematic tooling.html#layout_diagram" label="Layout Diagram"></topic>
+			<topic href="ISD - Cinematic tooling.html#flow_diagram" label="Flow Diagram">
+				<topic href="ISD - Cinematic tooling.html#flow_diagram_contents" label="Contenu"></topic>
+				<topic href="ISD - Cinematic tooling.html#flow_diagram_tools" label="Palette et outils "></topic>
 			</topic>
-			<topic href="doc/ISD - Cinematic tooling.html#toolkit_creation" label="Création de toolkits"></topic>
+			<topic href="ISD - Cinematic tooling.html#toolkit_creation" label="Création de toolkits"></topic>
 		</topic>
 	</topic>
+	<anchor id="additions"/>
 </toc>

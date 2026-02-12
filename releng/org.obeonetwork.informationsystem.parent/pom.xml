@@ -381,6 +381,13 @@
 			<id>Eclipse - Acceleo Releases</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
 		</pluginRepository>
+		<pluginRepository>
+			<id>eclipse.org-mylyn</id>
+			<url>https://repo.eclipse.org/content/repositories/mylyn-snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<dependencies>
@@ -542,6 +549,45 @@
 							<phase>compile</phase>
 							<goals>
 								<goal>acceleo-compile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.5.0</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>doc</directory>
+								<includes>
+									<include>*.html</include>
+									<include>*-toc.xml</include>
+								</includes>
+								<excludes>
+									<exclude>*.textile</exclude>
+								</excludes>
+								<followSymlinks>false</followSymlinks>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.mylyn.docs</groupId>
+					<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
+					<configuration>
+						<sourceFolder>doc</sourceFolder>
+						<copyrightNotice>${help.copyrightNotice}</copyrightNotice>
+						<title>${help.documentTitle}</title>
+						<multipleOutputFiles>true</multipleOutputFiles>
+						<navigationImages>true</navigationImages>
+						<formatOutput>true</formatOutput>
+						<outputFolder>doc</outputFolder>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>eclipse-help</goal>
 							</goals>
 						</execution>
 					</executions>
