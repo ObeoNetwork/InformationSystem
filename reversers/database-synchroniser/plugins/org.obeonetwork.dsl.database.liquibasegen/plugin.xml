@@ -81,6 +81,21 @@
                   commandId="org.obeonetwork.dsl.database.liquibasegen.createGlobal"
                   label="Create global changelog"
                   style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              args="selection"
+                              forcePluginActivation="true"
+                              property="org.obeonetwork.dsl.database.liquibasegen.testDirName"
+                              value="true">
+                        </test>
+                     </iterate>
+                  </with>
+               </visibleWhen>
             </command>
          </menu>
       </menuContribution>
@@ -92,6 +107,13 @@
             id="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
             namespace="org.obeonetwork.dsl.database.liquibasegen"
             properties="testFileExtension"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.dsl.database.liquibasegen.ui.TestDirName"
+            id="org.obeonetwork.dsl.database.liquibasegen.testDirName"
+            namespace="org.obeonetwork.dsl.database.liquibasegen"
+            properties="testDirName"
             type="java.lang.Object">
       </propertyTester>
    </extension>
