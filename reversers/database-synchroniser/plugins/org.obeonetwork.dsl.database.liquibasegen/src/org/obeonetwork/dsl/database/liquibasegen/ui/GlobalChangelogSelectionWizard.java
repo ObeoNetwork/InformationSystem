@@ -3,6 +3,7 @@ package org.obeonetwork.dsl.database.liquibasegen.ui;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -16,6 +17,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
@@ -163,6 +165,7 @@ class SelectionTreeWizardPage extends WizardPage {
 			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				updateCache();
+				checkContinuity();
 				setPageComplete(!cache.isEmpty());
 			}
 		});
@@ -171,12 +174,27 @@ class SelectionTreeWizardPage extends WizardPage {
 		setPageComplete(!cache.isEmpty());
 	}
 
+	protected void checkContinuity() {
+		setMessage(null);
+		if (!cache.isEmpty()) {
+			final List<String> rootsNames = Arrays.asList(roots).stream().map(Node::getName).toList();
+			int startIndex = rootsNames.indexOf(cache.get(0));
+			for (int i = 0; i < cache.size(); i++) {
+				if (!cache.get(i).equals(rootsNames.get(startIndex+i))) {
+					setMessage("Some changelogs are not selected between others. This may result in an inconsistent global changelog.",
+							IMessageProvider.WARNING);
+				}
+			}
+		}
+		
+	}
+
 	private void updateCache() {
 		cache.clear();
 		Object[] checked = treeViewer.getCheckedElements();
 		for (Object o : checked) {
 			Node n = (Node) o;
-			if (n.children.length == 0) { // on ne garde que les feuilles
+			if (n.children.length == 0) { // we keep only leaves
 				cache.add(n.name);
 			}
 		}
