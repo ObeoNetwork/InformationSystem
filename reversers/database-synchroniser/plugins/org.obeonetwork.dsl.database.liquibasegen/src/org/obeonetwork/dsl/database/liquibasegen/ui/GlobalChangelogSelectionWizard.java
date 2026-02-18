@@ -35,12 +35,18 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * Wizard principal
+ * Wizard to select changelogs to merge
  */
 public class GlobalChangelogSelectionWizard extends Wizard {
 
 	private SelectionTreeWizardPage selectionPage;
+	/**
+	 * Keep track of selection in the wizard
+	 */
 	private final List<String> cachedSelection = new ArrayList<>();
+	/**
+	 * All the available name of files that can be selected
+	 */
 	private List<String> nodes;
 	private String rootSelectionDir;
 
@@ -52,7 +58,7 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 
 	@Override
 	public void addPages() {
-		selectionPage = new SelectionTreeWizardPage("treePage", nodes, cachedSelection);
+		selectionPage = new SelectionTreeWizardPage("Selection page of changelogs", nodes, cachedSelection);
 		addPage(selectionPage);
 	}
 
@@ -65,7 +71,7 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 }
 
 /**
- * Page avec CheckboxTreeViewer
+ * Page with CheckboxTreeViewer
  */
 class SelectionTreeWizardPage extends WizardPage {	
 	
@@ -74,6 +80,9 @@ class SelectionTreeWizardPage extends WizardPage {
 	private CheckboxTreeViewer treeViewer;
 	private final List<String> cache;
 
+	/**
+	 * All the available nodes that can be selected
+	 */
 	private final Node[] roots;
 
 	protected SelectionTreeWizardPage(String pageName, List<String> nodes, List<String> cache) {
@@ -86,36 +95,38 @@ class SelectionTreeWizardPage extends WizardPage {
 	
 	public boolean doMergingChangelog(String rootSelectionDir) {
 		try {
-        final DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        final Document mergedDoc = dBuilder.newDocument();
+			final DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			final Document mergedDoc = dBuilder.newDocument();
 
-		Element rootElement = null;
+			Element rootElement = null;
 
-		for (String xmlFile : getSelectedItems().stream().filter(fileName -> fileName.endsWith(".changelog.xml")).toList()) {
-			if (rootElement == null) {
-				//we initialize root using an existing document to use all the attributes including xmlns
-				rootElement = (Element) mergedDoc.importNode(dBuilder.parse(rootSelectionDir + File.separator + xmlFile)
-						.getDocumentElement(),true);
-			}else {
-				// we add children in the other xml root
-				final NodeList nodes = dBuilder.parse(new File(rootSelectionDir + File.separator+xmlFile)).getDocumentElement().getChildNodes();
-				for (int i = 0; i < nodes.getLength(); i++) {
-					org.w3c.dom.Node importedNode = mergedDoc.importNode(nodes.item(i), true);
-					rootElement.appendChild(importedNode);
+			for (String xmlFile : getSelectedItems().stream().filter(fileName -> fileName.endsWith(".changelog.xml"))
+					.toList()) {
+				if (rootElement == null) {
+					// we initialize root using an existing document to use all the attributes including xmlns
+					rootElement = (Element) mergedDoc.importNode(
+							dBuilder.parse(rootSelectionDir + File.separator + xmlFile).getDocumentElement(), true);
+				} else {
+					// we add children in the other xml root
+					final NodeList nodes = dBuilder.parse(new File(rootSelectionDir + File.separator + xmlFile))
+							.getDocumentElement().getChildNodes();
+					for (int i = 0; i < nodes.getLength(); i++) {
+						org.w3c.dom.Node importedNode = mergedDoc.importNode(nodes.item(i), true);
+						rootElement.appendChild(importedNode);
+					}
 				}
 			}
-        }
 
-        mergedDoc.appendChild(rootElement);
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        DOMSource source = new DOMSource(mergedDoc);
-        StreamResult result = new StreamResult(new File(rootSelectionDir + File.separator + GLOBAL_CHANGELOG_FILE_NAME));
-        transformer.transform(source, result);
-        return true;
+			mergedDoc.appendChild(rootElement);
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(mergedDoc);
+			StreamResult result = new StreamResult(
+					new File(rootSelectionDir + File.separator + GLOBAL_CHANGELOG_FILE_NAME));
+			transformer.transform(source, result);
+			return true;
 		} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			setErrorMessage("An error occur while loading the contents of changelogs files. Check the state of the files before retrying.");
 			return false;
 		}
 	}
@@ -174,6 +185,9 @@ class SelectionTreeWizardPage extends WizardPage {
 		setPageComplete(!cache.isEmpty());
 	}
 
+	/**
+	 * Check if the selection 
+	 */
 	protected void checkContinuity() {
 		setMessage(null);
 		if (!cache.isEmpty()) {
@@ -212,6 +226,9 @@ class SelectionTreeWizardPage extends WizardPage {
 		treeViewer.setCheckedElements(toCheck.toArray());
 	}
 
+	/**
+	 * @return selected items in the tree viewer
+	 */
 	public List<String> getSelectedItems() {
 		return Stream.of(treeViewer.getCheckedElements()).filter(Node.class::isInstance).map(Node.class::cast)
 				.map(Node::getName).toList();
