@@ -16,18 +16,22 @@ package org.obeonetwork.tools.requirement.ui.view.action;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
-import org.eclipse.emf.eef.runtime.context.impl.DomainPropertiesEditionContext;
-import org.eclipse.emf.eef.runtime.impl.operation.WizardEditingOperation;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.emf.workspace.AbstractEMFOperation;
+import org.eclipse.jface.dialogs.Dialog;
+import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.tools.linker.EObjectLink;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction;
 import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.RequirementLink;
-import org.obeonetwork.tools.requirement.wizard.operation.RequirementEditingOperation;
+import org.obeonetwork.utils.common.ui.EEFPropertiesPageDialog;
 
 /**
  * @author Obeo
@@ -46,6 +50,16 @@ public class EditRequirementAction extends EObjectLinksViewAction {
 		this.setEnabled(false);
 	}
 
+	private boolean isSelectionValid(List<EObjectLink> selection) {
+		// Action enabled if one
+		// (and only one) entry
+		// is selected
+		return selection.size() == 1 
+				 // The  selected entry is an entry of the current selection
+				// and not a children entry
+				&&  selection.get(0).getSource() == linksView.getInput();
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 * 
@@ -53,17 +67,39 @@ public class EditRequirementAction extends EObjectLinksViewAction {
 	 */
 	@Override
 	public void run() {
-		RequirementLink eObjectLink = (RequirementLink) linksView.getSelectedEntries().get(0);
+		List<EObjectLink> selection = linksView.getSelectedEntries();
+		if (!isSelectionValid(selection)) {
+			return;
+		}
+		RequirementLink eObjectLink = (RequirementLink) selection.get(0);
 
-		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(linksView.getInput());
-		DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(null, null,
-				editingDomain, linksView.getAdapterFactory(), eObjectLink.getRequirement());
-		WizardEditingOperation operation = new RequirementEditingOperation(propertiesEditionContext);
+		Requirement requirementTarget = eObjectLink.getRequirement();
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(requirementTarget);
+	
+		
+		AbstractEMFOperation operation = new AbstractEMFOperation(editingDomain, getText()) {
+
+			@Override
+			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+				
+				Dialog dialog = new EEFPropertiesPageDialog(linksView, requirementTarget, true);
+				if (dialog.open() != Dialog.OK) {
+					return Status.CANCEL_STATUS;
+				}
+				
+				return Status.OK_STATUS;
+			}
+			
+		};
+		
+
 		try {
 			operation.execute(new NullProgressMonitor(), null);
 			linksView.refresh();
 		} catch (ExecutionException e) {
-			EEFRuntimePlugin.getDefault().logError("An error occured during wizard editing.", e); //$NON-NLS-1$
+			RequirementLinkerPlugin.getInstance()
+				.getLog()
+				.error("An error occured while edition Requirement.", e); //$NON-NLS-1$
 		}
 	}
 
@@ -74,25 +110,7 @@ public class EditRequirementAction extends EObjectLinksViewAction {
 	 */
 	@Override
 	public void fireSelectionChanged(List<EObjectLink> newSelection) {
-		boolean enabled = newSelection.size() == 1 && // Action enabled if one
-														// (and only one) entry
-														// is selected
-				newSelection.get(0).getSource() == linksView.getInput(); // The
-																			// selected
-																			// entry
-																			// is
-																			// an
-																			// entry
-																			// of
-																			// the
-																			// current
-																			// selection
-																			// and
-																			// not
-																			// a
-																			// children
-																			// entry
-		this.setEnabled(enabled);
+		this.setEnabled(isSelectionValid(newSelection));
 	}
 
 }
