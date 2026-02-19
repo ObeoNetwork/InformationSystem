@@ -21,7 +21,15 @@ Require-Bundle: org.eclipse.sirius.common,
  org.eclipse.eef.ide.ui.properties,
  org.eclipse.eef.core,
  org.eclipse.eef,
- org.eclipse.eef.common.ui
+ org.eclipse.eef.common.ui,
+ org.eclipse.sirius.properties.core,
+ org.eclipse.sirius.ui.properties,
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.sirius.common.interpreter,
+ org.eclipse.eef.ide.ui,
+ org.eclipse.sirius.ext.emf.edit,
+ org.eclipse.eef.common,
+ org.eclipse.emf.edit.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.obeonetwork.utils
 Bundle-ActivationPolicy: lazy
