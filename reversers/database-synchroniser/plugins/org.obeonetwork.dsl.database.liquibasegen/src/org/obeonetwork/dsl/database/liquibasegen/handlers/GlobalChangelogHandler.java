@@ -49,11 +49,9 @@ public class GlobalChangelogHandler extends AbstractHandler {
 		}
 		
 		try {
-			if (openChangelogSelectionWizard(projectDBDir)) {
-				
-			}
+			openChangelogSelectionWizard(projectDBDir);
 		}catch (IOException e) {
-			// TODO: handle exception
+			throw new ExecutionException(e.getMessage(), e);
 		}
 		
 		return null;
@@ -63,7 +61,7 @@ public class GlobalChangelogHandler extends AbstractHandler {
 		// get list of files
 		SearchFileByWildcard sfbw = new SearchFileByWildcard();
 		List<String> changelogs = sfbw.searchWithWc(Paths.get(projectDBDir.getLocation().toOSString()),
-				"run.changelog.xml");
+				"\\run.changelog.xml");
 		WizardDialog dialog = new WizardDialog(shell, new GlobalChangelogSelectionWizard(changelogs, projectDBDir.getLocation().toOSString()));
 		dialog.create();
 		dialog.open();
@@ -80,8 +78,9 @@ class SearchFileByWildcard {
         FileVisitor<Path> matcherVisitor = new SimpleFileVisitor<Path>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attribs) throws IOException {
-                if (Pattern.matches(pattern, file.getFileName().toString())) {
-                    matchesList.add(rootDir.relativize(file).toString());
+                final String fileNameAndDir = rootDir.relativize(file).toString();
+				if (fileNameAndDir.endsWith(pattern)) {
+                    matchesList.add(fileNameAndDir);
                 }
 	        return FileVisitResult.CONTINUE;
             }
