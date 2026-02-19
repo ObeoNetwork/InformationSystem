@@ -1051,6 +1051,16 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * @generated
 	 */
 	@Override
+	public EReference getReference_AssociatedReferences() {
+		return (EReference) referenceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -1493,6 +1503,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		createEReference(referenceEClass, REFERENCE__OPPOSITE_OF);
 		createEReference(referenceEClass, REFERENCE__CONTAINING_TYPE);
 		createEReference(referenceEClass, REFERENCE__REFERENCED_TYPE);
+		createEReference(referenceEClass, REFERENCE__ASSOCIATED_REFERENCES);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -1804,6 +1815,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		initEReference(getReference_ReferencedType(), this.getStructuredType(), null, "referencedType", null, 1, 1,
 				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_AssociatedReferences(), this.getReference(), null, "associatedReferences", null, 0,
+				-1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(referenceEClass, ecorePackage.getEBoolean(), "canBeOppositeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getReference(), "opposite", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2009,6 +2023,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 				new String[] { "documentation", "The containing structured type." });
 		addAnnotation(getReference_ReferencedType(), source,
 				new String[] { "documentation", "The type of the reference." });
+		addAnnotation(getReference_AssociatedReferences(), source,
+				new String[] { "documentation", "The list of associated references." });
 		addAnnotation(getProperty_Name(), source, new String[] { "documentation", "The name of the property." });
 		addAnnotation(getProperty_Multiplicity(), source,
 				new String[] { "documentation", "The multiplicity of the property." });

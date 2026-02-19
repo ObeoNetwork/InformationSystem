@@ -2869,13 +2869,22 @@ public interface EnvironmentPackage extends EPackage {
 	int REFERENCE__REFERENCED_TYPE = PROPERTY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Associated References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__ASSOCIATED_REFERENCES = PROPERTY_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 5;
+	int REFERENCE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl <em>Binding Info</em>}' class.
@@ -4259,6 +4268,17 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getReference_ReferencedType();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.Reference#getAssociatedReferences <em>Associated References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Associated References</em>'.
+	 * @see org.obeonetwork.dsl.environment.Reference#getAssociatedReferences()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_AssociatedReferences();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5211,6 +5231,14 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REFERENCE__REFERENCED_TYPE = eINSTANCE.getReference_ReferencedType();
+
+		/**
+		 * The meta object literal for the '<em><b>Associated References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__ASSOCIATED_REFERENCES = eINSTANCE.getReference_AssociatedReferences();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.PropertyImpl <em>Property</em>}' class.
