@@ -63,6 +63,7 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 			addNavigablePropertyDescriptor(object);
 			addOppositeOfPropertyDescriptor(object);
 			addReferencedTypePropertyDescriptor(object);
+			addAssociatedReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -147,6 +148,22 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Reference_referencedType_feature",
 								"_UI_Reference_type"),
 						EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Associated References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociatedReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Reference_associatedReferences_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Reference_associatedReferences_feature",
+								"_UI_Reference_type"),
+						EnvironmentPackage.Literals.REFERENCE__ASSOCIATED_REFERENCES, true, false, true, null, null,
+						null));
 	}
 
 	/**
