@@ -22,12 +22,20 @@
                optional="true">
          </commandParameter>
       </command>
+      <command
+            id="org.obeonetwork.dsl.database.liquibasegen.createGlobal"
+            name="createGlobal">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="org.obeonetwork.dsl.database.liquibasegen.handlers.ChangelogHandler"
             commandId="org.obeonetwork.dsl.database.liquibasegen.command">
+      </handler>
+      <handler
+            class="org.obeonetwork.dsl.database.liquibasegen.handlers.GlobalChangelogHandler"
+            commandId="org.obeonetwork.dsl.database.liquibasegen.createGlobal">
       </handler>
    </extension>
    <extension
@@ -53,22 +61,42 @@
                      name="org.obeonetwork.dsl.database.liquibasegen.file"
                      value="org.obeonetwork.dsl.database.liquibasegen.parameter1">
                </parameter>
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              args="selection"
+                              forcePluginActivation="true"
+                              property="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
+                              value="true">
+                        </test>
+                     </iterate>
+                  </with>
+               </visibleWhen>
             </command>
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="selection">
-                  <iterate
-                        ifEmpty="false">
-                     <test
-                           args="selection"
-                           forcePluginActivation="true"
-                           property="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
-                           value="true">
-                     </test>
-                  </iterate>
-               </with>
-            </visibleWhen>
+            <command
+                  commandId="org.obeonetwork.dsl.database.liquibasegen.createGlobal"
+                  label="Create global changelog"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              args="selection"
+                              forcePluginActivation="true"
+                              property="org.obeonetwork.dsl.database.liquibasegen.testDirName"
+                              value="true">
+                        </test>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
          </menu>
       </menuContribution>
    </extension>
@@ -79,6 +107,13 @@
             id="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
             namespace="org.obeonetwork.dsl.database.liquibasegen"
             properties="testFileExtension"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.dsl.database.liquibasegen.ui.TestDirName"
+            id="org.obeonetwork.dsl.database.liquibasegen.testDirName"
+            namespace="org.obeonetwork.dsl.database.liquibasegen"
+            properties="testDirName"
             type="java.lang.Object">
       </propertyTester>
    </extension>
