@@ -152,6 +152,7 @@ public class TypesServices {
 				referenceCopy.setMultiplicity(reference.getMultiplicity());
 				referenceCopy.setName(reference.getName());
 				referenceCopy.setNavigable(reference.isNavigable());
+				referenceCopy.getAssociatedReferences().add(reference);
 				
 				referencesMap.put(reference, referenceCopy);
 			}
