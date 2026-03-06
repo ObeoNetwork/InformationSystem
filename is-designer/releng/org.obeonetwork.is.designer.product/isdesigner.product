@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="5.1.3.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="5.1.3.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="icons/about.gif"/>
@@ -47,7 +47,6 @@ Visit http://www.obeo.fr
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</linux>
@@ -143,7 +142,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
-      
       <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.eclipse.acceleo.aql.feature"/>
       <feature id="org.eclipse.sirius.specifier"/>
@@ -206,6 +204,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.team.svn.ui.capabilities"/>
       <feature id="org.polarion.eclipse.team.svn.connector"/>
       <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
+      <feature id="org.eclipse.sirius.diagram.elk.feature"/>
    </features>
 
    <configurations>
@@ -215,8 +214,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <property name="eclipse.buildId" value="${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
