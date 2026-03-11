@@ -1,0 +1,29 @@
+name: Java CI - mvn clean verify
+
+on: 
+  push:
+    branches:
+      - master
+      - 'v5.x-aql*'
+      - 'SAFRAN-**'
+  pull_request:
+    branches:
+      - master
+      - 'v5.x-aql*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 and cache Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn -B -f releng/org.obeonetwork.informationsystem.parent/ clean verify
