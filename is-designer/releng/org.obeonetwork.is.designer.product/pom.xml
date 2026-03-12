@@ -77,7 +77,7 @@
       <!-- workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=349421 -->
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.5</version>
+        <version>3.4.0</version>
         <executions>
           <execution>
             <id>copy-resources</id>
