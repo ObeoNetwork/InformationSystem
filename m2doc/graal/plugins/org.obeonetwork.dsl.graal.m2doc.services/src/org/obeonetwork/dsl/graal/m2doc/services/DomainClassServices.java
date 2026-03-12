@@ -60,8 +60,8 @@ public class DomainClassServices extends AbstractServiceProvider {
 		 * @param publicMethod    the {@link Method}
 		 * @param serviceInstance the instance
 		 */
-		GetOwnedElementsService(Method publicMethod, Object serviceInstance) {
-			super(publicMethod, serviceInstance);
+		GetOwnedElementsService(Method publicMethod, Object serviceInstance, boolean forWorkspace) {
+			super(publicMethod, serviceInstance, forWorkspace);
 		}
 
 		@Override
@@ -97,13 +97,13 @@ public class DomainClassServices extends AbstractServiceProvider {
 	}
 
 	@Override
-	protected IService getService(Method method) {
+	protected IService getService(Method method, boolean forWorkspace) {
 		final IService result;
 
 		if ("getOwnedElements".equals(method.getName())) {
-			result = new GetOwnedElementsService(method, this);
+			result = new GetOwnedElementsService(method, this, forWorkspace);
 		} else {
-			result = new JavaMethodService(method, this);
+			result = new JavaMethodService(method, this, forWorkspace);
 		}
 
 		return result;
