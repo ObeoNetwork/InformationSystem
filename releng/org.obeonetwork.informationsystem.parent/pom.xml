@@ -22,7 +22,8 @@
 	<name>Information System Parent</name>
 
 	<properties>
-		<tycho-version>2.7.5</tycho-version>
+		<tycho-version>5.0.2</tycho-version>
+    	<tycho-extras-version>5.0.2</tycho-extras-version>
         <target-artifact-version>6.0.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
@@ -411,6 +412,7 @@
 						<encoding>UTF-8</encoding>
 						<source>17</source>
 						<target>17</target>
+						<release>17</release>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -440,6 +442,7 @@
 								<arch>aarch64</arch>
 							</environment>
 						</environments>
+          				<executionEnvironment>JavaSE-21</executionEnvironment>
 						<target>
 							<artifact>
 								<version>${target-artifact-version}</version>
@@ -487,7 +490,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.4.1</version>
+					<version>3.4.0</version>
 					<configuration>
 						<encoding>ISO-8859-1</encoding>
 					</configuration>

@@ -25,7 +25,7 @@
 	<packaging>pom</packaging>
 	<name>org.obeonetwork.is.designer.parent</name>
 
-	<modules>
+	<modules>	
 		<module>../../branding/features/org.obeonetwork.is.designer.branding.feature</module>
 		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
@@ -36,7 +36,8 @@
 	</modules>
 
 	<properties>
-		<tycho-version>2.7.5</tycho-version>
+		<tycho-version>5.0.2</tycho-version>
+    	<tycho-extras-version>5.0.2</tycho-extras-version>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
         <target-artifact-version>6.0.0-SNAPSHOT</target-artifact-version>
 	</properties>
@@ -54,8 +55,7 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
-				<configuration>
-					<resolver>p2</resolver>
+				<configuration>					
 					<resolveWithExecutionEnvironmentConstraints>false</resolveWithExecutionEnvironmentConstraints>
 					<!-- <dependency-resolution> -->
 					<!-- <optionalDependencies></optionalDependencies> -->
@@ -93,6 +93,7 @@
 							<arch>aarch64</arch>
 						</environment>
 					</environments>
+          			<executionEnvironment>JavaSE-21</executionEnvironment>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -104,8 +105,9 @@
 					<version>${tycho-version}</version>
 					<configuration>
 						<encoding>UTF-8</encoding>
-						<source>17</source>
-						<target>17</target>
+			            <compilerArguments>
+			              <properties>${project.basedir}/.settings/org.eclipse.jdt.core.prefs</properties>
+			            </compilerArguments>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -124,7 +126,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.4.1</version>
+					<version>3.4.0</version>
 					<configuration>
 						<encoding>ISO-8859-1</encoding>
 					</configuration>
