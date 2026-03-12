@@ -23,7 +23,7 @@ Visit http://www.obeo.fr
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=17
+      <vmArgs>-Dosgi.requiredJavaVersion=21
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.dataAreaRequiresExplicitInit=true
@@ -48,12 +48,10 @@ Visit http://www.obeo.fr
       </win>
    </launcher>
 
-
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21</macos>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21</windows>
    </vm>
 
    <license>
@@ -137,14 +135,13 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <plugins>
+      <plugin id="org.apache.aries.spifly.dynamic.bundle"/>
       <plugin id="org.apache.felix.scr"/>
-      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="slf4j.simple"/>
    </plugins>
 
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
-      
-      <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.eclipse.acceleo.aql.feature"/>
       <feature id="org.eclipse.sirius.specifier"/>
       <feature id="org.eclipse.amalgam.discovery"/>
@@ -152,10 +149,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.sirius"/>
       <feature id="org.eclipse.draw2d.sdk"/>
-      <feature id="org.eclipse.eef.ext.widgets.reference.feature"/>
-      <feature id="org.eclipse.eef.ext.widgets.reference.feature.source"/>
-      <feature id="org.eclipse.eef.sdk.feature"/>
-      <feature id="org.eclipse.eef.sdk.feature.source"/>
       <feature id="org.eclipse.egit"/>
       <feature id="org.eclipse.emf.compare"/>
       <feature id="org.eclipse.emf.compare.diagram.sirius"/>
@@ -164,7 +157,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.emf.compare.ide.ui"/>
       <feature id="org.eclipse.emf.compare.ide.ui.source"/>
       <feature id="org.eclipse.emf.compare.source"/>
-      <feature id="org.eclipse.emf.ecoretools.sdk"/>
       <feature id="org.eclipse.emf.sdk"/>
       <feature id="org.eclipse.emf.transaction.sdk"/>
       <feature id="org.eclipse.emf.validation.sdk"/>
@@ -188,27 +180,20 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.runtime"/>
       <feature id="org.eclipse.sirius.runtime.aql"/>
       <feature id="org.eclipse.sirius.runtime.aql.source"/>
-      <feature id="org.eclipse.sirius.runtime.ide.eef"/>
-      <feature id="org.eclipse.sirius.runtime.ide.eef.source"/>
       <feature id="org.eclipse.sirius.runtime.ide.ui"/>
-      <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo"/>
-      <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo.source"/>
       <feature id="org.eclipse.sirius.runtime.ide.ui.source"/>
       <feature id="org.eclipse.sirius.runtime.source"/>
       <feature id="org.eclipse.sirius.samples"/>
       <feature id="org.eclipse.sirius.tests.support"/>
       <feature id="org.eclipse.sirius.tests.support.source"/>
-      <feature id="org.eclipse.team.svn"/>
-      <feature id="org.eclipse.team.svn.mylyn"/>
-      <feature id="org.eclipse.team.svn.nl1"/>
-      <feature id="org.eclipse.team.svn.pde.build"/>
-      <feature id="org.eclipse.team.svn.revision.graph"/>
-      <feature id="org.eclipse.team.svn.ui.capabilities"/>
-      <feature id="org.polarion.eclipse.team.svn.connector"/>
-      <feature id="org.polarion.eclipse.team.svn.connector.svnkit1_10"/>
+      <feature id="org.eclipse.team.svn.core.feature"/>
+      <feature id="org.eclipse.team.svn.feature"/>
+      <feature id="org.eclipse.team.svn.nl1.feature"/>
+      <feature id="org.eclipse.team.svn.pde.build.feature"/>
    </features>
 
    <configurations>
+      <plugin id="org.apache.aries.spifly.dynamic.bundle" autoStart="true" startLevel="2" />
       <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
@@ -216,7 +201,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
+      <plugin id="slf4j.simple" autoStart="true" startLevel="2" />
+      <property name="org.eclipse.update.reconcile" value="false" />
+      <property name="osgi.bundles.defaultStartLevel" value="4" />
       <property name="eclipse.buildId" value="${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
