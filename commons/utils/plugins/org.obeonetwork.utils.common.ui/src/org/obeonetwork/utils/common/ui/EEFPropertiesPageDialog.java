@@ -113,8 +113,8 @@ public class EEFPropertiesPageDialog extends TrayDialog {
 	private void updateHeader(Form form, ISelection selection) {
         boolean semanticElementFound = false;
         if (selection instanceof IStructuredSelection structuredSelection
-        		&& structuredSelection.getFirstElement() instanceof Object first) {
-            SiriusInputDescriptor inputDescriptor = new SiriusInputDescriptor(first);
+        		&& structuredSelection.getFirstElement() != null) {
+            SiriusInputDescriptor inputDescriptor = new SiriusInputDescriptor(structuredSelection.getFirstElement());
             EObject semanticElement = inputDescriptor.getSemanticElement();
             if (semanticElement != null) {
                 semanticElementFound = true;
