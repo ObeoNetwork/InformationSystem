@@ -21,7 +21,10 @@ Require-Bundle: org.eclipse.sirius.common,
  org.eclipse.eef.ide.ui.properties,
  org.eclipse.eef.core,
  org.eclipse.eef,
- org.eclipse.eef.common.ui
+ org.eclipse.eef.common.ui,
+ org.eclipse.elk.graph,
+ org.eclipse.elk.core.service,
+ org.eclipse.sirius.diagram.elk
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.obeonetwork.utils
 Bundle-ActivationPolicy: lazy
@@ -31,3 +34,4 @@ Export-Package: org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common.ui.handlers,
  org.obeonetwork.utils.common.ui.propertyTesters,
  org.obeonetwork.utils.common.ui.services
+Import-Package: com.google.common.collect
