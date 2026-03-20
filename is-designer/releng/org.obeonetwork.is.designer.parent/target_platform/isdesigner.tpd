@@ -9,11 +9,12 @@ location Eclipse-2025-09 "https://download.eclipse.org/releases/2025-09/" {
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 	org.eclipse.platform.source lazy
 	com.sun.xml.bind lazy
-	org.eclipse.emf.ecoretools.source
+	org.eclipse.emf.ecoretools.source lazy
+	org.eclipse.emf.ecoretools.design.feature.group lazy
 }
 
 location Eclipse-2025-06 "https://download.eclipse.org/releases/2025-06/" {
-	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group lazy
+	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group lazy	
 }
 
 location ANTLR "https://obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/" {
@@ -104,7 +105,6 @@ location Obeo-Designer-Team-12.0 "https://update.obeo.fr/stable/designer/12.0_rc
 }
 
 location ISD "https://update.obeo.fr/integration/informationsystem/6.0.0/design/repository/" {
-	
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
