@@ -1,124 +1,97 @@
+[module SequenceGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module SequenceGen(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare')/]
-
-[import org::obeonetwork::dsl::database::sqlgen::services::names /]
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
-
-[template public genSQLForSequences(diffs : Sequence(DBDiff)) post(trim())]
-[let addSequenceDiffs : Sequence(AddSequence) = diffs->filter(AddSequence)]
-[if (addSequenceDiffs->notEmpty())]
-	[file ('create-sequences.sql', false, 'UTF-8')]
-		[for (addSequence : AddSequence | addSequenceDiffs)]
-[addSequence.genCreateSequence()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let removeSequenceDiffs : Sequence(RemoveSequence) = diffs->filter(RemoveSequence)]
-[if (removeSequenceDiffs->notEmpty())]
-	[file ('drop-sequences.sql', false, 'UTF-8')]
-		[for (removeSequence : RemoveSequence | removeSequenceDiffs)]
-[removeSequence.genDropSequence()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let updateSequenceDiffs : Sequence(UpdateSequence) = diffs->filter(UpdateSequence)]
-[if (updateSequenceDiffs->notEmpty())]
-	[file ('alter-sequences.sql', false, 'UTF-8')]
-		[for (updateSequence : UpdateSequence | updateSequenceDiffs)]
-[updateSequence.genUpdateSequence()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
+[template public genSQLForSequences(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
+  [let addSequenceDiffs : Sequence(dbevolution::AddSequence) = diffs->filter(dbevolution::AddSequence)]
+    [if (addSequenceDiffs->notEmpty())]
+      [file ('create-sequences.sql', overwrite, 'UTF-8')]
+        [for (addSequence : dbevolution::AddSequence | addSequenceDiffs)]
+          [addSequence.genCreateSequence()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let removeSequenceDiffs : Sequence(dbevolution::RemoveSequence) = diffs->filter(dbevolution::RemoveSequence)]
+    [if (removeSequenceDiffs->notEmpty())]
+      [file ('drop-sequences.sql', overwrite, 'UTF-8')]
+        [for (removeSequence : dbevolution::RemoveSequence | removeSequenceDiffs)]
+          [removeSequence.genDropSequence()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let updateSequenceDiffs : Sequence(dbevolution::UpdateSequence) = diffs->filter(dbevolution::UpdateSequence)]
+    [if (updateSequenceDiffs->notEmpty())]
+      [file ('alter-sequences.sql', overwrite, 'UTF-8')]
+        [for (updateSequence : dbevolution::UpdateSequence | updateSequenceDiffs)]
+          [updateSequence.genUpdateSequence()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
 [/template]
 
 [comment ----------- SEQUENCE ----------- /]
-[template private genUpdateSequence(updateSequence : UpdateSequence) post(trim())]
-[if (updateSequence.sequence.name = updateSequence.newSequence.name)]
-[updateSequence.newSequence.genUpdateSequence()/]
-[else]
-[updateSequence.sequence.genDropSequence()/]
-[updateSequence.newSequence.genCreateSequence()/]
-[/if]
+[template private genUpdateSequence(updateSequence : dbevolution::UpdateSequence) post(self.trim())]
+  [if (updateSequence.sequence.name = updateSequence.newSequence.name)]
+    [updateSequence.newSequence.genUpdateSequence()/]
+  [else]
+    [updateSequence.sequence.genDropSequence()/]
+    [updateSequence.newSequence.genCreateSequence()/]
+  [/if]
 [/template]
 
-[template private genUpdateSequence(sequence : Sequence) post(trim())]
-[sequence.genSequenceDoc()/]
-ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartWith()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genCycle()/];
-[/template]
+[template private genUpdateSequence(sequence : database::Sequence) post(self.trim())]
+  [sequence.genSequenceDoc()/]
+  ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartWith()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genCycle()/];[/template]
 
-[template private genDropSequence(removeSequence : RemoveSequence) post(trim())]
-[removeSequence.sequence.genDropSequence()/]
-[/template]
+[template private genDropSequence(removeSequence : dbevolution::RemoveSequence) post(self.trim())]
+  [removeSequence.sequence.genDropSequence()/][/template]
 
-[template private genDropSequence(sequence : Sequence) post(trim())]
-[sequence.genSequenceDoc()/]
-DROP SEQUENCE [sequence.fullname()/];
-[/template]
+[template private genDropSequence(sequence : database::Sequence) post(self.trim())]
+  [sequence.genSequenceDoc()/]
+  DROP SEQUENCE [sequence.fullname()/];[/template]
 
-[template private genCreateSequence(addSequence : AddSequence) post(trim())]
-[addSequence.sequence.genCreateSequence()/]
-[/template]
+[template private genCreateSequence(addSequence : dbevolution::AddSequence) post(self.trim())]
+  [addSequence.sequence.genCreateSequence()/][/template]
 
-[template private genSequenceDoc(sequence : Sequence) post(trim())]
--- ==============================================================
---  Sequence : [sequence.name()/]                                    
--- ==============================================================
-[/template]
+[template private genSequenceDoc(sequence : database::Sequence) post(self.trim())]
+  -- ==============================================================
+  --  Sequence : [sequence.name()/]                                    
+  -- ==============================================================[/template]
 
-[template private genCreateSequence(sequence : Sequence) post(trim())]
-[sequence.genSequenceDoc()/]
-CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
-[sequence.genSequenceComment()/]
-[/template]
+[template private genCreateSequence(sequence : database::Sequence) post(self.trim())]
+  [sequence.genSequenceDoc()/]
+  CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
+  [sequence.genSequenceComment()/][/template]
 
-[query private isValidValue(value : Integer) : Boolean = not value.oclIsInvalid() and not value.oclIsUndefined() /]
+[query private isValidValue(value : Integer) : Boolean = not value.oclIsInvalid() and not (value = null)/]
 
-[template private genIncrementBy(sequence : Sequence) ? (sequence.increment.isValidValue())]
- INCREMENT BY [sequence.increment/]
-[/template]
+[template private genIncrementBy(sequence : database::Sequence) ? (sequence.increment.isValidValue())]
+   INCREMENT BY [sequence.increment/][/template]
 
-[template private genStartWith(sequence : Sequence) ? (sequence.start.isValidValue())]
- START WITH [sequence.start/]
-[/template]
+[template private genStartWith(sequence : database::Sequence) ? (sequence.start.isValidValue())]
+   START WITH [sequence.start/][/template]
 
-[template private genMinValue(sequence : Sequence) ? (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
- MINVALUE [sequence.minValue/]
-[/template]
+[template private genMinValue(sequence : database::Sequence) ? (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
+   MINVALUE [sequence.minValue/][/template]
 
-[template private genMaxValue(sequence : Sequence) ? (sequence.maxValue.isValidValue() and sequence.maxValue <> -1)]
- MAXVALUE [sequence.maxValue/]
-[/template]
+[template private genMaxValue(sequence : database::Sequence) ? (sequence.maxValue.isValidValue() and sequence.maxValue <> 1 - )]
+   MAXVALUE [sequence.maxValue/][/template]
 
-[template private genCycle(sequence : Sequence)]
-[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)]
-[if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if][else] CYCLE[/if]
-[/template]
+[template private genCycle(sequence : database::Sequence)]
+  [if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)][if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if][else] CYCLE[/if][/template]
 
-[template private genCache(sequence : Sequence) ? (sequence.cacheSize.isValidValue())]
- CACHE [sequence.cacheSize/]
-[/template]
+[template private genCache(sequence : database::Sequence) ? (sequence.cacheSize.isValidValue())]
+   CACHE [sequence.cacheSize/][/template]
 
-[template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0 and not sequence.isTargetOracle()) post(trim())]
-COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
-[/template]
+[template private genSequenceComment(sequence : database::Sequence) ? (sequence.comments <> null and sequence.comments.size() > 0 and not sequence.isTargetOracle()) post(self.trim())]
+  COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'', '\'\'')/]';[/template]

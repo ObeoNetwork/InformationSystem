@@ -46,9 +46,13 @@ public class UtilServices {
 		}
 		return "";
 	}
+
+	public String getLabelJavaService(EObject object){return getLabel(object);}
 	
 	public List<Diff> getSubDifferences(Diff diff) {
 		return service.getSubDiffs(diff, diff.getMatch().getComparison());
 	}
+
+	public List<Diff> getSubDifferencesJavaService(Diff diff){return getSubDifferences(diff);}
 
 }

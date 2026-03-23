@@ -1,114 +1,85 @@
+[module PrimaryKeyGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+[import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module PrimaryKeyGen(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
-
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
-[import org::obeonetwork::dsl::database::sqlgen::services::names /]
-
-[template public genSQLForPrimaryKeys(diffs : Sequence(DBDiff)) post(trim())]
-[let addPrimaryKeyDiffs : Sequence(AddPrimaryKey) = diffs->filter(AddPrimaryKey)]
-[if (addPrimaryKeyDiffs->notEmpty() and not addPrimaryKeyDiffs->isForMySQL())]
-
-	[file ('create-pk.sql', false, 'UTF-8')]
-		[for (addPk : AddPrimaryKey | addPrimaryKeyDiffs)]
-[addPk.genCreatePK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let removePKDiffs : Sequence(RemovePrimaryKey) = diffs->filter(RemovePrimaryKey)->filterRelatedToRemoveTable()]
-[if (removePKDiffs->notEmpty())]
-	[file ('drop-pk.sql', false, 'UTF-8')]
-		[for (removePK : RemovePrimaryKey | removePKDiffs)]
-[removePK.genDropPK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let updatePrimaryKeyDiffs : Sequence(UpdatePrimaryKey) = diffs->filter(UpdatePrimaryKey)]
-[if (updatePrimaryKeyDiffs->notEmpty())]
-	[file ('alter-pk.sql', false, 'UTF-8')]
-		[for (updatePK : UpdatePrimaryKey | updatePrimaryKeyDiffs)]
-[updatePK.genAlterPK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
+[template public genSQLForPrimaryKeys(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
+  [let addPrimaryKeyDiffs : Sequence(dbevolution::AddPrimaryKey) = diffs->filter(dbevolution::AddPrimaryKey)]
+    [if (addPrimaryKeyDiffs->notEmpty() and not addPrimaryKeyDiffs->asSequence()->isForMySQL())]
+      
+      [file ('create-pk.sql', overwrite, 'UTF-8')]
+        [for (addPk : dbevolution::AddPrimaryKey | addPrimaryKeyDiffs)]
+          [addPk.genCreatePK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let removePKDiffs : Sequence(dbevolution::RemovePrimaryKey) = diffs->filter(dbevolution::RemovePrimaryKey)->asSequence()->filterRelatedToRemoveTable()]
+    [if (removePKDiffs->notEmpty())]
+      [file ('drop-pk.sql', overwrite, 'UTF-8')]
+        [for (removePK : dbevolution::RemovePrimaryKey | removePKDiffs)]
+          [removePK.genDropPK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let updatePrimaryKeyDiffs : Sequence(dbevolution::UpdatePrimaryKey) = diffs->filter(dbevolution::UpdatePrimaryKey)]
+    [if (updatePrimaryKeyDiffs->notEmpty())]
+      [file ('alter-pk.sql', overwrite, 'UTF-8')]
+        [for (updatePK : dbevolution::UpdatePrimaryKey | updatePrimaryKeyDiffs)]
+          [updatePK.genAlterPK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
 [/template]
 
-[query private isForMySQL(diffs : Sequence(AddPrimaryKey)) : Boolean =
-diffs->notEmpty() and diffs->first().primaryKey.isTargetMySqlOrMariaDB() /]
+[query private isForMySQL(diffs : Sequence(dbevolution::AddPrimaryKey)) : Boolean = diffs->notEmpty() and diffs->first().primaryKey.isTargetMySqlOrMariaDB()/]
 
-[template private genPKDoc(primaryKey : PrimaryKey) post(trim())]
--- ==============================================================
---  Primary Key : [primaryKey.name/]                                    
--- ==============================================================
+[template private genPKDoc(primaryKey : database::PrimaryKey) post(self.trim())]
+  -- ==============================================================
+  --  Primary Key : [primaryKey.name/]                                    
+  -- ==============================================================[/template]
+
+[template private genCreatePK(addPK : dbevolution::AddPrimaryKey) post(self.trim())]
+  [addPK.primaryKey.genPKDoc()/]
+  [addPK.primaryKey.genCreatePK()/][/template]
+
+[template private genDropPK(removePK : dbevolution::RemovePrimaryKey) post(self.trim())]
+  [removePK.primaryKey.genPKDoc()/]
+  [removePK.primaryKey.genDropPK()/][/template]
+
+[template private genAlterPK(updatePK : dbevolution::UpdatePrimaryKey) post(self.trim())]
+  [updatePK.newPrimaryKey.genPKDoc()/]
+  [updatePK.primaryKey.genDropPK()/]
+  [updatePK.newPrimaryKey.genCreatePK()/][/template]
+
+[template private genCreatePK(pk : database::PrimaryKey) post(self.trim())]
+  [if (pk.columns->notEmpty())]
+    [let table : database::Table = pk.columns->first().owner.oclAsType(database::Table)]
+      [pk.genUniquePKIndex(table)/]
+      ALTER TABLE [table.fullname()/] ADD CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/]);[/let]
+  [/if]
 [/template]
 
-[template private genCreatePK(addPK : AddPrimaryKey) post(trim())]
-[addPK.primaryKey.genPKDoc()/]
-[addPK.primaryKey.genCreatePK()/]
-[/template]
+[template private genUniquePKIndex(pk : database::PrimaryKey, table : database::Table) ? (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
+  CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.fullname()/]([pk.columns->asSequence()->collect(temp2 | temp2.name)->sep(', ')/]);[/template]
 
-[template private genDropPK(removePK : RemovePrimaryKey) post(trim())]
-[removePK.primaryKey.genPKDoc()/]
-[removePK.primaryKey.genDropPK()/]
-[/template]
+[template private genDropPK(pk : database::PrimaryKey) post(self.trim())]
+  [let table : database::Table = pk.columns->first().owner.oclAsType(database::Table)]ALTER TABLE [table.fullname()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let][/template]
 
-[template private genAlterPK(updatePK : UpdatePrimaryKey) post(trim())]
-[updatePK.newPrimaryKey.genPKDoc()/]
-[updatePK.primaryKey.genDropPK()/]
-[updatePK.newPrimaryKey.genCreatePK()/]
-[/template]
+[template public genPkConstraintName(pk : database::PrimaryKey) post(self.trim())]
+  [if (pk.isTargetOracle())][pk.name/][else][pk.owner.name/]_PK1_1[/if][/template]
 
-[template private genCreatePK(pk : PrimaryKey) post(trim())]
-[if (pk.columns->notEmpty())]
-[let table : Table = pk.columns->first().owner.oclAsType(Table)]
-[pk.genUniquePKIndex(table)/]
-ALTER TABLE [table.fullname()/] ADD CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]);[/let]
-[/if]
-[/template]
+[query private filterRelatedToRemoveTable(diffs : Sequence(dbevolution::RemovePrimaryKey)) : Sequence(dbevolution::RemovePrimaryKey) = diffs->reject(temp3 | temp3.getRelatedDiff().isRelatedToRemoveTable())->asSequence()/]
 
-[template private genUniquePKIndex(pk : PrimaryKey, table : Table) ? (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
-CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.fullname()/]([pk.columns.name->sep(', ')/]);
-[/template]
+[query private isRelatedToRemoveTable(diff : compare::Diff) : Boolean = not (diff = null) and diff.oclIsKindOf(dbevolution::RemoveTable)/]
 
-[template private genDropPK(pk : PrimaryKey) post(trim())]
-[let table : Table = pk.columns->first().owner.oclAsType(Table)]
-ALTER TABLE [table.fullname()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let]
-[/template]
-
-[template public genPkConstraintName(pk : PrimaryKey) post (trim())]
-[if (pk.isTargetOracle())][pk.name/][else][pk.owner.name/]_PK1_1[/if]
-[/template]
-
-[query private filterRelatedToRemoveTable(diffs : Sequence(RemovePrimaryKey)) : Sequence(RemovePrimaryKey) =
-diffs->reject(getRelatedDiff().isRelatedToRemoveTable())
-	->asSequence()
-/]
-
-[query private isRelatedToRemoveTable(diff : Diff) : Boolean =
-not diff.oclIsUndefined() and diff.oclIsKindOf(RemoveTable) 
-/]
-
-
-[query private getRelatedDiff(diff : Diff) : Diff
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getRelatedDiff(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
+[query private getRelatedDiff(diff : compare::Diff) : compare::Diff = diff.getRelatedDiff()/]

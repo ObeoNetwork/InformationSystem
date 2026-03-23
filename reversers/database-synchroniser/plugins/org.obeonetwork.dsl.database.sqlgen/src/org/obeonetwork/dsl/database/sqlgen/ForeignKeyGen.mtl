@@ -1,91 +1,72 @@
+[module ForeignKeyGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module ForeignKeyGen(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
-
-[import org::obeonetwork::dsl::database::sqlgen::services::names /]
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
-
-[template public genSQLForForeignKeys(diffs : Sequence(DBDiff)) post(trim())]
-[let addFKDiffs : Sequence(AddForeignKey) = diffs->filter(AddForeignKey)]
-[if (addFKDiffs->notEmpty())]
-	[file ('create-fk.sql', false, 'UTF-8')]
-		[for (addFk : AddForeignKey | addFKDiffs)]
-[addFk.genCreateFK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let removeFKDiffs : Sequence(RemoveForeignKey) = diffs->filter(RemoveForeignKey)]
-[if (removeFKDiffs->notEmpty())]
-	[file ('drop-fk.sql', false, 'UTF-8')]
-		[for (removeFK : RemoveForeignKey | removeFKDiffs)]
-[removeFK.genDropFK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let alterFKDiffs : Sequence(UpdateForeignKey) = diffs->filter(UpdateForeignKey)]
-[if (alterFKDiffs->notEmpty())]
-	[file ('alter-fk.sql', false, 'UTF-8')]
-		[for (updateFK : UpdateForeignKey | alterFKDiffs)]
-[updateFK.genAlterFK()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
+[template public genSQLForForeignKeys(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
+  [let addFKDiffs : Sequence(dbevolution::AddForeignKey) = diffs->filter(dbevolution::AddForeignKey)]
+    [if (addFKDiffs->notEmpty())]
+      [file ('create-fk.sql', overwrite, 'UTF-8')]
+        [for (addFk : dbevolution::AddForeignKey | addFKDiffs)]
+          [addFk.genCreateFK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let removeFKDiffs : Sequence(dbevolution::RemoveForeignKey) = diffs->filter(dbevolution::RemoveForeignKey)]
+    [if (removeFKDiffs->notEmpty())]
+      [file ('drop-fk.sql', overwrite, 'UTF-8')]
+        [for (removeFK : dbevolution::RemoveForeignKey | removeFKDiffs)]
+          [removeFK.genDropFK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let alterFKDiffs : Sequence(dbevolution::UpdateForeignKey) = diffs->filter(dbevolution::UpdateForeignKey)]
+    [if (alterFKDiffs->notEmpty())]
+      [file ('alter-fk.sql', overwrite, 'UTF-8')]
+        [for (updateFK : dbevolution::UpdateForeignKey | alterFKDiffs)]
+          [updateFK.genAlterFK()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
 [/template]
 
-[template private genFKDoc(foreignKey : ForeignKey) post(trim())]
--- ==============================================================
---  Foreign Key : [foreignKey.name/]                                    
--- ==============================================================
+[template private genFKDoc(foreignKey : database::ForeignKey) post(self.trim())]
+  -- ==============================================================
+  --  Foreign Key : [foreignKey.name/]                                    
+  -- ==============================================================[/template]
+
+[template private genCreateFK(addFK : dbevolution::AddForeignKey) post(self.trim())]
+  [addFK.foreignKey.oclAsType(database::ForeignKey).genFKDoc()/]
+  [addFK.foreignKey.oclAsType(database::ForeignKey).genCreateFK()/][/template]
+
+[template private genDropFK(removeFK : dbevolution::RemoveForeignKey) post(self.trim())]
+  [removeFK.foreignKey.oclAsType(database::ForeignKey).genFKDoc()/]
+  [removeFK.foreignKey.oclAsType(database::ForeignKey).genDropFK()/][/template]
+
+[template private genAlterFK(updateFK : dbevolution::UpdateForeignKey) post(self.trim())]
+  [updateFK.newForeignKey.oclAsType(database::ForeignKey).genFKDoc()/]
+  [updateFK.foreignKey.oclAsType(database::ForeignKey).genDropFK()/]
+  [updateFK.newForeignKey.oclAsType(database::ForeignKey).genCreateFK()/][/template]
+
+[template private genCreateFK(fk : database::ForeignKey) post(self.trim())]
+  [if (fk.elements->forAll(temp6 | not (temp6.pkColumn = null)))]
+    [let sourceTable : database::Table = fk.owner]
+      [let targetTable : database::Table = fk.elements->asSequence()->collect(temp5 | temp5.pkColumn)->first().owner.oclAsType(database::Table)]
+        ALTER TABLE [sourceTable.fullname()/] 
+        	ADD CONSTRAINT [fk.name/] FOREIGN KEY([fk.elements->asSequence()->collect(temp1 | temp1.fkColumn)->collect(temp2 | temp2.name)->sep(', ')/]) 
+        	REFERENCES [targetTable.fullname()/]([fk.elements->asSequence()->collect(temp3 | temp3.pkColumn)->collect(temp4 | temp4.name)->sep(', ')/]);[/let]
+    [/let]
+  [/if]
 [/template]
 
-[template private genCreateFK(addFK : AddForeignKey) post(trim())]
-[addFK.foreignKey.oclAsType(ForeignKey).genFKDoc()/]
-[addFK.foreignKey.oclAsType(ForeignKey).genCreateFK()/]
-[/template]
-
-[template private genDropFK(removeFK : RemoveForeignKey) post(trim())]
-[removeFK.foreignKey.oclAsType(ForeignKey).genFKDoc()/]
-[removeFK.foreignKey.oclAsType(ForeignKey).genDropFK()/]
-[/template]
-
-[template private genAlterFK(updateFK : UpdateForeignKey) post(trim())]
-[updateFK.newForeignKey.oclAsType(ForeignKey).genFKDoc()/]
-[updateFK.foreignKey.oclAsType(ForeignKey).genDropFK()/]
-[updateFK.newForeignKey.oclAsType(ForeignKey).genCreateFK()/]
-[/template]
-
-[template private genCreateFK(fk : ForeignKey) post(trim())]
-[if (fk.elements->forAll(not pkColumn.oclIsUndefined()))]
-[let sourceTable : Table = fk.owner]
-[let targetTable : Table = fk.elements.pkColumn->first().owner.oclAsType(Table)]
-ALTER TABLE [sourceTable.fullname()/] 
-	ADD CONSTRAINT [fk.name/] FOREIGN KEY([fk.elements.fkColumn.name->sep(', ')/]) 
-	REFERENCES [targetTable.fullname()/]([fk.elements.pkColumn.name->sep(', ')/]);[/let][/let]
-[/if]
-[/template]
-
-[template private genDropFK(fk : ForeignKey) post(trim())]
-[let table : Table = fk.owner]
-ALTER TABLE [table.fullname()/] DROP CONSTRAINT [fk.name/];[/let]
-[/template]
+[template private genDropFK(fk : database::ForeignKey) post(self.trim())]
+  [let table : database::Table = fk.owner]ALTER TABLE [table.fullname()/] DROP CONSTRAINT [fk.name/];[/let][/template]

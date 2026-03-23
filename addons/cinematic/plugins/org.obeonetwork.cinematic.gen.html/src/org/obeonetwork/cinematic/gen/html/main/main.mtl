@@ -1,48 +1,36 @@
+[module main('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/cinematic/view/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0')/]
+
+[import org::obeonetwork::cinematic::gen::html::files::index/]
+[import org::obeonetwork::cinematic::gen::html::files::htmlViewStateFile/]
+[import org::obeonetwork::cinematic::gen::html::files::htmlActionStateFile/]
+[import org::obeonetwork::cinematic::gen::html::files::htmlMultipleTransitionsFile/]
+[import org::obeonetwork::cinematic::gen::html::requests::requests/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module main('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
-
-[import org::obeonetwork::cinematic::gen::html::files::index /]
-[import org::obeonetwork::cinematic::gen::html::files::htmlViewStateFile /]
-[import org::obeonetwork::cinematic::gen::html::files::htmlActionStateFile /]
-[import org::obeonetwork::cinematic::gen::html::files::htmlMultipleTransitionsFile /]
-[import org::obeonetwork::cinematic::gen::html::requests::requests /]
-
-[template public main(aCinematicRoot : CinematicRoot)]
 [comment @main/]
-	[aCinematicRoot.index()/]
-	[aCinematicRoot.genHtmlFiles()/]
-[/template]
+[template public main(aCinematicRoot : cinematic::CinematicRoot)]
+  	[aCinematicRoot.index()/]
+  	[aCinematicRoot.genHtmlFiles()/][/template]
 
 [**
  * The documentation of the template genHtmlFiles.
  * @param aCinematicRoot
- */]
-[template public genHtmlFiles(aCinematicRoot : CinematicRoot)]
-	[for (aViewState : ViewState | aCinematicRoot.eAllContents(ViewState))]
-[aViewState.genHtmlViewStateFile()/]
-		[for (aEvent : FlowEvent | aViewState.eContainer(Flow).events)]
-			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
-[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
-			[/if]
-		[/for]
-		[for (aEvent : ViewEvent | aViewState.eContainer(CinematicRoot).eAllContents(ViewEvent))]
-			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
-[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
-			[/if]
-		[/for]
-	[/for]
-	[for (aActionState : ActionState | aCinematicRoot.eAllContents(ActionState))]
-[aActionState.genHtmlActionStateFile()/]
-	[/for]
+*/]
+[template public genHtmlFiles(aCinematicRoot : cinematic::CinematicRoot)]
+  [for (aViewState : flow::ViewState | aCinematicRoot.eAllContents(flow::ViewState))]
+    [aViewState.genHtmlViewStateFile()/]
+    [for (aEvent : flow::FlowEvent | aViewState.eContainer(flow::Flow).events)]
+      [if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+        [aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+      [/if]
+    [/for]
+    [for (aEvent : view::ViewEvent | aViewState.eContainer(cinematic::CinematicRoot).eAllContents(view::ViewEvent))]
+      [if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+        [aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+      [/if]
+    [/for]
+  [/for]
+  [for (aActionState : flow::ActionState | aCinematicRoot.eAllContents(flow::ActionState))]
+    [aActionState.genHtmlActionStateFile()/]
+  [/for]
 [/template]
-
