@@ -1,119 +1,92 @@
+[module IndexGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+[import org::obeonetwork::dsl::database::sqlgen::services::names/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
+[query private shouldGenerateIndex(index : database::Index) : Boolean = (index.owner.primaryKey = null or index.ID <> index.owner.primaryKey.ID) and (not index.isTargetOracle() or not index.isIndexOnPKColumns())/]
 
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module IndexGen(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
-
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
-[import org::obeonetwork::dsl::database::sqlgen::services::names /]
-
-[query private shouldGenerateIndex(index : Index) : Boolean =
-(index.owner.primaryKey.oclIsUndefined() or index.ID<>index.owner.primaryKey.ID)
-and (not index.isTargetOracle() or not index.isIndexOnPKColumns())
-/]
-
-[template public genSQLForIndex(diffs : Sequence(DBDiff)) post(trim())]
-[let addIndexDiffs : Sequence(AddIndex) = diffs->filter(AddIndex)->reject(not index.shouldGenerateIndex())]
-[if (addIndexDiffs->notEmpty())]
-	[file ('create-index.sql', false, 'UTF-8')]
-		[for (addIndex : AddIndex | addIndexDiffs)]
-[addIndex.genCreateIndex()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let removeIndexDiffs : Sequence(RemoveIndex) = diffs->filter(RemoveIndex)->reject(not index.shouldGenerateIndex())]
-[if (removeIndexDiffs->notEmpty())]
-	[file ('drop-index.sql', false, 'UTF-8')]
-		[for (removeIndex : RemoveIndex | removeIndexDiffs)]
-[removeIndex.genDropIndex()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let alterIndexDiffs : Sequence(UpdateIndex) = diffs->filter(UpdateIndex)->reject(not index.shouldGenerateIndex())]
-[if (alterIndexDiffs->notEmpty())]
-	[file ('alter-index.sql', false, 'UTF-8')]
-		[for (updateIndex : UpdateIndex | alterIndexDiffs)]
-[updateIndex.genAlterIndex()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
+[template public genSQLForIndex(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
+  [let addIndexDiffs : Sequence(dbevolution::AddIndex) = diffs->filter(dbevolution::AddIndex)->reject(temp1 | not temp1.index.shouldGenerateIndex())]
+    [if (addIndexDiffs->notEmpty())]
+      [file ('create-index.sql', overwrite, 'UTF-8')]
+        [for (addIndex : dbevolution::AddIndex | addIndexDiffs)]
+          [addIndex.genCreateIndex()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let removeIndexDiffs : Sequence(dbevolution::RemoveIndex) = diffs->filter(dbevolution::RemoveIndex)->reject(temp2 | not temp2.index.shouldGenerateIndex())]
+    [if (removeIndexDiffs->notEmpty())]
+      [file ('drop-index.sql', overwrite, 'UTF-8')]
+        [for (removeIndex : dbevolution::RemoveIndex | removeIndexDiffs)]
+          [removeIndex.genDropIndex()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let alterIndexDiffs : Sequence(dbevolution::UpdateIndex) = diffs->filter(dbevolution::UpdateIndex)->reject(temp3 | not temp3.index.shouldGenerateIndex())]
+    [if (alterIndexDiffs->notEmpty())]
+      [file ('alter-index.sql', overwrite, 'UTF-8')]
+        [for (updateIndex : dbevolution::UpdateIndex | alterIndexDiffs)]
+          [updateIndex.genAlterIndex()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
 [/template]
 
-[template private genIndexDoc(index : Index) post(trim())]
--- ==============================================================
---  Index : [index.name/]                                    
--- ==============================================================
+[template private genIndexDoc(index : database::Index) post(self.trim())]
+  -- ==============================================================
+  --  Index : [index.name/]                                    
+  -- ==============================================================[/template]
+
+[template private genCreateIndex(addIndex : dbevolution::AddIndex) ? (self.index.shouldGenerateIndex()) post(self.trim())]
+  [addIndex.index.genIndexDoc()/]
+  [addIndex.index.oclAsType(database::Index).genCreateIndex()/][/template]
+
+[template private genDropIndex(removeIndex : dbevolution::RemoveIndex) post(self.trim())]
+  [removeIndex.index.genIndexDoc()/]
+  [removeIndex.index.oclAsType(database::Index).genDropIndex()/][/template]
+
+[template private genAlterIndex(updateIndex : dbevolution::UpdateIndex) post(self.trim())]
+  [updateIndex.newIndex.genIndexDoc()/]
+  [updateIndex.index.oclAsType(database::Index).genDropIndex()/]
+  [updateIndex.newIndex.oclAsType(database::Index).genCreateIndex()/][/template]
+
+[template private genStorageClause(index : database::Index)]
+  [if (index.owner.owner.oclIsKindOf(database::Schema) and not (index.getTable().isTargetMySqlOrMariaDB() or index.getTable().isTargetPostgreSQL() or index.getTable().isTargetOracle() or index.getTable().isTargetH2()))]
+    
+      pctfree 10
+      pctused 40
+      initrans 1
+      online
+      compute statistics
+      tablespace TS_INDEX_[index.owner.owner.oclAsType(database::Schema).name.toUpper()/]
+      logging
+      nosort
+      noparallel
+      parallel
+      (
+           1
+      )[/if]
 [/template]
 
-[template private genCreateIndex(addIndex : AddIndex) ? (index.shouldGenerateIndex()) post(trim())]
-[addIndex.index.genIndexDoc()/]
-[addIndex.index.oclAsType(Index).genCreateIndex()/]
+[template private genCreateIndex(index : database::Index) ? (index.shouldGenerateIndex()) post(self.trim())]
+  [if (index.elements->forAll(temp6 | not (temp6.column = null)))]
+    CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements->asSequence()->collect(temp4 | temp4.column)->collect(temp5 | temp5.name)->sep(', ')/])[index.genStorageClause()/]; 
+  [/if]
 [/template]
 
-[template private genDropIndex(removeIndex : RemoveIndex) post(trim())]
-[removeIndex.index.genIndexDoc()/]
-[removeIndex.index.oclAsType(Index).genDropIndex()/]
-[/template]
+[template private genDropIndex(index : database::Index) ? (index.shouldGenerateIndex() and index.isTargetPostgreSQL()) post(self.trim())]
+  DROP INDEX IF EXISTS [index.owner.genSchemaPrefix()/][index.name/];[/template]
 
-[template private genAlterIndex(updateIndex : UpdateIndex) post(trim())]
-[updateIndex.newIndex.genIndexDoc()/]
-[updateIndex.index.oclAsType(Index).genDropIndex()/]
-[updateIndex.newIndex.oclAsType(Index).genCreateIndex()/]
-[/template]
+[template private genDropIndex(index : database::Index) ? (index.shouldGenerateIndex()) post(self.trim())]
+  ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];[/template]
 
-[template private genStorageClause(index : Index)]
-[if (index.owner.owner.oclIsKindOf(Schema)
-and not (index.getTable().isTargetMySqlOrMariaDB()
-	or index.getTable().isTargetPostgreSQL()
-	or index.getTable().isTargetOracle()
-	or index.getTable().isTargetH2()))]
-
-  pctfree 10
-  pctused 40
-  initrans 1
-  online
-  compute statistics
-  tablespace TS_INDEX_[index.owner.owner.oclAsType(Schema).name.toUpper()/]
-  logging
-  nosort
-  noparallel
-  parallel
-  (
-       1
-  )[/if]
-[/template]
-
-[template private genCreateIndex(index : Index) ? (index.shouldGenerateIndex()) post(trim())]
-[if (index.elements->forAll(not column.oclIsUndefined()))]
-CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
-[/if]
-[/template]
-
-[template private genDropIndex(index : Index) ? (index.shouldGenerateIndex() and index.isTargetPostgreSQL()) post(trim())]
-DROP INDEX IF EXISTS [index.owner.genSchemaPrefix()/][index.name/];
-[/template]
-
-[template private genDropIndex(index : Index) ? (index.shouldGenerateIndex()) post(trim())]
-ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];
-[/template]
-
-[query private getTable(index : Index) : Table = index.owner.oclAsType(database::Table) /]
+[query private getTable(index : database::Index) : database::Table = index.owner.oclAsType(database::Table)/]

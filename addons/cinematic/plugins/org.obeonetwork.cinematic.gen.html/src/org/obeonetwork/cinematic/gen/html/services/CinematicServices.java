@@ -43,6 +43,8 @@ public class CinematicServices {
 		return counter++;
 	}
 
+	synchronized static public int getIdJavaService(Object object){return getId();}
+
 	/**
 	 * Return a collection of {@link ActionState} and/or {@link ViewState}
 	 * associated with the given {@link FlowState}.
@@ -103,6 +105,8 @@ public class CinematicServices {
 		}
 		return nexts;
 	}
+
+	public Set<FlowState> getNextStatesJavaService(FlowState flowState,Event event){return getNextStates(flowState,event);}
 
 	private InitialState getInitialState(Flow flow) {
 		for (FlowState flowState : flow.getStates()) {

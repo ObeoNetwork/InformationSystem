@@ -1,38 +1,27 @@
+[module comparisonFile('http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0')/]
+
+[import org::obeonetwork::dsl::database::compare::tests::gen::services::utilServices/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module comparisonFile('http://www.eclipse.org/emf/compare','http://www.obeonetwork.org/dsl/database/evolution/1.0','http://www.obeonetwork.org/dsl/database/1.0')]
-
-[import org::obeonetwork::dsl::database::compare::tests::gen::services::utilServices /]
-
-[template public genComparison(aComparison : Comparison)]
-[file ('result.txt', false, 'UTF-8')]
-[aComparison.matches->select(aMatch : Match | aMatch.left.oclIsKindOf(DataBase)).genComparison()/]
-[/file]
+[template public genComparison(aComparison : compare::Comparison)]
+  [file ('result.txt', overwrite, 'UTF-8')]
+    [aComparison.matches->select(aMatch | aMatch.left.oclIsKindOf(database::DataBase))->asSequence()->collect(temp1 | temp1.genComparison())/]
+  [/file]
 [/template]
 
-[template public genComparison(aMatch : Match)]
-[aMatch.getLabel()/]
-[aMatch.genDifferences()/]	
+[template public genComparison(aMatch : compare::Match)]
+  [aMatch.getLabel()/]
+  [aMatch.genDifferences()/]	[/template]
+
+[template public genDifferences(aMatch : compare::Match)]
+  [for (aDiff : dbevolution::DBDiff | aMatch.differences->filter(dbevolution::DBDiff))]
+    	[aDiff.genDifferences()/]
+  [/for]
 [/template]
 
-[template public genDifferences(aMatch : Match)]
-[for (aDiff : DBDiff | aMatch.differences->filter(DBDiff))]
-	[aDiff.genDifferences()/]
-[/for]
-[/template]
-
-[template public genDifferences(aDiff: Diff)]
-+ [aDiff.getLabel()/]
-[for (aSubDiff : Diff | aDiff.getSubDifferences())]
-	[aSubDiff.genDifferences()/]	
-[/for]
+[template public genDifferences(aDiff : compare::Diff)]
+  + [aDiff.getLabel()/]
+  [for (aSubDiff : compare::Diff | aDiff.getSubDifferences())]
+    	[aSubDiff.genDifferences()/]	
+  [/for]
 [/template]

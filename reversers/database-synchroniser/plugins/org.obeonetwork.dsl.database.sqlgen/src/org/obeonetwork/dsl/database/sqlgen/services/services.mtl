@@ -1,53 +1,30 @@
+[module services('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::gen::common::services::DatabaseServices/]
+[import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
+[import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
+[query public getType(arg0 : typeslibrary::TypeInstance) : String = arg0.getType()/]
 
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module services(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+[query public isTargetOracle(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetOracle()/]
 
-[query public getType(arg0 : TypeInstance) : String
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
+[query public isTargetMySqlOrMariaDB(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetMySqlOrMariaDB()/]
 
-[query public isTargetOracle(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public isTargetSqlServer(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetSqlServer()/]
 
-[query public isTargetMySqlOrMariaDB(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetMySqlOrMariaDB(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public isTargetPostgreSQL(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetPostgreSQL()/]
 
-[query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public isTargetH2(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetH2()/]
 
-[query public isTargetPostgreSQL(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetPostgreSQL(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public getOrderedChanges(comparison : compare::Comparison) : Sequence(dbevolution::DBDiff) = comparison.getOrderedChanges()/]
 
-[query public isTargetH2(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetH2(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public getSubDiffs(diff : compare::Diff) : Sequence(dbevolution::DBDiff) = diff.getSubDiffs()/]
 
-[query public getOrderedChanges(comparison : Comparison) : Sequence(DBDiff)
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getOrderedChanges(org.eclipse.emf.compare.Comparison)', Sequence{comparison}) /]
+[query public isIndexForFK(index : database::Index) : Boolean = index.isIndexForForeignKey()/]
 
-[query public getSubDiffs(diff : Diff) : Sequence(DBDiff)
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
+[query public isIndexOnPKColumns(index : database::Index) : Boolean = index.isIndexOnPKColumns()/]
 
-[query public isIndexForFK(index : Index) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
+[query public supportsSchema(arg : database::DatabaseElement) : Boolean = arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL() or arg.isTargetSqlServer()/]
 
-[query public isIndexOnPKColumns(index : Index) : Boolean
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'isIndexOnPKColumns(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
-
-[query public supportsSchema(arg : DatabaseElement) : Boolean =
-arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL() or arg.isTargetSqlServer()
-/]
-
-[query public getViewQuery(view : View) : String
-	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'getViewQuery(org.obeonetwork.dsl.database.View)', Sequence{view}) /]
+[query public getViewQuery(view : database::View) : String = view.getViewQuery()/]

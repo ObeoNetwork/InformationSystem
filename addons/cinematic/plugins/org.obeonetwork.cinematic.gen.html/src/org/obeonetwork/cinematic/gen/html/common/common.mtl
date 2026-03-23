@@ -1,85 +1,58 @@
+[module common('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/cinematic/view/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0')/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[**
- * The documentation of the module generate.
- */]
-[module common('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
-
-[template public genFullQualifiedFileName(aFS : FlowState)]
-//TODO handle [aFS.eClass().name/]
-[/template]
+[template public genFullQualifiedFileName(aFS : flow::FlowState)]
+  //TODO handle [aFS.eClass().name/][/template]
 
 [**
  * The documentation of the template genFullQualifiedFileName.
  * @param aViewState
- */]
-[template public genFullQualifiedFileName(aViewState : ViewState)]
-[getProperty('src.folder.pages')/]/[aViewState.eContainer(CinematicRoot).name/]/[aViewState.ancestors(Package)->reverse().name->sep('/')/][if (aViewState.ancestors(Package)->notEmpty())]/[/if][aViewState.eContainer(Flow).name/]/[aViewState.name/].html
-[/template]
+*/]
+[template public genFullQualifiedFileName(aViewState : flow::ViewState)]
+  [aViewState.getProperty('src.folder.pages')/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp1 | temp1.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/[aViewState.name/].html[/template]
 
 [**
  * The documentation of the template genFullQualifiedFileName.
  * @param aViewState
  * @param aEvent
- */]
-[template public genFullQualifiedFileName(aViewState : ViewState, aEvent : Event)]
-[getProperty('src.folder.pages')/]/[aViewState.eContainer(CinematicRoot).name/]/[aViewState.ancestors(Package)->reverse().name->sep('/')/][if (aViewState.ancestors(Package)->notEmpty())]/[/if][aViewState.eContainer(Flow).name/]/MultipleTransitions/[aViewState.name/][aEvent.name/].html
-[/template]
+*/]
+[template public genFullQualifiedFileName(aViewState : flow::ViewState, aEvent : cinematic::Event)]
+  [aViewState.getProperty('src.folder.pages')/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp2 | temp2.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/MultipleTransitions/[aViewState.name/][aEvent.name/].html[/template]
 
 [**
  * The documentation of the template genFullQualifiedFileName.
  * @param aViewState
- */]
-[template public genFullQualifiedFileName(aActionState : ActionState)]
-[getProperty('src.folder.pages')/]/[aActionState.eContainer(CinematicRoot).name/]/[aActionState.ancestors(Package)->reverse().name->sep('/')/][if (aActionState.ancestors(Package)->notEmpty())]/[/if][aActionState.eContainer(Flow).name/]/ActionStates/[aActionState.name/].html
-[/template]
+*/]
+[template public genFullQualifiedFileName(aActionState : flow::ActionState)]
+  [aActionState.getProperty('src.folder.pages')/]/[aActionState.eContainer(cinematic::CinematicRoot).name/]/[aActionState.ancestors(cinematic::Package)->reverse()->collect(temp3 | temp3.name)->sep('/')/][if (aActionState.ancestors(cinematic::Package)->notEmpty())]/[/if][aActionState.eContainer(flow::Flow).name/]/ActionStates/[aActionState.name/].html[/template]
 
 [**
  * The documentation of the template genRelativeName.
  * @param aViewState
- */]
-[template public getRootContainerPath(aFS : FlowState)]
-//TODO handle [aFS.eClass().name/]
-[/template]
+*/]
+[template public getRootContainerPath(aFS : flow::FlowState)]
+  //TODO handle [aFS.eClass().name/][/template]
 
-[template public getRootContainerPath(aViewState : ViewState)]
-['../../' + aViewState.genPackageRelativePath() + '../'/]
-[/template]
+[template public getRootContainerPath(aViewState : flow::ViewState)]
+  ['../../' + aViewState.genPackageRelativePath() + '../'/][/template]
 
-[template public getRootContainerPath(aViewState : ViewState, aEvent : Event)]
-['../../' + aViewState.genPackageRelativePath() + '../../'/]
-[/template]
+[template public getRootContainerPath(aViewState : flow::ViewState, aEvent : cinematic::Event)]
+  ['../../' + aViewState.genPackageRelativePath() + '../../'/][/template]
 
-[template public getRootContainerPath(aActionState : ActionState)]
-['../../' + aActionState.genPackageRelativePath() + '../../'/]
-[/template]
+[template public getRootContainerPath(aActionState : flow::ActionState)]
+  ['../../' + aActionState.genPackageRelativePath() + '../../'/][/template]
 
-[template public genPackageRelativePath(aNFS : NamedFlowState)]
-[for (it : Package | aNFS.ancestors(Package))]../[/for]
-[/template]
+[template public genPackageRelativePath(aNFS : flow::NamedFlowState)]
+  [for (it : cinematic::Package | aNFS.ancestors(cinematic::Package))]../[/for][/template]
 
-[template public getLabel(anAVE : AbstractViewElement) post(trim())]
-[if (not(anAVE.label.oclIsUndefined()) and anAVE.label.size() > 0)][anAVE.label/][else][anAVE.name/][/if]
-[/template]
+[template public getLabel(anAVE : view::AbstractViewElement) post(self.trim())]
+  [if (not (anAVE.label = null) and anAVE.label.size() > 0)][anAVE.label/][else][anAVE.name/][/if][/template]
 
-[template public getName(aFS : FlowState) post(trim())]
-//TODO handle [aFS.eClass().name/]
-[/template]
+[template public getName(aFS : flow::FlowState) post(self.trim())]
+  //TODO handle [aFS.eClass().name/][/template]
 
-[template public getName(aViewState : ViewState) post(trim())]
-[aViewState.name/]
-[/template]
+[template public getName(aViewState : flow::ViewState) post(self.trim())]
+  [aViewState.name/][/template]
 
-[template public getName(aActionState : ActionState) post(trim())]
-[aActionState.name/]
-[/template]
-
+[template public getName(aActionState : flow::ActionState) post(self.trim())]
+  [aActionState.name/][/template]
