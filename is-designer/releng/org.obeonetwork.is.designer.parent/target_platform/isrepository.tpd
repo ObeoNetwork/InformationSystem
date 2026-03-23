@@ -24,7 +24,7 @@ location EEF-1.5.2 "https://download.eclipse.org/modeling/emft/eef/updates/miles
     org.eclipse.emf.eef.runtime-feature.feature.group lazy
 }
 
-location Acceleo_4.2.1_AQL_8.1.1 "https://download.eclipse.org/acceleo/updates/releases/4.2/R202602100910/" {
+location Acceleo_4.2.2_AQL_8.1.2 "https://download.eclipse.org/acceleo/updates/releases/4.2/R202603201315/" {
 	org.eclipse.acceleo.query.feature.group lazy
 	org.eclipse.acceleo.query.source.feature.group lazy
 	org.eclipse.acceleo.query.ui.feature.group lazy

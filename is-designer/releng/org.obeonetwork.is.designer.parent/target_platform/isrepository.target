@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Repository Target Definition" sequenceNumber="1773271457">
+<target name="IS Designer Repository Target Definition" sequenceNumber="1774281545">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="0.0.0"/>
@@ -34,7 +34,7 @@
       <unit id="org.eclipse.acceleo.aql.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.aql.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.antlr.antlr4-runtime" version="0.0.0"/>
-      <repository id="Acceleo_4.2.1_AQL_8.1.1" location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202602100910/"/>
+      <repository id="Acceleo_4.2.2_AQL_8.1.2" location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202603201315/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.runtime.feature.group" version="0.0.0"/>
@@ -67,10 +67,6 @@
       <unit id="org.eclipse.amalgam.explorer.contextual.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
       <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.slf4j.api" version="0.0.0"/>
-      <repository id="Orbit-2023-03" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.easymock" version="0.0.0"/>
