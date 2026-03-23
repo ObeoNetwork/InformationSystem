@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1774281549">
+<target name="IS Designer Product Target Definition" sequenceNumber="1774302177">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime" version="0.0.0"/>
@@ -28,23 +28,16 @@
       <repository id="Sirius-7.5.0" location="https://download.eclipse.org/sirius/updates/releases/7.5.0/2025-09/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.mylyn.commons.feature.feature.group" version="4.8.0.v20250813-0645"/>
-      <unit id="org.eclipse.mylyn.context.feature.feature.group" version="4.8.0.v20250816-0943"/>
-      <unit id="org.eclipse.mylyn.ide.feature.feature.group" version="4.8.0.v20250816-0845"/>
-      <unit id="org.eclipse.mylyn.monitor.feature.feature.group" version="4.8.0.v20250814-1811"/>
-      <unit id="org.eclipse.mylyn.tasks.feature.feature.group" version="4.8.0.v20250821-0416"/>
-      <unit id="org.eclipse.mylyn.team.feature.feature.group" version="4.8.0.v20250815-0736"/>
-      <unit id="org.apache.xerces" version="2.12.2.v20230928-1306"/>
-      <unit id="org.apache.xml.resolver" version="1.2.0.v20230928-1222"/>
-      <repository id="Mylyn-4.8" location="https://download.eclipse.org/mylyn/updates/release/4.8.0"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.activity.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.core.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
       <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.slf4j.api" version="0.0.0"/>
+      <repository id="Orbit-2023-03" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.easymock" version="0.0.0"/>
@@ -71,6 +64,7 @@
       <unit id="com.google.inject" version="0.0.0"/>
       <unit id="com.ibm.icu" version="0.0.0"/>
       <unit id="org.apache.log4j" version="0.0.0"/>
+      <unit id="org.apache.commons.commons-logging" version="0.0.0"/>
       <unit id="org.eclipse.draw2d.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>

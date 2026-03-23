@@ -45,17 +45,6 @@ location Sirius-7.5.0 "https://download.eclipse.org/sirius/updates/releases/7.5.
 	org.eclipse.sirius.specifier.feature.group lazy
 }
 
-location Mylyn-4.8 "https://download.eclipse.org/mylyn/updates/release/4.8.0" {
-	org.eclipse.mylyn.commons.feature.feature.group [4.8.0,4.9.0)
-	org.eclipse.mylyn.context.feature.feature.group [4.8.0,4.9.0)
-	org.eclipse.mylyn.ide.feature.feature.group [4.8.0,4.9.0)
-	org.eclipse.mylyn.monitor.feature.feature.group [4.8.0,4.9.0)
-	org.eclipse.mylyn.tasks.feature.feature.group [4.8.0,4.9.0)
-	org.eclipse.mylyn.team.feature.feature.group [4.8.0,4.9.0)
-	org.apache.xerces [2.12.2,2.13.0)
-	org.apache.xml.resolver [1.2.0,1.3.0)
-}
-
 location Obeo-Designer-Team-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/team/12.0.0/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
@@ -69,9 +58,9 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/releases
 	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
 }
 
-//location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
-//	org.slf4j.api lazy
-//}
+location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
+	org.slf4j.api lazy
+}
 
 location Orbit-2025-09 "https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2025-09" {
 	org.easymock lazy

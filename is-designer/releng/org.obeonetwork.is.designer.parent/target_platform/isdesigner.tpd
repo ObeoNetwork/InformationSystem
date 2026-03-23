@@ -25,6 +25,7 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12
 	com.google.inject lazy
 	com.ibm.icu lazy
 	org.apache.log4j lazy
+	org.apache.commons.commons-logging lazy
 	
 	org.eclipse.draw2d.sdk.feature.group lazy
 	org.eclipse.eef.sdk.feature.source.feature.group lazy
@@ -105,6 +106,7 @@ location Obeo-Designer-Team-12.0 "https://update.obeo.fr/stable/designer/12.0_rc
 }
 
 location ISD "https://update.obeo.fr/integration/informationsystem/6.0.0/design/repository/" {
+	
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
