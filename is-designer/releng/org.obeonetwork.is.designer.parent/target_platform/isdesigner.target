@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1774019025">
+<target name="IS Designer Product Target Definition" sequenceNumber="1774281549">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime" version="0.0.0"/>
@@ -17,7 +17,7 @@
       <unit id="org.eclipse.acceleo.aql.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.aql.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.antlr.antlr4-runtime" version="0.0.0"/>
-      <repository id="Acceleo_4.2.1_AQL_8.1.1" location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202602100910/"/>
+      <repository id="Acceleo_4.2.2_AQL_8.1.2" location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202603201315/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.runtime.feature.group" version="0.0.0"/>
