@@ -1,61 +1,37 @@
+[module names('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
+[template public fullname(table : database::Table) post(self.trim())]
+  [table.genSchemaPrefix()/][table.name.toUpper()/][/template]
 
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module names(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+[template public fullname(view : database::View) post(self.trim())]
+  [view.genSchemaPrefix()/][view.name.toUpper()/][/template]
 
-[template public fullname(table : Table) post(trim())]
-[table.genSchemaPrefix()/][table.name.toUpper()/]
-[/template]
+[template public fullname(sequence : database::Sequence) post(self.trim())]
+  [sequence.genSchemaPrefix()/][sequence.name.toUpper()/][/template]
 
-[template public fullname(view : View) post(trim())]
-[view.genSchemaPrefix()/][view.name.toUpper()/]
-[/template]
+[template public name(table : database::Table) post(self.trim())]
+  [table.name.toUpper()/][/template]
 
-[template public fullname(sequence : Sequence) post(trim())]
-[sequence.genSchemaPrefix()/][sequence.name.toUpper()/]
-[/template]
+[template public name(view : database::View) post(self.trim())]
+  [view.name.toUpper()/][/template]
 
-[template public name(table : Table) post(trim())]
-[table.name.toUpper()/]
-[/template]
+[template public name(column : database::Column) post(self.trim())]
+  [column.name/][/template]
 
-[template public name(view : View) post(trim())]
-[view.name.toUpper()/]
-[/template]
+[template public name(schema : database::Schema) post(self.trim())]
+  [schema.name.toUpper()/][/template]
 
-[template public name(column : Column) post(trim())]
-[column.name/]
-[/template]
+[template public name(sequence : database::Sequence) post(self.trim())]
+  [sequence.name.toUpper()/][/template]
 
-[template public name(schema : Schema) post(trim())]
-[schema.name.toUpper()/]
-[/template]
+[template public genSchemaPrefix(table : database::Table)]
+  [if (table.supportsSchema() and table.eContainer().oclIsKindOf(database::Schema))][table.eContainer().oclAsType(database::Schema).name()/].[/if][/template]
 
-[template public name(sequence : Sequence) post(trim())]
-[sequence.name.toUpper()/]
-[/template]
+[template public genSchemaPrefix(view : database::View)]
+  [if (view.supportsSchema() and view.eContainer().oclIsKindOf(database::Schema))][view.eContainer().oclAsType(database::Schema).name()/].[/if][/template]
 
-[template public genSchemaPrefix(table : Table)]
-[if (table.supportsSchema() and table.eContainer().oclIsKindOf(Schema))][table.eContainer().oclAsType(Schema).name()/].[/if]
-[/template]
-
-[template public genSchemaPrefix(view : View)]
-[if (view.supportsSchema() and view.eContainer().oclIsKindOf(Schema))][view.eContainer().oclAsType(Schema).name()/].[/if]
-[/template]
-
-[template public genSchemaPrefix(sequence : Sequence)]
-[if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(Schema))][sequence.eContainer().oclAsType(Schema).name()/].[/if]
-[/template]
+[template public genSchemaPrefix(sequence : database::Sequence)]
+  [if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(database::Schema))][sequence.eContainer().oclAsType(database::Schema).name()/].[/if][/template]

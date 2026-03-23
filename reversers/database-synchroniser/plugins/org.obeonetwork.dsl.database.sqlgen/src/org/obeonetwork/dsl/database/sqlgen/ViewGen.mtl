@@ -1,103 +1,82 @@
+[module ViewGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+[import org::obeonetwork::dsl::database::sqlgen::services::names/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
-
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module ViewGen(
- 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
- 'http://www.obeonetwork.org/dsl/database/1.0',
- 'http://www.eclipse.org/emf/compare',
- 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
-
-[import org::obeonetwork::dsl::database::sqlgen::services::services /]
-[import org::obeonetwork::dsl::database::sqlgen::services::names /]
-
-[template public genSQLForViews(diffs : Sequence(DBDiff)) post(trim())]
-[let addViewDiffs : Sequence(AddView) = diffs->filter(AddView)]
-[if (addViewDiffs->notEmpty())]
-	[file ('create-views.sql', false, 'UTF-8')]
-		[for (addView : AddView | addViewDiffs)]
-[addView.genCreateView()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let removeViewDiffs : Sequence(RemoveView) = diffs->filter(RemoveView)]
-[if (removeViewDiffs->notEmpty())]
-	[file ('drop-views.sql', false, 'UTF-8')]
-		[for (removeView : RemoveView | removeViewDiffs)]
-[removeView.genDropView()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
-
-[let alterViewDiffs : Sequence(AlterView) = diffs->filter(AlterView)]
-[if (alterViewDiffs->notEmpty())]
-	[file ('alter-views.sql', false, 'UTF-8')]
-		[for (alterView : AlterView | alterViewDiffs)]
-[alterView.genAlterView()/]
-
-		[/for]
-	[/file]
-[/if]
-[/let]
+[template public genSQLForViews(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
+  [let addViewDiffs : Sequence(dbevolution::AddView) = diffs->filter(dbevolution::AddView)]
+    [if (addViewDiffs->notEmpty())]
+      [file ('create-views.sql', overwrite, 'UTF-8')]
+        [for (addView : dbevolution::AddView | addViewDiffs)]
+          [addView.genCreateView()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let removeViewDiffs : Sequence(dbevolution::RemoveView) = diffs->filter(dbevolution::RemoveView)]
+    [if (removeViewDiffs->notEmpty())]
+      [file ('drop-views.sql', overwrite, 'UTF-8')]
+        [for (removeView : dbevolution::RemoveView | removeViewDiffs)]
+          [removeView.genDropView()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
+  
+  [let alterViewDiffs : Sequence(dbevolution::AlterView) = diffs->filter(dbevolution::AlterView)]
+    [if (alterViewDiffs->notEmpty())]
+      [file ('alter-views.sql', overwrite, 'UTF-8')]
+        [for (alterView : dbevolution::AlterView | alterViewDiffs)]
+          [alterView.genAlterView()/]
+          
+        [/for]
+      [/file]
+    [/if]
+  [/let]
 [/template]
 
 [comment ----------- TABLE ----------- /]
-[template private genViewDoc(view : View) post(trim())]
--- ==============================================================
---  View : [view.name()/]                                    
--- ==============================================================
+[template private genViewDoc(view : database::View) post(self.trim())]
+  -- ==============================================================
+  --  View : [view.name()/]                                    
+  -- ==============================================================[/template]
+
+[template private genDropView(removeView : dbevolution::RemoveView) post(self.trim())]
+  [let view : database::View = removeView.view.oclAsType(database::View)]
+    [view.genViewDoc()/]
+    DROP VIEW [view.fullname()/];
+  [/let]
 [/template]
 
-[template private genDropView(removeView : RemoveView) post(trim())]
-[let view : View = removeView.view.oclAsType(View)]
-[view.genViewDoc()/]
-DROP VIEW [view.fullname()/];
-[/let]
+[template private getSchemaName(view : database::View) post(self.trim())]
+  [view.owner.oclAsType(database::Schema).name.toUpper()/][/template]
+
+[template private genCreateView(addView : dbevolution::AddView) post(self.trim())]
+  [let view : database::View = addView.view.oclAsType(database::View)]
+    [view.genViewDoc()/]
+    [view.createViewStatement()/] AS [view.getViewQuery()/]
+    [view.genCreateViewComment()/]
+  [/let]
 [/template]
 
-[template private getSchemaName(view : View) post(trim())]
-[view.owner.oclAsType(Schema).name.toUpper()/]
-[/template]
+[template private genAlterView(alterView : dbevolution::AlterView) post(self.trim())]
+  [alterView.view.alterViewStatement(alterView.target.oclAsType(database::View))/][/template]
 
-[template private genCreateView(addView : AddView) post(trim())]
-[let view : View = addView.view.oclAsType(View)]
-[view.genViewDoc()/]
-[view.createViewStatement()/] AS [view.getViewQuery()/]
-[view.genCreateViewComment()/]
-[/let]
-[/template]
+[template private alterViewStatement(newView : database::View, oldView : database::View)]
+  [newView.genViewDoc()/]
+  DROP VIEW [oldView.fullname()/];
+  [newView.createViewStatement()/] AS [newView.getViewQuery()/]
+  [newView.genCreateViewComment()/][/template]
 
-[template private genAlterView(alterView : AlterView) post(trim())]
-[alterView.view.alterViewStatement(alterView.target.oclAsType(View))/]
-[/template]
+[template private createViewStatement(view : database::View) ? (not view.isTargetSqlServer())]
+  CREATE OR REPLACE VIEW [view.fullname()/][/template]
 
-[template private alterViewStatement(newView : View, oldView : View)]
-[newView.genViewDoc()/]
-DROP VIEW [oldView.fullname()/];
-[newView.createViewStatement()/] AS [newView.getViewQuery()/]
-[newView.genCreateViewComment()/]
-[/template]
+[template private createViewStatement(view : database::View) ? (view.isTargetSqlServer())]
+  CREATE VIEW [view.fullname()/][/template]
 
-[template private createViewStatement(view : View)? (not view.isTargetSqlServer())]
-CREATE OR REPLACE VIEW [view.fullname()/]
-[/template]
-
-[template private createViewStatement(view : View)? (view.isTargetSqlServer())]
-CREATE VIEW [view.fullname()/]
-[/template]
-
-[template private genCreateViewComment(view : View) ? (view.comments<>null and view.comments.size()>0) post(trim())]
-COMMENT ON VIEW [view.fullname()/] IS '[view.comments.replaceAll('\'','\'\'')/]';
-[/template]
+[template private genCreateViewComment(view : database::View) ? (view.comments <> null and view.comments.size() > 0) post(self.trim())]
+  COMMENT ON VIEW [view.fullname()/] IS '[view.comments.replaceAll('\'', '\'\'')/]';[/template]
