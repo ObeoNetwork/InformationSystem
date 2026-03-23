@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -30,6 +32,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getOppositeOf <em>Opposite Of</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getContainingType <em>Containing Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getReferencedType <em>Referenced Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getAssociatedReferences <em>Associated References</em>}</li>
  * </ul>
  *
  * @generated
@@ -237,6 +240,18 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Reference> getAssociatedReferences() {
+		return (EList<Reference>) eDynamicGet(EnvironmentPackage.REFERENCE__ASSOCIATED_REFERENCES,
+				EnvironmentPackage.Literals.REFERENCE__ASSOCIATED_REFERENCES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public boolean canBeOppositeOf(Reference opposite) {
 		// TODO: implement this method
@@ -313,6 +328,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 			if (resolve)
 				return getReferencedType();
 			return basicGetReferencedType();
+		case EnvironmentPackage.REFERENCE__ASSOCIATED_REFERENCES:
+			return getAssociatedReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +339,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -339,6 +357,10 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 			return;
 		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
 			setReferencedType((StructuredType) newValue);
+			return;
+		case EnvironmentPackage.REFERENCE__ASSOCIATED_REFERENCES:
+			getAssociatedReferences().clear();
+			getAssociatedReferences().addAll((Collection<? extends Reference>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,6 +389,9 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
 			setReferencedType((StructuredType) null);
 			return;
+		case EnvironmentPackage.REFERENCE__ASSOCIATED_REFERENCES:
+			getAssociatedReferences().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +414,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 			return basicGetContainingType() != null;
 		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
 			return basicGetReferencedType() != null;
+		case EnvironmentPackage.REFERENCE__ASSOCIATED_REFERENCES:
+			return !getAssociatedReferences().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
