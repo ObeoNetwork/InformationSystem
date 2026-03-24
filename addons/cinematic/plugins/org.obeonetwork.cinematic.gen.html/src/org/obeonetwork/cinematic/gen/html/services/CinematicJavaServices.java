@@ -36,7 +36,7 @@ import org.obeonetwork.dsl.cinematic.flow.ViewState;
  * @author Obeo
  * 
  */
-public class CinematicServices {
+public class CinematicJavaServices {
 	
 	static private int counter = 0;
 	synchronized static public int getId() {

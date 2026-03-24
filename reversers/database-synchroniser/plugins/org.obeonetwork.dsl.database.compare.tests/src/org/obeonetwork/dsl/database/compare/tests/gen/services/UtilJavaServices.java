@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.database.compare.tests.gen.services;
 import java.util.List;
 
 import org.eclipse.emf.compare.Diff;
+import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.provider.CompareItemProviderAdapterFactory;
 import org.eclipse.emf.compare.provider.spec.CompareItemProviderAdapterFactorySpec;
 import org.eclipse.emf.ecore.EObject;
@@ -23,9 +24,7 @@ import org.obeonetwork.dsl.database.dbevolution.provider.DbevolutionItemProvider
 import org.obeonetwork.dsl.database.provider.DatabaseItemProviderAdapterFactory;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory;
 
-public class UtilServices {
-	
-	DiffContentService service = new DiffContentService();
+public class UtilJavaServices {
 	
 	DbevolutionItemProviderAdapterFactory dbEvolution = new DbevolutionItemProviderAdapterFactory();
 	CompareItemProviderAdapterFactory compare = new CompareItemProviderAdapterFactorySpec();
@@ -47,12 +46,12 @@ public class UtilServices {
 		return "";
 	}
 
-	public String getLabelJavaService(EObject object){return getLabel(object);}
+	public String getLabelJavaService(Object object){return getLabel((EObject)object);}
 	
 	public List<Diff> getSubDifferences(Diff diff) {
+	    DiffContentService service = new DiffContentService();
 		return service.getSubDiffs(diff, diff.getMatch().getComparison());
 	}
 
 	public List<Diff> getSubDifferencesJavaService(Diff diff){return getSubDifferences(diff);}
-
 }

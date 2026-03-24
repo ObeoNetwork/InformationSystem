@@ -7,7 +7,7 @@
 [import org::obeonetwork::dsl::database::sqlgen::IndexGen/]
 [import org::obeonetwork::dsl::database::sqlgen::SequenceGen/]
 [import org::obeonetwork::dsl::database::sqlgen::ViewGen/]
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+[import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
 
 [comment encoding = UTF-8 /]
 [comment @main/]
