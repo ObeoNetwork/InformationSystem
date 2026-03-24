@@ -2,29 +2,6 @@
 
 [import org::obeonetwork::dsl::database::gen::common::services::DatabaseServices/]
 [import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
-[import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
 
 [comment encoding = UTF-8 /]
-[query public getType(arg0 : typeslibrary::TypeInstance) : String = arg0.getType()/]
-
-[query public isTargetOracle(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetOracle()/]
-
-[query public isTargetMySqlOrMariaDB(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetMySqlOrMariaDB()/]
-
-[query public isTargetSqlServer(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetSqlServer()/]
-
-[query public isTargetPostgreSQL(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetPostgreSQL()/]
-
-[query public isTargetH2(arg0 : database::DatabaseElement) : Boolean = arg0.isTargetH2()/]
-
-[query public getOrderedChanges(comparison : compare::Comparison) : Sequence(dbevolution::DBDiff) = comparison.getOrderedChanges()/]
-
-[query public getSubDiffs(diff : compare::Diff) : Sequence(dbevolution::DBDiff) = diff.getSubDiffs()/]
-
-[query public isIndexForFK(index : database::Index) : Boolean = index.isIndexForForeignKey()/]
-
-[query public isIndexOnPKColumns(index : database::Index) : Boolean = index.isIndexOnPKColumns()/]
-
 [query public supportsSchema(arg : database::DatabaseElement) : Boolean = arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL() or arg.isTargetSqlServer()/]
-
-[query public getViewQuery(view : database::View) : String = view.getViewQuery()/]

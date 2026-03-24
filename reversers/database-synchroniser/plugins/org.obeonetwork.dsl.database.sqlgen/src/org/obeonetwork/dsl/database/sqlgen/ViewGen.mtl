@@ -1,7 +1,8 @@
 [module ViewGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::gen::common::services::DatabaseServices/]
+[import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
 
 [comment encoding = UTF-8 /]
 [template public genSQLForViews(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
@@ -72,11 +73,15 @@
   [newView.createViewStatement()/] AS [newView.getViewQuery()/]
   [newView.genCreateViewComment()/][/template]
 
-[template private createViewStatement(view : database::View) ? (not view.isTargetSqlServer())]
-  CREATE OR REPLACE VIEW [view.fullname()/][/template]
+[template private createViewStatement(view : database::View)]
+  [if (view.isTargetSqlServer())]
+    CREATE VIEW [view.fullname()/]
+  [else]
+    CREATE OR REPLACE VIEW [view.fullname()/]
+  [/if]
+[/template]
 
-[template private createViewStatement(view : database::View) ? (view.isTargetSqlServer())]
-  CREATE VIEW [view.fullname()/][/template]
-
-[template private genCreateViewComment(view : database::View) ? (view.comments <> null and view.comments.size() > 0) post(self.trim())]
-  COMMENT ON VIEW [view.fullname()/] IS '[view.comments.replaceAll('\'', '\'\'')/]';[/template]
+[template private genCreateViewComment(view : database::View) post(self.trim())]
+  [if (view.comments <> null and view.comments.size() > 0)]
+    COMMENT ON VIEW [view.fullname()/] IS '[view.comments.replaceAll('\'', '\'\'')/]';
+  [/if][/template]

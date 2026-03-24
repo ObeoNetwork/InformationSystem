@@ -1,7 +1,6 @@
 [module ForeignKeyGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
 
 [comment encoding = UTF-8 /]
 [template public genSQLForForeignKeys(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]

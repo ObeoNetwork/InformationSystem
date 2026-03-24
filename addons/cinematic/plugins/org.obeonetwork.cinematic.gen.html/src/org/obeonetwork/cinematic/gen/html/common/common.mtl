@@ -9,7 +9,7 @@
  * @param aViewState
 */]
 [template public genFullQualifiedFileName(aViewState : flow::ViewState)]
-  [aViewState.getProperty('src.folder.pages')/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp1 | temp1.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/[aViewState.name/].html[/template]
+  ['src.folder.pages'.getProperty()/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp1 | temp1.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/[aViewState.name/].html[/template]
 
 [**
  * The documentation of the template genFullQualifiedFileName.
@@ -17,14 +17,14 @@
  * @param aEvent
 */]
 [template public genFullQualifiedFileName(aViewState : flow::ViewState, aEvent : cinematic::Event)]
-  [aViewState.getProperty('src.folder.pages')/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp2 | temp2.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/MultipleTransitions/[aViewState.name/][aEvent.name/].html[/template]
+  ['src.folder.pages'.getProperty()/]/[aViewState.eContainer(cinematic::CinematicRoot).name/]/[aViewState.ancestors(cinematic::Package)->reverse()->collect(temp2 | temp2.name)->sep('/')/][if (aViewState.ancestors(cinematic::Package)->notEmpty())]/[/if][aViewState.eContainer(flow::Flow).name/]/MultipleTransitions/[aViewState.name/][aEvent.name/].html[/template]
 
 [**
  * The documentation of the template genFullQualifiedFileName.
  * @param aViewState
 */]
 [template public genFullQualifiedFileName(aActionState : flow::ActionState)]
-  [aActionState.getProperty('src.folder.pages')/]/[aActionState.eContainer(cinematic::CinematicRoot).name/]/[aActionState.ancestors(cinematic::Package)->reverse()->collect(temp3 | temp3.name)->sep('/')/][if (aActionState.ancestors(cinematic::Package)->notEmpty())]/[/if][aActionState.eContainer(flow::Flow).name/]/ActionStates/[aActionState.name/].html[/template]
+  ['src.folder.pages'.getProperty()/]/[aActionState.eContainer(cinematic::CinematicRoot).name/]/[aActionState.ancestors(cinematic::Package)->reverse()->collect(temp3 | temp3.name)->sep('/')/][if (aActionState.ancestors(cinematic::Package)->notEmpty())]/[/if][aActionState.eContainer(flow::Flow).name/]/ActionStates/[aActionState.name/].html[/template]
 
 [**
  * The documentation of the template genRelativeName.

@@ -1,7 +1,7 @@
 [module SequenceGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare')/]
 
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
+[import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
 
 [comment encoding = UTF-8 /]
 [template public genSQLForSequences(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
@@ -73,25 +73,35 @@
   CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
   [sequence.genSequenceComment()/][/template]
 
-[query private isValidValue(value : Integer) : Boolean = not value.oclIsInvalid() and not (value = null)/]
+[query private isValidValue(value : ecore::EBigInteger) : Boolean = not (value = null)/]
 
-[template private genIncrementBy(sequence : database::Sequence) ? (sequence.increment.isValidValue())]
-   INCREMENT BY [sequence.increment/][/template]
+[template private genIncrementBy(sequence : database::Sequence)]
+   [if (sequence.increment.isValidValue())]
+     INCREMENT BY [sequence.increment/][/if][/template]
 
-[template private genStartWith(sequence : database::Sequence) ? (sequence.start.isValidValue())]
-   START WITH [sequence.start/][/template]
+[template private genStartWith(sequence : database::Sequence)]
+  [if (sequence.start.isValidValue())]
+     START WITH [sequence.start/][/if][/template]
 
-[template private genMinValue(sequence : database::Sequence) ? (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
-   MINVALUE [sequence.minValue/][/template]
+[template private genMinValue(sequence : database::Sequence)]
+  [if (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
+     MINVALUE [sequence.minValue/]
+  [/if][/template]
 
-[template private genMaxValue(sequence : database::Sequence) ? (sequence.maxValue.isValidValue() and sequence.maxValue <> 1 - )]
-   MAXVALUE [sequence.maxValue/][/template]
+[template private genMaxValue(sequence : database::Sequence)]
+  [if (sequence.maxValue.isValidValue() and sequence.maxValue <> -1)]
+     MAXVALUE [sequence.maxValue/]
+  [/if][/template]
 
 [template private genCycle(sequence : database::Sequence)]
-  [if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)][if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if][else] CYCLE[/if][/template]
+  [if (sequence.cycle = false)][if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if][else] CYCLE[/if][/template]
 
-[template private genCache(sequence : database::Sequence) ? (sequence.cacheSize.isValidValue())]
-   CACHE [sequence.cacheSize/][/template]
+[template private genCache(sequence : database::Sequence)]
+  [if (sequence.cacheSize.isValidValue())]
+     CACHE [sequence.cacheSize/]
+  [/if][/template]
 
-[template private genSequenceComment(sequence : database::Sequence) ? (sequence.comments <> null and sequence.comments.size() > 0 and not sequence.isTargetOracle()) post(self.trim())]
-  COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'', '\'\'')/]';[/template]
+[template private genSequenceComment(sequence : database::Sequence) post(self.trim())]
+  [if (sequence.comments <> null and sequence.comments.size() > 0 and not sequence.isTargetOracle())]
+    COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'', '\'\'')/]';
+  [/if][/template]
