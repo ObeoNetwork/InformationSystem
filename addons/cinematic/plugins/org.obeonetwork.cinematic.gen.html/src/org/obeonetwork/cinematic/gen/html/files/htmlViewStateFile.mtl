@@ -131,11 +131,11 @@
 [template private genHtmlPanel(anAVE : view::AbstractViewElement, aViewState : flow::ViewState) post(self.trim())]
   <fieldset>
   	<legend>[anAVE.name/]</legend>
-  [for (anAVE : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
+  [for (ownedElement : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
     	<div class="control-group">
-    	    [if (not (anAVE.isButton() or anAVE.isLink()))]<label class="control-label" for="[anAVE.name/]">[anAVE.name/]</label>[/if]
+    	    [if (not (ownedElement.isButton() or ownedElement.isLink()))]<label class="control-label" for="[ownedElement.name/]">[ownedElement.name/]</label>[/if]
     		<div class="controls">
-    		[anAVE.genHtmlWidget(aViewState)/]
+    		[ownedElement.genHtmlWidget(aViewState)/]
     		</div>
     	</div>
   [/for]
@@ -197,20 +197,21 @@
 
 [template private genTableHeader(anAVE : view::AbstractViewElement)]
   <tr>
-  [for (anAVE : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
-    	<th>[anAVE.name/]</th>
+  [for (ownedElement : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
+    	<th>[ownedElement.name/]</th>
   [/for]
   </tr>[/template]
 
 [template private genTableRow(anAVE : view::AbstractViewElement, aViewState : flow::ViewState)]
   <tr>
-  [for (anAVE : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
-    	<td>[anAVE.genHtmlWidget(aViewState)/]</td>
+  [for (ownedElement : view::AbstractViewElement | anAVE.oclAsType(view::ViewContainer).ownedElements)]
+   		['<td>' + ownedElement.genHtmlWidget(aViewState)/]</td>
   [/for]
   </tr>[/template]
 
 [template private genHtmlText(anAVE : view::AbstractViewElement) post(self.trim())]
-  <input type="text" name="[anAVE.getLabel()/]" class="input-xlarge" id ="[anAVE.name/]"/>[/template]
+  <input type="text" name="[anAVE.getLabel()/]" class="input-xlarge" id ="[anAVE.name/]"/>
+[/template]
 
 [template public genHtmlTextarea(anAVE : view::AbstractViewElement) post(self.trim())]
   <textarea class="input-xlarge" id="[anAVE.name/]" rows="3"></textarea>[/template]
@@ -254,7 +255,7 @@
 
 [template private genEvent(aViewEvent : view::ViewEvent, aViewState : flow::ViewState) post(self.trim())]
   [if (not (aViewEvent.type = null))]
-    [if (aViewEvent.getProperty(aViewEvent.type.qualifiedName()) = 'html.event.onClick')]
+    [if (aViewEvent.type.qualifiedName().getProperty() = 'html.event.onClick')]
       [aViewEvent.genEventOnClick(aViewState)/]
     [/if]
   [/if]
@@ -267,7 +268,7 @@
   [anAVE.events->select(temp3 | not (temp3 = null))->first().genLink(aViewState)/][/template]
 
 [template private genLink(aViewEvent : view::ViewEvent, aViewState : flow::ViewState) post(self.trim())]
-  [if (aViewEvent.getFlowEvent() = null or aViewEvent.getFlowEvent().oclIsInvalid())]
+  [if (aViewEvent.getFlowEvent() = null)]
     [let nexts : OrderedSet(flow::FlowState) = aViewState.getNextStates(aViewEvent)]
       [if (nexts->isEmpty())]
         javascript:alert('No transition found on this event.\nPlease check your model.');

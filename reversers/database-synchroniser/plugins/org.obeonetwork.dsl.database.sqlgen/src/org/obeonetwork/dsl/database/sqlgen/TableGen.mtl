@@ -1,7 +1,8 @@
 [module TableGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
+[import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
 
 [comment encoding = UTF-8 /]
 [template public genSQLForTables(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
@@ -43,24 +44,34 @@
 [template private genTableDoc(table : database::Table) post(self.trim())]
   -- ==============================================================
   --  Table : [table.name()/]                                    
-  -- ==============================================================[/template]
+  -- ==============================================================
+[/template]
 
 [template private genDropTable(removeTable : dbevolution::RemoveTable) post(self.trim())]
-  [removeTable.table.oclAsType(database::Table).genDropTableAndSynonym()/][/template]
+  [removeTable.table.oclAsType(database::Table).genDropTableAndSynonym()/]
+[/template]
 
 [template private genDropTableAndSynonym(table : database::Table)]
   [table.genTableDoc()/]
   [table.genDropSynonym()/]
-  DROP TABLE[if (table.isTargetMySqlOrMariaDB() or table.isTargetPostgreSQL() or table.isTargetSqlServer())] IF EXISTS[/if] [table.fullname()/][if (table.isTargetPostgreSQL())] CASCADE[/if];[/template]
+  DROP TABLE[if (table.isTargetMySqlOrMariaDB() or table.isTargetPostgreSQL() or table.isTargetSqlServer())] IF EXISTS[/if] [table.fullname()/][if (table.isTargetPostgreSQL())] CASCADE[/if];
+[/template]
 
 [template private getSchemaName(table : database::Table) post(self.trim())]
-  [table.owner.oclAsType(database::Schema).name.toUpper()/][/template]
+  [table.owner.oclAsType(database::Schema).name.toUpper()/]
+[/template]
 
-[template private genDropSynonym(table : database::Table) ? (table.owner.oclIsKindOf(database::Schema) and table.isTargetOracle()) post(self.trim())]
-  DROP PUBLIC SYNONYM [table.name()/];[/template]
+[template private genDropSynonym(table : database::Table) post(self.trim())]
+  [if (table.owner.oclIsKindOf(database::Schema) and table.isTargetOracle())]
+    DROP PUBLIC SYNONYM [table.name()/];
+  [/if]
+[/template]
 
-[template private genCreateSynonym(table : database::Table) ? (table.owner.oclIsKindOf(database::Schema) and table.isTargetOracle()) post(self.trim())]
-  CREATE PUBLIC SYNONYM [table.name()/] FOR [table.fullname()/];[/template]
+[template private genCreateSynonym(table : database::Table) post(self.trim())]
+  [if (table.owner.oclIsKindOf(database::Schema) and table.isTargetOracle())]
+    CREATE PUBLIC SYNONYM [table.name()/] FOR [table.fullname()/];
+  [/if]
+[/template]
 
 [template private genCreateTable(addTable : dbevolution::AddTable) post(self.trim())]
   [let table : database::Table = addTable.table.oclAsType(database::Table)]
@@ -107,22 +118,27 @@
   
 [/template]
 
-[template private genCreateTableComment(table : database::Table) ? (table.comments <> null and table.comments.size() > 0) post(self.trim())]
-  [if (table.isTargetMySqlOrMariaDB())]
-    ALTER TABLE [table.fullname()/] COMMENT '[table.comments.replaceAll('\'', '\'\'')/]';
-  [else]
-    COMMENT ON TABLE [table.fullname()/] IS '[table.comments.replaceAll('\'', '\'\'')/]';
+[template private genCreateTableComment(table : database::Table) post(self.trim())]
+  [if (table.comments <> null and table.comments.size() > 0)]
+    [if (table.isTargetMySqlOrMariaDB())]
+      ALTER TABLE [table.fullname()/] COMMENT '[table.comments.replaceAll('\'', '\'\'')/]';
+    [else]
+      COMMENT ON TABLE [table.fullname()/] IS '[table.comments.replaceAll('\'', '\'\'')/]';
+    [/if]
   [/if]
 [/template]
 
 [template private genUpdateTableComment(table : database::Table) post(self.trim())]
-  [table.genCreateTableComment()/][/template]
-
-[template private genRenameTable(oldTable : database::Table, newTable : database::Table) ? (oldTable.isTargetPostgreSQL()) post(self.trim())]
-  ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.name.toUpper()/];[/template]
+  [table.genCreateTableComment()/]
+[/template]
 
 [template private genRenameTable(oldTable : database::Table, newTable : database::Table) post(self.trim())]
-  ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.fullname()/];[/template]
+  [if (oldTable.isTargetPostgreSQL())]
+    ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.name.toUpper()/];
+  [else]
+    ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.fullname()/];
+  [/if]
+[/template]
 
 [template private genCreateColumnsComment(table : database::Table) post(self.trim())]
   [for (column : database::Column | table.columns)]
@@ -131,60 +147,71 @@
 [/template]
 
 [comment ----------- COLUMN ----------- /]
-[template private genAddColumn(column : database::Column) ? (column.isTargetPostgreSQL()) post(self.trim())]
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ADD [column.name()/] [column.dataType()/][column.default()/][column.autoIncrement()/];
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][if (column.nullable)] DROP[else] SET[/if] NOT NULL;
-  [column.genCreateColumnComment()/][/template]
-
 [template private genAddColumn(column : database::Column) post(self.trim())]
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ADD [column.columnDef()/];
-  [column.genCreateColumnComment()/][/template]
+  [if (column.isTargetPostgreSQL())]
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ADD [column.name()/] [column.dataType()/][column.default()/][column.autoIncrement()/];
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][if (column.nullable)] DROP[else] SET[/if] NOT NULL;
+    [column.genCreateColumnComment()/]
+  [else]
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ADD [column.columnDef()/];
+    [column.genCreateColumnComment()/]
+  [/if]
+[/template]
 
 [template private genDropColumn(column : database::Column) post(self.trim())]
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] DROP COLUMN [column.name()/];[/template]
-
-[template private genUpdateColumn(column : database::Column) ? (column.isTargetPostgreSQL()) post(self.trim())]
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/] SET DATA TYPE [column.dataType()/];
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][if (column.nullable)] DROP[else] SET[/if] NOT NULL;
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][column.defaultForPostgreSQL()/];[/template]
-
-[template private genUpdateColumnStatement(column : database::Column) post(self.trim())]
-  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] MODIFY [column.columnDef()/][/template]
+  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] DROP COLUMN [column.name()/];
+[/template]
 
 [template private genUpdateColumn(column : database::Column) post(self.trim())]
-  [column.genUpdateColumnStatement()/];[/template]
+  [if (column.isTargetPostgreSQL())]
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/] SET DATA TYPE [column.dataType()/];
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][if (column.nullable)] DROP[else] SET[/if] NOT NULL;
+    ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] ALTER COLUMN [column.name()/][column.defaultForPostgreSQL()/];
+  [else]
+    [column.genUpdateColumnStatement()/];
+  [/if]
+[/template]
+
+[template private genUpdateColumnStatement(column : database::Column) post(self.trim())]
+  ALTER TABLE [column.owner.oclAsType(database::Table).fullname()/] MODIFY [column.columnDef()/]
+[/template]
 
 [template private genRenameColumn(oldColumn : database::Column, newColumn : database::Column) post(self.trim())]
-  ALTER TABLE [newColumn.owner.oclAsType(database::Table).fullname()/] RENAME COLUMN [oldColumn.name()/] TO [newColumn.name()/];[/template]
+  ALTER TABLE [newColumn.owner.oclAsType(database::Table).fullname()/] RENAME COLUMN [oldColumn.name()/] TO [newColumn.name()/];
+[/template]
 
-[template private genCreateColumnComment(column : database::Column) ? (column.comments <> null and column.comments.size() > 0) post(self.trim())]
-  [if (column.isTargetMySqlOrMariaDB())]
-    [column.genUpdateColumnStatement()/] COMMENT '[column.comments.replaceAll('\'', '\'\'')/]';
-  [else]
-    COMMENT ON COLUMN [column.owner.oclAsType(database::Table).fullname()/].[column.name()/] IS '[column.comments.replaceAll('\'', '\'\'')/]';	
+[template private genCreateColumnComment(column : database::Column) post(self.trim())]
+  [if (column.comments <> null and column.comments.size() > 0)]
+    [if (column.isTargetMySqlOrMariaDB())]
+      [column.genUpdateColumnStatement()/] COMMENT '[column.comments.replaceAll('\'', '\'\'')/]';
+    [else]
+      COMMENT ON COLUMN [column.owner.oclAsType(database::Table).fullname()/].[column.name()/] IS '[column.comments.replaceAll('\'', '\'\'')/]';
+    [/if]	
   [/if]
 [/template]
 
 [template private genUpdateColumnComment(column : database::Column) post(self.trim())]
-  [column.genCreateColumnComment()/][/template]
+  [column.genCreateColumnComment()/]
+[/template]
 
 [template private columnsDef(table : database::Table)]
-  [for (column : database::Column | table.columns) separator(',\n')]    [column.columnDef()/][/for][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))]
-                                                                                                     ,
-                                                                                                     	PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
+  [for (column : database::Column | table.columns) separator(',\n')]    [column.columnDef()/][/for][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))],
+      PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
 [/template]
 
 [template private columnDef(column : database::Column) post(self.trim())]
-  [column.name()/] [column.dataType()/][column.default()/][column.nullable()/][column.autoIncrement()/][/template]
-
-[template private dataType(column : database::Column) post(self.trim())]
-  [column.type.oclAsType(typeslibrary::TypeInstance).dataType()/][if (column.autoincrement and column.isTargetSqlServer())] IDENTITY (1, 1)[/if][/template]
-
-[template private dataType(type : typeslibrary::TypeInstance) ? (type.nativeType = null)]
+  [column.name()/] [column.dataType()/][column.default()/][column.nullable()/][column.autoIncrement()/]
 [/template]
 
-[template private dataType(type : typeslibrary::TypeInstance) ? (not (type.nativeType = null))]
-  [type.getType()/][/template]
+[template private dataType(column : database::Column) post(self.trim())]
+  [column.type.oclAsType(typeslibrary::TypeInstance).dataType()/][if (column.autoincrement and column.isTargetSqlServer())] IDENTITY (1, 1)[/if]
+[/template]
+
+[template private dataType(type : typeslibrary::TypeInstance)]
+  [if (not (type.nativeType = null))]
+    [type.getType()/]
+  [/if]
+[/template]
 
 [template private default(column : database::Column)]
   [if (column.defaultValue <> null and column.defaultValue.size() > 0)] DEFAULT [column.defaultValue()/][/if][/template]
@@ -192,20 +219,20 @@
 [template private defaultForPostgreSQL(column : database::Column)]
   [if (column.defaultValue <> null and column.defaultValue.size() > 0)]
      SET DEFAULT [column.defaultValue()/]
-  [else] DROP DEFAULT[/if][/template]
+  [else] DROP DEFAULT[/if]
+[/template]
 
 [comment TODO support '' quoted defaultValue with several template with guard /]
 [template private defaultValue(column : database::Column) post(self.trim())]
-  [column.defaultValue/][/template]
+  [column.defaultValue/]
+[/template]
 
 [template private nullable(column : database::Column)]
   [if (column.nullable)] NULL[else] NOT NULL[/if][/template]
 
-[template private autoIncrement(column : database::Column) ? (column.isTargetMySqlOrMariaDB())]
-  [if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if][/template]
-
-[template private autoIncrement(column : database::Column) ? (column.isTargetH2())]
-  [if (column.autoincrement)] AUTO_INCREMENT[/if][/template]
-
 [template private autoIncrement(column : database::Column)]
-[/template]
+  [if (column.isTargetMySqlOrMariaDB())]
+  	[if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if]
+  [elseif (column.isTargetH2())]     
+    [if (column.autoincrement)] AUTO_INCREMENT[/if]
+  [/if][/template]

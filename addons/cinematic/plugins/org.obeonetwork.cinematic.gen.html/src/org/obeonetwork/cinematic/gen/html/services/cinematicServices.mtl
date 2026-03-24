@@ -1,8 +1,8 @@
 [module cinematicServices('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/cinematic/view/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
 
-[import org::obeonetwork::cinematic::gen::html::services::CinematicServices/]
+[import org::obeonetwork::cinematic::gen::html::services::CinematicJavaServices/]
 
 [comment encoding = UTF-8 /]
 [query public getNextStates(arg0 : flow::FlowState, arg1 : cinematic::Event) : OrderedSet(flow::FlowState) = arg0.getNextStatesJavaService(arg1)/]
 
-[query public getID(object : ecore::EObject) : String = object.getIdJavaService()/]
+[query public getID(object : ecore::EObject) : String = object.getIdJavaService().toString()/]

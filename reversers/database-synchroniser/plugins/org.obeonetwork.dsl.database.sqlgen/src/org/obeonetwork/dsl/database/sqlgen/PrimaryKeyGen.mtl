@@ -1,8 +1,11 @@
 [module PrimaryKeyGen('http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0', 'http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::services::services/]
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
+[import org::obeonetwork::dsl::database::gen::common::services::DatabaseServices/]
+[import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
 [import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
+
+
 
 [comment encoding = UTF-8 /]
 [template public genSQLForPrimaryKeys(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
@@ -69,8 +72,10 @@
   [/if]
 [/template]
 
-[template private genUniquePKIndex(pk : database::PrimaryKey, table : database::Table) ? (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
-  CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.fullname()/]([pk.columns->asSequence()->collect(temp2 | temp2.name)->sep(', ')/]);[/template]
+[template private genUniquePKIndex(pk : database::PrimaryKey, table : database::Table)]
+  [if (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
+    CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.fullname()/]([pk.columns->asSequence()->collect(temp2 | temp2.name)->sep(', ')/]);
+  [/if][/template]
 
 [template private genDropPK(pk : database::PrimaryKey) post(self.trim())]
   [let table : database::Table = pk.columns->first().owner.oclAsType(database::Table)]ALTER TABLE [table.fullname()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let][/template]

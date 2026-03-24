@@ -4,34 +4,45 @@
 
 [comment encoding = UTF-8 /]
 [template public fullname(table : database::Table) post(self.trim())]
-  [table.genSchemaPrefix()/][table.name.toUpper()/][/template]
+  [table.genSchemaPrefix()/][table.name.toUpper()/]
+[/template]
 
 [template public fullname(view : database::View) post(self.trim())]
-  [view.genSchemaPrefix()/][view.name.toUpper()/][/template]
+  [view.genSchemaPrefix()/][view.name.toUpper()/]
+[/template]
 
 [template public fullname(sequence : database::Sequence) post(self.trim())]
-  [sequence.genSchemaPrefix()/][sequence.name.toUpper()/][/template]
+  [sequence.genSchemaPrefix()/][sequence.name.toUpper()/]
+[/template]
 
 [template public name(table : database::Table) post(self.trim())]
-  [table.name.toUpper()/][/template]
+  [table.name.toUpper()/]
+[/template]
 
 [template public name(view : database::View) post(self.trim())]
-  [view.name.toUpper()/][/template]
+  [view.name.toUpper()/]
+[/template]
 
 [template public name(column : database::Column) post(self.trim())]
-  [column.name/][/template]
+  [column.name/]
+[/template]
 
 [template public name(schema : database::Schema) post(self.trim())]
-  [schema.name.toUpper()/][/template]
+  [schema.name.toUpper()/]
+[/template]
 
 [template public name(sequence : database::Sequence) post(self.trim())]
-  [sequence.name.toUpper()/][/template]
+  [sequence.name.toUpper()/]
+[/template]
 
-[template public genSchemaPrefix(table : database::Table)]
-  [if (table.supportsSchema() and table.eContainer().oclIsKindOf(database::Schema))][table.eContainer().oclAsType(database::Schema).name()/].[/if][/template]
+[template public genSchemaPrefix(table : database::Table) post(self.trim())]
+  [if (table.supportsSchema() and table.eContainer().oclIsKindOf(database::Schema))][table.eContainer().oclAsType(database::Schema).name()/].[/if]
+[/template]
 
-[template public genSchemaPrefix(view : database::View)]
-  [if (view.supportsSchema() and view.eContainer().oclIsKindOf(database::Schema))][view.eContainer().oclAsType(database::Schema).name()/].[/if][/template]
+[template public genSchemaPrefix(view : database::View) post(self.trim())]
+  [if (view.supportsSchema() and view.eContainer().oclIsKindOf(database::Schema))][view.eContainer().oclAsType(database::Schema).name()/].[/if]
+[/template]
 
-[template public genSchemaPrefix(sequence : database::Sequence)]
-  [if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(database::Schema))][sequence.eContainer().oclAsType(database::Schema).name()/].[/if][/template]
+[template public genSchemaPrefix(sequence : database::Sequence) post(self.trim())]
+  [if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(database::Schema))][sequence.eContainer().oclAsType(database::Schema).name()/].[/if]
+[/template]
