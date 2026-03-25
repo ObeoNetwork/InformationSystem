@@ -18,12 +18,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.Comparison;
+import org.obeonetwork.database.ui.actions.DatabaseGenGeneratorEclipse;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
-import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
+import org.obeonetwork.dsl.database.sqlgen.DatabaseGenGenerator;
 
 abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 
@@ -31,8 +35,8 @@ abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 
 	@Override
 	protected void doGenerate(Comparison comparison, File targetFolder) throws IOException {
-		DatabaseGen generator = new DatabaseGen(comparison, targetFolder, Collections.emptyList());
-		generator.doGenerate(new BasicMonitor());
+		DatabaseGenGenerator generator = new DatabaseGenGeneratorEclipse(comparison, targetFolder.getAbsolutePath());
+		generator.generate(new BasicMonitor());
 	}
 	
 	@Override
