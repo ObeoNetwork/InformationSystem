@@ -3,16 +3,24 @@
 
 package org.obeonetwork.cinematic.gen.html.ide.ui;
 
+import java.io.BufferedOutputStream;
 //Start of user code imports
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
 import org.eclipse.acceleo.aql.AcceleoUtil;
 import org.eclipse.acceleo.aql.evaluation.GenerationResult;
-import org.eclipse.acceleo.aql.ide.ui.dialog.AbstractResourceSelectionDialog;
-import org.eclipse.acceleo.aql.ide.ui.dialog.FolderSelectionDialog;
 import org.eclipse.acceleo.aql.parser.AcceleoParser;
 import org.eclipse.acceleo.query.ast.ASTNode;
 import org.eclipse.acceleo.query.ast.TypeLiteral;
@@ -21,11 +29,12 @@ import org.eclipse.acceleo.query.runtime.namespace.IQualifiedNameQueryEnvironmen
 import org.eclipse.acceleo.query.runtime.namespace.IQualifiedNameResolver;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -39,14 +48,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.osgi.framework.Bundle;
-
+import org.obeonetwork.cinematic.gen.html.ide.ui.dialogs.SpecificWorkspaceResourceDialog;
 import org.obeonetwork.cinematic.gen.html.main.MainGenerator;
-
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
+import org.osgi.framework.Bundle;
 
 //End of user code
 
@@ -58,53 +68,37 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
  */
 public class MainGeneratorEclipse extends MainGenerator {
 
-	/**
-	 * Opens the dialog to select the target folder.
-	 */
-	private static final class SelectTargetRunnable implements Runnable {
+	private static final class FolderSelectionRunnable implements Runnable {
 
-		/**
-		 * The target folder.
-		 */
-		private String target;
+		private IResource selectedResource = null;
 
-		@Override
 		public void run() {
-			final AbstractResourceSelectionDialog dialog = new FolderSelectionDialog(
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Select the destination folder",
-					"");
-			final int dialogResult = dialog.open();
-			if ((dialogResult == IDialogConstants.OK_ID) && dialog.getFileName() != null
-					&& !dialog.getFileName().isEmpty()) {
-				final IPath path = new Path(dialog.getFileName());
-				IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-				final IPath location;
-				if (path.segmentCount() == 1) {
-					location = workspaceRoot.getProject(path.segment(0)).getLocation();
-				} else {
-					location = workspaceRoot.getFolder(path).getLocation();
+			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+			Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+			
+			ViewerFilter filter = new ViewerFilter() {
+				
+				@Override
+				public boolean select(Viewer viewer, Object parentElement, Object element) {
+					if (element instanceof IFolder) {
+						return !(((IFolder) element).getName().startsWith("."));
+					}
+					return true;
 				}
-				if (location != null) {
-					target = location.toFile().getAbsolutePath();
-				} else {
-					Activator.getDefault().log(new Status(IStatus.ERROR, getClass(),
-							"No location found for " + path + " (check if the project exists)."));
-					target = null;
-				}
-			} else {
-				target = null;
-			}
+			};
+
+			List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+			filters.add(filter);
+			selectedResource = SpecificWorkspaceResourceDialog.openFolderOrFileSelection(shell,
+					"Safr@an",
+					"Select an existing folder or specify a new one",
+					new Path(root.getRawLocation().toOSString()),
+					filters);
 		}
 
-		/**
-		 * Gets the target folder.
-		 * 
-		 * @return the target folder
-		 */
-		public String getTarget() {
-			return target;
+		public IResource getSelectedResource() {
+			return selectedResource;
 		}
-
 	}
 
 	/**
@@ -211,10 +205,10 @@ public class MainGeneratorEclipse extends MainGenerator {
 	 * @generated
 	 */
 	private static String getTarget(Object selected) {
-		final SelectTargetRunnable runnable = new SelectTargetRunnable();
+		final FolderSelectionRunnable runnable = new FolderSelectionRunnable();
 		Display.getDefault().syncExec(runnable);
 
-		return runnable.getTarget();
+		return runnable.getSelectedResource().getLocation().toOSString();
 	}
 
 	/**
@@ -314,12 +308,24 @@ public class MainGeneratorEclipse extends MainGenerator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void afterGeneration(GenerationResult generationResult) {
 		super.afterGeneration(generationResult);
 
+		// Unzip the content of bootstrap.zip
+		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
+    	URL fileURL = FileLocator.find(bundle, new Path("bootstrap/bootstrap.zip"), null);
+    	
+    	File destinationFolder = java.nio.file.Path.of(target).toFile();
+    	try {
+    		unzip(fileURL, destinationFolder);
+    	} catch (IOException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			Activator.getDefault().log(status);
+    	}
+    	
 		// refresh if the generated files are in the workspace
 		final File targetFolder = new File(target);
 		final IContainer targetWorkspaceContainer = ResourcesPlugin.getWorkspace().getRoot()
@@ -331,6 +337,51 @@ public class MainGeneratorEclipse extends MainGenerator {
 				Activator.getDefault().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID,
 						"could not refresh " + targetWorkspaceContainer.getFullPath(), e));
 			}
+		}
+	}
+	
+	/**
+	 * Unzip a file given its url into a folder
+	 * @param zipURL URL of the zip file
+	 * @param folder Folder where to unzip
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public static void unzip(URL zipURL, File folder) throws FileNotFoundException, IOException{
+
+		ZipInputStream zis = new ZipInputStream(zipURL.openStream());
+
+		ZipEntry ze = null;
+		try {
+			while((ze = zis.getNextEntry()) != null){
+
+				File f = new File(folder.getCanonicalPath(), ze.getName());
+				if (ze.isDirectory()) {
+					f.mkdirs();
+					continue;
+				}
+				f.getParentFile().mkdirs();
+				OutputStream fos = new BufferedOutputStream(
+						new FileOutputStream(f));
+				try {
+					try {
+						final byte[] buf = new byte[8192];
+						int bytesRead;
+						while (-1 != (bytesRead = zis.read(buf)))
+							fos.write(buf, 0, bytesRead);
+					}
+					finally {
+						fos.close();
+					}
+				}
+				catch (final IOException ioe) {
+					f.delete();
+					throw ioe;
+				}
+			}
+		}
+		finally {
+			zis.close();
 		}
 	}
 

@@ -12,15 +12,12 @@ package org.obeonetwork.database.ui.actions;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
-
 import org.obeonetwork.database.ui.Activator;
 
 /**
@@ -34,8 +31,8 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 
 	@Override
 	protected IStatus doGenerateScripts(Comparison comparison, File targetFolder, boolean createSchemaIfNoneExist) throws IOException {
-		DatabaseGen databaseGen = new DatabaseGen(comparison, targetFolder, Collections.emptyList());
-		databaseGen.doGenerate(new BasicMonitor());
+		DatabaseGenGeneratorEclipse databaseGen = new DatabaseGenGeneratorEclipse(comparison, targetFolder.getAbsolutePath());
+		databaseGen.generate(new BasicMonitor());
 		return Status.OK_STATUS;
 	}		
 

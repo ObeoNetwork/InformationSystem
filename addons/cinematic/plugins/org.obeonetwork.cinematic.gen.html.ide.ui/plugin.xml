@@ -11,65 +11,43 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-         <menu
-               id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.generators"
-               label="Generators">
-            <command
-                  commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-                  id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.mainGeneratorCommand.element"
-                  label="org::obeonetwork::cinematic::gen::html::main::main">
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="selection">
-                     <iterate
-                           ifEmpty="false"
-                           operator="and">
-                        <instanceof
-                              value="org.obeonetwork.dsl.cinematic.CinematicRoot">
-                        </instanceof>
-                     </iterate>
-                  </with>
-               </visibleWhen>
-            </command>
-            <!--command
-                  commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-                  id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.mainGeneratorCommand.file"
-                  label="org::obeonetwork::cinematic::gen::html::main::main">
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="selection">
-                     <iterate
-                           ifEmpty="false"
-                           operator="and">
-                        <and>
-                           <instanceof
-                                 value="org.eclipse.core.resources.IFile">
-                           </instanceof>
-                           <test
-                                 property="org.eclipse.core.resources.extension"
-                                 value="cinematic">
-                           </test>
-                        </and>
-                     </iterate>
-                  </with>
-               </visibleWhen>
-            </command-->
-         </menu>
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+        <command
+              commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
+              id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.mainGeneratorCommand.file"
+              label="Generate Html">
+           <visibleWhen
+                 checkEnabled="false">
+              <with
+                    variable="selection">
+                 <iterate
+                       ifEmpty="false"
+                       operator="and">
+                    <and>
+                       <instanceof
+                             value="org.eclipse.core.resources.IFile">
+                       </instanceof>
+                       <test
+                             property="org.eclipse.core.resources.extension"
+                             value="cinematic">
+                       </test>
+                    </and>
+                 </iterate>
+              </with>
+           </visibleWhen>
+        </command>
       </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <category
-            id="org.obeonetwork.cinematic.gen.html.ide.ui.commands.generatorsCategory"
-            name="Generators">
+            id="org.obeonetwork.is.designer"
+            name="IS Designer">
       </category>
       <command
-            categoryId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.generatorsCategory"
+            categoryId="org.obeonetwork.is.designer"
             id="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-            name="org::obeonetwork::cinematic::gen::html::main::main">
+            name="Generate Html">
       </command>
    </extension>
 
