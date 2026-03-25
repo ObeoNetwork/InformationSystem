@@ -1,3 +1,4 @@
+//Start of user code copyright
 /*******************************************************************************
  * Copyright (c) 2008, 2026 Obeo.
  * All rights reserved. This program and the accompanying materials
@@ -8,7 +9,11 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
+//End of user code
+
 package org.obeonetwork.database.ui.actions;
+
+//Start of user code imports
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -26,8 +31,20 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.DataBaseCompareUtil;
 
+//End of user code
+
+/**
+ * Command handler for org::obeonetwork::dsl::database::sqlgen::DatabaseGen.
+ * 
+ * @author Laurent Redor
+ * @generated
+ */
 public abstract class AbstractDatabaseGenGeneratorHandler extends AbstractHandler {
 
+	/**
+	 * @generated NOT
+	 */
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
 
