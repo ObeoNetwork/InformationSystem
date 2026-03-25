@@ -139,6 +139,16 @@ public class Activator extends AbstractUIPlugin {
     }
 
 	public static void logError(String message, Throwable e) {
+        IStatus status = new Status(IStatus.ERROR, plugin.getBundle().getSymbolicName(), message, e);
+    	plugin.getLog().log(status);
+	}
+	
+	public static void logWarning(String message, Throwable e) {
+        IStatus status = new Status(IStatus.WARNING, plugin.getBundle().getSymbolicName(), message, e);
+    	plugin.getLog().log(status);
+	}
+	
+	public static void logInfo(String message, Throwable e) {
         IStatus status = new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(), message, e);
     	plugin.getLog().log(status);
 	}

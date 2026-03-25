@@ -276,7 +276,7 @@ public class MainGenerator {
 	 * Gets the {@link Map} of options for the generation.
 	 * 
 	 * @return the {@link Map} of options for the generation
-	 * @generated
+	 * @generated NOT
 	 */
 	protected Map<String, String> getOptions() {
 		Map<String, String> res = new LinkedHashMap<>();
@@ -285,8 +285,7 @@ public class MainGenerator {
 		res.put(AcceleoUtil.NEW_LINE_OPTION, System.lineSeparator());
 		// res.put(AQLUtils.INSTALL_CROSS_REFERENCE_ADAPTER_OPTION,
 		// Boolean.TRUE.toString());
-		// res.put(AQLUtils.PROPERTIES_URIS_OPTION,
-		// "file1.properties,file2.properties");
+		res.put(AQLUtils.PROPERTIES_URIS_OPTION, "platform:/plugin/org.obeonetwork.cinematic.gen.html/src/org/obeonetwork/cinematic/gen/html/main/html.properties,platform:/plugin/org.obeonetwork.cinematic.gen.html/src/org/obeonetwork/cinematic/gen/html/main/toolkits.properties");
 
 		return res;
 	}

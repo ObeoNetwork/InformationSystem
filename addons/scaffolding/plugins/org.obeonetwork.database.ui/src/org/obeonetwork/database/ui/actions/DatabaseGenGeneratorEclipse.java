@@ -1,14 +1,17 @@
 //Start of user code copyright
 //End of user code
 
-package org.obeonetwork.dsl.database.sqlgen.ide.ui;
+package org.obeonetwork.database.ui.actions;
 
 //Start of user code imports
 import java.io.File;
 import java.io.PrintStream;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.acceleo.aql.AcceleoUtil;
 import org.eclipse.acceleo.aql.evaluation.GenerationResult;
 import org.eclipse.acceleo.aql.ide.ui.dialog.AbstractResourceSelectionDialog;
@@ -34,19 +37,26 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
-import org.osgi.framework.Bundle;
-
+import org.obeonetwork.database.ui.Activator;
+import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.Schema;
+import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGenGenerator;
-
-import org.eclipse.emf.compare.Comparison;
+import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
+import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
+import org.osgi.framework.Bundle;
 
 //End of user code
 
@@ -87,8 +97,7 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 				if (location != null) {
 					target = location.toFile().getAbsolutePath();
 				} else {
-					Activator.getDefault().log(new Status(IStatus.ERROR, getClass(),
-							"No location found for " + path + " (check if the project exists)."));
+					Activator.logError("No location found for " + path + " (check if the project exists).");
 					target = null;
 				}
 			} else {
@@ -154,10 +163,10 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 	 * 
 	 * @param selected the selected {@link Comparison}
 	 * @param target   the target folder of the generation
-	 * @generated
+	 * @generated NOT
 	 */
 	public DatabaseGenGeneratorEclipse(Comparison selected, String target) {
-		super(Collections.emptyList(), target);
+		super(Collections.emptyList(), computeTargetFolder(new File(target), selected).getAbsolutePath());
 		this.values = Collections.singletonList(selected);
 	}
 
@@ -188,15 +197,14 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected IQualifiedNameResolver createResolver() {
 		final String bundleIdentifier = "org.obeonetwork.dsl.database.sqlgen";
 		final Bundle bundle = Platform.getBundle(bundleIdentifier);
 		if (bundle == null || bundle.getState() == Bundle.UNINSTALLED) {
-			Activator.getDefault().log(new Status(IStatus.ERROR, getClass(),
-					"The Bundle " + bundleIdentifier + " must be available in the target platform."));
+			Activator.logError("The Bundle " + bundleIdentifier + " must be available in the target platform.");
 		}
 		return new OSGiQualifiedNameResolver(bundle, EPackage.Registry.INSTANCE, AcceleoParser.QUALIFIER_SEPARATOR);
 	}
@@ -216,6 +224,35 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 
 		return runnable.getTarget();
 	}
+	
+	private static File computeTargetFolder(File folder, Comparison comparison){
+    	String folderName="";
+    	String dbtypeFolderName="";
+    	if(comparison!=null){
+    		DataBase database = (DataBase)comparison.getMatches().get(0).getLeft();
+    		
+    		TypesLibrary physicalTypesLibrary = new TypesServices().getPhysicalTypesLibrary(database);
+    		if (physicalTypesLibrary instanceof NativeTypesLibrary) {
+    			dbtypeFolderName += ((NativeTypesLibrary) physicalTypesLibrary).getName() + "/";
+    		} else if (physicalTypesLibrary instanceof UserDefinedTypesLibrary) {
+    			dbtypeFolderName += ((UserDefinedTypesLibrary) physicalTypesLibrary).getName() + "/";
+    		}
+    		
+    		folderName = database.getName();
+    		if(database.getSchemas().size()>0){
+    			Schema schema = database.getSchemas().get(0);
+    			folderName = schema.getName();
+    		}
+    		folderName += "-";
+    	}    	
+    	java.sql.Timestamp timeStampDate = new Timestamp(System.currentTimeMillis()); 
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd/HH-mm-ss"); 
+    	String timestamp = formatter.format(timeStampDate);
+    	folderName += timestamp;
+    	
+    	File targetFolder = new File(folder.getAbsolutePath() + "/" + dbtypeFolderName + folderName);
+    	return targetFolder;
+    }
 
 	/**
 	 * @generated
@@ -246,7 +283,7 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 	 * @param stream      the {@link PrintStream}
 	 * @param diagnostic  the {@link Diagnostic}
 	 * @param indentation the current indentation
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void printDiagnostic(Diagnostic diagnostic) {
 		if (diagnostic.getMessage() != null) {
@@ -258,18 +295,15 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 			}
 			switch (diagnostic.getSeverity()) {
 			case Diagnostic.INFO:
-				Activator.getDefault().log(new Status(IStatus.INFO, diagnostic.getSource(),
-						location + diagnostic.getMessage(), diagnostic.getException()));
+				Activator.logInfo(location + diagnostic.getMessage(), diagnostic.getException());
 				break;
 
 			case Diagnostic.WARNING:
-				Activator.getDefault().log(new Status(IStatus.WARNING, diagnostic.getSource(),
-						location + diagnostic.getMessage(), diagnostic.getException()));
+				Activator.logWarning(location + diagnostic.getMessage(), diagnostic.getException());
 				break;
 
 			case Diagnostic.ERROR:
-				Activator.getDefault().log(new Status(IStatus.ERROR, diagnostic.getSource(),
-						location + diagnostic.getMessage(), diagnostic.getException()));
+				Activator.logError(location + diagnostic.getMessage(), diagnostic.getException());
 				break;
 			}
 		}
@@ -282,7 +316,7 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 	 * Prints the summary of the generation.
 	 * 
 	 * @param result the {@link GenerationResult}
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void printSummary(GenerationResult result) {
 		int nbErrors = 0;
@@ -310,11 +344,11 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 		final String message = "Files: " + result.getGeneratedFiles().size() + ", Lost Files: "
 				+ result.getLostFiles().size() + ", Errors: " + nbErrors + ", Warnings: " + nbWarnings + ", Infos: "
 				+ nbInfos + ".";
-		Activator.getDefault().log(new Status(IStatus.INFO, getClass(), message));
+		Activator.logInfo(message);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void afterGeneration(GenerationResult generationResult) {
@@ -328,8 +362,7 @@ public class DatabaseGenGeneratorEclipse extends DatabaseGenGenerator {
 			try {
 				targetWorkspaceContainer.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			} catch (CoreException e) {
-				Activator.getDefault().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID,
-						"could not refresh " + targetWorkspaceContainer.getFullPath(), e));
+				Activator.logError("could not refresh " + targetWorkspaceContainer.getFullPath(), e);
 			}
 		}
 	}
