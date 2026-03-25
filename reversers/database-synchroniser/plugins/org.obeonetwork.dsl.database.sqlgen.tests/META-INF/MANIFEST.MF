@@ -7,12 +7,12 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.compare,
  org.obeonetwork.dsl.database.sqlgen,
  org.junit,
- org.eclipse.acceleo.common,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.common,
- org.eclipse.acceleo.engine,
- org.obeonetwork.dsl.database.gen.common.tests
+ org.obeonetwork.dsl.database.gen.common.tests,
+ org.eclipse.acceleo.aql;bundle-version="4.2.2",
+ org.obeonetwork.database.ui;bundle-version="6.0.0"
 Import-Package: com.google.common.base,
  com.google.common.collect,
  com.google.common.io
