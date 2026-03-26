@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.cinematic.gen.html.ui.popupMenus;
+package org.obeonetwork.cinematic.gen.html.ide.ui.popupMenus;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -50,9 +50,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 import org.osgi.framework.Bundle;
 
-import org.obeonetwork.cinematic.gen.html.ui.Activator;
-import org.obeonetwork.cinematic.gen.html.ui.common.GenerateAll;
-import org.obeonetwork.cinematic.gen.html.ui.dialogs.SpecificWorkspaceResourceDialog;
+import org.obeonetwork.cinematic.gen.html.ide.ui.Activator;
+import org.obeonetwork.cinematic.gen.html.ide.ui.common.GenerateAll;
+import org.obeonetwork.cinematic.gen.html.ide.ui.dialogs.SpecificWorkspaceResourceDialog;
 
 /**
  * Html code generation.
