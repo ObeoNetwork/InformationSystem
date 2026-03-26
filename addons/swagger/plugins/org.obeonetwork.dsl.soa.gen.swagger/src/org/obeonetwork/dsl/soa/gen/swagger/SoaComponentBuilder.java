@@ -894,17 +894,16 @@ public class SoaComponentBuilder {
 			}
 		}
 
-		final List<SecurityRequirement> securitySchemeForOp = swgOperation.getSecurity();
-		final List<SecurityRequirement> globalDeclaredSecurity = openApi.getSecurity();
-		// check if security behavior has been added to the operation in the swagger
-		Set<SecurityRequirement> allSecurityRequirement = new HashSet<>();
-		if (securitySchemeForOp != null) {
-			allSecurityRequirement.addAll(securitySchemeForOp);
+		final List<SecurityRequirement> swgOperationSecurity = swgOperation.getSecurity();
+		final List<SecurityRequirement> swgGlobalSecurity = openApi.getSecurity();
+		Set<SecurityRequirement> swgAllSecurities = new HashSet<>();
+		if (swgOperationSecurity != null) {
+			swgAllSecurities.addAll(swgOperationSecurity);
 		}
-		if (globalDeclaredSecurity != null) {
-			allSecurityRequirement.addAll(globalDeclaredSecurity);
+		if (swgGlobalSecurity != null) {
+			swgAllSecurities.addAll(swgGlobalSecurity);
 		}
-		for (SecurityRequirement swgSecurityRequirement : allSecurityRequirement) {
+		for (SecurityRequirement swgSecurityRequirement : swgAllSecurities) {
 
 			if (!swgSecurityRequirement.keySet().isEmpty()) {
 				String ssKey = swgSecurityRequirement.keySet().iterator().next();

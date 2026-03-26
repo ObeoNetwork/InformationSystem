@@ -212,26 +212,39 @@ public class SwaggerBuilder {
 	}
 	
 	/**
-	 * fill the global security rule if a rule is apply on all operations
+	 * Build the global Security Requirements that apply on all operations.
 	 */
 	private void buildGlobalSecurity() {
-		List<org.obeonetwork.dsl.soa.Operation> restOperations = soaComponent.getProvidedServices().stream()
-				.map(soaService -> soaService.getOwnedInterface()).filter(itf -> itf != null)
-				.flatMap(itf -> itf.getOwnedOperations().stream()).filter(o -> o.getExposition() == ExpositionKind.REST)
+		List<org.obeonetwork.dsl.soa.Operation> soaRestOperations = soaComponent.getProvidedServices().stream()
+				.map(soaService -> soaService.getOwnedInterface()).filter(Objects::nonNull)
+				.flatMap(itf -> itf.getOwnedOperations().stream()).filter(op -> op.getExposition() == ExpositionKind.REST)
 				.toList();
-		if (restOperations != null && !restOperations.isEmpty()) {
-			// we use the first operation as a lighter list of cases to analyze
-			for (SecurityApplication securityApplication : restOperations.get(0).getAllSecurityApplications()) {
-				if (restOperations.stream().allMatch(
-						ope -> ope.getAllSecurityApplications().stream().anyMatch(securityApp -> securityApplication
-								.getSecurityScheme().getName().equals(securityApp.getSecurityScheme().getName())))) {
-					SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
-					swgSecurityRequirement.addList(securityApplication.getSecurityScheme().getName(),
-							securityApplication.getScopes().stream().map(Scope::getName).toList());
-					openApi.addSecurityItem(swgSecurityRequirement);
-				}
-			}
+		
+		// Look for Security Applications configured the same way among all operations
+		List<SecurityApplication> globalSecurityApplications = new ArrayList<>();
+		if (!soaRestOperations.isEmpty()) {
+			globalSecurityApplications.addAll(soaRestOperations.get(0).getAllSecurityApplications());
 		}
+		for(org.obeonetwork.dsl.soa.Operation soaOperation : soaRestOperations) {
+			if(globalSecurityApplications.isEmpty()) break;
+			globalSecurityApplications = globalSecurityApplications.stream().filter( //
+					globalSecurityApplication -> soaOperation.getAllSecurityApplications().stream() //
+						.anyMatch(operationSecurityApplication -> areSecurityApplicationsEquivalent(globalSecurityApplication, operationSecurityApplication)) //
+			).toList();
+		}
+		
+		// Declare the global security requirements in the OpenAPI model
+		for(SecurityApplication globalSecurityApplication : globalSecurityApplications) {
+			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
+			swgSecurityRequirement.addList(globalSecurityApplication.getSecurityScheme().getName(),
+					globalSecurityApplication.getScopes().stream().map(Scope::getName).toList());
+			openApi.addSecurityItem(swgSecurityRequirement);
+		}
+	}
+
+	private boolean areSecurityApplicationsEquivalent(SecurityApplication securityApplication1,	SecurityApplication securityApplication2) {
+		return securityApplication1.getSecurityScheme() == securityApplication2.getSecurityScheme() && 
+				new HashSet<>(securityApplication1.getScopes()).equals(new HashSet<>(securityApplication2.getScopes()));
 	}
 
 	private void buildSecuritySchemes() {
@@ -933,14 +946,11 @@ public class SwaggerBuilder {
 		buildParameters(swgOperation, soaOperation);
 		buildApiResponses(swgOperation, soaOperation);
 
-		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation
-				.getAllSecurityApplications()) {
-			org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = soaSecurityApplication.getSecurityScheme();
-			// security item is create for the operation if it doesn't already exist in global security
-			if (!openApi.getSecurity().stream().anyMatch(globalSecurity -> globalSecurity.containsKey(soaSecurityScheme.getName()))) {
+		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation.getAllSecurityApplications()) {
+			if(!matchesAnyGlobalSecurityRequirement(soaSecurityApplication)) {
 				SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
-				swgSecurityRequirement.addList(soaSecurityScheme.getName(),
-						soaSecurityApplication.getScopes().stream().map(Scope::getName).collect(toList()));
+				swgSecurityRequirement.addList(soaSecurityApplication.getSecurityScheme().getName(),
+						soaSecurityApplication.getScopes().stream().map(Scope::getName).toList());
 				swgOperation.addSecurityItem(swgSecurityRequirement);
 			}
 		}
@@ -948,6 +958,15 @@ public class SwaggerBuilder {
 		addPropertiesExtensionsFromSoaToSwg(soaOperation, swgOperation);
 
 		return swgOperation;
+	}
+
+	private boolean matchesAnyGlobalSecurityRequirement(SecurityApplication soaSecurityApplication) {
+		if(openApi.getSecurity() == null) {
+			return false;
+		}
+		String securitySchemeName = soaSecurityApplication.getSecurityScheme().getName();
+		return openApi.getSecurity().stream().anyMatch(swgSecurityRequirement -> swgSecurityRequirement.containsKey(securitySchemeName) &&
+				new HashSet<>(swgSecurityRequirement.get(securitySchemeName)).equals(new HashSet<>(soaSecurityApplication.getScopes().stream().map(s -> s.getName()).toList())));
 	}
 
 	private void buildApiResponses(Operation swgOperation, org.obeonetwork.dsl.soa.Operation soaOperation) {
