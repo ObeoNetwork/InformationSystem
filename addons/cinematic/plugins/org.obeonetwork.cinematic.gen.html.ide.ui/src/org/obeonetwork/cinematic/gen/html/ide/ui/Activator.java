@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.cinematic.gen.html.ui;
+package org.obeonetwork.cinematic.gen.html.ide.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -21,7 +21,7 @@ public class Activator extends AbstractUIPlugin {
 	/**
 	 * The plug-in ID.
 	 */
-	public static final String PLUGIN_ID = "org.obeonetwork.cinematic.gen.html.ui";
+	public static final String PLUGIN_ID = "org.obeonetwork.cinematic.gen.html.ide.ui";
 
 	/**
 	 * The shared instance.

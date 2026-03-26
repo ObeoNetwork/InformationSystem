@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.cinematic.gen.html.ui.dialogs;
+package org.obeonetwork.cinematic.gen.html.ide.ui.dialogs;
 
 import java.util.List;
 
