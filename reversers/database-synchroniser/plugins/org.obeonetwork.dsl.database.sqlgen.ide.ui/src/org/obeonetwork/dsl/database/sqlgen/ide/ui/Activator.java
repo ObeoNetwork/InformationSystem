@@ -1,7 +1,7 @@
 //Start of user code copyright
 //End of user code
 
-package org.obeonetwork.cinematic.gen.html.ide.ui;
+package org.obeonetwork.dsl.database.sqlgen.ide.ui;
 
 //Start of user code imports
 import org.eclipse.core.runtime.IStatus;
@@ -21,7 +21,7 @@ public class Activator extends EMFPlugin {
 	/**
 	 * Plugin's id.
 	 */
-	public static final String PLUGIN_ID = "org.obeonetwork.cinematic.gen.html.ide.ui"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.obeonetwork.dsl.database.sqlgen.ide.ui"; //$NON-NLS-1$
 
 	/**
 	 * The shared instance.
