@@ -17,11 +17,11 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.cinematic"
-            id="org.obeonetwork.cinematic.gen.html.ui.popupMenus.contribution.IFile">
+            id="org.obeonetwork.cinematic.gen.html.ide.ui.popupMenus.contribution.IFile">
          <action
-               class="org.obeonetwork.cinematic.gen.html.ui.popupMenus.AcceleoGenerateHtmlAction"
+               class="org.obeonetwork.cinematic.gen.html.ide.ui.popupMenus.AcceleoGenerateHtmlAction"
                enablesFor="+"
-               id="org.obeonetwork.cinematic.gen.html.ui.popupMenus.acceleoGenerateHtmlAction"
+               id="org.obeonetwork.cinematic.gen.html.ide.ui.popupMenus.acceleoGenerateHtmlAction"
                label="Generate Html"
                menubarPath="org.obeonetwork.is.designer.menu/additions"/>
       </objectContribution>

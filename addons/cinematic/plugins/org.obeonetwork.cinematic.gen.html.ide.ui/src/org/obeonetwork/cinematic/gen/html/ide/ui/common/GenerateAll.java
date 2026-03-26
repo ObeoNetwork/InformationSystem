@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.cinematic.gen.html.ui.common;
+package org.obeonetwork.cinematic.gen.html.ide.ui.common;
 
 import java.io.IOException;
 import java.util.ArrayList;
