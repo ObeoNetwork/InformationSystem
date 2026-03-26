@@ -4,8 +4,8 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.obeonetwork.cinematic.gen.html.ide.ui.handlers.MainGeneratorHandler"
-            commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand">
+            class="org.obeonetwork.dsl.database.sqlgen.ide.ui.handlers.DatabaseGenGeneratorHandler"
+            commandId="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.DatabaseGenGeneratorCommand">
       </handler>
    </extension>
    <extension
@@ -13,12 +13,12 @@
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu
-               id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.generators"
+               id="org.obeonetwork.dsl.database.sqlgen.ide.ui.menus.generators"
                label="Generators">
             <command
-                  commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-                  id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.mainGeneratorCommand.element"
-                  label="org::obeonetwork::cinematic::gen::html::main::main">
+                  commandId="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.DatabaseGenGeneratorCommand"
+                  id="org.obeonetwork.dsl.database.sqlgen.ide.ui.menus.DatabaseGenGeneratorCommand.element"
+                  label="org::obeonetwork::dsl::database::sqlgen::DatabaseGen">
                <visibleWhen
                      checkEnabled="false">
                   <with
@@ -27,16 +27,16 @@
                            ifEmpty="false"
                            operator="and">
                         <instanceof
-                              value="org.obeonetwork.dsl.cinematic.CinematicRoot">
+                              value="org.eclipse.emf.compare.Comparison">
                         </instanceof>
                      </iterate>
                   </with>
                </visibleWhen>
             </command>
             <!--command
-                  commandId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-                  id="org.obeonetwork.cinematic.gen.html.ide.ui.menus.mainGeneratorCommand.file"
-                  label="org::obeonetwork::cinematic::gen::html::main::main">
+                  commandId="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.DatabaseGenGeneratorCommand"
+                  id="org.obeonetwork.dsl.database.sqlgen.ide.ui.menus.DatabaseGenGeneratorCommand.file"
+                  label="org::obeonetwork::dsl::database::sqlgen::DatabaseGen">
                <visibleWhen
                      checkEnabled="false">
                   <with
@@ -50,7 +50,7 @@
                            </instanceof>
                            <test
                                  property="org.eclipse.core.resources.extension"
-                                 value="cinematic">
+                                 value="compare">
                            </test>
                         </and>
                      </iterate>
@@ -63,13 +63,13 @@
    <extension
          point="org.eclipse.ui.commands">
       <category
-            id="org.obeonetwork.cinematic.gen.html.ide.ui.commands.generatorsCategory"
+            id="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.generatorsCategory"
             name="Generators">
       </category>
       <command
-            categoryId="org.obeonetwork.cinematic.gen.html.ide.ui.commands.generatorsCategory"
-            id="org.obeonetwork.cinematic.gen.html.ide.ui.commands.mainGeneratorCommand"
-            name="org::obeonetwork::cinematic::gen::html::main::main">
+            categoryId="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.generatorsCategory"
+            id="org.obeonetwork.dsl.database.sqlgen.ide.ui.commands.DatabaseGenGeneratorCommand"
+            name="org::obeonetwork::dsl::database::sqlgen::DatabaseGen">
       </command>
    </extension>
 
