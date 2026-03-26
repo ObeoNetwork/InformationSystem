@@ -12,8 +12,6 @@ package org.obeonetwork.dsl.environment.design.services;
 
 import static java.util.stream.Collectors.joining;
 
-import javax.swing.text.html.parser.Entity;
-
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -82,14 +80,17 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 	}
 	
 	/**
-	 * Get name of relation between target and source based on target name and turn
-	 * all consecutive upper letter at the beginning into lower case
-	 * 
-	 * @param target of the relation
-	 * @param source of the relation
-	 * @return the name for the relation
+	 * Computes the name of a new relation created between the given source and
+	 * target elements, based on the target element's name.<br>
+	 * Assumes a "many" multiplicity on the target side (appends an "s" to the name).<br>
+	 * Converts any leading sequence of uppercase characters in the target name to lowercase.<br>
+	 * Appends a numeric suffix when multiple relations already exist between the same source and target.<br>
+	 *
+	 * @param source the source element of the relation
+	 * @param target the target element of the relation
+	 * @return the computed relation name
 	 */
-	public String manageCaseRelation(StructuredType target, StructuredType source) {
+	public String computeNewRelationName(StructuredType target, StructuredType source) {
 		char[] nameArray = target.getName().toCharArray();
 		int i = 0;
 		// Replace consecutive upper case with lower
