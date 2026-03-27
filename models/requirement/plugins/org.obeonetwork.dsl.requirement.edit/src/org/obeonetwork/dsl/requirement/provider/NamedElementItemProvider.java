@@ -1,13 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2008, 2026 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
- *******************************************************************************/
+ */
 package org.obeonetwork.dsl.requirement.provider;
 
 
@@ -16,19 +16,17 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.obeonetwork.dsl.requirement.NamedElement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
+
 import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
@@ -37,8 +35,7 @@ import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamedElementItemProvider
-	extends IdentifiableItemProvider {
+public class NamedElementItemProvider extends IdentifiableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,6 +114,7 @@ public class NamedElementItemProvider
 			getString("_UI_NamedElement_type") :
 			getString("_UI_NamedElement_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

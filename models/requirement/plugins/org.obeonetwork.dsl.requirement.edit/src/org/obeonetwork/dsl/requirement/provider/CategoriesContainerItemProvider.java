@@ -1,13 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2008, 2026 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
- *******************************************************************************/
+ */
 package org.obeonetwork.dsl.requirement.provider;
 
 
@@ -131,7 +131,7 @@ public class CategoriesContainerItemProvider extends NamedElementItemProvider {
 			getString("_UI_CategoriesContainer_type") :
 			getString("_UI_CategoriesContainer_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -23,7 +23,6 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design.services,
  org.obeonetwork.dsl.interaction,
  org.obeonetwork.dsl.is,
- org.obeonetwork.is.eef.custom,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy

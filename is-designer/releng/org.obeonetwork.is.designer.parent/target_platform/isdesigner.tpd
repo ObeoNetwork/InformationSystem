@@ -28,7 +28,6 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12
 	org.apache.commons.commons-logging lazy
 	
 	org.eclipse.draw2d.sdk.feature.group lazy
-	org.eclipse.eef.sdk.feature.source.feature.group lazy
 	org.eclipse.egit.feature.group lazy
 	org.eclipse.emf.common.feature.group lazy
 	org.eclipse.emf.compare.diagram.sirius.feature.group lazy
@@ -41,6 +40,7 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12
 	org.eclipse.emf.compare.source.feature.group lazy
 	org.eclipse.emf.ecore.feature.group lazy
 	org.eclipse.emf.edit.feature.group lazy
+	org.eclipse.emf.edit.ui.feature.group lazy
 	org.eclipse.emf.feature.group lazy
 	org.eclipse.emf.sdk.feature.group lazy
 	org.eclipse.emf.transaction.feature.group lazy
