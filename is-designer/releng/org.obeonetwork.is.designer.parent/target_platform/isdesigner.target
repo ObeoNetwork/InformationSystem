@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1774302177">
+<target name="IS Designer Product Target Definition" sequenceNumber="1774652339">
   <locations>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.emf.eef.runtime" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.sdk-feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
-      <repository id="EEF-1.5.2" location="https://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903/1.5.2.201707060903/"/>
-    </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.source.feature.group" version="0.0.0"/>
@@ -66,7 +60,6 @@
       <unit id="org.apache.log4j" version="0.0.0"/>
       <unit id="org.apache.commons.commons-logging" version="0.0.0"/>
       <unit id="org.eclipse.draw2d.sdk.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.eef.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.common.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.diagram.sirius.feature.group" version="0.0.0"/>
@@ -79,6 +72,7 @@
       <unit id="org.eclipse.emf.compare.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.ecore.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.edit.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.edit.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.transaction.feature.group" version="0.0.0"/>
@@ -122,9 +116,6 @@
       <unit id="org.eclipse.sirius.samples.feature.group" version="0.0.0"/>
       <unit id="com.google.guava" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.eef.ext.widgets.reference.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
