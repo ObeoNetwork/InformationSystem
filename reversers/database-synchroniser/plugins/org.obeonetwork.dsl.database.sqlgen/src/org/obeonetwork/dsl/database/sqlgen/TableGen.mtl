@@ -195,8 +195,7 @@
 [/template]
 
 [template private columnsDef(table : database::Table)]
-  [for (column : database::Column | table.columns) separator(',\n')]    [column.columnDef()/][/for][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))],
-      PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
+  [for (column : database::Column | table.columns) separator(',\n')]    [column.columnDef()/][/for][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))],['\n'/]    PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
 [/template]
 
 [template private columnDef(column : database::Column) post(self.trim())]
