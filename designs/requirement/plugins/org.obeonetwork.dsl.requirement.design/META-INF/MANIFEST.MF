@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.transaction,
  org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.environment.design.services,
- org.eclipse.sirius.ext.base
+ org.eclipse.sirius.ext.base,
+ org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
