@@ -12,7 +12,7 @@ package org.obeonetwork.database.ui.actions;
 
 import org.eclipse.emf.compare.Comparison;
 
-public class GenerateSQLFromDatabaseHandler extends AbstractGenerateScriptsFromDatabaseHandler {
+public class SqlDatabaseGenGeneratorHandler extends AbstractDatabaseGenGeneratorHandler {
 
 	@Override
 	protected void doGenerate(Comparison comparison) {
