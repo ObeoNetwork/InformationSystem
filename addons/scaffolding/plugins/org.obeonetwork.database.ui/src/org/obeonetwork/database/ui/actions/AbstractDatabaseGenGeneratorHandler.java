@@ -26,7 +26,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.DataBaseCompareUtil;
 
-public abstract class AbstractGenerateScriptsFromDatabaseHandler extends AbstractHandler {
+public abstract class AbstractDatabaseGenGeneratorHandler extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
