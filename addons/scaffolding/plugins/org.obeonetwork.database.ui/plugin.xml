@@ -266,7 +266,7 @@
          </enabledWhen>
       </handler>
       <handler
-            class="org.obeonetwork.database.ui.actions.GenerateSQLFromDatabaseHandler"
+            class="org.obeonetwork.database.ui.actions.SqlDatabaseGenGeneratorHandler"
             commandId="org.obeonetwork.database.ui.command.GenerateSQL">
          <enabledWhen>
             <with
@@ -316,7 +316,7 @@
          </enabledWhen>
       </handler>
       <handler
-            class="org.obeonetwork.database.ui.actions.GenerateLiquibaseFromDatabaseHandler"
+            class="org.obeonetwork.database.ui.actions.LiquibaseDatabaseGenGeneratorHandler"
             commandId="org.obeonetwork.database.ui.command.GenerateLiquibase">
          <enabledWhen>
             <with
