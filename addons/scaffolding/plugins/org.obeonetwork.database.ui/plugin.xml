@@ -36,7 +36,7 @@
             locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
          <command
                commandId="org.obeonetwork.database.ui.command.GenerateSQL"
-               icon="icons/SqlFile.gif"
+               icon="icons/SqlFile.png"
                label="Generate SQL Scripts"
                style="push">
             <visibleWhen
@@ -381,7 +381,7 @@
          <action
                class="org.obeonetwork.database.ui.actions.ExportAsSQLScriptsAction"
                disabledIcon="icons/SqlFileDisabled.gif"
-               icon="icons/SqlFile.gif"
+               icon="icons/SqlFile.png"
                id="org.obeonetwork.database.ui.action1"
                label="Generate SQL Scripts"
                style="push"
