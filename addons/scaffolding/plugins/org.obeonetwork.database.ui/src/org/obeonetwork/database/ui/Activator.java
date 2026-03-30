@@ -44,7 +44,7 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
-		reg.put(SQL_FILE_IMAGE, getImageDescriptor("icons/SqlFile.gif")); //$NON-NLS-1$
+		reg.put(SQL_FILE_IMAGE, getImageDescriptor("icons/SqlFile.png")); //$NON-NLS-1$
 		reg.put(LIQUIBASE_FILE_IMAGE, getImageDescriptor("icons/LiquibaseGen.png")); //$NON-NLS-1$
 		reg.put(LIQUIBASE_FILE_DISABLED_IMAGE, getImageDescriptor("icons/DisabledLiquibaseGen.png")); //$NON-NLS-1$
 		reg.put(SQL_FILE_DISABLED_IMAGE, getImageDescriptor("icons/SqlFileDisabled.gif")); //$NON-NLS-1$
