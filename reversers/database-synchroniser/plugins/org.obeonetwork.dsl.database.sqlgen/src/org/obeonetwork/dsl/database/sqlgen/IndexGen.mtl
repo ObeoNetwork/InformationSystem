@@ -62,27 +62,30 @@
   [updateIndex.index.oclAsType(database::Index).genDropIndex()/]
   [updateIndex.newIndex.oclAsType(database::Index).genCreateIndex()/][/template]
 
-[template private genStorageClause(index : database::Index)]
-  [if (index.owner.owner.oclIsKindOf(database::Schema) and not (index.getTable().isTargetMySqlOrMariaDB() or index.getTable().isTargetPostgreSQL() or index.getTable().isTargetOracle() or index.getTable().isTargetH2()))]
-    
-      pctfree 10
-      pctused 40
-      initrans 1
-      online
-      compute statistics
-      tablespace TS_INDEX_[index.owner.owner.oclAsType(database::Schema).name.toUpper()/]
-      logging
-      nosort
-      noparallel
-      parallel
-      (
-           1
-      )[/if]
+[template private genStorageClause(index : database::Index) post(self.trim())]
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_[index.owner.owner.oclAsType(database::Schema).name.toUpper()/]
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  )
 [/template]
 
 [template private genCreateIndex(index : database::Index) post(self.trim())]
   [if (index.shouldGenerateIndex() and index.elements->forAll(temp6 | not (temp6.column = null)))]
-    CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements->asSequence()->collect(temp4 | temp4.column)->collect(temp5 | temp5.name)->sep(', ')/])[index.genStorageClause()/]; 
+    [if (index.owner.owner.oclIsKindOf(database::Schema) and not (index.getTable().isTargetMySqlOrMariaDB() or index.getTable().isTargetPostgreSQL() or index.getTable().isTargetOracle() or index.getTable().isTargetH2()))]
+      CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements->asSequence()->collect(temp4 | temp4.column)->collect(temp5 | temp5.name)->sep(', ')/])
+        [index.genStorageClause()/];
+    [else]
+      CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements->asSequence()->collect(temp4 | temp4.column)->collect(temp5 | temp5.name)->sep(', ')/]);
+    [/if] 
   [/if]
 [/template]
 

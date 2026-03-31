@@ -84,22 +84,19 @@
      START WITH [sequence.start/][/if][/template]
 
 [template private genMinValue(sequence : database::Sequence)]
-  [if (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
-     MINVALUE [sequence.minValue/]
-  [/if][/template]
+  [if (sequence.minValue.isValidValue() and sequence.minValue.toString().toInteger() <> 1)]
+     MINVALUE [sequence.minValue/][/if][/template]
 
 [template private genMaxValue(sequence : database::Sequence)]
-  [if (sequence.maxValue.isValidValue() and sequence.maxValue <> -1)]
-     MAXVALUE [sequence.maxValue/]
-  [/if][/template]
+  [if (sequence.maxValue.isValidValue() and sequence.maxValue.toString().toInteger() <> -1)]
+     MAXVALUE [sequence.maxValue/][/if][/template]
 
 [template private genCycle(sequence : database::Sequence)]
   [if (sequence.cycle = false)][if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if][else] CYCLE[/if][/template]
 
 [template private genCache(sequence : database::Sequence)]
   [if (sequence.cacheSize.isValidValue())]
-     CACHE [sequence.cacheSize/]
-  [/if][/template]
+     CACHE [sequence.cacheSize/][/if][/template]
 
 [template private genSequenceComment(sequence : database::Sequence) post(self.trim())]
   [if (sequence.comments <> null and sequence.comments.size() > 0 and not sequence.isTargetOracle())]
