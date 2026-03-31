@@ -1,6 +1,7 @@
 -- ==============================================================
 --  Table : TABLE1                                    
 -- ==============================================================
+
 ALTER TABLE DEMO.TABLE1 DROP COLUMN colSupprimee;
 
 -- ==============================================================
@@ -26,6 +27,7 @@ ALTER TABLE DEMO.TABLE1 DROP COLUMN colSupprimee;
 -- ==============================================================
 --  Table : TABLE2                                    
 -- ==============================================================
+
 ALTER TABLE DEMO.TABLE2 RENAME TO TABLE2RENOMMEE;
 
 COMMENT ON TABLE DEMO.TABLE2RENOMMEE IS 'Comments updated on Table2';
@@ -48,6 +50,7 @@ ALTER TABLE DEMO.TABLE2RENOMMEE ALTER COLUMN col2_4 DROP NOT NULL;
 -- ==============================================================
 --  Table : TABLE3                                    
 -- ==============================================================
+
 ALTER TABLE DEMO.TABLE3 ADD col3_2 NUMERIC(12, 5);
 ALTER TABLE DEMO.TABLE3 ALTER COLUMN col3_2 SET NOT NULL;
 
@@ -58,6 +61,7 @@ COMMENT ON COLUMN DEMO.TABLE3.col3_1_renommee IS 'Comments on col3_1_renommee';
 -- ==============================================================
 --  Table : TABLE4                                    
 -- ==============================================================
+
 ALTER TABLE DEMO.TABLE4 DROP COLUMN col4_2_supprimee;
 
 ALTER TABLE DEMO.TABLE4 RENAME TO TABLE4RENOMMEE;
@@ -73,6 +77,7 @@ ALTER TABLE DEMO.TABLE4 RENAME TO TABLE4RENOMMEE;
 -- ==============================================================
 --  Table : TABLE7                                    
 -- ==============================================================
+
 ALTER TABLE DEMO.TABLE7 ADD col8_1 INTEGER;
 ALTER TABLE DEMO.TABLE7 ALTER COLUMN col8_1 SET NOT NULL;
 

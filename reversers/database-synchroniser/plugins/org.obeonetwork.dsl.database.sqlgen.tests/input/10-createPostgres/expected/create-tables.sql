@@ -15,7 +15,6 @@ CREATE TABLE PUBLIC.AW_ADRESSE(
 
 COMMENT ON TABLE PUBLIC.AW_ADRESSE IS 'une adresse de personne';
 COMMENT ON COLUMN PUBLIC.AW_ADRESSE.rue IS 'la rue de l''adresse';
-
 COMMENT ON COLUMN PUBLIC.AW_ADRESSE.ville IS 'la ville de l''adresse';
 
 -- ==============================================================
@@ -81,7 +80,6 @@ CREATE TABLE PUBLIC.AW_PERMISSION(
     xtopsup BOOL NOT NULL
 );
 
-
 COMMENT ON COLUMN PUBLIC.AW_PERMISSION.nompermission IS 'le nom de la permission';
 
 -- ==============================================================
@@ -132,7 +130,6 @@ CREATE TABLE PUBLIC.AW_ROLE(
     xdmaj TIMESTAMP NULL,
     xtopsup BOOL NOT NULL
 );
-
 
 COMMENT ON COLUMN PUBLIC.AW_ROLE.nom_role IS 'le nom du r“le';
 
@@ -188,7 +185,6 @@ CREATE TABLE PUBLIC.AW_UTILISATEUR(
     xdmaj TIMESTAMP NULL,
     xtopsup BOOL NOT NULL
 );
-
 
 COMMENT ON COLUMN PUBLIC.AW_UTILISATEUR.identifiant IS 'l''identifiant de connexion de l''utilisateur';
 COMMENT ON COLUMN PUBLIC.AW_UTILISATEUR.mdp IS 'le mot de passe de connexion de l''utilisateur';
