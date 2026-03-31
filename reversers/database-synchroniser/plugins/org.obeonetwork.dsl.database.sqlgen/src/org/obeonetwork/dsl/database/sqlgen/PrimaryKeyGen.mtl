@@ -5,8 +5,6 @@
 [import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
 [import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
 
-
-
 [comment encoding = UTF-8 /]
 [template public genSQLForPrimaryKeys(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
   [let addPrimaryKeyDiffs : Sequence(dbevolution::AddPrimaryKey) = diffs->filter(dbevolution::AddPrimaryKey)]
@@ -86,5 +84,3 @@
 [query private filterRelatedToRemoveTable(diffs : Sequence(dbevolution::RemovePrimaryKey)) : Sequence(dbevolution::RemovePrimaryKey) = diffs->reject(temp3 | temp3.getRelatedDiff().isRelatedToRemoveTable())->asSequence()/]
 
 [query private isRelatedToRemoveTable(diff : compare::Diff) : Boolean = not (diff = null) and diff.oclIsKindOf(dbevolution::RemoveTable)/]
-
-[query private getRelatedDiff(diff : compare::Diff) : compare::Diff = diff.getRelatedDiff()/]

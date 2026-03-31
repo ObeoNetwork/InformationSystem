@@ -59,7 +59,7 @@
 [template private genCreateView(addView : dbevolution::AddView) post(self.trim())]
   [let view : database::View = addView.view.oclAsType(database::View)]
     [view.genViewDoc()/]
-    [view.createViewStatement()/] AS [view.getViewQuery()/]
+    [view.createViewStatement() + ' AS ' + view.getViewQuery()/]
     [view.genCreateViewComment()/]
   [/let]
 [/template]
@@ -70,10 +70,10 @@
 [template private alterViewStatement(newView : database::View, oldView : database::View)]
   [newView.genViewDoc()/]
   DROP VIEW [oldView.fullname()/];
-  [newView.createViewStatement()/] AS [newView.getViewQuery()/]
+  [newView.createViewStatement() + ' AS ' + newView.getViewQuery()/]
   [newView.genCreateViewComment()/][/template]
 
-[template private createViewStatement(view : database::View)]
+[template private createViewStatement(view : database::View) post(self.trim())]
   [if (view.isTargetSqlServer())]
     CREATE VIEW [view.fullname()/]
   [else]

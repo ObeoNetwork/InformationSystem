@@ -53,6 +53,7 @@
 
 [template private genDropTableAndSynonym(table : database::Table)]
   [table.genTableDoc()/]
+  
   [table.genDropSynonym()/]
   DROP TABLE[if (table.isTargetMySqlOrMariaDB() or table.isTargetPostgreSQL() or table.isTargetSqlServer())] IF EXISTS[/if] [table.fullname()/][if (table.isTargetPostgreSQL())] CASCADE[/if];
 [/template]
@@ -77,8 +78,9 @@
   [let table : database::Table = addTable.table.oclAsType(database::Table)]
     [table.genDropTableAndSynonym()/]
     CREATE TABLE [table.fullname()/](
-    [table.columnsDef()/]
+        [table.columnsDef()/]
     );
+    
     [table.genCreateSynonym()/]
     [table.genCreateTableComment()/]
     [table.genCreateColumnsComment()/]
@@ -87,6 +89,7 @@
 
 [template private genAlterTable(alterTable : dbevolution::AlterTable) post(self.trim())]
   [alterTable.table.genTableDoc()/]
+  
   [for (diff : compare::Diff | alterTable.getSubDiffs())]
     [if (diff.oclIsTypeOf(dbevolution::RenameTableChange))]
       [let change : dbevolution::RenameTableChange = diff.oclAsType(dbevolution::RenameTableChange)]
@@ -195,7 +198,7 @@
 [/template]
 
 [template private columnsDef(table : database::Table)]
-  [for (column : database::Column | table.columns) separator(',\n')]    [column.columnDef()/][/for][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))],['\n'/]    PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
+  [table.columns->collect(column | column.columnDef())->sep(',\n')/][if (table.isTargetMySqlOrMariaDB() and not (table.primaryKey = null))],['\n'/]PRIMARY KEY ([table.primaryKey.columns->asSequence()->collect(temp1 | temp1.name)->sep(', ')/])[/if]
 [/template]
 
 [template private columnDef(column : database::Column) post(self.trim())]
@@ -206,7 +209,7 @@
   [column.type.oclAsType(typeslibrary::TypeInstance).dataType()/][if (column.autoincrement and column.isTargetSqlServer())] IDENTITY (1, 1)[/if]
 [/template]
 
-[template private dataType(type : typeslibrary::TypeInstance)]
+[template private dataType(type : typeslibrary::TypeInstance) post(self.trim())]
   [if (not (type.nativeType = null))]
     [type.getType()/]
   [/if]
@@ -217,9 +220,7 @@
 
 [template private defaultForPostgreSQL(column : database::Column)]
   [if (column.defaultValue <> null and column.defaultValue.size() > 0)]
-     SET DEFAULT [column.defaultValue()/]
-  [else] DROP DEFAULT[/if]
-[/template]
+     SET DEFAULT [column.defaultValue()/][else] DROP DEFAULT[/if][/template]
 
 [comment TODO support '' quoted defaultValue with several template with guard /]
 [template private defaultValue(column : database::Column) post(self.trim())]
@@ -231,7 +232,7 @@
 
 [template private autoIncrement(column : database::Column)]
   [if (column.isTargetMySqlOrMariaDB())]
-  	[if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if]
-  [elseif (column.isTargetH2())]     
+    [if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if]
+  [elseif (column.isTargetH2())]
     [if (column.autoincrement)] AUTO_INCREMENT[/if]
   [/if][/template]
