@@ -121,10 +121,18 @@
         <li><a href="#">Click to simulate an event</a></li>
         <li class="divider"></li>
     [for (event : view::ViewEvent | anAVE.events)]
-          <li><a href="[event.genLink(aViewState)/]">[event.name/] ([event.type.name/])</a></li>
+          <li><a href="[event.genLink(aViewState)/]">[event.name/]([event.genTypeName()/])</a></li>
     [/for]
       </ul>
     </span>
+  [/if]
+[/template]
+
+[template private genTypeName(event : view::ViewEvent)]
+  [if (event.type == null)]
+    UndefinedTypeForThisEvent-PleaseCheckYourModel
+  [else]
+    [event.type.name/]
   [/if]
 [/template]
 
