@@ -58,10 +58,6 @@
   DROP TABLE[if (table.isTargetMySqlOrMariaDB() or table.isTargetPostgreSQL() or table.isTargetSqlServer())] IF EXISTS[/if] [table.fullname()/][if (table.isTargetPostgreSQL())] CASCADE[/if];
 [/template]
 
-[template private getSchemaName(table : database::Table) post(self.trim())]
-  [table.owner.oclAsType(database::Schema).name.toUpper()/]
-[/template]
-
 [template private genDropSynonym(table : database::Table) post(self.trim())]
   [if (table.owner.oclIsKindOf(database::Schema) and table.isTargetOracle())]
     DROP PUBLIC SYNONYM [table.name()/];
