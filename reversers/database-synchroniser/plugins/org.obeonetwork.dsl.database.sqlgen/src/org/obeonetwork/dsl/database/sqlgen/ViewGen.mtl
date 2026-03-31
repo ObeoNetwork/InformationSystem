@@ -53,9 +53,6 @@
   [/let]
 [/template]
 
-[template private getSchemaName(view : database::View) post(self.trim())]
-  [view.owner.oclAsType(database::Schema).name.toUpper()/][/template]
-
 [template private genCreateView(addView : dbevolution::AddView) post(self.trim())]
   [let view : database::View = addView.view.oclAsType(database::View)]
     [view.genViewDoc()/]
