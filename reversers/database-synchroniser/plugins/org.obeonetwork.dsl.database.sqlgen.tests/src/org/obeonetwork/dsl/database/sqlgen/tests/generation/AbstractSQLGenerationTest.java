@@ -18,12 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicMonitor;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.database.ui.actions.DatabaseGenGeneratorEclipse;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
