@@ -27,11 +27,6 @@ location Acceleo_4.2.2_AQL_8.1.2 "https://download.eclipse.org/acceleo/updates/r
 	org.antlr.antlr4-runtime lazy
 }
 
-// Acceleo 3.7.17
-location Acceleo-3.7 "https://download.eclipse.org/acceleo/updates/releases/3.7/R202408201303/" {
-	org.eclipse.acceleo.runtime.feature.group lazy
-}
-
 location Sirius-7.5.0 "https://download.eclipse.org/sirius/updates/releases/7.5.0/2025-09/" {
 	org.eclipse.sirius.specifier.feature.group lazy
 }
