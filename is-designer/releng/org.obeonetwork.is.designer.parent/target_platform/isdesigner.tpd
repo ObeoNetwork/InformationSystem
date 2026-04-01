@@ -17,10 +17,6 @@ location Eclipse-2025-06 "https://download.eclipse.org/releases/2025-06/" {
 	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group lazy	
 }
 
-location ANTLR "https://obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/" {
-	org.antlr.runtime lazy
-}
-
 location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/community/12.0.0/repository/" {
 	com.google.inject lazy
 	com.ibm.icu lazy
