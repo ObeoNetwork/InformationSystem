@@ -11,9 +11,7 @@
 package org.obeonetwork.dsl.database.compare.tests.generation;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicMonitor;
@@ -23,9 +21,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+import org.obeonetwork.database.ui.actions.DatabaseGenGeneratorEclipse;
 import org.obeonetwork.dsl.database.compare.tests.DatabaseCompareAbstractTestSuite;
 import org.obeonetwork.dsl.database.compare.tests.transformation.DatabaseTransformationTestSuite;
-import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
+import org.obeonetwork.dsl.database.sqlgen.DatabaseGenGenerator;
 
 @RunWith(Suite.class)
 @SuiteClasses({ DatabaseEvolutionScriptGenerationTest.class })
@@ -67,21 +66,16 @@ public class DatabaseEvolutionScriptGenerationTestSuite extends DatabaseCompareA
 		// set.getResources().add(resource);
 
 		List<File> generatedFiles = new ArrayList<>();
-		try {
-			DatabaseGen databaseGen = new DatabaseGen(dbevolution, targetBaseFolder, Collections.emptyList());
-			databaseGen.doGenerate(new BasicMonitor());
-			// for (String maybeGeneratedFileName : DatabaseGen.SQL_FILES) {
-			// File maybeGeneratedFile = new File(databaseGen.getTargetFolder(),
-			// maybeGeneratedFileName);
-			// if (maybeGeneratedFile.exists()) {
-			// generatedFiles.add(maybeGeneratedFile);
-			// }
-			// }
-			generatedFiles.add(new File(databaseGen.getTargetFolder(), "all.sql"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		DatabaseGenGenerator databaseGen = new DatabaseGenGeneratorEclipse(dbevolution, targetBaseFolder.getAbsolutePath());
+		databaseGen.generate(new BasicMonitor());
+		// for (String maybeGeneratedFileName : DatabaseGen.SQL_FILES) {
+		// File maybeGeneratedFile = new File(databaseGen.getTargetFolder(),
+		// maybeGeneratedFileName);
+		// if (maybeGeneratedFile.exists()) {
+		// generatedFiles.add(maybeGeneratedFile);
+		// }
+		// }
+		generatedFiles.add(new File(databaseGen.getTargetFolder(), "all.sql"));
 		return generatedFiles;
 	}
 
