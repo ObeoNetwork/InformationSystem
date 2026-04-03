@@ -1,22 +1,22 @@
 //Start of user code copyright
+/*******************************************************************************
+ * Copyright (c) 2026 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 //End of user code
-package org.obeonetwork.dsl.database.sqlgen;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+package org.obeonetwork.dsl.database.compare.tests.gen.main;
 
 //Start of user code imports
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
-import java.nio.file.Path;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.io.IOUtils;
 import org.eclipse.acceleo.Module;
 import org.eclipse.acceleo.Template;
 import org.eclipse.acceleo.aql.AcceleoUtil;
@@ -51,8 +50,6 @@ import org.eclipse.emf.common.util.BasicMonitor.Printing;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.compare.ComparePackage;
-import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -60,49 +57,23 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.obeonetwork.dsl.database.DataBase;
+
+import org.eclipse.emf.compare.ComparePackage;
+import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.DatabasePackage;
-import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
-import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
-import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
-import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
-import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
-import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
 
 //End of user code
 
 /**
- * Standalone launcher for org::obeonetwork::dsl::database::sqlgen::DatabaseGen.
+ * Standalone launcher for
+ * org::obeonetwork::dsl::database::compare::tests::gen::main::generate.
  * 
  * @author Laurent Redor
  * @generated
  */
-public class DatabaseGenGenerator {
-    public static final String[] SQL_FILES = new String[] {
-    		"drop-tables.sql",
-    		"drop-index.sql",
-    		"drop-constraint.sql",
-    		"drop-fk.sql",
-    		"drop-pk.sql",
-    		"drop-sequences.sql",
-    		"drop-views.sql",
-    		"alter-constraint.sql",
-    		"alter-fk.sql",
-    		"alter-index.sql",
-    		"alter-pk.sql",
-    		"alter-sequences.sql",
-    		"alter-views.sql",
-    		"alter-tables.sql",
-    		"create-tables.sql",
-    		"create-constraint.sql",
-    		"create-pk.sql",
-    		"create-index.sql",
-    		"create-fk.sql",
-    		"create-sequences.sql",
-    		"create-views.sql",
-    };
-    
+public class GenerateGenerator {
+
 	/**
 	 * The {@link List} of resources to load.
 	 * 
@@ -116,7 +87,11 @@ public class DatabaseGenGenerator {
 	 * @generated
 	 */
 	protected final String target;
-
+	
+	/**
+	 * The values directly set by constructor instead of resources.
+	 */
+	private List<EObject> values = null;
 
 	/**
 	 * Constructor.
@@ -125,62 +100,23 @@ public class DatabaseGenGenerator {
 	 * @param target    the target folder for the generation
 	 * @generated
 	 */
-	public DatabaseGenGenerator(List<String> resources, String target) {
+	public GenerateGenerator(List<String> resources, String target) {
 		this.resources = resources;
 		this.target = target;
 	}
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param the selected {@link Comparison} to set as values
+	 * @param target   the target folder of the generation
+	 * @generated NOT
+	 */
+	public GenerateGenerator(Comparison selected, String target) {
+		this(Collections.emptyList(), target);
+		this.values = Collections.singletonList(selected);
+	}
 
-    /**
-     * This allows clients to instantiates a generator with all required information.
-     * 
-     * @param model
-     *            We'll iterate over the content of this element to find Objects matching the first parameter
-     *            of the template we need to call.
-     * @param targetFolder
-     *            This will be used as the output folder for this generation : it will be the base path
-     *            against which all file block URLs will be resolved.
-     * @throws IOException
-     *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
-     * @generated NOT
-     */
-    public DatabaseGenGenerator(EObject model, File targetFolder) throws IOException {
-    	Comparison comparisonModel = null;
-    	if(model instanceof Comparison){
-    		comparisonModel = (Comparison)model;
-    	}
-    	this.resources = Collections.emptyList();
-    	this.target = computeTargetFolder(targetFolder, comparisonModel).getAbsolutePath();
-    }
-    
-    private File computeTargetFolder(File folder, Comparison comparison){
-    	String folderName="";
-    	String dbtypeFolderName="";
-    	if(comparison!=null){
-    		DataBase database = (DataBase)comparison.getMatches().get(0).getLeft();
-    		
-    		TypesLibrary physicalTypesLibrary = new TypesServices().getPhysicalTypesLibrary(database);
-    		if (physicalTypesLibrary instanceof NativeTypesLibrary) {
-    			dbtypeFolderName += ((NativeTypesLibrary) physicalTypesLibrary).getName() + "/";
-    		} else if (physicalTypesLibrary instanceof UserDefinedTypesLibrary) {
-    			dbtypeFolderName += ((UserDefinedTypesLibrary) physicalTypesLibrary).getName() + "/";
-    		}
-    		
-    		folderName = database.getName();
-    		if(database.getSchemas().size()>0){
-    			Schema schema = database.getSchemas().get(0);
-    			folderName = schema.getName();
-    		}
-    		folderName += "-";
-    	}    	
-    	java.sql.Timestamp timeStampDate = new Timestamp(System.currentTimeMillis()); 
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd/HH-mm-ss"); 
-    	String timestamp = formatter.format(timeStampDate);
-    	folderName += timestamp;
-    	
-    	File targetFolder = new File(folder.getAbsolutePath() + "/" + dbtypeFolderName + folderName);
-    	return targetFolder;
-    }
-    
 	/**
 	 * Main entry point.
 	 * 
@@ -194,7 +130,7 @@ public class DatabaseGenGenerator {
 				resources.add(resource.trim());
 			}
 			final String target = args[1];
-			final DatabaseGenGenerator generator = new DatabaseGenGenerator(resources, target);
+			final GenerateGenerator generator = new GenerateGenerator(resources, target);
 			generator.generate(getMonitor());
 		} else {
 			printUsage();
@@ -231,7 +167,6 @@ public class DatabaseGenGenerator {
 	public void generate(Monitor monitor) {
 		// inputs
 		final String moduleQualifiedName = getModuleQualifiedName();
-		// TODO: org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator.initialize(EObject, File, List<? extends Object>)
 		final URI targetURI = getTargetURI(target);
 		final Map<String, String> options = getOptions();
 
@@ -309,7 +244,7 @@ public class DatabaseGenGenerator {
 		}
 
 	}
-
+	
 	/**
 	 * Gets the {@link List} of {@link Template} to generate for the given
 	 * {@link Module}.
@@ -334,14 +269,16 @@ public class DatabaseGenGenerator {
 	 * @param monitor              the progress {@link Monitor}, it must consumes
 	 *                             the resources.size()
 	 * @return the {@link List} of {@link EObject} values to use
-	 * @generated
+	 * @generated NOT
 	 */
 	protected List<EObject> getValues(IQualifiedNameQueryEnvironment queryEnvironment,
 			Map<EClass, List<EObject>> valuesCache, TypeLiteral type, ResourceSet resourceSetForModels,
 			List<Resource> modelResources, Monitor monitor) {
-		final List<EObject> values = AcceleoUtil.getValues(type, queryEnvironment, modelResources, valuesCache,
-				monitor);
-		return values;
+		if (this.values != null) {
+			return this.values;
+		} else {
+			return AcceleoUtil.getValues(type, queryEnvironment, modelResources, valuesCache, monitor);
+	}
 	}
 
 	/**
@@ -351,7 +288,7 @@ public class DatabaseGenGenerator {
 	 * @generated
 	 */
 	protected String getModuleQualifiedName() {
-		return "org::obeonetwork::dsl::database::sqlgen::DatabaseGen";
+		return "org::obeonetwork::dsl::database::compare::tests::gen::main::generate";
 	}
 
 	/**
@@ -420,10 +357,9 @@ public class DatabaseGenGenerator {
 	 */
 	protected void standaloneInitialization(ResourceSet resourceSetForModels) {
 		// initialize EPackages
-		DbevolutionPackage.eINSTANCE.getName();
-		DatabasePackage.eINSTANCE.getName();
 		ComparePackage.eINSTANCE.getName();
-		TypesLibraryPackage.eINSTANCE.getName();
+		DatabasePackage.eINSTANCE.getName();
+		DbevolutionPackage.eINSTANCE.getName();
 
 		// register default XMI resource factory
 		resourceSetForModels.getResourceFactoryRegistry().getExtensionToFactoryMap()
@@ -655,60 +591,10 @@ public class DatabaseGenGenerator {
 	 * After the generation finished.
 	 * 
 	 * @param generationResult the {@link GenerationResult}
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void afterGeneration(GenerationResult generationResult) {
 		// this is called after the generation finished
-		mergeSQLFiles(Path.of(target).toFile());
 	}
-	
-    /**
-     * Merge SQL files in the required order
-     * @param folder
-     */
-    private void mergeSQLFiles(File folder) {
-    	File destination = new File(folder, "all.sql");
-    	
-    	List<File> sources = new ArrayList<File>();
-    	for (String sqlFilename : SQL_FILES) {
-			File sqlFile = new File(folder, sqlFilename);
-			if (sqlFile.exists()) {
-				sources.add(sqlFile);
-			}
-		}
-    	
-    	if (!sources.isEmpty()) {
-    		try {
-				mergeFiles(destination, sources);
-			} catch (IOException e) {
-				// Do nothing, file could not be generated
-			}
-    	}
-    }
-    
-    private void mergeFiles(File destination, List<File> sources) throws IOException {
-        OutputStream output = null;
-        try {
-            output = new BufferedOutputStream(new FileOutputStream(destination, true));
-            for (File source : sources) {
-                appendFile(output, source);
-            }
-        } finally {
-            IOUtils.closeQuietly(output);
-        }
-    }
 
-    private void appendFile(OutputStream output, File source) throws IOException {
-        InputStream input = null;
-        try {
-            input = new BufferedInputStream(new FileInputStream(source));
-            IOUtils.copy(input, output);
-        } finally {
-            IOUtils.closeQuietly(input);
-        }
-    }
-
-	public File getTargetFolder() {
-		return new File(target);
-	}
 }

@@ -3,6 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Database Compare Tests
 Bundle-SymbolicName: org.obeonetwork.dsl.database.compare.tests
 Bundle-Version: 6.0.0.qualifier
+Bundle-Vendor: Obeo Network
+Export-Package: org.obeonetwork.dsl.database.compare.tests.gen.files,
+ org.obeonetwork.dsl.database.compare.tests.gen.main,
+ org.obeonetwork.dsl.database.compare.tests.gen.services
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf,
  org.eclipse.emf.ecore,
@@ -11,14 +15,15 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database,
  org.junit,
  org.obeonetwork.dsl.database.compare,
- org.eclipse.acceleo.engine,
  org.eclipse.emf.compare.edit,
  org.obeonetwork.dsl.database.compare.edit,
  org.obeonetwork.dsl.database.sqlgen,
- org.obeonetwork.dsl.is
+ org.obeonetwork.dsl.is,
+ org.eclipse.acceleo.query;bundle-version="[8.1.2,9.0.0)",
+ org.eclipse.acceleo.aql;bundle-version="[4.2.2,5.0.0)",
+ org.eclipse.acceleo.aql.profiler;bundle-version="[4.2.2,5.0.0)",
+ org.antlr.antlr4-runtime;bundle-version="[4.13.2,4.13.3)",
+ org.eclipse.emf.compare,
+ org.obeonetwork.database.ui;bundle-version="6.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.obeonetwork.dsl.database.compare.tests.gen.files,
- org.obeonetwork.dsl.database.compare.tests.gen.main,
- org.obeonetwork.dsl.database.compare.tests.gen.services
-Bundle-Vendor: Obeo Network
 Import-Package: org.apache.log4j;version="1.2.15"
