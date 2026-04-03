@@ -339,7 +339,7 @@
 			* Cinematic HTML Generator ********************************************************************************************* -->
 		<module>../../addons/cinematic/features/org.obeonetwork.cinematic.gen.html.feature</module>
 		<module>../../addons/cinematic/plugins/org.obeonetwork.cinematic.gen.html</module>
-		<module>../../addons/cinematic/plugins/org.obeonetwork.cinematic.gen.html.ui</module>
+		<module>../../addons/cinematic/plugins/org.obeonetwork.cinematic.gen.html.ide.ui</module>
 
 		<!-- ********************************************************************************************* 
 			* Structured types tables ********************************************************************************************* -->
