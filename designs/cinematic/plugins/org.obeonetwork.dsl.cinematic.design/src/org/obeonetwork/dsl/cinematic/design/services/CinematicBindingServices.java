@@ -67,20 +67,32 @@ public class CinematicBindingServices {
 	private static AdapterFactoryLabelProvider aflp = new AdapterFactoryLabelProvider(
 			new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
 
+	private String getCinematicBoundElementLabel(EObject boundElement) {
+		if (boundElement instanceof StructuredType) {
+			return getLabelForStructuredType((StructuredType) boundElement);
+		} else if (boundElement instanceof Property) {
+			return getLabelForStructuredTypeProperty((Property) boundElement);
+		} else {
+			return getGenericLabel(boundElement);
+		}
+	}
+
 	public String getCinematicBindingInfoLabel(BindingInfo bindingInfo) {
 		EObject element = getCinematicBoundElement(bindingInfo);
 		if (element == null) {
 			element = bindingInfo;
 		}
-		if (element instanceof StructuredType) {
-			return getLabelForStructuredType((StructuredType) element);
-		} else if (element instanceof Property) {
-			return getLabelForStructuredTypeProperty((Property) element);
-		} else {
-			return getGenericLabel(element);
-		}
+		return getCinematicBoundElementLabel(element);
 	}
 
+	public String getCinematicBindingReferenceLabel(BindingReference bindingReference) {
+		EObject element = getCinematicBoundElement(bindingReference);
+		if (element == null) {
+			element = bindingReference;
+		}
+		return getCinematicBoundElementLabel(element);
+	}
+	
 	private String getLabelForStructuredType(StructuredType type) {
 		String typePattern = TYPE_NAME_PATTERN;
 		return String.format(typePattern, type.getName(), type.eClass().getName());
@@ -108,6 +120,15 @@ public class CinematicBindingServices {
 		return null;
 	}
 
+	public BoundableElement getCinematicBoundElement(BindingReference bindingReference) {
+		if (!(bindingReference.getRight().getBoundElement() instanceof CinematicElement)) {
+			return bindingReference.getRight().getBoundElement();
+		} else if (!(bindingReference.getLeft().getBoundElement() instanceof CinematicElement)) {
+			return bindingReference.getLeft().getBoundElement();
+		}
+		return null;
+	}
+	
 	private String getGenericLabel(EObject eObject) {
 		if (eObject == null) {
 			return "";
@@ -117,12 +138,20 @@ public class CinematicBindingServices {
 
 	public Collection<BindingInfo> getCinematicBindingInfos(AbstractViewElement viewElement) {
 		Collection<BindingInfo> bindingInfos = new ArrayList<BindingInfo>();
-		for (BindingInfo bi : getGlobalBindingRegistry(viewElement).getBindingInfos()) {
-			if (bi.getLeft() == viewElement || bi.getRight() == viewElement) {
-				bindingInfos.add(bi);
+		for (BindingInfo bindingInfo : getGlobalBindingRegistry(viewElement).getBindingInfos()) {
+			if (bindingInfo.getLeft() == viewElement || bindingInfo.getRight() == viewElement) {
+				bindingInfos.add(bindingInfo);
 			}
 		}
 		return bindingInfos;
+	}
+
+	public Collection<BindingReference> getCinematicBindingReferences(AbstractViewElement viewElement) {
+		return getGlobalBindingRegistry(viewElement).getBindingInfos().stream() //
+				.map(BindingInfo::getReferences).flatMap(List::stream) //
+				.filter(bindingReference -> bindingReference.getLeft().getBoundElement() == viewElement || // 
+						bindingReference.getRight().getBoundElement() == viewElement) //
+				.toList();
 	}
 
 	private BindingRegistry getGlobalBindingRegistry(CinematicElement element) {

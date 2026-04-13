@@ -90,7 +90,6 @@ public class CinematicServices {
 	private static final MStyle defaultTextStyle = new MStyleImpl(null, 10, null, null, -1);
 	private static final MStyle boldTextStyle = new MStyleImpl(null, 10, null, null, 1);
 	
-	private CinematicLabelServices labelService = new CinematicLabelServices();
 	private CinematicBindingServices bindingService = new CinematicBindingServices ();
 
 
@@ -183,7 +182,7 @@ public class CinematicServices {
 	// @formatter:on	
 	public String cinematicLabel(EObject obj) {
 		if(obj != null) {
-			return labelService.getCinematicLabel(obj);
+			return CinematicLabelServices.getCinematicLabel(obj);
 		} else {
 			return "";
 		}
@@ -294,7 +293,7 @@ public class CinematicServices {
 		    }
 		)
 	// @formatter:on	
-	public List<EObject> uiStructure(AbstractPackage pack){
+	public List<EObject> uiStructure(AbstractPackage pack) {
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll (pack.getSubPackages());
 		result.addAll (pack.getViewContainers());
@@ -393,6 +392,7 @@ public class CinematicServices {
 		result.addAll(viewContainer.getEvents());
 		result.addAll(viewContainer.getActions());
 		result.addAll(bindingService.getCinematicBindingInfos(viewContainer));
+		result.addAll(bindingService.getCinematicBindingReferences(viewContainer));
 		
 		return result;
 	}
