@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.obeonetwork.cinematic.gen.html.ide.ui
 Bundle-SymbolicName: org.obeonetwork.cinematic.gen.html.ide.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 6.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.cinematic.gen.html.ide.ui.Activator$Implementation
 Require-Bundle: org.eclipse.emf.ecore,
