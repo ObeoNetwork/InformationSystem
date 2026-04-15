@@ -161,10 +161,6 @@
          id="org.obeonetwork.dsl.environment.design.feature"
          version="0.0.0"/>
 
-   <!--includes
-         id="org.apache.poi.feature"
-         version="0.0.0"/>
-
    <includes
          id="org.obeonetwork.database.m2doc.feature"
          version="0.0.0"/>
@@ -203,7 +199,11 @@
 
    <includes
          id="org.obeonetwork.dsl.requirement.m2doc.feature"
-         version="0.0.0"/-->
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.cinematic.m2doc.feature"
+         version="0.0.0"/>
 
    <includes
          id="org.eclipse.sirius.doc.feature"
@@ -217,13 +217,9 @@
          id="org.obeonetwork.is.samples.feature"
          version="0.0.0"/>
 
-   <!--includes
+   <includes
          id="org.obeonetwork.m2doc.ui.feature"
-         version="0.0.0"/-->
-
-   <!-- <includes
-         id="org.eclipse.acceleo"
-         version="0.0.0"/> -->
+         version="0.0.0"/>
 
    <includes
          id="org.obeonetwork.project.lifecycle.feature"
@@ -253,10 +249,6 @@
          id="org.obeonetwork.is.designer.ui.feature"
          version="0.0.0"/>
 
-   <!--includes
-         id="org.obeonetwork.cinematic.m2doc.feature"
-         version="0.0.0"/-->
-
    <includes
          id="org.obeonetwork.utils.feature"
          version="0.0.0"/>
@@ -272,5 +264,13 @@
    <includes
          id="org.obeonetwork.dsl.soa.gen.swagger.feature"
          version="0.0.0"/>
+
+   <!-- includes
+         id="org.apache.poi.feature"
+         version="0.0.0"/-->
+
+   <!--includes
+         id="org.eclipse.acceleo"
+         version="0.0.0"/-->
 
 </feature>
