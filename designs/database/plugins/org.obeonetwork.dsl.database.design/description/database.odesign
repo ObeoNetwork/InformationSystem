@@ -73,14 +73,14 @@
         </layoutOptions>
         <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
           <targets>PARENT</targets>
-          <value name="UNDEFINED"/>
+          <value name="ORTHOGONAL"/>
         </layoutOptions>
         <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="10.0">
           <targets>PARENT</targets>
         </layoutOptions>
         <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.strategy">
           <targets>PARENT</targets>
-          <value name="BRANDES_KOEPF"/>
+          <value name="NETWORK_SIMPLEX"/>
         </layoutOptions>
         <layoutOptions xsi:type="description_1:IntegerLayoutOption" id="org.eclipse.elk.layered.priority.straightness">
           <targets>EDGE</targets>
@@ -535,27 +535,22 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.database/model/database.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
       <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
-        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.alignment">
-          <targets>NODE</targets>
-          <value name="AUTOMATIC"/>
-        </layoutOptions>
         <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.direction">
           <targets>PARENT</targets>
-          <value name="DOWN"/>
+          <value name="RIGHT"/>
         </layoutOptions>
         <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="15.0">
           <targets>PARENT</targets>
         </layoutOptions>
-        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
-          <targets>PARENT</targets>
-          <value name="UNDEFINED"/>
-        </layoutOptions>
         <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
           <targets>PARENT</targets>
         </layoutOptions>
-        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.strategy">
+        <layoutOptions xsi:type="description_1:IntegerLayoutOption" id="org.eclipse.elk.layered.layering.coffmanGraham.layerBound" value="15">
           <targets>PARENT</targets>
-          <value name="BRANDES_KOEPF"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.layering.strategy">
+          <targets>PARENT</targets>
+          <value name="INTERACTIVE"/>
         </layoutOptions>
       </layout>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@edgeMappings[name='DB_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Sequence']">

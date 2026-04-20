@@ -169,6 +169,10 @@
         <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
           <targets>PARENT</targets>
         </layoutOptions>
+        <layoutOptions xsi:type="description_2:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="ORTHOGONAL"/>
+        </layoutOptions>
       </layout>
       <defaultLayer name="Default">
         <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
@@ -797,7 +801,7 @@
     <metamodels href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
     <categories name="Entity Category">
       <pages name="Entity Page {tabOrder=100}" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self">
-        <groups href="../../../plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
+        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
       <pages name="Persistence Page {tabOrder=200}" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Root Page {tabOrder=100}" labelExpression="Root" domainClass="entity::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>

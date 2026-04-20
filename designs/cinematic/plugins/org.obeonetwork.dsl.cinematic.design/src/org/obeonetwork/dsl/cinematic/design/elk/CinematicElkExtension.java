@@ -28,6 +28,7 @@ import org.eclipse.sirius.diagram.elk.GmfLayoutCommand;
 import org.eclipse.sirius.diagram.elk.IELKLayoutExtension;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
+import org.obeonetwork.dsl.cinematic.flow.FinalState;
 import org.obeonetwork.dsl.cinematic.flow.InitialState;
 import org.obeonetwork.utils.common.ui.services.ElkUtils;
 
@@ -57,6 +58,14 @@ public class CinematicElkExtension implements IELKLayoutExtension {
 						: false);
 		initialNodes.findFirst().ifPresent(node -> node.setProperty(LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT,
 				LayerConstraint.FIRST_SEPARATE));
+		final Stream<ElkNode> finalNodes = ElkUtils
+				.streamAllNodes(layoutMapping.getLayoutGraph(), ElkNode.class::isInstance)
+				.filter(eNode -> (layoutMapping.getGraphMap().get(eNode) instanceof GraphicalEditPart)
+						? ((DDiagramElement) ((View)((GraphicalEditPart) layoutMapping.getGraphMap().get(eNode))
+								.getModel()).getElement()).getTarget() instanceof FinalState
+								: false);
+		finalNodes.findFirst().ifPresent(node -> node.setProperty(LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT,
+				LayerConstraint.LAST_SEPARATE));
 	}
 
 	@Override

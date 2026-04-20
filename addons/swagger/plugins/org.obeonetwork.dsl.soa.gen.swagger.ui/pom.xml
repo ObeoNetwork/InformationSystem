@@ -22,4 +22,42 @@
 	<artifactId>org.obeonetwork.dsl.soa.gen.swagger.ui</artifactId>
 	<version>5.1.3-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
+	
+		<build>
+		<plugins>
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-dependency-plugin</artifactId>
+	            <version>2.10</version>
+	            <executions>
+	                <execution>
+	                    <id>copy-dependencies</id>
+	                    <phase>initialize</phase>
+	                    <goals>
+	                        <goal>copy-dependencies</goal>
+	                    </goals>
+	                    <configuration>
+	                        <includeScope>compile</includeScope>
+	                        <outputDirectory>${project.build.directory}/jars</outputDirectory>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+		    <groupId>org.yaml</groupId>
+		    <artifactId>snakeyaml</artifactId>
+		    <version>2.2</version>
+		    <scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.16.0</version>
+		    <scope>compile</scope>
+		</dependency>
+	</dependencies>
 </project>
