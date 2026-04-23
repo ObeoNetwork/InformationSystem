@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="5.1.3.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">>
+<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="6.0.0.qualifier" type="features" includeLaunchers="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="icons/about.gif"/>
@@ -207,6 +207,23 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <property name="eclipse.buildId" value="${buildQualifier}" />
       <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
+
+   <repositories>
+      <repository location="https://download.eclipse.org/acceleo/updates/releases/4.1/R202502130921/" name="Acceleo4" enabled="true" />
+      <repository location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/" name="Amalgam" enabled="false" />
+      <repository location="https://obeo-networkaggregation-releases.s3.eu-west-1.amazonaws.com/bits/master/thirdparties/" name="ANTLR" enabled="false" />
+      <repository location="https://download.eclipse.org/releases/2023-03/" name="Eclipse-2023-03" enabled="false" />
+      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/4.0.0/repository/" name="M2Doc-4.1.0" enabled="false" />
+      <repository location="https://download.eclipse.org/mylyn/releases/3.26/" name="Mylyn-3.26" enabled="false" />
+      <repository location="https://update.obeo.fr/stable/designer/12.0_rc6/community/12.0.0/repository/" name="Obeo-Designer-Community-12.0" enabled="false" />
+      <repository location="https://update.obeo.fr/stable/designer/12.0_rc6/team/12.0.0/repository/" name="Obeo-Designer-Team-12.0" enabled="false" />
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/" name="Orbit-2021-06" enabled="false" />
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" name="Orbit-2023-03" enabled="false" />
+      <repository location="https://download.eclipse.org/sirius/updates/releases/7.4.2/2023-03/" name="Sirius-7.4.2" enabled="false" />
+      <repository location="https://osspit.org/eclipse/subversive-connectors/" name="Subversive-Connector-Plugin" enabled="false" />
+      <repository location="https://download.eclipse.org/technology/subversive/4.8/release/latest/" name="Subversive-Plugin" enabled="false" />
+      <repository location="https://download.eclipse.org/releases/oxygen/" name="SVN" enabled="false" />
+   </repositories>
 
    <preferencesInfo>
       <targetfile overwrite="false"/>
