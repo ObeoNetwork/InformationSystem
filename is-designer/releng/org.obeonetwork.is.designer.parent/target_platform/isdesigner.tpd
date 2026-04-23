@@ -3,10 +3,13 @@ target "IS Designer Product Target Definition" with source, requirements
 include "isrepository.tpd"
 
 location Eclipse-2025-09 "https://download.eclipse.org/releases/2025-09/" {
+	jakarta.annotation-api lazy
 	org.eclipse.core.runtime.feature.feature.group lazy
 	org.eclipse.ecf.core.feature.feature.group lazy
 	org.eclipse.equinox.executable.feature.group lazy
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+	org.eclipse.pde.feature.group lazy
+	org.eclipse.pde.ui lazy
 	org.eclipse.platform.source lazy
 	com.sun.xml.bind lazy
 	org.eclipse.emf.ecoretools.source lazy
