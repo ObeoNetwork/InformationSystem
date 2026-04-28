@@ -1,21 +1,3 @@
-instructions.configure=\
-mkdir(path:${installFolder}/dropins);
-
-units.1.id=toolingorg.eclipse.configuration.macosx.x86_64
-units.1.version=1.0.0
-units.1.provides.1.namespace=org.eclipse.equinox.p2.iu
-units.1.provides.1.name=toolingorg.eclipse.configuration.macosx.x86_64
-units.1.provides.1.version=1.0.0
-units.1.filter=(&(osgi.os=macosx) (osgi.arch=x86_64))
-units.1.touchpoint.id=org.eclipse.equinox.p2.osgi
-units.1.touchpoint.version=1.0.0
-
-requires.1.namespace=org.eclipse.equinox.p2.iu
-requires.1.name=toolingorg.eclipse.configuration.macosx.x86_64
-requires.1.filter=(&(osgi.os=macosx) (osgi.arch=x86_64))
-requires.1.range=[1.0.0,1.0.0]
-requires.1.greedy=true
-
 # Set the product property type
 properties.0.name=org.eclipse.equinox.p2.type.product
 properties.0.value=true
