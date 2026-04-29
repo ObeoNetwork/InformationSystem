@@ -142,9 +142,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
-      <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
       <feature id="org.eclipse.acceleo.aql.feature"/>
-      <feature id="org.eclipse.sirius.specifier"/>
       <feature id="org.eclipse.amalgam.discovery"/>
       <feature id="org.eclipse.amalgam.explorer.contextual"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
@@ -186,12 +184,14 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.sirius.runtime.ide.ui.source"/>
       <feature id="org.eclipse.sirius.runtime.source"/>
       <feature id="org.eclipse.sirius.samples"/>
+      <feature id="org.eclipse.sirius.specifier"/>
       <feature id="org.eclipse.sirius.tests.support"/>
       <feature id="org.eclipse.sirius.tests.support.source"/>
       <feature id="org.eclipse.team.svn.core.feature"/>
       <feature id="org.eclipse.team.svn.feature"/>
       <feature id="org.eclipse.team.svn.nl1.feature"/>
       <feature id="org.eclipse.team.svn.pde.build.feature"/>
+      <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
    </features>
 
    <configurations>
