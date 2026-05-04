@@ -73,7 +73,7 @@
       <unit id="org.obeonetwork.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.apache.poi.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
-      <repository id="M2Doc-5.0" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/5.0.0/repository/"/>
+      <repository id="M2Doc-5.0-Nightly" location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository/"/>
     </location>
   </locations>
 </target>
