@@ -80,8 +80,7 @@ public class LinkRequirementAction extends EObjectLinksViewAction {
 		}
 		
 		EObject context = linksView.getInput();
-		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
-				LinkRequirementAction::getRequirementTreeNodeChildren);
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(LinkRequirementAction::getRequirementTreeNodeChildren);
 		
 		treeRoot.getConfiguration().setSelectableCondition(Requirement.class::isInstance);
 		
