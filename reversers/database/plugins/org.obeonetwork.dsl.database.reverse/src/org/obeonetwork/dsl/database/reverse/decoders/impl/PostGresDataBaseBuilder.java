@@ -162,12 +162,6 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 						column.setSequence(sequence);
 					});
 				}
-				// Link the columns referencing the sequence in their default value to the sequence
-				if(linkedSequenceColumns.get(sequenceName) != null) {
-					linkedSequenceColumns.get(sequenceName).forEach(column -> {
-						column.setSequence(sequence);
-					});
-				}
 			}
 		} catch (Exception ex) {
 			DatabaseReverserPlugin.logError("Error while importing database", ex);
