@@ -1,6 +1,6 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
-location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/community/12.0.0/repository/" {
+location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" {
 	com.google.guava lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	org.eclipse.emf.compare.ide.ui.feature.group lazy
@@ -31,7 +31,7 @@ location Sirius-7.5.0 "https://download.eclipse.org/sirius/updates/releases/7.5.
 	org.eclipse.sirius.specifier.feature.group lazy
 }
 
-location Obeo-Designer-Team-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/team/12.0.0/repository/" {
+location Obeo-Designer-Team-12.0 "https://update.obeo.fr/release/designer/12.0/team/12.0.0/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }

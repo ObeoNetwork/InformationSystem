@@ -20,7 +20,7 @@ location Eclipse-2025-06 "https://download.eclipse.org/releases/2025-06/" {
 	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group lazy	
 }
 
-location Obeo-Designer-Community-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/community/12.0.0/repository/" {
+location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" {
 	com.google.inject lazy
 	com.ibm.icu lazy
 	org.apache.log4j lazy
@@ -100,7 +100,7 @@ location Eclipse-2025-09 "https://download.eclipse.org/releases/2025-09/" {
 	org.eclipse.jdt.source.feature.group lazy
 }
 
-location Obeo-Designer-Team-12.0 "https://update.obeo.fr/stable/designer/12.0_rc6/team/12.0.0/repository/" {
+location Obeo-Designer-Team-12.0 "https://update.obeo.fr/release/designer/12.0/team/12.0.0/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
