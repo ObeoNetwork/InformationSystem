@@ -60,6 +60,7 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
 import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
+import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizard;
 
 /**
  * Java services for the sample 'Interaction' sequence diagrams.
@@ -690,4 +691,30 @@ public class InteractionServices {
     	}
     }
     
+	/**
+	 * Prompts the user, through a wizard modal dialog, to select an
+	 * {@link ObeoDSMObject} with the intention that it will be
+	 * {@link Participant#setType(ObeoDSMObject) set as the type of} the given
+	 * {@link Participant}.
+	 * 
+	 * @param participant the (non-{@code null}) {@link Participant} for which we
+	 *                    want to select an {@link ObeoDSMObject}.
+	 * @return the (non-{@code null}) {@link ObeoDSMObject} selected by the user
+	 *         through the UI if the dialog was closed with the 'OK' button.
+	 *         {@code null} if the dialog was closed with the 'Cancel' button.
+	 */
+	public static ObeoDSMObject promptUserToSelectParticipantType(final Participant participant) {
+		Objects.requireNonNull(participant);
+
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		final CustomEEFExtEObjectSelectionWizard wizard = new CustomEEFExtEObjectSelectionWizard(participant,
+				InteractionPackage.Literals.PARTICIPANT__TYPE, (EditingContextAdapter) null);
+		final WizardDialog wizardDialog = new WizardDialog(shell, wizard);
+		if (Window.OK == wizardDialog.open()) {
+			return (ObeoDSMObject) wizard.getResult().get(0);
+		} else {
+			return null;
+		}
+	}
+       
 }
