@@ -295,7 +295,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'attribute' + (self.eContainer(environment::StructuredType).ownedAttributes + self.eContainer(environment::StructuredType).getAssociatedTypesAttributes())->size()"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
