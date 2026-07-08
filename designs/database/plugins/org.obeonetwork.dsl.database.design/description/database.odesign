@@ -179,7 +179,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteDatabaseElement()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_TableContainer_contents" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and Sequence{database::Table, database::View, database::Schema}->intersection(element.eClass().eAllSuperTypes->including(element.eClass()))->notEmpty()) or (partialView and element.eContainer()=newContainer) endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_TableContainer_contents" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and Sequence{database::Table, database::View, database::Schema}->intersection(element.eClass().eAllSuperTypes->including(element.eClass()))->notEmpty()) or (partialView and element.eContainer()=newContainer)" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -223,7 +223,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_Sequence" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target and element.tableContainerWithSequences() &lt;> null endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_Sequence" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target and element.tableContainerWithSequences() &lt;> null" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -416,7 +416,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.removeNonReferencedTableFromDiagram(self)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_ReferencedExternalTable" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and diagram.target.oclAsType(database::TableContainer).allReferencedExternalTables()->includes(element) endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DND_ReferencedExternalTable" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and diagram.target.oclAsType(database::TableContainer).allReferencedExternalTables()->includes(element)" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>

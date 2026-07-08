@@ -78,7 +78,7 @@
         </children>
         <children id="dragdrop.structuredtype">
           <stringValues id="id" value="DAD_ED_DomainClass"/>
-          <stringValues id="precondition" value="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(graal::DomainClass)) or (partialView and element.eContainer()=newContainer) endlet"/>
+          <stringValues id="precondition" value="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(graal::DomainClass)) or (partialView and element.eContainer()=newContainer)"/>
         </children>
         <children id="addReferencedStructuredTypes">
           <stringValues id="label" value="Add referenced domain classes"/>

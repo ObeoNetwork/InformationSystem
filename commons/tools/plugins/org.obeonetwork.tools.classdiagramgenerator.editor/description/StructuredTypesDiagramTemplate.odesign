@@ -53,7 +53,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -224,7 +224,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Namespace']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Namespace" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Namespace)) or (partialView and element.eContainer()=newContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Namespace']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -455,7 +455,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Enumeration)) or (partialView and element.eContainer()=newContainer) endlet" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:let partialView = not newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram).synchronized in (not partialView and element.oclIsKindOf(environment::Enumeration)) or (partialView and element.eContainer()=newContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -709,7 +709,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.removeNonReferencedStructuredTypeFromDiagram(self)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_ExternalStructuredType_Referenced" precondition="aql:let diagram=newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and newContainer.getAllReferencedStructuredTypes(diagram)->includes(element) endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_ExternalStructuredType_Referenced" precondition="aql:let diagram=newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and newContainer.getAllReferencedStructuredTypes(diagram)->includes(element)" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>

@@ -433,7 +433,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_FLD_FlowEvents" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_FLD_FlowEvents" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and element = diagram.target" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -577,7 +577,7 @@
             <containerVariable name="container"/>
             <representationNameVariable name="treeName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_FLD_ViewContainer" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and diagram.target.oclAsType(flow::Flow).getStatesViewContainers()->includes(element) endlet" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_FLD_ViewContainer" precondition="aql:let diagram = newViewContainer.eContainerOrSelf(diagram::DSemanticDiagram) in not diagram.synchronized and diagram.target.oclAsType(flow::Flow).getStatesViewContainers()->includes(element)" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
