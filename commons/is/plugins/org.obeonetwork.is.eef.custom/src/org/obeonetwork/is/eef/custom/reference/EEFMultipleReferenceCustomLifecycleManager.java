@@ -22,7 +22,9 @@ import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtMultipleRefer
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -245,6 +247,24 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 		} else {
 			super.browseButtonCallback();
 		}
+	}
+
+	@Override
+	protected void moveButtonCallback(Direction direction) {
+		Object selectedElement = null;
+		
+		ISelection selection = this.tableViewer.getSelection();
+		if(selection instanceof IStructuredSelection structuredSelection) {
+			selectedElement = structuredSelection.getFirstElement();
+		}
+		
+		super.moveButtonCallback(direction);
+		
+		if(selectedElement != null) {
+			this.tableViewer.setSelection(new StructuredSelection(selectedElement), true);
+		}
+		this.tableViewer.refresh();
+		
 	}
 
 }
