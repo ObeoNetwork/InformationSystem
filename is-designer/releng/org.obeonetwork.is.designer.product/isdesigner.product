@@ -211,13 +211,13 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </configurations>
 
    <repositories>
-      <repository location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202603201315/" name="Acceleo_4.2.2_AQL_8.1.2" enabled="true" />
+      <repository location="https://download.eclipse.org/acceleo/updates/nightly/latest/" name="Acceleo-Nightly" enabled="true" />
       <repository location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.14.0/capella/" name="Amalgam" enabled="true" />
       <repository location="https://download.eclipse.org/releases/2025-06/" name="Eclipse-2025-06" enabled="true" />
       <repository location="https://download.eclipse.org/releases/2025-09/" name="Eclipse-2025-09" enabled="true" />
-      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/5.0.0/repository/" name="M2Doc-5.0" enabled="true" />
-      <repository location="https://update.obeo.fr/stable/designer/12.0_rc6/community/12.0.0/repository/" name="Obeo-Designer-Community-12.0" enabled="true" />
-      <repository location="https://update.obeo.fr/stable/designer/12.0_rc6/team/12.0.0/repository/" name="Obeo-Designer-Team-12.0" enabled="true" />
+      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/5.0.0/repository/" name="M2Doc-5.0-Release" enabled="true" />
+      <repository location="https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" name="Obeo-Designer-Community-12.0" enabled="true" />
+      <repository location="https://update.obeo.fr/release/designer/12.0/team/12.0.0/repository/" name="Obeo-Designer-Team-12.0" enabled="true" />
       <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/" name="Orbit-2021-06" enabled="true" />
       <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" name="Orbit-2023-03" enabled="true" />
       <repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2025-09" name="Orbit-2025-09" enabled="true" />
