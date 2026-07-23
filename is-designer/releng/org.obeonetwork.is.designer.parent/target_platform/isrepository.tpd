@@ -5,6 +5,10 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/1
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	org.eclipse.emf.compare.ide.ui.feature.group lazy
 	// Sirius
+	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.feature.source.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.properties.feature.source.feature.group lazy
 	org.eclipse.sirius.runtime.aql.feature.group lazy
