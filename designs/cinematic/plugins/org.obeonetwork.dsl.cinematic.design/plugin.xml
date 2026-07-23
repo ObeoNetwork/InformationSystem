@@ -292,4 +292,10 @@
            definition="org.obeonetwork.dsl.cinematic.design.extension.ViewContainerChildrenContribution">
      </client>
   </extension>
+  <extension
+        point="org.eclipse.sirius.diagram.elk.layout.extension">
+     <layoutExtension
+           class="org.obeonetwork.dsl.cinematic.design.elk.CinematicElkExtension">
+     </layoutExtension>
+  </extension>
 </plugin>
