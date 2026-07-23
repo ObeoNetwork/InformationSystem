@@ -11,7 +11,9 @@
 package org.obeonetwork.graal.design.services.requirements;
 
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
@@ -76,12 +78,14 @@ public class RequirementsUtils {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * Try to interpret an object as an UseCase
 	 * - return this if the object is a UseCase
 	 * - return the UseCase associated to the group if the referencedObject can be interpreted as a group
 	 * - return the UseCase associated to the task if the referencedObject can be interpreted as a task
+	 * - return the UseCase associated to the domainClass or the parent namespace if the referencedObject can be interpreted as a domainClass
+	 * - return the UseCase associated to the namespace if the referencedObject can be interpreted as a namespace
 	 * - null otherwise
 	 * 
 	 * @param context The context on which is applied the service
@@ -92,6 +96,10 @@ public class RequirementsUtils {
 			return (UseCase) context;
 		} else if (context instanceof TasksGroup) {
 			return ((TasksGroup) context).getUseCase();
+		} else if (context instanceof DomainClass) {
+			return ((DomainClass) context).eContainer().eContainer().eContents().stream().filter(UseCase.class::isInstance).map(UseCase.class::cast).filter(useCase -> (useCase.getDomainClasses().contains(context)) || (useCase.getNamespaces().contains(context.eContainer()))).findFirst().orElse(null);
+		} else if (context instanceof Namespace) {
+			return ((Namespace) context).eContainer().eContents().stream().filter(UseCase.class::isInstance).map(UseCase.class::cast).filter(useCase -> useCase.getNamespaces().contains(context)).findFirst().orElse(null);
 		} else {
 			Task asTask = asTask(context);
 			if (asTask != null) {
