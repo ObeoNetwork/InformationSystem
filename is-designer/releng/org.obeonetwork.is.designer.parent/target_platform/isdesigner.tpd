@@ -26,6 +26,18 @@ location Orbit-2025-12 "https://download.eclipse.org/tools/orbit/simrel/orbit-ag
     bcpg [1.84.0,1.84.0]
     bcpkix [1.84.0,1.84.0]
     bcutil [1.84.0,1.84.0]
+    junit-jupiter-api [5.14.4,5.14.4]
+    junit-jupiter-engine [5.14.4,5.14.4]
+    junit-jupiter-migrationsupport [5.14.4,5.14.4]
+    junit-jupiter-params [5.14.4,5.14.4]
+    junit-vintage-engine [5.14.4,5.14.4]
+    junit-platform-commons [1.14.4,1.14.4]
+    junit-platform-engine [1.14.4,1.14.4]
+    junit-platform-launcher [1.14.4,1.14.4]
+    junit-platform-runner [1.14.4,1.14.4]
+    junit-platform-suite-api [1.14.4,1.14.4]
+    junit-platform-suite-commons [1.14.4,1.14.4]
+    junit-platform-suite-engine [1.14.4,1.14.4]
 }
 
 location Eclipse-2025-06 "https://download.eclipse.org/releases/2025-06/" {

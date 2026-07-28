@@ -47,6 +47,18 @@
       <unit id="bcpg" version="1.84.0"/>
       <unit id="bcpkix" version="1.84.0"/>
       <unit id="bcutil" version="1.84.0"/>
+      <unit id="junit-jupiter-api" version="5.14.4"/>
+      <unit id="junit-jupiter-engine" version="5.14.4"/>
+      <unit id="junit-jupiter-migrationsupport" version="5.14.4"/>
+      <unit id="junit-jupiter-params" version="5.14.4"/>
+      <unit id="junit-vintage-engine" version="5.14.4"/>
+      <unit id="junit-platform-commons" version="1.14.4"/>
+      <unit id="junit-platform-engine" version="1.14.4"/>
+      <unit id="junit-platform-launcher" version="1.14.4"/>
+      <unit id="junit-platform-runner" version="1.14.4"/>
+      <unit id="junit-platform-suite-api" version="1.14.4"/>
+      <unit id="junit-platform-suite-commons" version="1.14.4"/>
+      <unit id="junit-platform-suite-engine" version="1.14.4"/>
       <repository id="Orbit-2025-12" location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2026-06"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
