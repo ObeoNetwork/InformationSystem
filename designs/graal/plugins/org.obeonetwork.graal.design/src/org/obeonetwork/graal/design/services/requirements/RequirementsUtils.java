@@ -10,10 +10,18 @@
  *******************************************************************************/
 package org.obeonetwork.graal.design.services.requirements;
 
+import java.util.Collection;
+import java.util.stream.Stream;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
 import org.obeonetwork.graal.DomainClass;
+import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
@@ -92,14 +100,29 @@ public class RequirementsUtils {
 	 * @return the useCase, if a useCase is find, null otherwise
 	 */
 	public UseCase asUseCase(EObject context) {
-		if (context instanceof UseCase) {
-			return (UseCase) context;
-		} else if (context instanceof TasksGroup) {
-			return ((TasksGroup) context).getUseCase();
-		} else if (context instanceof DomainClass) {
-			return ((DomainClass) context).eContainer().eContainer().eContents().stream().filter(UseCase.class::isInstance).map(UseCase.class::cast).filter(useCase -> (useCase.getDomainClasses().contains(context)) || (useCase.getNamespaces().contains(context.eContainer()))).findFirst().orElse(null);
-		} else if (context instanceof Namespace) {
-			return ((Namespace) context).eContainer().eContents().stream().filter(UseCase.class::isInstance).map(UseCase.class::cast).filter(useCase -> useCase.getNamespaces().contains(context)).findFirst().orElse(null);
+		if (context instanceof UseCase useCase) {
+			return useCase;
+		} else if (context instanceof TasksGroup taskGroup) {
+			return taskGroup.getUseCase();
+		} else if (context instanceof DomainClass domainClass) {
+			ECrossReferenceAdapter semanticCrossReferencer = Session.of(domainClass).get().getSemanticCrossReferencer();
+			// Concat the inverse reference for the DomainClass and it's parent in case the link isn't direct
+			Stream<Setting> inverseReferences = Stream.concat(semanticCrossReferencer.getInverseReferences(domainClass, GraalPackage.eINSTANCE.getUseCase_DomainClasses(), true).stream(),
+					semanticCrossReferencer.getInverseReferences(domainClass.eContainer(), GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(), true).stream());
+			
+			return inverseReferences
+					.map(Setting::getEObject)
+					.filter(UseCase.class::isInstance)
+					.map(UseCase.class::cast)
+					.findFirst()
+					.orElse(null);
+		} else if (context instanceof Namespace namespace) {
+			return Session.of(namespace).get().getSemanticCrossReferencer().getInverseReferences(namespace, GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(), true).stream()
+					.map(Setting::getEObject)
+					.filter(UseCase.class::isInstance)
+					.map(UseCase.class::cast)
+					.findFirst()
+					.orElse(null);
 		} else {
 			Task asTask = asTask(context);
 			if (asTask != null) {
