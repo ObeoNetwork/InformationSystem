@@ -404,6 +404,18 @@ Les actions possibles sont :
 | !pics/userstories/checkstate1.png! | Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. |
 | !pics/userstories/checkstate3.png! | Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. Il n'y a donc aucun effet pour les éléments sélectionnés qui n'étaient pas associés à la user story. |
 
+h6. Association explicite ou implicite d'une tâche
+
+Une _Task_ peut être associée à une _User Story_ de plusieurs manières :
+
+* *Association explicite* : sélectionner la tâche dans un graphe de tâches ou dans le _Model Explorer_, puis cocher la _User Story_ dans la vue _User Stories_. La tâche, les noeuds et les transitions de son plan d'action sont associés. Le contenu des boucles est parcouru récursivement. Les noeuds de type _TaskReference_ sont exclus de cette propagation : les tâches référencées ne sont pas associées automatiquement.
+* *Association depuis un noeud du plan d'action* : associer un noeud tel qu'une _UserAction_, une _UserView_, une _AppliAction_, un _AppliEvent_, un opérateur ou un noeud initial, final ou d'abandon associe également automatiquement la tâche qui contient ce noeud. Les autres éléments du plan d'action ne sont pas associés.
+* *Association depuis une tâche utilisée* : associer un noeud _TaskReference_ associe la tâche référencée ainsi que son plan d'action. Le noeud _TaskReference_ et la tâche qui le contient ne sont pas associés par cette opération.
+
+L'association d'une transition seule n'entraîne pas l'association automatique de sa tâche contenante.
+
+La dissociation applique les règles réciproques. En particulier, la tâche contenante d'un noeud reste associée tant qu'au moins un autre élément de son plan d'action est encore lié à la _User Story_.
+
 h5. Visualisation d'une User Story
 
 Un double-clic sur une _User Story_ ou un clic sur le bouton !pics/userstories/display.png! provoque l'affichage de la user story sur les différents diagrammes : 
