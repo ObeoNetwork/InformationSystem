@@ -960,6 +960,35 @@
 				<td>Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. Il n&#8217;y a donc aucun effet pour les éléments sélectionnés qui n'étaient pas associés à la user story.</td>
 			</tr>
 		</table>
+		<h6 id="Associationexpliciteouimplicitedunetche">Association explicite ou implicite d&#8217;une tâche</h6>
+		<p>Une 
+			<em>Task</em> peut être associée à une 
+			<em>User Story</em> de plusieurs manières :
+		</p>
+		<ul>
+			<li>
+				<strong>Association explicite</strong> : sélectionner la tâche dans un graphe de tâches ou dans le 
+				<em>Model Explorer</em>, puis cocher la 
+				<em>User Story</em>. La tâche, les noeuds et les transitions de son plan d&#8217;action sont associés. Le contenu des boucles est parcouru récursivement. Les noeuds de type 
+				<em>TaskReference</em> sont exclus de cette propagation : les tâches référencées ne sont pas associées automatiquement.
+			</li>
+			<li>
+				<strong>Association depuis un noeud du plan d&#8217;action</strong> : associer un noeud tel qu&#8217;une 
+				<em>UserAction</em>, une 
+				<em>UserView</em>, une 
+				<em>AppliAction</em>, un 
+				<em>AppliEvent</em>, un opérateur ou un noeud initial, final ou d&#8217;abandon associe également automatiquement la tâche qui contient ce noeud. Les autres éléments du plan d&#8217;action ne sont pas associés.
+			</li>
+			<li>
+				<strong>Association depuis une tâche utilisée</strong> : associer un noeud 
+				<em>TaskReference</em> associe la tâche référencée ainsi que son plan d&#8217;action. Le noeud 
+				<em>TaskReference</em> et la tâche qui le contient ne sont pas associés par cette opération.
+			</li>
+		</ul>
+		<p>L&#8217;association d&#8217;une transition seule n&#8217;entraîne pas l&#8217;association automatique de sa tâche contenante.</p>
+		<p>La dissociation applique les règles réciproques. En particulier, la tâche contenante d&#8217;un noeud reste associée tant qu&#8217;au moins un autre élément de son plan d&#8217;action est encore lié à la 
+			<em>User Story</em>.
+		</p>
 		<h5 id="VisualisationduneUserStory">Visualisation d&#8217;une User Story</h5>
 		<p>Un double-clic sur une 
 			<em>User Story</em> ou un clic sur le bouton 
@@ -1006,7 +1035,7 @@
 		<p>
 			<img border="0" src="pics/requirements/Use%20case%20traceability%20matrix.png"/>
 		</p>
-		<h2 id="RegroupementsdeslmentsconstituantunSystmeparblocslogiques">Regroupements des éléments constituant un Système par blocs logiques</h2>
+		<h2 id="RegroupementsdeslmentsconstituantunSystmeparblocslogiques2">Regroupements des éléments constituant un Système par blocs logiques</h2>
 		<p>Dans l&#8217;explorateur de modèles, en dessous du noeud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.</p>
 		<p>
 			<img border="0" src="pics/GraalSystemContentExplorerStructure.png"/>
