@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="database" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="database" version="15.4.0.202401051836">
   <ownedViewpoints endUserDocumentation="The &lt;b>Database&lt;/b> viewpoint provides two representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Database Diagram&lt;/b> : a diagram allowing to represent and edit a database strucure,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Schema Diagram&lt;/b> : a diagram allowing to represent and edit a schema strucure.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Database" modelFileExtension="database">
     <validationSet reusedRules="//@extensions.0/@categories.0/@groups.2/@validationSet/@semanticValidationRules[name='database%3A%3AView%20query%20validation']"/>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="database::DataBase" preconditionExpression="false">
@@ -51,6 +51,44 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_TableContainer_contents'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_Sequence'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DPV_DND_ReferencedExternalTable'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_SequenceNode']" name="Database Diagram" titleExpression="aql:self.name + ' Database'" pasteDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DB_Table']" domainClass="database::DataBase">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.database/model/database.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.alignment">
+          <targets>NODE</targets>
+          <value name="AUTOMATIC"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment">
+          <targets>PARENT</targets>
+          <value name="NONE"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.crossingMinimization.strategy">
+          <targets>PARENT</targets>
+          <value name="LAYER_SWEEP"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.direction">
+          <targets>PARENT</targets>
+          <value name="DOWN"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="10.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="10.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.strategy">
+          <targets>PARENT</targets>
+          <value name="NETWORK_SIMPLEX"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:IntegerLayoutOption" id="org.eclipse.elk.layered.priority.straightness">
+          <targets>EDGE</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:BooleanLayoutOption" id="org.eclipse.elk.topdownLayout">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="ORTHOGONAL"/>
+        </layoutOptions>
+      </layout>
       <defaultLayer name="Default">
         <edgeMappings name="DB_ForeignKey" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DB_Delete']" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getForeignKeys(diagram)" semanticElements="var:self" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Referenced_External_Table']" targetMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Referenced_External_Table']" targetFinderExpression="aql:self.getTargetTable()" sourceFinderExpression="aql:self.getSourceTable()" domainClass="database::ForeignKey" useDomainElement="true" reconnections="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DB_ForeignKey_Reconnect_Source'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DB_ForeignKey_Reconnect_Target']">
           <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']">
@@ -496,6 +534,30 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_TableContainer_contents'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_Sequence'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DPV_DND_ReferencedExternalTable'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DPV_DND_SequenceNode']" name="Schema Diagram" titleExpression="aql:self.name + ' Schema'" pasteDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DB_Table']" domainClass="database::Schema">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.database/model/database.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.alignment">
+          <targets>NODE</targets>
+          <value name="AUTOMATIC"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.direction">
+          <targets>PARENT</targets>
+          <value name="DOWN"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="15.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="POLYLINE"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.strategy">
+          <targets>PARENT</targets>
+          <value name="NETWORK_SIMPLEX"/>
+        </layoutOptions>
+      </layout>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@edgeMappings[name='DB_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Sequence']">
         <toolSections name="Schemas" reusedTools="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_PKColumn'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_PrimaryKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_ForeignKey']"/>
         <toolSections name="Sequences" reusedTools="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Sequence']"/>

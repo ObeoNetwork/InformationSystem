@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1784194623">
+<target name="IS Designer Product Target Definition" sequenceNumber="1784886806">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
@@ -93,10 +93,6 @@
       <unit id="org.hamcrest.library" version="0.0.0"/>
       <unit id="org.objectweb.asm" version="0.0.0"/>
       <unit id="org.objectweb.asm.tree" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.feature.source.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="0.0.0"/>
@@ -109,6 +105,10 @@
       <unit id="com.google.guava" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="0.0.0"/>

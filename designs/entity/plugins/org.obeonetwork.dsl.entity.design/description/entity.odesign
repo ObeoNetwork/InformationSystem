@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Entity" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Entity" version="15.4.0.202401051836">
   <ownedViewpoints endUserDocumentation="The &lt;b>Entity Views&lt;/b> viewpoint provides three representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Entities Diagram&lt;/b> : a diagram allowing to represent and edit the Entities of a Namespace,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Entities Namespaces Hierarchy&lt;/b> : a diagram allowing to represent and edit the Namespace hierarchy of an Entity model,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Entity Table&lt;/b> : a table showing the Entities of an Entity model with their number of attributes, estimated volumetry and historized setting.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Entity Views" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -23,6 +23,22 @@
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
+      <layout xsi:type="description_2:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
+        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="15.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:EnumLayoutOption" id="org.eclipse.elk.direction">
+          <targets>PARENT</targets>
+          <value name="DOWN"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="ORTHOGONAL"/>
+        </layoutOptions>
+      </layout>
       <defaultLayer name="Default">
         <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_Namespace']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']">
@@ -36,7 +52,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="environment::Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'namespace' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -154,6 +170,22 @@
     <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_ED_Namespace'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DAD_ED_ExternalStructuredType_Referenced']" name="Entities Diagram" label="Entities Diagram" titleExpression="aql:self.name + ' - Entities diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(entity::Root)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
+      <layout xsi:type="description_2:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
+        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="15.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:EnumLayoutOption" id="org.eclipse.elk.direction">
+          <targets>PARENT</targets>
+          <value name="DOWN"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_2:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="ORTHOGONAL"/>
+        </layoutOptions>
+      </layout>
       <defaultLayer name="Default">
         <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
@@ -781,7 +813,7 @@
     <metamodels href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
     <categories name="Entity Category">
       <pages name="Entity Page {tabOrder=100}" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self">
-        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
+        <groups href="../../../plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
       <pages name="Persistence Page {tabOrder=200}" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Root Page {tabOrder=100}" labelExpression="Root" domainClass="entity::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>

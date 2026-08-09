@@ -70,10 +70,6 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/1
 	org.objectweb.asm lazy
 	org.objectweb.asm.tree lazy
 	// Sirius
-	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
-	org.eclipse.sirius.diagram.elk.feature.source.feature.group lazy
-	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
-	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
 	org.eclipse.sirius.interpreter.feature.feature.group lazy
 	org.eclipse.sirius.interpreter.feature.source.feature.group lazy

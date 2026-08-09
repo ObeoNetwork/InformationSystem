@@ -138,36 +138,6 @@
 	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.inject-api-2.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.servlet-api-6.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/jakarta.transaction-api-1.3.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-alpn-client-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-annotations-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-client-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-compression-common-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-compression-gzip-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-annotations-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-nested-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-plus-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-security-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-servlet-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-webapp-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-websocket-jetty-api-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-websocket-jetty-client-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-websocket-jetty-common-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-websocket-jetty-server-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee8-websocket-servlet-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-ee-webapp-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-http-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-io-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-jndi-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-plus-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-security-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-server-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-servlet-api-4.0.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-session-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-util-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-websocket-core-client-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-websocket-core-common-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-websocket-core-server-12.1.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/jetty-xml-12.1.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/jna-5.17.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/jna-platform-5.17.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/jspecify-1.0.0.jar"/>
@@ -176,30 +146,6 @@
 	<classpathentry exported="true" kind="lib" path="target/jars/org.bndtools.versioncontrol.ignores.manager-7.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.bndtools.versioncontrol.ignores.plugin.git-7.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.eclipse.nebula.treemapper-0.1.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.cinematic.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.cinematic-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.database-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.entity.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.entity-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.binding.dialect.ui-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.binding.dialect-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.common-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.design.services-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.design-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.environment-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.is-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.overview.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.overview.editor-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.overview-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.soa.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.soa-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.technicalid.edit-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.technicalid-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.dsl.typeslibrary-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.tools.migration-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.utils.common.ui-5.2.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/org.obeonetwork.utils.common-5.2.0-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.osgi.dto-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.osgi.framework-1.8.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.osgi.resource-1.0.0.jar"/>
@@ -209,6 +155,5 @@
 	<classpathentry exported="true" kind="lib" path="target/jars/org.osgi.util.tracker-1.5.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.ow2.sat4j.core-2.3.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/org.ow2.sat4j.pb-2.3.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/jars/osgi.annotation-8.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
