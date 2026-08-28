@@ -17,7 +17,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.eclipse.core.resources.IFolder;
@@ -29,6 +31,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
@@ -199,6 +202,16 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		
 		URI targetURI = getTargetResourceURI(importData, sourceResource.getURI());
 		Resource targetResource = createTargetResource(importData, copiedContents, targetURI);
+		
+		// Perform a save to guarantee the validity of the URI
+		try {
+			Map<Object, Object> options = new HashMap<Object, Object>();
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+			targetResource.save(options);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return targetResource;
 	}
 
