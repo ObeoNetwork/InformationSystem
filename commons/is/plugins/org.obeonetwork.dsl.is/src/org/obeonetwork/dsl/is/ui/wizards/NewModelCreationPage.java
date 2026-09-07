@@ -50,10 +50,12 @@ import org.eclipse.sirius.ui.tools.internal.views.common.item.ProjectDependencie
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.VerifyKeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -87,6 +89,9 @@ public class NewModelCreationPage extends WizardPage {
 		setTitle("Wizard Page title");
 		setDescription("Wizard Page description");
 		this.fileExtension = fileExtension;
+		if(!fileExtension.startsWith(".")) {
+			this.fileExtension = "." + fileExtension;
+		}
 		
 		this.selection = selection;
 	}
@@ -148,11 +153,30 @@ public class NewModelCreationPage extends WizardPage {
 		
 		textFileName = new StyledText(container, SWT.BORDER | SWT.SINGLE);
 		textFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		textFileName.addVerifyKeyListener(new VerifyKeyListener() {
+			
+			@Override
+			public void verifyKey(VerifyEvent event) {
+				String fileName = textFileName.getText();
+
+				if (fileName.endsWith(fileExtension)) {
+					int extensionStart = fileName.length() - fileExtension.length();
+					int caretOffset = textFileName.getCaretOffset();
+
+					boolean deletingExtension = event.keyCode == SWT.DEL && caretOffset == extensionStart;
+					boolean backspacingExtension = event.keyCode == SWT.BS && caretOffset == extensionStart + 1;
+
+					if (deletingExtension || backspacingExtension) {
+						event.doit = false;
+					}
+				}
+			}
+		});
 		textFileName.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
-				WizardHelper.addExtensionIfMissing(textFileName, NewModelCreationPage.this.fileExtension);
-				WizardHelper.setEmptyIfExtension(textFileName, NewModelCreationPage.this.fileExtension);
+				WizardHelper.addExtensionIfMissing(textFileName, fileExtension);
+				WizardHelper.setEmptyIfExtension(textFileName, fileExtension);
 				data.setTargetResourceName(textFileName.getText());
 				validatePage();
 			}
