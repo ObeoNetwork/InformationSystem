@@ -1,0 +1,19 @@
+target "IS Designer HiDPI additions" with source, requirements
+
+// Keep the ICU version already validated in the OD-based Windows product.
+location Obeo-Designer-ICU "https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" {
+    com.ibm.icu [77.1.0,77.1.0]
+}
+
+// Resolve independently from the OD target, which still contains the original
+// Eclipse RCP feature. The product's Windows feature patch selects the new SWT.
+location GEF-Classic-3.26.1 "https://download.eclipse.org/tools/gef/classic/release/3.26.1/" {
+    org.eclipse.gef.sdk.feature.group [3.26.1.202512111752,3.26.1.202512111752]
+    org.eclipse.draw2d.sdk.feature.group [3.26.1.202512111752,3.26.1.202512111752]
+}
+
+location Eclipse-SWT-2025-12 "https://download.eclipse.org/eclipse/updates/4.38/R-4.38-202512010920/" {
+    org.eclipse.swt [3.132.0.v20251124-0642,3.132.0.v20251124-0642]
+    org.eclipse.swt.svg [3.131.0.v20251009-2047,3.131.0.v20251009-2047]
+    com.github.weisj.jsvg [2.0.0,2.0.0]
+}

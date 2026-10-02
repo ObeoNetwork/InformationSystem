@@ -26,6 +26,13 @@
    </copyright>
 
    <includes
+         id="org.obeonetwork.is.designer.hidpi.patch"
+         version="0.0.0"
+         os="win32"
+         ws="win32"
+         arch="x86_64"/>
+
+   <includes
          id="org.eclipse.nebula.treemapper.feature"
          version="0.0.0"/>
 
@@ -272,5 +279,10 @@
    <!--includes
          id="org.eclipse.acceleo"
          version="0.0.0"/-->
+
+   <!-- The patch dependency is non-greedy. Select its RCP base explicitly. -->
+   <requires>
+      <import feature="org.eclipse.e4.rcp" version="4.37.0.v20250828-1028" match="perfect"/>
+   </requires>
 
 </feature>

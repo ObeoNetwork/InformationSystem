@@ -30,6 +30,7 @@
 		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.ui</module>
+		<module>../org.obeonetwork.is.designer.hidpi.patch</module>
 		<module>../org.obeonetwork.is.designer.product.feature</module>
 		<module>../org.obeonetwork.is.designer.product</module>
 
@@ -67,6 +68,12 @@
 							<version>${target-artifact-version}</version>
 							<classifier>target_platform/isdesigner</classifier>
 						</artifact>
+                        <artifact>
+                            <groupId>org.obeonetwork.is.designer</groupId>
+                            <artifactId>org.obeonetwork.is.designer.parent</artifactId>
+                            <version>${target-artifact-version}</version>
+                            <classifier>target_platform/hidpi</classifier>
+                        </artifact>
 					</target>
 					<pomDependencies>consider</pomDependencies>
 					<environments>

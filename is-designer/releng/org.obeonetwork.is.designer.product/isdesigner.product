@@ -28,6 +28,7 @@ Visit http://www.obeo.fr
 -XX:+UseStringDeduplication
 -Xmx2g
 -Dosgi.dataAreaRequiresExplicitInit=true
+-Ddraw2d.enableAutoscale=true
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>

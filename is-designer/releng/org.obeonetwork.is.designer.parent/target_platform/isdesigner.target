@@ -68,7 +68,7 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.gson" version="0.0.0"/>
       <unit id="com.google.inject" version="0.0.0"/>
-      <unit id="com.ibm.icu" version="0.0.0"/>
+      <unit id="com.ibm.icu" version="77.1.0"/>
       <unit id="org.apache.log4j" version="0.0.0"/>
       <unit id="org.apache.commons.commons-logging" version="0.0.0"/>
       <unit id="org.eclipse.draw2d.sdk.feature.group" version="0.0.0"/>

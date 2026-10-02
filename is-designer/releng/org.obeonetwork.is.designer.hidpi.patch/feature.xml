@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.obeonetwork.is.designer.hidpi.patch" label="IS Designer Windows HiDPI patch" version="6.0.0.qualifier" provider-name="Obeo" os="win32" ws="win32" arch="x86_64">
+  <description>Temporary SWT upgrade for GEF Classic HiDPI rendering on Windows x86_64. Remove when the OD base provides compatible versions.</description>
+  <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
+  <requires>
+    <import feature="org.eclipse.e4.rcp" version="4.37.0.v20250828-1028" patch="true"/>
+  </requires>
+  <plugin id="org.eclipse.swt" version="3.132.0.v20251124-0642" unpack="false"/>
+  <plugin id="org.eclipse.swt.win32.win32.x86_64" version="3.132.0.v20251124-0642" fragment="true" os="win32" ws="win32" arch="x86_64" unpack="false"/>
+  <plugin id="org.eclipse.swt.svg" version="3.131.0.v20251009-2047" fragment="true" unpack="false"/>
+  <plugin id="com.github.weisj.jsvg" version="2.0.0" unpack="false"/>
+</feature>
