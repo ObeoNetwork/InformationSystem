@@ -149,17 +149,15 @@ public final class ElkUtils {
 	/**
 	 * Reverses the edge endpoints, section endpoints and bend point order.
 	 * <p>
-	 * The intended input is an edge with exactly one source and one target.
-	 * The current guard rejects that input instead, so this method does not yet
-	 * implement that contract correctly.
+	 * The edge must have exactly one source and one target.
 	 * </p>
 	 *
 	 * @param elkEdge The edge to reverse.
-	 * @throws IllegalArgumentException if {@link #isRegular(ElkEdge)} returns true
-	 *                                  (the current guard is inverted)
+	 * @throws IllegalArgumentException if the edge does not have exactly one source
+	 *                                  and one target
 	 */
 	public static void reverseEdge(ElkEdge elkEdge) throws IllegalArgumentException {
-		if (isRegular(elkEdge)) {
+		if (!isRegular(elkEdge)) {
 			throw new IllegalArgumentException("Cannot reverse \"hyper\" edge"); //$NON-NLS-1$
 		}
 		ElkConnectableShape source = elkEdge.getSources().remove(0);
