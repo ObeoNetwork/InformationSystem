@@ -44,13 +44,13 @@ public class CinematicElkExtension implements IELKLayoutExtension {
 	@Override
 	public void beforeELKLayout(LayoutMapping layoutMapping) {
 		final Stream<ElkNode> initialStateNodes = ElkUtils
-				.streamAllNodes(layoutMapping.getLayoutGraph(), ElkNode.class::isInstance)
+				.streamAllNodes(layoutMapping.getLayoutGraph())
 				.filter(node -> getSemanticTarget(node, layoutMapping) instanceof InitialState);
 		initialStateNodes.findFirst().ifPresent(node -> node.setProperty(
 				LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT, LayerConstraint.FIRST_SEPARATE));
 
 		final Stream<ElkNode> finalStateNodes = ElkUtils
-				.streamAllNodes(layoutMapping.getLayoutGraph(), ElkNode.class::isInstance)
+				.streamAllNodes(layoutMapping.getLayoutGraph())
 				.filter(node -> getSemanticTarget(node, layoutMapping) instanceof FinalState);
 		finalStateNodes.findFirst().ifPresent(node -> node.setProperty(
 				LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT, LayerConstraint.LAST_SEPARATE));
