@@ -221,6 +221,10 @@
          version="0.0.0"/>
 
    <includes
+         id="org.eclipse.sirius.diagram.elk.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.obeonetwork.is.samples.feature"
          version="0.0.0"/>
 
