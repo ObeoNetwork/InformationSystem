@@ -36,7 +36,7 @@ import org.obeonetwork.dsl.cinematic.flow.InitialState;
 import org.obeonetwork.utils.common.ui.services.ElkUtils;
 
 /**
- * Adds ELK Layered constraints to the first initial and final states of Cinematic
+ * Adds ELK Layered constraints to all initial and final states of Cinematic
  * Flow Diagrams. Other diagram descriptions are left unchanged.
  *
  * @author Obeo
@@ -44,9 +44,9 @@ import org.obeonetwork.utils.common.ui.services.ElkUtils;
 public class CinematicElkExtension implements IELKLayoutExtension {
 
 	/**
-	 * Places the first initial state in a separate first layer and the first final
-	 * state in a separate last layer, only for Cinematic Flow Diagrams. Other states
-	 * keep their existing constraints.
+	 * Places all initial states in a separate first layer and all final states in a
+	 * separate last layer, only for Cinematic Flow Diagrams. Other states keep their
+	 * existing constraints.
 	 */
 	@Override
 	public void beforeELKLayout(LayoutMapping layoutMapping) {
@@ -57,13 +57,13 @@ public class CinematicElkExtension implements IELKLayoutExtension {
 		final Stream<ElkNode> initialStateNodes = ElkUtils
 				.streamAllNodes(layoutMapping.getLayoutGraph())
 				.filter(node -> getSemanticTarget(node, layoutMapping) instanceof InitialState);
-		initialStateNodes.findFirst().ifPresent(node -> node.setProperty(
+		initialStateNodes.forEach(node -> node.setProperty(
 				LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT, LayerConstraint.FIRST_SEPARATE));
 
 		final Stream<ElkNode> finalStateNodes = ElkUtils
 				.streamAllNodes(layoutMapping.getLayoutGraph())
 				.filter(node -> getSemanticTarget(node, layoutMapping) instanceof FinalState);
-		finalStateNodes.findFirst().ifPresent(node -> node.setProperty(
+		finalStateNodes.forEach(node -> node.setProperty(
 				LayeredMetaDataProvider.LAYERING_LAYER_CONSTRAINT, LayerConstraint.LAST_SEPARATE));
 	}
 
