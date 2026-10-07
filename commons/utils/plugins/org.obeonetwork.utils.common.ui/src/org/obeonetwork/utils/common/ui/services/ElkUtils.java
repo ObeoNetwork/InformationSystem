@@ -232,6 +232,16 @@ public final class ElkUtils {
 	}
 
 	/**
+	 * Streams all descendant nodes, excluding the root node itself.
+	 *
+	 * @param root the node to explore
+	 * @return a stream of descendant nodes
+	 */
+	public static Stream<ElkNode> streamAllNodes(ElkNode root) {
+		return streamAllNodes(root, node -> true);
+	}
+
+	/**
 	 * Streams matching descendant nodes, excluding the root node itself.
 	 * The filter selects nodes without preventing traversal of their children.
 	 *
