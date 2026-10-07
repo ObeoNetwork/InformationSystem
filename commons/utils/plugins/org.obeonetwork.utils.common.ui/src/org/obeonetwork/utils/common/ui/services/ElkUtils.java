@@ -1,20 +1,19 @@
 /* ************************************************************************* *
  * Copyright (c) 2026 Obeo.
- * 
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- * 
- * 
+ *
+ *
  * SPDX-License-Identifier: EPL-2.0
- * 
+ *
  * Contributors:
  *   Obeo - initial API and implementation.
- * 
+ *
  * ************************************************************************* */
 package org.obeonetwork.utils.common.ui.services;
 
-import com.google.common.collect.BiMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -42,43 +41,55 @@ import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.elk.ElkDiagramLayoutConnector;
 import org.eclipse.sirius.ext.gmf.runtime.editparts.GraphicalHelper;
 
 /**
- * Common methods for ELK layout extension.
+ * Utilities for traversing ELK graphs and adapting their layout to Sirius diagrams.
  *
- * @author Nicolas Peransin
+ * @author Obeo
  */
 public final class ElkUtils {
 
 	/**
-	 * Description of an edge.
+	 * Stores an edge, its endpoints, its container and its mapped graphical object.
 	 * <p>
-	 * This description is used to restore extracted edge. It must be regular.
+	 * Used to restore an edge removed from the layout graph. The edge is expected
+	 * to have exactly one source and one target.
 	 * </p>
-	 * 
-	 * @param element   the edge
-	 * @param source    element the edge comes from
-	 * @param target    element the edge goes to
-	 * @param container element containing the edge
-	 * @param part      mapping of this edge
+	 * <p>
+	 * Intended use: capture these references, temporarily remove the edge so it
+	 * does not influence node layout, then restore it with {@link ElkUtils#createEdge}
+	 * using the new node positions. The edge itself is retained, not copied.
+	 * </p>
+	 *
+	 * @param edge      the edge
+	 * @param part      graphical object associated with the edge in the layout mapping
+	 * @param container node containing the edge
+	 * @param source    source node or port
+	 * @param target    target node or port
 	 */
-	public record EdgeDescription(ElkEdge element, Object part, ElkNode container,
-			// ends
-			ElkConnectableShape source, ElkConnectableShape target) {
+	public record EdgeDescription(
+			ElkEdge edge,
+			Object part,
+			ElkNode container,
+			ElkConnectableShape source,
+			ElkConnectableShape target) {
 
 		/**
-		 * Constructor.
-		 * 
-		 * @param element       edge to describe
-		 * @param layoutMapping
+		 * Captures the current endpoints, container and graphical mapping of an edge.
+		 * The source and target lists must both be non-empty.
+		 *
+		 * @param edge          edge to describe
+		 * @param layoutMapping mapping from ELK elements to graphical objects
 		 */
-		EdgeDescription(ElkEdge element, LayoutMapping layoutMapping) {
-			this(element, layoutMapping.getGraphMap().get(element), element.getContainingNode(),
-					// ends
-					element.getSources().get(0), element.getTargets().get(0));
+		EdgeDescription(ElkEdge edge, LayoutMapping layoutMapping) {
+			this(
+					edge,
+					layoutMapping.getGraphMap().get(edge),
+					edge.getContainingNode(),
+					edge.getSources().get(0),
+					edge.getTargets().get(0));
 		}
 	}
 
@@ -97,21 +108,20 @@ public final class ElkUtils {
 	 * <LI>South: Under the port, horizontally centered,</LI>
 	 * <LI>North: Above the port, horizontally centered.</LI>
 	 * </UL>
-	 * This method can only be used for port with one label. It has no effect in
-	 * other case.
+	 * Only ports with exactly one label are updated. Other ports and unsupported
+	 * sides are left unchanged.
 	 *
 	 * @param port     The port for which to set the label location.
 	 * @param portSide The side where setting the label
 	 */
 	public static void alignPortLabel(ElkPort port, PortSide portSide) {
 		if (port.getLabels().size() != 1) {
-			// Cannot deal with multi-label. Not in Sirius 6.4x.
+			// Only a single label can be positioned by this method.
 			return;
 		}
 		ElkLabel label = port.getLabels().get(0);
 
-		// By default, we have the center
-
+		// Start with the label centered on both axes, then offset it on the chosen side.
 		double x = (port.getWidth() - label.getWidth()) / 2;
 		double y = (port.getHeight() - label.getHeight()) / 2;
 
@@ -137,18 +147,19 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * This method inverses the source and the target of the edge.
+	 * Reverses the edge endpoints, section endpoints and bend point order.
 	 * <p>
-	 * The source and target coordinates are also inverted (and the sections if
-	 * any).
+	 * The intended input is an edge with exactly one source and one target.
+	 * The current guard rejects that input instead, so this method does not yet
+	 * implement that contract correctly.
 	 * </p>
 	 *
 	 * @param elkEdge The edge to reverse.
-	 * @throws IllegalArgumentException In case of the <code>elkEdge</code> is an
-	 *                                  hyperedge.
+	 * @throws IllegalArgumentException if {@link #isRegular(ElkEdge)} returns true
+	 *                                  (the current guard is inverted)
 	 */
 	public static void reverseEdge(ElkEdge elkEdge) throws IllegalArgumentException {
-		if (isRegular(elkEdge)) { //
+		if (isRegular(elkEdge)) {
 			throw new IllegalArgumentException("Cannot reverse \"hyper\" edge"); //$NON-NLS-1$
 		}
 		ElkConnectableShape source = elkEdge.getSources().remove(0);
@@ -170,26 +181,27 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * Evaluates if the description of a diagram is provided by a plugin with
-	 * provided ID.
-	 * 
+	 * Checks whether the diagram description URI belongs to the given plugin.
+	 * Both installed plugin URIs and workspace project URIs are accepted.
+	 * The description must be attached to a resource.
+	 *
 	 * @param pluginId the ID of plugin
 	 * @param diagram  the diagram to evaluate
 	 * @return true if description is provided by plugin
 	 */
 	public static boolean isDescriptionFromPlugin(String pluginId, DDiagram diagram) {
-		String path = diagram.getDescription().eResource().getURI().toString();
-		String pluginBase = "platform:/plugin/" + pluginId + '/'; //$NON-NLS-1$
-		if (path.startsWith(pluginBase)) {
+		String descriptionUri = diagram.getDescription().eResource().getURI().toString();
+		String pluginUriPrefix = "platform:/plugin/" + pluginId + '/'; //$NON-NLS-1$
+		if (descriptionUri.startsWith(pluginUriPrefix)) {
 			return true;
 		}
-		String resBase = "platform:/resource/" + pluginId + '/'; //$NON-NLS-1$
-		return path.startsWith(resBase);
+		String workspaceUriPrefix = "platform:/resource/" + pluginId + '/'; //$NON-NLS-1$
+		return descriptionUri.startsWith(workspaceUriPrefix);
 	}
 
 	/**
-	 * Evaluates if an edge is not hyper edge and well-formed.
-	 * 
+	 * Checks whether an edge has exactly one source and exactly one target.
+	 *
 	 * @param edge ELK element
 	 * @return true if source size is 1 and target size is 1
 	 */
@@ -198,8 +210,9 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * Creates a stream of all ports in this node and inside it.
-	 * 
+	 * Streams matching ports of the root node and all its descendants.
+	 * The filter selects ports without preventing traversal of child nodes.
+	 *
 	 * @param root   the node to explore
 	 * @param filter the predicate to select port
 	 * @return a stream of port
@@ -209,8 +222,9 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * Creates a stream of all edges in this node and inside it.
-	 * 
+	 * Streams matching edges contained by the root node and all its descendants.
+	 * The filter selects edges without preventing traversal of child nodes.
+	 *
 	 * @param root   the node to explore
 	 * @param filter the predicate to select edge
 	 * @return a stream of edge
@@ -220,8 +234,9 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * Creates a stream of all nodes in this node and inside it.
-	 * 
+	 * Streams matching descendant nodes, excluding the root node itself.
+	 * The filter selects nodes without preventing traversal of their children.
+	 *
 	 * @param root   the node to explore
 	 * @param filter the predicate to select node
 	 * @return a stream of node
@@ -230,83 +245,92 @@ public final class ElkUtils {
 		return streamAllElements(root, ElkNode::getChildren, filter);
 	}
 
+	/**
+	 * Collects matching elements from each node in the subtree rooted at {@code root}.
+	 * The accessor selects the collection to visit (children, ports or contained edges).
+	 * All child nodes are traversed, regardless of the filter results.
+	 */
 	private static <T extends ElkGraphElement> Stream<T> streamAllElements(ElkNode root,
-			Function<ElkNode, List<T>> property, Predicate<? super T> filter) {
-		// We collect contained edges with source port and target port with the same
-		// parent.
-		Stream<T> nodes = property.apply(root).stream().filter(filter);
+			Function<ElkNode, List<T>> getElements, Predicate<? super T> filter) {
+		Stream<T> elements = getElements.apply(root).stream().filter(filter);
 
-		// We recursively collect them for each child
-		Stream<T> childrenNodes = root.getChildren().stream()
-				.flatMap(child -> streamAllElements(child, property, filter));
-		return Stream.concat(nodes, childrenNodes);
+		Stream<T> descendantElements = root.getChildren().stream()
+				.flatMap(child -> streamAllElements(child, getElements, filter));
+		return Stream.concat(elements, descendantElements);
 	}
 
 	/**
-	 * Recreates an edge using it description.
-	 * 
+	 * Restores an existing edge using its captured description.
+	 * Its source and target lists are expected to have been cleared beforehand,
+	 * and it must already have at least one section. The first section endpoints
+	 * are recomputed and its bend points are cleared.
+	 *
 	 * @param description   description of an edge
 	 * @param layoutMapping mapping using the edge
 	 * @return edge
 	 */
 	public static ElkEdge createEdge(EdgeDescription description, LayoutMapping layoutMapping) {
-		ElkEdge edge = description.element;
+		ElkEdge edge = description.edge;
 
-		// Restore edge properties
+		// Restore the endpoints and containment of the existing edge.
 		edge.getSources().add(description.source);
 		edge.getTargets().add(description.target);
 		description.container.getContainedEdges().add(edge);
 
-		// Compute ends location
-		KVector sourceKVector = getParentRelativeVector(description.source, description.container);
-		KVector targetKVector = getParentRelativeVector(description.target, description.container);
+		// Compute the coordinates used to position the first edge section.
+		KVector sourcePosition = getParentRelativeVector(description.source, description.container);
+		KVector targetPosition = getParentRelativeVector(description.target, description.container);
 
 		ElkEdgeSection section = edge.getSections().get(0);
 
-		Rectangle sourceArea = createAreaAtPoint(sourceKVector, description.source);
-		Rectangle targetArea = createAreaAtPoint(targetKVector, description.target);
+		Rectangle sourceArea = createAreaAtPoint(sourcePosition, description.source);
+		Rectangle targetArea = createAreaAtPoint(targetPosition, description.target);
 
-		computeSectionEnd(section, true, sourceArea, targetArea, sourceKVector);
-		computeSectionEnd(section, false, sourceArea, targetArea, targetKVector);
+		computeSectionEnd(section, true, sourceArea, targetArea, sourcePosition);
+		computeSectionEnd(section, false, sourceArea, targetArea, targetPosition);
 
-		// Remove potential bendpoints to have a straight edge
+		// Clear bend points on the first section to make it straight.
 		section.getBendPoints().clear();
 
-		// Add the edge in the mapping to be considered in the next steps (apply ELK
-		// layout to Sirius)
+		// Restore the graphical mapping so the edge participates in layout application.
 		layoutMapping.getGraphMap().put(edge, description.part);
 
 		return edge;
 	}
 
 	/**
-	 * Returns the relative vector of provided shape.
-	 * 
-	 * @param element   the graphical element
+	 * Converts the stored shape position to absolute coordinates using the container,
+	 * then to coordinates relative to the node associated with the shape.
+	 *
+	 * @param shape     the node or port whose position is converted
 	 * @param container the container to be relative to
 	 * @return the vector
 	 */
-	private static KVector getParentRelativeVector(ElkConnectableShape it, ElkNode container) {
-		KVector point = new KVector(it.getX(), it.getY());
-		return ElkUtil.toRelative(ElkUtil.toAbsolute(point, container), ElkGraphUtil.connectableShapeToNode(it));
+	private static KVector getParentRelativeVector(ElkConnectableShape shape, ElkNode container) {
+		KVector point = new KVector(shape.getX(), shape.getY());
+		return ElkUtil.toRelative(ElkUtil.toAbsolute(point, container), ElkGraphUtil.connectableShapeToNode(shape));
 	}
 
+	/**
+	 * Builds a rectangle at the given position, using the shape dimensions.
+	 */
 	private static PrecisionRectangle createAreaAtPoint(KVector point, ElkConnectableShape shape) {
 		return new PrecisionRectangle(point.x, point.y, shape.getWidth(), shape.getHeight());
 	}
 
-	private static void computeSectionEnd(ElkEdgeSection section, boolean forSource, Rectangle sourceArea,
-			Rectangle targetArea, KVector byDefault) {
-		Rectangle containingArea = forSource ? sourceArea : targetArea;
+	/**
+	 * Places one section endpoint at the intersection of the center-to-center line
+	 * with the corresponding shape rectangle, or at the fallback position.
+	 */
+	private static void computeSectionEnd(ElkEdgeSection section, boolean sourceEnd, Rectangle sourceArea,
+			Rectangle targetArea, KVector fallbackPosition) {
+		Rectangle endpointArea = sourceEnd ? sourceArea : targetArea;
 
 		Point intersection = GraphicalHelper
-				.getIntersection(sourceArea.getCenter(), targetArea.getCenter(), containingArea, forSource) // default
-																											// should be
-																											// the same
-																											// place.
-				.orElse(new PrecisionPoint(byDefault.x, byDefault.y));
+				.getIntersection(sourceArea.getCenter(), targetArea.getCenter(), endpointArea, sourceEnd)
+				.orElse(new PrecisionPoint(fallbackPosition.x, fallbackPosition.y));
 
-		if (forSource) {
+		if (sourceEnd) {
 			section.setStartLocation(intersection.preciseX(), intersection.preciseY());
 		} else {
 			section.setEndLocation(intersection.preciseX(), intersection.preciseY());
@@ -314,22 +338,23 @@ public final class ElkUtils {
 	}
 
 	/**
-	 * Forces the side of the port.
-	 * 
-	 * @param port the port to hint
+	 * Assigns a side to the port and fixes the sides of all ports on its parent node.
+	 *
+	 * @param port the port to position
 	 * @param side the expected side
 	 */
 	public static void forceSide(ElkPort port, PortSide side) {
 		port.setProperty(CoreOptions.PORT_SIDE, side);
 		port.getParent().setProperty(CoreOptions.PORT_CONSTRAINTS, PortConstraints.FIXED_SIDE);
 	}
-	
+
 	/**
-	 * Return the {@link DDiagram} concerned by this {@link LayoutMapping}.
+	 * Returns the Sirius diagram associated with the layout mapping.
+	 * The mapping must provide a diagram edit part.
 	 *
 	 * @param layoutMapping The ELK layout mapping
-	 * @return the {@link DiagramDescription} name of the {@link DDiagram} concerned
-	 *         by this {@link LayoutMapping}.
+	 * @return the semantic diagram, or {@code null} if the GMF diagram element is
+	 *         not a {@link DDiagram}
 	 */
 	public static DDiagram getDDiagram(LayoutMapping layoutMapping) {
 		// Retrieve the root diagram editPart
@@ -340,4 +365,3 @@ public final class ElkUtils {
 		return gmfDiagram.getElement() instanceof DDiagram ? (DDiagram) gmfDiagram.getElement() : null;
 	}
 }
-
