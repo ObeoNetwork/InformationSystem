@@ -539,23 +539,37 @@
           <targets>NODE</targets>
           <value name="AUTOMATIC"/>
         </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment">
+          <targets>PARENT</targets>
+          <value name="NONE"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.crossingMinimization.strategy">
+          <targets>PARENT</targets>
+          <value name="LAYER_SWEEP"/>
+        </layoutOptions>
         <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.direction">
           <targets>PARENT</targets>
           <value name="DOWN"/>
         </layoutOptions>
-        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="15.0">
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeNode" value="10.0">
           <targets>PARENT</targets>
         </layoutOptions>
-        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
-          <targets>PARENT</targets>
-          <value name="POLYLINE"/>
-        </layoutOptions>
-        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="12.0">
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.edgeEdge" value="10.0">
           <targets>PARENT</targets>
         </layoutOptions>
         <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.nodePlacement.strategy">
           <targets>PARENT</targets>
           <value name="NETWORK_SIMPLEX"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:IntegerLayoutOption" id="org.eclipse.elk.layered.priority.straightness">
+          <targets>EDGE</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:BooleanLayoutOption" id="org.eclipse.elk.topdownLayout">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.edgeRouting">
+          <targets>PARENT</targets>
+          <value name="ORTHOGONAL"/>
         </layoutOptions>
       </layout>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@edgeMappings[name='DB_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Sequence']">
