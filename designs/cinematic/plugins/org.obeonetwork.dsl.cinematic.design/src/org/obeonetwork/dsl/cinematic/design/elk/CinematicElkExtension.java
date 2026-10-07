@@ -58,22 +58,25 @@ public class CinematicElkExtension implements IELKLayoutExtension {
 
 	/**
 	 * Resolves the semantic target through the node's graphical edit part and GMF view.
-	 * Graphical edit parts are expected to have a View model containing a non-null
-	 * DDiagramElement. Nodes mapped to other objects have no semantic target here.
+	 * Nodes without a graphical edit part, a GMF view or a Sirius diagram element
+	 * have no semantic target here and are ignored by the state filters.
 	 *
 	 * @param node the ELK node to resolve
 	 * @param layoutMapping mapping from ELK elements to graphical objects
-	 * @return the Sirius element's semantic target, or null for a non-graphical mapping
+	 * @return the semantic target, or null if any intermediate object has an unexpected type
+	 *         or the Sirius element has no target
 	 */
 	private EObject getSemanticTarget(ElkNode node, LayoutMapping layoutMapping) {
 		Object mappedObject = layoutMapping.getGraphMap().get(node);
-		if (!(mappedObject instanceof GraphicalEditPart)) {
+		if (!(mappedObject instanceof GraphicalEditPart editPart)) {
 			return null;
 		}
-
-		GraphicalEditPart editPart = (GraphicalEditPart) mappedObject;
-		View view = (View) editPart.getModel();
-		DDiagramElement diagramElement = (DDiagramElement) view.getElement();
+		if (!(editPart.getModel() instanceof View view)) {
+			return null;
+		}
+		if (!(view.getElement() instanceof DDiagramElement diagramElement)) {
+			return null;
+		}
 		return diagramElement.getTarget();
 	}
 
