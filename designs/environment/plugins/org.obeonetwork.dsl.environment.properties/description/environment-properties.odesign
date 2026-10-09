@@ -67,21 +67,6 @@
         </controls>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType associatedTypes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedTypes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedTypes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedTypes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'associatedTypes'"/>
-          <customOperations name="onDoubleClickOperation">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedTypes Dialog">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation/>
-                  </buttons>
-                  <page name="Edit associatedTypes Page"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </customOperations>
         </controls>
       </groups>
     </categories>
@@ -147,21 +132,6 @@
         </controls>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
-          <customOperations name="onDoubleClickOperation">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedReferences Dialog">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation/>
-                  </buttons>
-                  <page name="Edit associatedReferences Page"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </customOperations>
         </controls>
       </groups>
       <groups name="Bidirectional Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
@@ -220,21 +190,6 @@
             </controls>
             <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
               <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
-              <customOperations name="onDoubleClickOperation">
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedReferences Dialog">
-                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                        <initialOperation/>
-                      </buttons>
-                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                        <initialOperation/>
-                      </buttons>
-                      <page name="Edit associatedReferences Page"/>
-                    </subModelOperations>
-                  </firstModelOperations>
-                </initialOperation>
-              </customOperations>
             </controls>
           </controls>
           <controls xsi:type="properties:ContainerDescription">
@@ -305,21 +260,6 @@
             <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
               <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
               <customExpressions name="referenceOwnerExpression" customExpression="aql:self.oppositeOf"/>
-              <customOperations name="onDoubleClickOperation">
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedReferences Dialog">
-                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                        <initialOperation/>
-                      </buttons>
-                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                        <initialOperation/>
-                      </buttons>
-                      <page name="Edit associatedReferences Page"/>
-                    </subModelOperations>
-                  </firstModelOperations>
-                </initialOperation>
-              </customOperations>
             </controls>
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
