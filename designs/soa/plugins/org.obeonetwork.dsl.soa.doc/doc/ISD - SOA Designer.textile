@@ -222,6 +222,8 @@ Les outils fournis par la palette sont :
 L'outil de création de DTOs à partir d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités. Une boîte de dialogue permet de choisir les entités et les relations à prendre en compte. Les entités choisies peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les DTO créés sont tous dans le package courant du diagramme.
 Des DTOs et des relations sont créées pour chaque entité et chaque référence sélectionnés. Les attributs ne sont pas dupliqués, il sont partagés avec les entités grâce à la référence Associated Types accessible dans la vue des propriétés du DTO. La modélisation des entités est décrite dans la documentation de "ISD - Entity Designer":../../org.obeonetwork.dsl.entity.doc/doc/ISD%20-%20Entity%20Designer.html .
 
+Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages tel que décrit ci-dessous.
+
 !pics/dto/Palette_CreateExternalDTO_Dialog.png!
 
 L'outil de création de package à partir d'un package d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités en reproduisant la structure des packages. L'outil présente la hiérarchie des packages d'entités accessibles depuis le diagramme courant.
