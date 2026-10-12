@@ -146,7 +146,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				// Look for a table that could correspond to the sequence based on its name
 				if (sequenceName.endsWith("_seq")) {
 					queries.getAllTables().stream().filter(Table.class::isInstance).map(Table.class::cast) //
-					.map(Table::getPrimaryKey).map(PrimaryKey::getColumns).flatMap(List::stream) //
+					.map(Table::getPrimaryKey).filter(pk -> pk != null).map(PrimaryKey::getColumns).flatMap(List::stream) //
 					.forEach(pkColumn -> {
 						Table table = pkColumn.getOwner();
 						if(sequenceName.equalsIgnoreCase(table.getName() + "_seq") || 
