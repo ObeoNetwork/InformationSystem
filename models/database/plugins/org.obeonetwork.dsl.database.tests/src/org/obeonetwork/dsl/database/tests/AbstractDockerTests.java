@@ -73,6 +73,8 @@ public abstract class AbstractDockerTests {
 	 */
 	protected void runAndWaitContainerCreation(ProcessBuilder runProcessBuilder) {
 		try {
+			runProcessBuilder.redirectErrorStream(true);
+
 			Process process = runProcessBuilder.start();
 			StringBuilder output = new StringBuilder();
 
