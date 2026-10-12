@@ -6,8 +6,8 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="company" type="VARCHAR(50)"/>
-            <column name="last_name" type="VARCHAR(50)"/>
-            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)" defaultValue="D'Obeo"/>
+            <column name="first_name" type="VARCHAR(50)" defaultValue="John"/>
             <column name="email_address" type="VARCHAR(50)"/>
             <column name="job_title" type="VARCHAR(50)"/>
             <column name="business_phone" type="VARCHAR(25)"/>
