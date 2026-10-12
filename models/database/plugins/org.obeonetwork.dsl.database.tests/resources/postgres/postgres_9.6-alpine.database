@@ -25,7 +25,7 @@
       <indexes xmi:id="_GiZ20M6GEeuENObVHps9Cg" techID="_GeV2LM6GEeuENObVHps9Cg" name="zip_postal_code_customers">
         <elements xmi:id="_GiZ20c6GEeuENObVHps9Cg" techID="_GeV2Lc6GEeuENObVHps9Cg" column="_GiZ27M6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ20s6GEeuENObVHps9Cg" techID="_GeMsMM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('customers_id_seq'::regclass)" indexElements="_GiZ2xc6GEeuENObVHps9Cg" primaryKey="_GiZ2w86GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ20s6GEeuENObVHps9Cg" techID="_GeMsMM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ2xc6GEeuENObVHps9Cg" primaryKey="_GiZ2w86GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Ks6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ2086GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -266,7 +266,7 @@
       <indexes xmi:id="_GiZ3Ps6GEeuENObVHps9Cg" techID="_Ge_9fM6GEeuENObVHps9Cg" name="zip_postal_code_employees">
         <elements xmi:id="_GiZ3P86GEeuENObVHps9Cg" techID="_Ge_9fc6GEeuENObVHps9Cg" column="_GiZ3Ws6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ3QM6GEeuENObVHps9Cg" techID="_Ge4BoM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('employees_id_seq'::regclass)" indexElements="_GiZ3M86GEeuENObVHps9Cg" primaryKey="_GiZ3Mc6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ3QM6GEeuENObVHps9Cg" techID="_Ge4BoM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ3M86GEeuENObVHps9Cg" primaryKey="_GiZ3Mc6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5K86GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ3Qc6GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -402,7 +402,7 @@
       <indexes xmi:id="_GiZ3fs6GEeuENObVHps9Cg" techID="_GfRqSM6GEeuENObVHps9Cg" name="transaction_type">
         <elements xmi:id="_GiZ3f86GEeuENObVHps9Cg" techID="_GfRqSc6GEeuENObVHps9Cg" column="_GiZ3gs6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ3gM6GEeuENObVHps9Cg" techID="_GfK8kM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('inventory_transactions_id_seq'::regclass)" indexElements="_GiZ3d86GEeuENObVHps9Cg" primaryKey="_GiZ3bc6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ3gM6GEeuENObVHps9Cg" techID="_GfK8kM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ3d86GEeuENObVHps9Cg" primaryKey="_GiZ3bc6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5LM6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ3gc6GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -459,7 +459,7 @@
       <indexes xmi:id="_GiZ3mM6GEeuENObVHps9Cg" techID="_GfZmEs6GEeuENObVHps9Cg" name="fk_invoices_orders1_idx">
         <elements xmi:id="_GiZ3mc6GEeuENObVHps9Cg" techID="_GfZmE86GEeuENObVHps9Cg" column="_GiZ3nM6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ3ms6GEeuENObVHps9Cg" techID="_GfUGgM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('invoices_id_seq'::regclass)" indexElements="_GiZ3l86GEeuENObVHps9Cg" primaryKey="_GiZ3k86GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ3ms6GEeuENObVHps9Cg" techID="_GfUGgM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ3l86GEeuENObVHps9Cg" primaryKey="_GiZ3k86GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Lc6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ3m86GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -524,7 +524,7 @@
       <indexes xmi:id="_GiZ3us6GEeuENObVHps9Cg" techID="_Gfg62s6GEeuENObVHps9Cg" name="purchase_order_id_order_details">
         <elements xmi:id="_GiZ3u86GEeuENObVHps9Cg" techID="_Gfg6286GEeuENObVHps9Cg" column="_GiZ3zM6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ3vM6GEeuENObVHps9Cg" techID="_GfcpYM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('order_details_id_seq'::regclass)" indexElements="_GiZ3sc6GEeuENObVHps9Cg" primaryKey="_GiZ3qc6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ3vM6GEeuENObVHps9Cg" techID="_GfcpYM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ3sc6GEeuENObVHps9Cg" primaryKey="_GiZ3qc6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Ls6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ3vc6GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -629,7 +629,7 @@
       <indexes xmi:id="_GiZ38M6GEeuENObVHps9Cg" techID="_GfuWPM6GEeuENObVHps9Cg" name="tax_status">
         <elements xmi:id="_GiZ38c6GEeuENObVHps9Cg" techID="_GfuWPc6GEeuENObVHps9Cg" column="_GiZ4Fs6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ38s6GEeuENObVHps9Cg" techID="_GfpdsM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('orders_id_seq'::regclass)" indexElements="_GiZ35c6GEeuENObVHps9Cg" primaryKey="_GiZ32c6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ38s6GEeuENObVHps9Cg" techID="_GfpdsM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ35c6GEeuENObVHps9Cg" primaryKey="_GiZ32c6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5L86GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ3886GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -767,7 +767,7 @@
       <indexes xmi:id="_GiZ4LM6GEeuENObVHps9Cg" techID="_GgADAM6GEeuENObVHps9Cg" name="privileges_pkey" unique="true">
         <elements xmi:id="_GiZ4Lc6GEeuENObVHps9Cg" techID="_GgADAc6GEeuENObVHps9Cg" column="_GiZ4Ls6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ4Ls6GEeuENObVHps9Cg" techID="_Gf8_sM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('privileges_id_seq'::regclass)" indexElements="_GiZ4Lc6GEeuENObVHps9Cg" primaryKey="_GiZ4K86GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ4Ls6GEeuENObVHps9Cg" techID="_Gf8_sM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4Lc6GEeuENObVHps9Cg" primaryKey="_GiZ4K86GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5MM6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4L86GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -791,7 +791,7 @@
           <nativeType href="pathmap://NativeDBTypes/Postgres#_X2UR0GTNEeSmq67_vSAzgg"/>
         </type>
       </columns>
-      <columns xmi:id="_GiZ4Os6GEeuENObVHps9Cg" techID="_GgCfQc6GEeuENObVHps9Cg" name="id" defaultValue="nextval('products_id_seq'::regclass)" indexElements="_GiZ4Nc6GEeuENObVHps9Cg" primaryKey="_GiZ4M86GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ4Os6GEeuENObVHps9Cg" techID="_GgCfQc6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4Nc6GEeuENObVHps9Cg" primaryKey="_GiZ4M86GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Mc6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4O86GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -880,7 +880,7 @@
       <indexes xmi:id="_GiZ4Ys6GEeuENObVHps9Cg" techID="_GgOshs6GEeuENObVHps9Cg" name="purchase_order_id_purchase_order_details">
         <elements xmi:id="_GiZ4Y86GEeuENObVHps9Cg" techID="_GgOsh86GEeuENObVHps9Cg" column="_GiZ4Zs6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ4ZM6GEeuENObVHps9Cg" techID="_GgJ0AM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('purchase_order_details_id_seq'::regclass)" indexElements="_GiZ4Xc6GEeuENObVHps9Cg" primaryKey="_GiZ4Vc6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ4ZM6GEeuENObVHps9Cg" techID="_GgJ0AM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4Xc6GEeuENObVHps9Cg" primaryKey="_GiZ4Vc6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Ms6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4Zc6GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -960,7 +960,7 @@
       <indexes xmi:id="_GiZ4is6GEeuENObVHps9Cg" techID="_Ggbg1s6GEeuENObVHps9Cg" name="supplier_id_2">
         <elements xmi:id="_GiZ4i86GEeuENObVHps9Cg" techID="_Ggbg186GEeuENObVHps9Cg" column="_GiZ4js6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ4jM6GEeuENObVHps9Cg" techID="_GgWBQM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('purchase_orders_id_seq'::regclass)" indexElements="_GiZ4hc6GEeuENObVHps9Cg" primaryKey="_GiZ4fc6GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ4jM6GEeuENObVHps9Cg" techID="_GgWBQM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4hc6GEeuENObVHps9Cg" primaryKey="_GiZ4fc6GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5M86GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4jc6GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -1095,7 +1095,7 @@
       <indexes xmi:id="_GiZ4yM6GEeuENObVHps9Cg" techID="_GgnuHM6GEeuENObVHps9Cg" name="zip_postal_code_shippers">
         <elements xmi:id="_GiZ4yc6GEeuENObVHps9Cg" techID="_GgnuHc6GEeuENObVHps9Cg" column="_GiZ45M6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ4ys6GEeuENObVHps9Cg" techID="_GgkDsM6GEeuENObVHps9Cg" name="id" defaultValue="nextval('shippers_id_seq'::regclass)" indexElements="_GiZ4vc6GEeuENObVHps9Cg" primaryKey="_GiZ4u86GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ4ys6GEeuENObVHps9Cg" techID="_GgkDsM6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4vc6GEeuENObVHps9Cg" primaryKey="_GiZ4u86GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5NM6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4y86GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -1191,7 +1191,7 @@
       <indexes xmi:id="_GiZ48M6GEeuENObVHps9Cg" techID="_GgubwM6GEeuENObVHps9Cg" name="strings_pkey" unique="true">
         <elements xmi:id="_GiZ48c6GEeuENObVHps9Cg" techID="_Ggubwc6GEeuENObVHps9Cg" column="_GiZ48s6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ48s6GEeuENObVHps9Cg" techID="_GgpjQM6GEeuENObVHps9Cg" name="string_id" defaultValue="nextval('strings_string_id_seq'::regclass)" indexElements="_GiZ48c6GEeuENObVHps9Cg" primaryKey="_GiZ4786GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ48s6GEeuENObVHps9Cg" techID="_GgpjQM6GEeuENObVHps9Cg" name="string_id" defaultValue="" indexElements="_GiZ48c6GEeuENObVHps9Cg" primaryKey="_GiZ4786GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Nc6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ4886GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -1225,7 +1225,7 @@
       <indexes xmi:id="_GiZ5BM6GEeuENObVHps9Cg" techID="_Gg1wi86GEeuENObVHps9Cg" name="zip_postal_code_suppliers">
         <elements xmi:id="_GiZ5Bc6GEeuENObVHps9Cg" techID="_Gg1wjM6GEeuENObVHps9Cg" column="_GiZ5IM6GEeuENObVHps9Cg" asc="true"/>
       </indexes>
-      <columns xmi:id="_GiZ5Bs6GEeuENObVHps9Cg" techID="_GgwQ8M6GEeuENObVHps9Cg" name="id" defaultValue="nextval('suppliers_id_seq'::regclass)" indexElements="_GiZ4-c6GEeuENObVHps9Cg" primaryKey="_GiZ4986GEeuENObVHps9Cg" autoincrement="true">
+      <columns xmi:id="_GiZ5Bs6GEeuENObVHps9Cg" techID="_GgwQ8M6GEeuENObVHps9Cg" name="id" defaultValue="" indexElements="_GiZ4-c6GEeuENObVHps9Cg" primaryKey="_GiZ4986GEeuENObVHps9Cg" autoincrement="true" sequence="_GiZ5Ns6GEeuENObVHps9Cg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GiZ5B86GEeuENObVHps9Cg" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Postgres#_Vvu_0GTNEeSmq67_vSAzgg"/>
         </type>
@@ -1316,18 +1316,18 @@
         </type>
       </columns>
     </tables>
-    <sequences xmi:id="_GiZ5Ks6GEeuENObVHps9Cg" techID="_Gg4MwM6GEeuENObVHps9Cg" name="customers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5K86GEeuENObVHps9Cg" techID="_Gg4z0M6GEeuENObVHps9Cg" name="employees_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5LM6GEeuENObVHps9Cg" techID="_Gg5a4M6GEeuENObVHps9Cg" name="inventory_transactions_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Lc6GEeuENObVHps9Cg" techID="_Gg6B8M6GEeuENObVHps9Cg" name="invoices_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Ls6GEeuENObVHps9Cg" techID="_Gg6pAM6GEeuENObVHps9Cg" name="order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5L86GEeuENObVHps9Cg" techID="_Gg7QEM6GEeuENObVHps9Cg" name="orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5MM6GEeuENObVHps9Cg" techID="_Gg73IM6GEeuENObVHps9Cg" name="privileges_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Mc6GEeuENObVHps9Cg" techID="_Gg8eMM6GEeuENObVHps9Cg" name="products_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Ms6GEeuENObVHps9Cg" techID="_Gg8eMc6GEeuENObVHps9Cg" name="purchase_order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5M86GEeuENObVHps9Cg" techID="_Gg9FQM6GEeuENObVHps9Cg" name="purchase_orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5NM6GEeuENObVHps9Cg" techID="_Gg9sUM6GEeuENObVHps9Cg" name="shippers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Nc6GEeuENObVHps9Cg" techID="_Gg-TYM6GEeuENObVHps9Cg" name="strings_string_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_GiZ5Ns6GEeuENObVHps9Cg" techID="_Gg-6cM6GEeuENObVHps9Cg" name="suppliers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
+    <sequences xmi:id="_GiZ5Ks6GEeuENObVHps9Cg" techID="_Gg4MwM6GEeuENObVHps9Cg" name="customers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ20s6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5K86GEeuENObVHps9Cg" techID="_Gg4z0M6GEeuENObVHps9Cg" name="employees_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ3QM6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5LM6GEeuENObVHps9Cg" techID="_Gg5a4M6GEeuENObVHps9Cg" name="inventory_transactions_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ3gM6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Lc6GEeuENObVHps9Cg" techID="_Gg6B8M6GEeuENObVHps9Cg" name="invoices_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ3ms6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Ls6GEeuENObVHps9Cg" techID="_Gg6pAM6GEeuENObVHps9Cg" name="order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ3vM6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5L86GEeuENObVHps9Cg" techID="_Gg7QEM6GEeuENObVHps9Cg" name="orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ38s6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5MM6GEeuENObVHps9Cg" techID="_Gg73IM6GEeuENObVHps9Cg" name="privileges_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ4Ls6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Mc6GEeuENObVHps9Cg" techID="_Gg8eMM6GEeuENObVHps9Cg" name="products_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ4Os6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Ms6GEeuENObVHps9Cg" techID="_Gg8eMc6GEeuENObVHps9Cg" name="purchase_order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ4ZM6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5M86GEeuENObVHps9Cg" techID="_Gg9FQM6GEeuENObVHps9Cg" name="purchase_orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ4jM6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5NM6GEeuENObVHps9Cg" techID="_Gg9sUM6GEeuENObVHps9Cg" name="shippers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ4ys6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Nc6GEeuENObVHps9Cg" techID="_Gg-TYM6GEeuENObVHps9Cg" name="strings_string_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ48s6GEeuENObVHps9Cg"/>
+    <sequences xmi:id="_GiZ5Ns6GEeuENObVHps9Cg" techID="_Gg-6cM6GEeuENObVHps9Cg" name="suppliers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1" columns="_GiZ5Bs6GEeuENObVHps9Cg"/>
   </schemas>
 </database:DataBase>
