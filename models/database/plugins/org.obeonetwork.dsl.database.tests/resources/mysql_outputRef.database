@@ -133,12 +133,12 @@
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8yihEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_KHHXf0h7Ee2xV5atrOr9Ug" techID="_JTgJAkh7Ee2xV5atrOr9Ug" name="last_name" nullable="true" defaultValue="" indexElements="_KHHXdkh7Ee2xV5atrOr9Ug">
+      <columns xmi:id="_KHHXf0h7Ee2xV5atrOr9Ug" techID="_JTgJAkh7Ee2xV5atrOr9Ug" name="last_name" nullable="true" defaultValue="D'Obeo" indexElements="_KHHXdkh7Ee2xV5atrOr9Ug">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_KHHXgEh7Ee2xV5atrOr9Ug" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8yihEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_KHHXgUh7Ee2xV5atrOr9Ug" techID="_JTgJA0h7Ee2xV5atrOr9Ug" name="first_name" nullable="true" defaultValue="" indexElements="_KHHXdEh7Ee2xV5atrOr9Ug">
+      <columns xmi:id="_KHHXgUh7Ee2xV5atrOr9Ug" techID="_JTgJA0h7Ee2xV5atrOr9Ug" name="first_name" nullable="true" defaultValue="John" indexElements="_KHHXdEh7Ee2xV5atrOr9Ug">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_KHHXgkh7Ee2xV5atrOr9Ug" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8yihEnEeGTa_JlZYBw1A"/>
         </type>

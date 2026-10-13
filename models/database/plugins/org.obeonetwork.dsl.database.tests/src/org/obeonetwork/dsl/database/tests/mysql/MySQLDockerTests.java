@@ -12,18 +12,12 @@ package org.obeonetwork.dsl.database.tests.mysql;
 
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +29,6 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
-import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
