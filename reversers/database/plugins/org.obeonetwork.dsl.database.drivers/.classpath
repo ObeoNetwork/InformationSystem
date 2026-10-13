@@ -9,7 +9,7 @@
 	<classpathentry kind="src" path="src/"/>
 	<classpathentry exported="true" kind="lib" path="lib/mariadb-java-client-3.5.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/mssql-jdbc-13.2.1.jre11.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/mysql-connector-j-9.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/mysql-connector-j-26.7.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/postgresql-42.7.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/h2-1.4.200.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ojdbc17-23.26.0.0.0.jar"/>
