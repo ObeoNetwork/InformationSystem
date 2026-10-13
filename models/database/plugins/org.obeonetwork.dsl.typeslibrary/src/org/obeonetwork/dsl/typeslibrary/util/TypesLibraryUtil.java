@@ -47,6 +47,7 @@ public class TypesLibraryUtil {
 	
 	public static final String POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres";
 	public static final String POSTGRES_FILENAME = "Postgres.typeslibrary";
+	private static final String POSTGRES_LEGACY_PATHMAP = "pathmap://NativeDBTypes/Postgres-9.5-13";
 	
 	public static NativeType findLogicalType(TypeInstance physicalTypeInstance) {
 		NativeType physicalNativeType = physicalTypeInstance.getNativeType();
@@ -85,6 +86,7 @@ public class TypesLibraryUtil {
 		
 		final URL postgresUrl = TypesLibraryUtil.class.getClassLoader().getResource(POSTGRES_FILENAME);
 		URIConverter.URI_MAP.put(URI.createURI(POSTGRES_PATHMAP), URI.createURI(postgresUrl.toString()));
+		URIConverter.URI_MAP.put(URI.createURI(POSTGRES_LEGACY_PATHMAP), URI.createURI(postgresUrl.toString()));
 	}
 
 	public static boolean isMPD(TypesLibrary typesLibrary) {
@@ -105,7 +107,8 @@ public class TypesLibraryUtil {
 	
 	public static boolean isPostgresMPD(TypesLibrary typesLibrary) {
 		return isMPD(typesLibrary) && (TypesLibraryUtil.POSTGRES9_PATHMAP.equals(typesLibrary.eResource().getURI().toString())
-				|| TypesLibraryUtil.POSTGRES_PATHMAP.equals(typesLibrary.eResource().getURI().toString()));
+				|| TypesLibraryUtil.POSTGRES_PATHMAP.equals(typesLibrary.eResource().getURI().toString())
+				|| POSTGRES_LEGACY_PATHMAP.equals(typesLibrary.eResource().getURI().toString()));
 	}
 	
 	public static boolean isSQLServerMPD(TypesLibrary typesLibrary) {
