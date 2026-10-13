@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 /**
  * Reads saved models through the URI mappings supplied by Eclipse/EMF.
@@ -80,6 +81,7 @@ public class PostgresTypesLibraryCompatibilityTests {
         assertEquals(1, database.getUsedLibraries().size());
         NativeTypesLibrary library = (NativeTypesLibrary) database.getUsedLibraries().get(0);
         assertFalse(library.eIsProxy());
+        assertTrue("Library is not recognized as PostgreSQL", TypesLibraryUtil.isPostgresMPD(library));
         assertEquals(libraryName, library.getName());
         assertEquals(LIBRARY_ID, EcoreUtil.getURI(library).fragment());
 
