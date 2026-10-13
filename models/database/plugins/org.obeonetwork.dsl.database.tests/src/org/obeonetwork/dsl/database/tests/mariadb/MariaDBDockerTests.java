@@ -62,7 +62,9 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		return Arrays.asList(	
 								"mariadb:10.6",
 								"mariadb:11.8",
-								"mariadb:12.1.2"
+								"mariadb:12.1.2",
+								"mariadb:12.3.3",
+								"mariadb:13.0.2"
 							);
 	}
 	
