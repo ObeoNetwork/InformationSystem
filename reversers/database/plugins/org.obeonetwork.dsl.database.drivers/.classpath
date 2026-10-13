@@ -7,7 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src/"/>
-	<classpathentry exported="true" kind="lib" path="lib/mariadb-java-client-3.5.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/mariadb-java-client-3.5.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/mssql-jdbc-13.2.1.jre11.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/mysql-connector-j-9.5.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/postgresql-42.7.9.jar"/>
