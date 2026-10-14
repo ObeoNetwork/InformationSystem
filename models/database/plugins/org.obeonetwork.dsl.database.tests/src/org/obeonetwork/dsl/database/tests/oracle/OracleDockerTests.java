@@ -12,10 +12,8 @@ package org.obeonetwork.dsl.database.tests.oracle;
 
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.sql.SQLException;
 import java.time.Duration;
@@ -24,7 +22,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -93,32 +90,8 @@ public class OracleDockerTests extends AbstractDockerTests {
 				"--shm-size=1gb",
 				"-d", containerImage);
 
-		try {
-			Process process = builder.start();
-			StringBuilder output = new StringBuilder();
+		runAndWaitContainerCreation(builder);
 
-	        BufferedReader reader = new BufferedReader(
-	                new InputStreamReader(process.getInputStream()));
-
-	        String line;
-	        while ((line = reader.readLine()) != null) {
-	            output.append(line + "\n");
-	        }
-
-	        int exitVal = process.waitFor();
-            System.out.println(output);
-            Thread.sleep(5000); 
-            
-            // wait for container to boot if created at the moment. 
-            // a better implementation would check the output log until the containers tells its ready
-            
-	        if (exitVal != 0) {
-	        	throw new Exception("Could not initialize docker image: exit code: "+exitVal);
-	        }
-
-		} catch (Exception e) {
-			Assert.fail(e.toString());
-		}	
 	}
 	
 	
