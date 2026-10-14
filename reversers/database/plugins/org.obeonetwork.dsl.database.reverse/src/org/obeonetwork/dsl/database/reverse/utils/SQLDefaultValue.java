@@ -14,12 +14,12 @@ import java.sql.Types;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Converts SQL Server string literals to model values without changing expressions. */
-public final class SQLServerDefaultValue {
+/** Converts SQL string literals to model values without changing expressions. */
+public final class SQLDefaultValue {
 
     private static final Pattern STRING_LITERAL = Pattern.compile("[nN]?'((?:[^']|'')*)'");
 
-    private SQLServerDefaultValue() {
+    private SQLDefaultValue() {
     }
 
     public static String toModelValue(String sqlValue, int jdbcType) {

@@ -29,7 +29,7 @@ import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
-import org.obeonetwork.dsl.database.reverse.utils.SQLServerDefaultValue;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -84,7 +84,7 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 			column.setAutoincrement(true);
 		}
 		
-		column.setDefaultValue(SQLServerDefaultValue.toModelValue(rs.getString(13), rs.getInt(5)));
+		column.setDefaultValue(SQLDefaultValue.toModelValue(rs.getString(13), rs.getInt(5)));
 
 		String columnComments = getRealComments(getColumnComments(metaData, rs, owner.getName(), table.getName(), columnName));
 		if (columnComments == null || columnComments.length() == 0) {

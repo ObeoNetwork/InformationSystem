@@ -35,12 +35,12 @@
           <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
         </type>
       </columns>
-      <columns xmi:id="_rOxHlj9qEemuxfkvAcwbIQ" techID="_rLX1QD9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="'D''Obeo'" indexElements="_rOxHjT9qEemuxfkvAcwbIQ">
+      <columns xmi:id="_rOxHlj9qEemuxfkvAcwbIQ" techID="_rLX1QD9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="D'Obeo" indexElements="_rOxHjT9qEemuxfkvAcwbIQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHlz9qEemuxfkvAcwbIQ" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
         </type>
       </columns>
-      <columns xmi:id="_rOxHmD9qEemuxfkvAcwbIQ" techID="_rLX1QT9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="'John'" indexElements="_rOxHiz9qEemuxfkvAcwbIQ">
+      <columns xmi:id="_rOxHmD9qEemuxfkvAcwbIQ" techID="_rLX1QT9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="John" indexElements="_rOxHiz9qEemuxfkvAcwbIQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHmT9qEemuxfkvAcwbIQ" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
         </type>

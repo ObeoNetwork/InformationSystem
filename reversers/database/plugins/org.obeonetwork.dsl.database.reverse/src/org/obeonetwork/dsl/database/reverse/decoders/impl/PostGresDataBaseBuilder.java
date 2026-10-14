@@ -36,6 +36,7 @@ import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -207,6 +208,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			column.setDefaultValue(matcher.group(1));
 		}
 		
+		column.setDefaultValue(SQLDefaultValue.toModelValue(column.getDefaultValue(), rs.getInt(5)));
 		return column;
 	}
 
