@@ -13,6 +13,7 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::names/]
 [import org::obeonetwork::dsl::database::gen::common::services::TypesServices/]
 [import org::obeonetwork::dsl::database::gen::common::services::UtilServices/]
+[import org::obeonetwork::dsl::database::sqlgen::services::DefaultValueServices/]
 
 [comment encoding = UTF-8 /]
 [template public genSQLForTables(diffs : Sequence(dbevolution::DBDiff)) post(self.trim())]
@@ -228,9 +229,8 @@
   [if (column.defaultValue <> null and column.defaultValue.size() > 0)]
      SET DEFAULT [column.defaultValue()/][else] DROP DEFAULT[/if][/template]
 
-[comment TODO support '' quoted defaultValue with several template with guard /]
 [template private defaultValue(column : database::Column) post(self.trim())]
-  [column.defaultValue/]
+  [column.toSQLDefaultValue()/]
 [/template]
 
 [template private nullable(column : database::Column)]
