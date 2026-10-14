@@ -11,7 +11,7 @@ Bundle-ClassPath: .,
  lib/mysql-connector-j-26.7.0.jar,
  lib/postgresql-42.7.9.jar,
  lib/h2-1.4.200.jar,
- lib/ojdbc17-23.26.0.0.0.jar
+ lib/ojdbc17-23.26.3.0.0.jar
 Export-Package: com.microsoft.sqlserver.jdbc,
  com.mysql.jdbc,
  com.mysql.cj.jdbc,
