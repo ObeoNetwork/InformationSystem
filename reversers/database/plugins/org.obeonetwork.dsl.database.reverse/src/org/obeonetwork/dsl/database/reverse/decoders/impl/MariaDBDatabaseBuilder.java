@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
@@ -34,6 +35,11 @@ public class MariaDBDatabaseBuilder extends MySQLDataBaseBuilder {
 		super(source, progressListener, queries);
 	}
 	
+	@Override
+	protected String getColumnDefaultValue(ResultSet rs) throws SQLException {
+		return SQLDefaultValue.toModelValue(rs.getString(13), rs.getInt(5));
+	}
+
 	@Override
 	protected String getTypesLibraryUriPathmap() {
 		return TypesLibraryUtil.MARIADB_PATHMAP;

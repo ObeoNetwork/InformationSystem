@@ -257,12 +257,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		}
 		column.setType(typeInstance);
 
-		String defaultValue = rs.getString(13);
-		if (defaultValue == null || defaultValue.length() == 0) {
-			defaultValue = "";
-		}
-
-		column.setDefaultValue(defaultValue.trim());
+		column.setDefaultValue(getColumnDefaultValue(rs));
 		if (rs.getMetaData().getColumnCount() >= 23) {
 			column.setAutoincrement("YES".equals(rs.getString(23)));
 		}
@@ -294,6 +289,12 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 			NativeTypesLibrary nativeTypesLibrary, String columnType,
 			int columnSize, int decimalDigits) {
 		return CreationUtils.createTypeInstance(nativeTypesLibrary, columnType, columnSize, decimalDigits);
+	}
+
+	/** Reads the driver representation, overridden when text literals need decoding. */
+	protected String getColumnDefaultValue(ResultSet rs) throws SQLException {
+		String value = rs.getString(13);
+		return value == null ? "" : value.trim();
 	}
 
 	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {

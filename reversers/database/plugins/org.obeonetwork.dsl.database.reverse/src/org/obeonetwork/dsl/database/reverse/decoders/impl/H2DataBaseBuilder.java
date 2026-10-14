@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -39,6 +40,11 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
 		this.setSchemaName(source.getSchemaName());
 	}
 	
+	@Override
+	protected String getColumnDefaultValue(ResultSet rs) throws SQLException {
+		return SQLDefaultValue.toModelValue(rs.getString(13), rs.getInt(5));
+	}
+
 	@Override
 	protected String getTypesLibraryUriPathmap() {
 		return TypesLibraryUtil.H2_PATHMAP;

@@ -71,8 +71,8 @@ CONSTRAINT PK_Shippers
 CREATE TABLE Customers( 
   CustomerID  CHAR(5) NOT NULL, 
   CompanyName  VARCHAR2(40) NOT NULL, 
-  ContactName  VARCHAR2(30), 
-  ContactTitle  VARCHAR2(30), 
+  ContactName  VARCHAR2(30) DEFAULT 'D''Obeo',
+  ContactTitle  VARCHAR2(30) DEFAULT 'John',
   Address  VARCHAR2(60), 
   City  VARCHAR2(15), 
   Region  VARCHAR2(15), 
