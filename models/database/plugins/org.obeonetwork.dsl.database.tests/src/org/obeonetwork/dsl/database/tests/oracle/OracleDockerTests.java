@@ -55,7 +55,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 	private static final String ORACLE_SYSTEM_USER = "SYSTEM";
 	private static final String ORACLE_SYSTEM_USER_PASSWORD = "oracleserver";
 	
-	private static final String ORACLE_ALTER_SESSION_SET = "ALTER SESSION SET container=xepdb1";
+	private static final String ORACLE_ALTER_SESSION_SET = "ALTER SESSION SET container=%s";
 	private static final String ORACLE_CREATE_NORTHWIND_USER_STATEMENT = "CREATE USER NORTHWIND IDENTIFIED BY northwind";
 	private static final String ORACLE_GRANT_CONNECTION_RIGHT_TO_USER_NORTHWIND = "GRANT CONNECT, RESOURCE, DBA TO NORTHWIND";
 	private static final int ORACLE_DROP_NON_EXISTING_TABLE_ERROR_CODE = 942;
@@ -73,7 +73,9 @@ public class OracleDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> OracleVersions() {
 		return Arrays.asList(	
-								"container-registry.oracle.com/database/express:21.3.0-xe"
+								"container-registry.oracle.com/database/express:21.3.0-xe",
+								"container-registry.oracle.com/database/free:23.9.0.0-lite",
+								"container-registry.oracle.com/database/free:23.26.3.0-lite"
 							);
 	}
 	
@@ -148,7 +150,8 @@ public class OracleDockerTests extends AbstractDockerTests {
 		
 		// Wait for container initialization
 		
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1?oracle.net.disableOob=true";
+		String pdbName = containerImage.startsWith("container-registry.oracle.com/database/free:") ? "freepdb1" : "xepdb1";
+		String url = "jdbc:oracle:thin:@" + ORACLE_HOST_DEFAULT + ":" + ORACLE_PORT_DEFAULT + "/" + pdbName + "?oracle.net.disableOob=true";
 		
 		if(this.containerImage.equals("oracle/database:11.2.0.2-xe")) {
 			url = String.format(JDBC_ORACLE_URL_PATTERN, ORACLE_HOST_DEFAULT, ORACLE_PORT_DEFAULT, ORACLE_SID);
@@ -184,7 +187,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		
 		if(!this.containerImage.equals("oracle/database:11.2.0.2-xe")) {
 			// Ignore this query for versions before Oracle 12
-			executeMultipleStatementWithSilentCatches(systemDataSource, ORACLE_ALTER_SESSION_SET);
+			executeMultipleStatementWithSilentCatches(systemDataSource, String.format(ORACLE_ALTER_SESSION_SET, pdbName));
 		}
 		
 		executeMultipleStatementWithSilentCatches(systemDataSource, ORACLE_CREATE_NORTHWIND_USER_STATEMENT, ORACLE_GRANT_CONNECTION_RIGHT_TO_USER_NORTHWIND);
