@@ -15,15 +15,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
-import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 
 import liquibase.Liquibase;
 import liquibase.database.Database;
-import liquibase.exception.DatabaseException;
-import liquibase.exception.LiquibaseException;
 
 public abstract class AbstractDockerTests {
 	
