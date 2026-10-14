@@ -23,6 +23,9 @@ Export-Package: liquibase,
  liquibase.change.core,
  liquibase.changelog,
  liquibase.database,
+ liquibase.database.core,
  liquibase.exception,
  liquibase.resource,
- liquibase.serializer.core.xml
+ liquibase.serializer.core.xml,
+ liquibase.sql,
+ liquibase.sqlgenerator

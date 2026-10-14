@@ -35,12 +35,12 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <columns xmi:id="_QcqJRj9lEemGSspmsFzMnA" techID="_QVysMT9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="" indexElements="_QcqJPT9lEemGSspmsFzMnA">
+      <columns xmi:id="_QcqJRj9lEemGSspmsFzMnA" techID="_QVysMT9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="D'Obeo" indexElements="_QcqJPT9lEemGSspmsFzMnA">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJRz9lEemGSspmsFzMnA" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <columns xmi:id="_QcqJSD9lEemGSspmsFzMnA" techID="_QVzTQD9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="" indexElements="_QcqJOz9lEemGSspmsFzMnA">
+      <columns xmi:id="_QcqJSD9lEemGSspmsFzMnA" techID="_QVzTQD9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="John" indexElements="_QcqJOz9lEemGSspmsFzMnA">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJST9lEemGSspmsFzMnA" length="50" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
         </type>
