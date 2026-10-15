@@ -10,8 +10,18 @@
  *******************************************************************************/
 package org.obeonetwork.graal.design.services.requirements;
 
+import java.util.Collection;
+import java.util.stream.Stream;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.session.Session;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
+import org.obeonetwork.graal.DomainClass;
+import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
@@ -76,22 +86,43 @@ public class RequirementsUtils {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * Try to interpret an object as an UseCase
 	 * - return this if the object is a UseCase
 	 * - return the UseCase associated to the group if the referencedObject can be interpreted as a group
 	 * - return the UseCase associated to the task if the referencedObject can be interpreted as a task
+	 * - return the UseCase associated to the domainClass or the parent namespace if the referencedObject can be interpreted as a domainClass
+	 * - return the UseCase associated to the namespace if the referencedObject can be interpreted as a namespace
 	 * - null otherwise
 	 * 
 	 * @param context The context on which is applied the service
 	 * @return the useCase, if a useCase is find, null otherwise
 	 */
 	public UseCase asUseCase(EObject context) {
-		if (context instanceof UseCase) {
-			return (UseCase) context;
-		} else if (context instanceof TasksGroup) {
-			return ((TasksGroup) context).getUseCase();
+		if (context instanceof UseCase useCase) {
+			return useCase;
+		} else if (context instanceof TasksGroup taskGroup) {
+			return taskGroup.getUseCase();
+		} else if (context instanceof DomainClass domainClass) {
+			ECrossReferenceAdapter semanticCrossReferencer = Session.of(domainClass).get().getSemanticCrossReferencer();
+			// Concat the inverse reference for the DomainClass and it's parent in case the link isn't direct
+			Stream<Setting> inverseReferences = Stream.concat(semanticCrossReferencer.getInverseReferences(domainClass, GraalPackage.eINSTANCE.getUseCase_DomainClasses(), true).stream(),
+					semanticCrossReferencer.getInverseReferences(domainClass.eContainer(), GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(), true).stream());
+			
+			return inverseReferences
+					.map(Setting::getEObject)
+					.filter(UseCase.class::isInstance)
+					.map(UseCase.class::cast)
+					.findFirst()
+					.orElse(null);
+		} else if (context instanceof Namespace namespace) {
+			return Session.of(namespace).get().getSemanticCrossReferencer().getInverseReferences(namespace, GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(), true).stream()
+					.map(Setting::getEObject)
+					.filter(UseCase.class::isInstance)
+					.map(UseCase.class::cast)
+					.findFirst()
+					.orElse(null);
 		} else {
 			Task asTask = asTask(context);
 			if (asTask != null) {
