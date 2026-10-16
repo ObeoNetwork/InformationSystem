@@ -44,7 +44,7 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
-		reg.put(SQL_FILE_IMAGE, getImageDescriptor("icons/SqlFile.gif")); //$NON-NLS-1$
+		reg.put(SQL_FILE_IMAGE, getImageDescriptor("icons/SqlFile.png")); //$NON-NLS-1$
 		reg.put(LIQUIBASE_FILE_IMAGE, getImageDescriptor("icons/LiquibaseGen.png")); //$NON-NLS-1$
 		reg.put(LIQUIBASE_FILE_DISABLED_IMAGE, getImageDescriptor("icons/DisabledLiquibaseGen.png")); //$NON-NLS-1$
 		reg.put(SQL_FILE_DISABLED_IMAGE, getImageDescriptor("icons/SqlFileDisabled.gif")); //$NON-NLS-1$
@@ -139,6 +139,16 @@ public class Activator extends AbstractUIPlugin {
     }
 
 	public static void logError(String message, Throwable e) {
+        IStatus status = new Status(IStatus.ERROR, plugin.getBundle().getSymbolicName(), message, e);
+    	plugin.getLog().log(status);
+	}
+	
+	public static void logWarning(String message, Throwable e) {
+        IStatus status = new Status(IStatus.WARNING, plugin.getBundle().getSymbolicName(), message, e);
+    	plugin.getLog().log(status);
+	}
+	
+	public static void logInfo(String message, Throwable e) {
         IStatus status = new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(), message, e);
     	plugin.getLog().log(status);
 	}

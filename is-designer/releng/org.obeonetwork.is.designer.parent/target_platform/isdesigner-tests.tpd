@@ -1,0 +1,10 @@
+target "IS Designer Development and Tests" with source, requirements
+
+include "isdesigner.tpd"
+
+location Orbit-2023-03 "https://download.eclipse.org/tools/orbit/downloads/drops/R20230302014618/repository/" {
+    org.mockito.mockito-core lazy
+    net.bytebuddy.byte-buddy lazy
+    net.bytebuddy.byte-buddy-agent lazy
+    org.objenesis lazy
+}

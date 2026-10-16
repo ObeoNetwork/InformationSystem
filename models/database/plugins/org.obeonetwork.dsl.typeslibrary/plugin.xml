@@ -61,6 +61,10 @@
         source="pathmap://NativeDBTypes/Postgres-9.5-13"
         target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/Postgres.typeslibrary">
   </mapping>
+  <mapping
+        source="pathmap://NativeDBTypes/Postgres"
+        target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/Postgres.typeslibrary">
+  </mapping>
 	</extension>
  <extension
        point="org.eclipse.core.contenttype.contentTypes">

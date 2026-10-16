@@ -1,6 +1,7 @@
 -- ==============================================================
 --  Table : ALTERTABLE                                    
 -- ==============================================================
+
 ALTER TABLE ALTERTABLE DROP COLUMN RemoveColumn2;
 
 ALTER TABLE ALTERTABLE RENAME TO ALTERTABLERENAMED;
@@ -18,6 +19,7 @@ ALTER TABLE ALTERTABLERENAMED ADD AddColumn2 DATE NOT NULL;
 -- ==============================================================
 --  Table : T1                                    
 -- ==============================================================
+
 ALTER TABLE ALTERSCHEMARENAMED.T1 ADD T5_ID INTEGER NOT NULL;
 
 ALTER TABLE ALTERSCHEMARENAMED.T1 MODIFY C3  NOT NULL;
@@ -45,6 +47,7 @@ ALTER TABLE ALTERSCHEMARENAMED.T1 MODIFY C3  NOT NULL;
 -- ==============================================================
 --  Table : T1_4                                    
 -- ==============================================================
+
 ALTER TABLE S8.T1_4 MODIFY C1 NUMBER(10, 2) NOT NULL;
 
 -- ==============================================================
@@ -62,6 +65,7 @@ ALTER TABLE S8.T1_4 MODIFY C1 NUMBER(10, 2) NOT NULL;
 -- ==============================================================
 --  Table : T7_1                                    
 -- ==============================================================
+
 ALTER TABLE S7.T7_1 MODIFY C1 INTEGER NULL;
 
 -- ==============================================================

@@ -257,7 +257,7 @@ public class CinematicLayoutServices {
 		Node gmfNode = SiriusGMFHelper.getGmfNode(dDiagramElement);
 		Bounds gmfBounds = (Bounds)gmfNode.getLayoutConstraint();
 		
-		Rectangle draw2dBounds = GMFHelper.getAbsoluteBounds(gmfNode, false);
+		Rectangle draw2dBounds = GMFHelper.getAbsoluteBounds(gmfNode, false).get();
 		draw2dBounds.setX(gmfBounds.getX());
 		draw2dBounds.setY(gmfBounds.getY());
 		

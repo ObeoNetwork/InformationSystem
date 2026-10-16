@@ -1,30 +1,18 @@
+[module generate('http://www.eclipse.org/emf/compare', 'http://www.obeonetwork.org/dsl/database/evolution/1.0', 'http://www.obeonetwork.org/dsl/database/1.0')/]
+
+[import org::obeonetwork::dsl::database::compare::tests::gen::services::utilServices/]
+
 [comment encoding = UTF-8 /]
-[comment
- Copyright (c) 2008, 2026 Obeo.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v2.0
- which accompanies this distribution, and is available at
- https://www.eclipse.org/legal/epl-2.0/
+[template public generateComparison(aComparison : compare::Comparison)]
+  [aComparison.matches->select(aMatch | aMatch.left.oclIsKindOf(database::DataBase))/][/template]
 
- Contributors:
-     Obeo - initial API and implementation
-/]
-[module generate('http://www.eclipse.org/emf/compare','http://www.obeonetwork.org/dsl/database/evolution/1.0','http://www.obeonetwork.org/dsl/database/1.0')]
+[template public generateComparison(aMatch : compare::Match)]
+  [OrderedSet{aMatch.left}->filter(database::DataBase)->asSequence()->collect(temp1 | temp1.name)/]
+  [aMatch.generateDifferences()/]	[/template]
 
-[import org::obeonetwork::dsl::database::compare::tests::gen::services::utilServices /]
-
-[template public generateComparison(aComparison : Comparison)]
-[aComparison.matches->select(aMatch : Match | aMatch.left.oclIsKindOf(DataBase))/]
-[/template]
-
-[template public generateComparison(aMatch : Match)]
-[aMatch.left->filter(DataBase).name/]
-[aMatch.generateDifferences()/]	
-[/template]
-
-[template public generateDifferences(aMatch : Match)]
-[for (aDiff : DBDiff | aMatch.differences->filter(DBDiff))]
-	+ [aMatch.differences->filter(DBDiff).getLabel()/]
-	[aMatch.submatches.generateDifferences()/]	
-[/for]
+[template public generateDifferences(aMatch : compare::Match)]
+  [for (aDiff : dbevolution::DBDiff | aMatch.differences->filter(dbevolution::DBDiff))]
+    	+ [aMatch.differences->filter(dbevolution::DBDiff)->asSequence()->collect(temp2 | temp2.getLabel())/]
+    	[aMatch.submatches->asSequence()->collect(temp3 | temp3.generateDifferences())/]	
+  [/for]
 [/template]

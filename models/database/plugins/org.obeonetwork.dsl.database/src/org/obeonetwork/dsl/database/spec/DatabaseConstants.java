@@ -11,12 +11,34 @@
 package org.obeonetwork.dsl.database.spec;
 
 public interface DatabaseConstants {
-	static final String DB_ORACLE_21C = "Oracle-21c";
-	static final String DB_MYSQL_8 = "MySQL-8";
-	static final String DB_MARIADB_106 = "MariaDB-10.6";
-	static final String DB_H2_13 = "H2-1.3-1.4";
-	static final String DB_POSTGRES_14 = "PostgreSQL14.3";
-	static final String DB_SQLSERVER_2008 = "SQLServer-2008";
+	static final String DB_ORACLE = "oracle";
+	static final String DB_MYSQL = "mysql";
+	static final String DB_MARIADB = "mariadb";
+	static final String DB_H2 = "h2";
+	static final String DB_POSTGRES = "postgresql";
+	static final String DB_SQLSERVER = "sqlserver";
 	
-	static final String DB_LOGICAL_TYPES = "Logical Types";
+	static final String DB_LOGICAL_TYPES = "logical";
+
+	/**
+	 * Returns the display label for a database vendor.
+	 *
+	 * @param vendor the database vendor identifier, or {@code null}
+	 * @return the vendor label, the identifier if unknown, or an empty string if null
+	 */
+	static String getVendorLabel(String vendor) {
+		if (vendor == null) {
+			return "";
+		}
+		return switch (vendor) {
+		case DB_H2 -> "H2";
+		case DB_MYSQL -> "MySQL";
+		case DB_MARIADB -> "MariaDB";
+		case DB_POSTGRES -> "PostgreSQL";
+		case DB_SQLSERVER -> "SQL Server";
+		case DB_ORACLE -> "Oracle";
+		case DB_LOGICAL_TYPES -> "Logical Types";
+		default -> vendor;
+		};
+	}
 }

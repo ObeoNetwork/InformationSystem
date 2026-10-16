@@ -60,8 +60,11 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> MariaDBVersions() {
 		return Arrays.asList(	
-								"mariadb/server:10.2",
-								"mariadb:10.6"
+								"mariadb:10.6",
+								"mariadb:11.8",
+								"mariadb:12.1.2",
+								"mariadb:12.3.3",
+								"mariadb:13.0.2"
 							);
 	}
 	
@@ -114,7 +117,7 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		
 		// Init DB
 		
-		database = TestUtils.openDatabaseConnection(url, MARIADB_USERNAME_DEFAULT, MARIADB_PASSWORD_DEFAULT);
+		//database = TestUtils.openDatabaseConnection(url, MARIADB_USERNAME_DEFAULT, MARIADB_PASSWORD_DEFAULT);
 		liquibase = TestUtils.createAndInitializeLiquibase("resources/northwind-liquibase.xml", database);
 		
 		// Run the test
@@ -123,7 +126,7 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MARIADB_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MARIADB_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MARIADB_106);
+		dataSource.setVendor(DatabaseConstants.DB_MARIADB);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

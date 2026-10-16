@@ -36,6 +36,7 @@ import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -146,7 +147,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				// Look for a table that could correspond to the sequence based on its name
 				if (sequenceName.endsWith("_seq")) {
 					queries.getAllTables().stream().filter(Table.class::isInstance).map(Table.class::cast) //
-					.map(Table::getPrimaryKey).map(PrimaryKey::getColumns).flatMap(List::stream) //
+					.map(Table::getPrimaryKey).filter(pk -> pk != null).map(PrimaryKey::getColumns).flatMap(List::stream) //
 					.forEach(pkColumn -> {
 						Table table = pkColumn.getOwner();
 						if(sequenceName.equalsIgnoreCase(table.getName() + "_seq") || 
@@ -207,6 +208,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			column.setDefaultValue(matcher.group(1));
 		}
 		
+		column.setDefaultValue(SQLDefaultValue.toModelValue(column.getDefaultValue(), rs.getInt(5)));
 		return column;
 	}
 

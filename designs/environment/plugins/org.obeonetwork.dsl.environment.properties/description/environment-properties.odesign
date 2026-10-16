@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="environment-properties" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="environment-properties" version="15.4.0.202401051836">
   <ownedViewpoints endUserDocumentation="The &lt;b>Environment Views&lt;/b> viewpoint provides the property views allowing the edition of the environment elements." name="Environment Views">
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.properties.internal.services.EnvironmentServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.SiriusUIUtils"/>
@@ -67,21 +67,6 @@
         </controls>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType associatedTypes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedTypes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedTypes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedTypes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'associatedTypes'"/>
-          <customOperations name="onDoubleClickOperation">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedTypes Dialog">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation/>
-                  </buttons>
-                  <page name="Edit associatedTypes Page"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </customOperations>
         </controls>
       </groups>
     </categories>
@@ -145,6 +130,9 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
+        </controls>
       </groups>
       <groups name="Bidirectional Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:ContainerDescription">
@@ -199,6 +187,9 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
               </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
+              <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
             </controls>
           </controls>
           <controls xsi:type="properties:ContainerDescription">
@@ -265,6 +256,10 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
                 </firstModelOperations>
               </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference associatedReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedReferences').changeable">
+              <customExpressions name="referenceNameExpression" customExpression="aql:'associatedReferences'"/>
+              <customExpressions name="referenceOwnerExpression" customExpression="aql:self.oppositeOf"/>
             </controls>
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>

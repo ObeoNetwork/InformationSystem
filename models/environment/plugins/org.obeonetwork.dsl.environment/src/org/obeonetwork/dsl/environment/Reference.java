@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Reference</b></em>'.
@@ -24,6 +26,7 @@ package org.obeonetwork.dsl.environment;
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#getOppositeOf <em>Opposite Of</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#getContainingType <em>Containing Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#getReferencedType <em>Referenced Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.Reference#getAssociatedReferences <em>Associated References</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference()
@@ -185,6 +188,21 @@ public interface Reference extends Property {
 	 * @generated
 	 */
 	void setReferencedType(StructuredType value);
+
+	/**
+	 * Returns the value of the '<em><b>Associated References</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of associated references.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Associated References</em>' reference list.
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_AssociatedReferences()
+	 * @model
+	 * @generated
+	 */
+	EList<Reference> getAssociatedReferences();
 
 	/**
 	 * <!-- begin-user-doc -->

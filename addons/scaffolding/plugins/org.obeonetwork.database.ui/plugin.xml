@@ -36,24 +36,24 @@
             locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
          <command
                commandId="org.obeonetwork.database.ui.command.GenerateSQL"
-               icon="icons/SqlFile.gif"
+               icon="icons/SqlFile.png"
                label="Generate SQL Scripts"
                style="push">
             <visibleWhen
                   checkEnabled="false">
                <with variable="selection">
 				  <iterate ifEmpty="false">
-        <test
-              args="database"
-              forcePluginActivation="true"
-              property="org.obeonetwork.database.ui.propertyTester.testFileExtension"
-              value="true">
-        </test>
+			        <test
+			              args="database"
+			              forcePluginActivation="true"
+			              property="org.obeonetwork.database.ui.propertyTester.testFileExtension"
+			              value="true">
+			        </test>
 				  </iterate>
                </with>
             </visibleWhen>
          </command>
-         <command
+	     <command
                commandId="org.obeonetwork.database.ui.command.GenerateLiquibase"
                icon="icons/LiquibaseGen.png"
                label="Generate Liquibase changelog"
@@ -107,6 +107,10 @@
    </extension>
    <extension
          point="org.eclipse.ui.commands">
+      <category
+            id="org.obeonetwork.is.designer"
+            name="IS Designer">
+      </category>
       <command
             id="org.obeonetwork.ui.command.scaffold.entityToMld"
             name="Entity to Logical database">
@@ -124,6 +128,7 @@
             name="Physical database to Logical database">
       </command>
       <command
+            categoryId="org.obeonetwork.is.designer"
             id="org.obeonetwork.database.ui.command.GenerateSQL"
             name="Generate SQL Scripts">
       </command>
@@ -266,7 +271,7 @@
          </enabledWhen>
       </handler>
       <handler
-            class="org.obeonetwork.database.ui.actions.GenerateSQLFromDatabaseHandler"
+            class="org.obeonetwork.database.ui.actions.SqlDatabaseGenGeneratorHandler"
             commandId="org.obeonetwork.database.ui.command.GenerateSQL">
          <enabledWhen>
             <with
@@ -315,8 +320,9 @@
             </with>
          </enabledWhen>
       </handler>
+<!--TODO: To change Liquibase instead of Database-->
       <handler
-            class="org.obeonetwork.database.ui.actions.GenerateLiquibaseFromDatabaseHandler"
+            class="org.obeonetwork.database.ui.actions.LiquibaseDatabaseGenGeneratorHandler"
             commandId="org.obeonetwork.database.ui.command.GenerateLiquibase">
          <enabledWhen>
             <with
@@ -375,7 +381,7 @@
          <action
                class="org.obeonetwork.database.ui.actions.ExportAsSQLScriptsAction"
                disabledIcon="icons/SqlFileDisabled.gif"
-               icon="icons/SqlFile.gif"
+               icon="icons/SqlFile.png"
                id="org.obeonetwork.database.ui.action1"
                label="Generate SQL Scripts"
                style="push"

@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
+import org.obeonetwork.dsl.database.reverse.utils.SQLDefaultValue;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
@@ -51,6 +52,11 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		buildSequences(metaData, tableContainer);
 	}
 	
+	@Override
+	protected String getColumnDefaultValue(ResultSet rs) throws SQLException {
+		return SQLDefaultValue.toModelValue(rs.getString(13), rs.getInt(5));
+	}
+
 	@Override
 	protected String getTypesLibraryUriPathmap() {
 		return TypesLibraryUtil.ORACLE_PATHMAP;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- Corresponds to hidpi.tpd. Versions are pinned to the Windows diagnostic. -->
+<target name="IS Designer HiDPI additions" sequenceNumber="2">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="com.ibm.icu" version="77.1.0"/>
+      <repository id="Obeo-Designer-ICU" location="https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.gef.sdk.feature.group" version="3.26.1.202512111752"/>
+      <unit id="org.eclipse.draw2d.sdk.feature.group" version="3.26.1.202512111752"/>
+      <repository id="GEF-Classic-3.26.1" location="https://download.eclipse.org/tools/gef/classic/release/3.26.1/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.swt" version="3.132.0.v20251124-0642"/>
+      <unit id="org.eclipse.swt.svg" version="3.131.0.v20251009-2047"/>
+      <unit id="com.github.weisj.jsvg" version="2.0.0"/>
+      <repository id="Eclipse-SWT-2025-12" location="https://download.eclipse.org/eclipse/updates/4.38/R-4.38-202512010920/"/>
+    </location>
+  </locations>
+</target>

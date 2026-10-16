@@ -10,15 +10,14 @@
  *******************************************************************************/
 package org.obeonetwork.database.ui.wizards.imports;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +32,9 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -56,6 +57,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.database.ui.dialogs.FileExtensionsViewerFilter;
 import org.obeonetwork.database.ui.dialogs.SpecificWorkspaceResourceDialog;
+import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.utils.common.ui.services.WizardHelper;
 
 
@@ -63,7 +65,8 @@ public class DatabaseImportWizardPage extends WizardPage {
 	
 	private static final String DATABASE_FILE_EXTENSION = "database";
 
-	private static final String[] DB_VENDOR_CHOICES = new String[]{DB_H2_13, DB_MYSQL_8, DB_MARIADB_106, DB_POSTGRES_14, DB_SQLSERVER_2008, DB_ORACLE_21C};
+	private static final String[] DB_VENDOR_CHOICES = new String[]{
+			DB_H2, DB_MYSQL, DB_MARIADB, DB_POSTGRES, DB_SQLSERVER, DB_ORACLE};
 	
 	// Model
 	private DatabaseInfos databaseInfos;
@@ -71,6 +74,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 	
 	private Label lblError;
 	private Combo comboDbVendor;
+	private ComboViewer dbVendorViewer;
 	private Text txtHost;
 	private Text txtPort;
 	private Text txtDatabase;
@@ -111,7 +115,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 		lblDbVendor.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblDbVendor.setText("DB Vendor :");
 		
-		comboDbVendor = new Combo(composite, SWT.NONE);
+		comboDbVendor = new Combo(composite, SWT.READ_ONLY);
 		comboDbVendor.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		
 		Label lblHost = new Label(composite, SWT.NONE);
@@ -163,21 +167,29 @@ public class DatabaseImportWizardPage extends WizardPage {
 		txtUrl = new Text(composite, SWT.BORDER);
 		txtUrl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		
-		comboDbVendor.setItems(DB_VENDOR_CHOICES);
+		dbVendorViewer = new ComboViewer(comboDbVendor);
+		dbVendorViewer.setContentProvider(ArrayContentProvider.getInstance());
+		dbVendorViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return DatabaseConstants.getVendorLabel((String) element);
+			}
+		});
+		dbVendorViewer.setInput(DB_VENDOR_CHOICES);
 		comboDbVendor.addSelectionListener(new SelectionAdapter() {
 						
 			public void widgetSelected(SelectionEvent e) {
-				txtSchema.setEnabled(!DB_MYSQL_8.equals(comboDbVendor.getText()));
-				txtSchema.setEnabled(!DB_MARIADB_106.equals(comboDbVendor.getText()));
+				txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+				txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 				
-				txtHost.setEnabled(!DB_H2_13.equals(comboDbVendor.getText()));
-				txtPort.setEnabled(!DB_H2_13.equals(comboDbVendor.getText()));
+				txtHost.setEnabled(!DB_H2.equals(getSelectedVendor()));
+				txtPort.setEnabled(!DB_H2.equals(getSelectedVendor()));
 				
 			}
 		});
 		
-		txtSchema.setEnabled(!DB_MYSQL_8.equals(comboDbVendor.getText()));
-		txtSchema.setEnabled(!DB_MARIADB_106.equals(comboDbVendor.getText()));
+		txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 		
 		Label lblModelFile = new Label(composite, SWT.NONE);
 		lblModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -304,8 +316,12 @@ public class DatabaseImportWizardPage extends WizardPage {
 		bindValues();
 	}
 	
+	private String getSelectedVendor() {
+		return (String) dbVendorViewer.getStructuredSelection().getFirstElement();
+	}
+
 	private void initInput() {
-		comboDbVendor.select(Arrays.asList(DB_VENDOR_CHOICES).indexOf(databaseInfos.getVendor()));
+		dbVendorViewer.setSelection(new StructuredSelection(databaseInfos.getVendor()));
 		txtHost.setText(databaseInfos.getHost());
 		txtPort.setText(databaseInfos.getPort());
 		txtDatabase.setText(databaseInfos.getDatabase());
@@ -313,8 +329,8 @@ public class DatabaseImportWizardPage extends WizardPage {
 		txtUser.setText(databaseInfos.getUser());
 		txtPassword.setText(databaseInfos.getPassword());
 		txtUrl.setText(databaseInfos.getUrl());
-		txtSchema.setEnabled(!DB_MYSQL_8.equals(comboDbVendor.getText()));
-		txtSchema.setEnabled(!DB_MARIADB_106.equals(comboDbVendor.getText()));
+		txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 		listReferencedModelFiles.setInput(referencedFiles);
 	}
 	
@@ -323,7 +339,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 		// The DataBindingContext object will manage the databindings
 		DataBindingContext ctx = new DataBindingContext();
 		
-		IObservableValue widgetValue = WidgetProperties.comboSelection().observe(comboDbVendor);
+		IObservableValue widgetValue = ViewerProperties.singleSelection(String.class).observe(dbVendorViewer);
 		IObservableValue modelValue = BeanProperties.value(DatabaseInfos.class, "vendor").observe(databaseInfos);
 		ctx.bindValue(widgetValue, modelValue);
 		

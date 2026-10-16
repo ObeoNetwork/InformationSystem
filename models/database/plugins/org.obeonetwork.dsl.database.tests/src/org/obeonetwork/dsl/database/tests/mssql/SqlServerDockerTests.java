@@ -12,9 +12,6 @@ package org.obeonetwork.dsl.database.tests.mssql;
 
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
@@ -22,9 +19,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +31,6 @@ import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
-import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
@@ -65,7 +58,8 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> SqlServerVersions() {
 		return Arrays.asList(	
-								"mcr.microsoft.com/mssql/server:2022-latest"
+								"mcr.microsoft.com/mssql/server:2022-latest",
+								"mcr.microsoft.com/mssql/server:2025-latest"
 							);
 	}
 	
@@ -118,7 +112,7 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER);
 		
 		TestUtils.executeStatement(dataSource, String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
 		
@@ -132,7 +126,7 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(databaseUrl);
 		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

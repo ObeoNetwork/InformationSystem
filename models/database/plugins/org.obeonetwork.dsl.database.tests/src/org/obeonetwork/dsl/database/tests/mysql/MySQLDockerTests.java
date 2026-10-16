@@ -12,18 +12,12 @@ package org.obeonetwork.dsl.database.tests.mysql;
 
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +29,6 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
-import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
@@ -61,7 +54,8 @@ public class MySQLDockerTests extends AbstractDockerTests {
 	public static Collection<String> MySQLVersions() {
 		return Arrays.asList(	
 								"mysql:5.7",
-								"mysql:8.0.30"
+								"mysql:8.0.30",
+								"mysql:9.6.0"
 							);
 	}
 	
@@ -122,7 +116,7 @@ public class MySQLDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MYSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MYSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MYSQL_8);
+		dataSource.setVendor(DatabaseConstants.DB_MYSQL);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

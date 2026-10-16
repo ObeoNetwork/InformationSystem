@@ -24,12 +24,12 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 
 public class DataBaseBuilderFactory {
 	
@@ -40,21 +40,16 @@ public class DataBaseBuilderFactory {
 	}
 	
 	public DataBaseBuilder createDataBaseBuilder(Queries queries, ProgressListener progressListener) throws SQLException {
-		if(DB_MYSQL_8.equals(dataSource.getVendor())){
-			return new MySQLDataBaseBuilder(dataSource, progressListener, queries);
-		} else if (DB_MARIADB_106.equals(dataSource.getVendor())) {
-			return new MariaDBDatabaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_ORACLE_21C.equals(dataSource.getVendor())){
-			return new OracleDataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_H2_13.equals(dataSource.getVendor())){
-			return new H2DataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_POSTGRES_14.equals(dataSource.getVendor())){
-			return new PostGresDataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_SQLSERVER_2008.equals(dataSource.getVendor())){
-			return new SQLServerDataBaseBuilder(dataSource, progressListener, queries);
-		} else {
-			return new DefaultDataBaseBuilder(dataSource, progressListener, queries);
-		}
+		String vendor = dataSource.getVendor();
+		return switch (vendor == null ? "" : vendor) {
+		case DB_MYSQL -> new MySQLDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_MARIADB -> new MariaDBDatabaseBuilder(dataSource, progressListener, queries);
+		case DB_ORACLE -> new OracleDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_H2 -> new H2DataBaseBuilder(dataSource, progressListener, queries);
+		case DB_POSTGRES -> new PostGresDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_SQLSERVER -> new SQLServerDataBaseBuilder(dataSource, progressListener, queries);
+		default -> new DefaultDataBaseBuilder(dataSource, progressListener, queries);
+		};
 	}
 
 }

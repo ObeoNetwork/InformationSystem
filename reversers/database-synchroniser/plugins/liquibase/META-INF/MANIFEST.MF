@@ -12,13 +12,20 @@ Bundle-ClassPath: jars/jaxb-api-2.3.0.jar,
  jars/liquibase-core-4.14.0.jar,
  jars/slf4j-api-1.6.4.jar,
  jars/slf4j-simple-1.6.4.jar,
- jars/snakeyaml-1.27.jar
+ jars/snakeyaml-1.27.jar,
+ jars/commons-collections4-4.4.jar,
+ jars/commons-lang3-3.12.0.jar,
+ jars/commons-text-1.9.jar,
+ jars/opencsv-5.6.jar
 Bundle-ActivationPolicy: lazy
 Export-Package: liquibase,
  liquibase.change,
  liquibase.change.core,
  liquibase.changelog,
  liquibase.database,
+ liquibase.database.core,
  liquibase.exception,
  liquibase.resource,
- liquibase.serializer.core.xml
+ liquibase.serializer.core.xml,
+ liquibase.sql,
+ liquibase.sqlgenerator

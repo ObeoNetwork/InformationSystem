@@ -82,12 +82,12 @@
           <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_H80M_D9WEemepuMCih36bQ" techID="_Gw7BgD9WEemepuMCih36bQ" name="CONTACTNAME" nullable="true" defaultValue="">
+      <columns xmi:id="_H80M_D9WEemepuMCih36bQ" techID="_Gw7BgD9WEemepuMCih36bQ" name="CONTACTNAME" nullable="true" defaultValue="D'Obeo">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_H80M_T9WEemepuMCih36bQ" length="30" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_H80M_j9WEemepuMCih36bQ" techID="_Gw8PoD9WEemepuMCih36bQ" name="CONTACTTITLE" nullable="true" defaultValue="">
+      <columns xmi:id="_H80M_j9WEemepuMCih36bQ" techID="_Gw8PoD9WEemepuMCih36bQ" name="CONTACTTITLE" nullable="true" defaultValue="John">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_H80M_z9WEemepuMCih36bQ" length="30" precision="0">
           <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
         </type>

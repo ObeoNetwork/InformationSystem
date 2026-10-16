@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.graal.m2doc.feature"
       label="Obeo Network - M2Doc Graal Services"
-      version="5.1.3.qualifier"
+      version="6.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="5.1.3.qualifier">
+      license-feature-version="6.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       M2Doc for Graal.
@@ -27,16 +27,6 @@
 
    <plugin
          id="org.obeonetwork.dsl.graal.m2doc.services"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.graal.m2doc.services.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>

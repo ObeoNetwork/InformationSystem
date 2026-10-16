@@ -25,8 +25,6 @@ import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ColumnWeightData;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -60,7 +58,7 @@ public class EObjectLinksView extends ViewPart {
 
 	private EObjectLinkContentProvider contentProvider;
 
-	protected Action doubleClickAction;
+	protected IAction doubleClickAction;
 	private Action switchChildrenVisibilityAction;
 
 	private List<ViewListener> listeners;
@@ -277,19 +275,14 @@ public class EObjectLinksView extends ViewPart {
 	private void hookDoubleClickAction() {
 		doubleClickAction = createDoubleClickAction();
 		if (doubleClickAction != null) {
-			viewer.addDoubleClickListener(new IDoubleClickListener() {
-				
-				public void doubleClick(DoubleClickEvent event) {
-					doubleClickAction.run();
-				}
-			});
+			viewer.addDoubleClickListener(event ->  doubleClickAction.run());
 		}
 	}
 	
 	/**
 	 * @return
 	 */
-	protected Action createDoubleClickAction() {
+	protected IAction createDoubleClickAction() {
 		return null;
 	}
 

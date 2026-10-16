@@ -7,6 +7,7 @@ DROP TABLE REMOVETABLE;
 -- ==============================================================
 --  Table : T1                                    
 -- ==============================================================
+
 DROP PUBLIC SYNONYM T1;
 DROP TABLE REMOVESCHEMA.T1;
 

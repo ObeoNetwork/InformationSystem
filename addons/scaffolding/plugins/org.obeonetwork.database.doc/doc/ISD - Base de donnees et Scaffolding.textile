@@ -6,7 +6,7 @@ h2(#database_and_scaffolding_overview). Vue d'ensemble
 
 Le _Scaffolding_ est une technique popularisée par le socle de développement _Ruby on Rails_ qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d'une base de données.
 En l’occurrence, l'outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
-* un module capable d'extraire les informations structurelles d'une base de données relationnelles existante (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle _Database_ hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem,
+* un module capable d'extraire les informations structurelles d'une base de données relationnelle existante (MySQL, MariaDB, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle _Database_,
 * un modeleur de base de données, basé sur Sirius, permettant de réaliser des Modèles Physique et Logique de Données (MPD et MLD),
 * un module de comparaison de modèles _Database_ et un générateur de scripts SQL capable de déduire les instructions SQL de mise à jour de la base de données,
 * un ensemble de transformations permettant d'automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu'entre un modèle logique et un modèle d'entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu'au modèle physique et vice versa).
@@ -33,15 +33,15 @@ h3(#supported_databases). Bases de données supportées
 
 Les types de bases de données suivants sont supportés :
 
-|_. Base |_. Version |_. Java |
-| Oracle |11g à 21c | 8 et 11 |
-| MySQL | 5 à 8 | 8 et plus |
-| MariaDB | 10.2 à 10.6 | 8, 11 et 17 |
-| H2 | 1.3 à 1.4.200 | 8 |
-| PostgreSQL | 9.5 à 14.3 | 8 et plus |
-| SQLServer | 2008 et 2022 | 8, 11, 17 et 18 |
+|_. Base |_. Version |
+| Oracle | 11g à 26ai |
+| MySQL | 5 à 9.6 |
+| MariaDB | 10.2 à 13.0.2 |
+| H2 | 1.3 à 1.4.200 |
+| PostgreSQL | 9.5 à 18.1 |
+| SQL Server | 2008, 2022 et 2025 |
 
-La rétrocompatibilité des drivers permet en théorie d'importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
+La rétrocompatibilité des drivers permet en théorie d'importer des schémas de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
 
 h3(#database_model_creation). Création d'un modèle Database
 

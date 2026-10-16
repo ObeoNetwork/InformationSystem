@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="compatibility_database" name="uri_compatibility">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="compatibility_schema" name="public">
+    <tables xsi:type="database:Table" xmi:id="compatibility_table" name="sample">
+      <columns xmi:id="integer_column" name="integer_column">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="integer_column_type">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_EfcOQG5FEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+      <columns xmi:id="varchar_column" name="varchar_column">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="varchar_column_type">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="bigserial_column" name="bigserial_column">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="bigserial_column_type">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_55dXICnEEfG9cPNti5l34g"/>
+        </type>
+      </columns>
+      <columns xmi:id="smallserial_column" name="smallserial_column">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="smallserial_column_type">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_xzRTICnEEfG9cPNti5l34g"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

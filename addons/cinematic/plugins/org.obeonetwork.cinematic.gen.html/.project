@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><projectDescription>
 	<name>org.obeonetwork.cinematic.gen.html</name>
-	<comment></comment>
+	<comment/>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -20,26 +19,10 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name>
-			<arguments>
-				<dictionary>
-					<key>compilation.kind</key>
-					<value>compilation.absolute.path</value>
-				</dictionary>
-				<dictionary>
-					<key>compliance</key>
-					<value>pragmatic</value>
-				</dictionary>
-				<dictionary>
-					<key>resource.kind</key>
-					<value>xmi</value>
-				</dictionary>
-			</arguments>
-		</buildCommand>
+		
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.acceleo.ide.ui.acceleoNature</nature>
+		
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>

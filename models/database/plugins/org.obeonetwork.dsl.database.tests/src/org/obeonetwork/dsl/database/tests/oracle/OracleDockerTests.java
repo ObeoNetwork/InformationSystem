@@ -12,10 +12,8 @@ package org.obeonetwork.dsl.database.tests.oracle;
 
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.sql.SQLException;
 import java.time.Duration;
@@ -24,7 +22,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,7 +55,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 	private static final String ORACLE_SYSTEM_USER = "SYSTEM";
 	private static final String ORACLE_SYSTEM_USER_PASSWORD = "oracleserver";
 	
-	private static final String ORACLE_ALTER_SESSION_SET = "ALTER SESSION SET container=xepdb1";
+	private static final String ORACLE_ALTER_SESSION_SET = "ALTER SESSION SET container=%s";
 	private static final String ORACLE_CREATE_NORTHWIND_USER_STATEMENT = "CREATE USER NORTHWIND IDENTIFIED BY northwind";
 	private static final String ORACLE_GRANT_CONNECTION_RIGHT_TO_USER_NORTHWIND = "GRANT CONNECT, RESOURCE, DBA TO NORTHWIND";
 	private static final int ORACLE_DROP_NON_EXISTING_TABLE_ERROR_CODE = 942;
@@ -76,8 +73,9 @@ public class OracleDockerTests extends AbstractDockerTests {
 	@Parameters( name = "{0}")
 	public static Collection<String> OracleVersions() {
 		return Arrays.asList(	
-								"oracle/database:11.2.0.2-xe",
-								"container-registry.oracle.com/database/express:21.3.0-xe"
+								"container-registry.oracle.com/database/express:21.3.0-xe",
+								"container-registry.oracle.com/database/free:23.9.0.0-lite",
+								"container-registry.oracle.com/database/free:23.26.3.0-lite"
 							);
 	}
 	
@@ -94,32 +92,8 @@ public class OracleDockerTests extends AbstractDockerTests {
 				"--shm-size=1gb",
 				"-d", containerImage);
 
-		try {
-			Process process = builder.start();
-			StringBuilder output = new StringBuilder();
+		runAndWaitContainerCreation(builder);
 
-	        BufferedReader reader = new BufferedReader(
-	                new InputStreamReader(process.getInputStream()));
-
-	        String line;
-	        while ((line = reader.readLine()) != null) {
-	            output.append(line + "\n");
-	        }
-
-	        int exitVal = process.waitFor();
-            System.out.println(output);
-            Thread.sleep(5000); 
-            
-            // wait for container to boot if created at the moment. 
-            // a better implementation would check the output log until the containers tells its ready
-            
-	        if (exitVal != 0) {
-	        	throw new Exception("Could not initialize docker image: exit code: "+exitVal);
-	        }
-
-		} catch (Exception e) {
-			Assert.fail(e.toString());
-		}	
 	}
 	
 	
@@ -176,7 +150,8 @@ public class OracleDockerTests extends AbstractDockerTests {
 		
 		// Wait for container initialization
 		
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1?oracle.net.disableOob=true";
+		String pdbName = containerImage.startsWith("container-registry.oracle.com/database/free:") ? "freepdb1" : "xepdb1";
+		String url = "jdbc:oracle:thin:@" + ORACLE_HOST_DEFAULT + ":" + ORACLE_PORT_DEFAULT + "/" + pdbName + "?oracle.net.disableOob=true";
 		
 		if(this.containerImage.equals("oracle/database:11.2.0.2-xe")) {
 			url = String.format(JDBC_ORACLE_URL_PATTERN, ORACLE_HOST_DEFAULT, ORACLE_PORT_DEFAULT, ORACLE_SID);
@@ -208,11 +183,11 @@ public class OracleDockerTests extends AbstractDockerTests {
 		systemDataSource.setJdbcUrl(url);
 		systemDataSource.setJdbcUsername(ORACLE_SYSTEM_USER);
 		systemDataSource.setJdbcPassword(ORACLE_SYSTEM_USER_PASSWORD);
-		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		if(!this.containerImage.equals("oracle/database:11.2.0.2-xe")) {
 			// Ignore this query for versions before Oracle 12
-			executeMultipleStatementWithSilentCatches(systemDataSource, ORACLE_ALTER_SESSION_SET);
+			executeMultipleStatementWithSilentCatches(systemDataSource, String.format(ORACLE_ALTER_SESSION_SET, pdbName));
 		}
 		
 		executeMultipleStatementWithSilentCatches(systemDataSource, ORACLE_CREATE_NORTHWIND_USER_STATEMENT, ORACLE_GRANT_CONNECTION_RIGHT_TO_USER_NORTHWIND);
@@ -222,7 +197,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		northwindDataSource.setJdbcUrl(url);
 		northwindDataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		northwindDataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		this.executeSQLFromFile(northwindDataSource, ORACLE_DATABASE_DROP_FILE_PATH);
 		
@@ -239,7 +214,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		dataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		dataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		dataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

@@ -10,10 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.compare.tests;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -31,7 +29,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.Assert;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.extensions.services.DatabaseCompareService;
-import org.obeonetwork.dsl.database.compare.tests.gen.main.Generate;
+import org.obeonetwork.dsl.database.compare.tests.gen.main.GenerateGenerator;
 
 public class AbstractDatabaseCompareTest {
 
@@ -56,13 +54,8 @@ public class AbstractDatabaseCompareTest {
 //		assertEquals(expectedSnapshot.getDiff().getOwnedElements().get(0), actualSnapshot.getDifferences()getOwnedElements().get(0));
 		//assertEquals(expectedSnapshot, actualSnapshot);
 		
-		try {
-			Generate generate = new Generate(actualSnapshot, new File("models/" + folder), new ArrayList<Object>());
-			generate.doGenerate(new BasicMonitor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		GenerateGenerator generate = new GenerateGenerator(actualSnapshot, "models/" + folder);
+		generate.generate(new BasicMonitor());
 		
 	}
 	

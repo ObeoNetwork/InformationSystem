@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.wizards;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -26,6 +26,10 @@ import java.util.StringTokenizer;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -37,11 +41,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.provider.DatabaseEditPlugin;
+import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 
 public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 
 	protected Combo initialObjectField;
 	protected Combo dbVendorField;
+	private ComboViewer dbVendorViewer;
 	protected Combo encodingField;
 
 	protected List<String> dbVendors;
@@ -96,17 +102,23 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 			data.horizontalAlignment = GridData.FILL;
 			dbVendorLabel.setLayoutData(data);
 		}
-		dbVendorField = new Combo(composite, SWT.BORDER);
+		dbVendorField = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
 		{
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
 			dbVendorField.setLayoutData(data);
 		}
-		for (String dbVendor : getDBVendors()) {
-			dbVendorField.add(dbVendor);
-		}
-		dbVendorField.select(0);
+		dbVendorViewer = new ComboViewer(dbVendorField);
+		dbVendorViewer.setContentProvider(ArrayContentProvider.getInstance());
+		dbVendorViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return DatabaseConstants.getVendorLabel((String) element);
+			}
+		});
+		dbVendorViewer.setInput(getDBVendors());
+		dbVendorViewer.setSelection(new StructuredSelection(DB_LOGICAL_TYPES));
 		dbVendorField.addModifyListener(validator);
 
 		Label encodingLabel = new Label(composite, SWT.LEFT);
@@ -144,7 +156,7 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 
 	protected boolean validatePage() {
 		return getInitialObjectName() != null && getEncodings().contains(encodingField.getText())
-				&& getDBVendors().contains(dbVendorField.getText());
+				&& getDBVendors().contains(getSelectedVendor());
 	}
 
 	@Override
@@ -186,6 +198,10 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 		return initialObjectNames;
 	}
 
+	public String getSelectedVendor() {
+		return (String) dbVendorViewer.getStructuredSelection().getFirstElement();
+	}
+
 	public String getEncoding() {
 		return encodingField.getText();
 	}
@@ -215,12 +231,12 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 		if (dbVendors == null) {
 			dbVendors = new ArrayList<String>();
 			dbVendors.add(DB_LOGICAL_TYPES);
-			dbVendors.add(DB_MYSQL_8);
-			dbVendors.add(DB_MARIADB_106);
-			dbVendors.add(DB_ORACLE_21C);
-			dbVendors.add(DB_H2_13);
-			dbVendors.add(DB_POSTGRES_14);
-			dbVendors.add(DB_SQLSERVER_2008);
+			dbVendors.add(DB_MYSQL);
+			dbVendors.add(DB_MARIADB);
+			dbVendors.add(DB_ORACLE);
+			dbVendors.add(DB_H2);
+			dbVendors.add(DB_POSTGRES);
+			dbVendors.add(DB_SQLSERVER);
 		}
 		return dbVendors;
 	}

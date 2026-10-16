@@ -15,15 +15,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
-import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 
 import liquibase.Liquibase;
 import liquibase.database.Database;
-import liquibase.exception.DatabaseException;
-import liquibase.exception.LiquibaseException;
 
 public abstract class AbstractDockerTests {
 	
@@ -73,19 +68,21 @@ public abstract class AbstractDockerTests {
 	 */
 	protected void runAndWaitContainerCreation(ProcessBuilder runProcessBuilder) {
 		try {
+			runProcessBuilder.redirectErrorStream(true);
+
+			System.out.println("Preparing container for image " + containerImage);
+
 			Process process = runProcessBuilder.start();
-			StringBuilder output = new StringBuilder();
 
 	        BufferedReader reader = new BufferedReader(
 	                new InputStreamReader(process.getInputStream()));
 
 	        String line;
 	        while ((line = reader.readLine()) != null) {
-	            output.append(line + "\n");
+	            System.out.println(line);
 	        }
 
 	        int exitVal = process.waitFor();
-            System.out.println(output);
             Thread.sleep(5000); 
             
             // wait for container to boot if created at the moment. 

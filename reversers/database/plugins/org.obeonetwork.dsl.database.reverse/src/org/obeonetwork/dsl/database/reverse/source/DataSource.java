@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.reverse.source;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,12 +51,12 @@ public class DataSource {
 	private Map<String, String> getJdbcDrivers() {
 		if (jdbcDrivers == null) {
 			jdbcDrivers = new HashMap<String, String>();
-			jdbcDrivers.put(DB_MYSQL_8, JDBC_MYSQL_DRIVER);
-			jdbcDrivers.put(DB_MARIADB_106, JDBC_MARIADB_DRIVER);
-			jdbcDrivers.put(DB_ORACLE_21C, JDBC_ORACLE_DRIVER);
-			jdbcDrivers.put(DB_H2_13, JDBC_H2_DRIVER);
-			jdbcDrivers.put(DB_POSTGRES_14, JDBC_POSTGRES_DRIVER);
-			jdbcDrivers.put(DB_SQLSERVER_2008, JDBC_SQLSERVER_DRIVER);
+			jdbcDrivers.put(DB_MYSQL, JDBC_MYSQL_DRIVER);
+			jdbcDrivers.put(DB_MARIADB, JDBC_MARIADB_DRIVER);
+			jdbcDrivers.put(DB_ORACLE, JDBC_ORACLE_DRIVER);
+			jdbcDrivers.put(DB_H2, JDBC_H2_DRIVER);
+			jdbcDrivers.put(DB_POSTGRES, JDBC_POSTGRES_DRIVER);
+			jdbcDrivers.put(DB_SQLSERVER, JDBC_SQLSERVER_DRIVER);
 		}
 		return jdbcDrivers;
 	}
