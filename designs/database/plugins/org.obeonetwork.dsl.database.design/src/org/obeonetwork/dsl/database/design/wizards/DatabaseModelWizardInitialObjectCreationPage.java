@@ -26,6 +26,10 @@ import java.util.StringTokenizer;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -37,11 +41,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.provider.DatabaseEditPlugin;
+import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 
 public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 
 	protected Combo initialObjectField;
 	protected Combo dbVendorField;
+	private ComboViewer dbVendorViewer;
 	protected Combo encodingField;
 
 	protected List<String> dbVendors;
@@ -96,17 +102,23 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 			data.horizontalAlignment = GridData.FILL;
 			dbVendorLabel.setLayoutData(data);
 		}
-		dbVendorField = new Combo(composite, SWT.BORDER);
+		dbVendorField = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
 		{
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
 			dbVendorField.setLayoutData(data);
 		}
-		for (String dbVendor : getDBVendors()) {
-			dbVendorField.add(dbVendor);
-		}
-		dbVendorField.select(0);
+		dbVendorViewer = new ComboViewer(dbVendorField);
+		dbVendorViewer.setContentProvider(ArrayContentProvider.getInstance());
+		dbVendorViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return DatabaseConstants.getVendorLabel((String) element);
+			}
+		});
+		dbVendorViewer.setInput(getDBVendors());
+		dbVendorViewer.setSelection(new StructuredSelection(DB_LOGICAL_TYPES));
 		dbVendorField.addModifyListener(validator);
 
 		Label encodingLabel = new Label(composite, SWT.LEFT);
@@ -144,7 +156,7 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 
 	protected boolean validatePage() {
 		return getInitialObjectName() != null && getEncodings().contains(encodingField.getText())
-				&& getDBVendors().contains(dbVendorField.getText());
+				&& getDBVendors().contains(getSelectedVendor());
 	}
 
 	@Override
@@ -184,6 +196,10 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 		}
 		Collections.sort(initialObjectNames);
 		return initialObjectNames;
+	}
+
+	public String getSelectedVendor() {
+		return (String) dbVendorViewer.getStructuredSelection().getFirstElement();
 	}
 
 	public String getEncoding() {
