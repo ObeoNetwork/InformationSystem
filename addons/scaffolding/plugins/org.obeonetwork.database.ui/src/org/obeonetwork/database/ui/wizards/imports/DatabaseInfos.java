@@ -64,24 +64,16 @@ public class DatabaseInfos {
 	}
 	
 	public void computeUrl() {
-		if (DB_MYSQL.equals(vendor)) {
-			String newUrl = "jdbc:mysql://" + getHost() + ":" + getPort() + "/" + getDatabase();
-			setUrl(newUrl);
-		} else if (DB_MARIADB.equals(vendor)) {
-			String newUrl = "jdbc:mariadb://" + getHost() + ":" + getPort() + "/" + getDatabase();
-			setUrl(newUrl);
-		} else if (DB_ORACLE.equals(vendor)) {
-			String newUrl = "jdbc:oracle:thin:" + getUser() + "/" + getPassword() + "@//" + getHost() + ":" + getPort() + "/" + getDatabase();
-			setUrl(newUrl);
-		} else if (DB_H2.equals(vendor)) {
-			String newUrl = "jdbc:h2:" + getDatabase();
-			setUrl(newUrl);
-		} else if (DB_POSTGRES.equals(vendor)) {
-			String newUrl = "jdbc:postgresql://" + getHost() + ":" + getPort() + "/" + getDatabase();
-			setUrl(newUrl);
-		} else if (DB_SQLSERVER.equals(vendor)) {
-			String newUrl = "jdbc:sqlserver://" + getHost() + ":" + getPort() + ";databaseName=" + getDatabase();
-			setUrl(newUrl);
+		switch (vendor == null ? "" : vendor) {
+		case DB_MYSQL -> setUrl("jdbc:mysql://" + getHost() + ":" + getPort() + "/" + getDatabase());
+		case DB_MARIADB -> setUrl("jdbc:mariadb://" + getHost() + ":" + getPort() + "/" + getDatabase());
+		case DB_ORACLE -> setUrl("jdbc:oracle:thin:" + getUser() + "/" + getPassword() + "@//" + getHost() + ":" + getPort() + "/" + getDatabase());
+		case DB_H2 -> setUrl("jdbc:h2:" + getDatabase());
+		case DB_POSTGRES -> setUrl("jdbc:postgresql://" + getHost() + ":" + getPort() + "/" + getDatabase());
+		case DB_SQLSERVER -> setUrl("jdbc:sqlserver://" + getHost() + ":" + getPort() + ";databaseName=" + getDatabase());
+		default -> {
+			// Keep the current URL when the vendor is unknown or unspecified.
+		}
 		}
 	}
 	
@@ -94,22 +86,16 @@ public class DatabaseInfos {
 			// Value did not change
 			return;
 		}
-		if (DB_MYSQL.equals(vendor) && DB_ORACLE.equals(vendor)) {
-			// Wrong value
-			return;
+		switch (vendor == null ? "" : vendor) {
+		case DB_MYSQL -> setPort(PORT_MYSQL_5);
+		case DB_MARIADB -> setPort(PORT_MARIADB_102);
+		case DB_ORACLE -> setPort(PORT_ORACLE_11G);
+		case DB_H2 -> setPort(PORT_H2_13);
+		case DB_POSTGRES -> setPort(PORT_POSTGRES_9);
+		case DB_SQLSERVER -> setPort(PORT_SQLSERVER_2008);
+		default -> {
+			// Keep the current port when the vendor is unknown or unspecified.
 		}
-		if (DB_MYSQL.equals(vendor)) {
-			setPort(PORT_MYSQL_5);
-		} else if (DB_MARIADB.equals(vendor)) {
-			setPort(PORT_MARIADB_102);
-		} else if (DB_ORACLE.equals(vendor)) {
-			setPort(PORT_ORACLE_11G);
-		} else if (DB_H2.equals(vendor)) {
-			setPort(PORT_H2_13);
-		} else if (DB_POSTGRES.equals(vendor)) {
-			setPort(PORT_POSTGRES_9);
-		} else if (DB_SQLSERVER.equals(vendor)) {
-			setPort(PORT_SQLSERVER_2008);
 		}
 		propertyChangeSupport.firePropertyChange("vendor", this.vendor, this.vendor = vendor);
 		computeUrl();

@@ -40,21 +40,16 @@ public class DataBaseBuilderFactory {
 	}
 	
 	public DataBaseBuilder createDataBaseBuilder(Queries queries, ProgressListener progressListener) throws SQLException {
-		if(DB_MYSQL.equals(dataSource.getVendor())){
-			return new MySQLDataBaseBuilder(dataSource, progressListener, queries);
-		} else if (DB_MARIADB.equals(dataSource.getVendor())) {
-			return new MariaDBDatabaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_ORACLE.equals(dataSource.getVendor())){
-			return new OracleDataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_H2.equals(dataSource.getVendor())){
-			return new H2DataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_POSTGRES.equals(dataSource.getVendor())){
-			return new PostGresDataBaseBuilder(dataSource, progressListener, queries);
-		} else if(DB_SQLSERVER.equals(dataSource.getVendor())){
-			return new SQLServerDataBaseBuilder(dataSource, progressListener, queries);
-		} else {
-			return new DefaultDataBaseBuilder(dataSource, progressListener, queries);
-		}
+		String vendor = dataSource.getVendor();
+		return switch (vendor == null ? "" : vendor) {
+		case DB_MYSQL -> new MySQLDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_MARIADB -> new MariaDBDatabaseBuilder(dataSource, progressListener, queries);
+		case DB_ORACLE -> new OracleDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_H2 -> new H2DataBaseBuilder(dataSource, progressListener, queries);
+		case DB_POSTGRES -> new PostGresDataBaseBuilder(dataSource, progressListener, queries);
+		case DB_SQLSERVER -> new SQLServerDataBaseBuilder(dataSource, progressListener, queries);
+		default -> new DefaultDataBaseBuilder(dataSource, progressListener, queries);
+		};
 	}
 
 }
