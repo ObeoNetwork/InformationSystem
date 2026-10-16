@@ -63,7 +63,7 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 		ResourceSet resourceSet = getTargetModelingProject().getSession().getSessionResource().getResourceSet();
 		DataBase database = DatabaseFactory.eINSTANCE.createDataBase();
 		database.setName(extractNameFromTargetResourceName(DATABASE_RESOURCE_FILE_EXTENSION));
-		String dbVendor = this.initialDatabaseCreationPage.dbVendorField.getText();
+		String dbVendor = this.initialDatabaseCreationPage.getSelectedVendor();
 		
 		Resource typesLibraryResource = null;
 		switch (dbVendor) {

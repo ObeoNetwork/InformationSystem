@@ -19,4 +19,25 @@ public interface DatabaseConstants {
 	static final String DB_SQLSERVER_2025 = "SQLServer-2025";
 	
 	static final String DB_LOGICAL_TYPES = "Logical Types";
+
+	/**
+	 * Returns the display label for a database vendor.
+	 *
+	 * @param vendor the database vendor identifier, or {@code null}
+	 * @return the vendor label, the identifier if unknown, or an empty string if null
+	 */
+	static String getVendorLabel(String vendor) {
+		if (vendor == null) {
+			return "";
+		}
+		return switch (vendor) {
+		case DB_H2_24 -> "H2";
+		case DB_MYSQL_9 -> "MySQL";
+		case DB_MARIADB_121 -> "MariaDB";
+		case DB_POSTGRES_18 -> "PostgreSQL";
+		case DB_SQLSERVER_2025 -> "SQL Server";
+		case DB_ORACLE_21C -> "Oracle";
+		default -> vendor;
+		};
+	}
 }
