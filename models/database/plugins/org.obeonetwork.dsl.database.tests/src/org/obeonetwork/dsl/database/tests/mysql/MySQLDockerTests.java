@@ -116,7 +116,7 @@ public class MySQLDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MYSQL_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MYSQL_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MYSQL_9);
+		dataSource.setVendor(DatabaseConstants.DB_MYSQL);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

@@ -11,13 +11,13 @@
 package org.obeonetwork.dsl.database.design.wizards;
 
 import static org.obeonetwork.dsl.database.design.IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_24;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_121;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_9;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_18;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2025;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MARIADB_PATHMAP;
@@ -67,25 +67,25 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 		
 		Resource typesLibraryResource = null;
 		switch (dbVendor) {
-		case DB_MYSQL_9:
+		case DB_MYSQL:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MYSQL_PATHMAP), true);
 			break;
-		case DB_MARIADB_121: 
+		case DB_MARIADB:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MARIADB_PATHMAP), true);
 			break;
-		case DB_ORACLE_21C: 
+		case DB_ORACLE:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(ORACLE_PATHMAP), true);
 			break;
-		case DB_H2_24: 
+		case DB_H2:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(H2_PATHMAP), true);
 			break;
-		case DB_POSTGRES_18: 
+		case DB_POSTGRES:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(POSTGRES_PATHMAP), true);
 			break;
-		case DB_SQLSERVER_2025: 
+		case DB_SQLSERVER:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(SQLSERVER_PATHMAP), true);
 			break;
-		case DB_LOGICAL_TYPES: 
+		case DB_LOGICAL_TYPES:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(LOGICAL_PATHMAP), true);
 			break;
 		default:
