@@ -11,14 +11,14 @@
 package org.obeonetwork.dsl.database.spec;
 
 public interface DatabaseConstants {
-	static final String DB_ORACLE_21C = "Oracle-21c";
-	static final String DB_MYSQL_9 = "MySQL-9.6";
-	static final String DB_MARIADB_121 = "MariaDB-12.1";
-	static final String DB_H2_24 = "H2-2.4";
-	static final String DB_POSTGRES_18 = "PostgreSQL18.1";
-	static final String DB_SQLSERVER_2025 = "SQLServer-2025";
+	static final String DB_ORACLE = "oracle";
+	static final String DB_MYSQL = "mysql";
+	static final String DB_MARIADB = "mariadb";
+	static final String DB_H2 = "h2";
+	static final String DB_POSTGRES = "postgresql";
+	static final String DB_SQLSERVER = "sqlserver";
 	
-	static final String DB_LOGICAL_TYPES = "Logical Types";
+	static final String DB_LOGICAL_TYPES = "logical";
 
 	/**
 	 * Returns the display label for a database vendor.
@@ -31,12 +31,13 @@ public interface DatabaseConstants {
 			return "";
 		}
 		return switch (vendor) {
-		case DB_H2_24 -> "H2";
-		case DB_MYSQL_9 -> "MySQL";
-		case DB_MARIADB_121 -> "MariaDB";
-		case DB_POSTGRES_18 -> "PostgreSQL";
-		case DB_SQLSERVER_2025 -> "SQL Server";
-		case DB_ORACLE_21C -> "Oracle";
+		case DB_H2 -> "H2";
+		case DB_MYSQL -> "MySQL";
+		case DB_MARIADB -> "MariaDB";
+		case DB_POSTGRES -> "PostgreSQL";
+		case DB_SQLSERVER -> "SQL Server";
+		case DB_ORACLE -> "Oracle";
+		case DB_LOGICAL_TYPES -> "Logical Types";
 		default -> vendor;
 		};
 	}

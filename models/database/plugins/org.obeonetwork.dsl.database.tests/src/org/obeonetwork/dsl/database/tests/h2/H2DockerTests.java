@@ -99,7 +99,7 @@ public class H2DockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUsername(H2_USERNAME_DEFAULT);
 		//dataSource.setJdbcUrl("jdbc:h2:tcp://localhost:1521/test");
 		dataSource.setJdbcUrl(url);
-		dataSource.setVendor(DatabaseConstants.DB_H2_24);
+		dataSource.setVendor(DatabaseConstants.DB_H2);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		String modelRefURI = "resources/"+containerName+"/h2_outputRef.database";

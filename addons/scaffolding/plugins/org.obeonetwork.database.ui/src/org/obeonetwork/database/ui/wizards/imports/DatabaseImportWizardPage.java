@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.database.ui.wizards.imports;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_24;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_121;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_9;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_18;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2025;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -66,7 +66,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 	private static final String DATABASE_FILE_EXTENSION = "database";
 
 	private static final String[] DB_VENDOR_CHOICES = new String[]{
-			DB_H2_24, DB_MYSQL_9, DB_MARIADB_121, DB_POSTGRES_18, DB_SQLSERVER_2025, DB_ORACLE_21C};
+			DB_H2, DB_MYSQL, DB_MARIADB, DB_POSTGRES, DB_SQLSERVER, DB_ORACLE};
 	
 	// Model
 	private DatabaseInfos databaseInfos;
@@ -179,17 +179,17 @@ public class DatabaseImportWizardPage extends WizardPage {
 		comboDbVendor.addSelectionListener(new SelectionAdapter() {
 						
 			public void widgetSelected(SelectionEvent e) {
-				txtSchema.setEnabled(!DB_MYSQL_9.equals(getSelectedVendor()));
-				txtSchema.setEnabled(!DB_MARIADB_121.equals(getSelectedVendor()));
+				txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+				txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 				
-				txtHost.setEnabled(!DB_H2_24.equals(getSelectedVendor()));
-				txtPort.setEnabled(!DB_H2_24.equals(getSelectedVendor()));
+				txtHost.setEnabled(!DB_H2.equals(getSelectedVendor()));
+				txtPort.setEnabled(!DB_H2.equals(getSelectedVendor()));
 				
 			}
 		});
 		
-		txtSchema.setEnabled(!DB_MYSQL_9.equals(getSelectedVendor()));
-		txtSchema.setEnabled(!DB_MARIADB_121.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 		
 		Label lblModelFile = new Label(composite, SWT.NONE);
 		lblModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -329,8 +329,8 @@ public class DatabaseImportWizardPage extends WizardPage {
 		txtUser.setText(databaseInfos.getUser());
 		txtPassword.setText(databaseInfos.getPassword());
 		txtUrl.setText(databaseInfos.getUrl());
-		txtSchema.setEnabled(!DB_MYSQL_9.equals(getSelectedVendor()));
-		txtSchema.setEnabled(!DB_MARIADB_121.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MYSQL.equals(getSelectedVendor()));
+		txtSchema.setEnabled(!DB_MARIADB.equals(getSelectedVendor()));
 		listReferencedModelFiles.setInput(referencedFiles);
 	}
 	

@@ -183,7 +183,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		systemDataSource.setJdbcUrl(url);
 		systemDataSource.setJdbcUsername(ORACLE_SYSTEM_USER);
 		systemDataSource.setJdbcPassword(ORACLE_SYSTEM_USER_PASSWORD);
-		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		if(!this.containerImage.equals("oracle/database:11.2.0.2-xe")) {
 			// Ignore this query for versions before Oracle 12
@@ -197,7 +197,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		northwindDataSource.setJdbcUrl(url);
 		northwindDataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		northwindDataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		this.executeSQLFromFile(northwindDataSource, ORACLE_DATABASE_DROP_FILE_PATH);
 		
@@ -214,7 +214,7 @@ public class OracleDockerTests extends AbstractDockerTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		dataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		dataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
+		dataSource.setVendor(DatabaseConstants.DB_ORACLE);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		
