@@ -11,7 +11,7 @@
       <unit id="org.eclipse.acceleo.aql.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.aql.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.antlr.antlr4-runtime" version="0.0.0"/>
-      <repository id="Acceleo-Nightly" location="https://download.eclipse.org/acceleo/updates/nightly/latest/"/>
+      <repository id="Acceleo-4.2.3" location="https://download.eclipse.org/acceleo/updates/releases/4.2/R202610061311/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>

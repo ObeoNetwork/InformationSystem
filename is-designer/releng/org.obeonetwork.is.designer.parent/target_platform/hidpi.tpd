@@ -1,7 +1,7 @@
 target "IS Designer HiDPI additions" with source, requirements
 
 // Keep the ICU version already validated in the OD-based Windows product.
-location Obeo-Designer-ICU "https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" {
+location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/" {
     com.ibm.icu [77.1.0,77.1.0]
 }
 

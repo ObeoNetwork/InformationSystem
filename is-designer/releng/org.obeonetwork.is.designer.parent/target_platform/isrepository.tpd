@@ -15,7 +15,7 @@ location Obeo-Designer-Community-12.0 "https://update.obeo.fr/release/designer/1
 	org.eclipse.sirius.tests.support.source.feature.group lazy
 }
 
-location Acceleo-Nightly "https://download.eclipse.org/acceleo/updates/nightly/latest/" {
+location Acceleo-4.2.3 "https://download.eclipse.org/acceleo/updates/releases/4.2/R202610061311/" {
 	org.eclipse.acceleo.query.feature.group lazy
 	org.eclipse.acceleo.query.source.feature.group lazy
 	org.eclipse.acceleo.query.ui.feature.group lazy

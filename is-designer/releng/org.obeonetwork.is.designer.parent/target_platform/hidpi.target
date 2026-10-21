@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
-<!-- Corresponds to hidpi.tpd. Versions are pinned to the Windows diagnostic. -->
-<target name="IS Designer HiDPI additions" sequenceNumber="2">
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="IS Designer HiDPI additions" sequenceNumber="1792572429">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.ibm.icu" version="77.1.0"/>
-      <repository id="Obeo-Designer-ICU" location="https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/"/>
+      <repository id="Obeo-Designer-Community-12.0" location="https://update.obeo.fr/release/designer/12.0/community/12.0.0/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gef.sdk.feature.group" version="3.26.1.202512111752"/>
