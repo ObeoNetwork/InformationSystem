@@ -112,6 +112,9 @@
 					<version>${tycho-version}</version>
 					<configuration>
 						<encoding>UTF-8</encoding>
+						<source>21</source>
+						<target>21</target>
+						<release>21</release>
 			            <compilerArguments>
 			              <properties>${project.basedir}/.settings/org.eclipse.jdt.core.prefs</properties>
 			            </compilerArguments>

@@ -6,7 +6,7 @@
     modelPluginID="org.obeonetwork.graal.extensions" modelName="Safran-graal-extensions"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" runtimeVersion="2.6" usedGenPackages="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
+    complianceLevel="21.0" runtimeVersion="2.6" usedGenPackages="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
   <foreignModel>safran-graal-extensions.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="GraalExtensions" basePackage="org.obeonetwork" resource="XMI"

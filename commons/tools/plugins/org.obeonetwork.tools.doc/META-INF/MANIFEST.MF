@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.ext.emf
 Import-Package: com.google.common.collect
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.tools.doc.core

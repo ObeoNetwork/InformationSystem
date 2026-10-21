@@ -4,7 +4,7 @@ Bundle-Name: Liquibase gen Test
 Bundle-SymbolicName: org.obeonetwork.dsl.database.liquibasegen.test
 Bundle-Version: 6.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.database.liquibasegen.test
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: liquibase,
  org.junit,
  org.eclipse.emf.ecore,

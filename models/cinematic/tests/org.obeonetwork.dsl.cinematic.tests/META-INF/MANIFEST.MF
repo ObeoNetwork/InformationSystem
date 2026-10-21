@@ -4,3 +4,4 @@ Bundle-Name: Common Tests Resources Plug-in
 Bundle-SymbolicName: org.obeonetwork.dsl.cinematic.tests
 Bundle-Version: 6.0.0.qualifier
 Bundle-Vendor: Obeo Network
+Bundle-RequiredExecutionEnvironment: JavaSE-21

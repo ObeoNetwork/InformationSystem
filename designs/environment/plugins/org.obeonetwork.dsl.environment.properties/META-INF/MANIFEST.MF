@@ -26,7 +26,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common;bundle-version="7.0.7",
  org.obeonetwork.utils.common;bundle-version="4.1.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Vendor: Obeo Network
 Automatic-Module-Name: org.obeonetwork.dsl.environment.properties
 Export-Package: org.obeonetwork.dsl.environment.properties,

@@ -6,7 +6,7 @@ Automatic-Module-Name: org.obeonetwork.dsl.environment.binding.dialect
 Bundle-Version: 6.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.obeonetwork.dsl.environment.binding.dialect,
  org.obeonetwork.dsl.environment.bindingdialect,
  org.obeonetwork.dsl.environment.bindingdialect.description,

@@ -28,3 +28,4 @@ Import-Package: com.google.common.base,
  com.google.common.collect
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.obeonetwork.dsl.database.compare.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-21

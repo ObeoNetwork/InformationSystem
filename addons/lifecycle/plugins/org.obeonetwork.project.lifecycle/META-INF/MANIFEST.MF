@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  fr.obeo.dsl.viewpoint.collab;resolution:=optional,
  org.obeonetwork.utils.common
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.project.lifecycle

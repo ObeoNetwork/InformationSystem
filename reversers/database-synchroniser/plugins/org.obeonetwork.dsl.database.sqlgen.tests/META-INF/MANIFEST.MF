@@ -17,3 +17,4 @@ Import-Package: com.google.common.base,
  com.google.common.collect,
  com.google.common.io
 Bundle-Vendor: Obeo Network
+Bundle-RequiredExecutionEnvironment: JavaSE-21

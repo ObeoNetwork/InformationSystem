@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2008, 2026 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Obeo - initial API and implementation"
     modelDirectory="/org.obeonetwork.tools.projectlibrary/src-gen" creationIcons="false"
     modelPluginID="org.obeonetwork.tools.projectlibrary" modelName="Manifest" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" runtimeVersion="2.3"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" runtimeVersion="2.3"
     usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
     importOrganizing="true">
   <foreignModel>manifest.ecore</foreignModel>

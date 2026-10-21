@@ -5,7 +5,7 @@
     editDirectory="/org.obeonetwork.tools.classdiagramgenerator.edit/src-gen" editorDirectory="/org.obeonetwork.tools.classdiagramgenerator.editor/src-gen"
     modelPluginID="org.obeonetwork.tools.classdiagramgenerator" modelName="ClassDiagramConfiguration"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
+    complianceLevel="21.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
     operationReflection="true" importOrganizing="true">
   <foreignModel>ClassDiagramConfiguration.ecore</foreignModel>
   <genPackages prefix="ClassDiagramConfiguration" basePackage="org.obeonetwork.tools"

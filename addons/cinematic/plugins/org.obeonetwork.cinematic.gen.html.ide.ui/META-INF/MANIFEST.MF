@@ -19,5 +19,5 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.obeonetwork.dsl.cinematic,
  org.eclipse.ui.ide,
  org.eclipse.emf.common.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: org.obeonetwork.cinematic.gen.html.ide.ui

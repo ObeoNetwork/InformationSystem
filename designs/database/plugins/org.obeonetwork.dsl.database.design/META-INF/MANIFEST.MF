@@ -19,7 +19,7 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.ui,
  org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.database.design,
  org.obeonetwork.dsl.database.design.services,

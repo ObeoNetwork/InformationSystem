@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.obeonetwork.dsl.typeslibrary.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.typeslibrary;visibility:=reexport,

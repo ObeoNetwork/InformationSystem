@@ -32,7 +32,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui
 Import-Package: com.google.common.collect
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.graal.design.services.actor,
  org.obeonetwork.graal.design.services.configuration,

@@ -4,7 +4,7 @@ Bundle-Name: Liquibase
 Bundle-SymbolicName: liquibase
 Bundle-Version: 4.14.0.qualifier
 Automatic-Module-Name: liquibase
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Vendor: Liquibase
 Require-Bundle: org.eclipse.osgi;bundle-version="3.14.0",
  org.obeonetwork.dsl.database.drivers

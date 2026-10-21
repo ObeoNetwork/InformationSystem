@@ -5,7 +5,7 @@
     modelDirectory="/org.obeonetwork.database.scaffold/src" creationIcons="false"
     modelPluginID="org.obeonetwork.database.scaffold" modelName="Scaffold" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
     rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
-    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective" complianceLevel="6.0">
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective" complianceLevel="21.0">
   <foreignModel>scaffold.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Scaffold" basePackage="org.obeonetwork.database" resource="XMI"

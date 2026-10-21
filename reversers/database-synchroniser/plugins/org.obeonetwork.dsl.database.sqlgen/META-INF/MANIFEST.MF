@@ -21,3 +21,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.antlr.antlr4-runtime;bundle-version="[4.13.2,4.13.3)",
  org.eclipse.emf.compare
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-21

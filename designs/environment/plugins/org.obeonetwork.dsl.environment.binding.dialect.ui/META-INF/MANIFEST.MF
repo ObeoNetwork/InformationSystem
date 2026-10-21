@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.extensionpoint,
  org.obeonetwork.dsl.environment.bindingdialect.description.provider,
  org.obeonetwork.dsl.environment.bindingdialect.provider

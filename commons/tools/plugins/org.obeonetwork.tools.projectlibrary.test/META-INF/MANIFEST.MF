@@ -25,3 +25,4 @@ Require-Bundle: org.junit,
  org.obeonetwork.database,
  org.obeonetwork.dsl.statemachine
 Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-21

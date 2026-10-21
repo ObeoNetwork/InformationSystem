@@ -6,3 +6,4 @@ Bundle-Version: 6.0.0.qualifier
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
 Require-Bundle: org.obeonetwork.dsl.environment
+Bundle-RequiredExecutionEnvironment: JavaSE-21
