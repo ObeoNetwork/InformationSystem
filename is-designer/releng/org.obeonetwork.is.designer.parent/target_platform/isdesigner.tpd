@@ -132,6 +132,8 @@ location Obeo-Designer-Team-12.0 "https://update.obeo.fr/release/designer/12.0/t
 
 location ISD "https://update.obeo.fr/integration/informationsystem/6.0.0/design/repository/" {
 
+	org.obeonetwork.is.designer.sirius.jpeg.feature.feature.group lazy
+
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy

@@ -26,6 +26,10 @@
    </copyright>
 
    <includes
+         id="org.obeonetwork.is.designer.sirius.jpeg.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.obeonetwork.is.designer.hidpi.patch"
          version="0.0.0"
          os="win32"

@@ -28,6 +28,11 @@
 	</properties>
 
 	<modules>
+        <!-- Sirius JPEG fix, built from pinned upstream sources. -->
+        <module>../sirius-jpeg/plugins/org.eclipse.sirius.diagram.ui</module>
+        <module>../sirius-jpeg/features/org.obeonetwork.is.designer.sirius.jpeg.runtime.patch</module>
+        <module>../sirius-jpeg/features/org.obeonetwork.is.designer.sirius.jpeg.specifier.patch</module>
+        <module>../sirius-jpeg/features/org.obeonetwork.is.designer.sirius.jpeg.feature</module>
 		<!-- ********************************************************************************************* 
 			* Models ********************************************************************************************* -->
 		<!-- models/technicalid/ -->

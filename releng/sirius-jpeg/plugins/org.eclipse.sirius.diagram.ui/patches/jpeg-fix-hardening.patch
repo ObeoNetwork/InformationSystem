@@ -1,0 +1,126 @@
+diff --git a/plugins/org.eclipse.sirius.diagram.ui/plugin.properties b/plugins/org.eclipse.sirius.diagram.ui/plugin.properties
+index 74e69f70a8..f43e6cfaa5 100644
+--- a/plugins/org.eclipse.sirius.diagram.ui/plugin.properties
++++ b/plugins/org.eclipse.sirius.diagram.ui/plugin.properties
+@@ -965,6 +965,7 @@ DiagramDialectUIServices_targetPreDescription = \n . {0}: ecore.EObject | (edge
+ DiagramDialectUIServices_targetViewPreDescription = \n . {0}: diagram.EdgeTarget | (edge only) the target view of the current potential edge.
+ DiagramEdgeEditPartOperation_unknownRountingStyle = Unknown routing style: {0}
+ DiagramEditPartService_imageExportException = Cannot export image ({0})
++DiagramEditPartService_jpegWriterUnavailable = No JPEG image writer is available.
+ DiagramEditorContextMenuProvider_arrangeMenuRenameError = Arrange menu is not renamed in Layout
+ DiagramElementEditPartOperation_partDeactivationError = Error while connecting to remote CDO server
+ DiagramElementsSelectionDialog_grayedElementDialogMessage = The wizard will have no effect on grayed elements.
+diff --git a/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java b/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
+index 9ebb8e719a..428fa7bbfe 100644
+--- a/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
++++ b/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
+@@ -24,9 +24,14 @@ import java.io.IOException;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+ import java.text.MessageFormat;
++import java.util.Iterator;
+ import java.util.List;
+ 
++import javax.imageio.IIOImage;
+ import javax.imageio.ImageIO;
++import javax.imageio.ImageWriter;
++import javax.imageio.stream.ImageOutputStream;
++import javax.imageio.stream.MemoryCacheImageOutputStream;
+ 
+ import org.eclipse.core.resources.IFile;
+ import org.eclipse.core.resources.IResource;
+@@ -436,24 +441,10 @@ public class DiagramEditPartService extends org.eclipse.gmf.runtime.diagram.ui.r
+         refreshLocal(destination);
+     }
+ 
+-    private void saveToOutputStream(OutputStream stream, Image image, ImageFileFormat imageFormat, IProgressMonitor monitor) {
++    private void saveToOutputStream(OutputStream stream, Image image, ImageFileFormat imageFormat, IProgressMonitor monitor) throws IOException {
+         monitor.worked(1);
+         if (imageFormat.equals(ImageFileFormat.JPEG) || imageFormat.equals(ImageFileFormat.JPG)) {
+-            // SWT's ImageLoader silently produces empty output for JPEG on modern
+-            // platforms. Use Java's built-in ImageIO encoder instead, compositing
+-            // transparent pixels against white since JPEG has no alpha channel.
+-            try {
+-                BufferedImage argbImage = ImageConverter.convertFromImageData(image.getImageData());
+-                BufferedImage rgbImage = new BufferedImage(argbImage.getWidth(), argbImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+-                Graphics2D g2d = rgbImage.createGraphics();
+-                g2d.setColor(Color.WHITE);
+-                g2d.fillRect(0, 0, rgbImage.getWidth(), rgbImage.getHeight());
+-                g2d.drawImage(argbImage, 0, 0, null);
+-                g2d.dispose();
+-                ImageIO.write(rgbImage, "jpeg", stream); //$NON-NLS-1$
+-            } catch (IOException ex) {
+-                throw new RuntimeException(ex);
+-            }
++            saveJPEGToOutputStream(stream, image.getImageData());
+         } else {
+             ImageData imageData = image.getImageData();
+             // In original CopyToImageUtil class, the reduction to a "8BitPalette"
+@@ -473,15 +464,50 @@ public class DiagramEditPartService extends org.eclipse.gmf.runtime.diagram.ui.r
+             imageLoader.data = new ImageData[] { imageData };
+             imageLoader.logicalScreenHeight = image.getBounds().width;
+             imageLoader.logicalScreenHeight = image.getBounds().height;
+-            if (imageFormat.equals(ImageFileFormat.JPG)) {
+-                imageLoader.compression = 100;
+-            }
+             imageLoader.save(stream, imageFormat.getOrdinal());
+         }
+ 
+         monitor.worked(1);
+     }
+ 
++    /**
++     * Encodes a JPEG image without the SWT GTK native encoder, which can silently fail when its RGBA input is rejected.
++     * Transparent pixels are composited against white because JPEG does not support alpha.
++     *
++     * @param stream
++     *            the destination stream, which remains open
++     * @param imageData
++     *            the image to encode
++     * @throws IOException
++     *             if no JPEG writer is available or encoding fails
++     */
++    private static void saveJPEGToOutputStream(OutputStream stream, ImageData imageData) throws IOException {
++        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpeg"); //$NON-NLS-1$
++        if (!writers.hasNext()) {
++            throw new IOException(Messages.DiagramEditPartService_jpegWriterUnavailable);
++        }
++        ImageWriter writer = writers.next();
++        try {
++            BufferedImage argbImage = ImageConverter.convertFromImageData(imageData);
++            BufferedImage rgbImage = new BufferedImage(argbImage.getWidth(), argbImage.getHeight(), BufferedImage.TYPE_INT_RGB);
++            Graphics2D graphics = rgbImage.createGraphics();
++            try {
++                graphics.setColor(Color.WHITE);
++                graphics.fillRect(0, 0, rgbImage.getWidth(), rgbImage.getHeight());
++                graphics.drawImage(argbImage, 0, 0, null);
++            } finally {
++                graphics.dispose();
++            }
++
++            try (ImageOutputStream output = new MemoryCacheImageOutputStream(stream)) {
++                writer.setOutput(output);
++                writer.write(null, new IIOImage(rgbImage, null, null), writer.getDefaultWriteParam());
++            }
++        } finally {
++            writer.dispose();
++        }
++    }
++
+     /**
+      * Saves an SVG DOM to a file.<BR>
+      * Method duplicated from
+diff --git a/plugins/org.eclipse.sirius.diagram.ui/src/org/eclipse/sirius/diagram/ui/provider/Messages.java b/plugins/org.eclipse.sirius.diagram.ui/src/org/eclipse/sirius/diagram/ui/provider/Messages.java
+index c84f5c582a..75d0a0c00f 100644
+--- a/plugins/org.eclipse.sirius.diagram.ui/src/org/eclipse/sirius/diagram/ui/provider/Messages.java
++++ b/plugins/org.eclipse.sirius.diagram.ui/src/org/eclipse/sirius/diagram/ui/provider/Messages.java
+@@ -568,6 +568,9 @@ public final class Messages {
+     @TranslatableMessage
+     public static String DiagramEditPartService_imageExportException;
+ 
++    @TranslatableMessage
++    public static String DiagramEditPartService_jpegWriterUnavailable;
++
+     @TranslatableMessage
+     public static String DiagramElementEditPartOperation_partDeactivationError;
+ 

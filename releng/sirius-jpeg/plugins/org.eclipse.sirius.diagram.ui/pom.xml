@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.obeonetwork</groupId>
+    <artifactId>parent</artifactId>
+    <version>6.0.0-SNAPSHOT</version>
+    <relativePath>../../../org.obeonetwork.informationsystem.parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>org.eclipse.sirius.diagram.ui</artifactId>
+  <version>7.5.0.isd60jpeg1</version>
+  <packaging>eclipse-plugin</packaging>
+  <properties>
+    <sirius.revision>b1d8acf3e355f1d533ff7fafcaf6dd95fa8d05dd</sirius.revision>
+    <sirius.archive.sha256>ced4e8b2dd4ef002fae57ffa9496fb8b792dd5824fc6fcf5c4509c035a95de16</sirius.archive.sha256>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>prepare-patched-sirius</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <property name="source.archive" value="${settings.localRepository}/.cache/isd-sirius/${sirius.revision}.zip" />
+                <mkdir dir="${settings.localRepository}/.cache/isd-sirius" />
+                <get src="https://codeload.github.com/eclipse-sirius/sirius-desktop/zip/${sirius.revision}" dest="${source.archive}" skipexisting="true" retries="3" />
+                <checksum file="${source.archive}" algorithm="SHA-256" property="actual.archive.sha256" />
+                <fail message="Unexpected Sirius source archive checksum">
+                  <condition>
+                    <not>
+                      <equals arg1="${actual.archive.sha256}" arg2="${sirius.archive.sha256}" />
+                    </not>
+                  </condition>
+                </fail>
+                <delete dir="${project.build.directory}/upstream" />
+                <unzip src="${source.archive}" dest="${project.build.directory}/upstream">
+                  <patternset>
+                    <include name="sirius-desktop-${sirius.revision}/plugins/org.eclipse.sirius.diagram.ui/**" />
+                  </patternset>
+                  <mapper type="glob" from="sirius-desktop-${sirius.revision}/*" to="*" />
+                </unzip>
+                <exec executable="git" dir="${project.build.directory}/upstream" failonerror="true" failifexecutionfails="true">
+                  <env key="GIT_CEILING_DIRECTORIES" value="${project.build.directory}" />
+                  <arg value="apply" />
+                  <arg value="--check" />
+                  <arg value="${project.basedir}/patches/jpeg-fix.patch" />
+                </exec>
+                <exec executable="git" dir="${project.build.directory}/upstream" failonerror="true" failifexecutionfails="true">
+                  <env key="GIT_CEILING_DIRECTORIES" value="${project.build.directory}" />
+                  <arg value="apply" />
+                  <arg value="${project.basedir}/patches/jpeg-fix.patch" />
+                </exec>
+                <exec executable="git" dir="${project.build.directory}/upstream" failonerror="true" failifexecutionfails="true">
+                  <env key="GIT_CEILING_DIRECTORIES" value="${project.build.directory}" />
+                  <arg value="apply" />
+                  <arg value="--check" />
+                  <arg value="${project.basedir}/patches/jpeg-fix-hardening.patch" />
+                </exec>
+                <exec executable="git" dir="${project.build.directory}/upstream" failonerror="true" failifexecutionfails="true">
+                  <env key="GIT_CEILING_DIRECTORIES" value="${project.build.directory}" />
+                  <arg value="apply" />
+                  <arg value="${project.basedir}/patches/jpeg-fix-hardening.patch" />
+                </exec>
+                <copy todir="${project.build.outputDirectory}">
+                  <fileset dir="${project.build.directory}/upstream/plugins/org.eclipse.sirius.diagram.ui">
+                    <include name="icons/**" />
+                    <include name="plugin.xml" />
+                    <include name="plugin.properties" />
+                    <include name=".options" />
+                    <include name="images/**" />
+                    <include name="schema/**" />
+                    <include name="about.html" />
+                  </fileset>
+                </copy>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+          <release>17</release>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

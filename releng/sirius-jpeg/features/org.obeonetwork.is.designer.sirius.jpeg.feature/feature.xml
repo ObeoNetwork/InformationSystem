@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.obeonetwork.is.designer.sirius.jpeg.feature" label="ISD Sirius JPEG export fix" version="6.0.0.qualifier" provider-name="Obeo">
+  <description>ISD JPEG export fix for the Sirius version delivered with OD 12.</description>
+  <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
+  <includes id="org.obeonetwork.is.designer.sirius.jpeg.runtime.patch" version="0.0.0" />
+  <includes id="org.obeonetwork.is.designer.sirius.jpeg.specifier.patch" version="0.0.0" />
+  <requires>
+    <import feature="org.eclipse.sirius.runtime.ide.ui" version="7.5.0.202601281512" match="perfect" />
+    <import feature="org.eclipse.sirius.specifier" version="7.5.0.202601281512" match="perfect" />
+  </requires>
+  <plugin id="org.eclipse.sirius.diagram.ui" version="7.5.0.isd60jpeg1" unpack="false" />
+  <plugin id="org.eclipse.sirius.diagram.ui.source" version="7.5.0.isd60jpeg1" unpack="false" />
+</feature>

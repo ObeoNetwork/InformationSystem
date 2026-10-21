@@ -1,0 +1,97 @@
+diff --git a/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java b/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
+index 6c99ff844b..9ebb8e719a 100644
+--- a/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
++++ b/plugins/org.eclipse.sirius.diagram.ui/src-diag/org/eclipse/sirius/diagram/ui/tools/api/part/DiagramEditPartService.java
+@@ -13,6 +13,8 @@
+  *******************************************************************************/
+ package org.eclipse.sirius.diagram.ui.tools.api.part;
+ 
++import java.awt.Color;
++import java.awt.Graphics2D;
+ import java.awt.image.BufferedImage;
+ import java.io.ByteArrayInputStream;
+ import java.io.ByteArrayOutputStream;
+@@ -24,6 +26,8 @@ import java.io.OutputStream;
+ import java.text.MessageFormat;
+ import java.util.List;
+ 
++import javax.imageio.ImageIO;
++
+ import org.eclipse.core.resources.IFile;
+ import org.eclipse.core.resources.IResource;
+ import org.eclipse.core.resources.ResourcesPlugin;
+@@ -41,6 +45,7 @@ import org.eclipse.gmf.runtime.diagram.ui.image.ImageFileFormat;
+ import org.eclipse.gmf.runtime.diagram.ui.render.clipboard.DiagramGenerator;
+ import org.eclipse.gmf.runtime.diagram.ui.render.internal.DiagramUIRenderPlugin;
+ import org.eclipse.gmf.runtime.diagram.ui.render.util.CopyToImageUtil;
++import org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.image.ImageConverter;
+ import org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.image.ImageExporter;
+ import org.eclipse.gmf.runtime.notation.Diagram;
+ import org.eclipse.sirius.diagram.DSemanticDiagram;
+@@ -433,29 +438,46 @@ public class DiagramEditPartService extends org.eclipse.gmf.runtime.diagram.ui.r
+ 
+     private void saveToOutputStream(OutputStream stream, Image image, ImageFileFormat imageFormat, IProgressMonitor monitor) {
+         monitor.worked(1);
++        if (imageFormat.equals(ImageFileFormat.JPEG) || imageFormat.equals(ImageFileFormat.JPG)) {
++            // SWT's ImageLoader silently produces empty output for JPEG on modern
++            // platforms. Use Java's built-in ImageIO encoder instead, compositing
++            // transparent pixels against white since JPEG has no alpha channel.
++            try {
++                BufferedImage argbImage = ImageConverter.convertFromImageData(image.getImageData());
++                BufferedImage rgbImage = new BufferedImage(argbImage.getWidth(), argbImage.getHeight(), BufferedImage.TYPE_INT_RGB);
++                Graphics2D g2d = rgbImage.createGraphics();
++                g2d.setColor(Color.WHITE);
++                g2d.fillRect(0, 0, rgbImage.getWidth(), rgbImage.getHeight());
++                g2d.drawImage(argbImage, 0, 0, null);
++                g2d.dispose();
++                ImageIO.write(rgbImage, "jpeg", stream); //$NON-NLS-1$
++            } catch (IOException ex) {
++                throw new RuntimeException(ex);
++            }
++        } else {
++            ImageData imageData = image.getImageData();
++            // In original CopyToImageUtil class, the reduction to a "8BitPalette"
++            // or a "WebSafePallette" is for GIF and BMP. For GIF file, it is
++            // explicitly constraint by the format characteristic and by an
++            // SWT.ERROR_UNSUPPORTED_DEPTH in
++            // org.eclipse.swt.internal.image.GIFFileFormat.unloadIntoByteStream(ImageLoader).
++            // But for BMP, there is no apparent reason so it is remove for this
++            // format.
++            if (imageFormat.equals(ImageFileFormat.GIF)) {
++                imageData = createImageData(image);
++            }
+ 
+-        ImageData imageData = image.getImageData();
+-        // In original CopyToImageUtil class, the reduction to a "8BitPalette"
+-        // or a "WebSafePallette" is for GIF and BMP. For GIF file, it is
+-        // explicitly constraint by the format characteristic and by an
+-        // SWT.ERROR_UNSUPPORTED_DEPTH in
+-        // org.eclipse.swt.internal.image.GIFFileFormat.unloadIntoByteStream(ImageLoader).
+-        // But for BMP, there is no apparent reason so it is remove for this
+-        // format.
+-        if (imageFormat.equals(ImageFileFormat.GIF)) {
+-            imageData = createImageData(image);
+-        }
+-
+-        monitor.worked(1);
++            monitor.worked(1);
+ 
+-        ImageLoader imageLoader = new ImageLoader();
+-        imageLoader.data = new ImageData[] { imageData };
+-        imageLoader.logicalScreenHeight = image.getBounds().width;
+-        imageLoader.logicalScreenHeight = image.getBounds().height;
+-        if (imageFormat.equals(ImageFileFormat.JPG)) {
+-            imageLoader.compression = 100;
++            ImageLoader imageLoader = new ImageLoader();
++            imageLoader.data = new ImageData[] { imageData };
++            imageLoader.logicalScreenHeight = image.getBounds().width;
++            imageLoader.logicalScreenHeight = image.getBounds().height;
++            if (imageFormat.equals(ImageFileFormat.JPG)) {
++                imageLoader.compression = 100;
++            }
++            imageLoader.save(stream, imageFormat.getOrdinal());
+         }
+-        imageLoader.save(stream, imageFormat.getOrdinal());
+ 
+         monitor.worked(1);
+     }

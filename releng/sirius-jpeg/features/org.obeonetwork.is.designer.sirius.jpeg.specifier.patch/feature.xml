@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.obeonetwork.is.designer.sirius.jpeg.specifier.patch" label="ISD Sirius JPEG export patch (specifier)" version="6.0.0.qualifier" provider-name="Obeo">
+  <description>Replace the Sirius diagram UI bundle with the ISD JPEG export fix. Bound to the current Sirius feature version for explicit removal when upgrading the base.</description>
+  <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
+  <requires>
+    <import feature="org.eclipse.sirius.specifier" version="7.5.0.202601281512" patch="true" />
+  </requires>
+  <plugin id="org.eclipse.sirius.diagram.ui" version="7.5.0.isd60jpeg1" unpack="false" />
+</feature>
