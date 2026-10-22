@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2008, 2026 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v2.0
+    which accompanies this distribution, and is available at
+    https://www.eclipse.org/legal/epl-2.0/
+
+    Contributors:
+        Obeo - initial API and implementation
+ -->
 <feature id="org.obeonetwork.is.designer.sirius.jpeg.runtime.patch" label="ISD Sirius JPEG export patch (runtime)" version="6.0.0.qualifier" provider-name="Obeo">
   <description>Replace the Sirius diagram UI bundle with the ISD JPEG export fix. Bound to the current Sirius feature version for explicit removal when upgrading the base.</description>
   <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
