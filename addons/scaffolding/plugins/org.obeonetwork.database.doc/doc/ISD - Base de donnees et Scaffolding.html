@@ -183,6 +183,86 @@
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
 		</p>
 		<p>La liste des types contenus dans chacune des librairies est paramétrable.</p>
+		<h4 id="database_uuid">Type UUID</h4>
+		<p>Le type logique 
+			<code>UUID</code> représente un identifiant de 128 bits. Sa longueur est fixe et ne se paramètre pas dans le MLD. La taille de sa représentation dans une base de données est déterminée lors de la transformation vers le MPD.
+		</p>
+		<p>
+			<strong>Transformation du MLD vers le MPD</strong>
+		</p>
+		<p>Une colonne de type logique 
+			<code>UUID</code> est convertie selon la base cible :
+		</p>
+		<table>
+			<tr>
+				<th>Base cible</th>
+				<th>Type physique produit</th>
+			</tr>
+			<tr>
+				<td>Oracle</td>
+				<td>
+					<code>VARCHAR2(40)</code>
+				</td>
+			</tr>
+			<tr>
+				<td>MySQL</td>
+				<td>
+					<code>char(36)</code>
+				</td>
+			</tr>
+			<tr>
+				<td>MariaDB</td>
+				<td>
+					<code>uuid</code>, à partir de MariaDB 10.7
+				</td>
+			</tr>
+			<tr>
+				<td>PostgreSQL</td>
+				<td>
+					<code>UUID</code>
+				</td>
+			</tr>
+			<tr>
+				<td>SQL Server</td>
+				<td>
+					<code>uniqueidentifier</code>
+				</td>
+			</tr>
+			<tr>
+				<td>H2</td>
+				<td>
+					<code>UUID</code>
+				</td>
+			</tr>
+		</table>
+		<p>Pour Oracle et MySQL, les longueurs 40 et 36 sont définies automatiquement par le scaffolding. Il n&#8217;est pas nécessaire de renseigner une longueur sur l&#8217;UUID logique.</p>
+		<p>
+			<strong>Rétro-ingénierie et transformation du MPD vers le MLD</strong>
+		</p>
+		<p>La rétro-ingénierie reconnaît les colonnes natives 
+			<code>UUID</code> de H2 et PostgreSQL, 
+			<code>uuid</code> de MariaDB et 
+			<code>uniqueidentifier</code> de SQL Server dans le MPD importé. Lors de la transformation de ce MPD vers un MLD, ces types deviennent des colonnes de type logique 
+			<code>UUID</code>.
+		</p>
+		<p>Les colonnes 
+			<code>char</code> de MySQL et 
+			<code>VARCHAR2</code> d&#8217;Oracle sont des colonnes textuelles. Leur transformation vers le MLD produit le type logique 
+			<code>Texte</code>, sans déduire automatiquement qu&#8217;elles contiennent des UUID.
+		</p>
+		<p>
+			<strong>Transformation vers un modèle d&#8217;entités</strong>
+		</p>
+		<p>Une colonne de type logique 
+			<code>UUID</code> devient un attribut de type 
+			<code>String</code> (texte) dans le modèle d&#8217;entités. Dans le sens inverse, un attribut 
+			<code>String</code> est converti en type logique 
+			<code>Texte</code>, sans déduction automatique du type 
+			<code>UUID</code>.
+		</p>
+		<p>Le choix du type 
+			<code>UUID</code> ne génère pas automatiquement les valeurs des identifiants. Leur attribution doit être prévue par l&#8217;application ou par une configuration explicite de la base de données.
+		</p>
 		<h3 id="database_type_library">Création d&#8217;un modèle TypeLibrary</h3>
 		<p>Un assistant de création de modèles TypeLibrary est accessible via le menu :</p>
 		<blockquote>

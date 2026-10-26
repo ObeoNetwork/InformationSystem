@@ -125,6 +125,36 @@ La sélection de cette librairie de types est également proposée dans l'assist
 
 La liste des types contenus dans chacune des librairies est paramétrable.
 
+h4(#database_uuid). Type UUID
+
+Le type logique @UUID@ représente un identifiant de 128 bits. Sa longueur est fixe et ne se paramètre pas dans le MLD. La taille de sa représentation dans une base de données est déterminée lors de la transformation vers le MPD.
+
+*Transformation du MLD vers le MPD*
+
+Une colonne de type logique @UUID@ est convertie selon la base cible :
+
+|_. Base cible |_. Type physique produit |
+| Oracle | @VARCHAR2(40)@ |
+| MySQL | @char(36)@ |
+| MariaDB | @uuid@, à partir de MariaDB 10.7 |
+| PostgreSQL | @UUID@ |
+| SQL Server | @uniqueidentifier@ |
+| H2 | @UUID@ |
+
+Pour Oracle et MySQL, les longueurs 40 et 36 sont définies automatiquement par le scaffolding. Il n'est pas nécessaire de renseigner une longueur sur l'UUID logique.
+
+*Rétro-ingénierie et transformation du MPD vers le MLD*
+
+La rétro-ingénierie reconnaît les colonnes natives @UUID@ de H2 et PostgreSQL, @uuid@ de MariaDB et @uniqueidentifier@ de SQL Server dans le MPD importé. Lors de la transformation de ce MPD vers un MLD, ces types deviennent des colonnes de type logique @UUID@.
+
+Les colonnes @char@ de MySQL et @VARCHAR2@ d'Oracle sont des colonnes textuelles. Leur transformation vers le MLD produit le type logique @Texte@, sans déduire automatiquement qu'elles contiennent des UUID.
+
+*Transformation vers un modèle d'entités*
+
+Une colonne de type logique @UUID@ devient un attribut de type @String@ (texte) dans le modèle d'entités. Dans le sens inverse, un attribut @String@ est converti en type logique @Texte@, sans déduction automatique du type @UUID@.
+
+Le choix du type @UUID@ ne génère pas automatiquement les valeurs des identifiants. Leur attribution doit être prévue par l'application ou par une configuration explicite de la base de données.
+
 h3(#database_type_library). Création d'un modèle TypeLibrary
 
 Un assistant de création de modèles TypeLibrary est accessible via le menu :
