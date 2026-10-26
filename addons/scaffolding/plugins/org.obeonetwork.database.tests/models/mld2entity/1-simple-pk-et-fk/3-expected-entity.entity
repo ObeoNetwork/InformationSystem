@@ -9,6 +9,7 @@
         <metadatas>
           <metadatas xsi:type="oenv:Annotation" title="PHYSICAL_NAME" body="identifier"/>
         </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
     <types xsi:type="oent:Entity" xmi:id="_6ixr0xY-EeOSDrYWINMwpA" technicalid="_nWs5AAZWEfGh9sqhPoSb7Q" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.381+0200" name="Societe">
