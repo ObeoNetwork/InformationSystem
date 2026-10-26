@@ -514,8 +514,8 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 		if (isMPD(targetTypesLibrary)) {
 			if (targetType.getNativeType().getSpec() == NativeTypeKind.LENGTH || targetType.getNativeType().getSpec() == NativeTypeKind.LENGTH_AND_PRECISION) {
 				// Target type needs a length value
-				if (originType.getLength() == null) {
-					// Use the default length because no one is provided by the origin type
+				if (targetType.getLength() == null) {
+					// Use the default length only when type resolution has not provided one
 					targetType.setLength(MPD_DEFAULT_TYPE_LENGTH);
 				}
 			}

@@ -26,6 +26,9 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 
 public class MLDToMPD extends MpdToMldBidiRules {
 
+	private static final int ORACLE_UUID_LENGTH = 40;
+	private static final int MYSQL_UUID_LENGTH = 36;
+
 	@Override
 	protected String getTypePropertiesFileName() {
 		if (isOracleMPD(targetTypesLibrary)) {
@@ -54,7 +57,15 @@ public class MLDToMPD extends MpdToMldBidiRules {
 		
 		if (physicalNativetype != null) {
 			TypeInstance typeInstance = TypesLibraryFactory.eINSTANCE.createTypeInstance();
-			typeInstance.setLength(logicalType.getLength());
+			Integer length = logicalType.getLength();
+			if ("UUID".equals(logicalType.getNativeType().getName())) {
+				if (isOracleMPD(targetTypesLibrary)) {
+					length = ORACLE_UUID_LENGTH;
+				} else if (isMysqlMPD(targetTypesLibrary)) {
+					length = MYSQL_UUID_LENGTH;
+				}
+			}
+			typeInstance.setLength(length);
 			typeInstance.setPrecision(logicalType.getPrecision());
 			typeInstance.setNativeType(physicalNativetype);
 			return typeInstance;
