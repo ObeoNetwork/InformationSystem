@@ -29,7 +29,7 @@
       </type>
     </columns>
     <columns xmi:id="_wY1fkAWgEfG46dtrCczMZw" technicalid="_v12HRgWgEfG46dtrCczMZw" techID="_v12HRgWgEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
-      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ESwKHMF_Ssie7tKedswb7A" precision="0">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ESwKHMF_Ssie7tKedswb7A">
         <nativeType href="pathmap://LogicalDBTypes#_Xv95UANkEfGEVo0VorPW2w"/>
       </type>
     </columns>

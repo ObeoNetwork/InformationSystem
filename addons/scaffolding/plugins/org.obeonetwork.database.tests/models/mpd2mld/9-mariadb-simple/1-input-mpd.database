@@ -29,7 +29,7 @@
       </type>
     </columns>
     <columns xmi:id="_-FgvIAWZEfG46dtrCczMZw" technicalid="_9scH1gWZEfG46dtrCczMZw" techID="_9scH1gWZEfG46dtrCczMZw" name="identifier" nullable="true" defaultValue="">
-      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Rxj0eW8dEeSPHrasgwuxLg" length="2147483647" precision="0">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Rxj0eW8dEeSPHrasgwuxLg">
         <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_b3lZgANlEfGEVo0VorPW2w"/>
       </type>
     </columns>
