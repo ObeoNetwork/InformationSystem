@@ -41,6 +41,8 @@ Les types de bases de données suivants sont supportés :
 | PostgreSQL | 9.5 à 18.1 |
 | SQL Server | 2008, 2022 et 2025 |
 
+Le type natif UUID de MariaDB nécessite MariaDB 10.7 ou une version ultérieure. La bibliothèque de types MariaDB propose ce type sans contrôle de la version cible. Avant de créer une colonne UUID, directement dans un MPD ou par scaffolding depuis un MLD, vérifiez que la base cible satisfait ce prérequis.
+
 La rétrocompatibilité des drivers permet en théorie d'importer des schémas de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
 
 h3(#database_model_creation). Création d'un modèle Database
