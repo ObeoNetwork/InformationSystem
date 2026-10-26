@@ -103,4 +103,35 @@ public class SQLGenerationTest extends AbstractSQLGenerationTest {
 	public void test14() {
 		assertGenerationEquals("14-updatecolumn-pgsql");
 	}
+
+	@Test
+	public void uuidFromScratch_Oracle() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "oracle.database", "oracle-expected");
+	}
+
+	@Test
+	public void uuidFromScratch_MySQL() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "mysql.database", "mysql-expected");
+	}
+
+	@Test
+	public void uuidFromScratch_H2() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "h2.database", "h2-expected");
+	}
+
+	@Test
+	public void uuidFromScratch_MariaDB() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "mariadb.database", "mariadb-expected");
+	}
+
+	@Test
+	public void uuidFromScratch_PostgreSQL() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "postgres.database", "postgres-expected");
+	}
+
+	@Test
+	public void uuidFromScratch_SQLServer() throws Exception {
+		assertGenerationFromScratchEquals("52-uuid", "sqlserver.database", "sqlserver-expected");
+	}
+
 }

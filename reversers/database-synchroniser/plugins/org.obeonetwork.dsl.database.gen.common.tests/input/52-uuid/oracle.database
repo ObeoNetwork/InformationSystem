@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_oracle_database" techID="oracle_database" name="UUID Oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <tables xsi:type="database:Table" xmi:id="_oracle_table" techID="oracle_table" name="UUID_TEST">
+    <columns xmi:id="_oracle_column" techID="oracle_column" name="ID">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_oracle_type" length="40">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+</database:DataBase>

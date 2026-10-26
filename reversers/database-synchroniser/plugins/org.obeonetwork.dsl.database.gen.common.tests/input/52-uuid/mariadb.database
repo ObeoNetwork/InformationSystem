@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_mariadb_database" techID="mariadb_database" name="UUID MariaDB">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MariaDB-10.2#_oGtuUCY4EemALc7s7nxPuQ"/>
+  <tables xsi:type="database:Table" xmi:id="_mariadb_table" techID="mariadb_table" name="UUID_TEST">
+    <columns xmi:id="_mariadb_column" techID="mariadb_column" name="ID">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mariadb_type">
+        <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_b3lZgANlEfGEVo0VorPW2w"/>
+      </type>
+    </columns>
+  </tables>
+</database:DataBase>

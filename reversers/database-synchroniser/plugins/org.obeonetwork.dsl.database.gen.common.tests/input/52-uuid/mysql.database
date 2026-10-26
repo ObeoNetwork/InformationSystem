@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_mysql_database" techID="mysql_database" name="UUID MySQL">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MySQL-5#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <tables xsi:type="database:Table" xmi:id="_mysql_table" techID="mysql_table" name="UUID_TEST">
+    <columns xmi:id="_mysql_column" techID="mysql_column" name="ID">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mysql_type" length="36">
+        <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj7kYxEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+</database:DataBase>
