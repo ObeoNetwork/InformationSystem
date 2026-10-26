@@ -11,19 +11,17 @@
 package org.obeonetwork.dsl.database.tests.mariadb;
 
 import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeTrue;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,10 +30,10 @@ import org.junit.runners.Parameterized.Parameters;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
-import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
@@ -110,6 +108,26 @@ public class MariaDBDockerTests extends AbstractDockerTests {
 		
 	}
 	
+	@Test
+	public void testImportUuid() throws SQLException, DataSourceException {
+		String url = String.format(JDBC_MARIADB_URL_PATTERN, MARIADB_HOST_DEFAULT, MARIADB_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
+		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, DATABASE_NAME_DEFAULT);
+		dataSource.setJdbcUrl(url);
+		dataSource.setJdbcUsername(MARIADB_USERNAME_DEFAULT);
+		dataSource.setJdbcPassword(MARIADB_PASSWORD_DEFAULT);
+		dataSource.setVendor(DatabaseConstants.DB_MARIADB);
+
+		try (Connection connection = dataSource.getConnection()) {
+			DatabaseMetaData metadata = connection.getMetaData();
+			int major = metadata.getDatabaseMajorVersion();
+			int minor = metadata.getDatabaseMinorVersion();
+			assumeTrue("Native UUID requires MariaDB 10.7 or later",
+					major > 10 || (major == 10 && minor >= 7));
+		}
+
+		TestUtils.checkUuidReverse(dataSource, "uuid", TypesLibraryUtil.MARIADB_PATHMAP);
+	}
+
 	@Test
 	public void testImportMariaDB() throws LiquibaseException {
 		

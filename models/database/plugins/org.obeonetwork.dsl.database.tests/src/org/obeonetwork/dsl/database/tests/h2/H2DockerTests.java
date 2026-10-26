@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -30,6 +31,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
@@ -86,6 +88,19 @@ public class H2DockerTests extends AbstractDockerTests {
 								"thibaultblf/h2:1.4.196",								
 								"thibaultblf/h2:1.3.176"
 							);
+	}
+
+	@Test
+	public void testImportUuid() throws SQLException, DataSourceException, DatabaseException {
+		String url = String.format(JDBC_H2_URL_PATTERN, H2_HOST_DEFAULT, H2_PORT_DEFAULT, H2_DB_NAME);
+		h2Database = TestUtils.openDatabaseConnection(url, H2_USERNAME_DEFAULT, "");
+
+		DataSource dataSource = new DataSource("h2", "PUBLIC");
+		dataSource.setJdbcUsername(H2_USERNAME_DEFAULT);
+		dataSource.setJdbcUrl(url);
+		dataSource.setVendor(DatabaseConstants.DB_H2);
+
+		TestUtils.checkUuidReverse(dataSource, "UUID", TypesLibraryUtil.H2_PATHMAP);
 	}
 
 	@Test

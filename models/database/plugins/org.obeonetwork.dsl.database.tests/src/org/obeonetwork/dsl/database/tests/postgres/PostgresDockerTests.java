@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.database.tests.postgres;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
@@ -28,6 +29,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
 import org.obeonetwork.dsl.database.tests.AbstractDockerTests;
@@ -123,6 +125,18 @@ public class PostgresDockerTests extends AbstractDockerTests {
 		}
 	}
 	
+	@Test
+	public void testImportUuid() throws SQLException, DataSourceException {
+		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
+		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "public");
+		dataSource.setJdbcUrl(url);
+		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
+		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
+		dataSource.setVendor(DatabaseConstants.DB_POSTGRES);
+
+		TestUtils.checkUuidReverse(dataSource, "UUID", TypesLibraryUtil.POSTGRES_PATHMAP);
+	}
+
 	@Test
 	public void testImportPostgres() throws IOException, LiquibaseException {
 		

@@ -102,6 +102,27 @@ public class SqlServerDockerTests extends AbstractDockerTests {
 	}
 	
 	@Test
+	public void testImportUuid() throws SQLException, DataSourceException {
+		String serverUrl = String.format("jdbc:sqlserver://%1$s:%2$s;encrypt=false",
+				MSSQL_HOST_DEFAULT, MSSQL_PORT_DEFAULT);
+		DataSource serverSource = new DataSource("", "");
+		serverSource.setJdbcUrl(serverUrl);
+		serverSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
+		serverSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
+		serverSource.setVendor(DatabaseConstants.DB_SQLSERVER);
+		TestUtils.executeStatement(serverSource, String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
+
+		String databaseUrl = String.format(JDBC_MSSQL_URL_PATTERN, MSSQL_HOST_DEFAULT, MSSQL_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
+		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "dbo");
+		dataSource.setJdbcUrl(databaseUrl);
+		dataSource.setJdbcUsername(MSSQL_USERNAME_DEFAULT);
+		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
+		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER);
+
+		TestUtils.checkUuidReverse(dataSource, "uniqueidentifier", TypesLibraryUtil.SQLSERVER_PATHMAP);
+	}
+
+	@Test
 	public void testImportMsSQL() throws SQLException, DataSourceException, InterruptedException, LiquibaseException {
 		
 		String url = String.format("jdbc:sqlserver://%1$s:%2$s;encrypt=false", MSSQL_HOST_DEFAULT, MSSQL_PORT_DEFAULT);
