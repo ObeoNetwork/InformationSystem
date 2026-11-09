@@ -37,15 +37,16 @@ import liquibase.exception.LiquibaseException;
 /**
  * Apply a changelog to a database.
  * 
- * Assuming a changelog file is selected, opens a dialog prompting database connection informations and apply the changelog.
+ * Assuming a changelog file is selected, opens a dialog prompting database
+ * connection informations and apply the changelog.
  * 
  */
 @SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
 	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties"; //$NON-NLS-1$
-	
+
 	private Shell shell;
-	
+
 	private String URL;
 	private String username;
 	private String password;
@@ -53,66 +54,65 @@ public class ChangelogHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		shell = HandlerUtil.getActiveShell(event);
-		
+
 		File changelogFile = EventHelper.uwrapSingleSelection(event, File.class);
-		
-		if(changelogFile == null) {
+
+		if (changelogFile == null) {
 			return null;
 		}
-		
+
 		File liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
-		if(liquibasePropertiesFile == null) {
-			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
+		if (liquibasePropertiesFile == null) {
+			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title,
+					Messages.ChangelogHandler_Error_message_properties_file_not_found);
 			return null;
 		}
-		
+
 		try {
 			if (openConnectionInformationDialog(liquibasePropertiesFile)) {
 				LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
 				liquibaseUpdater.update(URL, username, password);
-				MessageDialog.openInformation(shell, 
-						Messages.ChangelogHandler_dialog_title, 
+				MessageDialog.openInformation(shell, Messages.ChangelogHandler_dialog_title,
 						String.format(Messages.ChangelogHandler_success_message, getLiquibaseVersion()));
 			}
 		} catch (IOException | LiquibaseException e) {
 			System.err.println(e.getMessage());
 			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, e.getMessage());
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * Opens a dialog prompting for the database parameters.
 	 * 
-	 * @param liquibasePropertiesFile 
+	 * @param liquibasePropertiesFile
 	 * @return true if the user validated the dialog, false if the user canceled.
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	private boolean openConnectionInformationDialog(File liquibasePropertiesFile) throws IOException {
 		Properties liquibaseProperties = new Properties();
 		InputStream inputStream = new FileInputStream(liquibasePropertiesFile.getLocation().toOSString());
 		liquibaseProperties.load(inputStream);
-		
-		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(
-				shell, 
+
+		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(shell,
 				liquibaseProperties.getProperty("url", ""), //$NON-NLS-1$ //$NON-NLS-2$
 				liquibaseProperties.getProperty("username", ""), //$NON-NLS-1$ //$NON-NLS-2$
-				liquibaseProperties.getProperty("password", ""));  //$NON-NLS-1$ //$NON-NLS-2$
-		
+				liquibaseProperties.getProperty("password", "")); //$NON-NLS-1$ //$NON-NLS-2$
+
 		connectionInformationDialog.open();
-		
+
 		if (connectionInformationDialog.getReturnCode() == Window.OK) {
 			URL = connectionInformationDialog.getUrl();
 			username = connectionInformationDialog.getUsername();
 			password = connectionInformationDialog.getPassword();
-			
+
 			return true;
-		} 
-		
+		}
+
 		return false;
 	}
-	
+
 	/**
 	 * Try to find a <code>liquibase.properties</code> file in the same folder than
 	 * the given change log {@link File}.<br>
@@ -127,16 +127,16 @@ public class ChangelogHandler extends AbstractHandler {
 		IPath propertiesPath = new Path(LIQUIBASE_PROPERTIES_FILE_NAME);
 		IContainer container = changelogFile.getParent();
 		File liquibasePropertiesFile = null;
-		
-		if(!container.getFile(propertiesPath).exists()) {
+
+		if (!container.getFile(propertiesPath).exists()) {
 			container = container.getParent();
 		}
-		
-		if(container.getFile(propertiesPath).exists()) {
+
+		if (container.getFile(propertiesPath).exists()) {
 			liquibasePropertiesFile = (File) container.getFile(propertiesPath);
 		}
-		
+
 		return liquibasePropertiesFile;
 	}
-	
+
 }

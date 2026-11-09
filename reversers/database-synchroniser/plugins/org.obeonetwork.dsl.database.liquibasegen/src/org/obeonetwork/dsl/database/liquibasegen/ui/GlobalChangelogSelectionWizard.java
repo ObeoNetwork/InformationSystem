@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2026 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.ui;
 
 import java.io.File;
@@ -50,10 +60,10 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 	private String rootSelectionDir;
 
 	public GlobalChangelogSelectionWizard(List<String> nodes, String rootSelectionDir) {
-	        setWindowTitle("Selection of changelogs to merge");
-	        this.nodes = nodes;
-	        this.rootSelectionDir = rootSelectionDir;
-	    }
+		setWindowTitle("Selection of changelogs to merge");
+		this.nodes = nodes;
+		this.rootSelectionDir = rootSelectionDir;
+	}
 
 	@Override
 	public void addPages() {
@@ -72,8 +82,8 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 /**
  * Page with CheckboxTreeViewer
  */
-class SelectionTreeWizardPage extends WizardPage {	
-	
+class SelectionTreeWizardPage extends WizardPage {
+
 	private final static String GLOBAL_CHANGELOG_FILE_NAME = "global_run.changelog.xml"; //$NON-NLS-1$
 
 	private CheckboxTreeViewer treeViewer;
@@ -91,7 +101,7 @@ class SelectionTreeWizardPage extends WizardPage {
 		roots = nodes.stream().map(Node::new).toArray(Node[]::new);
 		this.cache = cache;
 	}
-	
+
 	public boolean doMergingChangelog(String rootSelectionDir) {
 		try {
 			final DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -102,7 +112,8 @@ class SelectionTreeWizardPage extends WizardPage {
 			for (String xmlFile : getSelectedItems().stream().filter(fileName -> fileName.endsWith(".changelog.xml"))
 					.toList()) {
 				if (rootElement == null) {
-					// we initialize root using an existing document to use all the attributes including xmlns
+					// we initialize root using an existing document to use all the attributes
+					// including xmlns
 					rootElement = (Element) mergedDoc.importNode(
 							dBuilder.parse(rootSelectionDir + File.separator + xmlFile).getDocumentElement(), true);
 				} else {
@@ -125,7 +136,8 @@ class SelectionTreeWizardPage extends WizardPage {
 			transformer.transform(source, result);
 			return true;
 		} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
-			setErrorMessage("An error occur while loading the contents of changelogs files. Check the state of the files before retrying.");
+			setErrorMessage(
+					"An error occur while loading the contents of changelogs files. Check the state of the files before retrying.");
 			return false;
 		}
 	}
@@ -185,7 +197,7 @@ class SelectionTreeWizardPage extends WizardPage {
 	}
 
 	/**
-	 * Check if the selection 
+	 * Check if the selection
 	 */
 	protected void checkContinuity() {
 		setMessage(null);
@@ -193,13 +205,14 @@ class SelectionTreeWizardPage extends WizardPage {
 			final List<String> rootsNames = Arrays.asList(roots).stream().map(Node::getName).toList();
 			int startIndex = rootsNames.indexOf(cache.get(0));
 			for (int i = 0; i < cache.size(); i++) {
-				if (!cache.get(i).equals(rootsNames.get(startIndex+i))) {
-					setMessage("Some changelogs are not selected between others. This may result in an inconsistent global changelog.",
+				if (!cache.get(i).equals(rootsNames.get(startIndex + i))) {
+					setMessage(
+							"Some changelogs are not selected between others. This may result in an inconsistent global changelog.",
 							IMessageProvider.WARNING);
 				}
 			}
 		}
-		
+
 	}
 
 	private void updateCache() {
@@ -249,7 +262,7 @@ class Node {
 			c.parent = this;
 		}
 	}
-	
+
 	String getName() {
 		return name;
 	}
