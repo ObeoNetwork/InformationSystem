@@ -25,7 +25,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
-import org.obeonetwork.dsl.database.liquibasegen.ChangeLogBuilder;
+import org.obeonetwork.dsl.database.liquibasegen.ChangelogConstants;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseGenerator;
 import org.w3c.dom.Document;
 
@@ -53,12 +53,12 @@ public class AbstractLiquibaseTest extends AbstractGenerationTest {
 
 		try {
 			Optional<Path> optResultFile = Files.walk(targetFolder.toPath())
-					.filter(p -> ChangeLogBuilder.FILE_NAME.equals(p.getFileName().toString())).findFirst();
+					.filter(p -> ChangelogConstants.CHANGELOG_FILE_NAME.equals(p.getFileName().toString())).findFirst();
 			if (!optResultFile.isPresent()) {
 				fail("Not changelog file found");
 			}
 			Path resultFile = optResultFile.get();
-			Path extectedFile = expectationFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME);
+			Path extectedFile = expectationFolder.toPath().resolve(ChangelogConstants.CHANGELOG_FILE_NAME);
 
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			dbf.setNamespaceAware(true);

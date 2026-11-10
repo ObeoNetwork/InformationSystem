@@ -19,8 +19,6 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -61,10 +59,10 @@ public class LiquibaseGenerator {
 		File computeLastTargetFolder = computeLastGenerationTargetFolder(targetFolder.toFile(), comparisonModel);
 
 		// Current generation path (stored in path holding the date)
-		File file = computeTargetFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME).toFile();
+		File file = computeTargetFolder.toPath().resolve(ChangelogConstants.CHANGELOG_FILE_NAME).toFile();
 
 		Path lastFileFolder = computeLastTargetFolder.toPath();
-		File lastFile = lastFileFolder.resolve(ChangeLogBuilder.FILE_NAME).toFile();
+		File lastFile = lastFileFolder.resolve(ChangelogConstants.CHANGELOG_FILE_NAME).toFile();
 
 		// Deletes last generation
 		if (lastFile.exists()) {
@@ -106,7 +104,7 @@ public class LiquibaseGenerator {
 		
 		String content = //
 				  "# Enter the path for your changelog file." + EOL //
-				+ "changeLogFile=run.changelog.xml" + EOL //
+				+ "changeLogFile=" + ChangelogConstants.CHANGELOG_FILE_NAME + EOL //
 				+ EOL //
 				+ "#### Enter the Target database 'url' information  ####" + EOL //
 				+ genPropertyFileURLSectionContents("url", databaseElement) //
@@ -239,9 +237,7 @@ public class LiquibaseGenerator {
 
 			folderName = database.getName();
 		}
-		java.sql.Timestamp timeStampDate = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-		String timestamp = formatter.format(timeStampDate);
+		String timestamp = LocalDateTime.now().format(ChangelogConstants.GENERATION_TIMESTAMP_FORMAT);
 		folderName += "/" + timestamp;
 
 		File targetFolder = new File(folder.getAbsolutePath() + "/" + dbtypeFolderName + folderName);

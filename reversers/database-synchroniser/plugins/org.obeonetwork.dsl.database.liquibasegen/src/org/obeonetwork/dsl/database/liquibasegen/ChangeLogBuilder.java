@@ -134,7 +134,6 @@ import liquibase.changelog.ChangeSet;
 import liquibase.changelog.DatabaseChangeLog;
 
 public class ChangeLogBuilder {
-	public static final String FILE_NAME = "run.changelog.xml";
 	private static final String DEFAULT_AUTHOR = "IS Designer";
 
 	private GenServices genService;
@@ -928,7 +927,7 @@ public class ChangeLogBuilder {
 				DEFAULT_AUTHOR, // Author
 				false, // Always run
 				false, // Run on change
-				FILE_NAME, // Changelog filename
+				ChangelogConstants.CHANGELOG_FILE_NAME, // Changelog filename
 				"", // Context list
 				"", // dbms
 				true, // run in transaction

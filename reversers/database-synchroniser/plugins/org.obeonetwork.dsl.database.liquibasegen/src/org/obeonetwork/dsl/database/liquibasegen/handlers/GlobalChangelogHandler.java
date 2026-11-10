@@ -11,14 +11,8 @@
 package org.obeonetwork.dsl.database.liquibasegen.handlers;
 
 import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.FileVisitor;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -28,6 +22,7 @@ import org.eclipse.core.internal.resources.Container;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.obeonetwork.dsl.database.liquibasegen.service.GlobalChangelogService;
 import org.obeonetwork.dsl.database.liquibasegen.ui.GlobalChangelogSelectionWizard;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
@@ -44,14 +39,14 @@ public class GlobalChangelogHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		shell = HandlerUtil.getActiveShell(event);
 
-		Container projectDBDir = EventHelper.uwrapSingleSelection(event, Container.class);
+		Container databaseFolder = EventHelper.uwrapSingleSelection(event, Container.class);
 
-		if (projectDBDir == null) {
+		if (databaseFolder == null) {
 			return null;
 		}
 
 		try {
-			openChangelogSelectionWizard(projectDBDir);
+			openChangelogSelectionWizard(databaseFolder);
 		} catch (IOException e) {
 			throw new ExecutionException(e.getMessage(), e);
 		}
@@ -59,35 +54,14 @@ public class GlobalChangelogHandler extends AbstractHandler {
 		return null;
 	}
 
-	private boolean openChangelogSelectionWizard(Container projectDBDir) throws IOException {
-		// get list of files
-		SearchFileByWildcard sfbw = new SearchFileByWildcard();
-		List<String> changelogs = sfbw.searchWithWc(Paths.get(projectDBDir.getLocation().toOSString()), "\\run.changelog.xml");
-		WizardDialog dialog = new WizardDialog(shell, new GlobalChangelogSelectionWizard(changelogs, projectDBDir.getLocation().toOSString()));
+	private void openChangelogSelectionWizard(Container databaseFolder) throws IOException {
+		Path databasePath = Paths.get(databaseFolder.getLocation().toOSString());
+		List<String> changelogs = GlobalChangelogService.findChangelogs(databasePath).stream()
+				.map(Path::toString).toList();
+		WizardDialog dialog = new WizardDialog(shell,
+				new GlobalChangelogSelectionWizard(changelogs, databasePath.toString()));
 		dialog.create();
 		dialog.open();
-
-		return false;
 	}
 
-}
-
-class SearchFileByWildcard {
-	static List<String> matchesList = new ArrayList<String>();
-
-	List<String> searchWithWc(Path rootDir, String pattern) throws IOException {
-		matchesList.clear();
-		FileVisitor<Path> matcherVisitor = new SimpleFileVisitor<Path>() {
-			@Override
-			public FileVisitResult visitFile(Path file, BasicFileAttributes attribs) throws IOException {
-				final String fileNameAndDir = rootDir.relativize(file).toString();
-				if (fileNameAndDir.endsWith(pattern)) {
-					matchesList.add(fileNameAndDir);
-				}
-				return FileVisitResult.CONTINUE;
-			}
-		};
-		Files.walkFileTree(rootDir, matcherVisitor);
-		return matchesList;
-	}
 }
