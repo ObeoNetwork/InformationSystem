@@ -10,22 +10,15 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.ui;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
@@ -38,13 +31,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import org.eclipse.ui.statushandlers.StatusManager;
+import org.obeonetwork.dsl.database.liquibasegen.service.GlobalChangelogService;
 
 /**
- * Wizard to select changelogs to merge
+ * Wizard to select changelogs to include in a global changelog
  */
 public class GlobalChangelogSelectionWizard extends Wizard {
 
@@ -60,7 +51,7 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 	private String rootSelectionDir;
 
 	public GlobalChangelogSelectionWizard(List<String> nodes, String rootSelectionDir) {
-		setWindowTitle("Selection of changelogs to merge");
+		setWindowTitle("Create global changelog");
 		this.nodes = nodes;
 		this.rootSelectionDir = rootSelectionDir;
 	}
@@ -73,9 +64,17 @@ public class GlobalChangelogSelectionWizard extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		cachedSelection.clear();
-		cachedSelection.addAll(selectionPage.getSelectedItems());
-		return selectionPage.doMergingChangelog(rootSelectionDir);
+		selectionPage.setErrorMessage(null);
+		try {
+			List<Path> selectedChangelogs = selectionPage.getSelectedItems().stream().map(Path::of).toList();
+			GlobalChangelogService.createGlobalChangelog(Path.of(rootSelectionDir), selectedChangelogs);
+			return true;
+		} catch (IOException e) {
+			selectionPage.setErrorMessage(e.getMessage());
+			StatusManager.getManager().handle(new Status(IStatus.ERROR,
+					"org.obeonetwork.dsl.database.liquibasegen", e.getMessage(), e), StatusManager.LOG);
+			return false;
+		}
 	}
 }
 
@@ -83,8 +82,6 @@ public class GlobalChangelogSelectionWizard extends Wizard {
  * Page with CheckboxTreeViewer
  */
 class SelectionTreeWizardPage extends WizardPage {
-
-	private final static String GLOBAL_CHANGELOG_FILE_NAME = "global_run.changelog.xml"; //$NON-NLS-1$
 
 	private CheckboxTreeViewer treeViewer;
 	private final List<String> cache;
@@ -96,50 +93,10 @@ class SelectionTreeWizardPage extends WizardPage {
 
 	protected SelectionTreeWizardPage(String pageName, List<String> nodes, List<String> cache) {
 		super(pageName);
-		setTitle("Merge liquibase changelogs");
-		setDescription("Choose which changelog to include in the merging process.");
+		setTitle("Create global Liquibase changelog");
+		setDescription("Choose which changelogs to include in the global changelog.");
 		roots = nodes.stream().map(Node::new).toArray(Node[]::new);
 		this.cache = cache;
-	}
-
-	public boolean doMergingChangelog(String rootSelectionDir) {
-		try {
-			final DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			final Document mergedDoc = dBuilder.newDocument();
-
-			Element rootElement = null;
-
-			for (String xmlFile : getSelectedItems().stream().filter(fileName -> fileName.endsWith(".changelog.xml"))
-					.toList()) {
-				if (rootElement == null) {
-					// we initialize root using an existing document to use all the attributes
-					// including xmlns
-					rootElement = (Element) mergedDoc.importNode(
-							dBuilder.parse(rootSelectionDir + File.separator + xmlFile).getDocumentElement(), true);
-				} else {
-					// we add children in the other xml root
-					final NodeList nodes = dBuilder.parse(new File(rootSelectionDir + File.separator + xmlFile))
-							.getDocumentElement().getChildNodes();
-					for (int i = 0; i < nodes.getLength(); i++) {
-						org.w3c.dom.Node importedNode = mergedDoc.importNode(nodes.item(i), true);
-						rootElement.appendChild(importedNode);
-					}
-				}
-			}
-
-			mergedDoc.appendChild(rootElement);
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(mergedDoc);
-			StreamResult result = new StreamResult(
-					new File(rootSelectionDir + File.separator + GLOBAL_CHANGELOG_FILE_NAME));
-			transformer.transform(source, result);
-			return true;
-		} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
-			setErrorMessage(
-					"An error occur while loading the contents of changelogs files. Check the state of the files before retrying.");
-			return false;
-		}
 	}
 
 	@Override

@@ -19,6 +19,9 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.internal.resources.Container;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -27,7 +30,7 @@ import org.obeonetwork.dsl.database.liquibasegen.ui.GlobalChangelogSelectionWiza
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 /**
- * Merge changelog into a global changelog file
+ * Create a global changelog including selected generation histories
  *
  */
 @SuppressWarnings("restriction")
@@ -39,29 +42,31 @@ public class GlobalChangelogHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		shell = HandlerUtil.getActiveShell(event);
 
-		Container databaseFolder = EventHelper.uwrapSingleSelection(event, Container.class);
+		Container changelogsFolder = EventHelper.uwrapSingleSelection(event, Container.class);
 
-		if (databaseFolder == null) {
+		if (changelogsFolder == null) {
 			return null;
 		}
 
 		try {
-			openChangelogSelectionWizard(databaseFolder);
-		} catch (IOException e) {
+			openChangelogSelectionWizard(changelogsFolder);
+		} catch (IOException | CoreException e) {
 			throw new ExecutionException(e.getMessage(), e);
 		}
 
 		return null;
 	}
 
-	private void openChangelogSelectionWizard(Container databaseFolder) throws IOException {
-		Path databasePath = Paths.get(databaseFolder.getLocation().toOSString());
-		List<String> changelogs = GlobalChangelogService.findChangelogs(databasePath).stream()
+	private void openChangelogSelectionWizard(Container changelogsFolder) throws IOException, CoreException {
+		Path changelogsDirectory = Paths.get(changelogsFolder.getLocation().toOSString());
+		List<String> changelogs = GlobalChangelogService.findChangelogs(changelogsDirectory).stream()
 				.map(Path::toString).toList();
 		WizardDialog dialog = new WizardDialog(shell,
-				new GlobalChangelogSelectionWizard(changelogs, databasePath.toString()));
+				new GlobalChangelogSelectionWizard(changelogs, changelogsDirectory.toString()));
 		dialog.create();
-		dialog.open();
+		if (dialog.open() == Window.OK) {
+			changelogsFolder.refreshLocal(IResource.DEPTH_ONE, null);
+		}
 	}
 
 }

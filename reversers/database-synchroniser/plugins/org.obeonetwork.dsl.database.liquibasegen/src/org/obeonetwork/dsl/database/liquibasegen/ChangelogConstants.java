@@ -24,6 +24,11 @@ public final class ChangelogConstants {
 	public static final String CHANGELOG_FILE_NAME = "run.changelog.xml"; //$NON-NLS-1$
 
 	/**
+	 * Name of the changelog including the selected generation history.
+	 */
+	public static final String GLOBAL_CHANGELOG_FILE_NAME = "global_run.changelog.xml"; //$NON-NLS-1$
+
+	/**
 	 * Formats and parses the timestamps used as generation directory names.
 	 */
 	public static final DateTimeFormatter GENERATION_TIMESTAMP_FORMAT = DateTimeFormatter
