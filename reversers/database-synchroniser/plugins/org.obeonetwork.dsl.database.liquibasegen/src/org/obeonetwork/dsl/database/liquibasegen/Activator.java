@@ -17,6 +17,8 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
+	public final static String PLUGIN_ID = "org.obeonetwork.dsl.database.liquibasegen"; //$NON-NLS-1$
+
 	private static BundleContext context;
 
 	public static BundleContext getContext() {

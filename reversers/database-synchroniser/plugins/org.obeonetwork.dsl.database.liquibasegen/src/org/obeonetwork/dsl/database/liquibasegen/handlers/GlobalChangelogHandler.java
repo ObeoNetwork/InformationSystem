@@ -59,10 +59,9 @@ public class GlobalChangelogHandler extends AbstractHandler {
 
 	private void openChangelogSelectionWizard(Container changelogsFolder) throws IOException, CoreException {
 		Path changelogsDirectory = Paths.get(changelogsFolder.getLocation().toOSString());
-		List<String> changelogs = GlobalChangelogService.findChangelogs(changelogsDirectory).stream()
-				.map(Path::toString).toList();
+		List<Path> changelogs = GlobalChangelogService.findChangelogs(changelogsDirectory);
 		WizardDialog dialog = new WizardDialog(shell,
-				new GlobalChangelogSelectionWizard(changelogs, changelogsDirectory.toString()));
+				new GlobalChangelogSelectionWizard(changelogs, changelogsDirectory));
 		dialog.create();
 		if (dialog.open() == Window.OK) {
 			changelogsFolder.refreshLocal(IResource.DEPTH_ONE, null);
