@@ -140,7 +140,7 @@ public class ConnectionInformationDialog extends Dialog {
 	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText("Liquibase update");
+		newShell.setText("Apply Changelog — Database Connection");
 	}
 
 	/**
