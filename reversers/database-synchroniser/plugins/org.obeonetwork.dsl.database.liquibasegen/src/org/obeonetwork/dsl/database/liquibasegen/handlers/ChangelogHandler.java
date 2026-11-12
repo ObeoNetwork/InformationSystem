@@ -16,8 +16,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -101,18 +101,11 @@ public class ChangelogHandler extends AbstractHandler {
 	private boolean openConnectionInformationDialog(IFile liquibasePropertiesFile) throws IOException, CoreException {
 		Properties credentialsProperties = loadOrCreateCredentialsProperties(liquibasePropertiesFile);
 
-		int count = 1;
-		List<ConnectionInformation> connectionInformations = new ArrayList<>();
-		while (credentialsProperties.getProperty("url."+count)!=null) {
-			connectionInformations.add(new ConnectionInformation(credentialsProperties.getProperty("url."+count,""),
-																	credentialsProperties.getProperty("username."+count,""), 
-																		credentialsProperties.getProperty("password."+count,"")));
-			count++;
-		}
+		List<ConnectionInformation> connections = readConnections(credentialsProperties);
 		
 		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(
 				shell, 
-				connectionInformations);
+				connections);
 		
 		connectionInformationDialog.open();
 
@@ -125,6 +118,37 @@ public class ChangelogHandler extends AbstractHandler {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Reads the profiles identified by {@code url.N}, ordered by numeric index.
+	 * Indices do not need to be consecutive, so commenting out a profile does not
+	 * hide later ones. Missing usernames and passwords default to empty strings.
+	 * Keys without a numeric suffix are ignored. The original suffix is retained
+	 * when looking up the matching username and password.
+	 *
+	 * @param credentialsProperties the connection properties
+	 * @return the profiles in numeric order, or an empty list if none are defined
+	 * @throws IOException if a numeric index exceeds the integer range
+	 */
+	private List<ConnectionInformation> readConnections(Properties credentialsProperties) throws IOException {
+		try {
+			return credentialsProperties.stringPropertyNames().stream()
+					.filter(key -> key.matches("url\\.[0-9]+"))
+					.map(key -> Map.entry(Integer.valueOf(key.substring("url.".length())), key))
+					.sorted(Map.Entry.comparingByKey())
+					.map(entry -> {
+						String urlKey = entry.getValue();
+						String index = urlKey.substring("url.".length());
+						return new ConnectionInformation(credentialsProperties.getProperty(urlKey),
+								credentialsProperties.getProperty("username." + index, ""),
+								credentialsProperties.getProperty("password." + index, ""));
+					})
+					.toList();
+		} catch (NumberFormatException e) {
+			throw new IOException("Connection indices in credentials.properties must be integers between 0 and "
+					+ Integer.MAX_VALUE + ".", e);
+		}
 	}
 
 	/**
