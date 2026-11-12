@@ -19,6 +19,11 @@ import java.time.format.ResolverStyle;
 public final class ChangelogConstants {
 
 	/**
+	 * Name of the directory grouping changelog histories by database type.
+	 */
+	public static final String LIQUIBASE_FOLDER_NAME = "liquibase"; //$NON-NLS-1$
+
+	/**
 	 * Name of the changelog produced by a single generation.
 	 */
 	public static final String CHANGELOG_FILE_NAME = "run.changelog.xml"; //$NON-NLS-1$

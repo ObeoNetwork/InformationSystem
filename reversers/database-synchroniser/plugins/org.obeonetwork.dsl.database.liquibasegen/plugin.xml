@@ -85,15 +85,16 @@
                      checkEnabled="false">
                   <with
                         variable="selection">
-                     <iterate
-                           ifEmpty="false">
-                        <test
-                              args="selection"
-                              forcePluginActivation="true"
-                              property="org.obeonetwork.dsl.database.liquibasegen.testDirName"
-                              value="true">
-                        </test>
-                     </iterate>
+                     <and>
+                        <count value="1"/>
+                        <iterate ifEmpty="false">
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.obeonetwork.dsl.database.liquibasegen.isChangelogFolder"
+                                 value="true">
+                           </test>
+                        </iterate>
+                     </and>
                   </with>
                </visibleWhen>
             </command>
@@ -110,10 +111,10 @@
             type="java.lang.Object">
       </propertyTester>
       <propertyTester
-            class="org.obeonetwork.dsl.database.liquibasegen.ui.TestDirName"
-            id="org.obeonetwork.dsl.database.liquibasegen.testDirName"
+            class="org.obeonetwork.dsl.database.liquibasegen.ui.ChangelogFolderPropertyTester"
+            id="org.obeonetwork.dsl.database.liquibasegen.changelogFolderPropertyTester"
             namespace="org.obeonetwork.dsl.database.liquibasegen"
-            properties="testDirName"
+            properties="isChangelogFolder"
             type="java.lang.Object">
       </propertyTester>
    </extension>

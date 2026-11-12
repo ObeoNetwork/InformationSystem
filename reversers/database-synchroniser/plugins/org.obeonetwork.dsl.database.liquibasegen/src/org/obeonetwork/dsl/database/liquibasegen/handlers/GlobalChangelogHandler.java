@@ -18,7 +18,7 @@ import java.util.List;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.internal.resources.Container;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.window.Window;
@@ -33,7 +33,6 @@ import org.obeonetwork.utils.common.ui.handlers.EventHelper;
  * Create a global changelog including selected generation histories
  *
  */
-@SuppressWarnings("restriction")
 public class GlobalChangelogHandler extends AbstractHandler {
 
 	private Shell shell;
@@ -42,7 +41,7 @@ public class GlobalChangelogHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		shell = HandlerUtil.getActiveShell(event);
 
-		Container changelogsFolder = EventHelper.uwrapSingleSelection(event, Container.class);
+		IFolder changelogsFolder = EventHelper.uwrapSingleSelection(event, IFolder.class);
 
 		if (changelogsFolder == null) {
 			return null;
@@ -57,7 +56,7 @@ public class GlobalChangelogHandler extends AbstractHandler {
 		return null;
 	}
 
-	private void openChangelogSelectionWizard(Container changelogsFolder) throws IOException, CoreException {
+	private void openChangelogSelectionWizard(IFolder changelogsFolder) throws IOException, CoreException {
 		Path changelogsDirectory = Paths.get(changelogsFolder.getLocation().toOSString());
 		List<Path> changelogs = GlobalChangelogService.findChangelogs(changelogsDirectory);
 		WizardDialog dialog = new WizardDialog(shell,

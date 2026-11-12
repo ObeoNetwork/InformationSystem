@@ -21,6 +21,7 @@ import org.eclipse.emf.compare.Comparison;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.database.liquibasegen.ChangelogConstants;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseGenerator;
 import org.obeonetwork.dsl.database.liquibasegen.ui.LiquibaseGenerationOptionsDialog;
 import org.obeonetwork.database.ui.Activator;
@@ -52,7 +53,7 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 
 	@Override
 	protected String getMainFolderName() {
-		return "liquibase";
+		return ChangelogConstants.LIQUIBASE_FOLDER_NAME;
 	}
 
 	@Override
