@@ -12,7 +12,6 @@ package org.obeonetwork.dsl.database.liquibasegen.ui;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -44,18 +43,25 @@ public class ConnectionInformationDialog extends Dialog {
 	private List<ConnectionInformation> connectionInformations;
 	
 	/**
-	 * Create the dialog.
-	 * @param parentShell
-	 * @param url 
-	 * @param username 
-	 * @param password
+	 * Creates a dialog initialized from the first connection, or with empty fields
+	 * for manual entry when no connections are available.
+	 *
+	 * @param parentShell the parent shell
+	 * @param connectionInformations the available connections in display order
 	 */
 	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connectionInformations) {
 		super(parentShell);
 		this.connectionInformations = connectionInformations;
-		url = connectionInformations.get(0).url();
-		username = "";
-		password = "";
+		if (connectionInformations.isEmpty()) {
+			url = "";
+			username = "";
+			password = "";
+		} else {
+			ConnectionInformation initialConnection = connectionInformations.get(0);
+			url = initialConnection.url();
+			username = initialConnection.username();
+			password = initialConnection.password();
+		}
 	}
 
 	/**
@@ -107,6 +113,7 @@ public class ConnectionInformationDialog extends Dialog {
 		Combo urlCombo = new Combo(composite, SWT.BORDER);
 		urlCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		connectionInformations.stream().map(ConnectionInformation::url).forEach(ciUrl -> urlCombo.add(ciUrl));
+		urlCombo.setText(url);
 		urlCombo.addModifyListener(new ModifyListener() {
 			
 			@Override
