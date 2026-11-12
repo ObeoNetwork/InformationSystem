@@ -18,6 +18,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -119,20 +120,23 @@ public class ConnectionInformationDialog extends Dialog {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				url = ((Combo) e.widget).getText();
-				Optional<ConnectionInformation> selectedConInf = connectionInformations.stream().filter(ci -> ci.url().equals(url)).findFirst();
-				selectedConInf.ifPresentOrElse(
-						(ci) -> {usernameText.setText( ci.username());
-								username = ci.username();
-						},
-						() -> {usernameText.setText("");
-								username="";});
-				selectedConInf.ifPresentOrElse(
-						(ci) -> {passwordText.setText(ci.password());
-								password=ci.password();},
-						() -> {passwordText.setText("");
-								password="";});
+				int selectedIndex = urlCombo.getSelectionIndex();
+				Optional<ConnectionInformation> selectedConnection = selectedIndex >= 0
+						? Optional.of(connectionInformations.get(selectedIndex))
+						: connectionInformations.stream().filter(connection -> connection.url().equals(url)).findFirst();
+				updateCredentials(selectedConnection.orElseGet(() -> new ConnectionInformation(url, "", "")),
+						usernameText, passwordText);
 			}
 		});
+		// Refresh credentials when switching accounts with the same URL.
+		urlCombo.addSelectionListener(SelectionListener.widgetSelectedAdapter(event -> {
+			int selectedIndex = urlCombo.getSelectionIndex();
+			if (selectedIndex >= 0) {
+				url = urlCombo.getText();
+				updateCredentials(connectionInformations.get(selectedIndex), usernameText, passwordText);
+			}
+		}));
+
 		
 		
 		usernameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -155,6 +159,17 @@ public class ConnectionInformationDialog extends Dialog {
 		});
 		
 		return container;
+	}
+
+	/**
+	 * Updates the credential fields and returned values together when a profile is
+	 * selected or the URL is edited.
+	 */
+	private void updateCredentials(ConnectionInformation connection, Text usernameText, Text passwordText) {
+		username = connection.username();
+		password = connection.password();
+		usernameText.setText(username);
+		passwordText.setText(password);
 	}
 
 	/**
