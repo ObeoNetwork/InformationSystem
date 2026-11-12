@@ -70,7 +70,7 @@
                         <test
                               args="selection"
                               forcePluginActivation="true"
-                              property="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
+                              property="org.obeonetwork.dsl.database.liquibasegen.isChangelogFile"
                               value="true">
                         </test>
                      </iterate>
@@ -104,18 +104,11 @@
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="org.obeonetwork.dsl.database.liquibasegen.ui.TestFileExtension"
-            id="org.obeonetwork.dsl.database.liquibasegen.testFileExtension"
+            class="org.obeonetwork.dsl.database.liquibasegen.ui.ChangelogResourcePropertyTester"
+            id="org.obeonetwork.dsl.database.liquibasegen.changelogResourcePropertyTester"
             namespace="org.obeonetwork.dsl.database.liquibasegen"
-            properties="testFileExtension"
-            type="java.lang.Object">
-      </propertyTester>
-      <propertyTester
-            class="org.obeonetwork.dsl.database.liquibasegen.ui.ChangelogFolderPropertyTester"
-            id="org.obeonetwork.dsl.database.liquibasegen.changelogFolderPropertyTester"
-            namespace="org.obeonetwork.dsl.database.liquibasegen"
-            properties="isChangelogFolder"
-            type="java.lang.Object">
+            properties="isChangelogFile,isChangelogFolder"
+            type="org.eclipse.core.resources.IResource">
       </propertyTester>
    </extension>
 

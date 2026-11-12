@@ -12,22 +12,38 @@ package org.obeonetwork.dsl.database.liquibasegen.ui;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.obeonetwork.dsl.database.liquibasegen.ChangelogConstants;
 
 /**
- * Recognizes a changelog history folder at {@code liquibase/<type>/<name>}, regardless of
- * the project or history folder name. Only the workspace hierarchy is inspected,
- * so evaluating the menu does not scan files or require existing histories.
+ * Recognizes workspace resources supported by the Liquibase menu actions.
  */
-public class ChangelogFolderPropertyTester extends PropertyTester {
+public class ChangelogResourcePropertyTester extends PropertyTester {
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (!"isChangelogFolder".equals(property) || !(receiver instanceof IFolder folder)
+		return switch (property) {
+			case "isChangelogFile" -> isChangelogFile(receiver);
+			case "isChangelogFolder" -> isChangelogFolder(receiver);
+			default -> false;
+		};
+	}
+
+	private boolean isChangelogFile(Object receiver) {
+		return receiver instanceof IFile file && file.getName().endsWith("changelog.xml");
+	}
+
+	/**
+	 * Recognizes {@code liquibase/<dbType>/<name>} using only the workspace hierarchy.
+	 * No files are inspected, so an empty history folder is also accepted.
+	 */
+	private boolean isChangelogFolder(Object receiver) {
+		if (!(receiver instanceof IFolder folder)
 				|| !(folder.getParent() instanceof IFolder dbTypeFolder)) {
 			return false;
 		}
+
 		IContainer liquibaseFolder = dbTypeFolder.getParent();
 		return liquibaseFolder instanceof IFolder
 				&& ChangelogConstants.LIQUIBASE_FOLDER_NAME.equals(liquibaseFolder.getName());
