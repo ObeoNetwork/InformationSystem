@@ -11,15 +11,10 @@
 package org.obeonetwork.dsl.database.liquibasegen.ui;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -31,163 +26,110 @@ import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.database.liquibasegen.ConnectionInformation;
 
 /**
- * Creates a dialog for defining the identifiers of the database.
- * 
+ * Lets users select or enter database connection details. The initial values are
+ * replaced by the confirmed values when OK is pressed and remain available after
+ * the dialog closes.
+ *
  * @author Obeo
- *         
  */
 public class ConnectionInformationDialog extends Dialog {
 
-	private String url;
-	private String username;
-	private String password;
-	private List<ConnectionInformation> connectionInformations;
-	
+	private static final int URL_FIELD_WIDTH_IN_CHARACTERS = 50;
+
+	private final List<ConnectionInformation> connections;
+
+	private ConnectionInformation connection;
+
+	private Combo urlCombo;
+
+	private Text usernameText;
+
+	private Text passwordText;
+
 	/**
 	 * Creates a dialog initialized from the first connection, or with empty fields
 	 * for manual entry when no connections are available.
 	 *
 	 * @param parentShell the parent shell
-	 * @param connectionInformations the available connections in display order
+	 * @param connections the available connections in display order
 	 */
-	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connectionInformations) {
+	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connections) {
 		super(parentShell);
-		this.connectionInformations = connectionInformations;
-		if (connectionInformations.isEmpty()) {
-			url = "";
-			username = "";
-			password = "";
-		} else {
-			ConnectionInformation initialConnection = connectionInformations.get(0);
-			url = initialConnection.url();
-			username = initialConnection.username();
-			password = initialConnection.password();
-		}
+		this.connections = connections;
+		connection = this.connections.isEmpty() ? new ConnectionInformation("", "", "") : this.connections.get(0);
 	}
 
-	/**
-	 * Create contents of the dialog.
-	 * @param parent
-	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
-		
-		Composite composite = new Composite(container, SWT.NONE);
-		composite.setLayout(new GridLayout(2, false));
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		composite.setBounds(0, 0, 32, 32);
-		
-		Label lblNewLabel = new Label(composite, SWT.WRAP);
-		GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblNewLabel.widthHint = 100;
-		lblNewLabel.setLayoutData(gd_lblNewLabel);
-		lblNewLabel.setText("URL");
-		
-		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setLayout(new GridLayout(2, false));
-		GridData gd_composite_1 = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_composite_1.widthHint = 387;
-		composite_1.setLayoutData(gd_composite_1);
-		composite_1.setBounds(0, 0, 32, 32);
-		
-		Label lblNewLabel_1 = new Label(composite_1, SWT.NONE);
-		GridData gd_lblNewLabel_1 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblNewLabel_1.widthHint = 100;
-		lblNewLabel_1.setLayoutData(gd_lblNewLabel_1);
-		lblNewLabel_1.setText("Username");
-		
-		Composite composite_2 = new Composite(container, SWT.NONE);
-		composite_2.setLayout(new GridLayout(2, false));
-		composite_2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
-		composite_2.setBounds(0, 0, 32, 32);
-		
-		Label lblNewLabel_2 = new Label(composite_2, SWT.NONE);
-		GridData gd_lblNewLabel_2 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblNewLabel_2.widthHint = 100;
-		lblNewLabel_2.setLayoutData(gd_lblNewLabel_2);
-		lblNewLabel_2.setText("Password");
-		
-		Text usernameText = new Text(composite_1, SWT.BORDER);
-		Text passwordText = new Text(composite_2, SWT.BORDER);
-		
-		Combo urlCombo = new Combo(composite, SWT.BORDER);
-		urlCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		connectionInformations.stream().map(ConnectionInformation::url).forEach(ciUrl -> urlCombo.add(ciUrl));
-		urlCombo.setText(url);
-		urlCombo.addModifyListener(new ModifyListener() {
-			
-			@Override
-			public void modifyText(ModifyEvent e) {
-				url = ((Combo) e.widget).getText();
-				int selectedIndex = urlCombo.getSelectionIndex();
-				Optional<ConnectionInformation> selectedConnection = selectedIndex >= 0
-						? Optional.of(connectionInformations.get(selectedIndex))
-						: connectionInformations.stream().filter(connection -> connection.url().equals(url)).findFirst();
-				updateCredentials(selectedConnection.orElseGet(() -> new ConnectionInformation(url, "", "")),
-						usernameText, passwordText);
-			}
-		});
-		// Refresh credentials when switching accounts with the same URL.
-		urlCombo.addSelectionListener(SelectionListener.widgetSelectedAdapter(event -> {
-			int selectedIndex = urlCombo.getSelectionIndex();
-			if (selectedIndex >= 0) {
-				url = urlCombo.getText();
-				updateCredentials(connectionInformations.get(selectedIndex), usernameText, passwordText);
-			}
-		}));
+		GridLayout layout = (GridLayout) container.getLayout();
+		layout.numColumns = 2;
 
-		
-		
-		usernameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		usernameText.setText(username);
-		usernameText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				username = ((Text) e.widget).getText();
-			}
-		});
-		
-		
-		passwordText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
-		passwordText.setText(password);
-		passwordText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				password = ((Text) e.widget).getText();
-			}
-		});
-		
+		Label urlLabel = new Label(container, SWT.NONE);
+		urlLabel.setText("URL");
+		urlCombo = new Combo(container, SWT.BORDER);
+		GridData urlLayoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		urlLayoutData.widthHint = convertWidthInCharsToPixels(URL_FIELD_WIDTH_IN_CHARACTERS);
+		urlCombo.setLayoutData(urlLayoutData);
+		urlCombo.setItems(connections.stream().map(ConnectionInformation::url).toArray(String[]::new));
+
+		Label usernameLabel = new Label(container, SWT.NONE);
+		usernameLabel.setText("Username");
+		usernameText = new Text(container, SWT.BORDER);
+		usernameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+
+		Label passwordLabel = new Label(container, SWT.NONE);
+		passwordLabel.setText("Password");
+		passwordText = new Text(container, SWT.BORDER);
+		passwordText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+
+		if (!connections.isEmpty()) {
+			urlCombo.select(0);
+		}
+		updateCredentials(connection);
+		urlCombo.addModifyListener(event -> updateCredentialsFromUrl());
+		// Refresh credentials when switching accounts with the same URL.
+		urlCombo.addSelectionListener(SelectionListener.widgetSelectedAdapter(event -> updateCredentialsFromUrl()));
+
 		return container;
 	}
 
 	/**
-	 * Updates the credential fields and returned values together when a profile is
-	 * selected or the URL is edited.
+	 * Uses the selected profile index to distinguish accounts sharing a URL.
+	 * When the URL is typed freely, uses the first matching profile or clears the
+	 * credentials if the URL is unknown.
 	 */
-	private void updateCredentials(ConnectionInformation connection, Text usernameText, Text passwordText) {
-		username = connection.username();
-		password = connection.password();
-		usernameText.setText(username);
-		passwordText.setText(password);
+	private void updateCredentialsFromUrl() {
+		int selectedIndex = urlCombo.getSelectionIndex();
+		if (selectedIndex >= 0) {
+			updateCredentials(connections.get(selectedIndex));
+			return;
+		}
+
+		String url = urlCombo.getText();
+		ConnectionInformation matchingConnection = connections.stream()
+				.filter(candidate -> candidate.url().equals(url))
+				.findFirst()
+				.orElseGet(() -> new ConnectionInformation(url, "", ""));
+		updateCredentials(matchingConnection);
 	}
 
 	/**
-	 * Create contents of the button bar.
-	 * @param parent
+	 * Fills the credential controls from a profile, leaving the editable URL intact.
 	 */
-	@Override
-	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
-		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+	private void updateCredentials(ConnectionInformation selectedConnection) {
+		usernameText.setText(selectedConnection.username());
+		passwordText.setText(selectedConnection.password());
 	}
 
 	/**
-	 * Return the initial size of the dialog.
+	 * Captures the edited values before JFace closes the dialog and disposes its
+	 * controls, so the handler can read the result after {@code open()} returns.
 	 */
 	@Override
-	protected Point getInitialSize() {
-		return new Point(450, 300);
+	protected void okPressed() {
+		connection = new ConnectionInformation(urlCombo.getText(), usernameText.getText(), passwordText.getText());
+		super.okPressed();
 	}
 
 	@Override
@@ -195,30 +137,26 @@ public class ConnectionInformationDialog extends Dialog {
 		super.configureShell(newShell);
 		newShell.setText("Liquibase update");
 	}
-	
+
 	/**
-	 * 
-	 * @return url {@link String}
+	 * @return the initial URL, or the confirmed URL after validation
 	 */
 	public String getUrl() {
-		return url;
+		return connection.url();
 	}
 
 	/**
-	 * 
-	 * @return username {@link String}
+	 * @return the initial username, or the confirmed username after validation
 	 */
 	public String getUsername() {
-		return username;
+		return connection.username();
 	}
 
 	/**
-	 * 
-	 * @return password {@link String}
-	 * 
+	 * @return the initial password, or the confirmed password after validation
 	 */
 	public String getPassword() {
-		return password;
+		return connection.password();
 	}
-	
+
 }
