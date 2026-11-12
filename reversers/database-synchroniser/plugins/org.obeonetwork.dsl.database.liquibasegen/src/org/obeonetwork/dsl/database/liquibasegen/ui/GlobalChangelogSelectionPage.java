@@ -19,8 +19,10 @@ import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -47,6 +49,15 @@ public final class GlobalChangelogSelectionPage extends WizardPage {
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		container.setLayout(new GridLayout(1, false));
+
+		Button selectAllButton = new Button(container, SWT.PUSH);
+		selectAllButton.setText("Select all");
+		selectAllButton.setLayoutData(new GridData(SWT.END, SWT.CENTER, false, false));
+		selectAllButton.setEnabled(!changelogs.isEmpty());
+		selectAllButton.addSelectionListener(SelectionListener.widgetSelectedAdapter(event -> {
+			tableViewer.setAllChecked(true);
+			updateSelectionState();
+		}));
 
 		tableViewer = CheckboxTableViewer.newCheckList(container, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		tableViewer.getTable().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
