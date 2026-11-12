@@ -395,6 +395,39 @@
 			<br/>Cette option n&#8217;a aucun impact sur les bases de données Oracle pour lesquelles un schéma est nécessairement associé à un utilisateur.
 			<br/>Cette option n&#8217;est prise en compte que lors de l&#8217;ajout d&#8217;un nouveau schema, toute  modification (suppression ou renommage de schéma) n&#8217;est pas gérée.
 		</p>
+		<p>
+			<strong>Génération d’un 
+				<em>ChangeLog</em> global
+			</strong>
+		</p>
+		<p>Un 
+			<em>ChangeLog</em> global permet de regrouper plusieurs générations pour appliquer leurs modifications dans l’ordre chronologique. Il référence les fichiers historiques par des instructions Liquibase 
+			<code>include</code>, sans recopier leurs 
+			<em>changeSet</em>.
+		</p>
+		<p>Pour le créer, sélectionner le dossier 
+			<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;</code> dans l’explorateur, puis utiliser le menu contextuel 
+			<em>Liquibase &gt; Create global changelog</em>. La sélection doit porter sur un seul dossier.
+		</p>
+		<p>Le dialogue présente les fichiers 
+			<code>run.changelog.xml</code> des sous-dossiers datés, du plus ancien au plus récent :
+		</p>
+		<p>
+			<img style="width:480px" border="0" src="pics/BDD_Liquibase_GlobalChangelog.png"/>
+		</p>
+		<p>Une sélection discontinue est autorisée. Un avertissement non bloquant signale que des générations intermédiaires sont exclues. La cohérence de l’enchaînement des modifications reste à vérifier par l’utilisateur.</p>
+		<p>Cliquer sur 
+			<em>Finish</em> pour créer 
+			<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;/global_run.changelog.xml</code>. Les inclusions sont ordonnées chronologiquement et leurs chemins sont relatifs à ce fichier. Si un changelog global existe déjà, il est remplacé par celui correspondant à la nouvelle sélection.
+		</p>
+		<p>La génération est bloquée si plusieurs 
+			<em>changeSet</em> des historiques sélectionnés portent le même identifiant.
+		</p>
+		<p>
+			<strong>Application d’un 
+				<em>ChangeLog</em>
+			</strong>
+		</p>
 		<p>Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.</p>
 		<p>
 			<img style="width:480px" border="0" src="pics/BDD_ApplyChangelog.png"/>
@@ -404,7 +437,7 @@
 			<br/>Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
 		</p>
 		<p>
-			<img style="width:480px" border="0" src="pics/BDD_ApplyChangelog_Connection.png"/>
+			<img border="0" src="pics/BDD_ApplyChangelog_Connection.png"/>
 		</p>
 		<h2 id="database_transformations">Transformations</h2>
 		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>

@@ -240,6 +240,24 @@ Puis une fenêtre proposant une option de création de schéma(s) si non existan
 Cette option n'a aucun impact sur les bases de données Oracle pour lesquelles un schéma est nécessairement associé à un utilisateur.
 Cette option n'est prise en compte que lors de l'ajout d'un nouveau schema, toute  modification (suppression ou renommage de schéma) n'est pas gérée.
 
+*Génération d’un _ChangeLog_ global*
+
+Un _ChangeLog_ global permet de regrouper plusieurs générations pour appliquer leurs modifications dans l’ordre chronologique. Il référence les fichiers historiques par des instructions Liquibase @include@, sans recopier leurs _changeSet_.
+
+Pour le créer, sélectionner le dossier @liquibase/<Type BDD>/<Nom BDD>@ dans l’explorateur, puis utiliser le menu contextuel _Liquibase > Create global changelog_. La sélection doit porter sur un seul dossier.
+
+Le dialogue présente les fichiers @run.changelog.xml@ des sous-dossiers datés, du plus ancien au plus récent :
+
+!{width:480px}pics/BDD_Liquibase_GlobalChangelog.png!
+
+Une sélection discontinue est autorisée. Un avertissement non bloquant signale que des générations intermédiaires sont exclues. La cohérence de l’enchaînement des modifications reste à vérifier par l’utilisateur.
+
+Cliquer sur _Finish_ pour créer @liquibase/<Type BDD>/<Nom BDD>/global_run.changelog.xml@. Les inclusions sont ordonnées chronologiquement et leurs chemins sont relatifs à ce fichier. Si un changelog global existe déjà, il est remplacé par celui correspondant à la nouvelle sélection.
+
+La génération est bloquée si plusieurs _changeSet_ des historiques sélectionnés portent le même identifiant.
+
+*Application d’un _ChangeLog_*
+
 Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.
 
 !{width:480px}pics/BDD_ApplyChangelog.png!
@@ -247,7 +265,7 @@ Il est possible de déployer un changelog liquibase sur une base de données dir
 Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
 Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
 
-!{width:480px}pics/BDD_ApplyChangelog_Connection.png!
+!pics/BDD_ApplyChangelog_Connection.png!
 
 h2(#database_transformations). Transformations
 
