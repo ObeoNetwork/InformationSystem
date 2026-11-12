@@ -47,16 +47,18 @@ public class ConnectionInformationDialog extends Dialog {
 	private Text passwordText;
 
 	/**
-	 * Creates a dialog initialized from the first connection, or with empty fields
-	 * for manual entry when no connections are available.
+	 * Creates a dialog with initial values independent of the available profiles.
+	 * The supplied initial connection is displayed even when no profile matches it.
 	 *
 	 * @param parentShell the parent shell
 	 * @param connections the available connections in display order
+	 * @param initialConnection the values to display when the dialog opens
 	 */
-	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connections) {
+	public ConnectionInformationDialog(Shell parentShell, List<ConnectionInformation> connections,
+			ConnectionInformation initialConnection) {
 		super(parentShell);
 		this.connections = connections;
-		connection = this.connections.isEmpty() ? new ConnectionInformation("", "", "") : this.connections.get(0);
+		connection = initialConnection;
 	}
 
 	@Override
@@ -83,8 +85,11 @@ public class ConnectionInformationDialog extends Dialog {
 		passwordText = new Text(container, SWT.BORDER);
 		passwordText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-		if (!connections.isEmpty()) {
-			urlCombo.select(0);
+		int initialIndex = connections.indexOf(connection);
+		if (initialIndex >= 0) {
+			urlCombo.select(initialIndex);
+		} else {
+			urlCombo.setText(connection.url());
 		}
 		updateCredentials(connection);
 		urlCombo.addModifyListener(event -> updateCredentialsFromUrl());

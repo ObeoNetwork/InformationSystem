@@ -99,13 +99,17 @@ public class ChangelogHandler extends AbstractHandler {
 	 * @throws CoreException if the workspace resource cannot be read or created
 	 */
 	private boolean openConnectionInformationDialog(IFile liquibasePropertiesFile) throws IOException, CoreException {
-		Properties credentialsProperties = loadOrCreateCredentialsProperties(liquibasePropertiesFile);
+		Properties liquibaseProperties = loadProperties(liquibasePropertiesFile);
+		Properties credentialsProperties = loadOrCreateCredentialsProperties(liquibasePropertiesFile, liquibaseProperties);
 
 		List<ConnectionInformation> connections = readConnections(credentialsProperties);
 		
+		ConnectionInformation initialConnection = new ConnectionInformation(
+				liquibaseProperties.getProperty("url", ""),
+				liquibaseProperties.getProperty("username", ""),
+				liquibaseProperties.getProperty("password", ""));
 		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(
-				shell, 
-				connections);
+				shell, connections, initialConnection);
 		
 		connectionInformationDialog.open();
 
@@ -157,12 +161,14 @@ public class ChangelogHandler extends AbstractHandler {
 	 * profile and a commented example for a second profile. An existing file is
 	 * loaded without changing its contents.
 	 *
-	 * @param liquibasePropertiesFile the source of the initial connection defaults
+	 * @param liquibasePropertiesFile the file whose parent contains the connection profiles
+	 * @param liquibaseProperties the already loaded default connection properties
 	 * @return the properties loaded from or written to the credentials file
 	 * @throws IOException if the properties cannot be read or serialized
 	 * @throws CoreException if a workspace resource cannot be refreshed, read or created
 	 */
-	private Properties loadOrCreateCredentialsProperties(IFile liquibasePropertiesFile) throws IOException, CoreException {
+	private Properties loadOrCreateCredentialsProperties(IFile liquibasePropertiesFile, Properties liquibaseProperties)
+			throws IOException, CoreException {
 		IFile credentialsFile = liquibasePropertiesFile.getParent().getFile(new Path(CREDENTIALS_PROPERTIES_FILE_NAME));
 		// Recognize a file created outside Eclipse before deciding whether to create it.
 		credentialsFile.refreshLocal(IResource.DEPTH_ZERO, null);
@@ -170,7 +176,6 @@ public class ChangelogHandler extends AbstractHandler {
 			return loadProperties(credentialsFile);
 		}
 
-		Properties liquibaseProperties = loadProperties(liquibasePropertiesFile);
 		Properties credentialsProperties = new Properties();
 		credentialsProperties.setProperty("url.1", liquibaseProperties.getProperty("url", ""));
 		credentialsProperties.setProperty("username.1", liquibaseProperties.getProperty("username", ""));
