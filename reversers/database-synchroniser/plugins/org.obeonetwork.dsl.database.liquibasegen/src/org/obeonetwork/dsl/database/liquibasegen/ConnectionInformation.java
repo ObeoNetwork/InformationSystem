@@ -9,4 +9,12 @@ public record ConnectionInformation(String url, String username, String password
 		Objects.requireNonNull(password);
 	}
 
+	/**
+	 * Returns connection details with the password masked to avoid exposing it in logs.
+	 */
+	@Override
+	public String toString() {
+		return "ConnectionInformation[url=" + url + ", username=" + username + ", password=***]";
+	}
+
 }
