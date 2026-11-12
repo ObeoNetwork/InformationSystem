@@ -12,11 +12,10 @@ package org.obeonetwork.dsl.database.liquibasegen.handlers;
 
 import static org.obeonetwork.dsl.database.liquibasegen.Activator.getLiquibaseVersion;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -24,8 +23,10 @@ import java.util.Properties;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.internal.resources.File;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -46,7 +47,6 @@ import liquibase.exception.LiquibaseException;
  * connection informations and apply the changelog.
  * 
  */
-@SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
 	private static final String CREDENTIALS_PROPERTIES_FILE_NAME = "credentials.properties";
 
@@ -62,13 +62,13 @@ public class ChangelogHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		shell = HandlerUtil.getActiveShell(event);
 
-		File changelogFile = EventHelper.uwrapSingleSelection(event, File.class);
+		IFile changelogFile = EventHelper.uwrapSingleSelection(event, IFile.class);
 
 		if (changelogFile == null) {
 			return null;
 		}
 
-		File liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
+		IFile liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
 		if (liquibasePropertiesFile == null) {
 			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title,
 					Messages.ChangelogHandler_Error_message_properties_file_not_found);
@@ -82,7 +82,7 @@ public class ChangelogHandler extends AbstractHandler {
 				MessageDialog.openInformation(shell, Messages.ChangelogHandler_dialog_title,
 						String.format(Messages.ChangelogHandler_success_message, getLiquibaseVersion()));
 			}
-		} catch (IOException | LiquibaseException e) {
+		} catch (IOException | CoreException | LiquibaseException e) {
 			System.err.println(e.getMessage());
 			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, e.getMessage());
 		}
@@ -95,37 +95,12 @@ public class ChangelogHandler extends AbstractHandler {
 	 * 
 	 * @param liquibasePropertiesFile
 	 * @return true if the user validated the dialog, false if the user canceled.
-	 * @throws IOException
+	 * @throws IOException if the properties cannot be read or serialized
+	 * @throws CoreException if the workspace resource cannot be read or created
 	 */
-	private boolean openConnectionInformationDialog(File liquibasePropertiesFile) throws IOException {
-		
-		java.io.File credentialsPropertiesFile = Paths.get(liquibasePropertiesFile.getParent().getLocationURI()).resolve(CREDENTIALS_PROPERTIES_FILE_NAME).toFile();
-		
-		Properties credentialsProperties = new Properties();
-		// Check if credentials file exist
-		if (!credentialsPropertiesFile.exists()) {
-			Properties liquibaseProperties = new Properties();
-			InputStream inputStream = new FileInputStream(liquibasePropertiesFile.getLocation().toOSString());
-			liquibaseProperties.load(inputStream);
-			
-			// initialize credentials file using default values in liquibase file
-			credentialsProperties.setProperty("url.1", liquibaseProperties.getProperty("url", ""));
-			credentialsProperties.setProperty("username.1", liquibaseProperties.getProperty("username", ""));
-			credentialsProperties.setProperty("password.1", liquibaseProperties.getProperty("password", ""));
-			
-			final FileOutputStream credentialsFos = new FileOutputStream(credentialsPropertiesFile);
-			credentialsProperties.store(credentialsFos, "Credentials for database connections"+System.lineSeparator()+System.lineSeparator()+
-														"url.X = //url/database" +System.lineSeparator()+
-														"username.X = username"+System.lineSeparator()+
-														"password.X = password"+System.lineSeparator());
-			inputStream.close();
-			credentialsFos.close();
-		}else {
-			final FileInputStream credentialsFis = new FileInputStream(credentialsPropertiesFile);
-			credentialsProperties.load(credentialsFis);
-			credentialsFis.close();
-		}
-		
+	private boolean openConnectionInformationDialog(IFile liquibasePropertiesFile) throws IOException, CoreException {
+		Properties credentialsProperties = loadOrCreateCredentialsProperties(liquibasePropertiesFile);
+
 		int count = 1;
 		List<ConnectionInformation> connectionInformations = new ArrayList<>();
 		while (credentialsProperties.getProperty("url."+count)!=null) {
@@ -153,26 +128,79 @@ public class ChangelogHandler extends AbstractHandler {
 	}
 
 	/**
+	 * Loads the connection profiles beside the Liquibase properties file. If absent,
+	 * creates the workspace resource using the Liquibase connection as the first
+	 * profile and a commented example for a second profile. An existing file is
+	 * loaded without changing its contents.
+	 *
+	 * @param liquibasePropertiesFile the source of the initial connection defaults
+	 * @return the properties loaded from or written to the credentials file
+	 * @throws IOException if the properties cannot be read or serialized
+	 * @throws CoreException if a workspace resource cannot be refreshed, read or created
+	 */
+	private Properties loadOrCreateCredentialsProperties(IFile liquibasePropertiesFile) throws IOException, CoreException {
+		IFile credentialsFile = liquibasePropertiesFile.getParent().getFile(new Path(CREDENTIALS_PROPERTIES_FILE_NAME));
+		// Recognize a file created outside Eclipse before deciding whether to create it.
+		credentialsFile.refreshLocal(IResource.DEPTH_ZERO, null);
+		if (credentialsFile.exists()) {
+			return loadProperties(credentialsFile);
+		}
+
+		Properties liquibaseProperties = loadProperties(liquibasePropertiesFile);
+		Properties credentialsProperties = new Properties();
+		credentialsProperties.setProperty("url.1", liquibaseProperties.getProperty("url", ""));
+		credentialsProperties.setProperty("username.1", liquibaseProperties.getProperty("username", ""));
+		credentialsProperties.setProperty("password.1", liquibaseProperties.getProperty("password", ""));
+
+		ByteArrayOutputStream contents = new ByteArrayOutputStream();
+		String comment = "Credentials for database connections" + System.lineSeparator() + System.lineSeparator()
+				+ "url.2=jdbc:oracle:thin:@<hostname>:1521:<dbName>" + System.lineSeparator()
+				+ "username.2=" + System.lineSeparator() + "password.2=";
+		credentialsProperties.store(contents, comment);
+		try (InputStream inputStream = new ByteArrayInputStream(contents.toByteArray())) {
+			credentialsFile.create(inputStream, false, null);
+		}
+		return credentialsProperties;
+	}
+
+	/**
+	 * Reads Java properties from a workspace file and closes the stream even if
+	 * loading fails. Keeps the standard properties encoding used by Liquibase.
+	 *
+	 * @param file the properties file to read
+	 * @return the loaded properties
+	 * @throws IOException if the contents cannot be read
+	 * @throws CoreException if the workspace file cannot be opened
+	 */
+	private Properties loadProperties(IFile file) throws IOException, CoreException {
+		Properties properties = new Properties();
+		try (InputStream inputStream = file.getContents()) {
+			properties.load(inputStream);
+		}
+		return properties;
+	}
+
+	/**
 	 * Try to find a <code>liquibase.properties</code> file in the same folder than
-	 * the given change log {@link File}.<br>
+	 * the given change log {@link IFile}.<br>
 	 * If not found there, try to find it in the parent folder.<br>
 	 * If still not found returns null.<br>
 	 * 
-	 * @param changelogFile a {@link File}.
+	 * @param changelogFile a {@link IFile}.
 	 * 
-	 * @return a {@link File} or null.
+	 * @return a {@link IFile} or null.
 	 */
-	private File getLiquibasePropertiesFile(File changelogFile) {
+	private IFile getLiquibasePropertiesFile(IFile changelogFile) {
 		IPath propertiesPath = new Path(LIQUIBASE_PROPERTIES_FILE_NAME);
 		IContainer container = changelogFile.getParent();
-		File liquibasePropertiesFile = null;
+		IFile liquibasePropertiesFile = null;
 
 		if (!container.getFile(propertiesPath).exists()) {
 			container = container.getParent();
 		}
 
 		if (container.getFile(propertiesPath).exists()) {
-			liquibasePropertiesFile = (File) container.getFile(propertiesPath);
+			liquibasePropertiesFile = container.getFile(propertiesPath);
 		}
 
 		return liquibasePropertiesFile;
