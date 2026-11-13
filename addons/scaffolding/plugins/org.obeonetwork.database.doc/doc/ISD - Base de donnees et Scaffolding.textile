@@ -258,14 +258,28 @@ La génération est bloquée si plusieurs _changeSet_ des historiques sélection
 
 *Application d’un _ChangeLog_*
 
-Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.
+Pour appliquer un _ChangeLog_ sur une base de données, sélectionner son fichier dans l’explorateur puis utiliser le menu contextuel _Liquibase > Apply changelog_.
 
 !{width:480px}pics/BDD_ApplyChangelog.png!
 
-Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
-Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
+Le dialogue _Apply Changelog — Database Connection_ permet de choisir la connexion à utiliser. À chaque ouverture, les champs _URL_, _Username_ et _Password_ sont initialisés avec les propriétés @url@, @username@ et @password@ du fichier @liquibase/<Type BDD>/<Nom BDD>/liquibase.properties@.
 
 !pics/BDD_ApplyChangelog_Connection.png!
+
+Les connexions enregistrées sont définies dans le fichier @credentials.properties@, situé à côté de @liquibase.properties@. Si ce fichier n’existe pas, il est créé automatiquement à l’ouverture du dialogue, avec comme premier triplet @url.1@, @username.1@ et @password.1@ les valeurs de @liquibase.properties@.
+
+Pour ajouter une connexion, compléter un triplet avec le même numéro pour les trois propriétés. Exemple à adapter aux bases utilisées :
+
+bc. url.1=jdbc:postgresql://localhost:5432/ebookstore
+username.1=john
+password.1=123
+#url.2=jdbc:postgresql://localhost:5432/ebookstore_test
+#username.2=johny
+#password.2=123
+
+L’ordre des triplets est libre, et leurs numéros peuvent être discontinus.
+
+Choisir une entrée dans la liste _URL_ renseigne l’URL, l’utilisateur et le mot de passe associés. Les champs restent modifiables. Les modifications saisies dans le dialogue ne sont pas enregistrées dans les fichiers de propriétés.
 
 h2(#database_transformations). Transformations
 

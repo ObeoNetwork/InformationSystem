@@ -428,16 +428,45 @@
 				<em>ChangeLog</em>
 			</strong>
 		</p>
-		<p>Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.</p>
+		<p>Pour appliquer un 
+			<em>ChangeLog</em> sur une base de données, sélectionner son fichier dans l’explorateur puis utiliser le menu contextuel 
+			<em>Liquibase &gt; Apply changelog</em>.
+		</p>
 		<p>
 			<img style="width:480px" border="0" src="pics/BDD_ApplyChangelog.png"/>
 		</p>
-		<p>Les données de connection sont définies par défaut avec le fichier 
-			<em>changelog.properties</em>, normalement créé par liquibase. 
-			<br/>Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
+		<p>Le dialogue 
+			<em>Apply Changelog — Database Connection</em> permet de choisir la connexion à utiliser. À chaque ouverture, les champs 
+			<em>URL</em>, 
+			<em>Username</em> et 
+			<em>Password</em> sont initialisés avec les propriétés 
+			<code>url</code>, 
+			<code>username</code> et 
+			<code>password</code> du fichier 
+			<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;/liquibase.properties</code>.
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ApplyChangelog_Connection.png"/>
+		</p>
+		<p>Les connexions enregistrées sont définies dans le fichier 
+			<code>credentials.properties</code>, situé à côté de 
+			<code>liquibase.properties</code>. Si ce fichier n’existe pas, il est créé automatiquement à l’ouverture du dialogue, avec comme premier triplet 
+			<code>url.1</code>, 
+			<code>username.1</code> et 
+			<code>password.1</code> les valeurs de 
+			<code>liquibase.properties</code>.
+		</p>
+		<p>Pour ajouter une connexion, compléter un triplet avec le même numéro pour les trois propriétés. Exemple à adapter aux bases utilisées :</p>
+		<pre><code>url.1=jdbc:postgresql://localhost:5432/ebookstore
+username.1=john
+password.1=123
+#url.2=jdbc:postgresql://localhost:5432/ebookstore_test
+#username.2=johny
+#password.2=123
+</code></pre>
+		<p>L’ordre des triplets est libre, et leurs numéros peuvent être discontinus.</p>
+		<p>Choisir une entrée dans la liste 
+			<em>URL</em> renseigne l’URL, l’utilisateur et le mot de passe associés. Les champs restent modifiables. Les modifications saisies dans le dialogue ne sont pas enregistrées dans les fichiers de propriétés.
 		</p>
 		<h2 id="database_transformations">Transformations</h2>
 		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>
