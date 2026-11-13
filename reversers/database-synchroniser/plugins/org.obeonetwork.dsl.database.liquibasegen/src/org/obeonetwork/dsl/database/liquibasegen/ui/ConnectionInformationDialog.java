@@ -34,7 +34,7 @@ import org.obeonetwork.dsl.database.liquibasegen.ConnectionInformation;
  */
 public class ConnectionInformationDialog extends Dialog {
 
-	private static final int URL_FIELD_WIDTH_IN_CHARACTERS = 50;
+	private static final int URL_FIELD_WIDTH_IN_CHARACTERS = 70;
 
 	private final List<ConnectionInformation> connections;
 
@@ -59,6 +59,11 @@ public class ConnectionInformationDialog extends Dialog {
 		super(parentShell);
 		this.connections = connections;
 		connection = initialConnection;
+	}
+
+	@Override
+	protected boolean isResizable() {
+		return true;
 	}
 
 	@Override
