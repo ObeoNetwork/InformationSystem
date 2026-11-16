@@ -40,9 +40,9 @@ Une fois l'assistant validé, le modèle est créé, ainsi que les représentati
 
 !pics/Cinematic-ModelCreationWizard-04.jpg!
 
-Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vues _Cinematic Views_ et _Environment View_ sont activés.
+Lorsqu'un modèle Cinematic est créé à l'aide de cet assistant dans un _Modeling Project_, les points de vue _Cinematic Views_ et _Environment Views_ sont automatiquement activés.
 
-Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes tel que décrit dans la section suivante. Le point de vue _Environment View_ contient la définition des vues de propriétés avancées (EEF).
+Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes tel que décrit dans la section suivante. Le point de vue _Environment Views_ contient la définition des vues de propriétés.
 
 h2(#toolkit_model_creation). Création d'un modèle Toolkits
 
@@ -64,7 +64,9 @@ h2(#viewpoint_activation). Activation du point de vue
 
 h3(#modeling_project_usage). Utilisation d'un modeling project
 
-Si le fichier a été créé dans un modeling project, la seule étape nécessaire est l'activation du point de vue _Cinematic Views_. Pour ceci choisir _Viewpoints Selection_ dans le menu contextuel du _modeling project_.
+Les points de vue _Cinematic Views_ et _Environment Views_ sont automatiquement activés lors de la création du modèle avec l'assistant dans un _Modeling Project_. Aucune activation manuelle n'est nécessaire.
+
+Le menu contextuel _Viewpoints Selection_ du projet permet de vérifier les points de vue sélectionnés.
 
 !pics/Cinematic-ViewpointSelection.jpg!
 
@@ -74,7 +76,7 @@ Si le projet est d'un autre type, il manque alors un fichier _representations fi
 
 Pour ajouter le modèle Cinematic à un _representations file_ existant, choisir _Add Model_ dans le menu contextuel du @Project Dependencies@, puis sélectionner la ressource du modèle Cinematic.
 
-L'activation d'un point de vue se fait en choisissant _Viewpoints Selection_ dans le menu contextuel du projet.
+Après l'ajout d'un modèle Cinematic à une session existante, sélectionner les points de vue _Cinematic Views_ et _Environment Views_ dans le menu contextuel _Viewpoints Selection_ du projet s'ils ne sont pas déjà activés.
 
 h2(#designer_features). Fonctionnalités du modeleur
 
@@ -397,4 +399,3 @@ Un _Widget_ peut définir un style. Le style porte les attributs suivants :
 * defaultHeight : hauteur par défaut utilisée à la création d’un View Element
 * exampleExpression : Expression AQL définie dans le contexte du _View Element_ (la variable self est instance de _View Element_), définissant le label des _View Elements_ sur le diagramme Mockup lorsque le calque _Example_ est activé
 * labelHidden : booléen spécifiant si le label du _View Element_ représentant ce _Widget_ doit être caché (utile pour les conteneurs tel que Page, Panel, ...)
-

@@ -59,13 +59,14 @@
 		<p>
 			<img border="0" src="pics/Cinematic-ModelCreationWizard-04.jpg"/>
 		</p>
-		<p>Lorsqu&#8217;un modèle cinematic est créé à l&#8217;aide de ce wizard, les points de vues 
+		<p>Lorsqu&#8217;un modèle Cinematic est créé à l&#8217;aide de cet assistant dans un 
+			<em>Modeling Project</em>, les points de vue 
 			<em>Cinematic Views</em> et 
-			<em>Environment View</em> sont activés.
+			<em>Environment Views</em> sont automatiquement activés.
 		</p>
 		<p>Le point de vue 
 			<em>Cinematic Views</em> permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes tel que décrit dans la section suivante. Le point de vue 
-			<em>Environment View</em> contient la définition des vues de propriétés avancées (EEF).
+			<em>Environment Views</em> contient la définition des vues de propriétés.
 		</p>
 		<h2 id="toolkit_model_creation">Création d&#8217;un modèle Toolkits</h2>
 		<p>Un assistant de création de modèles Toolkits est accessible via le menu :</p>
@@ -86,10 +87,13 @@
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
 		<h2 id="viewpoint_activation">Activation du point de vue</h2>
 		<h3 id="modeling_project_usage">Utilisation d&#8217;un modeling project</h3>
-		<p>Si le fichier a été créé dans un modeling project, la seule étape nécessaire est l&#8217;activation du point de vue 
-			<em>Cinematic Views</em>. Pour ceci choisir 
-			<em>Viewpoints Selection</em> dans le menu contextuel du 
-			<em>modeling project</em>.
+		<p>Les points de vue 
+			<em>Cinematic Views</em> et 
+			<em>Environment Views</em> sont automatiquement activés lors de la création du modèle avec l&#8217;assistant dans un 
+			<em>Modeling Project</em>. Aucune activation manuelle n&#8217;est nécessaire.
+		</p>
+		<p>Le menu contextuel 
+			<em>Viewpoints Selection</em> du projet permet de vérifier les points de vue sélectionnés.
 		</p>
 		<p>
 			<img border="0" src="pics/Cinematic-ViewpointSelection.jpg"/>
@@ -104,21 +108,23 @@
 			<em>Add Model</em> dans le menu contextuel du 
 			<code>Project Dependencies</code>, puis sélectionner la ressource du modèle Cinematic.
 		</p>
-		<p>L&#8217;activation d&#8217;un point de vue se fait en choisissant 
-			<em>Viewpoints Selection</em> dans le menu contextuel du projet.
+		<p>Après l&#8217;ajout d&#8217;un modèle Cinematic à une session existante, sélectionner les points de vue 
+			<em>Cinematic Views</em> et 
+			<em>Environment Views</em> dans le menu contextuel 
+			<em>Viewpoints Selection</em> du projet s&#8217;ils ne sont pas déjà activés.
 		</p>
 		<h2 id="designer_features">Fonctionnalités du modeleur</h2>
 		<p>Le modeleur Cinematic apporte les représentations suivantes :</p>
 		<table>
 			<tr>
 				<td>
-					<b>Package Diagram</b>
+					<b>Package Diagram</b> 
 				</td>
 				<td>: diagramme permettant de modéliser les Packages, Flows et ViewContainers.</td>
 			</tr>
 			<tr>
 				<td>
-					<b>UI Structure</b>
+					<b>UI Structure</b> 
 				</td>
 				<td>: représentation aborescente permettant de modéliser la description haut niveau statique de l&#8217;IHM.</td>
 			</tr>
@@ -136,7 +142,7 @@
 			</tr>
 			<tr>
 				<td>
-					<b>Flow Diagram</b>
+					<b>Flow Diagram</b> 
 				</td>
 				<td>: diagramme permettant de modéliser la dynamique de l&#8217;IHM.</td>
 			</tr>
