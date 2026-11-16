@@ -66,9 +66,14 @@ bq. _New... > #Nom du diagramme#_
 
 Renseigner le nom du diagramme et valider.
 
-Par exemple sur l'élément racine _Components_, deux types de représentation peuvent être créés comme le montre la capture d'écran suivante :
- 
-!pics/SOA_Components_NewRepresentation.png!
+Sur l'élément racine _Components_, les représentations suivantes peuvent être créées :
+* _SOA Diagram_,
+* _DTO Namespaces Hierarchy_,
+* _SOA Partial View_,
+* _DTO Namespaces Hierarchy Partial View_,
+* _Databinding diagram_, lorsque le point de vue _IS Databinding_ est activé.
+
+Le diagramme de databinding est décrit dans la documentation "ISD - IS Databinding":../../org.obeonetwork.dsl.environment.binding.design.doc/doc/ISD%20-%20IS%20Databinding.html#Databindingdiagram.
 
 Une fois créé, le diagramme apparaît dans l'arbre de la vue _Model Explorer_ sous l'élément sur lequel il a été créé, et l'éditeur de diagramme est ouvert prêt à modéliser.
 
@@ -79,6 +84,8 @@ Attention, bien qu'ils continuent d'exister et qu'ils soient bien sauvegardés, 
 Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
 * SOA Diagram
 * Component Contract Diagram
+* DTO Namespaces Hierarchy
+* DTO Diagram
 
 h3(#soa_diagram). SOA Diagram
 
