@@ -32,7 +32,7 @@ Les représentations _SOA Diagram_ et _DTO Namespaces Hierarchy_ sont ouvertes a
 
 Lorsqu'un modèle soa est créé à l'aide de ce wizard, les points de vues _SOA Views_, _SOA (ISD Consolidated view)_ et _Environment View_ sont activés.
 * Le point de vue _SOA Views_ est décrit dans la section suivante,
-* Le point de vue _SOA (ISD Consolidated view)_ est décrit dans la section de documentation "Obeo Network – SOA (ISD consolidated view)":../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html,
+* Le point de vue _SOA (ISD Consolidated view)_ est décrit dans la section de documentation "ISD – SOA (ISD consolidated view)":../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html,
 * Le point de vue _Environment Views_ fournit les vues de propriétés EEF communes avec d'autres designers tel que pour le _Namespace_ par exemple.
 
 h2(#viewpoint). Point de vue _SOA Views_
@@ -629,16 +629,16 @@ A la fin de l'opération, un message indique si la conversion a réussi, échou�
 
 h2(#requirements). Gestion des exigences
 
-La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir "Obeo Network - Requirements Tooling":../../org.obeonetwork.dsl.requirement.doc/doc/Obeo%20Network%20-%20Requirements%20tooling.html .
+La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir "ISD - Requirements tooling":../../org.obeonetwork.dsl.requirement.doc/doc/ISD%20-%20Requirements%20tooling.html .
 
 h2(#linked_documentation). Gestion de la documentation liée
 
-Il est possible d'attacher de la documentation aux éléments d'un modèle SOA. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation : "Obeo Network - Documentation Tooling":../../org.obeonetwork.tools.doc.doc/doc/Obeo%20Network%20-%20Documentation%20Tooling.html .
+Il est possible d'attacher de la documentation aux éléments d'un modèle SOA. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation : "ISD - Documentation Tooling":../../org.obeonetwork.tools.doc.doc/doc/ISD%20-%20Documentation%20Tooling.html .
 
 h2(#interaction_diagram). Création de diagramme d'interaction
 
-Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle SOA. Voir la documentation "Obeo Network - Interaction Tooling":../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html .
+Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle SOA. Voir la documentation "ISD - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/ISD%20-%20Interaction%20tooling.html .
 
 h2(#state_machine). Création de diagramme de machines à états
 
-Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle SOA. Voir la documentation "Obeo Network - State Machine Tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html .
+Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle SOA. Voir la documentation "ISD - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html .
