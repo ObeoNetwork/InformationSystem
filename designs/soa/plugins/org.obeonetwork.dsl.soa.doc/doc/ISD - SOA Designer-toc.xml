@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - SOA Designer.html" label="ISD - SOA Designer">
 	<topic href="doc/ISD - SOA Designer.html" label="ISD - SOA Designer">
-		<topic href="doc/ISD - SOA Designer.html#model_creation" label="Création d&apos;un modèle Soa"></topic>
+		<topic href="doc/ISD - SOA Designer.html#model_creation" label="Création d&apos;un modèle SOA"></topic>
 		<topic href="doc/ISD - SOA Designer.html#viewpoint" label="Point de vue _SOA Views_">
 			<topic href="doc/ISD - SOA Designer.html#OuverturedunesessionetactivationdupointdevueSOAViews" label="Ouverture d&apos;une session et activation du point de vue _SOA Views_"></topic>
 			<topic href="doc/ISD - SOA Designer.html#diagram_handling" label="Création/ouverture de diagrammes"></topic>
 			<topic href="doc/ISD - SOA Designer.html#soa_diagram" label="SOA Diagram">
-				<topic href="doc/ISD - SOA Designer.html#soa_diagram_tools" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#soa_diagram_tools" label="Éléments affichés et palette d&apos;outils"></topic>
 				<topic href="doc/ISD - SOA Designer.html#soa_diagram_navigation_tools" label="Navigation vers d&apos;autres diagrammes"></topic>
 			</topic>
 			<topic href="doc/ISD - SOA Designer.html#component_diagram" label="Component Contract Diagram">
-				<topic href="doc/ISD - SOA Designer.html#component_diagram_tools" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#component_diagram_tools" label="Éléments affichés et palette d&apos;outils"></topic>
 				<topic href="doc/ISD - SOA Designer.html#component_diagram_layers" label="Calques"></topic>
 			</topic>
 			<topic href="doc/ISD - SOA Designer.html#namespace_hierarchy" label="DTO Namespaces Hierarchy (pour l&apos;objet racine _Components_)">
-				<topic href="doc/ISD - SOA Designer.html#namespace_hierarchy_description" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#namespace_hierarchy_description" label="Éléments affichés et palette d&apos;outils"></topic>
 				<topic href="doc/ISD - SOA Designer.html#namespace_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
 			</topic>
 			<topic href="doc/ISD - SOA Designer.html#dto_diagram" label="Diagramme de DTOs">
-				<topic href="doc/ISD - SOA Designer.html#dto_diagram_tools" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#dto_diagram_tools" label="Éléments affichés et palette d&apos;outils"></topic>
 				<topic href="doc/ISD - SOA Designer.html#value_constraints" label="Contraintes sur les valeurs des attributs d&apos;une entité"></topic>
 			</topic>
 		</topic>
-		<topic href="doc/ISD - SOA Designer.html#rest_api" label="Exposition des services et modélisation d&apos;API Rest">
+		<topic href="doc/ISD - SOA Designer.html#rest_api" label="Exposition des services et modélisation d&apos;API REST">
 			<topic href="doc/ISD - SOA Designer.html#exposition_type" label="Types d&apos;exposition"></topic>
-			<topic href="doc/ISD - SOA Designer.html#rest_api_modeling" label="Modélisation d&apos;API Rest">
+			<topic href="doc/ISD - SOA Designer.html#rest_api_modeling" label="Modélisation d&apos;API REST">
 				<topic href="doc/ISD - SOA Designer.html#rest_api_terminology" label="Terminologie _SOA_ vs terminologie _REST_"></topic>
-				<topic href="doc/ISD - SOA Designer.html#open_api" label="Modélisation d&apos;une API Rest OpenAPI"></topic>
+				<topic href="doc/ISD - SOA Designer.html#open_api" label="Modélisation d&apos;une API REST OpenAPI"></topic>
 				<topic href="doc/ISD - SOA Designer.html#open_api_tag" label="Modélisation d&apos;un Tag OpenAPI"></topic>
 				<topic href="doc/ISD - SOA Designer.html#open_api_service" label="Modélisation d&apos;un Service OpenAPI"></topic>
 				<topic href="doc/ISD - SOA Designer.html#rest_api_parameter" label="Modélisation d&apos;un paramètre">
