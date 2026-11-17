@@ -2,49 +2,49 @@ __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the acc
 
 h1(#obeo_designer). ISD - Socle Obeo Designer
 
-IS-Designer est un studio de conception de systèmes logiciels permettant de capturer le besoin et de décrire l'architecture de systèmes logiciels.
+IS Designer est un studio de conception de systèmes logiciels permettant de capturer le besoin et de décrire l'architecture de systèmes logiciels.
 
-IS-Designer est basé sur le studio de modélisation "Obeo Designer":https://www.obeodesigner.com/, qui apporte la notion de projet de modélisation.
+IS Designer est basé sur le studio de modélisation "Obeo Designer":https://www.obeodesigner.com/, qui apporte la notion de projet de modélisation.
 
-Un projet de modélisation IS-Designer est constitué de dossiers et de ressources. Les dossiers peuvent contenir des ressources, ou d'autres dossiers.
+Un projet de modélisation IS Designer est constitué de dossiers et de ressources. Les dossiers peuvent contenir des ressources, ou d'autres dossiers.
 
 Les ressources peuvent être classées en trois types :
 * Les documents (textes, images ou autres fichiers classiquement manipulés en documentation),
-* Les ressouces sémantiques qui contiennent les modèles sémantiques. Ce sont les données qui décrivent l'architecture d'une couche ou d'un sous ensemble du système modélisé.
-* La ressource graphique (extension de fichier aird), qui contient les diagrammes et autres représentations visuelles des modèles sémantiques. Ce modèle ne contient aucune données structurelle du système décrit, mais que les mises en forme (couleurs, formes, disposition, etc.) des éléments de modélisation dans différentes représentations visuelles.
+* Les ressources sémantiques qui contiennent les modèles sémantiques. Ce sont les données qui décrivent l'architecture d'une couche ou d'un sous-ensemble du système modélisé.
+* La ressource graphique (extension de fichier aird), qui contient les diagrammes et autres représentations visuelles des modèles sémantiques. Ce modèle ne contient aucune donnée structurelle du système décrit, mais uniquement les mises en forme (couleurs, formes, disposition, etc.) des éléments de modélisation dans différentes représentations visuelles.
 
 !./pics/ModelingProject_Structure.png!
 
 Le projet peut être parcouru suivant deux axes : structure des modèles sémantiques, ou bien types de représentation.
 
-1- Suivant le structure des modèles sémantiques :
-Les ressources sémantiques peuvent être dépliées de manière à laisser apparaître une structure arborescente sur les modèles. Lorsqu'une représentation existe pour un élément de modèle donné, celle-ci est présentée sous l'élément en question. Un double clic dans le Model Explorer permet d'ouvrir la représentation.
-Même si elle sont présentées sous des éléments du modèle sémantique, les représentations ne sont pas persistées dans le modèle sémantique mais dans la ressource aird.
+1. Suivant la structure des modèles sémantiques :
+Les ressources sémantiques peuvent être dépliées de manière à laisser apparaître une structure arborescente sur les modèles. Lorsqu'une représentation existe pour un élément de modèle donné, celle-ci est présentée sous l'élément en question. Un double-clic dans le Model Explorer permet d'ouvrir la représentation.
+Même si elles sont présentées sous des éléments du modèle sémantique, les représentations ne sont pas persistées dans le modèle sémantique mais dans la ressource aird.
 
 !./pics/ModelingProject_SemanticUnfold.png!
 
-2. Suivant les types de réprésentation :
-La ressource aird peut elle aussi être dépliée pour laisser apparaître la structure des points de vue appliqués au projet. Sous chaque point de vue sont énumérés les types de représentations, et sous chacun des types de représentations les représentations elles mêmes. Cette vue peut être utile losque l'on connaît le type de représentation que l'on souhaite consulter sans savoir sur quel élément sémantique il a été défini.
+2. Suivant les types de représentation :
+La ressource aird peut elle aussi être dépliée pour laisser apparaître la structure des points de vue appliqués au projet. Sous chaque point de vue sont énumérés les types de représentations, et sous chacun des types de représentations les représentations elles-mêmes. Cette vue peut être utile lorsque l'on connaît le type de représentation que l'on souhaite consulter sans savoir sur quel élément sémantique il a été défini.
 
 !./pics/ModelingProject_AirdUnfold.png!
 
 h1(#outillage_environnement). ISD - Outillage environnement
 
-L'outillage environnement est le socle commun aux différents types de modeleurs que le studio IS-Designer fournit.
+L'outillage environnement est le socle commun aux différents types de modeleurs que le studio IS Designer fournit.
 
 h2(#vues_partielles). Vues partielles
 
 La fonctionnalité "Vue Partielle" permet de créer une représentation dont le contenu présenté n'est pas exhaustif.
 
-Par défaut, les différents types de représentation fournis par le studio sont synchronisés avec le contenu du modèle. Ainsi par exemple pour un diagramme d'entités qui est créé sur un Namespace, le diagramme présente tout le contenu du Namespace. Ce mode de fonctionnement offre à l'utilisateur la garantie que le contenu des diagrammes est toujours en cohérence avec le contenu du modèle. Les diagrammes synchronisés ont une couleur de fond blanche :
+Par défaut, les différents types de représentation fournis par le studio sont synchronisés avec le contenu du modèle. Ainsi, par exemple, pour un diagramme d'entités qui est créé sur un _Namespace_, le diagramme présente tout le contenu du _Namespace_. Ce mode de fonctionnement offre à l'utilisateur la garantie que le contenu des diagrammes est toujours en cohérence avec le contenu du modèle. Les diagrammes synchronisés ont une couleur de fond blanche :
 
 !./pics/SynchronizedDiagram.png!
 
-Les "Vues Partielles" fournissent un moyen de constituer une représentation dont le contenu n'est pas exhaustif. Lorsqu'elle est créée, une Vue Partielle est vide, et elle est peuplée en y glissant et déposant des éléments depuis le Model Explorer. Ces vues peuvent être utiles pour faire un focus sur une sous partie d'un modèle , en particulier pour les gros modèles. Les vues partielles ont une couleur de fond spécifique les distinguant clairement des diagrammes classiques, et alertant sur le caractère non exaustif du contenu présenté :
+Les "Vues Partielles" fournissent un moyen de constituer une représentation dont le contenu n'est pas exhaustif. Lorsqu'elle est créée, une Vue Partielle est vide, et elle est peuplée en y glissant et déposant des éléments depuis le Model Explorer. Ces vues peuvent être utiles pour se concentrer sur une sous-partie d'un modèle, en particulier pour les gros modèles. Les vues partielles ont une couleur de fond spécifique les distinguant clairement des diagrammes classiques, et alertant sur le caractère non exhaustif du contenu présenté :
 
 !./pics/PartialViewDiagram.png!
 
-Les représentations classiques et les Vues Partielles peuvent être créées à partir du menu contextuel sur un élément du Model Explorer, dans le sous menu "New Representation". La première partie du menu jusqu'à l'entrée "Other..." permet de créer des représentations classique, les entrées présentées après "Other..." permettent de créer des Vues Partielles :
+Les représentations classiques et les Vues Partielles peuvent être créées à partir du menu contextuel sur un élément du Model Explorer, dans le sous-menu "New Representation". La première partie du menu jusqu'à l'entrée "Other..." permet de créer des représentations classiques. Les entrées présentées après "Other..." permettent de créer des Vues Partielles :
 
 !./pics/NewRepresentationMenu.png!
 
@@ -58,13 +58,13 @@ Les vues partielles sont conçues de manière à ne pas permettre une suppressio
 
 Le raccourci clavier pour la suppression d'un élément du diagramme est *Shift+Ctrl+D*.
 
-Les éléments de liste contenue ne peuvent pas être supprimés du diagramme, par contre ils peuvent être cachés. Une fois caché, l'élément fait toujours partie du diagramme mais n'est simplement pas visible. Les éléments cachés peuvent être rendus visible en utilisant le mode "Visibility" du diagramme. Ils sont alors affichés de manière estompée :
+Les éléments contenus dans une liste ne peuvent pas être supprimés du diagramme, par contre ils peuvent être cachés. Une fois caché, l'élément fait toujours partie du diagramme mais n'est simplement pas visible. Les éléments cachés peuvent être rendus visibles en utilisant le mode "Visibility" du diagramme. Ils sont alors affichés de manière estompée :
 
 !./pics/PartialViewDiagram_ToolbarVisibilityMode.png!
 
-La mise en forme d'un diagramme ou d'une vue partielle peut être reproduite sur une autre en utilisant les actions suivantes :
-* Dans le menu contextuel sur le fond d'une représentation, séléctionner _Edit > Copy format_.
-* Dans le menu contextuel sur le fond d'une autre représentation, séléctionner _Edit > Paste layout_.
+La mise en forme d'un diagramme ou d'une vue partielle peut être reproduite sur une autre représentation en utilisant les actions suivantes :
+* Dans le menu contextuel sur le fond d'une représentation, sélectionner _Edit > Copy format_.
+* Dans le menu contextuel sur le fond d'une autre représentation, sélectionner _Edit > Paste layout_.
 
 h2(#external_links). Lier des éléments d'autres projets de modélisation
 
@@ -90,56 +90,56 @@ Pour peupler manuellement une vue partielle avec des éléments externes au proj
 
 Un glisser-déposer effectué directement depuis le projet lié ne permet pas de peupler le diagramme.
 
-h2(#error_log). Vue error log
+h2(#error_log). Vue Error Log
 
-Certaines fonctionnalités du studio peuvent sous certaines conditions signaler à l'utilisateur qu'il peut consulter la vue *Error Log* pour obtenir plus de détail. Cette vue peut être ouverte via le menu "Window > Show View > Error Log".
+Certaines fonctionnalités du studio peuvent sous certaines conditions signaler à l'utilisateur qu'il peut consulter la vue *Error Log* pour obtenir plus de détails. Cette vue peut être ouverte via le menu "Window > Show View > Error Log".
 
-Exemple de la vue Error Log suite à un traitement d'export Swagger avec messages d'avertissements :
+Exemple de la vue Error Log suite à un traitement d'export Swagger avec messages d'avertissement :
 
 !./pics/ErrorLog.png!
 
-h2(#modele_environnement). Le modèle environnement
+h2(#modele_environnement). Le modèle _Environment_
 
-Les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles ISD.
-Avant la version ISD 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version ISD 1.9 il est possible de choisir les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
+Les modèles _Environment_ sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles ISD.
+Avant la version ISD 1.9, le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets de modélisation. Depuis la version ISD 1.9, il est possible de choisir les ressources _Environment_ ajoutées lors de la création d'un projet de modélisation, ainsi que de gérer les ressources _Environment_ d'un projet.
 
-h3(#modeling_project_creation). Création d'un projet modeling
+h3(#modeling_project_creation). Création d'un projet de modélisation
 
-A la création d'un projet modeling la ressource "obeo.environment" est ajoutée par defaut.
+À la création d'un projet de modélisation, la ressource "obeo.environment" est ajoutée par défaut.
 
-Ce comportement repose sur l'utilisation du point d'extension "org.obeonetwork.dsl.environment.providedEnvironmentModel" qui permet de définir les modèles environnement utilisables dans le studio.
+Ce comportement repose sur l'utilisation du point d'extension "org.obeonetwork.dsl.environment.providedEnvironmentModel" qui permet de définir les modèles _Environment_ utilisables dans le studio.
 
-Ce point d'extenion permet de contribuer des modèles environement en définissant pour chacun d'eux :
+Ce point d'extension permet de contribuer des modèles _Environment_ en définissant pour chacun d'eux :
 * Un nom
 * Une URI
 * Une priorité
 
-A la création d'un projet modeling, seuls les modèles environnement dont la priorité est la plus élevée sont chargés. La ressource "obeo.environment" est contribuée à ce point d'extension avec la priorité 0. (Ainsi, si un autre modèle environement est contribué avec la priorité 0, ces deux modèles seront chargés par défaut à la création d'un projet modeling).
+À la création d'un projet de modélisation, seuls les modèles _Environment_ dont la priorité est la plus élevée sont chargés. La ressource "obeo.environment" est contribuée à ce point d'extension avec la priorité 0. (Ainsi, si un autre modèle _Environment_ est contribué avec la priorité 0, ces deux modèles seront chargés par défaut à la création d'un projet de modélisation).
 
-h3(#manage_env_resource). Gestion des ressources environnement
+h3(#manage_env_resource). Gestion des ressources _Environment_
 
-La boîte de dialogue "Manage Environment" permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l'action "Manage environment resources" du menu contextuel d'un projet modeling, d'une ressource aird, ou de l'élément "Project Dependencies" :
+La boîte de dialogue "Manage Environment" permet de gérer les ressources _Environment_ pour un projet de modélisation donné. Elle est mise à disposition par l'action "Manage environment resources" du menu contextuel d'un projet de modélisation, d'une ressource aird, ou de l'élément "Project Dependencies" :
 
 !{width:100%}./pics/ManageEnvironmentResourcesActions.png!
 
-La boîte de dialogue est composée d'un tableau listant toutes les ressources environnements accessibles pour le projet modeling concerné.
-Les ressources environnment se trouvant dans le projet sont automatiquement actives et ne peuvent pas être désactivées. Elles sont présentées en gris.
-Les ressources environnement apportées par point d'extension sont désactivables en décochant la case à cocher en début de ligne. Elles sont présentées en noir.
+La boîte de dialogue est composée d'un tableau listant toutes les ressources _Environment_ accessibles pour le projet de modélisation concerné.
+Les ressources _Environment_ se trouvant dans le projet sont automatiquement actives et ne peuvent pas être désactivées. Elles sont présentées en gris.
+Les ressources _Environment_ apportées par point d'extension sont désactivables en décochant la case à cocher en début de ligne. Elles sont présentées en noir.
 
 !{width:100%}./pics/ManageEnvironmentResourcesDialog.png!
 
 Le résultat de la sélection est appliqué lors de la validation de la boîte de dialogue.
 
-Dans le cas du décochage d'une ressource, une vérification est faite pour s'assurer que les éléments contenus dans la ressource ne sont pas utilisés dans le projet modeling. Si certains éléments d'une ressource retirée du projet sont utilisés, un dialogue d'avertissement s'affiche demandant confirmation à l'utilisateur :
+Dans le cas du décochage d'une ressource, une vérification est faite pour s'assurer que les éléments contenus dans la ressource ne sont pas utilisés dans le projet de modélisation. Si certains éléments d'une ressource retirée du projet sont utilisés, un dialogue d'avertissement s'affiche demandant confirmation à l'utilisateur :
 
 !{width:500px}./pics/ManageEnvironmentResourcesWarningDialog.png!
 
-Ce dialogue présente sous forme d'arbre les objets qui référencent des éléments de la ressource environnement sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si ce dialogue est validé, les références listées sont supprimées. Si le message d'avertissement est annulé la ressource environnement n'est pas retirée des dépendances du projet.
-Il est possible que plusieurs messages d'avertissements se succèdent dans le cas où plusieurs ressources environnement sont retirées des dépendances du projet.
+Ce dialogue présente sous forme d'arbre les objets qui référencent des éléments de la ressource _Environment_ sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si ce dialogue est validé, les références listées sont supprimées. Si le message d'avertissement est annulé, la ressource _Environment_ n'est pas retirée des dépendances du projet.
+Il est possible que plusieurs messages d'avertissement se succèdent dans le cas où plusieurs ressources _Environment_ sont retirées des dépendances du projet.
 
 Remarques :
 - Les changements sont appliqués mais pas sauvegardés
-- Il est possible d'annuler tous les changements opérés à l'aide du raccourci clavier "Ctrl+Z.
+- Il est possible d'annuler tous les changements opérés à l'aide du raccourci clavier "Ctrl+Z".
 
 h3(#error_log). Création d'un modèle Environment
 
@@ -150,7 +150,7 @@ bq. File > New > Other ... > Environment Model (Catégorie IS Designer)
 !pics/Environment-ModelCreationWizard-01.png!
 
 Cet assistant permet de définir 
-* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s'il n'y a pas d'extension précisée),
 * le projet ou répertoire de destination pour cette nouvelle ressource :
 
 !pics/Environment-ModelCreationWizard-02.png!
@@ -159,19 +159,19 @@ Une fois l'assistant validé, le modèle est créé.
 
 h2(#metadata_definition). Le modèle de définitions de métadonnées
 
-Les modèles de définitions de métadonnées sont utlisés pour proposer à l'utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d'un élément.
-Un exemple d'un tel modèle est accessible via l'URI: "platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef".
+Les modèles de définitions de métadonnées sont utilisés pour proposer à l'utilisateur final des métadonnées prédéfinies lors de la mise à jour des métadonnées d'un élément.
+Un exemple d'un tel modèle est accessible via l'URI : "platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.metadatadef".
 
 Un modèle ".metadatadef" contient un élément racine de type *MetaDataDefinitions* contenant plusieurs éléments de type *MetaDataDefinition*.
-Une MetaDataDefinition possède trois attributs: *title*, *body* et *condition*. *title* et *body* sont le titre et le corps; *condition* est une expression AQL qui sera évaluée sur un élément acceptant les métadonnées. Si l'expression retourne vrai, alors la MetaDataDefinition est proposée pour créer une métadonnée sur l'élément, sinon elle n'est pas proposée.
+Une MetaDataDefinition possède trois attributs : *title*, *body* et *condition*. *title* et *body* sont le titre et le corps. *condition* est une expression AQL qui sera évaluée sur un élément acceptant les métadonnées. Si l'expression retourne vrai, alors la MetaDataDefinition est proposée pour créer une métadonnée sur l'élément, sinon elle n'est pas proposée.
 Si la métadonnée (Annotation) est créée sur l'élément, les attributs title et body de celle-ci auront comme valeurs celles de title et body de la MetaDataDefinition.
-Exemple: Une MetaDataDefinition avec title="Modeling studio", body="This element comes from an ISD modeling workbench" et condition="aql:true"
+Exemple : une MetaDataDefinition avec title="Modeling studio", body="This element comes from an ISD modeling workbench" et condition="aql:true"
 pourra être applicable sur tous les éléments qui supportent des métadonnées.
 
 h3(#metadata_definition_contribution). Contribution d'un modèle de définitions de métadonnées
 
-Afin de contribuer un tel modèle, il faut utliser le point d'extension: "org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels".
-Ce point d'extenion permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d'eux :
+Afin de contribuer un tel modèle, il faut utiliser le point d'extension : "org.obeonetwork.dsl.environment.providedMetaDataDefinitionsModels".
+Ce point d'extension permet de contribuer des modèles de définitions de métadonnées en définissant pour chacun d'eux :
 * Un nom
 * Une URI de la ressource contenant le modèle. Cette URI doit commencer par "platform:/plugin"
 
@@ -179,12 +179,12 @@ Ces modèles sont chargés une seule fois, lorsque l'utilisateur final ouvre la 
 
 h3(#metadata_definition_use). Utilisation de métadonnées contribuées via un modèle de définitions de métadonnées
 
-Pour utiliser des métadonnées provenant d'un modèle de définitions de métadonnées (contribué via le point d'extension), l'utilisateur final doit:
+Pour utiliser des métadonnées provenant d'un modèle de définitions de métadonnées (contribué via le point d'extension), l'utilisateur final doit :
 Cliquer sur "..." dans l'onglet Metadatas de la vue Properties.
-Si une définition de métadonnée est applicable pour l'objet contexte, l'Annotation équivalente s'affiche parmi les Annotations candidates (colonne "Applicable Metadata") dans la fenêtre qui s'ouvre:
+Si une définition de métadonnée est applicable pour l'objet contexte, l'Annotation équivalente s'affiche parmi les Annotations candidates (colonne "Applicable Metadata") dans la fenêtre qui s'ouvre :
 
 !./pics/AddMetadataFromMetadataDefinitionDialog.png!
 
-Une définition de métadonnée est applicable sur un objet contexte si:
-1. sa condition s'évalue à vrai sur l'objet contexte
-2. l'objet contexte ne possède pas de métadonnée (Annotation) dont le titre est le même que celui de la définition de la métadonnée
+Une définition de métadonnée est applicable sur un objet contexte si :
+1. sa condition s'évalue à vrai sur l'objet contexte.
+2. l'objet contexte ne possède pas de métadonnée (Annotation) dont le titre est le même que celui de la définition de la métadonnée.
