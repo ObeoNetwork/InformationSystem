@@ -2,17 +2,17 @@ __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the acc
 
 h1. ISD - Outillage de documentation
 
-L'*outillage de documentation* du *Network Obeo* apporte un ensemble d'outils permettant d'associer de la documentation aux modèles édités via Obeo Designer. Il apporte une vue permettant l'ajout ou la suppression de liens de documentation sur les éléments de modèles.
+L'*outillage de documentation* d'*IS Designer* apporte un ensemble d'outils permettant d'associer de la documentation aux modèles édités via IS Designer. Il apporte une vue permettant l'ajout ou la suppression de liens de documentation sur les éléments de modèles.
 
 h2. La vue Related Documentation
 
 La gestion de la documentation se fait via la vue _Related Documentation_. Son ouverture se fait via le menu :
 
-bq. Window > Show View > Other ... > Related Documentation (Catégorie Obeo Designer for IS)
+bq. Window > Show View > Other ... > Related Documentation (Catégorie Information System Designer)
 
 !pics/RelatedDocumentationView.png!
 
-La vue est composée d'un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans Obeo Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L'activation de cette fonctionnalité se fait via l'action "Show Children Documentation" dans le menu de la vue.
+La vue est composée d'un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans IS Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L'activation de cette fonctionnalité se fait via l'action "Show children documentation" dans le menu de la vue.
 
 !pics/RelatedDocumentationViewShowChildrenAction.png!
 
@@ -28,13 +28,13 @@ La première action de la vue permet d'ajouter des liens de documentation sur l'
 
 !pics/RelatedDocumentationViewAddAction.png!
 
-Une fois lancée, l'action ouvre une boîte de dialogue permettant de saisir le nom du lien ainsi que sa référence. La référence peut être un lien web ou un fichier dans le network.
+Une fois lancée, l'action ouvre une boîte de dialogue permettant de saisir le nom du lien ainsi que sa référence. La référence peut être un lien web ou un fichier de l'espace de travail.
 
 !pics/AddDocumentationLinkDialog.png! 
 
 h3. Édition de lien
 
-La deuxième action réouvre la boite d'édition de lien afin de pouvoir modifier des informations sur un lien.
+La deuxième action ouvre à nouveau la boîte d'édition du lien afin de pouvoir modifier des informations sur un lien.
 
 !pics/RelatedDocumentationViewEditAction.png!
 
@@ -46,11 +46,11 @@ La troisième action permet finalement de supprimer un ou plusieurs liens de l'�
 
 En lançant cette action, toutes les entrées sélectionnées dans la vue seront retirées de l'élément. Une boîte de confirmation s'ouvre de façon à éviter toute erreur de manipulation.
 
-h2. Accès à la documentation 
+h2. Accès à la documentation
 
-Il est possible d'ouvrir la documentation depuis la vue _Related Documentation_. Un double clic sur une entrée ouvrira :
+Il est possible d'ouvrir la documentation depuis la vue _Related Documentation_. Un double-clic sur une entrée ouvrira :
 
-* Un navigateur web s'il s'agit d'une entrée web
-* L'éditeur par défaut sur le fichier s'il s'agit d'un fichier du workspace
+* Un navigateur web s'il s'agit d'une entrée web.
+* L'éditeur par défaut sur le fichier s'il s'agit d'un fichier de l'espace de travail.
 
 !pics/DocumentationOpening.png!  
