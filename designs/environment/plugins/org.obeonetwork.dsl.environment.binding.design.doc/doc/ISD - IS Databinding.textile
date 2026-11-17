@@ -3,18 +3,18 @@ __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the acc
 h1(#ISDOutillagededatabinding). ISD – Outillage de databinding
 
 L’outillage de databinding permet de modéliser le databinding entre des structures de données.
-Une structure de données est soit un type structuré (_Entity_ du modeleur Entity, _DTO_ du modeleurb SOA ou _Domain class_ du modeleur Graal) soit un _ViewContainer_ du modeleur Cinematic.
+Une structure de données est soit un type structuré (_Entity_ du modeleur Entity, _DTO_ du modeleur SOA ou _Domain class_ du modeleur Graal) soit un _ViewContainer_ du modeleur Cinematic.
 L’objectif classique est de spécifier la façon dont ces structures de données vont être transformées pour convertir par exemple une _Entity_ en _DTO_.
 
 **Pour définir un databinding entre _ViewContainer_ et les autres structures de données, il est recommandé d’utiliser la vue _View Container Mockup_.**
-En effet, la vue Mockup fournit des fontionnalités d'édition de plus haut niveau que l'éditeur de databinding.
+En effet, la vue Mockup fournit des fonctionnalités d'édition de plus haut niveau que l'éditeur de databinding.
 
 h2(#PointdevueISDatabinding). Point de vue IS Databinding
 
-L’outillage de databinding embarque un point vue fournissant :
+L’outillage de databinding embarque un point de vue fournissant :
 
 * Un diagramme permettant de créer un databinding entre deux types structurés ou entre un _ViewContainer_ et un type structuré.
-* Un éditeur spécifique permettant de lier les attributs et références des types structurés entre eux ou avec les sous éléments d’un _ViewContainer_.
+* Un éditeur spécifique permettant de lier les attributs et références des types structurés entre eux ou avec les sous-éléments d’un _ViewContainer_.
 
 Pour activer le point de vue _IS Databinding_, sur une session _Viewpoint_ ouverte, lancer le menu
 
@@ -31,15 +31,15 @@ Ce diagramme peut être créé sur un package (_Namespace_) ou sur un _ViewConta
 
 !pics/diagram/CreateDiagram.png!
 
-h4(#Elmentsaffichsetpalettedoutils). Eléments affichés et palette d’outils
+h4(#Elmentsaffichsetpalettedoutils). Éléments affichés et palette d’outils
 
 !{width:100%}pics/diagram/BindingDiagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
-* _Entity_ : entité impliquée dans un binding
-* _DTO_ : DTO impliqué dans un binding
-* _Domain class_ : Classe participante impliquée dans un binding
+* _Entity_ : entité impliquée dans un binding.
+* _DTO_ : DTO impliqué dans un binding.
+* _Domain class_ : classe participante impliquée dans un binding.
 * _Binding_ : élément portant les informations de databinding entre deux types structurés.
 
 Les outils fournis par la palette sont :
@@ -55,32 +55,32 @@ Il est possible de naviguer depuis ce diagramme vers l'éditeur de binding :
 
 h3(#Bindingeditor). Binding editor
 
-L'éditeur de databinding est un éditeur spécifique permettant décrire en détail le databinding entre deux structures de données. Le moyen le plus simple pour l’ouvrir est de double-cliquer sur le _Binding_ voulu sur le diagramme décrit au chapitre précédent.
+L'éditeur de databinding est un éditeur spécifique permettant de décrire en détail le databinding entre deux structures de données. Le moyen le plus simple pour l’ouvrir est de double-cliquer sur le _Binding_ voulu sur le diagramme décrit au chapitre précédent.
 
 !{width:100%}pics/editor/BindingEditor.png!
 
-Le contexte de l'éditeur de databinding est un _BindingInfo_. L'éditeur de databinding ne permet pas d'éditer simultanément d’autres _BindingInfos_ contrairement à la vue View Container Mockup du modeleur Cinematic.
+Le contexte de l'éditeur de databinding est un _BindingInfo_. L'éditeur de databinding ne permet pas d'éditer simultanément d’autres _BindingInfos_, contrairement à la vue _View Container Mockup_ du modeleur Cinematic.
 
 h4(#Structuregnraledelditeur). Structure générale de l'éditeur
 
 L'éditeur est divisé en différentes parties :
 
-* Une vue arborescente de la première structure de données à gauche
-* Une vue arborescente du deuxième type structuré à droite
-* Une zone centrale affichant les liens entre types
-* Un bouton _Auto bind !_
-* Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs
+* Une vue arborescente de la première structure de données à gauche.
+* Une vue arborescente du deuxième type structuré à droite.
+* Une zone centrale affichant les liens entre types.
+* Un bouton _Auto bind !_.
+* Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs.
 
 h4(#Vuearborescenteduntypestructur). Vue arborescente d’un type structuré
 
 !pics/editor/VueArborescente.png!
 
 Cette vue présente les données structurées ainsi que les données contenues de manière arborescente.
-Dans le cas des références ou des _ViewContainers_, il est possible de les déplier pour avoir accès aux sous élements (types structurés ou _ViewElements_).
+Dans le cas des références ou des _ViewContainers_, il est possible de les déplier pour avoir accès aux sous-éléments (types structurés ou _ViewElements_).
 
-A partir de cette vue, il est possible de sélectionner un élément à gauche ou à droite et de le faire glisser jusqu'à la vue opposée sur un autre élément. Ceci crée un _BindingReference_ entre les deux éléments.
+À partir de cette vue, il est possible de sélectionner un élément à gauche ou à droite et de le faire glisser jusqu'à la vue opposée sur un autre élément. Ceci crée un _BindingReference_ entre les deux éléments.
 
-Lorsqu’un ou des éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.
+Lorsqu’un ou plusieurs éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.
 
 h4(#Zonecentrale). Zone centrale
 
@@ -104,7 +104,7 @@ La zone inférieure affiche les champs de saisie en fonction des liens sélectio
 
 Les champs de saisie permettent de saisir des expressions utilisées pour décrire comment les données sont converties. Le texte saisi n’est pas interprété, c’est à l’utilisateur de choisir le pseudo-langage qui lui convient le mieux.
 
-La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au dessus du bouton _Auto bind !_.
+La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au-dessus du bouton _Auto bind !_.
 
 h4(#BoutonAutobind). Bouton Auto bind !
 

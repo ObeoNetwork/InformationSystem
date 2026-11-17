@@ -11,7 +11,7 @@
 		<p>L’outillage de databinding permet de modéliser le databinding entre des structures de données.
 			<br/>Une structure de données est soit un type structuré (
 			<em>Entity</em> du modeleur Entity, 
-			<em>DTO</em> du modeleurb SOA ou 
+			<em>DTO</em> du modeleur SOA ou 
 			<em>Domain class</em> du modeleur Graal) soit un 
 			<em>ViewContainer</em> du modeleur Cinematic.
 			<br/>L’objectif classique est de spécifier la façon dont ces structures de données vont être transformées pour convertir par exemple une 
@@ -23,15 +23,15 @@
 				<em>ViewContainer</em> et les autres structures de données, il est recommandé d’utiliser la vue 
 				<em>View Container Mockup</em>.
 			</b>
-			<br/>En effet, la vue Mockup fournit des fontionnalités d'édition de plus haut niveau que l'éditeur de databinding.
+			<br/>En effet, la vue Mockup fournit des fonctionnalités d'édition de plus haut niveau que l'éditeur de databinding.
 		</p>
 		<h2 id="PointdevueISDatabinding">Point de vue IS Databinding</h2>
-		<p>L’outillage de databinding embarque un point vue fournissant :</p>
+		<p>L’outillage de databinding embarque un point de vue fournissant :</p>
 		<ul>
 			<li>Un diagramme permettant de créer un databinding entre deux types structurés ou entre un 
 				<em>ViewContainer</em> et un type structuré.
 			</li>
-			<li>Un éditeur spécifique permettant de lier les attributs et références des types structurés entre eux ou avec les sous éléments d’un 
+			<li>Un éditeur spécifique permettant de lier les attributs et références des types structurés entre eux ou avec les sous-éléments d’un 
 				<em>ViewContainer</em>.
 			</li>
 		</ul>
@@ -62,20 +62,20 @@
 		<p>
 			<img border="0" src="pics/diagram/CreateDiagram.png"/>
 		</p>
-		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d’outils</h4>
+		<h4 id="Elmentsaffichsetpalettedoutils">Éléments affichés et palette d’outils</h4>
 		<p>
 			<img style="width:100%" border="0" src="pics/diagram/BindingDiagram.png"/>
 		</p>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
-				<em>Entity</em> : entité impliquée dans un binding
+				<em>Entity</em> : entité impliquée dans un binding.
 			</li>
 			<li>
-				<em>DTO</em> : DTO impliqué dans un binding
+				<em>DTO</em> : DTO impliqué dans un binding.
 			</li>
 			<li>
-				<em>Domain class</em> : Classe participante impliquée dans un binding
+				<em>Domain class</em> : classe participante impliquée dans un binding.
 			</li>
 			<li>
 				<em>Binding</em> : élément portant les informations de databinding entre deux types structurés.
@@ -110,7 +110,7 @@
 			</li>
 		</ul>
 		<h3 id="Bindingeditor">Binding editor</h3>
-		<p>L'éditeur de databinding est un éditeur spécifique permettant décrire en détail le databinding entre deux structures de données. Le moyen le plus simple pour l’ouvrir est de double-cliquer sur le 
+		<p>L'éditeur de databinding est un éditeur spécifique permettant de décrire en détail le databinding entre deux structures de données. Le moyen le plus simple pour l’ouvrir est de double-cliquer sur le 
 			<em>Binding</em> voulu sur le diagramme décrit au chapitre précédent.
 		</p>
 		<p>
@@ -118,18 +118,19 @@
 		</p>
 		<p>Le contexte de l'éditeur de databinding est un 
 			<em>BindingInfo</em>. L'éditeur de databinding ne permet pas d'éditer simultanément d’autres 
-			<em>BindingInfos</em> contrairement à la vue View Container Mockup du modeleur Cinematic.
+			<em>BindingInfos</em>, contrairement à la vue 
+			<em>View Container Mockup</em> du modeleur Cinematic.
 		</p>
 		<h4 id="Structuregnraledelditeur">Structure générale de l'éditeur</h4>
 		<p>L'éditeur est divisé en différentes parties :</p>
 		<ul>
-			<li>Une vue arborescente de la première structure de données à gauche</li>
-			<li>Une vue arborescente du deuxième type structuré à droite</li>
-			<li>Une zone centrale affichant les liens entre types</li>
+			<li>Une vue arborescente de la première structure de données à gauche.</li>
+			<li>Une vue arborescente du deuxième type structuré à droite.</li>
+			<li>Une zone centrale affichant les liens entre types.</li>
 			<li>Un bouton 
-				<em>Auto bind !</em>
+				<em>Auto bind !</em>.
 			</li>
-			<li>Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs</li>
+			<li>Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs.</li>
 		</ul>
 		<h4 id="Vuearborescenteduntypestructur">Vue arborescente d’un type structuré</h4>
 		<p>
@@ -137,13 +138,13 @@
 		</p>
 		<p>Cette vue présente les données structurées ainsi que les données contenues de manière arborescente.
 			<br/>Dans le cas des références ou des 
-			<em>ViewContainers</em>, il est possible de les déplier pour avoir accès aux sous élements (types structurés ou 
+			<em>ViewContainers</em>, il est possible de les déplier pour avoir accès aux sous-éléments (types structurés ou 
 			<em>ViewElements</em>).
 		</p>
-		<p>A partir de cette vue, il est possible de sélectionner un élément à gauche ou à droite et de le faire glisser jusqu'à la vue opposée sur un autre élément. Ceci crée un 
+		<p>À partir de cette vue, il est possible de sélectionner un élément à gauche ou à droite et de le faire glisser jusqu'à la vue opposée sur un autre élément. Ceci crée un 
 			<em>BindingReference</em> entre les deux éléments.
 		</p>
-		<p>Lorsqu’un ou des éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.</p>
+		<p>Lorsqu’un ou plusieurs éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.</p>
 		<h4 id="Zonecentrale">Zone centrale</h4>
 		<p>
 			<img border="0" src="pics/editor/ZoneCentrale.png"/>
@@ -163,7 +164,7 @@
 			<li>un deuxième groupe affiche un champ texte pour chaque élément concerné dans la vue arborescente de droite.</li>
 		</ul>
 		<p>Les champs de saisie permettent de saisir des expressions utilisées pour décrire comment les données sont converties. Le texte saisi n’est pas interprété, c’est à l’utilisateur de choisir le pseudo-langage qui lui convient le mieux.</p>
-		<p>La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au dessus du bouton 
+		<p>La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au-dessus du bouton 
 			<em>Auto bind !</em>.
 		</p>
 		<h4 id="BoutonAutobind">Bouton Auto bind !</h4>
