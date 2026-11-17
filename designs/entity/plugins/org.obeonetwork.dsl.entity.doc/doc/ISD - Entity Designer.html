@@ -29,27 +29,27 @@
 		</p>
 		<p>Cet assistant permet de définir </p>
 		<ul>
-			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
+			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
 			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
 		</ul>
 		<p>
 			<img border="0" src="pics/SafranEntityWizard02.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé, la représentation 
-			<em>Entity Namespace Hierarchy</em> est créée et ouverte afin de commencer l'édition.
+			<em>Entities Namespaces Hierarchy</em> est créée et ouverte afin de commencer l'édition.
 		</p>
 		<p>
 			<img border="0" src="pics/SafranEntityModelCreated.png"/>
 		</p>
-		<p>Lorsqu&#8217;un modèle entity est créé à l&#8217;aide de ce wizard, les points de vues 
+		<p>Lorsqu&#8217;un modèle Entity est créé à l&#8217;aide de cet assistant, les points de vue 
 			<em>Entity Views</em>, 
-			<em>Entity (ISD Consolidated view)</em> et 
-			<em>Environment View</em> sont activés.
+			<em>Entity (ISD consolidated view)</em> et 
+			<em>Environment Views</em> sont activés.
 			<br/>Le point de vue 
 			<em>Entity Views</em> est décrit dans la section suivante. Le point de vue 
-			<em>Entity (ISD Consolidated view)</em> est décrit dans la section de documentation 
+			<em>Entity (ISD consolidated view)</em> est décrit dans la section de documentation 
 			<a href="../../org.obeonetwork.is.design.doc/doc/ISD%20-%20Entity%20(ISD%20consolidated%20view).html">ISD &#8211; Entity (ISD consolidated view)</a>. Le point de vue 
-			<em>Environment View</em> permet d&#8217;activer les vues propriétés EEF.
+			<em>Environment Views</em> fournit les vues de propriétés.
 		</p>
 		<h2 id="PointdevueEntityViews">Point de vue Entity Views</h2>
 		<p>L&#8217;outillage Entity Designer fournit un point de vue dédié à la gestion des entités métier. Ce point de vue permet de visualiser et modifier un modèle Entity via plusieurs types de diagrammes.</p>
@@ -71,7 +71,7 @@
 			</li>
 		</ul>
 		<p>Le point de vue 
-			<em>Entity Views</em> doit être sélectionné sur la session ouverte. Pour vérifier si c&#8217;est bien le cas lancer le menu suivant la session :
+			<em>Entity Views</em> doit être sélectionné sur la session ouverte. Pour vérifier si c&#8217;est bien le cas, lancer le menu suivant sur la session :
 		</p>
 		<blockquote>
 			<p>Viewpoint Selection</p>
@@ -95,15 +95,15 @@
 			<p>New... &gt; #Nom du diagramme#</p>
 		</blockquote>
 		<p>puis renseigner le nom du diagramme et, enfin, valider.</p>
-		<p>Par exemple sur un objet racine 
-			<em>Entities</em>, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
+		<p>Par exemple, sur un objet racine 
+			<em>Entities</em>, deux types de représentation peuvent être créés comme le montre la capture d'écran suivante :
 		</p>
 		<p>
 			<img border="0" src="pics/EntityRepresentationsOnEntities.png"/>
 		</p>
-		<p>Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue 
-			<em>Model Explorer</em>. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
-			<em>Model Explorer</em>. 
+		<p>Pour ouvrir un diagramme, il suffit de double-cliquer sur le diagramme dans la vue 
+			<em>Model Explorer</em>. Attention, seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
+			<em>Model Explorer</em>.
 		</p>
 		<p>Les diagrammes suivants peuvent être ouverts en mode &#171;Vue Partielle&#187;. Le fonctionnement des Vues Partielles est décrit dans la section 
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles">ISD – Outillage environnement / Vues Partielles</a>
@@ -127,22 +127,26 @@
 		<p>
 			<img style="width:100%" border="0" src="pics/hierarchy/namespaces_hierarchy.png"/>
 		</p>
-		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
+		<h4 id="lmentsaffichsetpalettedoutils">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
-				<em>Namespace</em> : chaque package contenu dans l'élément racine est affiché. Si un package est contenu par un autre package il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+				<em>Namespace</em> : chaque package contenu dans l'élément racine est affiché. Si un package est contenu par un autre package, il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un package apparaît blanche si le package est vide et grisée sinon.
 			</li>
 			<li>
 				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
 				<em>Dependencies</em>. Les dépendances entre 
 				<em>Namespaces</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
-				<em>Namespace</em>. Une dépendance est identifiée entre deux 
-				<em>Namespaces</em> si il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
+				<em>Namespaces</em>. Une dépendance est identifiée entre deux 
+				<em>Namespaces</em> s&#8217;il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
 				<em>Enumeration</em> pour typer un attribut entre une 
 				<em>Entity</em> d&#8217;un 
-				<em>Namespace</em> et un autre. Si il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décoré d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
-				<em>Dependencies</em>. Les namespaces dits &#171;externes&#187; sont également affichés dans ce layer. Un namespace externe est un namespace contenant une entité externe liée à une entité présente dans un namespace affiché par le diagramme (voir 
+				<em>Namespace</em> et un autre. S&#8217;il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décorée d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Dependencies</em>. Les 
+				<em>Namespaces</em> dits &#171;externes&#187; sont également affichés dans ce layer. Un 
+				<em>Namespace</em> externe est un 
+				<em>Namespace</em> contenant une entité externe liée à une entité présente dans un 
+				<em>Namespace</em> affiché par le diagramme (voir 
 				<em>External entity</em> dans la section 
 				<em>Diagramme des entités</em> ci-après).
 			</li>
@@ -187,7 +191,7 @@
 			<li>Attributs</li>
 			<li>Relations entre entités</li>
 			<li>Liens d&#8217;héritage</li>
-			<li>Enumération</li>
+			<li>Énumération</li>
 			<li>Packages contenus</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
@@ -268,34 +272,36 @@
 				<td>
 					<img border="0" src="pics/entities/Create%20external.png"/>
 				</td>
-				<td>Ajout d&#8217;une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque 
+				<td>Ajout d&#8217;une entité externe. Cet outil permet de faire apparaître une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque 
 					<em>External Entities</em>
 				</td>
 			</tr>
 		</table>
 		<p>L&#8217;outil de création d&#8217;entités à partir de DTOs permet de reproduire un modèle d&#8217;entités à partir d&#8217;un modèle de DTO. Une boîte de dialogue permet de choisir les DTO et les relations à prendre en compte. Les DTO choisis peuvent être de différents packages mais la structure de ces packages n&#8217;est pas reproduite. Les entités créées sont toutes dans le package courant du diagramme.
-			<br/>Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionnés. Les attributs ne sont pas dupliqués, il sont partagés avec les DTOs grâce à la référence Associated Types accessible dans la vue des propriétés de l&#8217;entité. La modélisation des DTOs est décrite dans la documentation de 
-			<a href="../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html">ISD &#8211; SOA Designer</a> .
+			<br/>Des entités et des relations sont créées pour chaque DTO sélectionné et chaque référence sélectionnée. Les attributs ne sont pas dupliqués, ils sont partagés avec les DTOs grâce à la référence Associated Types accessible dans la vue des propriétés de l&#8217;entité. La modélisation des DTOs est décrite dans la documentation de 
+			<a href="../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html">ISD &#8211; SOA Designer</a>.
 		</p>
-		<p>Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages tel que décrit ci-dessous.</p>
+		<p>Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.</p>
 		<p>
 			<img border="0" src="pics/entities/Dlg%20entity%20from%20dto.png"/>
 		</p>
 		<p>L&#8217;outil de création de package à partir d&#8217;un package de DTO permet de reproduire un modèle d&#8217;entités à partir d&#8217;un modèle de DTO en reproduisant la structure des packages. L&#8217;outil présente la hiérarchie des packages de DTO accessibles depuis le diagramme courant.</p>
-		<p>La sélection d&#8217;un élément dans l&#8217;arbre entraîne la sélection de ses sous éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
-			<br/>La désélection d&#8217;un élément dont tous les sous éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
+		<p>La sélection d&#8217;un élément dans l&#8217;arbre entraîne la sélection de ses sous-éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
+			<br/>La désélection d&#8217;un élément dont tous les sous-éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
 		</p>
 		<ul>
-			<li>Un clic sur un élément décoché coche l'élément et tous ses sous éléments.</li>
-			<li>Un clic sur un élément coché décoche l'élément et tous ses sous éléments.</li>
-			<li>Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous éléments.</li>
+			<li>Un clic sur un élément décoché coche l'élément et tous ses sous-éléments.</li>
+			<li>Un clic sur un élément coché décoche l'élément et tous ses sous-éléments.</li>
+			<li>Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous-éléments.</li>
 		</ul>
-		<p>Un élément est marqué partiellement sélectionné si certains de ses sous éléments sont sélectionnés mais pas tous.
-			<br/>Lorsque tous les sous éléments d&#8217;un élément sont sélectionnés, celui-ci devient sélectionné.
+		<p>Un élément est marqué partiellement sélectionné si certains de ses sous-éléments sont sélectionnés mais pas tous.
+			<br/>Lorsque tous les sous-éléments d&#8217;un élément sont sélectionnés, celui-ci devient sélectionné.
 			<br/>Les éléments marqués comme partiellement sélectionnés sont pris en compte par le traitement de duplication.
 		</p>
 		<p>La sélection d&#8217;une relation induit la sélection du DTO ciblé par celle-ci. Il est possible de désélectionner ce DTO, mais toute relation dont les deux types source et cible ne sont pas sélectionnés ne sera pas dupliquée.</p>
-		<p>Le bouton finish est activé si au moins un package est sélectionné ou partiellement sélectionné.</p>
+		<p>Le bouton 
+			<em>Finish</em> est activé si au moins un package est sélectionné ou partiellement sélectionné.
+		</p>
 		<p>Le traitement crée les packages de plus haut niveau sélectionnés dans le package du diagramme courant.</p>
 		<p>Les éléments pris en compte pour la duplication sont ceux dont :</p>
 		<ul>
@@ -308,7 +314,7 @@
 		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une entité</h4>
 		<p>Les attributs d&#8217;entité sont pourvus de champs 
 			<em>minimum</em>, 
-			<em>maximum</em> et optionellement 
+			<em>maximum</em> et optionnellement 
 			<em>pattern</em>.
 			<br/>La nature de ces champs dépend de la nature du type, qui peut être 
 			<strong>textuel</strong> (essentiellement 
@@ -322,7 +328,7 @@
 			<em>Binary</em>, etc.).
 		</p>
 		<p>Pour un type de nature 
-			<strong>textuel</strong> :
+			<strong>textuelle</strong> :
 		</p>
 		<ul>
 			<li>
@@ -346,16 +352,16 @@
 				<em>maximum</em> : valeur maximale autorisée
 			</li>
 			<li>
-				<em>pattern</em> : non-applicable
+				<em>pattern</em> : non applicable
 			</li>
 		</ul>
 		<p>Pour un type de nature 
-			<strong>autre</strong> ces champs sont non-applicables.
+			<strong>autre</strong> ces champs sont non applicables.
 		</p>
 		<p>Ces champs sont exploités par la génération et l&#8217;import OpenAPI (Swagger).</p>
 		<h3 id="Tabledesentits">Table des entités</h3>
 		<p>La table des entités (
-			<em>Entity table</em>) peut être créée sur l&#8217;objet racine 
+			<em>Entity Table</em>) peut être créée sur l&#8217;objet racine 
 			<em>Entities</em>.
 		</p>
 		<p>La table des entités permet de lister les entités existantes et d&#8217;afficher les informations suivantes :</p>
@@ -370,22 +376,22 @@
 		<h2 id="Gestiondesexigences">Gestion des exigences</h2>
 		<p>La gestion des exigences pour un modèle Entity utilise le mécanisme transverse de gestion des exigences fourni par l&#8217;outillage.
 			<br/>Se référer à la documentation 
-			<strong>Obeo Network &#8211; Requirements Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+			<a href="../../org.obeonetwork.dsl.requirement.doc/doc/ISD%20-%20Requirements%20tooling.html">ISD &#8211; Requirements tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
 		<h2 id="Gestiondeladocumentationlie">Gestion de la documentation liée</h2>
 		<p>Il est possible d&#8217;attacher de la documentation aux éléments d&#8217;un modèle Entity. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l&#8217;outillage.
 			<br/>Se référer à la documentation 
-			<strong>Obeo Network &#8211; Documentation Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+			<a href="../../org.obeonetwork.tools.doc.doc/doc/ISD%20-%20Documentation%20Tooling.html">ISD &#8211; Documentation Tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
 		<h2 id="Crationdediagrammedinteraction">Création de diagramme d&#8217;interaction</h2>
 		<p>Il est possible de créer des diagrammes d&#8217;interaction pour les éléments d&#8217;un modèle Entity.
-			<br/>Se reférer à la documentation 
-			<strong>Obeo Network &#8211; Interaction Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+			<br/>Se référer à la documentation 
+			<a href="../../org.obeonetwork.dsl.interaction.doc/doc/ISD%20-%20Interaction%20tooling.html">ISD &#8211; Interaction tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
 		<h2 id="Crationdediagrammedemachinestats">Création de diagramme de machines à états</h2>
 		<p>Il est possible de créer des diagrammes de machines à états pour les éléments d&#8217;un modèle Entity.
-			<br/>Se reférer à la documentation 
-			<strong>Obeo Network &#8211; State Machine Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+			<br/>Se référer à la documentation 
+			<a href="../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html">ISD &#8211; State Machine tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
 	</body>
 </html>
