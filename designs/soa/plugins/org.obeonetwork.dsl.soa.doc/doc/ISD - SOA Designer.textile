@@ -2,6 +2,8 @@ __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the acc
 
 h1(#soa_designer). ISD - SOA Designer
 
+h2(#presentation). Présentation
+
 *SOA Designer* permet de modéliser des composants métiers, avec leurs services et les structures de données qu'ils manipulent (Data Transfer Objects).
 
 *SOA Designer* apporte le point de vue _SOA Views_ qui permet de :
@@ -35,7 +37,7 @@ Lorsqu'un modèle SOA est créé à l'aide de cet assistant, les points de vue _
 * Le point de vue _SOA (ISD Consolidated view)_ est décrit dans la section de documentation "ISD – SOA (ISD consolidated view)":../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html,
 * Le point de vue _Environment Views_ fournit les vues de propriétés communes avec d'autres modeleurs, par exemple pour le _Namespace_.
 
-h2(#viewpoint). Point de vue _SOA Views_
+h2(#viewpoint). Utilisation du modeleur
 
 Le point de vue _SOA Views_ fourni par SOA Designer est dédié à la modélisation des composants métier. Il permet de visualiser et modifier un modèle SOA au travers de différents types de diagrammes et vues de propriétés.
 
@@ -56,7 +58,7 @@ bq. _Viewpoint Selection_
 
 Une fois le point de vue _SOA Views_ activé il est possible de créer ou visualiser les diagrammes SOA Views.
 
-h3(#diagram_handling). Création/ouverture de diagrammes
+h3(#diagram_handling). Création et ouverture des diagrammes
 
 Chaque type de diagramme est rattaché à un concept SOA précis. Par exemple, un _DTO Diagram_ est rattaché à un _Namespace_. 
 
@@ -86,6 +88,8 @@ Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le foncti
 * Component Contract Diagram
 * DTO Namespaces Hierarchy
 * DTO Diagram
+
+h2(#representations). Représentations
 
 h3(#soa_diagram). SOA Diagram
 
@@ -160,7 +164,7 @@ Ici, _DTO_ est ajouté dans la constitution du libellé du paramètre "books" :
 
 !pics/contract/ComponentContract_MetaType_Layer.png!
 
-h3(#namespace_hierarchy). DTO Namespaces Hierarchy (pour l'objet racine _Components_)
+h3(#namespace_hierarchy). DTO Namespaces Hierarchy
 
 Les _DTO_ sont organisés en _Namespaces_ (autrement appelés packages).
 
@@ -175,14 +179,14 @@ h4(#namespace_hierarchy_description). Éléments affichés et palette d'outils
 Le diagramme permet d’afficher et manipuler les éléments suivants :
 
 * _Namespace_ : chaque _Namespace_ contenu dans l'élément racine est affiché. Les _Namespaces_ contenus par d'autres sont représentés à l'intérieur de leur _Namespace_ parent. L'icône d'un _Namespace_ est en noir et blanc si le _Namespace_ est vide, en couleur sinon.
-* _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les dépendances entre _Namespaces_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespaces_. Une dépendance est identifiée entre deux _Namespaces_ s'il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre un _DTO_ d'un _Namespace_ et un autre. S'il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décorée d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les _Namespaces_ dits "externes" sont également affichés dans ce layer. Un _Namespace_ externe est un _Namespace_ contenant une entité externe liée à une entité présente dans un _Namespace_ affiché par le diagramme (voir _External DTO_ dans la section _Diagramme de DTOs_ ci-après).
+* _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les dépendances entre _Namespaces_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespaces_. Une dépendance est identifiée entre deux _Namespaces_ s'il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre un _DTO_ d'un _Namespace_ et un autre. S'il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décorée d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les _Namespaces_ dits "externes" sont également affichés dans ce layer. Un _Namespace_ externe est un _Namespace_ contenant une entité externe liée à une entité présente dans un _Namespace_ affiché par le diagramme (voir _External DTO_ dans la section _DTO Diagram_ ci-après).
 
 !{width:100%}pics/hierarchy/namespaces_hierarchy_dependencies.png!
 
 Les outils fournis par la palette sont :
 
 | !pics/hierarchy/Palette_CreateNamespace.png! | Création d'un _Namespace_. Un _Namespace_ peut être créé sur le fond du diagramme ou à l'intérieur d'un autre _Namespace_. |
-| !pics/hierarchy/Palette_CreateNamespaceFromOther.png! | Création d'un _Namespace_ par duplication d'un _Namespace_ d'Entité. Voir le diagramme "Diagramme de DTOs" ci-dessous. |
+| !pics/hierarchy/Palette_CreateNamespaceFromOther.png! | Création d'un _Namespace_ par duplication d'un _Namespace_ d'Entité. Voir le diagramme _DTO Diagram_ ci-dessous. |
 
 h4(#namespace_navigation). Navigation vers d'autres diagrammes
 
@@ -192,7 +196,7 @@ Il est possible de naviguer depuis ce diagramme vers des diagrammes _DTO Diagram
 * Action _Open > #Nom d’un diagramme#_ du menu contextuel sur un _Namespace_ : ouvre un _DTO Diagram_ existant,
 * Double-clic sur un _Namespace_ : ouvre le premier _DTO Diagram_ trouvé s'il existe, propose la création d’un _DTO Diagram_ sinon.
 
-h3(#dto_diagram). Diagramme de DTOs
+h3(#dto_diagram). DTO Diagram
 
 Un diagramme de DTOs (_DTO Diagram_) permet de gérer les _DTOs_ d'un _Namespace_, il peut être créé sur un _Namespace_.
 
@@ -226,12 +230,16 @@ Les outils fournis par la palette sont :
 | !pics/dto/Palette_CreateBidirectionalComposition.png! | Création d'une relation de contenance bidirectionnelle. |
 | !pics/dto/Palette_CreateExternalDTO.png! | Ajout d'un DTO externe au _Namespace_ courant. Permet de faire figurer sur le _DTO Diagram_ un DTO défini dans un autre _Namespace_, donnant la possibilité de créer des relations entre _Namespaces_. Cet outil est activable via le calque _External DTOs_ |
 
+h4(#dto_creation_from_entities). Création de DTO à partir d'entités
+
 L'outil de création de DTOs à partir d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités. Une boîte de dialogue permet de choisir les entités et les relations à prendre en compte. Les entités choisies peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les DTO créés sont tous dans le package courant du diagramme.
 Des DTOs et des relations sont créés pour chaque entité et chaque référence sélectionnées. Les attributs ne sont pas dupliqués, ils sont partagés avec les entités grâce à la référence Associated Types accessible dans la vue des propriétés du DTO. La modélisation des entités est décrite dans la documentation de "ISD - Entity Designer":../../org.obeonetwork.dsl.entity.doc/doc/ISD%20-%20Entity%20Designer.html.
 
 Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.
 
 !pics/dto/Palette_CreateExternalDTO_Dialog.png!
+
+h4(#dto_package_creation_from_entities). Création de packages à partir de packages d'entités
 
 L'outil de création de package à partir d'un package d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités en reproduisant la structure des packages. L'outil présente la hiérarchie des packages d'entités accessibles depuis le diagramme courant.
 
@@ -257,6 +265,8 @@ Les éléments pris en compte pour la duplication sont ceux dont :
 
 !pics/dto/Palette_CreateNamespaceFromEntityNamespace_Dialog.png!
 
+h4(#dto_move_between_namespaces). Déplacement de DTO entre namespaces
+
 En plus des outils définis par la palette, l'outil de drag and drop permet de déplacer un DTO d'un _Namespace_ à un autre.
 
 Le drag and drop depuis le _Model Explorer_ d'un _DTO_ d'un autre _Namespace_ que le _Namespace_ sur lequel est défini le _DTO Diagram_ a pour effet de déplacer le _DTO_ depuis son _Namespace_ d'origine dans le _Namespace_ du diagramme.
@@ -264,7 +274,7 @@ Le _DTO_ ainsi déplacé reste référencé là où il l'était, comme par exemp
 
 !{width:100%}pics/dto/DTO_Diagram_ExternalDTOs.png!
 
-h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
+h4(#value_constraints). Contraintes sur les valeurs des attributs de DTO
 
 Les attributs de _DTO_ et les paramètres de services sont pourvus de champs _minimum_, _maximum_ et optionnellement _pattern_.
 La nature de ces champs dépend de la nature du type, qui peut être *textuel* (essentiellement _String_), *numérique* (_Integer_, _Long_, _Float_, etc.) ou *autre* (_Boolean_, _Binary_, etc.).
@@ -338,7 +348,7 @@ De manière synthétique, voici les correspondances clés entre les deux termino
 
 *La suite de ce document privilégie la terminologie SOA. Les exceptions à cette règle seront clairement explicitées.*
 
-h4(#open_api). Modélisation d'une API REST OpenAPI
+h4(#open_api_modeling). Modélisation d'une API REST OpenAPI
 
 Le concept de _SOA Designer_ correspondant à une API REST OpenAPI est le _Component_.
 
@@ -588,7 +598,7 @@ Les contextes possibles pour chaque type d'élément SOA sont présentés dans l
 
 Les extensions de propriétés sont générées lors d'un export Swagger et insérées dans le modèle lors d'un import Swagger.
 
-h3(#open_api). Export / Import au format Swagger OpenAPI
+h3(#open_api_import_export). Export / Import au format Swagger OpenAPI
 
 h4(#open_api_export). Export au format Swagger OpenAPI
 
@@ -634,18 +644,20 @@ Dans l'explorateur de modèles, tout fichier JSON ou YAML qui est au format Open
 
 À la fin de l'opération, un message indique si la conversion a réussi, échoué ou s'est terminée avec des avertissements. Le cas échéant, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de "-3.1.0" avant l'extension du fichier.
 
-h2(#requirements). Gestion des exigences
+h2(#complementary_features). Fonctionnalités complémentaires
+
+h3(#requirements). Gestion des exigences
 
 La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir "ISD - Requirements tooling":../../org.obeonetwork.dsl.requirement.doc/doc/ISD%20-%20Requirements%20tooling.html.
 
-h2(#linked_documentation). Gestion de la documentation liée
+h3(#linked_documentation). Gestion de la documentation liée
 
 Il est possible d'attacher de la documentation aux éléments d'un modèle SOA. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation : "ISD - Documentation Tooling":../../org.obeonetwork.tools.doc.doc/doc/ISD%20-%20Documentation%20Tooling.html.
 
-h2(#interaction_diagram). Création de diagramme d'interaction
+h3(#interaction_diagram). Création de diagramme d'interaction
 
 Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle SOA. Voir la documentation "ISD - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/ISD%20-%20Interaction%20tooling.html.
 
-h2(#state_machine). Création de diagramme de machines à états
+h3(#state_machine). Création de diagramme de machines à états
 
 Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle SOA. Voir la documentation "ISD - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html.
