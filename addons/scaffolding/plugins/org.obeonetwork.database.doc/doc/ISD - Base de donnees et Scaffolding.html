@@ -12,17 +12,18 @@
 		<p>Le 
 			<em>Scaffolding</em> est une technique popularisée par le socle de développement 
 			<em>Ruby on Rails</em> qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d&#8217;une base de données.
-			<br/>En l’occurrence, l&#8217;outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
+			<br/>En l’occurrence, l&#8217;outillage de scaffolding d&#8217;IS Designer propose les fonctionnalités suivantes :
 		</p>
 		<ul>
 			<li>un module capable d&#8217;extraire les informations structurelles d&#8217;une base de données relationnelle existante (MySQL, MariaDB, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle 
 				<em>Database</em>,
 			</li>
-			<li>un modeleur de base de données, basé sur Sirius, permettant de réaliser des Modèles Physique et Logique de Données (MPD et MLD),</li>
+			<li>un modeleur de base de données, basé sur Sirius, permettant de réaliser des modèles physiques et logiques de données (MPD et MLD),</li>
 			<li>un module de comparaison de modèles 
-				<em>Database</em> et un générateur de scripts SQL capable de déduire les instructions SQL de mise à jour de la base de données,
+				<em>Database</em> et des générateurs de scripts SQL et de fichiers 
+				<em>ChangeLog</em> pour Liquibase permettant de mettre à jour la base de données,
 			</li>
-			<li>un ensemble de transformations permettant d&#8217;automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu&#8217;entre un modèle logique et un modèle d&#8217;entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu&#8217;au modèle physique et vice versa).</li>
+			<li>un ensemble de transformations permettant d&#8217;automatiser la conversion et de maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu&#8217;entre un modèle logique et un modèle d&#8217;entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu&#8217;au modèle physique et vice versa).</li>
 		</ul>
 		<h2 id="database">Base de données</h2>
 		<h3 id="reverse_engineering">Rétro-ingénierie</h3>
@@ -90,7 +91,7 @@
 		</p>
 		<p>Cet assistant permet de définir </p>
 		<ul>
-			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
+			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
 			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
 		</ul>
 		<p>
@@ -113,9 +114,9 @@
 			<em>Modeling Project</em> ouvert dans la vue 
 			<em>Model Explorer</em> d&#8217;IS Designer.
 			<br/>Le point de vue 
-			<em>Database</em> doit être activé (via la boite de dialogue 
-			<em>Viewpoints Selection</em> disponible en action du menu contextuel sur le 
-			<em>Modeling project</em>.
+			<em>Database</em> doit être activé via la boîte de dialogue 
+			<em>Viewpoints Selection</em>, accessible depuis le menu contextuel du 
+			<em>Modeling Project</em>.
 		</p>
 		<p>La création d&#8217;un diagramme 
 			<em>Database Diagram</em> est disponible en menu contextuel sur un élément de type Database :
@@ -135,11 +136,11 @@
 			<li>un environnement de modélisation graphique,</li>
 			<li>une palette d&#8217;outils permettant d&#8217;ajouter de nouvelles tables, colonnes, index, contraintes, ...</li>
 			<li>un ensemble de filtres pour afficher ou masquer les contraintes, index et tables externes,</li>
-			<li>une vue propriétés dédiée.</li>
+			<li>une vue de propriétés dédiée.</li>
 		</ul>
-		<p>Cet éditeur est &#171;synchronisé&#187; : il présente une vue complète du schéma ou de la base de données sur lequel il est créé. Si une table est créée par un moyen extérieur au diagramme dans le schéma ou la base de données sur lequel a été créé le diagramme, celle-ci sera automatiquement représentée sur le diagramme.</p>
+		<p>Cet éditeur est &#171;synchronisé&#187; : il présente une vue complète du schéma ou de la base de données qui sert de contexte au diagramme. Si une table est créée dans ce contexte par un moyen extérieur au diagramme, elle sera automatiquement représentée sur celui-ci.</p>
 		<p>La représentation 
-			<em>Partial View</em> est dédiée à visualiser un sous ensemble d&#8217;un schéma ou d&#8217;une base de données.
+			<em>Partial View</em> est dédiée à visualiser un sous-ensemble d&#8217;un schéma ou d&#8217;une base de données.
 			<br/>Cette vue est &#171;non synchronisée&#187; : elle est vide lorsqu&#8217;elle est créée, et elle est peuplée manuellement par drag and drop depuis la vue Model Explorer, ou bien par l&#8217;une des deux actions de menu contextuel disponibles sur les tables : 
 			<b>Add referenced tables</b> et 
 			<b>Add referencing tables</b>.
@@ -153,14 +154,14 @@
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles">ISD – Outillage environnement / Vues Partielles</a>
 		</p>
 		<h4 id="database_physical_model">Modèle Physique de Données</h4>
-		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
+		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de types spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
 			<em>Used Libraries</em> disponible sur l'élément 
 			<em>Database</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModelePhysique_01.png"/>
 		</p>
-		<p>Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisée.
+		<p>Les types de données proposés pour les colonnes des modèles physiques de données dépendent de la librairie utilisée.
 			<br/>Un type &#171;ENUM&#187; de MariaDB permet donc la définition de littéraux, et un type &#171;VARCHAR&#187; de PostgreSQL propose la définition de la longueur de la variable.
 		</p>
 		<p>
@@ -177,7 +178,7 @@
 			<img border="0" src="pics/BDD_ModeleLogique_01.png"/>
 		</p>
 		<p>La sélection de cette librairie de types est également proposée dans l&#8217;assistant de création de modèle 
-			<em>database</em> :
+			<em>Database</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
@@ -273,7 +274,7 @@
 		</p>
 		<p>Cet assistant permet de définir </p>
 		<ul>
-			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
+			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
 			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
 		</ul>
 		<p>
@@ -282,9 +283,9 @@
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
 		<h3 id="sql_and_liquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
 		<h4 id="database_comparison">Comparaison et fusion</h4>
-		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
+		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type Subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
 			<br/>Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser 
-			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l&#8217;exemple ci-dessous : 
+			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage Subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position comme dans l&#8217;exemple ci-dessous :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_SQL_01.png"/>
@@ -321,20 +322,21 @@
 		<p>
 			<img border="0" src="pics/BDD_GenSQL_01.png"/>
 		</p>
-		<p>Si il n&#8217;existe pas déjà, un répertoire 
+		<p>S&#8217;il n&#8217;existe pas déjà, un répertoire 
 			<code>sql</code> est créé à la racine du projet pour contenir l&#8217;ensemble des scripts.
 		</p>
 		<p>
 			<strong>Génération de scripts de création</strong>
 		</p>
-		<p>Un script SQL de création permet d&#8217;initialiser la structure d&#8217;une base de données. La génération d&#8217;un tel script est disponible en menu clic droit sur le modèle database, sous l&#8217;entrée 
+		<p>Un script SQL de création permet d&#8217;initialiser la structure d&#8217;une base de données. La génération d&#8217;un tel script est disponible dans le menu contextuel du modèle 
+			<em>Database</em>, sous l&#8217;entrée 
 			<em>IS Designer &gt; Generate SQL Scripts</em> :
 		</p>
 		<p>
 			<img style="width:495px" border="0" src="pics/BDD_GenSQL_02.png"/>
 		</p>
-		<h4 id="database_liquibase_generation">Génération de 
-			<em>ChangeLog</em> Liquibase
+		<h4 id="database_liquibase_generation">Génération de fichiers 
+			<em>ChangeLog</em> pour Liquibase
 		</h4>
 		<p>
 			<strong>Génération de 
@@ -342,8 +344,8 @@
 			</strong>
 		</p>
 		<p>Un fichier 
-			<em>ChangeLog</em> Liquibase permet de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour générer un tel fichier 
-			<em>ChangeLog</em>, la première étape est de comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent soit en première position (cf. paragraphe précédent). 
+			<em>ChangeLog</em> pour Liquibase permet de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour générer un tel fichier 
+			<em>ChangeLog</em>, la première étape est de comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent soit en première position (cf. paragraphe précédent).
 		</p>
 		<p>Une fois la comparaison effectuée, la génération du fichier 
 			<em>ChangeLog</em> est rendue accessible par le bouton 
@@ -353,7 +355,7 @@
 		<p>
 			<img style="width:100%" border="0" src="pics/BDD_Liquibase_Gen_01.png"/>
 		</p>
-		<p>Si il n&#8217;existe pas déjà, un répertoire 
+		<p>S&#8217;il n&#8217;existe pas déjà, un répertoire 
 			<code>liquibase</code> est créé à la racine du projet pour contenir l&#8217;ensemble des scripts. Ce répertoire est structuré de la manière suivante :
 		</p>
 		<ul>
@@ -374,7 +376,7 @@
 		</p>
 		<p>Contrairement au fichier 
 			<code>run.changelog.xml</code>, le fichier 
-			<code>liquibase.properties</code> n&#8217;est pas écrasé à chaque génération, il est initialisé seulement si il n&#8217;existe pas.
+			<code>liquibase.properties</code> n&#8217;est pas écrasé à chaque génération, il est initialisé seulement s&#8217;il n&#8217;existe pas.
 		</p>
 		<p>
 			<strong>Génération de 
@@ -383,17 +385,18 @@
 		</p>
 		<p>Un 
 			<em>ChangeLog</em> de création permet de générer la structure complète d’une base de données. La génération d’un tel 
-			<em>ChangeLog</em> est disponible en menu clic droit sur le modèle database, sous l’entrée 
+			<em>ChangeLog</em> est disponible dans le menu contextuel du modèle 
+			<em>Database</em>, sous l’entrée 
 			<em>IS Designer &gt; Generate Liquibase Changelog</em> :
 		</p>
 		<p>
 			<img style="width:480px" border="0" src="pics/BDD_Liquibase_Gen_02.png"/>
 		</p>
-		<p>Puis une fenêtre proposant une option de création de schéma(s) si non existant(s):</p>
+		<p>Une fenêtre propose ensuite une option de création des schémas s&#8217;ils n&#8217;existent pas :</p>
 		<p>
 			<img style="width:30%" border="0" src="pics/BDD_Liquibase_Gen_01_Options.png"/>
 			<br/>Cette option n&#8217;a aucun impact sur les bases de données Oracle pour lesquelles un schéma est nécessairement associé à un utilisateur.
-			<br/>Cette option n&#8217;est prise en compte que lors de l&#8217;ajout d&#8217;un nouveau schema, toute  modification (suppression ou renommage de schéma) n&#8217;est pas gérée.
+			<br/>Cette option n&#8217;est prise en compte que lors de l&#8217;ajout d&#8217;un nouveau schéma, toute modification (suppression ou renommage de schéma) n&#8217;est pas gérée.
 		</p>
 		<p>
 			<strong>Génération d’un 
@@ -480,12 +483,12 @@ password.1=123
 		<h3 id="database_transformation_source_and_target">Transformation depuis les modèles source et cible</h3>
 		<p>Pour lancer une transformation, le modèle cible doit exister. Par exemple, pour une transformation d&#8217;un MPD en MLD, la première étape est la création d&#8217;un MLD vide.</p>
 		<p>La sélection doit porter sur un objet source et un objet cible, en dépliant les modèles dans la vue 
-			<em>Model Explorer</em>. Si la sélection porte sur les fichiers le traitement ne pourra pas être lancé.
+			<em>Model Explorer</em>. Si la sélection porte sur les fichiers, le traitement ne pourra pas être lancé.
 		</p>
 		<p>Pour un MPD ou un MLD, les objets source ou cible doivent être des 
 			<em>Data Base</em> ou des 
 			<em>Schema</em>.
-			<br/>Pour un modèle d&#8217;entités,  les objets source ou cible doivent être des 
+			<br/>Pour un modèle d&#8217;entités, les objets source ou cible doivent être des 
 			<em>Entities</em> ou des 
 			<em>Namespace</em>.
 		</p>
@@ -495,10 +498,10 @@ password.1=123
 			</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/BDD_Transfo_05.png"/>!
+			<img border="0" src="pics/BDD_Transfo_05.png"/>
 		</p>
 		<ul>
-			<li>La sélection d&#8217;une entré de menu déclenche l&#8217;ouverture d&#8217;un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d&#8217;une transformation d&#8217;un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d&#8217;un autre MLD. Dans ce cas, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :</li>
+			<li>La sélection d&#8217;une entrée de menu déclenche l&#8217;ouverture d&#8217;un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d&#8217;une transformation d&#8217;un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d&#8217;un autre MLD. Dans ce cas, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :</li>
 		</ul>
 		<p>
 			<img border="0" src="pics/BDD_Transfo_06.png"/>
@@ -506,8 +509,8 @@ password.1=123
 		<p>Une fois le traitement exécuté, un message de confirmation s&#8217;affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire 
 			<code>scaffold</code>. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
 		</p>
-		<h3 id="database_transformation_scaffolding">Transformation depuis un modèle de scaffold</h3>
-		<p>La transformation peut être lancée directement depuis un modèle de scaffold par :</p>
+		<h3 id="database_transformation_scaffolding">Transformation depuis un modèle de scaffolding</h3>
+		<p>La transformation peut être lancée directement depuis un modèle de scaffolding par :</p>
 		<ul>
 			<li>La sélection du modèle dans le 
 				<em>Model Explorer</em>
@@ -519,7 +522,7 @@ password.1=123
 		<p>Les transformations disponibles dans le menu dépendent des objets source et cible utilisés par le modèle de scaffolding.
 			<br/>Une entrée de menu permet d&#8217;ajouter des ressources pour résoudre les dépendances externes comme lorsque l&#8217;assistant est utilisé (cf. paragraphe précédent).
 		</p>
-		<p>A noter que lorsqu&#8217;une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.  </p>
+		<p>À noter que lorsqu&#8217;une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffolding existe déjà, il est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.</p>
 		<h3 id="database_transformations_parameters">Paramétrage de la transformation d&#8217;un modèle d&#8217;entités en MLD</h3>
 		<p>Dans le cas d&#8217;une transformation d&#8217;un modèle d&#8217;entités en MLD, deux colonnes techniques sont créées pour chaque table créée.
 			<br/>Ces colonnes sont :
@@ -532,7 +535,9 @@ password.1=123
 				<code>_XDMAJ</code>
 			</li>
 		</ul>
-		<p>La génération de ces colonnes peut être désactivée en ajoutant une metadata sur l&#8217;entité ou l&#8217;un des namespaces parent :</p>
+		<p>La génération de ces colonnes peut être désactivée en ajoutant une métadonnée sur l&#8217;entité ou l&#8217;un des 
+			<em>Namespace</em> parents :
+		</p>
 		<ul>
 			<li>
 				<code>Clé : DISABLE_ADDITIONAL_FIELDS_KEY</code>
@@ -541,15 +546,17 @@ password.1=123
 				<code>Valeur : true</code>
 			</li>
 		</ul>
-		<p>Ces deux colonnes ne seront alors pas créées pour l&#8217;entité en question, ou pour toutes les entités contenues par le namespace en question. </p>
+		<p>Ces deux colonnes ne seront alors pas créées pour l&#8217;entité en question, ou pour toutes les entités contenues par le 
+			<em>Namespace</em> en question.
+		</p>
 		<h2 id="notes">Notes</h2>
-		<p>Les équivalences entre les types logiques et physiques, etc..., ainsi que les règles de nommage sont  paramétrables.</p>
+		<p>Les équivalences entre les types logiques et physiques, etc., ainsi que les règles de nommage sont paramétrables.</p>
 		<p>Aussi, dans le cas où une version du modèle cible existe déjà, il est conseillé d&#8217;effectuer la transformation vers un nouveau modèle puis d&#8217;utiliser l&#8217;outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Voici un exemple illustrant ce scénario :</p>
 		<ul>
 			<li>l'équipe de développement fait évoluer le modèle d&#8217;entités et le livre à l'équipe DBA,</li>
 			<li>l'équipe DBA peut ainsi lancer une transformation du modèle d&#8217;entités vers un nouveau MLD V2,</li>
 			<li>l'équipe DBA peut ensuite comparer et fusionner le MLD V1 (incluant des modifications ajoutées préalablement par l'équipe DBA) et le MLD V2,</li>
-			<li>l'équipe DBA peut ensuite effectuer une transformation MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et génération du script SQL par rapport à une version plus ancienne du MPD.</li>
+			<li>l'équipe DBA peut ensuite effectuer une transformation du MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et la génération du script SQL par rapport à une version plus ancienne du MPD.</li>
 		</ul>
 	</body>
 </html>
