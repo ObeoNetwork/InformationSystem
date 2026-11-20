@@ -17,23 +17,24 @@
 			<em>SOA Views</em> qui permet de :
 		</p>
 		<ul>
-			<li>Modéliser les composants et les liens entre eux,</li>
-			<li>Modéliser les contrats des composants (interfaces et services),</li>
-			<li>Modéliser les DTOs, leur structure et les relations entre eux,</li>
-			<li>Organiser les DTOs en packages,</li>
-			<li>Modéliser l&#8217;exposition REST des services et gérer le format Open API (Swagger).</li>
+			<li>modéliser les composants et les liens entre eux,</li>
+			<li>modéliser les contrats des composants (interfaces et services),</li>
+			<li>modéliser les DTO, leur structure et les relations entre eux,</li>
+			<li>organiser les DTO en packages,</li>
+			<li>modéliser l&#8217;exposition REST des services et gérer le format OpenAPI (Swagger).</li>
 		</ul>
 		<h2 id="model_creation">Création d&#8217;un modèle SOA</h2>
 		<p>Un assistant permet la création de modèles SOA. Cet assistant est accessible via le menu :</p>
 		<blockquote>
 			<p>
-				<em>File &gt; New &gt; Other ... &gt; SOA Model (Catégorie IS Designer)</em> :
+				<em>File &gt; New &gt; Other... &gt; SOA Model</em> (catégorie 
+				<em>IS Designer</em>)
 			</p>
 		</blockquote>
 		<p>
 			<img border="0" src="pics/SOA_ModelCreationWizard_01.png"/>
 		</p>
-		<p>Cet assistant permet de définir </p>
+		<p>Cet assistant permet de définir :</p>
 		<ul>
 			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
 			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
@@ -59,11 +60,11 @@
 		</p>
 		<ul>
 			<li>Le point de vue 
-				<em>SOA Views</em> est décrit dans la section suivante,
+				<em>SOA Views</em> est décrit dans la section suivante.
 			</li>
 			<li>Le point de vue 
 				<em>SOA (ISD Consolidated view)</em> est décrit dans la section de documentation 
-				<a href="../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html">ISD – SOA (ISD consolidated view)</a>,
+				<a href="../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html">ISD – SOA (ISD consolidated view)</a>.
 			</li>
 			<li>Le point de vue 
 				<em>Environment Views</em> fournit les vues de propriétés communes avec d&#8217;autres modeleurs, par exemple pour le 
@@ -77,41 +78,39 @@
 		<h3 id="OuverturedunesessionetactivationdupointdevueSOAViews">Ouverture d&#8217;une session et activation du point de vue 
 			<em>SOA Views</em>
 		</h3>
-		<p>L&#8217;ouverture d&#8217;une session de travail sur un modèle SOA se fait de l&#8217;une des manières habituelles pour un 
-			<em>Modeling Project</em> :
-		</p>
+		<p>Pour ouvrir une session de travail sur un modèle SOA, utiliser l&#8217;une des méthodes suivantes :</p>
 		<ul>
-			<li>En ouvrant le 
+			<li>ouvrir le 
 				<em>Modeling Project</em> contenant le modèle,
 			</li>
-			<li>En double-cliquant sur un fichier 
-				<em>*.aird</em> existant,
+			<li>double-cliquer sur un fichier 
+				<code>*.aird</code> existant,
 			</li>
-			<li>En faisant un glisser/déposer d&#8217;un fichier 
-				<em>*.soa</em> dans un 
+			<li>faire un glisser-déposer d&#8217;un fichier 
+				<code>*.soa</code> dans un 
 				<em>Modeling Project</em> sur la vue 
 				<em>Model Explorer</em>,
 			</li>
-			<li>En convertissant un projet contenant le modèle SOA en un 
+			<li>convertir un projet contenant le modèle SOA en un 
 				<em>Modeling Project</em>.
 			</li>
 		</ul>
-		<p>L&#8217;ouverture de l&#8217;assistant 
-			<em>Viewpoints Selection</em> permet de vérifier que le point de vue 
-			<em>SOA Views</em> est bien activé.
-			<br/>Cet assistant est accessible dans le menu contextuel du 
-			<em>Modeling Project</em> sous l&#8217;entrée de menu :  
+		<p>Pour vérifier que le point de vue 
+			<em>SOA Views</em> est activé, ouvrir la boîte de dialogue 
+			<em>Viewpoints Selection</em> depuis le menu contextuel du 
+			<em>Modeling Project</em> :
 		</p>
 		<blockquote>
 			<p>
-				<em>Viewpoint Selection</em>
+				<em>Viewpoints Selection</em>
 			</p>
 		</blockquote>
 		<p>
 			<img border="0" src="pics/SOA_ViewpointSelection.png"/>
 		</p>
 		<p>Une fois le point de vue 
-			<em>SOA Views</em> activé il est possible de créer ou visualiser les diagrammes SOA Views.
+			<em>SOA Views</em> activé il est possible de créer ou visualiser les diagrammes du point de vue 
+			<em>SOA Views</em>.
 		</p>
 		<h3 id="diagram_handling">Création et ouverture des diagrammes</h3>
 		<p>Chaque type de diagramme est rattaché à un concept SOA précis. Par exemple, un 
@@ -165,10 +164,18 @@
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles">ISD – Outillage environnement / Vues Partielles</a>
 		</p>
 		<ul>
-			<li>SOA Diagram</li>
-			<li>Component Contract Diagram</li>
-			<li>DTO Namespaces Hierarchy</li>
-			<li>DTO Diagram</li>
+			<li>
+				<em>SOA Diagram</em>,
+			</li>
+			<li>
+				<em>Component Contract Diagram</em>,
+			</li>
+			<li>
+				<em>DTO Namespaces Hierarchy</em>,
+			</li>
+			<li>
+				<em>DTO Diagram</em>.
+			</li>
 		</ul>
 		<h2 id="representations">Représentations</h2>
 		<h3 id="soa_diagram">SOA Diagram</h3>
@@ -192,7 +199,7 @@
 			<li>
 				<em>Required Service</em> : service métier dont un composant a besoin pour fonctionner,
 			</li>
-			<li>Les liens entre services fournis et services requis.</li>
+			<li>les liens entre services fournis et services requis.</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
@@ -225,7 +232,7 @@
 					<img border="0" src="pics/soa/Palette_CreateExternal.png"/>
 				</td>
 				<td>Ajout d&#8217;un composant externe sur le diagramme. Permet de faire apparaître un composant défini dans un autre modèle SOA pour créer des relations avec les composants affichés. Cet outil est disponible par l&#8217;activation du calque 
-					<em>External Components</em>
+					<em>External Components</em>.
 				</td>
 			</tr>
 		</table>
@@ -235,11 +242,13 @@
 		</p>
 		<ul>
 			<li>Action 
-				<em>New &gt; Component Contract</em> du menu contextuel sur un Component : crée et ouvre un nouveau diagramme 
+				<em>New &gt; Component Contract</em> du menu contextuel sur un 
+				<em>Component</em> : crée et ouvre un nouveau diagramme 
 				<em>Component Contract</em>,
 			</li>
 			<li>Action 
-				<em>Open &gt; #Nom d&#8217;un diagramme#</em> du menu contextuel sur un Component : ouvre un diagramme 
+				<em>Open &gt; #Nom d&#8217;un diagramme#</em> du menu contextuel sur un 
+				<em>Component</em> : ouvre un diagramme 
 				<em>Component Contract</em> existant,
 			</li>
 			<li>Double-clic sur un 
@@ -276,13 +285,13 @@
 				<em>Operation</em> : opération d&#8217;un service,
 			</li>
 			<li>
-				<em>Input Parameter</em> : paramètre d&#8217;entrée d&#8217;une opération
+				<em>Input Parameter</em> : paramètre d&#8217;entrée d&#8217;une opération,
 			</li>
 			<li>
-				<em>Output Parameter</em> : paramètre de sortie d&#8217;une opération
+				<em>Output Parameter</em> : paramètre de sortie d&#8217;une opération,
 			</li>
 			<li>
-				<em>Fault Parameter</em> : cas d&#8217;erreur pour une opération
+				<em>Fault Parameter</em> : cas d&#8217;erreur pour une opération.
 			</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
@@ -335,7 +344,8 @@
 			<em>DTO</em> et un 
 			<em>Entity</em> portant le même nom.
 			<br/>Ici, 
-			<em>DTO</em> est ajouté dans la constitution du libellé du paramètre &#171;books&#187; :
+			<em>DTO</em> est ajouté dans la constitution du libellé du paramètre 
+			<code>books</code> :
 		</p>
 		<p>
 			<img border="0" src="pics/contract/ComponentContract_MetaType_Layer.png"/>
@@ -343,15 +353,15 @@
 		<h3 id="namespace_hierarchy">DTO Namespaces Hierarchy</h3>
 		<p>Les 
 			<em>DTO</em> sont organisés en 
-			<em>Namespaces</em> (autrement appelés packages).
+			<em>Namespace</em> (autrement appelés packages).
 		</p>
 		<p>Le diagramme 
 			<em>DTO Namespaces Hierarchy</em> est destiné à gérer l&#8217;ensemble de cette hiérarchie de 
-			<em>Namespaces</em> et peut être créé sur l&#8217;objet racine 
+			<em>Namespace</em> et peut être créé sur l&#8217;objet racine 
 			<em>Components</em>.
 		</p>
 		<p>Il permet de créer, modifier ou supprimer des packages ainsi que d&#8217;accéder facilement (par double-clic ou menu contextuel sur les 
-			<em>Namespaces</em>) aux diagrammes de DTOs d&#8217;un package.
+			<em>Namespace</em>) aux diagrammes de DTO d&#8217;un package.
 		</p>
 		<p>
 			<img style="width:70%" border="0" src="pics/hierarchy/namespaces_hierarchy.png"/>
@@ -362,22 +372,22 @@
 			<li>
 				<em>Namespace</em> : chaque 
 				<em>Namespace</em> contenu dans l'élément racine est affiché. Les 
-				<em>Namespaces</em> contenus par d&#8217;autres sont représentés à l&#8217;intérieur de leur 
+				<em>Namespace</em> contenus par d&#8217;autres sont représentés à l&#8217;intérieur de leur 
 				<em>Namespace</em> parent. L&#8217;icône d&#8217;un 
 				<em>Namespace</em> est en noir et blanc si le 
 				<em>Namespace</em> est vide, en couleur sinon.
 			</li>
 			<li>
-				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le calque 
 				<em>Dependencies</em>. Les dépendances entre 
-				<em>Namespaces</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
-				<em>Namespaces</em>. Une dépendance est identifiée entre deux 
-				<em>Namespaces</em> s&#8217;il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
+				<em>Namespace</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
+				<em>Namespace</em>. Une dépendance est identifiée entre deux 
+				<em>Namespace</em> s&#8217;il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
 				<em>Enumeration</em> pour typer un attribut entre un 
 				<em>DTO</em> d&#8217;un 
-				<em>Namespace</em> et un autre. S&#8217;il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décorée d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Namespace</em> et un autre. S&#8217;il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décorée d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le calque 
 				<em>Dependencies</em>. Les 
-				<em>Namespaces</em> dits &#171;externes&#187; sont également affichés dans ce layer. Un 
+				<em>Namespace</em> dits &#171;externes&#187; sont également affichés dans ce calque. Un 
 				<em>Namespace</em> externe est un 
 				<em>Namespace</em> contenant une entité externe liée à une entité présente dans un 
 				<em>Namespace</em> affiché par le diagramme (voir 
@@ -406,7 +416,7 @@
 				</td>
 				<td>Création d&#8217;un 
 					<em>Namespace</em> par duplication d&#8217;un 
-					<em>Namespace</em> d&#8217;Entité. Voir le diagramme 
+					<em>Namespace</em> d&#8217;entités. Voir le diagramme 
 					<em>DTO Diagram</em> ci-dessous.
 				</td>
 			</tr>
@@ -433,9 +443,9 @@
 			</li>
 		</ul>
 		<h3 id="dto_diagram">DTO Diagram</h3>
-		<p>Un diagramme de DTOs (
+		<p>Un diagramme de DTO (
 			<em>DTO Diagram</em>) permet de gérer les 
-			<em>DTOs</em> d&#8217;un 
+			<em>DTO</em> d&#8217;un 
 			<em>Namespace</em>, il peut être créé sur un 
 			<em>Namespace</em>.
 		</p>
@@ -453,13 +463,13 @@
 				<em>DTO</em>.
 			</li>
 			<li>
-				<em>Relation</em> : relation entre deux DTOs. Permet de structurer le modèle de données représenté par les DTOs. Les types de relations pris en charge sont les relations unidirectionnelles, bidirectionnelles et de composition. Une relation est représentée par un lien pouvant être décoré d&#8217;une flèche ouverte dans le cas d&#8217;une relation directionnelle, et d&#8217;un losange dans le cas d&#8217;une relation de composition.
+				<em>Relation</em> : relation entre deux DTO. Permet de structurer le modèle de données représenté par les DTO. Les types de relations pris en charge sont les relations unidirectionnelles, bidirectionnelles et de composition. Une relation est représentée par un lien pouvant être décoré d&#8217;une flèche ouverte dans le cas d&#8217;une relation directionnelle, et d&#8217;un losange dans le cas d&#8217;une relation de composition.
 			</li>
 			<li>
 				<em>Inheritance</em> : relation de spécialisation d&#8217;un DTO par un autre. Une relation de spécialisation est représentée par un lien décoré d&#8217;une flèche fermée pointant vers le DTO spécialisé. Une seule relation de spécialisation peut être définie par DTO.
 			</li>
 			<li>
-				<em>Enumeration</em> : Type de données pouvant servir au typage d&#8217;un attribut ou d&#8217;un paramètre de service. Une 
+				<em>Enumeration</em> : type de données pouvant servir au typage d&#8217;un attribut ou d&#8217;un paramètre de service. Une 
 				<em>Enumeration</em> prend sa valeur dans un ensemble fini de littéraux qui lui sont propres. Une 
 				<em>Enumeration</em> est représentée par un conteneur rectangulaire.
 			</li>
@@ -473,10 +483,9 @@
 				<em>Enumeration</em>.
 			</li>
 			<li>
-				<em>Namespace</em> : 
-				<em>Namespaces</em> contenus directement dans le 
+				<em>Namespace</em> : namespaces contenus directement dans le 
 				<em>Namespace</em> contextuel au 
-				<em>DTO Diagram</em>. 
+				<em>DTO Diagram</em>.
 			</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
@@ -509,7 +518,7 @@
 					<img border="0" src="pics/dto/Palette_CreateDTOFromEntity.png"/>
 				</td>
 				<td>Création de 
-					<em>DTOs</em> à partir d&#8217;entités (cf. description ci-dessous).
+					<em>DTO</em> à partir d&#8217;entités (cf. description ci-dessous).
 				</td>
 			</tr>
 			<tr>
@@ -568,17 +577,20 @@
 					<em>Namespace</em> courant. Permet de faire figurer sur le 
 					<em>DTO Diagram</em> un DTO défini dans un autre 
 					<em>Namespace</em>, donnant la possibilité de créer des relations entre 
-					<em>Namespaces</em>. Cet outil est activable via le calque 
-					<em>External DTOs</em>
+					<em>Namespace</em>. Cet outil est activable via le calque 
+					<em>External DTOs</em>.
 				</td>
 			</tr>
 		</table>
 		<h4 id="dto_creation_from_entities">Création de DTO à partir d&#8217;entités</h4>
-		<p>L&#8217;outil de création de DTOs à partir d&#8217;entités permet de reproduire un modèle de DTO à partir d&#8217;un modèle d&#8217;entités. Une boîte de dialogue permet de choisir les entités et les relations à prendre en compte. Les entités choisies peuvent être de différents packages mais la structure de ces packages n&#8217;est pas reproduite. Les DTO créés sont tous dans le package courant du diagramme.
-			<br/>Des DTOs et des relations sont créés pour chaque entité et chaque référence sélectionnées. Les attributs ne sont pas dupliqués, ils sont partagés avec les entités grâce à la référence Associated Types accessible dans la vue des propriétés du DTO. La modélisation des entités est décrite dans la documentation de 
+		<p>L&#8217;outil de création de DTO à partir d&#8217;entités permet de reproduire un modèle de DTO à partir d&#8217;un modèle d&#8217;entités. Une boîte de dialogue permet de choisir les entités et les relations à prendre en compte. Les entités choisies peuvent être de différents packages mais la structure de ces packages n&#8217;est pas reproduite. Les DTO créés sont tous dans le package courant du diagramme.
+			<br/>Des DTO et des relations sont créés pour chaque entité et chaque référence sélectionnées. Les attributs ne sont pas dupliqués, ils sont partagés avec les entités grâce à la référence 
+			<em>Associated Types</em> accessible dans la vue de propriétés du DTO. La modélisation des entités est décrite dans la documentation de 
 			<a href="../../org.obeonetwork.dsl.entity.doc/doc/ISD%20-%20Entity%20Designer.html">ISD &#8211; Entity Designer</a>.
 		</p>
-		<p>Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.</p>
+		<p>Les relations créées conservent un lien vers leur relation source dans le champ 
+			<em>Associated References</em> de la vue de propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.
+		</p>
 		<p>
 			<img border="0" src="pics/dto/Palette_CreateExternalDTO_Dialog.png"/>
 		</p>
@@ -610,10 +622,10 @@
 			<img border="0" src="pics/dto/Palette_CreateNamespaceFromEntityNamespace_Dialog.png"/>
 		</p>
 		<h4 id="dto_move_between_namespaces">Déplacement de DTO entre namespaces</h4>
-		<p>En plus des outils définis par la palette, l&#8217;outil de drag and drop permet de déplacer un DTO d&#8217;un 
+		<p>En plus des outils définis par la palette, l&#8217;outil de glisser-déposer permet de déplacer un DTO d&#8217;un 
 			<em>Namespace</em> à un autre.
 		</p>
-		<p>Le drag and drop depuis le 
+		<p>Le glisser-déposer depuis le 
 			<em>Model Explorer</em> d&#8217;un 
 			<em>DTO</em> d&#8217;un autre 
 			<em>Namespace</em> que le 
@@ -626,7 +638,7 @@
 			<em>DTO</em> ainsi déplacé reste référencé là où il l'était, comme par exemple en type de paramètre d&#8217;une opération SOA ou en référence sur une 
 			<em>Relation</em>. Si le calque 
 			<em>External DTOs</em> est activé, alors les 
-			<em>DTO</em> externes figurent sur le diagramme avec une couleur différente et un label représentant leur nom qualifié :
+			<em>DTO</em> externes figurent sur le diagramme avec une couleur différente et un libellé représentant leur nom qualifié :
 		</p>
 		<p>
 			<img style="width:100%" border="0" src="pics/dto/DTO_Diagram_ExternalDTOs.png"/>
@@ -653,13 +665,13 @@
 		</p>
 		<ul>
 			<li>
-				<em>minimum</em> : longueur minimale du texte
+				<em>minimum</em> : longueur minimale du texte,
 			</li>
 			<li>
-				<em>maximum</em> : longueur maximale du texte
+				<em>maximum</em> : longueur maximale du texte,
 			</li>
 			<li>
-				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer.
 			</li>
 		</ul>
 		<p>Pour un type de nature 
@@ -667,13 +679,13 @@
 		</p>
 		<ul>
 			<li>
-				<em>minimum</em> : valeur minimale requise
+				<em>minimum</em> : valeur minimale requise,
 			</li>
 			<li>
-				<em>maximum</em> : valeur maximale autorisée
+				<em>maximum</em> : valeur maximale autorisée,
 			</li>
 			<li>
-				<em>pattern</em> : non applicable
+				<em>pattern</em> : non applicable.
 			</li>
 		</ul>
 		<p>Pour un type de nature 
@@ -694,8 +706,8 @@
 		<p>La notion de visibilité (
 			<em>Public/Privé</em>) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une 
 			<em>Operation</em> publique sera accessible depuis les implémentations des autres 
-			<em>Operations</em> du 
-			<em>Composant</em> ou bien depuis un autre composant destiné à être déployé dans la même application, mais elle ne sera pas accessible depuis un autre système.
+			<em>Operation</em> du 
+			<em>Component</em> ou bien depuis un autre composant destiné à être déployé dans la même application, mais elle ne sera pas accessible depuis un autre système.
 		</p>
 		<p>La notion de pagination (
 			<em>Paged</em>) indique si les résultats retournés par l&#8217;opération sont paginés. Lorsque l&#8217;opération est paginée, il est possible d&#8217;indiquer quels paramètres définissent l&#8217;index de la page (
@@ -710,22 +722,22 @@
 		</p>
 		<ul>
 			<li>
-				<em>NONE</em> : Non exposée,
+				<code>NONE</code> : non exposée,
 			</li>
 			<li>
-				<em>REST</em> : Exposée en web service par Representational State Transfer
+				<code>REST</code> : exposée en web service par Representational State Transfer,
 			</li>
 			<li>
-				<em>SOAP</em> : Exposée en web service par Simple Object Access Protocol
+				<code>SOAP</code> : exposée en web service par Simple Object Access Protocol.
 			</li>
 		</ul>
 		<p>Le type d&#8217;exposition couvert par 
 			<em>SOA Designer</em> est 
-			<em>REST</em>. Le type d&#8217;exposition 
-			<em>SOAP</em> n&#8217;est disponible dans le studio qu'à titre indicatif, aucun outillage spécifique n&#8217;ayant été développé pour l&#8217;exploiter.
+			<code>REST</code>. Le type d&#8217;exposition 
+			<code>SOAP</code> n&#8217;est disponible dans le studio qu'à titre indicatif, aucun outillage spécifique n&#8217;ayant été développé pour l&#8217;exploiter.
 		</p>
 		<p>L&#8217;icône des 
-			<em>Operations</em> diffère suivant le type d&#8217;exposition :
+			<em>Operation</em> diffère suivant le type d&#8217;exposition :
 		</p>
 		<table>
 			<tr>
@@ -765,8 +777,8 @@
 			<li>modéliser des 
 				<em>API REST</em> via un modeleur graphique basé sur Sirius,
 			</li>
-			<li>exporter / importer ces API au format Swagger (conforme à la norme OpenAPI),</li>
-			<li>prévisualiser un export Swagger dans une vue web Swagger-UI.</li>
+			<li>exporter et importer ces API au format Swagger (conforme à la norme OpenAPI),</li>
+			<li>prévisualiser un export Swagger dans une vue web Swagger UI.</li>
 		</ul>
 		<h4 id="rest_api_terminology">Terminologie 
 			<em>SOA</em> vs terminologie 
@@ -775,7 +787,7 @@
 		<p>La terminologie utilisée par 
 			<em>SOA Designer</em> provient du champ lexical de SOA (Service Oriented Architecture), dans lequel le concept de service est défini comme une fonction ou fonctionnalité. Cette définition est suffisamment large pour autoriser un raffinement de la notion de 
 			<em>Service</em> en 
-			<em>Operations</em>, tel qu&#8217;il est fait dans 
+			<em>Operation</em>, tel qu&#8217;il est fait dans 
 			<em>SOA Designer</em>.
 		</p>
 		<p>Or, cette notion d'
@@ -824,7 +836,7 @@
 			<em>Component</em>.
 		</p>
 		<p>Les données d&#8217;exposition sont accessibles via l&#8217;onglet 
-			<em>Exposition</em> de la vue des propriétés :
+			<em>Exposition</em> de la vue de propriétés :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Component_Exposition_Tab.png"/>
@@ -848,7 +860,7 @@
 		<p>Des serveurs peuvent être définis au niveau du 
 			<em>Component</em>. Pour chaque serveur, l&#8217;URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 		</p>
-		<p>Enfin, des informations générales sur l&#8217;API peuvent être définies dans la vue des propriétés :</p>
+		<p>Enfin, des informations générales sur l&#8217;API peuvent être définies dans la vue de propriétés :</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Component_UserInfo.PNG"/>
 		</p>
@@ -876,7 +888,7 @@
 		<p>Le concept en correspondance avec le 
 			<em>Service OpenAPI</em> est le concept 
 			<em>Operation</em>. Lorsqu&#8217;un type d&#8217;exposition autre que 
-			<em>NONE</em> est sélectionné comme expliqué au paragraphe 
+			<code>NONE</code> est sélectionné comme expliqué au paragraphe 
 			<a href="#exposition_type">Types d&#8217;exposition</a>, l&#8217;onglet 
 			<em>Exposition</em> devient visible et accessible :
 		</p>
@@ -884,14 +896,14 @@
 			<img border="0" src="pics/exposition/Properties_Operation_Exposition_Tab.png"/>
 		</p>
 		<p>Le verbe correspond au verbe HTTP et peut prendre l&#8217;une des valeurs : 
-			<em>GET</em>, 
-			<em>POST</em>, 
-			<em>PUT</em>, 
-			<em>DELETE</em>, 
-			<em>HEAD</em>, 
-			<em>OPTIONS</em>, 
-			<em>PATCH</em>, 
-			<em>TRACE</em>.
+			<code>GET</code>, 
+			<code>POST</code>, 
+			<code>PUT</code>, 
+			<code>DELETE</code>, 
+			<code>HEAD</code>, 
+			<code>OPTIONS</code>, 
+			<code>PATCH</code>, 
+			<code>TRACE</code>.
 		</p>
 		<p>Comme au niveau 
 			<em>Component</em>, il est possible de définir l&#8217;URI d&#8217;une 
@@ -908,34 +920,38 @@
 		<h5 id="rest_api_input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</h5>
 		<p>L&#8217;identifiant REST permet d&#8217;identifier un paramètre autrement que par son nom et présente des particularités liées au mode de passage du paramètre.</p>
 		<p>Pour un mode de passage 
-			<em>BODY</em>, l&#8217;identifiant REST n&#8217;a pas de sens.
+			<code>BODY</code>, l&#8217;identifiant REST n&#8217;a pas de sens.
 			<br/>Lorsque le mode de passage 
-			<em>BODY</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte &#171;body&#187; :
+			<code>BODY</code> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte 
+			<code>body</code> :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_BODY.png"/>
 		</p>
 		<p>Pour un mode de passage 
-			<em>PATH</em>, l&#8217;identifiant REST doit correspondre à l&#8217;un des identifiants définis entre accolades dans l&#8217;URI de l'
+			<code>PATH</code>, l&#8217;identifiant REST doit correspondre à l&#8217;un des identifiants définis entre accolades dans l&#8217;URI de l'
 			<em>Operation</em>.
 			<br/>Lorsque le mode de passage 
-			<em>PATH</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l&#8217;analyse de l&#8217;URI de l'
-			<em>Operation</em>. Ainsi, si l&#8217;URI est &#171;/{country}/{author}&#187;, la liste déroulante proposera les deux choix &#171;country&#187; et &#171;author&#187; :
+			<code>PATH</code> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l&#8217;analyse de l&#8217;URI de l'
+			<em>Operation</em>. Ainsi, si l&#8217;URI est 
+			<code>/{country}/{author}</code>, la liste déroulante proposera les deux choix 
+			<code>country</code> et 
+			<code>author</code> :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH.png"/>
 		</p>
 		<p>Suite à une édition de l&#8217;URI d&#8217;une 
 			<em>Operation</em>, il est possible que la valeur de l&#8217;identifiant REST d&#8217;un paramètre 
-			<em>PATH</em> ne soit pas dans l&#8217;URI. Dans ce cas, un message d&#8217;erreur est affiché :
+			<code>PATH</code> ne soit pas dans l&#8217;URI. Dans ce cas, un message d&#8217;erreur est affiché :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH_WithError.png"/>
 		</p>
 		<p>Pour un mode de passage 
-			<em>QUERY</em>, 
-			<em>COOKIE</em> ou 
-			<em>HEADER</em>, l&#8217;identifiant REST permet d&#8217;identifier le paramètre soit dans l&#8217;URL d&#8217;appel du service REST, soit dans le cookie, soit dans le header HTTP.
+			<code>QUERY</code>, 
+			<code>COOKIE</code> ou 
+			<code>HEADER</code>, l&#8217;identifiant REST permet d&#8217;identifier le paramètre soit dans l&#8217;URL d&#8217;appel du service REST, soit dans le cookie, soit dans le header HTTP.
 			<br/>Lorsque l&#8217;un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l&#8217;identifiant :
 		</p>
 		<p>
@@ -956,29 +972,29 @@
 		<p>Pour un paramètre dont le type est de nature texte :</p>
 		<ul>
 			<li>
-				<em>minimum</em> : longueur minimale du texte
+				<em>minimum</em> : longueur minimale du texte,
 			</li>
 			<li>
-				<em>maximum</em> : longueur maximale du texte
+				<em>maximum</em> : longueur maximale du texte,
 			</li>
 			<li>
-				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer.
 			</li>
 		</ul>
 		<p>Pour un paramètre dont le type est de nature valeur numérique :</p>
 		<ul>
 			<li>
-				<em>minimum</em> : valeur minimale requise
+				<em>minimum</em> : valeur minimale requise,
 			</li>
 			<li>
-				<em>maximum</em> : valeur maximale autorisée
+				<em>maximum</em> : valeur maximale autorisée,
 			</li>
 			<li>
-				<em>pattern</em> : non applicable
+				<em>pattern</em> : non applicable.
 			</li>
 		</ul>
 		<h5 id="rest_api_paginated_parameter">Modélisation d&#8217;un paramètre de pagination</h5>
-		<p>Lorsqu&#8217;une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriétés de l&#8217;opération afin de spécifier les paramètres entrants pouvant être utilisés pour définir l&#8217;index de la page, ainsi que le nombre d'éléments par page.</p>
+		<p>Lorsqu&#8217;une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue de propriétés de l&#8217;opération afin de spécifier les paramètres entrants pouvant être utilisés pour définir l&#8217;index de la page, ainsi que le nombre d'éléments par page.</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Operation_Pagination.PNG"/>
 		</p>
@@ -998,7 +1014,7 @@
 			<img border="0" src="pics/exposition/Properties_OutputParameter_Exposition_Tab.png"/>
 		</p>
 		<p>Le bouton à droite de la zone de texte 
-			<em>Status Code</em> ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples code/description.
+			<em>Status Code</em> ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples composés d&#8217;un code et d&#8217;une description.
 		</p>
 		<p>Le dialogue propose les codes de succès dans le cas d&#8217;un paramètre de sortie, et des codes d&#8217;erreur dans le cas d&#8217;un paramètre d&#8217;erreur :</p>
 		<p>
@@ -1006,7 +1022,9 @@
 			<img border="0" src="pics/exposition/Dialog_SelectStatus_FaultParameter.png"/>
 		</p>
 		<h5 id="rest_api_parameter_media_types">Modélisation des média-types</h5>
-		<p>Des types de média peuvent être définis sur un paramètre exposé en REST quelle que soit sa direction (paramètre entrant, sortant ou d&#8217;erreur). L&#8217;onglet &#171;Exposition&#187; de la vue des propriétés présente la liste des types de média pour un paramètre donné :</p>
+		<p>Des types de média peuvent être définis sur un paramètre exposé en REST quelle que soit sa direction (paramètre entrant, sortant ou d&#8217;erreur). L&#8217;onglet 
+			<em>Exposition</em> de la vue de propriétés présente la liste des types de média pour un paramètre donné :
+		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Parameter_Exposition_Tab_MediaTypes.png"/>
 		</p>
@@ -1014,8 +1032,13 @@
 		<p>
 			<img border="0" src="pics/exposition/Properties_Parameter_Exposition_EditMediaTypeDialog.png"/>
 		</p>
-		<p>Le champ &#171;Example&#187; est un champ texte, destiné à recevoir une sérialisation textuelle d&#8217;un exemple.</p>
-		<p>Le champ &#171;Identifier&#187; est un champ libre, le bouton &#171;...&#187; est une aide à la saisie qui permet de choisir parmi les types de média les plus courants :</p>
+		<p>Le champ 
+			<em>Example</em> est un champ texte, destiné à recevoir une sérialisation textuelle d&#8217;un exemple.
+		</p>
+		<p>Le champ 
+			<em>Identifier</em> est un champ libre, le bouton 
+			<em>...</em> est une aide à la saisie qui permet de choisir parmi les types de média les plus courants :
+		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Parameter_Exposition_SelectMediaTypeStatusDialog.png"/>
 		</p>
@@ -1033,31 +1056,31 @@
 			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
 			<img border="0" src="pics/etool16/up.gif"/>, 
 			<img border="0" src="pics/etool16/down.gif"/>) les 
-			<em>Security Schemes</em> du 
+			<em>SecurityScheme</em> du 
 			<em>Component</em>.
 		</p>
 		<p>La création d&#8217;un 
-			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de spécifier son type, son nom et sa description :
+			<em>SecurityScheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de spécifier son type, son nom et sa description :
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Creation.png"/>
 		</p>
 		<p>Un double-clic sur un 
-			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;un dialogue d'édition permettant de spécifier les données spécifiques au type de 
-			<em>Security Scheme</em>.
+			<em>SecurityScheme</em> déclenche l&#8217;affichage d&#8217;un dialogue d'édition permettant de spécifier les données spécifiques au type de 
+			<em>SecurityScheme</em>.
 		</p>
 		<p>- 
 			<strong>Api Key :</strong>
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_ApiKey.png"/>
 			<br/>Un 
-			<em>Security Scheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation : dans le header, la requête ou le cookie.
+			<em>SecurityScheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation : dans le header, la requête ou le cookie.
 		</p>
 		<p>- 
 			<strong>HTTP :</strong>
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_HTTP.png"/>
 			<br/>Un 
-			<em>Security Scheme</em> de type HTTP définit un schéma d&#8217;authentification de type Basic ou Bearer.
+			<em>SecurityScheme</em> de type HTTP définit un schéma d&#8217;authentification de type Basic ou Bearer.
 			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Basic, le serveur attendra un mot de passe de type username:password, encodé en base-64.
 			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
 		</p>
@@ -1067,16 +1090,18 @@
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OAuth2.png"/>
 		</p>
 		<p>Un 
-			<em>Security Scheme</em> de type OAuth2 requiert la spécification de 
-			<em>Flows</em>, ainsi que de leurs 
-			<em>Scopes</em> :
+			<em>SecurityScheme</em> de type OAuth2 requiert la spécification de 
+			<em>Flow</em>, ainsi que de leurs 
+			<em>Scope</em> :
 			<br/>
 			<img border="0" src="pics/securityschemes/Dialog_Flow_Edition.png"/>
 		</p>
 		<p>Les 
-			<em>Flows</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification. 
-			<br/>Chaque flow propose des 
-			<em>Scopes</em>. Ces scopes définissent un droit d&#8217;accès (restreint) à une fonctionnalité prodiguée par le serveur.
+			<em>Flow</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification.
+			<br/>Chaque 
+			<em>Flow</em> propose des 
+			<em>Scope</em>. Ces 
+			<em>Scope</em> définissent un droit d&#8217;accès (restreint) à une fonctionnalité prodiguée par le serveur.
 		</p>
 		<p>- 
 			<strong>Open ID Connect :</strong>
@@ -1084,8 +1109,17 @@
 			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png"/>
 		</p>
 		<p>Open ID Connect est une couche d&#8217;identification construite sur le protocole OAuth2, avec quelques restrictions.
-			<br/>À la création d&#8217;un Security Scheme de type Open ID Connect, un Flow de type AUTHORIZATIONCODE est automatiquement créé. Ce Flow ne peut pas être supprimé, et d&#8217;autres flows ne peuvent pas être créés.
-			<br/>Le Flow AUTHORIZATIONCODE peut être édité dans le seul but d&#8217;y ajouter des scopes. Les champs URL sont inactivés :
+			<br/>À la création d&#8217;un 
+			<em>SecurityScheme</em> de type Open ID Connect, un 
+			<em>Flow</em> de type 
+			<code>AUTHORIZATIONCODE</code> est automatiquement créé. Ce 
+			<em>Flow</em> ne peut pas être supprimé, et d&#8217;autres 
+			<em>Flow</em> ne peuvent pas être créés.
+			<br/>Le 
+			<em>Flow</em> 
+			<code>AUTHORIZATIONCODE</code> peut être édité dans le seul but d&#8217;y ajouter des 
+			<em>Scope</em>. Les champs 
+			<em>URL</em> sont inactivés :
 		</p>
 		<p>
 			<img border="0" src="pics/securityschemes/Dialog_Flow_Edition_OpenID.png"/>
@@ -1099,62 +1133,63 @@
 			<img border="0" src="pics/exposition/Properties_SecurityScheme.png"/>
 		</p>
 		<p>Lorsqu&#8217;ils existent, les 
-			<em>SecuritySchemes</em> sont présentés dans la vue 
+			<em>SecurityScheme</em> sont présentés dans la vue 
 			<em>Model Explorer</em> au niveau de profondeur suivant celui du 
 			<em>Component</em>.
 		</p>
 		<h5 id="security_scheme_usage">Utilisation des schémas de sécurité</h5>
 		<p>L&#8217;utilisation des schémas de sécurité est configurable via l&#8217;onglet 
-			<em>Security</em> de la vue des propriétés d&#8217;une 
+			<em>Security</em> de la vue de propriétés d&#8217;une 
 			<em>Operation</em> (quel que soit son mode d&#8217;exposition ou sa visibilité) ou d&#8217;un 
 			<em>Service</em>.
-			<br/>Nous prenons une 
-			<em>Operation</em> comme exemple d&#8217;utilisation des schémas de sécurité dans le reste de cette section mais ceux-ci s&#8217;utilisent de la même manière sur un 
+			<br/>Dans la suite de cette section, les exemples d&#8217;utilisation des schémas de sécurité portent sur une 
+			<em>Operation</em>. Ces schémas s&#8217;utilisent de la même manière sur un 
 			<em>Service</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_Operation_Operation_Tab_Security.png"/>
 		</p>
 		<p>Cette vue permet de sélectionner les 
-			<em>SecuritySchemes</em> à appliquer à l'
+			<em>SecurityScheme</em> à appliquer à l'
 			<em>Operation</em> (
 			<img border="0" src="pics/etool16/edit.gif"/>), supprimer une affectation de 
-			<em>Security Scheme</em> à l'
+			<em>SecurityScheme</em> à l'
 			<em>Operation</em> (
 			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
 			<img border="0" src="pics/etool16/up.gif"/>, 
 			<img border="0" src="pics/etool16/down.gif"/>) les applications de 
-			<em>Security Schemes</em>.
+			<em>SecurityScheme</em>.
 		</p>
 		<p>La suppression ne supprime pas le 
-			<em>Security Scheme</em> du modèle, mais simplement son affectation à l'
+			<em>SecurityScheme</em> du modèle, mais simplement son affectation à l'
 			<em>Operation</em>.
 		</p>
 		<p>La sélection des 
-			<em>Security Schemes</em> ouvre une boîte de dialogue permettant d&#8217;ajouter, retirer, réordonner les affectations de 
-			<em>Security Schemes</em> à l'
+			<em>SecurityScheme</em> ouvre une boîte de dialogue permettant d&#8217;ajouter, retirer, réordonner les affectations de 
+			<em>SecurityScheme</em> à l'
 			<em>Operation</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Dialog_SecurityScheme_Selection.png"/>
 		</p>
 		<p>Un double-clic sur un 
-			<em>Security Scheme</em> de type 
-			<em>OAUTH2</em> ou 
-			<em>OPEN_ID_CONNECT</em> dans l&#8217;onglet 
-			<em>Security</em> ouvre une boîte de dialogue permettant de sélectionner les scopes à appliquer :
+			<em>SecurityScheme</em> de type 
+			<code>OAUTH2</code> ou 
+			<code>OPEN_ID_CONNECT</code> dans l&#8217;onglet 
+			<em>Security</em> ouvre une boîte de dialogue permettant de sélectionner les 
+			<em>Scope</em> à appliquer :
 		</p>
 		<p>
 			<img border="0" src="pics/exposition/Properties_SecurityScheme_Selection.png"/>
 		</p>
 		<p>Les 
-			<em>Security Schemes</em> accessibles pour une affectation à une 
+			<em>SecurityScheme</em> accessibles pour une affectation à une 
 			<em>Operation</em> sont ceux définis au niveau du 
 			<em>Component</em> auquel appartient l'
 			<em>Operation</em>.
 		</p>
 		<p>Quand au moins un 
-			<em>Security Scheme</em> est appliqué à une 
+			<em>SecurityScheme</em> est appliqué à une 
 			<em>Operation</em>, celle-ci est décorée avec l&#8217;icône 
 			<img border="0" src="pics/exposition/Icon_SecurityScheme.gif"/> :
 		</p>
@@ -1163,12 +1198,12 @@
 		</p>
 		<p>Si son 
 			<em>Service</em> parent applique un 
-			<em>Security Scheme</em>, l'
+			<em>SecurityScheme</em>, l'
 			<em>Operation</em> est décorée avec l&#8217;icône 
 			<img border="0" src="pics/exposition/Icon_SecuritySchemeFromService.gif"/>.
 		</p>
 		<p>Quand au moins un 
-			<em>Security Scheme</em> est appliqué à une 
+			<em>SecurityScheme</em> est appliqué à une 
 			<em>Operation</em> (soit directement, soit indirectement via son 
 			<em>Service</em> parent), son icône dans la vue 
 			<em>Model Explorer</em> est elle aussi décorée avec l&#8217;icône 
@@ -1179,8 +1214,15 @@
 		</p>
 		<h4 id="property_extension">Modélisation des extensions de propriétés</h4>
 		<p>Bien que la spécification OpenAPI tente de tenir compte de la plupart des cas d’utilisation, des données supplémentaires peuvent être ajoutées pour étendre la spécification.</p>
-		<p>Les propriétés des extensions sont implémentées sous forme de champs à motifs qui sont toujours préfixés par « x- », par exemple, x-internal-id.</p>
-		<p>Les éléments sur lesquels il est possible d&#8217;ajouter des extensions de propriétés disposent d&#8217;une section supplémentaire &#171;Properties Extensions&#187; dans l&#8217;onglet &#171;Exposition&#187; de la vue Properties.</p>
+		<p>Les propriétés des extensions sont implémentées sous forme de champs à motifs qui sont toujours préfixés par 
+			<code>x-</code>, par exemple 
+			<code>x-internal-id</code>.
+		</p>
+		<p>Les éléments sur lesquels il est possible d&#8217;ajouter des extensions de propriétés disposent d&#8217;une section supplémentaire 
+			<em>Properties extensions</em> dans l&#8217;onglet 
+			<em>Exposition</em> de la vue 
+			<em>Properties</em>.
+		</p>
 		<p>
 			<img border="0" src="pics/propertiesextension/properties_extensions_list.png"/>
 		</p>
@@ -1189,9 +1231,13 @@
 			<img border="0" src="pics/propertiesextension/properties_extension_edit.png"/>
 		</p>
 		<p>Ce dialogue est utilisé pour créer ou modifier une extension de propriété :
-			<br/>- le champ de saisie &#171;Key&#187; permet de saisir l&#8217;identifiant de l&#8217;extension de propriété. Le préfixe &#171;x-&#187; peut être omis, il est alors automatiquement ajouté.
-			<br/>- le champ &#171;Value&#187; permet de renseigner sur plusieurs lignes la valeur de l&#8217;extension de propriétés sous forme d&#8217;une chaîne de caractères.
-			<br/>- la liste déroulante &#171;Context&#187; permet de choisir l'élément OpenAPI/Swagger sur lequel sera attachée l&#8217;extension de propriétés lors de la génération.
+			<br/>- le champ de saisie 
+			<em>Key</em> permet de saisir l&#8217;identifiant de l&#8217;extension de propriété. Le préfixe 
+			<code>x-</code> peut être omis, il est alors automatiquement ajouté.
+			<br/>- le champ 
+			<em>Value</em> permet de renseigner sur plusieurs lignes la valeur de l&#8217;extension de propriétés sous forme d&#8217;une chaîne de caractères.
+			<br/>- la liste déroulante 
+			<em>Context</em> permet de choisir l'élément OpenAPI/Swagger sur lequel sera attachée l&#8217;extension de propriétés lors de la génération.
 		</p>
 		<p>Les contextes possibles pour chaque type d'élément SOA sont présentés dans le tableau ci-dessous.</p>
 		<table>
@@ -1249,7 +1295,7 @@
 			</tr>
 		</table>
 		<p>Les extensions de propriétés sont générées lors d&#8217;un export Swagger et insérées dans le modèle lors d&#8217;un import Swagger.</p>
-		<h3 id="open_api_import_export">Export / Import au format Swagger OpenAPI</h3>
+		<h3 id="open_api_import_export">Export et import au format Swagger OpenAPI</h3>
 		<h4 id="open_api_export">Export au format Swagger OpenAPI</h4>
 		<p>Une fois que les informations requises à la définition d&#8217;une 
 			<em>API REST</em> sont modélisées, il est possible de générer un fichier de spécification Swagger.
@@ -1311,7 +1357,9 @@
 		<p>
 			<img style="width:60%" border="0" src="pics/exposition/Menu_SwaggerConvert.png"/>
 		</p>
-		<p>À la fin de l&#8217;opération, un message indique si la conversion a réussi, échoué ou s&#8217;est terminée avec des avertissements. Le cas échéant, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de &#171;-3.1.0&#187; avant l&#8217;extension du fichier.</p>
+		<p>À la fin de l&#8217;opération, un message indique si la conversion a réussi, échoué ou s&#8217;est terminée avec des avertissements. Le cas échéant, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de 
+			<code>-3.1.0</code> avant l&#8217;extension du fichier.
+		</p>
 		<h2 id="complementary_features">Fonctionnalités complémentaires</h2>
 		<h3 id="requirements">Gestion des exigences</h3>
 		<p>La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir 
