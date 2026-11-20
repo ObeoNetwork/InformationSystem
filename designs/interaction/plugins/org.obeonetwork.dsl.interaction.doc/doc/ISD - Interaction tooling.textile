@@ -1,67 +1,73 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Diagrammes d'interaction
+h1(#ISDDiagrammesdinteraction). ISD - Diagrammes d'interaction
+
+h2(#presentation). Présentation
 
 Les diagrammes d'interaction permettent de définir des diagrammes de séquence sur quasiment la totalité des éléments définis dans IS Designer, **à l'exception du métamodèle Database**.
 
 Les diagrammes d'interaction manipulent des concepts très proches des diagrammes de séquence UML.
 
-!{width:100%}pics/Diagram.png!
-
-h2. Création d'un modèle d'interaction
+h2(#Crationdunmodledinteraction). Création d'un modèle d'interaction
 
 Un assistant de création de modèles d'interaction est accessible via le menu :
 
-bq. File > New > Other ... > Interaction Model (Catégorie IS Designer)
+bq. _File > New > Other... > Interaction Model_ (catégorie _IS Designer_)
 
-!pics/Interaction-ModelCreationWizard-01.png!
+!pics/interaction/NewWizard-InteractionModelSelection.png!
 
-Cet assistant permet de définir 
+Cet assistant permet de définir :
 * le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s'il n'y a pas d'extension précisée),
 * le projet ou répertoire de destination pour cette nouvelle ressource :
 
-!pics/Interaction-ModelCreationWizard-02.png!
+!pics/interaction/ModelCreationWizard-NameAndLocation.png!
 
 Une fois l'assistant validé, le modèle est créé.
 
-h2. Création d'un diagramme d'interaction
+h2(#modeler_usage). Utilisation du modeleur
+
+h3(#Crationdundiagrammedinteraction). Création d'un diagramme d'interaction
  
-Pour pouvoir créer un diagramme d'interaction, il faut activer le point de vue _Interaction_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+Pour créer un diagramme d'interaction, activer le point de vue _Interaction_ via le menu contextuel _Viewpoints Selection_ du projet ou du fichier @*.aird@.
 
-Une fois le point de vue activé, une entrée _New interaction_ est ajoutée au menu contextuel des éléments pour lesquels un diagramme d'interaction peut être créé.
+Une fois le point de vue activé, sélectionner _New interaction_ dans le menu contextuel des éléments pour lesquels un diagramme d'interaction peut être créé.
 
-!pics/CreationMenu.png!
+!{max-width:100%}pics/interaction/ModelExplorerContextMenu-NewInteraction.png!
 
 Un objet _Interaction_ et un diagramme de séquence sont alors créés et visibles sous l'objet sélectionné.
 Il est possible de créer autant de diagrammes de séquence que voulu pour un même objet.
 
-!pics/DiagramInExplorer.png!
+!pics/interaction/ModelExplorer-InteractionDiagram.png!
 
-h2. Navigation dans les diagrammes
+h3(#Navigationdanslesdiagrammes). Navigation dans les diagrammes
 
 Étant donné qu'il y a très peu de contraintes sur l'emplacement d'un diagramme d'interaction, il peut être utile d'utiliser l'arborescence par point de vue pour le retrouver, comme décrit dans le chapitre "ISD - Environment tooling":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html de la documentation.
 
-h2. Éléments affichés et palette d'outils
+h2(#sequence_diagram). Sequence Diagram
+
+!{max-width:100%}pics/interaction/SequenceDiagram.png!
+
+h3(#lmentsaffichsetpalettedoutils). Éléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
 * _Participant_ : définit une ligne de vie.
 * _Call_ : message échangé entre deux participants. Les messages peuvent être des appels simples, des messages de retour, des messages de création ou des messages de destruction.
 * _Execution_ : une exécution représente un moment où un participant est actif et effectue des traitements.
-* _State Invariant_ : utilisé pour indiquer un état obtenu à ce moment du diagramme.
-* _Interaction Use_ : lien vers un autre diagramme d'interaction.
-* _Combined Fragment_ et _Operand_ : ces concepts sont utilisés pour représenter des boucles ou des traitements conditionnels.
+* _StateInvariant_ : utilisé pour indiquer un état obtenu à ce moment du diagramme.
+* _InteractionUse_ : lien vers un autre diagramme d'interaction.
+* _CombinedFragment_ et _Operand_ : ces concepts sont utilisés pour représenter des boucles ou des traitements conditionnels.
 
 Les outils fournis par la palette sont :
 
-| !pics/tools/Participant.png! | Création d'un participant et de sa ligne de vie. |
-| !pics/tools/Call.png! | Création d'un message d'appel simple. |
-| !pics/tools/SyncCall.png! | Création d'un message d'appel synchrone. Un message d'appel simple est créé, une zone d'exécution est créée sur le participant appelé. Enfin, un message de retour vers le participant initial est créé. |
-| !pics/tools/AsyncCall.png! | Création d'un message d'appel asynchrone. Un message d'appel et une zone d'exécution sur le participant appelé sont créés. L'appel étant asynchrone, aucun message de retour n'est créé. |
-| !pics/tools/Return.png! | Création d'un message de retour. |
-| !pics/tools/Create.png! | Création d'un message de création. L'initialisation du participant est rattachée à l'extrémité du message. |
-| !pics/tools/Destroy.png! | Création d'un message de destruction. La ligne de vie du participant appelé est interrompue par une croix au niveau de l'extrémité du message. |
-| !pics/tools/Execution.png! | Création d'une zone d'exécution. |
-| !pics/tools/StateInvariant.png! | Création d'un invariant d'état. |
-| !pics/tools/InteractionUse.png! | Création d'un lien vers un autre diagramme d'interaction. |
-| !pics/tools/CombinedFragment.png! | Création d'un fragment combiné. |
-| !pics/tools/Operand.png! | Création d'un opérande. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateParticipant.png! | Création d'un participant et de sa ligne de vie. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateCall.png! | Création d'un message d'appel simple. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateSynchronousCall.png! | Création d'un message d'appel synchrone. Un message d'appel simple est créé, une zone d'exécution est créée sur le participant appelé. Enfin, un message de retour vers le participant initial est créé. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateAsynchronousCall.png! | Création d'un message d'appel asynchrone. Un message d'appel et une zone d'exécution sur le participant appelé sont créés. L'appel étant asynchrone, aucun message de retour n'est créé. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateReturnMessage.png! | Création d'un message de retour. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateCreationMessage.png! | Création d'un message de création. L'initialisation du participant est rattachée à l'extrémité du message. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateDestructionMessage.png! | Création d'un message de destruction. La ligne de vie du participant appelé est interrompue par une croix au niveau de l'extrémité du message. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateExecution.png! | Création d'une zone d'exécution. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateStateInvariant.png! | Création d'un invariant d'état. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateInteractionUse.png! | Création d'un lien vers un autre diagramme d'interaction. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateCombinedFragment.png! | Création d'un fragment combiné. |
+| !pics/interaction/tools/SequenceDiagramPalette-CreateOperand.png! | Création d'un opérande. |

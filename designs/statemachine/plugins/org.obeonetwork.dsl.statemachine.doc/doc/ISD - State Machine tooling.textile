@@ -1,59 +1,65 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Diagrammes de machine à états
+h1(#ISDDiagrammesdemachinetats). ISD - Diagrammes de machine à états
 
-Les diagrammes StateMachine permettent de définir des machines à états sur quasiment la totalité des éléments définis dans IS Designer, **à l'exception du métamodèle Database**.
+h2(#presentation). Présentation
 
-Les diagrammes de machines à états manipulent des concepts très proches des diagrammes StateMachine définis par UML.
+Les diagrammes de machines à états permettent de définir des machines à états sur quasiment la totalité des éléments définis dans IS Designer, **à l'exception du métamodèle Database**.
 
-!{width:100%}pics/statemachine.png!
+Les diagrammes de machines à états manipulent des concepts très proches des diagrammes de machines à états définis par UML.
 
-h2. Création d'un modèle de machine à états
+h2(#Crationdunmodledemachinetats). Création d'un modèle de machine à états
 
 Un assistant de création de modèles de machine à états est accessible via le menu :
 
-bq. File > New > Other ... > State Machine Model (Catégorie IS Designer)
+bq. _File > New > Other... > State Machine Model_ (catégorie _IS Designer_)
 
-!pics/StateMachine-ModelCreationWizard-01.png!
+!pics/statemachine/NewWizard-StateMachineModelSelection.png!
 
-Cet assistant permet de définir 
+Cet assistant permet de définir :
 * le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s'il n'y a pas d'extension précisée),
 * le projet ou répertoire de destination pour cette nouvelle ressource :
 
-!pics/StateMachine-ModelCreationWizard-02.png!
+!pics/statemachine/ModelCreationWizard-NameAndLocation.png!
 
 Une fois l'assistant validé, le modèle est créé.
 
-h2. Création d'un diagramme de machine à états
+h2(#modeler_usage). Utilisation du modeleur
+
+h3(#Crationdundiagrammedemachinetats). Création d'un diagramme de machine à états
  
-Pour pouvoir créer un diagramme de machine à états, il faut activer le point de vue _State Machine_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+Pour créer un diagramme de machine à états, activer le point de vue _State Machine_ via le menu contextuel _Viewpoints Selection_ du projet ou du fichier @*.aird@.
 
-Une fois le point de vue activé, une entrée _New state machine_ est ajoutée au menu contextuel des éléments pour lesquels un diagramme de machine à états peut être créé.
+Une fois le point de vue activé, sélectionner _New state machine_ dans le menu contextuel des éléments pour lesquels un diagramme de machine à états peut être créé.
 
-!pics/CreationMenu.png!
+!{max-width:100%}pics/statemachine/ModelExplorerContextMenu-NewStateMachine.png!
 
-Un objet _State Machine_ et un diagramme de machine à états sont alors créés et visibles sous l'objet sélectionné.
+Un objet _StateMachine_ et un diagramme de machine à états sont alors créés et visibles sous l'objet sélectionné.
 Il est possible de créer autant de diagrammes de machines à états que voulu pour un même objet.
 
-!pics/DiagramInExplorer.png!
+!pics/statemachine/ModelExplorer-StateMachineDiagram.png!
 
-h2. Navigation dans les diagrammes
+h3(#Navigationdanslesdiagrammes). Navigation dans les diagrammes
 
 Étant donné qu'il y a très peu de contraintes sur l'emplacement d'un diagramme de machine à états, il peut être utile d'utiliser l'arborescence par point de vue pour le retrouver, comme décrit dans le chapitre "ISD - Environment tooling":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html de la documentation.
 
-h2. Éléments affichés et palette d'outils
+h2(#state_machine_diagram). State Machine Diagram
+
+!{max-width:100%}pics/statemachine/StateMachineDiagram.png!
+
+h3(#lmentsaffichsetpalettedoutils). Éléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
-* _Initial State_ : point de départ de la machine à états.
-* _Final State_ : point final de la machine à états.
+* _InitialState_ : point de départ de la machine à états.
+* _FinalState_ : point final de la machine à états.
 * _State_ : état de la machine.
 * _Transition_ : transition d'un état à un autre, associée à une condition.
 * _Region_ : regroupement logique d'états.
 
 Les outils fournis par la palette sont :
 
-| !pics/tools/InitialState.png! | Création d'un état initial. |
-| !pics/tools/FinalState.png! | Création d'un état final. |
-| !pics/tools/Transition.png! | Création d'une transition entre deux états. |
-| !pics/tools/Region.png! | Création d'une région. |
-| !pics/tools/State.png! | Création d'un état. |
+| !pics/statemachine/tools/StateMachineDiagramPalette-CreateInitialState.png! | Création d'un état initial. |
+| !pics/statemachine/tools/StateMachineDiagramPalette-CreateFinalState.png! | Création d'un état final. |
+| !pics/statemachine/tools/StateMachineDiagramPalette-CreateTransition.png! | Création d'une transition entre deux états. |
+| !pics/statemachine/tools/StateMachineDiagramPalette-CreateRegion.png! | Création d'une région. |
+| !pics/statemachine/tools/StateMachineDiagramPalette-CreateState.png! | Création d'un état. |

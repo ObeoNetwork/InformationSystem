@@ -8,54 +8,60 @@
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
 		<h1 id="ISDDiagrammesdinteraction">ISD &#8211; Diagrammes d&#8217;interaction</h1>
+		<h2 id="presentation">Présentation</h2>
 		<p>Les diagrammes d&#8217;interaction permettent de définir des diagrammes de séquence sur quasiment la totalité des éléments définis dans IS Designer, 
 			<b>à l&#8217;exception du métamodèle Database</b>.
 		</p>
 		<p>Les diagrammes d&#8217;interaction manipulent des concepts très proches des diagrammes de séquence UML.</p>
-		<p>
-			<img style="width:100%" border="0" src="pics/Diagram.png"/>
-		</p>
 		<h2 id="Crationdunmodledinteraction">Création d&#8217;un modèle d&#8217;interaction</h2>
 		<p>Un assistant de création de modèles d&#8217;interaction est accessible via le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Interaction Model (Catégorie IS Designer)</p>
+			<p>
+				<em>File &gt; New &gt; Other... &gt; Interaction Model</em> (catégorie 
+				<em>IS Designer</em>)
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/Interaction-ModelCreationWizard-01.png"/>
+			<img border="0" src="pics/interaction/NewWizard-InteractionModelSelection.png"/>
 		</p>
-		<p>Cet assistant permet de définir </p>
+		<p>Cet assistant permet de définir :</p>
 		<ul>
 			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
 			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Interaction-ModelCreationWizard-02.png"/>
+			<img border="0" src="pics/interaction/ModelCreationWizard-NameAndLocation.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
-		<h2 id="Crationdundiagrammedinteraction">Création d&#8217;un diagramme d&#8217;interaction</h2>
-		<p>Pour pouvoir créer un diagramme d&#8217;interaction, il faut activer le point de vue 
-			<em>Interaction</em> sur le projet via le menu contextuel 
-			<em>Viewpoints Selection</em> sur le projet ou sur le fichier 
-			<em>aird</em>.
+		<h2 id="modeler_usage">Utilisation du modeleur</h2>
+		<h3 id="Crationdundiagrammedinteraction">Création d&#8217;un diagramme d&#8217;interaction</h3>
+		<p>Pour créer un diagramme d&#8217;interaction, activer le point de vue 
+			<em>Interaction</em> via le menu contextuel 
+			<em>Viewpoints Selection</em> du projet ou du fichier 
+			<code>*.aird</code>.
 		</p>
-		<p>Une fois le point de vue activé, une entrée 
-			<em>New interaction</em> est ajoutée au menu contextuel des éléments pour lesquels un diagramme d&#8217;interaction peut être créé.
+		<p>Une fois le point de vue activé, sélectionner 
+			<em>New interaction</em> dans le menu contextuel des éléments pour lesquels un diagramme d&#8217;interaction peut être créé.
 		</p>
 		<p>
-			<img border="0" src="pics/CreationMenu.png"/>
+			<img style="max-width:100%" border="0" src="pics/interaction/ModelExplorerContextMenu-NewInteraction.png"/>
 		</p>
 		<p>Un objet 
 			<em>Interaction</em> et un diagramme de séquence sont alors créés et visibles sous l&#8217;objet sélectionné.
 			<br/>Il est possible de créer autant de diagrammes de séquence que voulu pour un même objet.
 		</p>
 		<p>
-			<img border="0" src="pics/DiagramInExplorer.png"/>
+			<img border="0" src="pics/interaction/ModelExplorer-InteractionDiagram.png"/>
 		</p>
-		<h2 id="Navigationdanslesdiagrammes">Navigation dans les diagrammes</h2>
+		<h3 id="Navigationdanslesdiagrammes">Navigation dans les diagrammes</h3>
 		<p>Étant donné qu&#8217;il y a très peu de contraintes sur l&#8217;emplacement d&#8217;un diagramme d&#8217;interaction, il peut être utile d&#8217;utiliser l&#8217;arborescence par point de vue pour le retrouver, comme décrit dans le chapitre 
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html">ISD &#8211; Environment tooling</a> de la documentation.
 		</p>
-		<h2 id="lmentsaffichsetpalettedoutils">Éléments affichés et palette d&#8217;outils</h2>
+		<h2 id="sequence_diagram">Sequence Diagram</h2>
+		<p>
+			<img style="max-width:100%" border="0" src="pics/interaction/SequenceDiagram.png"/>
+		</p>
+		<h3 id="lmentsaffichsetpalettedoutils">Éléments affichés et palette d&#8217;outils</h3>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
@@ -68,13 +74,13 @@
 				<em>Execution</em> : une exécution représente un moment où un participant est actif et effectue des traitements.
 			</li>
 			<li>
-				<em>State Invariant</em> : utilisé pour indiquer un état obtenu à ce moment du diagramme.
+				<em>StateInvariant</em> : utilisé pour indiquer un état obtenu à ce moment du diagramme.
 			</li>
 			<li>
-				<em>Interaction Use</em> : lien vers un autre diagramme d&#8217;interaction.
+				<em>InteractionUse</em> : lien vers un autre diagramme d&#8217;interaction.
 			</li>
 			<li>
-				<em>Combined Fragment</em> et 
+				<em>CombinedFragment</em> et 
 				<em>Operand</em> : ces concepts sont utilisés pour représenter des boucles ou des traitements conditionnels.
 			</li>
 		</ul>
@@ -82,73 +88,73 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Participant.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateParticipant.png"/>
 				</td>
 				<td>Création d&#8217;un participant et de sa ligne de vie.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Call.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateCall.png"/>
 				</td>
 				<td>Création d&#8217;un message d&#8217;appel simple.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/SyncCall.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateSynchronousCall.png"/>
 				</td>
 				<td>Création d&#8217;un message d&#8217;appel synchrone. Un message d&#8217;appel simple est créé, une zone d&#8217;exécution est créée sur le participant appelé. Enfin, un message de retour vers le participant initial est créé.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/AsyncCall.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateAsynchronousCall.png"/>
 				</td>
 				<td>Création d&#8217;un message d&#8217;appel asynchrone. Un message d&#8217;appel et une zone d&#8217;exécution sur le participant appelé sont créés. L&#8217;appel étant asynchrone, aucun message de retour n&#8217;est créé.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Return.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateReturnMessage.png"/>
 				</td>
 				<td>Création d&#8217;un message de retour.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Create.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateCreationMessage.png"/>
 				</td>
 				<td>Création d&#8217;un message de création. L&#8217;initialisation du participant est rattachée à l&#8217;extrémité du message.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Destroy.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateDestructionMessage.png"/>
 				</td>
 				<td>Création d&#8217;un message de destruction. La ligne de vie du participant appelé est interrompue par une croix au niveau de l&#8217;extrémité du message.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Execution.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateExecution.png"/>
 				</td>
 				<td>Création d&#8217;une zone d&#8217;exécution.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/StateInvariant.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateStateInvariant.png"/>
 				</td>
 				<td>Création d&#8217;un invariant d'état.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/InteractionUse.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateInteractionUse.png"/>
 				</td>
 				<td>Création d&#8217;un lien vers un autre diagramme d&#8217;interaction.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/CombinedFragment.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateCombinedFragment.png"/>
 				</td>
 				<td>Création d&#8217;un fragment combiné.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/tools/Operand.png"/>
+					<img border="0" src="pics/interaction/tools/SequenceDiagramPalette-CreateOperand.png"/>
 				</td>
 				<td>Création d&#8217;un opérande.</td>
 			</tr>
