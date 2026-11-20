@@ -7,7 +7,8 @@
 		<p>
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDOutillagededatabinding">ISD – Outillage de databinding</h1>
+		<h1 id="databinding">ISD &#8211; Outillage de databinding</h1>
+		<h2 id="presentation">Présentation</h2>
 		<p>L’outillage de databinding permet de modéliser le databinding entre des structures de données.
 			<br/>Une structure de données est soit un type structuré (
 			<em>Entity</em> du modeleur Entity, 
@@ -25,7 +26,7 @@
 			</b>
 			<br/>En effet, la vue Mockup fournit des fonctionnalités d'édition de plus haut niveau que l'éditeur de databinding.
 		</p>
-		<h2 id="PointdevueISDatabinding">Point de vue IS Databinding</h2>
+		<h2 id="viewpoint_activation">Activation du point de vue IS Databinding</h2>
 		<p>L’outillage de databinding embarque un point de vue fournissant :</p>
 		<ul>
 			<li>Un diagramme permettant de créer un databinding entre deux types structurés ou entre un 
@@ -40,31 +41,33 @@
 			<em>Viewpoint</em> ouverte, lancer le menu
 		</p>
 		<blockquote>
-			<p>Viewpoint Selection</p>
+			<p>
+				<em>Viewpoint Selection</em>
+			</p>
 		</blockquote>
 		<p>Choisir le point de vue 
 			<em>IS Databinding</em>.
 		</p>
 		<p>
-			<img border="0" src="pics/ISDatabindingViewpointSelection.png"/>
+			<img border="0" src="pics/databinding/ViewpointSelection-ISDatabinding.png"/>
 		</p>
-		<h3 id="Databindingdiagram">Databinding diagram</h3>
+		<h2 id="databinding_diagram">Databinding diagram</h2>
+		<h3 id="diagram_creation">Création du diagramme</h3>
 		<p>Le 
-			<em>Databinding Diagram</em> permet de créer un 
+			<em>Databinding diagram</em> permet de créer un 
 			<em>Binding</em> entre deux types structurés ou un 
-			<em>ViewContainer</em> et un type structuré. Cet objet peut ensuite être édité en détail en lançant l'éditeur spécifique 
-			<em>Binding editor</em> par un double-clic sur l'élément.
+			<em>ViewContainer</em> et un type structuré. Pour éditer cet objet en détail, effectuer un double-clic sur l'élément pour ouvrir l'éditeur de binding.
 			<br/>Ce diagramme peut être créé sur un package (
 			<em>Namespace</em>) ou sur un 
 			<em>ViewContainer</em> n’ayant pas comme parent un autre 
 			<em>ViewContainer</em>.
 		</p>
 		<p>
-			<img border="0" src="pics/diagram/CreateDiagram.png"/>
+			<img style="max-width:100%" border="0" src="pics/databinding/diagram/ModelExplorer-CreateDatabindingDiagram.png"/>
 		</p>
-		<h4 id="Elmentsaffichsetpalettedoutils">Éléments affichés et palette d’outils</h4>
+		<h3 id="diagram_elements_tools">Éléments affichés et palette d’outils</h3>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagram/BindingDiagram.png"/>
+			<img style="max-width:100%" border="0" src="pics/databinding/diagram/DatabindingDiagram.png"/>
 		</p>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
@@ -85,7 +88,7 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagram/NewBinding.png"/>
+					<img border="0" src="pics/databinding/diagram/DatabindingDiagramPalette-NewBinding.png"/>
 				</td>
 				<td>Création d’un 
 					<em>Binding</em> entre deux éléments. Un assistant permet de sélectionner une première structure de données, puis de sélectionner un deuxième type structuré dans toute la session de travail.
@@ -93,35 +96,31 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagram/BindExistingElement.png"/>
+					<img border="0" src="pics/databinding/diagram/DatabindingDiagramPalette-BindExistingElement.png"/>
 				</td>
 				<td>Création d’un 
 					<em>Binding</em> entre une structure de données déjà affichée sur le diagramme et un deuxième type structuré. Un assistant permet de sélectionner ce deuxième type structuré dans toute la session de travail.
 				</td>
 			</tr>
 		</table>
-		<h4 id="Navigationverslditeurdebinding">Navigation vers l'éditeur de binding</h4>
-		<p>Il est possible de naviguer depuis ce diagramme vers l'éditeur de binding :</p>
-		<ul>
-			<li>Sur un 
-				<em>Binding</em>, un double-clic ou le menu 
-				<em>Open</em> permettent d’ouvrir un 
-				<em>Binding Editor</em> sur l'élément sélectionné.
-			</li>
-		</ul>
-		<h3 id="Bindingeditor">Binding editor</h3>
+		<h3 id="binding_editor_navigation">Navigation vers l'éditeur de binding</h3>
+		<p>Sur un 
+			<em>Binding</em>, effectuer un double-clic ou utiliser le menu 
+			<em>Open</em> pour ouvrir l'éditeur de binding sur l'élément sélectionné.
+		</p>
+		<h2 id="binding_editor">Éditeur de binding</h2>
 		<p>L'éditeur de databinding est un éditeur spécifique permettant de décrire en détail le databinding entre deux structures de données. Le moyen le plus simple pour l’ouvrir est de double-cliquer sur le 
 			<em>Binding</em> voulu sur le diagramme décrit au chapitre précédent.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/editor/BindingEditor.png"/>
+			<img style="max-width:100%" border="0" src="pics/databinding/editor/BindingEditor.png"/>
 		</p>
 		<p>Le contexte de l'éditeur de databinding est un 
 			<em>BindingInfo</em>. L'éditeur de databinding ne permet pas d'éditer simultanément d’autres 
-			<em>BindingInfos</em>, contrairement à la vue 
+			<em>BindingInfo</em>, contrairement à la vue 
 			<em>View Container Mockup</em> du modeleur Cinematic.
 		</p>
-		<h4 id="Structuregnraledelditeur">Structure générale de l'éditeur</h4>
+		<h3 id="editor_layout">Structure générale de l'éditeur</h3>
 		<p>L'éditeur est divisé en différentes parties :</p>
 		<ul>
 			<li>Une vue arborescente de la première structure de données à gauche.</li>
@@ -132,42 +131,45 @@
 			</li>
 			<li>Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs.</li>
 		</ul>
-		<h4 id="Vuearborescenteduntypestructur">Vue arborescente d’un type structuré</h4>
+		<h3 id="structured_type_tree">Vue arborescente d’un type structuré</h3>
 		<p>
-			<img border="0" src="pics/editor/VueArborescente.png"/>
+			<img border="0" src="pics/databinding/editor/BindingEditor-StructuredTypeTree.png"/>
 		</p>
 		<p>Cette vue présente les données structurées ainsi que les données contenues de manière arborescente.
 			<br/>Dans le cas des références ou des 
-			<em>ViewContainers</em>, il est possible de les déplier pour avoir accès aux sous-éléments (types structurés ou 
-			<em>ViewElements</em>).
+			<em>ViewContainer</em>, il est possible de les déplier pour avoir accès aux sous-éléments (types structurés ou 
+			<em>ViewElement</em>).
 		</p>
-		<p>À partir de cette vue, il est possible de sélectionner un élément à gauche ou à droite et de le faire glisser jusqu'à la vue opposée sur un autre élément. Ceci crée un 
+		<p>À partir de cette vue, sélectionner un élément à gauche ou à droite, puis effectuer un glisser-déposer sur un autre élément dans la vue opposée. Ceci crée un 
 			<em>BindingReference</em> entre les deux éléments.
 		</p>
 		<p>Lorsqu’un ou plusieurs éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.</p>
-		<h4 id="Zonecentrale">Zone centrale</h4>
+		<h3 id="editor_central_area">Zone centrale</h3>
 		<p>
-			<img border="0" src="pics/editor/ZoneCentrale.png"/>
+			<img style="max-width:100%" border="0" src="pics/databinding/editor/BindingEditor-CentralArea.png"/>
 		</p>
 		<p>La zone centrale permet de visualiser les liens entre éléments.</p>
-		<p>Il est possible de sélectionner un ou plusieurs liens pour les rendre plus visibles. La sélection multiple se fait en maintenant la touche Ctrl enfoncée.
+		<p>Sélectionner un ou plusieurs liens pour les rendre plus visibles. Pour effectuer une sélection multiple, maintenir la touche 
+			<em>Ctrl</em> enfoncée.
 			<br/>Lorsqu’un lien est sélectionné, les éléments liés sont mis en surbrillance et le contenu de la zone inférieure est mis à jour.
 		</p>
-		<p>Quand des liens sont sélectionnés, un appui sur la touche Del permet de les supprimer après un message de confirmation.</p>
-		<h4 id="Zoneinfrieure">Zone inférieure</h4>
+		<p>Quand des liens sont sélectionnés, un appui sur la touche 
+			<em>Del</em> permet de les supprimer après un message de confirmation.
+		</p>
+		<h3 id="editor_lower_area">Zone inférieure</h3>
 		<p>
-			<img style="width:100%" border="0" src="pics/editor/ZoneInferieure.png"/>
+			<img style="max-width:100%" border="0" src="pics/databinding/editor/BindingEditor-ConversionExpressions.png"/>
 		</p>
 		<p>La zone inférieure affiche les champs de saisie en fonction des liens sélectionnés :</p>
 		<ul>
-			<li>un premier groupe affiche un champ texte pour chaque élément concerné dans la vue arborescente de gauche.</li>
-			<li>un deuxième groupe affiche un champ texte pour chaque élément concerné dans la vue arborescente de droite.</li>
+			<li>Un premier groupe affiche un champ texte pour chaque élément concerné dans la vue arborescente de gauche.</li>
+			<li>Un deuxième groupe affiche un champ texte pour chaque élément concerné dans la vue arborescente de droite.</li>
 		</ul>
 		<p>Les champs de saisie permettent de saisir des expressions utilisées pour décrire comment les données sont converties. Le texte saisi n’est pas interprété, c’est à l’utilisateur de choisir le pseudo-langage qui lui convient le mieux.</p>
 		<p>La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au-dessus du bouton 
 			<em>Auto bind !</em>.
 		</p>
-		<h4 id="BoutonAutobind">Bouton Auto bind !</h4>
+		<h3 id="auto_bind">Bouton Auto bind !</h3>
 		<p>Le bouton 
 			<em>Auto bind !</em> permet de créer automatiquement des liens entre les éléments à gauche et à droite nommés de la même façon.
 		</p>
