@@ -1,6 +1,6 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1(#ISDDiagrammesdemachinetats). ISD - Diagrammes de machine à états
+h1(#state_machine_tooling). ISD - Diagrammes de machine à états
 
 h2(#presentation). Présentation
 
@@ -8,7 +8,7 @@ Les diagrammes de machines à états permettent de définir des machines à éta
 
 Les diagrammes de machines à états manipulent des concepts très proches des diagrammes de machines à états définis par UML.
 
-h2(#Crationdunmodledemachinetats). Création d'un modèle de machine à états
+h2(#model_creation). Création d'un modèle de machine à états
 
 Un assistant de création de modèles de machine à états est accessible via le menu :
 
@@ -26,7 +26,7 @@ Une fois l'assistant validé, le modèle est créé.
 
 h2(#modeler_usage). Utilisation du modeleur
 
-h3(#Crationdundiagrammedemachinetats). Création d'un diagramme de machine à états
+h3(#diagram_creation). Création d'un diagramme de machine à états
  
 Pour créer un diagramme de machine à états, activer le point de vue _State Machine_ via le menu contextuel _Viewpoints Selection_ du projet ou du fichier @*.aird@.
 
@@ -39,7 +39,7 @@ Il est possible de créer autant de diagrammes de machines à états que voulu p
 
 !pics/statemachine/ModelExplorer-StateMachineDiagram.png!
 
-h3(#Navigationdanslesdiagrammes). Navigation dans les diagrammes
+h3(#diagram_navigation). Navigation dans les diagrammes
 
 Étant donné qu'il y a très peu de contraintes sur l'emplacement d'un diagramme de machine à états, il peut être utile d'utiliser l'arborescence par point de vue pour le retrouver, comme décrit dans le chapitre "ISD - Environment tooling":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html de la documentation.
 
@@ -47,7 +47,7 @@ h2(#state_machine_diagram). State Machine Diagram
 
 !{max-width:100%}pics/statemachine/StateMachineDiagram.png!
 
-h3(#lmentsaffichsetpalettedoutils). Éléments affichés et palette d'outils
+h3(#diagram_tools). Éléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
 * _InitialState_ : point de départ de la machine à états.

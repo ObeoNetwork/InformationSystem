@@ -37,11 +37,11 @@ Lorsqu'un modèle SOA est créé à l'aide de cet assistant, les points de vue _
 * Le point de vue _SOA (ISD Consolidated view)_ est décrit dans la section de documentation "ISD – SOA (ISD consolidated view)":../../org.obeonetwork.is.design.doc/doc/ISD%20-%20SOA%20(ISD%20consolidated%20view).html.
 * Le point de vue _Environment Views_ fournit les vues de propriétés communes avec d'autres modeleurs, par exemple pour le _Namespace_.
 
-h2(#viewpoint). Utilisation du modeleur
+h2(#modeler_usage). Utilisation du modeleur
 
 Le point de vue _SOA Views_ fourni par SOA Designer est dédié à la modélisation des composants métier. Il permet de visualiser et modifier un modèle SOA au travers de différents types de diagrammes et vues de propriétés.
 
-h3. Ouverture d'une session et activation du point de vue _SOA Views_
+h3(#session_opening). Ouverture d'une session et activation du point de vue _SOA Views_
 
 Pour ouvrir une session de travail sur un modèle SOA, utiliser l'une des méthodes suivantes :
 * ouvrir le _Modeling Project_ contenant le modèle,
