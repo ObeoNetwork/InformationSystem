@@ -1,56 +1,62 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Outillage de documentation
+h1(#documentation_tooling). ISD - Outillage de documentation
 
-L'*outillage de documentation* d'*IS Designer* apporte un ensemble d'outils permettant d'associer de la documentation aux modèles édités via IS Designer. Il apporte une vue permettant l'ajout ou la suppression de liens de documentation sur les éléments de modèles.
+h2(#presentation). Présentation
 
-h2. La vue Related Documentation
+L'outillage de documentation d'IS Designer permet d'associer de la documentation aux modèles. La vue _Related Documentation_ permet d'ajouter, de modifier et de supprimer des liens de documentation sur les éléments de modèles.
 
-La gestion de la documentation se fait via la vue _Related Documentation_. Son ouverture se fait via le menu :
+h2(#related_documentation_view). Vue Related Documentation
 
-bq. Window > Show View > Other ... > Related Documentation (Catégorie Information System Designer)
+h3(#view_opening). Ouverture de la vue
 
-!pics/RelatedDocumentationView.png!
+Ouvrir la vue _Related Documentation_ depuis le menu :
 
-La vue est composée d'un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans IS Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L'activation de cette fonctionnalité se fait via l'action "Show children documentation" dans le menu de la vue.
+bq. _Window > Show View > Other... > Related Documentation_ (catégorie _Information System Designer_)
 
-!pics/RelatedDocumentationViewShowChildrenAction.png!
+!{max-width:100%}pics/documentation/RelatedDocumentationView.png!
+
+h3(#view_content). Contenu de la vue
+
+La vue est composée d'un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans IS Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L'activation de cette fonctionnalité se fait via l'action _Show children documentation_ dans le menu de la vue.
+
+!{max-width:100%}pics/documentation/RelatedDocumentationView-ShowChildrenMenu.png!
 
 La vue comporte également trois actions permettant d'ajouter, d'éditer ou de supprimer un lien de documentation.
 
-!pics/RelatedDocumentationViewActions.png! 
+!{max-width:100%}pics/documentation/RelatedDocumentationView-Toolbar.png!
 
-h2. Gestion des liens de documentation
+h2(#documentation_links). Gestion des liens de documentation
 
-h3. Ajout de lien
+h3(#link_creation). Ajout d'un lien
 
-La première action de la vue permet d'ajouter des liens de documentation sur l'élément sélectionné.
+Sélectionner l'élément auquel ajouter un lien de documentation, puis utiliser la première action de la vue.
 
-!pics/RelatedDocumentationViewAddAction.png!
+!pics/documentation/RelatedDocumentationView-AddLinkAction.png!
 
 Une fois lancée, l'action ouvre une boîte de dialogue permettant de saisir le nom du lien ainsi que sa référence. La référence peut être un lien web ou un fichier de l'espace de travail.
 
-!pics/AddDocumentationLinkDialog.png! 
+!pics/documentation/DocumentationLinkDialog-NewEntry.png!
 
-h3. Édition de lien
+h3(#link_edition). Édition d'un lien
 
-La deuxième action ouvre à nouveau la boîte d'édition du lien afin de pouvoir modifier des informations sur un lien.
+Sélectionner le lien à modifier, puis utiliser la deuxième action de la vue. La boîte de dialogue d'édition du lien s'ouvre à nouveau.
 
-!pics/RelatedDocumentationViewEditAction.png!
+!pics/documentation/RelatedDocumentationView-EditLinkAction.png!
 
-h3. Suppression de lien
+h3(#link_deletion). Suppression d'un lien
 
-La troisième action permet finalement de supprimer un ou plusieurs liens de l'élément.
+Sélectionner les liens à supprimer, puis utiliser la troisième action de la vue.
 
-!pics/RelatedDocumentationViewDeleteAction.png!
+!pics/documentation/RelatedDocumentationView-DeleteLinkAction.png!
 
 En lançant cette action, toutes les entrées sélectionnées dans la vue seront retirées de l'élément. Une boîte de confirmation s'ouvre de façon à éviter toute erreur de manipulation.
 
-h2. Accès à la documentation
+h2(#documentation_access). Accès à la documentation
 
-Il est possible d'ouvrir la documentation depuis la vue _Related Documentation_. Un double-clic sur une entrée ouvrira :
+Effectuer un double-clic sur une entrée de la vue _Related Documentation_ pour ouvrir :
 
-* Un navigateur web s'il s'agit d'une entrée web.
-* L'éditeur par défaut sur le fichier s'il s'agit d'un fichier de l'espace de travail.
+* un navigateur web s'il s'agit d'une entrée web,
+* l'éditeur par défaut sur le fichier s'il s'agit d'un fichier de l'espace de travail.
 
-!pics/DocumentationOpening.png!  
+!{max-width:100%}pics/documentation/RelatedDocumentationView-OpenWebDocumentation.png!

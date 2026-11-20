@@ -1,9 +1,16 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Contextual Explorer Documentation.html" label="ISD - Contextual Explorer Documentation">
 	<topic href="doc/ISD - Contextual Explorer Documentation.html" label="ISD - Contextual Explorer">
-		<topic href="doc/ISD - Contextual Explorer Documentation.html#VueContextualExplorer" label="Vue Contextual Explorer">
-			<topic href="doc/ISD - Contextual Explorer Documentation.html#Catgories" label="Catégories"></topic>
-			<topic href="doc/ISD - Contextual Explorer Documentation.html#Noteauxdveloppeurs" label="Note aux développeurs"></topic>
+		<topic href="doc/ISD - Contextual Explorer Documentation.html#presentation" label="Présentation"></topic>
+		<topic href="doc/ISD - Contextual Explorer Documentation.html#view_opening" label="Ouverture de la vue"></topic>
+		<topic href="doc/ISD - Contextual Explorer Documentation.html#view_layout" label="Organisation de la vue"></topic>
+		<topic href="doc/ISD - Contextual Explorer Documentation.html#categories" label="Catégories">
+			<topic href="doc/ISD - Contextual Explorer Documentation.html#database_environment_categories" label="Éléments Database et Environment"></topic>
+			<topic href="doc/ISD - Contextual Explorer Documentation.html#requirement_categories" label="Exigence sélectionnée"></topic>
+			<topic href="doc/ISD - Contextual Explorer Documentation.html#category_repository_categories" label="Catégorie ou Repository sélectionné"></topic>
+			<topic href="doc/ISD - Contextual Explorer Documentation.html#metadata_categories" label="Métadonnée sélectionnée"></topic>
+			<topic href="doc/ISD - Contextual Explorer Documentation.html#documentation_metadata_categories" label="Métadonnée de documentation sélectionnée"></topic>
 		</topic>
+		<topic href="doc/ISD - Contextual Explorer Documentation.html#view_extension" label="Extension de la vue"></topic>
 	</topic>
 </toc>

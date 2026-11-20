@@ -1,61 +1,80 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Contextual Explorer
+h1(#contextual_explorer). ISD - Contextual Explorer
+
+h2(#presentation). Présentation
 
 La vue _Contextual Explorer_ est une vue utilisée principalement pour donner des informations contextuelles en affichant les relations entre les éléments d'un projet.
-Cette vue est disponible depuis la version ISD 1.9.
 
 La documentation du Contextual Explorer est disponible à cette adresse : "https://wiki.eclipse.org/ModelingAmalgam/ContextualExplorer":https://wiki.eclipse.org/ModelingAmalgam/ContextualExplorer
 
-h2. Vue Contextual Explorer
+h2(#view_opening). Ouverture de la vue
 
-L'affichage de la vue _Contextual Explorer_ se fait via le menu :
+Ouvrir la vue _Contextual Explorer_ depuis le menu :
 
-bq. Window > Show View > Other... > Contextual Explorer (Catégorie Amalgam)
+bq. _Window > Show View > Other... > Contextual Explorer_ (catégorie _Amalgam_)
 
-!{width:1200px}pics/Simple_contextual_explorer.png!
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer.png!
 
-La vue Contextual Explorer est divisée en trois zones verticales. La zone du milieu affiche l'élément sélectionné ainsi que les représentations dans lesquelles l'élément sélectionné apparaît. La zone de gauche affiche les éléments qui font référence à l'élément affiché dans la zone centrale. La zone de droite affiche les éléments référencés par l'élément affiché dans la zone centrale. Les différents éléments à afficher sont triés dans différentes catégories pour une meilleure lisibilité.
+h2(#view_layout). Organisation de la vue
 
-h3. Catégories
+La vue _Contextual Explorer_ est divisée en trois zones verticales. La zone du milieu affiche l'élément sélectionné ainsi que les représentations dans lesquelles l'élément sélectionné apparaît. La zone de gauche affiche les éléments qui font référence à l'élément affiché dans la zone centrale. La zone de droite affiche les éléments référencés par l'élément affiché dans la zone centrale. Les différents éléments à afficher sont triés dans différentes catégories pour une meilleure lisibilité.
+
+h2(#categories). Catégories
+
+h3(#database_environment_categories). Éléments Database et Environment
 
 Lorsque l'élément sélectionné est un élément des métamodèles _Database_ ou _Environment_ (à l'exception des métadonnées) :
 La zone de gauche peut afficher les catégories :
-- "All direct references" sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné.
-- "Requirements" sous laquelle s'affichent les exigences de l'élément sélectionné.
 
-!{width:1200px}pics/Contextual_explorer_with_requirement.png!
+* _All direct references_ sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné.
+* _Requirements_ sous laquelle s'affichent les exigences de l'élément sélectionné.
+
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-RequirementsReferences.png!
 
 La zone de droite peut afficher les catégories :
-- "All direct references" sous laquelle s'affichent tous les éléments référencés par l'élément sélectionné.
-- "Metadata" sous laquelle s'affichent les métadonnées attachées à l'élément sélectionné.
 
-!{width:1200px}pics/Contextual_explorer_with_metadata.png!
+* _All direct references_ sous laquelle s'affichent tous les éléments référencés par l'élément sélectionné.
+* _Metadata_ sous laquelle s'affichent les métadonnées attachées à l'élément sélectionné.
+
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-MetadataReferences.png!
+
+h3(#requirement_categories). Exigence sélectionnée
 
 Lorsque l'élément sélectionné est un _Requirement_ :
 La zone de droite peut afficher les catégories :
-- "All direct references" sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné à l'exception des éléments sur lesquels s'applique l'exigence.
-- "References" sous laquelle s'affichent les éléments sur lesquels s'applique l'exigence.
 
-!{width:1200px}pics/Contextual_explorer_with_requirement_selected.png!
+* _All direct references_ sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné à l'exception des éléments sur lesquels s'applique l'exigence.
+* _References_ sous laquelle s'affichent les éléments sur lesquels s'applique l'exigence.
+
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-SelectedRequirement.png!
+
+h3(#category_repository_categories). Catégorie ou Repository sélectionné
 
 Lorsque l'élément sélectionné est une catégorie (du métamodèle _Requirement_) ou un _Repository_ :
 La zone de gauche peut afficher les catégories :
-- "All direct references" sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné.
-La zone de droite peut afficher les catégories :
-- "All direct references" sous laquelle s'affichent tous les éléments référencés par l'élément sélectionné.
 
-!{width:1200px}pics/Contextual_explorer_with_category_selected.png!
+* _All direct references_ sous laquelle s'affichent tous les éléments qui font référence à l'élément sélectionné.
+
+La zone de droite peut afficher les catégories :
+
+* _All direct references_ sous laquelle s'affichent tous les éléments référencés par l'élément sélectionné.
+
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-SelectedCategory.png!
+
+h3(#metadata_categories). Métadonnée sélectionnée
 
 Lorsque l'élément sélectionné est une métadonnée (à l'exception des métadonnées de documentation) :
-La zone de gauche peut afficher la catégorie "Container" sous laquelle s'affichent les éléments qui contiennent des métadonnées.
+La zone de gauche peut afficher la catégorie _Container_ sous laquelle s'affichent les éléments qui contiennent des métadonnées.
 
-!{width:1200px}pics/Contextual_explorer_with_metadata_selected.png!
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-SelectedMetadata.png!
 
-Lorsque l'élément sélectionné est une métadonnée de documentation, la catégorie "Container" s'affiche dans la zone de droite et non pas à gauche.
+h3(#documentation_metadata_categories). Métadonnée de documentation sélectionnée
 
-!{width:1200px}pics/Contextual_explorer_with_metadata_documentation_selected.png!
+Lorsque l'élément sélectionné est une métadonnée de documentation, la catégorie _Container_ s'affiche dans la zone de droite et non pas à gauche.
 
-h3. Note aux développeurs
+!{max-width:100%}pics/contextualexplorer/ContextualExplorer-SelectedDocumentationMetadata.png!
 
-Il est possible de contribuer de nouvelles catégories ainsi que les éléments contenus en contribuant au point d'extension "org.eclipse.amalgam.explorer.contextual.core.contentProviderCategory".
+h2(#view_extension). Extension de la vue
+
+Il est possible de contribuer de nouvelles catégories ainsi que les éléments contenus en contribuant au point d'extension @org.eclipse.amalgam.explorer.contextual.core.contentProviderCategory@.

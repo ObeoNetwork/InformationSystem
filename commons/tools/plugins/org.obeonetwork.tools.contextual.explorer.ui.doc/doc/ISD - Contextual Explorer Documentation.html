@@ -7,74 +7,115 @@
 		<p>
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDContextualExplorer">ISD &#8211; Contextual Explorer</h1>
+		<h1 id="contextual_explorer">ISD &#8211; Contextual Explorer</h1>
+		<h2 id="presentation">Présentation</h2>
 		<p>La vue 
 			<em>Contextual Explorer</em> est une vue utilisée principalement pour donner des informations contextuelles en affichant les relations entre les éléments d&#8217;un projet.
-			<br/>Cette vue est disponible depuis la version ISD 1.9.
 		</p>
 		<p>La documentation du Contextual Explorer est disponible à cette adresse : 
 			<a href="https://wiki.eclipse.org/ModelingAmalgam/ContextualExplorer">https://wiki.eclipse.org/ModelingAmalgam/ContextualExplorer</a>
 		</p>
-		<h2 id="VueContextualExplorer">Vue Contextual Explorer</h2>
-		<p>L&#8217;affichage de la vue 
-			<em>Contextual Explorer</em> se fait via le menu :
+		<h2 id="view_opening">Ouverture de la vue</h2>
+		<p>Ouvrir la vue 
+			<em>Contextual Explorer</em> depuis le menu :
 		</p>
 		<blockquote>
-			<p>Window &gt; Show View &gt; Other... &gt; Contextual Explorer (Catégorie Amalgam)</p>
+			<p>
+				<em>Window &gt; Show View &gt; Other... &gt; Contextual Explorer</em> (catégorie 
+				<em>Amalgam</em>)
+			</p>
 		</blockquote>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Simple_contextual_explorer.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer.png"/>
 		</p>
-		<p>La vue Contextual Explorer est divisée en trois zones verticales. La zone du milieu affiche l'élément sélectionné ainsi que les représentations dans lesquelles l'élément sélectionné apparaît. La zone de gauche affiche les éléments qui font référence à l'élément affiché dans la zone centrale. La zone de droite affiche les éléments référencés par l'élément affiché dans la zone centrale. Les différents éléments à afficher sont triés dans différentes catégories pour une meilleure lisibilité.</p>
-		<h3 id="Catgories">Catégories</h3>
+		<h2 id="view_layout">Organisation de la vue</h2>
+		<p>La vue 
+			<em>Contextual Explorer</em> est divisée en trois zones verticales. La zone du milieu affiche l'élément sélectionné ainsi que les représentations dans lesquelles l'élément sélectionné apparaît. La zone de gauche affiche les éléments qui font référence à l'élément affiché dans la zone centrale. La zone de droite affiche les éléments référencés par l'élément affiché dans la zone centrale. Les différents éléments à afficher sont triés dans différentes catégories pour une meilleure lisibilité.
+		</p>
+		<h2 id="categories">Catégories</h2>
+		<h3 id="database_environment_categories">Éléments Database et Environment</h3>
 		<p>Lorsque l'élément sélectionné est un élément des métamodèles 
 			<em>Database</em> ou 
 			<em>Environment</em> (à l&#8217;exception des métadonnées) :
 			<br/>La zone de gauche peut afficher les catégories :
-			<br/>- &#171;All direct references&#187; sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné.
-			<br/>- &#171;Requirements&#187; sous laquelle s&#8217;affichent les exigences de l'élément sélectionné.
 		</p>
+		<ul>
+			<li>
+				<em>All direct references</em> sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné.
+			</li>
+			<li>
+				<em>Requirements</em> sous laquelle s&#8217;affichent les exigences de l'élément sélectionné.
+			</li>
+		</ul>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_requirement.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-RequirementsReferences.png"/>
 		</p>
-		<p>La zone de droite peut afficher les catégories :
-			<br/>- &#171;All direct references&#187; sous laquelle s&#8217;affichent tous les éléments référencés par l'élément sélectionné.
-			<br/>- &#171;Metadata&#187; sous laquelle s&#8217;affichent les métadonnées attachées à l'élément sélectionné.
-		</p>
+		<p>La zone de droite peut afficher les catégories :</p>
+		<ul>
+			<li>
+				<em>All direct references</em> sous laquelle s&#8217;affichent tous les éléments référencés par l'élément sélectionné.
+			</li>
+			<li>
+				<em>Metadata</em> sous laquelle s&#8217;affichent les métadonnées attachées à l'élément sélectionné.
+			</li>
+		</ul>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_metadata.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-MetadataReferences.png"/>
 		</p>
+		<h3 id="requirement_categories">Exigence sélectionnée</h3>
 		<p>Lorsque l'élément sélectionné est un 
 			<em>Requirement</em> :
 			<br/>La zone de droite peut afficher les catégories :
-			<br/>- &#171;All direct references&#187; sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné à l&#8217;exception des éléments sur lesquels s&#8217;applique l&#8217;exigence.
-			<br/>- &#171;References&#187; sous laquelle s&#8217;affichent les éléments sur lesquels s&#8217;applique l&#8217;exigence.
 		</p>
+		<ul>
+			<li>
+				<em>All direct references</em> sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné à l&#8217;exception des éléments sur lesquels s&#8217;applique l&#8217;exigence.
+			</li>
+			<li>
+				<em>References</em> sous laquelle s&#8217;affichent les éléments sur lesquels s&#8217;applique l&#8217;exigence.
+			</li>
+		</ul>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_requirement_selected.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-SelectedRequirement.png"/>
 		</p>
+		<h3 id="category_repository_categories">Catégorie ou Repository sélectionné</h3>
 		<p>Lorsque l'élément sélectionné est une catégorie (du métamodèle 
 			<em>Requirement</em>) ou un 
 			<em>Repository</em> :
 			<br/>La zone de gauche peut afficher les catégories :
-			<br/>- &#171;All direct references&#187; sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné.
-			<br/>La zone de droite peut afficher les catégories :
-			<br/>- &#171;All direct references&#187; sous laquelle s&#8217;affichent tous les éléments référencés par l'élément sélectionné.
 		</p>
+		<ul>
+			<li>
+				<em>All direct references</em> sous laquelle s&#8217;affichent tous les éléments qui font référence à l'élément sélectionné.
+			</li>
+		</ul>
+		<p>La zone de droite peut afficher les catégories :</p>
+		<ul>
+			<li>
+				<em>All direct references</em> sous laquelle s&#8217;affichent tous les éléments référencés par l'élément sélectionné.
+			</li>
+		</ul>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_category_selected.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-SelectedCategory.png"/>
 		</p>
+		<h3 id="metadata_categories">Métadonnée sélectionnée</h3>
 		<p>Lorsque l'élément sélectionné est une métadonnée (à l&#8217;exception des métadonnées de documentation) :
-			<br/>La zone de gauche peut afficher la catégorie &#171;Container&#187; sous laquelle s&#8217;affichent les éléments qui contiennent des métadonnées.
+			<br/>La zone de gauche peut afficher la catégorie 
+			<em>Container</em> sous laquelle s&#8217;affichent les éléments qui contiennent des métadonnées.
 		</p>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_metadata_selected.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-SelectedMetadata.png"/>
 		</p>
-		<p>Lorsque l'élément sélectionné est une métadonnée de documentation, la catégorie &#171;Container&#187; s&#8217;affiche dans la zone de droite et non pas à gauche.</p>
+		<h3 id="documentation_metadata_categories">Métadonnée de documentation sélectionnée</h3>
+		<p>Lorsque l'élément sélectionné est une métadonnée de documentation, la catégorie 
+			<em>Container</em> s&#8217;affiche dans la zone de droite et non pas à gauche.
+		</p>
 		<p>
-			<img style="width:1200px" border="0" src="pics/Contextual_explorer_with_metadata_documentation_selected.png"/>
+			<img style="max-width:100%" border="0" src="pics/contextualexplorer/ContextualExplorer-SelectedDocumentationMetadata.png"/>
 		</p>
-		<h3 id="Noteauxdveloppeurs">Note aux développeurs</h3>
-		<p>Il est possible de contribuer de nouvelles catégories ainsi que les éléments contenus en contribuant au point d&#8217;extension &#171;org.eclipse.amalgam.explorer.contextual.core.contentProviderCategory&#187;.</p>
+		<h2 id="view_extension">Extension de la vue</h2>
+		<p>Il est possible de contribuer de nouvelles catégories ainsi que les éléments contenus en contribuant au point d&#8217;extension 
+			<code>org.eclipse.amalgam.explorer.contextual.core.contentProviderCategory</code>.
+		</p>
 	</body>
 </html>

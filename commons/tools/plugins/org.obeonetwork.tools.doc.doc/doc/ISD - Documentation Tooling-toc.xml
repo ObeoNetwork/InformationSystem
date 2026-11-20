@@ -1,12 +1,16 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Documentation Tooling.html" label="ISD - Documentation Tooling">
 	<topic href="doc/ISD - Documentation Tooling.html" label="ISD - Outillage de documentation">
-		<topic href="doc/ISD - Documentation Tooling.html#LavueRelatedDocumentation" label="La vue Related Documentation"></topic>
-		<topic href="doc/ISD - Documentation Tooling.html#Gestiondesliensdedocumentation" label="Gestion des liens de documentation">
-			<topic href="doc/ISD - Documentation Tooling.html#Ajoutdelien" label="Ajout de lien"></topic>
-			<topic href="doc/ISD - Documentation Tooling.html#ditiondelien" label="Édition de lien"></topic>
-			<topic href="doc/ISD - Documentation Tooling.html#Suppressiondelien" label="Suppression de lien"></topic>
+		<topic href="doc/ISD - Documentation Tooling.html#presentation" label="Présentation"></topic>
+		<topic href="doc/ISD - Documentation Tooling.html#related_documentation_view" label="Vue Related Documentation">
+			<topic href="doc/ISD - Documentation Tooling.html#view_opening" label="Ouverture de la vue"></topic>
+			<topic href="doc/ISD - Documentation Tooling.html#view_content" label="Contenu de la vue"></topic>
 		</topic>
-		<topic href="doc/ISD - Documentation Tooling.html#Accsladocumentation" label="Accès à la documentation"></topic>
+		<topic href="doc/ISD - Documentation Tooling.html#documentation_links" label="Gestion des liens de documentation">
+			<topic href="doc/ISD - Documentation Tooling.html#link_creation" label="Ajout d&apos;un lien"></topic>
+			<topic href="doc/ISD - Documentation Tooling.html#link_edition" label="Édition d&apos;un lien"></topic>
+			<topic href="doc/ISD - Documentation Tooling.html#link_deletion" label="Suppression d&apos;un lien"></topic>
+		</topic>
+		<topic href="doc/ISD - Documentation Tooling.html#documentation_access" label="Accès à la documentation"></topic>
 	</topic>
 </toc>

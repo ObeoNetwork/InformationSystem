@@ -7,60 +7,67 @@
 		<p>
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDOutillagededocumentation">ISD &#8211; Outillage de documentation</h1>
-		<p>L'
-			<strong>outillage de documentation</strong> d'
-			<strong>IS Designer</strong> apporte un ensemble d&#8217;outils permettant d&#8217;associer de la documentation aux modèles édités via IS Designer. Il apporte une vue permettant l&#8217;ajout ou la suppression de liens de documentation sur les éléments de modèles.
+		<h1 id="documentation_tooling">ISD &#8211; Outillage de documentation</h1>
+		<h2 id="presentation">Présentation</h2>
+		<p>L&#8217;outillage de documentation d&#8217;IS Designer permet d&#8217;associer de la documentation aux modèles. La vue 
+			<em>Related Documentation</em> permet d&#8217;ajouter, de modifier et de supprimer des liens de documentation sur les éléments de modèles.
 		</p>
-		<h2 id="LavueRelatedDocumentation">La vue Related Documentation</h2>
-		<p>La gestion de la documentation se fait via la vue 
-			<em>Related Documentation</em>. Son ouverture se fait via le menu :
+		<h2 id="related_documentation_view">Vue Related Documentation</h2>
+		<h3 id="view_opening">Ouverture de la vue</h3>
+		<p>Ouvrir la vue 
+			<em>Related Documentation</em> depuis le menu :
 		</p>
 		<blockquote>
-			<p>Window &gt; Show View &gt; Other ... &gt; Related Documentation (Catégorie Information System Designer)</p>
+			<p>
+				<em>Window &gt; Show View &gt; Other... &gt; Related Documentation</em> (catégorie 
+				<em>Information System Designer</em>)
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationView.png"/>
+			<img style="max-width:100%" border="0" src="pics/documentation/RelatedDocumentationView.png"/>
 		</p>
-		<p>La vue est composée d&#8217;un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans IS Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L&#8217;activation de cette fonctionnalité se fait via l&#8217;action &#171;Show children documentation&#187; dans le menu de la vue.</p>
+		<h3 id="view_content">Contenu de la vue</h3>
+		<p>La vue est composée d&#8217;un tableau affichant toutes les entrées de documentation liées à l'élément actuellement sélectionné dans IS Designer. La vue peut également présenter les liens de documentation des éléments contenus par la sélection actuelle. L&#8217;activation de cette fonctionnalité se fait via l&#8217;action 
+			<em>Show children documentation</em> dans le menu de la vue.
+		</p>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationViewShowChildrenAction.png"/>
+			<img style="max-width:100%" border="0" src="pics/documentation/RelatedDocumentationView-ShowChildrenMenu.png"/>
 		</p>
 		<p>La vue comporte également trois actions permettant d&#8217;ajouter, d'éditer ou de supprimer un lien de documentation.</p>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationViewActions.png"/> 
+			<img style="max-width:100%" border="0" src="pics/documentation/RelatedDocumentationView-Toolbar.png"/>
 		</p>
-		<h2 id="Gestiondesliensdedocumentation">Gestion des liens de documentation</h2>
-		<h3 id="Ajoutdelien">Ajout de lien</h3>
-		<p>La première action de la vue permet d&#8217;ajouter des liens de documentation sur l'élément sélectionné.</p>
+		<h2 id="documentation_links">Gestion des liens de documentation</h2>
+		<h3 id="link_creation">Ajout d&#8217;un lien</h3>
+		<p>Sélectionner l'élément auquel ajouter un lien de documentation, puis utiliser la première action de la vue.</p>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationViewAddAction.png"/>
+			<img border="0" src="pics/documentation/RelatedDocumentationView-AddLinkAction.png"/>
 		</p>
 		<p>Une fois lancée, l&#8217;action ouvre une boîte de dialogue permettant de saisir le nom du lien ainsi que sa référence. La référence peut être un lien web ou un fichier de l&#8217;espace de travail.</p>
 		<p>
-			<img border="0" src="pics/AddDocumentationLinkDialog.png"/> 
+			<img border="0" src="pics/documentation/DocumentationLinkDialog-NewEntry.png"/>
 		</p>
-		<h3 id="ditiondelien">Édition de lien</h3>
-		<p>La deuxième action ouvre à nouveau la boîte d'édition du lien afin de pouvoir modifier des informations sur un lien.</p>
+		<h3 id="link_edition">Édition d&#8217;un lien</h3>
+		<p>Sélectionner le lien à modifier, puis utiliser la deuxième action de la vue. La boîte de dialogue d'édition du lien s&#8217;ouvre à nouveau.</p>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationViewEditAction.png"/>
+			<img border="0" src="pics/documentation/RelatedDocumentationView-EditLinkAction.png"/>
 		</p>
-		<h3 id="Suppressiondelien">Suppression de lien</h3>
-		<p>La troisième action permet finalement de supprimer un ou plusieurs liens de l'élément.</p>
+		<h3 id="link_deletion">Suppression d&#8217;un lien</h3>
+		<p>Sélectionner les liens à supprimer, puis utiliser la troisième action de la vue.</p>
 		<p>
-			<img border="0" src="pics/RelatedDocumentationViewDeleteAction.png"/>
+			<img border="0" src="pics/documentation/RelatedDocumentationView-DeleteLinkAction.png"/>
 		</p>
 		<p>En lançant cette action, toutes les entrées sélectionnées dans la vue seront retirées de l'élément. Une boîte de confirmation s&#8217;ouvre de façon à éviter toute erreur de manipulation.</p>
-		<h2 id="Accsladocumentation">Accès à la documentation</h2>
-		<p>Il est possible d&#8217;ouvrir la documentation depuis la vue 
-			<em>Related Documentation</em>. Un double-clic sur une entrée ouvrira :
+		<h2 id="documentation_access">Accès à la documentation</h2>
+		<p>Effectuer un double-clic sur une entrée de la vue 
+			<em>Related Documentation</em> pour ouvrir :
 		</p>
 		<ul>
-			<li>Un navigateur web s&#8217;il s&#8217;agit d&#8217;une entrée web.</li>
-			<li>L'éditeur par défaut sur le fichier s&#8217;il s&#8217;agit d&#8217;un fichier de l&#8217;espace de travail.</li>
+			<li>un navigateur web s&#8217;il s&#8217;agit d&#8217;une entrée web,</li>
+			<li>l'éditeur par défaut sur le fichier s&#8217;il s&#8217;agit d&#8217;un fichier de l&#8217;espace de travail.</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/DocumentationOpening.png"/>  
+			<img style="max-width:100%" border="0" src="pics/documentation/RelatedDocumentationView-OpenWebDocumentation.png"/>
 		</p>
 	</body>
 </html>
