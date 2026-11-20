@@ -30,7 +30,7 @@ Cet assistant permet de définir :
 Une fois l'assistant validé, un modèle vide est créé, et les représentations _SOA Diagram_, _DTO Namespaces Hierarchy_ et _DTO Physical Names_ sont créées.
 Les représentations _SOA Diagram_ et _DTO Namespaces Hierarchy_ sont ouvertes afin de commencer l'édition :
 
-!{width:100%}pics/soa/ModelCreationResult-InitialRepresentations.png!
+!{max-width:100%}pics/soa/ModelCreationResult-InitialRepresentations.png!
 
 Lorsqu'un modèle SOA est créé à l'aide de cet assistant, les points de vue _SOA Views_, _SOA (ISD Consolidated view)_ et _Environment Views_ sont activés.
 * Le point de vue _SOA Views_ est décrit dans la section suivante.
@@ -95,7 +95,7 @@ h3(#soa_diagram). SOA Diagram
 Le _SOA Diagram_ offre une vue de haut niveau sur un modèle SOA, il peut être créé sur l'objet racine _Components_.
 Il permet de modéliser les composants métiers, les services qu'ils fournissent, les services qu'ils requièrent ainsi que des liens entre les composants. Ces liens créés entre services requis et services fournis expriment qu'un service fourni par un composant répond à un besoin de service requis par un autre composant.
 
-!{width:100%}pics/soa/SOADiagram.png!
+!{max-width:100%}pics/soa/SOADiagram.png!
 
 h4(#soa_diagram_tools). Éléments affichés et palette d'outils
 
@@ -131,7 +131,7 @@ Il permet de modéliser :
 * les opérations définies par les services,
 * les paramètres d'entrée, de sortie et d'erreur des services.
 
-!{width:100%}pics/soa/contract/ComponentContractDiagram.png!
+!{max-width:100%}pics/soa/contract/ComponentContractDiagram.png!
 
 h4(#component_diagram_tools). Éléments affichés et palette d'outils
 
@@ -171,7 +171,7 @@ Le diagramme _DTO Namespaces Hierarchy_ est destiné à gérer l'ensemble de cet
 
 Il permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement (par double-clic ou menu contextuel sur les _Namespace_) aux diagrammes de DTO d'un package.
 
-!{width:70%}pics/soa/hierarchy/DTONamespacesHierarchy.png!
+!{max-width:100%}pics/soa/hierarchy/DTONamespacesHierarchy.png!
 
 h4(#namespace_hierarchy_description). Éléments affichés et palette d'outils
 
@@ -180,7 +180,7 @@ Le diagramme permet d’afficher et manipuler les éléments suivants :
 * _Namespace_ : chaque _Namespace_ contenu dans l'élément racine est affiché. Les _Namespace_ contenus par d'autres sont représentés à l'intérieur de leur _Namespace_ parent. L'icône d'un _Namespace_ est en noir et blanc si le _Namespace_ est vide, en couleur sinon.
 * _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le calque _Dependencies_. Les dépendances entre _Namespace_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespace_. Une dépendance est identifiée entre deux _Namespace_ s'il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre un _DTO_ d'un _Namespace_ et un autre. S'il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décorée d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le calque _Dependencies_. Les _Namespace_ dits "externes" sont également affichés dans ce calque. Un _Namespace_ externe est un _Namespace_ contenant une entité externe liée à une entité présente dans un _Namespace_ affiché par le diagramme (voir _External DTO_ dans la section _DTO Diagram_ ci-après).
 
-!{width:100%}pics/soa/hierarchy/DTONamespacesHierarchy-Dependencies.png!
+!{max-width:100%}pics/soa/hierarchy/DTONamespacesHierarchy-Dependencies.png!
 
 Les outils fournis par la palette sont :
 
@@ -199,7 +199,7 @@ h3(#dto_diagram). DTO Diagram
 
 Un diagramme de DTO (_DTO Diagram_) permet de gérer les _DTO_ d'un _Namespace_, il peut être créé sur un _Namespace_.
 
-!{width:100%}pics/soa/dto/DTODiagram.png!
+!{max-width:100%}pics/soa/dto/DTODiagram.png!
 
 h4(#dto_diagram_tools). Éléments affichés et palette d'outils
 
@@ -271,7 +271,7 @@ En plus des outils définis par la palette, l'outil de glisser-déposer permet d
 Le glisser-déposer depuis le _Model Explorer_ d'un _DTO_ d'un autre _Namespace_ que le _Namespace_ sur lequel est défini le _DTO Diagram_ a pour effet de déplacer le _DTO_ depuis son _Namespace_ d'origine dans le _Namespace_ du diagramme.
 Le _DTO_ ainsi déplacé reste référencé là où il l'était, comme par exemple en type de paramètre d'une opération SOA ou en référence sur une _Relation_. Si le calque _External DTOs_ est activé, alors les _DTO_ externes figurent sur le diagramme avec une couleur différente et un libellé représentant leur nom qualifié :
 
-!{width:100%}pics/soa/dto/DTODiagram-ExternalDTO.png!
+!{max-width:100%}pics/soa/dto/DTODiagram-ExternalDTO.png!
 
 h4(#value_constraints). Contraintes sur les valeurs des attributs de DTO
 
@@ -302,7 +302,7 @@ h3(#exposition_type). Types d'exposition
 
 Dans _SOA Designer_, le type d'exposition est paramétrable au niveau d'une _Operation_, sur l'onglet principal de la vue de propriétés :
 
-!pics/soa/exposition/OperationProperties-General.png!
+!{max-width:100%}pics/soa/exposition/OperationProperties-General.png!
 
 La notion de visibilité (_Public/Privé_) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une _Operation_ publique sera accessible depuis les implémentations des autres _Operation_ du _Component_ ou bien depuis un autre composant destiné à être déployé dans la même application, mais elle ne sera pas accessible depuis un autre système.
 
@@ -353,7 +353,7 @@ Le concept de _SOA Designer_ correspondant à une API REST OpenAPI est le _Compo
 
 Les données d'exposition sont accessibles via l'onglet _Exposition_ de la vue de propriétés :
 
-!pics/soa/exposition/ComponentProperties-Exposition.png!
+!{max-width:100%}pics/soa/exposition/ComponentProperties-Exposition.png!
 
 Une _URI_ peut être définie à chaque niveau de profondeur dans le modèle sur les concepts _Component_, _Service_ et _Operation_ :
 
@@ -365,7 +365,7 @@ Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveu
 
 Enfin, des informations générales sur l'API peuvent être définies dans la vue de propriétés :
 
-!pics/soa/exposition/ComponentProperties-APIInformation.png!
+!{max-width:100%}pics/soa/exposition/ComponentProperties-APIInformation.png!
 
 Les champs _Terms of Service_ et _URL_ attendent une entrée au format URL :
 
@@ -386,7 +386,7 @@ h4(#open_api_service). Modélisation d'un Service OpenAPI
 
 Le concept en correspondance avec le _Service OpenAPI_ est le concept _Operation_. Lorsqu'un type d'exposition autre que @NONE@ est sélectionné comme expliqué au paragraphe "Types d'exposition":#exposition_type, l'onglet _Exposition_ devient visible et accessible :
 
-!pics/soa/exposition/OperationProperties-Exposition.png!
+!{max-width:100%}pics/soa/exposition/OperationProperties-Exposition.png!
 
 Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : @GET@, @POST@, @PUT@, @DELETE@, @HEAD@, @OPTIONS@, @PATCH@, @TRACE@.
 
@@ -405,21 +405,21 @@ L'identifiant REST permet d'identifier un paramètre autrement que par son nom e
 Pour un mode de passage @BODY@, l'identifiant REST n'a pas de sens.
 Lorsque le mode de passage @BODY@ est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte @body@ :
 
-!pics/soa/exposition/InputParameterProperties-BodyPassingMode.png!
+!{max-width:100%}pics/soa/exposition/InputParameterProperties-BodyPassingMode.png!
 
 Pour un mode de passage @PATH@, l'identifiant REST doit correspondre à l'un des identifiants définis entre accolades dans l'URI de l'_Operation_.
 Lorsque le mode de passage @PATH@ est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l'analyse de l'URI de l'_Operation_. Ainsi, si l'URI est @/{country}/{author}@, la liste déroulante proposera les deux choix @country@ et @author@ :
 
-!pics/soa/exposition/InputParameterProperties-PathPassingMode.png!
+!{max-width:100%}pics/soa/exposition/InputParameterProperties-PathPassingMode.png!
 
 Suite à une édition de l'URI d'une _Operation_, il est possible que la valeur de l'identifiant REST d'un paramètre @PATH@ ne soit pas dans l'URI. Dans ce cas, un message d'erreur est affiché :
 
-!pics/soa/exposition/InputParameterProperties-PathPassingModeError.png!
+!{max-width:100%}pics/soa/exposition/InputParameterProperties-PathPassingModeError.png!
 
 Pour un mode de passage @QUERY@, @COOKIE@ ou @HEADER@, l'identifiant REST permet d'identifier le paramètre soit dans l'URL d'appel du service REST, soit dans le cookie, soit dans le header HTTP.
 Lorsque l'un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l'identifiant :
 
-!pics/soa/exposition/InputParameterProperties-QueryPassingMode.png!
+!{max-width:100%}pics/soa/exposition/InputParameterProperties-QueryPassingMode.png!
 
 h6(#rest_api_value_constraints). Contraintes sur les valeurs
 
@@ -442,7 +442,7 @@ h5(#rest_api_paginated_parameter). Modélisation d'un paramètre de pagination
 
 Lorsqu'une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue de propriétés de l'opération afin de spécifier les paramètres entrants pouvant être utilisés pour définir l'index de la page, ainsi que le nombre d'éléments par page.
   
-!pics/soa/exposition/OperationProperties-Pagination.png!
+!{max-width:100%}pics/soa/exposition/OperationProperties-Pagination.png!
 
 Dès lors qu'une opération est paginée, sa représentation dans le diagramme est décorée d'une icône supplémentaire :
 
@@ -450,13 +450,13 @@ Dès lors qu'une opération est paginée, sa représentation dans le diagramme e
 
 Enfin, dans le cas où l'opération est paginée, une extension de propriété peut être définie afin d'indiquer lors de l'export OpenAPI si l'opération est paginée.
 
-!pics/soa/exposition/OperationProperties-PaginationExtension.png!
+!{max-width:100%}pics/soa/exposition/OperationProperties-PaginationExtension.png!
 
 h5(#rest_api_output_fault_parameter). Modélisation d'un paramètre de retour ou d'erreur
 
 L'onglet _Exposition_ des vues de propriétés pour un paramètre de retour ou d'erreur présente la même IHM permettant de saisir un code de statut et une description :
 
-!pics/soa/exposition/OutputParameterProperties-Exposition.png!
+!{max-width:100%}pics/soa/exposition/OutputParameterProperties-Exposition.png!
 
 Le bouton à droite de la zone de texte _Status Code_ ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples composés d'un code et d'une description.
 
@@ -468,7 +468,7 @@ h5(#rest_api_parameter_media_types). Modélisation des média-types
 
 Des types de média peuvent être définis sur un paramètre exposé en REST quelle que soit sa direction (paramètre entrant, sortant ou d'erreur). L'onglet _Exposition_ de la vue de propriétés présente la liste des types de média pour un paramètre donné :
 
-!pics/soa/exposition/ParameterProperties-MediaTypes.png!
+!{max-width:100%}pics/soa/exposition/ParameterProperties-MediaTypes.png!
 
 Un double-clic sur un type de média ouvre un dialogue d'édition :
 
@@ -486,7 +486,7 @@ h5(#security_schemes). Modélisation des schémas de sécurité
 
 Les schémas de sécurité sont définis sur l'onglet _Security Schemes_ de la vue de propriétés d'un _Component_ :
 
-!pics/soa/exposition/ComponentProperties-SecuritySchemes.png!
+!{max-width:100%}pics/soa/exposition/ComponentProperties-SecuritySchemes.png!
 
 Cette vue permet de créer (!pics/soa/icons/Add.gif!), supprimer (!pics/soa/icons/Delete.gif!) et réordonner (!pics/soa/icons/MoveUp.gif!, !pics/soa/icons/MoveDown.gif!) les _SecurityScheme_ du _Component_.
 
@@ -525,7 +525,7 @@ Le _Flow_ @AUTHORIZATIONCODE@ peut être édité dans le seul but d'y ajouter de
 
 Les valeurs saisies peuvent être modifiées par la suite en double-cliquant sur un _SecurityScheme_ dans cette même vue de propriétés, ou bien dans la vue de propriétés d'un _SecurityScheme_ lorsque celui-ci est sélectionné dans la vue _Model Explorer_ :
 
-!pics/soa/exposition/SecuritySchemeProperties.png!
+!{max-width:100%}pics/soa/exposition/SecuritySchemeProperties.png!
 
 Lorsqu'ils existent, les _SecurityScheme_ sont présentés dans la vue _Model Explorer_ au niveau de profondeur suivant celui du _Component_.
 
@@ -534,7 +534,7 @@ h5(#security_scheme_usage). Utilisation des schémas de sécurité
 L'utilisation des schémas de sécurité est configurable via l'onglet _Security_ de la vue de propriétés d'une _Operation_ (quel que soit son mode d'exposition ou sa visibilité) ou d'un _Service_.
 Dans la suite de cette section, les exemples d'utilisation des schémas de sécurité portent sur une _Operation_. Ces schémas s'utilisent de la même manière sur un _Service_ :
 
-!pics/soa/exposition/OperationProperties-Security.png!
+!{max-width:100%}pics/soa/exposition/OperationProperties-Security.png!
 
 Cette vue permet de sélectionner les _SecurityScheme_ à appliquer à l'_Operation_ (!pics/soa/icons/Edit.gif!), supprimer une affectation de _SecurityScheme_ à l'_Operation_ (!pics/soa/icons/Delete.gif!) et réordonner (!pics/soa/icons/MoveUp.gif!, !pics/soa/icons/MoveDown.gif!) les applications de _SecurityScheme_.
 
@@ -546,7 +546,7 @@ La sélection des _SecurityScheme_ ouvre une boîte de dialogue permettant d'ajo
 
 Un double-clic sur un _SecurityScheme_ de type @OAUTH2@ ou @OPEN_ID_CONNECT@ dans l'onglet _Security_ ouvre une boîte de dialogue permettant de sélectionner les _Scope_ à appliquer :
 
-!pics/soa/exposition/SecurityScopesSelectionDialog.png!
+!{max-width:100%}pics/soa/exposition/SecurityScopesSelectionDialog.png!
 
 Les _SecurityScheme_ accessibles pour une affectation à une _Operation_ sont ceux définis au niveau du _Component_ auquel appartient l'_Operation_.
 
@@ -568,7 +568,7 @@ Les propriétés des extensions sont implémentées sous forme de champs à moti
 
 Les éléments sur lesquels il est possible d'ajouter des extensions de propriétés disposent d'une section supplémentaire _Properties extensions_ dans l'onglet _Exposition_ de la vue _Properties_.
 
-!pics/soa/propertiesextension/ExpositionProperties-ExtensionsList.png!
+!{max-width:100%}pics/soa/propertiesextension/ExpositionProperties-ExtensionsList.png!
 
 Cette section liste les extensions de propriétés, et permet d'en ajouter, d'en modifier et d'en supprimer.
 
@@ -609,7 +609,7 @@ Une fonctionnalité de prévisualisation est disponible en menu contextuel du _C
 
 Celle-ci ouvre un navigateur montrant le résultat de l'export dans Swagger UI, permettant de s'assurer que la génération produit un résultat satisfaisant :
 
-!{width:100%}pics/soa/exposition/SwaggerPreview.png!
+!{max-width:100%}pics/soa/exposition/SwaggerPreview.png!
 
 La fonctionnalité d'export permet de produire des fichiers Swagger au format @yaml@ ou @json@. Elle est disponible en menu contextuel sur l'objet racine _Components_ ou bien sur l'objet _Component_. Dans les deux cas, une boîte de dialogue invite à choisir le dossier de destination :
 
@@ -639,7 +639,7 @@ h3(#open_api_convert). Conversion de fichier Swagger/OpenAPI vers le format Open
 
 Dans l'explorateur de modèles, tout fichier JSON ou YAML qui est au format OpenAPI 3.0.x, Swagger 1.x ou Swagger 2.x est convertible en un nouveau fichier au format OpenAPI 3.1.0 via un menu dédié :
 
-!{width:60%}pics/soa/exposition/FileContextMenu-SwaggerConversion.png!
+!{max-width:100%}pics/soa/exposition/FileContextMenu-SwaggerConversion.png!
 
 À la fin de l'opération, un message indique si la conversion a réussi, échoué ou s'est terminée avec des avertissements. Le cas échéant, le nouveau fichier est créé dans l'élément parent du fichier initial. Son nom est le nom du fichier initial suffixé de @-3.1.0@ avant l'extension du fichier.
 
