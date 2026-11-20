@@ -1,14 +1,26 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Using modeling projects as libraries.html" label="ISD - Using modeling projects as libraries">
-	<topic href="doc/ISD - Using modeling projects as libraries.html" label="ISD - Utilisation des _modeling projects_ en tant que bibliothèques">
-		<topic href="doc/ISD - Using modeling projects as libraries.html#Exporterunmodelingprojectentantquebibliothques" label="Exporter un _modeling project_ en tant que bibliothèques"></topic>
-		<topic href="doc/ISD - Using modeling projects as libraries.html#Importerunebibliothquedansunmodelingproject" label="Importer une bibliothèque dans un _modeling project_"></topic>
-		<topic href="doc/ISD - Using modeling projects as libraries.html#Notessurlesdpendances" label="Notes sur les dépendances">
-			<topic href="doc/ISD - Using modeling projects as libraries.html#ProjetinitialCoreprojectavantlexportation" label="Projet initial  avant l&apos;exportation"></topic>
-			<topic href="doc/ISD - Using modeling projects as libraries.html#ProjetcibleinitialProject1" label="Projet cible initial "></topic>
-			<topic href="doc/ISD - Using modeling projects as libraries.html#Project1aprslimportdeCoreproject" label=" après l&apos;import de "></topic>
-			<topic href="doc/ISD - Using modeling projects as libraries.html#ProjetcibleinitialProject2" label="Projet cible initial "></topic>
-			<topic href="doc/ISD - Using modeling projects as libraries.html#Project2aprslimportdeProject1" label=" après l&apos;import de "></topic>
+	<topic href="doc/ISD - Using modeling projects as libraries.html" label="ISD - Utilisation des projets de modélisation comme bibliothèques">
+		<topic href="doc/ISD - Using modeling projects as libraries.html#presentation" label="Présentation"></topic>
+		<topic href="doc/ISD - Using modeling projects as libraries.html#library_export" label="Export d’un projet de modélisation comme bibliothèque">
+			<topic href="doc/ISD - Using modeling projects as libraries.html#export_wizard_opening" label="Ouverture de l’assistant"></topic>
+			<topic href="doc/ISD - Using modeling projects as libraries.html#export_project_location" label="Projet et emplacement d’export"></topic>
+			<topic href="doc/ISD - Using modeling projects as libraries.html#export_manifest" label="Informations de la bibliothèque"></topic>
+		</topic>
+		<topic href="doc/ISD - Using modeling projects as libraries.html#library_import" label="Import d’une bibliothèque dans un projet de modélisation">
+			<topic href="doc/ISD - Using modeling projects as libraries.html#import_wizard_opening" label="Ouverture de l’assistant"></topic>
+			<topic href="doc/ISD - Using modeling projects as libraries.html#import_project_file" label="Projet cible et fichier à importer"></topic>
+			<topic href="doc/ISD - Using modeling projects as libraries.html#import_library_information" label="Informations et dépendances de la bibliothèque"></topic>
+			<topic href="doc/ISD - Using modeling projects as libraries.html#import_result" label="Résultat de l’import"></topic>
+		</topic>
+		<topic href="doc/ISD - Using modeling projects as libraries.html#library_dependencies" label="Gestion des dépendances">
+			<topic href="doc/ISD - Using modeling projects as libraries.html#dependency_example" label="Exemple d’imports successifs">
+				<topic href="doc/ISD - Using modeling projects as libraries.html#example_core_project" label="Core project avant l’export"></topic>
+				<topic href="doc/ISD - Using modeling projects as libraries.html#example_project_one_initial" label="Project 1 avant l’import"></topic>
+				<topic href="doc/ISD - Using modeling projects as libraries.html#example_project_one_imported" label="Project 1 après l’import de Core project"></topic>
+				<topic href="doc/ISD - Using modeling projects as libraries.html#example_project_two_initial" label="Project 2 avant l’import"></topic>
+				<topic href="doc/ISD - Using modeling projects as libraries.html#example_project_two_imported" label="Project 2 après l’import de Project 1"></topic>
+			</topic>
 		</topic>
 	</topic>
 </toc>

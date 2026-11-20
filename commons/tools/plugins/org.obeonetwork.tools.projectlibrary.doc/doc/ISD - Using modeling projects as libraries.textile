@@ -1,95 +1,117 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Utilisation des _modeling projects_ en tant que bibliothèques
+h1(#project_libraries). ISD - Utilisation des projets de modélisation comme bibliothèques
 
-Depuis IS Designer 1.8.
+h2(#presentation). Présentation
 
-Permet d'exporter un _modeling project_ en tant que fichier de bibliothèque et de l'importer dans d'autres _modeling projects_.
+Cet outillage permet d'exporter un projet de modélisation en tant que fichier de bibliothèque et de l'importer dans d'autres projets de modélisation.
 
-Lorsqu'une bibliothèque est exportée, l'utilisateur choisit un numéro de version. Ce numéro de version est vérifié lors de l'importation de la bibliothèque dans un autre _modeling project_. Les références aux éléments contenus dans la bibliothèque sont mises à jour automatiquement.
+Lorsqu'une bibliothèque est exportée, l'utilisateur choisit un numéro de version. Ce numéro de version est vérifié lors de l'importation de la bibliothèque dans un autre projet de modélisation. Les références aux éléments contenus dans la bibliothèque sont mises à jour automatiquement.
 
 Ceci est utile pour réutiliser les bibliothèques entre différents projets, en gardant la trace des versions.
 
-Les fichiers de la bibliothèque portent l'extension .mar (signifiant Modeling ARchive en anglais).
+Les fichiers de la bibliothèque portent l'extension @.mar@ (signifiant Modeling ARchive en anglais).
 
-h2. Exporter un _modeling project_ en tant que bibliothèques
+h2(#library_export). Export d’un projet de modélisation comme bibliothèque
 
-Pour exporter un _modeling project_ en tant que bibliothèque, utiliser le menu _File > Export..._ et choisir _Export modeling project as library_ dans la catégorie _IS Designer_.
+h3(#export_wizard_opening). Ouverture de l’assistant
 
-!pics/ExportMenu.png!
+Pour exporter un projet de modélisation en tant que bibliothèque, utiliser le menu _File > Export..._ et choisir _Export modeling project as library_ dans la catégorie _IS Designer_.
+
+!pics/projectlibrary/ExportWizard-LibrarySelection.png!
+
+h3(#export_project_location). Projet et emplacement d’export
 
 La première page de l'assistant permet de définir les informations suivantes :
-* *Modeling Project* Le projet à exporter. Déjà sélectionné si l'utilisateur a lancé l'importation à partir d'un projet sélectionné.
-* *Export directory* Le dossier de destination. Il peut être situé à l'intérieur ou à l'extérieur d'un projet Eclipse. La méthode recommandée est d'utiliser un emplacement externe.
 
-!pics/exportWizardPage1.png!
+* _Modeling project_ Le projet à exporter. Déjà sélectionné si l'exportation a été lancée à partir d'un projet sélectionné.
+* _Export directory_ Le dossier de destination. Il peut être situé à l'intérieur ou à l'extérieur d'un projet Eclipse. La méthode recommandée est d'utiliser un emplacement externe.
+
+!pics/projectlibrary/ExportWizard-ProjectAndDirectory.png!
+
+h3(#export_manifest). Informations de la bibliothèque
 
 La deuxième page permet de définir les informations suivantes :
-* *Project ID* La valeur par défaut est le nom du projet exporté. (obligatoire)
-* *Version* Le numéro de version de la bibliothèque. Doit être sous la forme M.m.p.qualifier où M, m et p sont des nombres entiers.
-* *Previous version* Un tableau en lecture seule montrant les versions précédentes qui ont été exportées à partir du même _modeling project_.
-* *Comment* Une description de la version de la bibliothèque.
-* *MAR filename* Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier .mar). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire (l'extension .mar est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée).
-* *Update referencing projects* Les _modeling projects_ qui ont des cross-references vers le projet exporté. Les projets sélectionnés importeront la bibliothèque produite par l'exportation et les cross-references seront redirigées vers la bibliothèque. Les détails sur l'importation d'une bibliothèque sont décrits dans la section suivante.
 
-!pics/exportWizardPage2.png!
+* _Project ID_ La valeur par défaut est le nom du projet exporté. (obligatoire)
+* _Version_ Le numéro de version de la bibliothèque. Doit être sous la forme @M.m.p.qualifier@ où M, m et p sont des nombres entiers.
+* _PreviousVersions_ Un tableau en lecture seule montrant les versions précédentes qui ont été exportées à partir du même projet de modélisation.
+* _Comment_ Une description de la version de la bibliothèque.
+* _MAR filename_ Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier @.mar@). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire (l'extension @.mar@ est automatiquement ajoutée à la fin du nom en grisé et en italique s'il n'y a pas d'extension précisée).
+* _Update referencing projects_ Les projets de modélisation qui ont des références croisées vers le projet exporté. Les projets sélectionnés importeront la bibliothèque produite par l'exportation et les références croisées seront redirigées vers la bibliothèque. Les détails sur l'importation d'une bibliothèque sont décrits dans la section suivante.
 
-Lorsque l'assistant est terminé, un fichier MAR est généré à l'emplacement spécifié. Ce fichier peut ensuite être importé dans un autre _modeling project_.
+!pics/projectlibrary/ExportWizard-LibraryInformation.png!
 
-h2. Importer une bibliothèque dans un _modeling project_
+Lorsque l'assistant est terminé, un fichier MAR est généré à l'emplacement spécifié. Ce fichier peut ensuite être importé dans un autre projet de modélisation.
 
-Pour importer un fichier de bibliothèque dans un _modeling project_, utilisez le menu _File > Import..._ et choisissez _Import library into modeling project_ dans la catégorie _IS Designer_.
+h2(#library_import). Import d’une bibliothèque dans un projet de modélisation
 
-!pics/importMenu.png!
+h3(#import_wizard_opening). Ouverture de l’assistant
+
+Pour importer un fichier de bibliothèque dans un projet de modélisation, utiliser le menu _File > Import..._ et choisir _Import library into modeling project_ dans la catégorie _IS Designer_.
+
+!pics/projectlibrary/ImportWizard-LibrarySelection.png!
+
+h3(#import_project_file). Projet cible et fichier à importer
 
 L'assistant permet de définir :
-* *Modeling project* Le projet cible. Déjà sélectionné si l'importation a été lancée à partir d'un projet sélectionné.
-* *Import file* Le fichier MAR à importer
 
-!pics/importWizard.png!
+* _Modeling project_ Le projet cible. Déjà sélectionné si l'importation a été lancée à partir d'un projet sélectionné.
+* _Import file_ Le fichier MAR à importer.
+
+!pics/projectlibrary/ImportWizard-LibraryInformation.png!
+
+h3(#import_library_information). Informations et dépendances de la bibliothèque
 
 Une fois que le fichier MAR a été sélectionné, les informations suivantes sont extraites du fichier et affichées :
-* *Project ID*
-* *Version*
-* *Creation date*
-* *Comment*
-* *Dependencies* Les dépendances trouvées dans le fichier MAR.
+
+* _Project ID_
+* _Version_
+* _Creation date_
+* _Comment_
+* _Dependencies_ Les dépendances trouvées dans le fichier MAR.
 
 Les dépendances sont affichées avec une coche verte ou rouge indiquant si la dépendance est valide ou non par rapport au projet cible.
-Si toutes les dépendances sont valides, l'utilisateur peut terminer l'assistant. Le fichier est alors importé dans un dossier _libraries_ du projet cible.
+
+h3(#import_result). Résultat de l’import
+
+Si toutes les dépendances sont valides, l'utilisateur peut terminer l'assistant. Le fichier est alors importé dans un dossier @libraries@ du projet cible.
 Un dossier portant le nom et l'ID du projet importé est créé. Toutes les données sémantiques et graphiques sont copiées dans ce dossier.
 
-!pics/importedLibrary.png!
+!pics/projectlibrary/ModelExplorer-ImportedCoreLibrary.png!
 
-h2. Notes sur les dépendances
+h2(#library_dependencies). Gestion des dépendances
 
 Lors de l'importation d'un fichier MAR, le tableau des dépendances indique :
+
 * le projet principal qui a été exporté dans le fichier MAR. Une vérification par rapport à la version est faite si ce projet avait déjà été importé.
 * les projets qui ont été importés dans ce projet principal avant la création du fichier MAR. Une vérification de la version est effectuée si ces projets avaient déjà été importés dans le projet cible, soit directement, soit en important un autre projet.
 
-Voici un exemple illustratif :
+h3(#dependency_example). Exemple d’imports successifs
 
-h4. Projet initial <Core project> avant l'exportation
+L’exemple suivant illustre la gestion des dépendances entre trois projets.
 
-!pics/coreProject.png!
+h4(#example_core_project). Core project avant l’export
 
-h4. Projet cible initial <Project 1>
+!pics/projectlibrary/ModelExplorer-CoreProject.png!
 
-!pics/initialProject1.png!
+h4(#example_project_one_initial). Project 1 avant l’import
 
-h4. <Project 1> après l'import de <Core project>
+!pics/projectlibrary/ModelExplorer-InitialProject1.png!
 
-!pics/importedLibrary.png!
+h4(#example_project_one_imported). Project 1 après l’import de Core project
 
-Un dossier _libraries_ a été créé et un dossier pour _Core project_ V1.0.0 a été créé également.
+!pics/projectlibrary/ModelExplorer-ImportedCoreLibrary.png!
 
-h4. Projet cible initial <Project 2>
+Un dossier @libraries@ a été créé et un dossier pour _Core project_ V1.0.0 a été créé également.
 
-!pics/initialProject2.png!
+h4(#example_project_two_initial). Project 2 avant l’import
 
-h4. <Project 2> après l'import de <Project 1>
+!pics/projectlibrary/ModelExplorer-InitialProject2.png!
 
-!pics/project2AfterImport.png!
+h4(#example_project_two_imported). Project 2 après l’import de Project 1
 
-Un dossier _libraries_ a été créé et un dossier pour _Project 1_ V1.0.0 a également été créé.
-A l'intérieur du _Projet 1-1.0.0_ nous pouvons voir un dossier _libraries_ pour le projet _Core project_ précédemment importé.
+!pics/projectlibrary/ModelExplorer-ImportedProject1Library.png!
+
+Un dossier @libraries@ a été créé et un dossier pour _Project 1_ V1.0.0 a également été créé.
+À l'intérieur du dossier _Projet 1-1.0.0_ se trouve un dossier @libraries@ pour le projet _Core project_ précédemment importé.
