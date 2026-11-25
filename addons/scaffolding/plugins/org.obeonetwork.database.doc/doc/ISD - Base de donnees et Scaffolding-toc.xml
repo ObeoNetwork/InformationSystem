@@ -1,29 +1,41 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Base de donnees et Scaffolding.html" label="ISD - Base de donnees et Scaffolding">
 	<topic href="doc/ISD - Base de donnees et Scaffolding.html" label="ISD - Base de données et Scaffolding">
-		<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_and_scaffolding_overview" label="Vue d&apos;ensemble"></topic>
+		<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_and_scaffolding_overview" label="Présentation"></topic>
 		<topic href="doc/ISD - Base de donnees et Scaffolding.html#database" label="Base de données">
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#reverse_engineering" label="Rétro-ingénierie"></topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#supported_databases" label="Bases de données supportées"></topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_model_creation" label="Création d&apos;un modèle Database"></topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_modeling" label="Modélisation">
 				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_overview" label="Vue d&apos;ensemble"></topic>
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_physical_model" label="Modèle Physique de Données"></topic>
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_logical_model" label="Modèle Logique de Données"></topic>
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_uuid" label="Type UUID"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_physical_model" label="Modèle physique de données (MPD)"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_logical_model" label="Modèle logique de données (MLD)"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_uuid" label="Type UUID">
+					<topic href="doc/ISD - Base de donnees et Scaffolding.html#uuid_logical_to_physical" label="Transformation du MLD vers le MPD"></topic>
+					<topic href="doc/ISD - Base de donnees et Scaffolding.html#uuid_physical_to_logical" label="Rétro-ingénierie et transformation du MPD vers le MLD"></topic>
+					<topic href="doc/ISD - Base de donnees et Scaffolding.html#uuid_entity_transformation" label="Transformation vers un modèle d&apos;entités"></topic>
+				</topic>
 			</topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_type_library" label="Création d&apos;un modèle TypeLibrary"></topic>
-			<topic href="doc/ISD - Base de donnees et Scaffolding.html#sql_and_liquibase" label="Comparaison &amp; génération des scripts SQL/Liquibase">
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_comparison" label="Comparaison et fusion"></topic>
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_sql_generation" label="Génération de scripts SQL"></topic>
-				<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_liquibase_generation" label="Génération de fichiers _ChangeLog_ pour Liquibase"></topic>
+		</topic>
+		<topic href="doc/ISD - Base de donnees et Scaffolding.html#sql_and_liquibase" label="Comparaison et génération SQL et Liquibase">
+			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_comparison" label="Comparaison et fusion"></topic>
+			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_sql_generation" label="Génération de scripts SQL">
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#sql_update_scripts" label="Génération de scripts de modification"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#sql_creation_scripts" label="Génération de scripts de création"></topic>
+			</topic>
+			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_liquibase_generation" label="Génération de fichiers ChangeLog pour Liquibase">
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#liquibase_update_changelog" label="Génération de ChangeLog de modification"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#liquibase_creation_changelog" label="Génération de ChangeLog de création"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#liquibase_global_changelog" label="Génération d’un ChangeLog global"></topic>
+				<topic href="doc/ISD - Base de donnees et Scaffolding.html#liquibase_apply_changelog" label="Application d’un ChangeLog"></topic>
 			</topic>
 		</topic>
 		<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_transformations" label="Transformations">
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_transformation_source_and_target" label="Transformation depuis les modèles source et cible"></topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_transformation_scaffolding" label="Transformation depuis un modèle de scaffolding"></topic>
 			<topic href="doc/ISD - Base de donnees et Scaffolding.html#database_transformations_parameters" label="Paramétrage de la transformation d&apos;un modèle d&apos;entités en MLD"></topic>
+			<topic href="doc/ISD - Base de donnees et Scaffolding.html#notes" label="Paramétrage et gestion des évolutions"></topic>
 		</topic>
-		<topic href="doc/ISD - Base de donnees et Scaffolding.html#notes" label="Notes"></topic>
 	</topic>
 </toc>
