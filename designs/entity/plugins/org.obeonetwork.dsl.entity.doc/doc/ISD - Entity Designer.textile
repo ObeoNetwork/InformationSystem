@@ -1,148 +1,161 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Entity Designer
+h1(#entity_designer). ISD - Entity Designer
 
-*Entity Designer* permet de modéliser des entités métier.
+h2(#presentation). Présentation
 
-*Entity Designer* fournit le point de vue _Entity Views_ permettant de :
-* Modéliser les entités métier, leur structure et les relations entre elles,
-* Organiser ces entités en packages
+Entity Designer permet de modéliser des entités métier.
 
-h2. Création d'un modèle Entity
- 
-Un assistant permet la création de modèles Entity. Cet assistant est accessible via le menu :
+Entity Designer fournit le point de vue _Entity Views_ permettant de :
 
-bq. File > New > Other ... > Entity Model (Catégorie IS Designer)
+* Modéliser les entités métier, leur structure et les relations entre elles.
+* Organiser ces entités en packages.
 
-!pics/SafranEntityWizard01.png!
+h2(#model_creation). Création d'un modèle Entity
 
-Cet assistant permet de définir 
+Pour créer un modèle Entity, ouvrir l’assistant depuis le menu :
+
+bq. _File > New > Other... > Entity Model_ (catégorie _IS Designer_)
+
+!pics/entity/NewWizard-EntityModelSelection.png!
+
+Cet assistant permet de définir :
+
 * le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s'il n'y a pas d'extension précisée),
-* le projet ou répertoire de destination pour cette nouvelle ressource :
+* le projet ou répertoire de destination pour cette nouvelle ressource.
 
-!pics/SafranEntityWizard02.png!
+!pics/entity/ModelCreationWizard-NameAndLocation.png!
 
 Une fois l'assistant validé, le modèle est créé, la représentation _Entities Namespaces Hierarchy_ est créée et ouverte afin de commencer l'édition.
 
-!pics/SafranEntityModelCreated.png!
+!{max-width:100%}pics/entity/ModelCreationResult-InitialRepresentation.png!
 
 Lorsqu'un modèle Entity est créé à l'aide de cet assistant, les points de vue _Entity Views_, _Entity (ISD consolidated view)_ et _Environment Views_ sont activés.
 Le point de vue _Entity Views_ est décrit dans la section suivante. Le point de vue _Entity (ISD consolidated view)_ est décrit dans la section de documentation "ISD - Entity (ISD consolidated view)":../../org.obeonetwork.is.design.doc/doc/ISD%20-%20Entity%20(ISD%20consolidated%20view).html. Le point de vue _Environment Views_ fournit les vues de propriétés.
 
-h2. Point de vue Entity Views
+h2(#modeler_usage). Utilisation du modeleur
 
 L'outillage Entity Designer fournit un point de vue dédié à la gestion des entités métier. Ce point de vue permet de visualiser et modifier un modèle Entity via plusieurs types de diagrammes.
 
-h3. Ouverture d'une session et activation du point de vue Entity Views
+h3(#session_opening). Ouverture d'une session et activation du point de vue Entity Views
 
-L'ouverture d'une session de travail sur un modèle Entity se fait de manière classique :
-* En ouvrant le _Modeling Project_ contenant le modèle
-* En double-cliquant sur un fichier _*.aird_ existant
-* En faisant un glisser/déposer d'un fichier _*.entity_ sur la vue _Model Explorer_
-* En convertissant le projet contenant le modèle en un _Modeling Project_
+Pour ouvrir une session de travail sur un modèle Entity, utiliser l'une des méthodes suivantes :
 
-Le point de vue _Entity Views_ doit être sélectionné sur la session ouverte. Pour vérifier si c'est bien le cas, lancer le menu suivant sur la session :
+* ouvrir le _Modeling Project_ contenant le modèle,
+* double-cliquer sur un fichier @*.aird@ existant,
+* effectuer un glisser-déposer d'un fichier @*.entity@ sur la vue _Model Explorer_,
+* convertir le projet contenant le modèle en un _Modeling Project_.
 
-bq. Viewpoint Selection
+Pour vérifier que le point de vue _Entity Views_ est activé, ouvrir la boîte de dialogue _Viewpoints Selection_ depuis le menu contextuel du _Modeling Project_ :
 
-Choisir le point de vue _Entity Views_ :
+bq. _Viewpoints Selection_
 
-!pics/EntityViewsViewpointSelection.png!
+Choisir le point de vue _Entity Views_.
+
+!pics/entity/ViewpointsSelection-EntityViews.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Entity Views.
 
-h3. Création/ouverture de diagrammes
+h3(#diagram_handling). Création et ouverture des diagrammes
 
-Chaque type de diagramme est rattaché à un concept Entity précis. Par exemple, un _Entities Diagram_ est rattaché à un _Namespace_. 
+Chaque type de diagramme est rattaché à un concept Entity précis. Par exemple, un _Entities Diagram_ est rattaché à un _Namespace_.
 
-Pour créer un diagramme d'un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue _Model Explorer_ puis, avec un clic droit, de sélectionner le menu :
+Pour créer un diagramme d'un certain type, sélectionner l'élément du modèle auquel rattacher le diagramme dans la vue _Model Explorer_ puis, avec un clic droit, sélectionner le menu :
 
-bq. New... > #Nom du diagramme#
+bq. _New... > #Nom du diagramme#_
 
-puis renseigner le nom du diagramme et, enfin, valider.
+Renseigner le nom du diagramme et valider.
 
 Par exemple, sur un objet racine _Entities_, deux types de représentation peuvent être créés comme le montre la capture d'écran suivante :
- 
-!pics/EntityRepresentationsOnEntities.png!
 
-Pour ouvrir un diagramme, il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention, seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_.
+!{max-width:100%}pics/entity/ModelExplorer-EntityRepresentations.png!
+
+Pour ouvrir un diagramme, effectuer un double-clic sur le diagramme dans la vue _Model Explorer_. Attention, seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_.
 
 Les diagrammes suivants peuvent être ouverts en mode "Vue Partielle". Le fonctionnement des Vues Partielles est décrit dans la section "ISD – Outillage environnement / Vues Partielles":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles
-* Entities Namespaces Hierarchy
-* Entities Diagram
 
-h3. Entities Namespaces Hierarchy (pour l'objet racine _Entities_)
+* _Entities Namespaces Hierarchy_,
+* _Entities Diagram_.
 
-Les entités (_Entity_) sont organisées en packages (_Namespaces_).
+h2(#representations). Représentations
+
+h3(#namespaces_hierarchy). Entities Namespaces Hierarchy
+
+Les entités (_Entity_) sont organisées en packages (_Namespace_).
 La gestion de la hiérarchie de packages se fait en utilisant le diagramme _Entities Namespaces Hierarchy_.
 Ce diagramme peut être créé sur l'objet racine _Entities_.
 
 Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des entités d'un package.
 
-!{width:100%}pics/hierarchy/namespaces_hierarchy.png!
+!{max-width:100%}pics/entity/hierarchy/EntitiesNamespacesHierarchy.png!
 
-h4. Éléments affichés et palette d'outils
+h4(#hierarchy_elements_tools). Éléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
 
 * _Namespace_ : chaque package contenu dans l'élément racine est affiché. Si un package est contenu par un autre package, il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche si le package est vide et grisée sinon.
-* _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les dépendances entre _Namespaces_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespaces_. Une dépendance est identifiée entre deux _Namespaces_ s'il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre une _Entity_ d'un _Namespace_ et un autre. S'il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décorée d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les _Namespaces_ dits "externes" sont également affichés dans ce layer. Un _Namespace_ externe est un _Namespace_ contenant une entité externe liée à une entité présente dans un _Namespace_ affiché par le diagramme (voir _External entity_ dans la section _Diagramme des entités_ ci-après).
+* _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le calque _Dependencies_. Les dépendances entre _Namespace_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespace_. Une dépendance est identifiée entre deux _Namespace_ s'il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre une _Entity_ d'un _Namespace_ et un autre. S'il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décorée d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le calque _Dependencies_. Les _Namespace_ dits "externes" sont également affichés dans ce calque. Un _Namespace_ externe est un _Namespace_ contenant une entité externe liée à une entité présente dans un _Namespace_ affiché par le diagramme (voir _External entity_ dans la section _Entities Diagram_ ci-après).
 
-!{width:100%}pics/hierarchy/namespaces_hierarchy_dependencies.png!
+!{max-width:100%}pics/entity/hierarchy/EntitiesNamespacesHierarchy-Dependencies.png!
 
 Les outils fournis par la palette sont :
 
-| !pics/hierarchy/Create%20namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
-| !pics/hierarchy/Create%20namespace%20from%20other.png! | Création d'un package par duplication d'un package de DTO. Voir le diagramme "Diagramme des entités" ci-dessous. |
+| !pics/entity/hierarchy/HierarchyPalette-CreateNamespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+| !pics/entity/hierarchy/HierarchyPalette-CreateNamespaceFromDTO.png! | Création d'un package par duplication d'un package de DTO. Voir le diagramme _Entities Diagram_ ci-dessous. |
 
-h4. Navigation vers d'autres diagrammes
+h4(#hierarchy_navigation). Navigation vers d'autres diagrammes
 
-Il est possible de naviguer depuis ce diagramme vers un autre diagramme :
+Depuis un package, effectuer un double-clic ou utiliser le menu _New_ ou _Open_ pour ouvrir le diagramme _Entities Diagram_ de ce package, en le créant si nécessaire.
 
-* Depuis un package, un double-clic, le menu _New_ ou le menu _Open_ permettent de naviguer (et potentiellement de le créer) vers le diagramme des entités de ce package.
-
-h3. Diagramme des entités
+h3(#entities_diagram). Entities Diagram
 
 Un diagramme des entités (_Entities Diagram_) est associé à un package (_Namespace_). Il permet de gérer les entités du package.
 
-!{width:100%}pics/entities/Entities_diagram.png!
+h4(#entities_elements_tools). Éléments affichés et palette d’outils
+
+!{max-width:100%}pics/entity/entities/EntitiesDiagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
-* Entités
-* Attributs
-* Relations entre entités
-* Liens d'héritage
-* Énumération
-* Packages contenus
+* Entités.
+* Attributs.
+* Relations entre entités.
+* Liens d'héritage.
+* Énumération.
+* Packages contenus.
 
 Les outils fournis par la palette sont :
 
-| !pics/entities/Create%20namespace.png! | Création d'un sous-package. |
-| !pics/entities/Create%20namespace%20from%20DTO.png! | Création d'un package à partir d'un package de DTO. |
-| !pics/entities/Create%20entity.png! | Création d'une entité. |
-| !pics/entities/Create%20entity%20from%20dto.png! | Création d'entités à partir de DTO. |
-| !pics/entities/Create%20attribute.png! | Création d'un attribut d'entité. |
-| !pics/entities/Create%20enumeration.png! | Création d'une énumération. |
-| !pics/entities/Create%20literal.png! | Création d'une valeur d'énumération. |
-| !pics/entities/Create%20relation.png! | Création d'une relation simple. |
-| !pics/entities/Create%20composition.png! | Création d'une relation de composition. |
-| !pics/entities/Create%20inheritance.png! | Création d'un lien d'héritage. |
-| !pics/entities/Create%20bidi%20relation.png! | Création d'une relation simple bidirectionnelle. |
-| !pics/entities/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
-| !pics/entities/Create%20external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaître une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateNamespace.png! | Création d'un sous-package. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateNamespaceFromDTO.png! | Création d'un package à partir d'un package de DTO. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateEntity.png! | Création d'une entité. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateEntityFromDTO.png! | Création d'entités à partir de DTO. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateAttribute.png! | Création d'un attribut d'entité. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateEnumeration.png! | Création d'une énumération. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateLiteral.png! | Création d'une valeur d'énumération. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateRelation.png! | Création d'une relation simple. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateComposition.png! | Création d'une relation de composition. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateInheritance.png! | Création d'un lien d'héritage. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateBidirectionalRelation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/entity/entities/EntitiesDiagramPalette-CreateBidirectionalComposition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/entity/entities/EntitiesDiagramPalette-AddExternalEntity.png! | Ajout d'une entité externe. Cet outil permet de faire apparaître une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_. |
 
-L'outil de création d'entités à partir de DTOs permet de reproduire un modèle d'entités à partir d'un modèle de DTO. Une boîte de dialogue permet de choisir les DTO et les relations à prendre en compte. Les DTO choisis peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les entités créées sont toutes dans le package courant du diagramme.
-Des entités et des relations sont créées pour chaque DTO sélectionné et chaque référence sélectionnée. Les attributs ne sont pas dupliqués, ils sont partagés avec les DTOs grâce à la référence Associated Types accessible dans la vue des propriétés de l'entité. La modélisation des DTOs est décrite dans la documentation de "ISD - SOA Designer":../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html.
+h4(#entities_from_dto). Création d'entités à partir de DTO
 
-Les relations créées conservent un lien vers leur relation source dans le champ Associated References de la vue des propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.
+L'outil de création d'entités à partir de DTO permet de reproduire un modèle d'entités à partir d'un modèle de DTO. Une boîte de dialogue permet de choisir les DTO et les relations à prendre en compte. Les DTO choisis peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les entités créées sont toutes dans le package courant du diagramme.
+Des entités et des relations sont créées pour chaque DTO sélectionné et chaque référence sélectionnée. Les attributs ne sont pas dupliqués, ils sont partagés avec les DTO grâce à la référence _Associated Types_ accessible dans la vue de propriétés de l'entité. La modélisation des DTO est décrite dans la documentation de "ISD - SOA Designer":../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html.
 
-!pics/entities/Dlg%20entity%20from%20dto.png!
+Les relations créées conservent un lien vers leur relation source dans le champ _Associated References_ de la vue de propriétés. Ce lien est également renseigné lors de la conversion des packages comme décrit ci-dessous.
+
+!pics/entity/entities/EntityCreationDialog-DTOSelection.png!
+
+h4(#packages_from_dto). Création de packages à partir de packages de DTO
 
 L'outil de création de package à partir d'un package de DTO permet de reproduire un modèle d'entités à partir d'un modèle de DTO en reproduisant la structure des packages. L'outil présente la hiérarchie des packages de DTO accessibles depuis le diagramme courant.
 
 La sélection d'un élément dans l'arbre entraîne la sélection de ses sous-éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
 La désélection d'un élément dont tous les sous-éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
+
 * Un clic sur un élément décoché coche l'élément et tous ses sous-éléments.
 * Un clic sur un élément coché décoche l'élément et tous ses sous-éléments.
 * Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous-éléments.
@@ -158,10 +171,11 @@ Le bouton _Finish_ est activé si au moins un package est sélectionné ou parti
 Le traitement crée les packages de plus haut niveau sélectionnés dans le package du diagramme courant.
 
 Les éléments pris en compte pour la duplication sont ceux dont :
+
 * la case à cocher est cochée ou partiellement cochée,
 * la lignée des parents est complètement sélectionnée jusqu'au package de plus haut niveau sélectionné.
 
-!pics/entities/Dlg%20entity%20namespace%20from%20dto.png!
+!pics/entity/entities/PackageCreationDialog-DTONamespaceSelection.png!
 
 h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
 
@@ -169,46 +183,51 @@ Les attributs d'entité sont pourvus de champs _minimum_, _maximum_ et optionnel
 La nature de ces champs dépend de la nature du type, qui peut être *textuel* (essentiellement _String_), *numérique* (_Integer_, _Long_, _Float_, etc.) ou *autre* (_Boolean_, _Binary_, etc.).
 
 Pour un type de nature *textuelle* :
-* _minimum_ : longueur minimale du texte
-* _maximum_ : longueur maximale du texte
-* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+* _minimum_ : longueur minimale du texte.
+* _maximum_ : longueur maximale du texte.
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer.
 
 Pour un type de nature *numérique* :
-* _minimum_ : valeur minimale requise
-* _maximum_ : valeur maximale autorisée
-* _pattern_ : non applicable
+
+* _minimum_ : valeur minimale requise.
+* _maximum_ : valeur maximale autorisée.
+* _pattern_ : non applicable.
 
 Pour un type de nature *autre* ces champs sont non applicables.
 
 Ces champs sont exploités par la génération et l'import OpenAPI (Swagger).
 
-h3. Table des entités
+h3(#entity_table). Entity Table
 
 La table des entités (_Entity Table_) peut être créée sur l'objet racine _Entities_.
 
 La table des entités permet de lister les entités existantes et d'afficher les informations suivantes :
-* Nombre d'attributs définis
+
+* Nombre d'attributs définis.
 * Volumétrie estimée. Cette valeur est modifiable en éditant directement la cellule.
 * Historisation (oui/non). Cette valeur est modifiable en éditant directement la cellule.
 
-!pics/table/Entity%20table.png!
+!pics/entity/table/EntityTable.png!
 
-h2. Gestion des exigences
+h2(#additional_features). Fonctionnalités complémentaires
+
+h3(#requirements). Gestion des exigences
 
 La gestion des exigences pour un modèle Entity utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
 Se référer à la documentation "ISD - Requirements tooling":../../org.obeonetwork.dsl.requirement.doc/doc/ISD%20-%20Requirements%20tooling.html dans l'aide d'Eclipse.
 
-h2. Gestion de la documentation liée
+h3(#linked_documentation). Gestion de la documentation liée
 
 Il est possible d'attacher de la documentation aux éléments d'un modèle Entity. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
 Se référer à la documentation "ISD - Documentation Tooling":../../org.obeonetwork.tools.doc.doc/doc/ISD%20-%20Documentation%20Tooling.html dans l'aide d'Eclipse.
 
-h2. Création de diagramme d'interaction
+h3(#interaction_diagrams). Création de diagrammes d'interaction
 
 Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle Entity.
 Se référer à la documentation "ISD - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/ISD%20-%20Interaction%20tooling.html dans l'aide d'Eclipse.
 
-h2. Création de diagramme de machines à états
+h3(#state_machine_diagrams). Création de diagrammes de machines à états
 
 Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle Entity.
 Se référer à la documentation "ISD - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html dans l'aide d'Eclipse.
