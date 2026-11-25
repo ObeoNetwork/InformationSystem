@@ -1,16 +1,26 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Environment tooling.html" label="ISD - Environment tooling">
-	<topic href="doc/ISD - Environment tooling.html" label="ISD - Socle Obeo Designer"></topic>
-	<topic href="doc/ISD - Environment tooling.html#outillage_environnement" label="ISD - Outillage environnement">
-		<topic href="doc/ISD - Environment tooling.html#vues_partielles" label="Vues partielles"></topic>
-		<topic href="doc/ISD - Environment tooling.html#external_links" label="Lier des éléments d&apos;autres projets de modélisation"></topic>
-		<topic href="doc/ISD - Environment tooling.html#error_log" label="Vue Error Log"></topic>
-		<topic href="doc/ISD - Environment tooling.html#modele_environnement" label="Le modèle _Environment_">
+	<topic href="doc/ISD - Environment tooling.html" label="ISD - Outillage environnement">
+		<topic href="doc/ISD - Environment tooling.html#modeling_projects_tools" label="Projets de modélisation et outils communs">
+			<topic href="doc/ISD - Environment tooling.html#modeling_project_structure" label="Structure d’un projet de modélisation"></topic>
+			<topic href="doc/ISD - Environment tooling.html#modeling_project_navigation" label="Navigation dans un projet de modélisation">
+				<topic href="doc/ISD - Environment tooling.html#semantic_model_navigation" label="Par structure des modèles sémantiques"></topic>
+				<topic href="doc/ISD - Environment tooling.html#representation_navigation" label="Par type de représentation"></topic>
+			</topic>
+			<topic href="doc/ISD - Environment tooling.html#vues_partielles" label="Vues partielles">
+				<topic href="doc/ISD - Environment tooling.html#partial_view_creation" label="Création et conversion"></topic>
+				<topic href="doc/ISD - Environment tooling.html#partial_view_visibility" label="Suppression et visibilité des éléments"></topic>
+				<topic href="doc/ISD - Environment tooling.html#diagram_format_copy" label="Copie de la mise en forme"></topic>
+			</topic>
+			<topic href="doc/ISD - Environment tooling.html#external_links" label="Liens vers d’autres projets de modélisation"></topic>
+			<topic href="doc/ISD - Environment tooling.html#error_log" label="Vue Error Log"></topic>
+		</topic>
+		<topic href="doc/ISD - Environment tooling.html#modele_environnement" label="Modèle Environment">
 			<topic href="doc/ISD - Environment tooling.html#modeling_project_creation" label="Création d&apos;un projet de modélisation"></topic>
 			<topic href="doc/ISD - Environment tooling.html#manage_env_resource" label="Gestion des ressources _Environment_"></topic>
-			<topic href="doc/ISD - Environment tooling.html#error_log" label="Création d&apos;un modèle Environment"></topic>
+			<topic href="doc/ISD - Environment tooling.html#environment_model_creation" label="Création d&apos;un modèle Environment"></topic>
 		</topic>
-		<topic href="doc/ISD - Environment tooling.html#metadata_definition" label="Le modèle de définitions de métadonnées">
+		<topic href="doc/ISD - Environment tooling.html#metadata_definition" label="Modèle de définitions de métadonnées">
 			<topic href="doc/ISD - Environment tooling.html#metadata_definition_contribution" label="Contribution d&apos;un modèle de définitions de métadonnées"></topic>
 			<topic href="doc/ISD - Environment tooling.html#metadata_definition_use" label="Utilisation de métadonnées contribuées via un modèle de définitions de métadonnées"></topic>
 		</topic>
