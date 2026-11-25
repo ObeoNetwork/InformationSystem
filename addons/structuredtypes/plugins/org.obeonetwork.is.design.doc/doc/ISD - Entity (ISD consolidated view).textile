@@ -1,23 +1,24 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - Entity (ISD consolidated view)
+h1(#entity_consolidated_view). ISD - Entity (ISD consolidated view)
+
+h2(#presentation). Présentation
 
 Le point de vue _Entity (ISD consolidated view)_ fournit une table permettant de faciliter la saisie d'informations sur le stockage physique des entités.
 Les informations sont stockées sous la forme d'annotations.
 
+h2(#table_creation). Création de la table Entities Physical Names
 
-h2. Création d'une table _Entities Physical Names_
- 
-Pour pouvoir créer une table _Entities Physical Names_, il faut activer le point de vue _Entity (ISD consolidated view)_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+Pour créer une table _Entities Physical Names_, activer le point de vue _Entity (ISD consolidated view)_ via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier @.aird@.
 
 Une fois le point de vue activé, il est possible de créer une nouvelle table sur un objet _Entities_.
 À noter qu'à la première activation du point de vue, une table est créée automatiquement pour chaque objet _Entities_ dans le projet.
 
-!pics/entities/NewTable.png!
+!{max-width:100%}pics/entityconsolidated/ModelExplorer-CreateEntitiesPhysicalNames.png!
 
-h2. Éléments affichés et outils
+h2(#table_editing). Contenu et édition de la table
 
-!pics/entities/Table.png!
+!{max-width:100%}pics/entityconsolidated/EntitiesPhysicalNamesTable.png!
 
 Chaque _Namespace_, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
 
@@ -26,10 +27,10 @@ La table présente les colonnes suivantes :
 * _Name_ : spécifie le nom physique du package, de l'entité, de l'attribut ou de la référence.
 * _Size_ : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
 * _Check_ : spécifie une contrainte. Texte libre.
-* _Unique_ : spécifie les index d'unicité. 
-** Pour un attribut : une valeur vide signifie que l'attribut ne fait pas partie d'un index, 'ASC' signifie que l'attribut fait partie d'un index ascendant, 'DESC' signifie que l'attribut fait partie d'un index descendant.
-** Pour une entité : une valeur non vide doit avoir la syntaxe suivante : <code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code><br/>où le nom d'une colonne est son nom _physique_ (dans la base de données). <code>asc</code> indique que l'index a un ordre ascendant. <code>desc</code> indique que l'index a un ordre descendant. Une virgule '<code>,</code>' sépare les colonnes utilisées pour un même index, et un pipe '<code>|</code>' est utilisé pour séparer les différents index à générer.
+* _Unique_ : spécifie les index d'unicité.
+** Pour un attribut : une valeur vide signifie que l'attribut ne fait pas partie d'un index, @ASC@ signifie que l'attribut fait partie d'un index ascendant, @DESC@ signifie que l'attribut fait partie d'un index descendant.
+** Pour une entité : une valeur non vide doit avoir la syntaxe suivante : @<nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...@<br/>où le nom d'une colonne est son nom _physique_ (dans la base de données). @asc@ indique que l'index a un ordre ascendant. @desc@ indique que l'index a un ordre descendant. Une virgule '@,@' sépare les colonnes utilisées pour un même index, et un pipe '@|@' est utilisé pour séparer les différents index à générer.
 * _Default_ : spécifie une valeur par défaut. Texte libre.
-* _Target Schema_ : permet de définir le schéma de destination dans le cadre d'une relation NN. Une action du menu contextuel est disponible sur les références. Cette action "Set/swap Target Schema" permet de définir le _Namespace_ de la relation comme _Namespace_ de destination pour la table de jointure. Il est aussi possible d'utiliser le raccourci clavier CTRL+T en sélectionnant une référence pour faciliter cette définition.
+* _Target Schema_ : permet de définir le schéma de destination dans le cadre d'une relation NN. Une action du menu contextuel est disponible sur les références. Cette action _Set/swap Target Schema_ permet de définir le _Namespace_ de la relation comme _Namespace_ de destination pour la table de jointure. Il est aussi possible d'utiliser le raccourci clavier @Ctrl+T@ en sélectionnant une référence pour faciliter cette définition.
 
 La modification des valeurs se fait par édition directe des cellules du tableau.

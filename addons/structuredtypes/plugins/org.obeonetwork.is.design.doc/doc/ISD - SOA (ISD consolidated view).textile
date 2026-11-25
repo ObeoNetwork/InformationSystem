@@ -1,23 +1,24 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - SOA (ISD consolidated view)
+h1(#soa_consolidated_view). ISD - SOA (ISD consolidated view)
+
+h2(#presentation). Présentation
 
 Le point de vue _SOA (ISD consolidated view)_ fournit une table permettant de faciliter la saisie d'informations sur le stockage physique des DTO.
 Les informations sont stockées sous la forme d'annotations.
 
+h2(#table_creation). Création de la table DTO Physical Names
 
-h2. Création d'une table _DTO Physical Names_
- 
-Pour pouvoir créer une table _DTO Physical Names_, il faut activer le point de vue _SOA (ISD consolidated view)_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+Pour créer une table _DTO Physical Names_, activer le point de vue _SOA (ISD consolidated view)_ via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier @.aird@.
 
 Une fois le point de vue activé, il est possible de créer une nouvelle table sur un objet SOA de type _System_.
 À noter qu'à la première activation du point de vue, une table est créée automatiquement pour chaque objet SOA de type _System_ dans le projet.
 
-!pics/soa/NewTable.png!
+!{max-width:100%}pics/soaconsolidated/ModelExplorer-CreateDTOPhysicalNames.png!
 
-h2. Éléments affichés et outils
+h2(#table_editing). Contenu et édition de la table
 
-!pics/soa/Table.png!
+!pics/soaconsolidated/DTOPhysicalNamesTable.png!
 
 Chaque package, DTO, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
 
@@ -25,7 +26,7 @@ La table comporte quatre colonnes : _Size_, _Check_, _Unique_ et _Default_.
 
 * _Size_ : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
 * _Check_ : spécifie une contrainte. Texte libre.
-* _Unique_ : spécifie si un attribut fait partie d'un index d'unicité. Une valeur vide signifie que l'attribut ne fait pas partie d'un index. La valeur _ASC_ indique que l'attribut fait partie d'un index et que les valeurs sont triées en ordre ascendant, la valeur _DESC_ indique que l'attribut fait partie d'un index et que les valeurs sont triées en ordre descendant.
+* _Unique_ : spécifie si un attribut fait partie d'un index d'unicité. Une valeur vide signifie que l'attribut ne fait pas partie d'un index. La valeur @ASC@ indique que l'attribut fait partie d'un index et que les valeurs sont triées en ordre ascendant, la valeur @DESC@ indique que l'attribut fait partie d'un index et que les valeurs sont triées en ordre descendant.
 * _Default_ : spécifie une valeur par défaut. Texte libre.
 
 La modification des valeurs se fait par édition directe des cellules du tableau.
