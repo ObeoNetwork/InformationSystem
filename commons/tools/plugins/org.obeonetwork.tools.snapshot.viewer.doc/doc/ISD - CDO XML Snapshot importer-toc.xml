@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - CDO XML Snapshot importer.html" label="ISD - CDO XML Snapshot importer">
 	<topic href="doc/ISD - CDO XML Snapshot importer.html" label="ISD - CDO XML Snapshot Importer">
-		<topic href="doc/ISD - CDO XML Snapshot importer.html#CreateaCDOXMLSnapshot" label="Create a CDO XML Snapshot"></topic>
-		<topic href="doc/ISD - CDO XML Snapshot importer.html#Usetheimporter" label="Use the importer"></topic>
+		<topic href="doc/ISD - CDO XML Snapshot importer.html#overview" label="Overview"></topic>
+		<topic href="doc/ISD - CDO XML Snapshot importer.html#snapshot_creation" label="Create a CDO XML snapshot"></topic>
+		<topic href="doc/ISD - CDO XML Snapshot importer.html#importer_usage" label="Use the importer">
+			<topic href="doc/ISD - CDO XML Snapshot importer.html#importer_opening" label="Open the importer"></topic>
+			<topic href="doc/ISD - CDO XML Snapshot importer.html#snapshot_loading" label="Load the snapshot and select a project"></topic>
+			<topic href="doc/ISD - CDO XML Snapshot importer.html#import_result" label="Import result"></topic>
+		</topic>
 	</topic>
 </toc>

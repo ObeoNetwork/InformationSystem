@@ -7,38 +7,43 @@
 		<p>
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDCDOXMLSnapshotImporter">ISD &#8211; CDO XML Snapshot Importer</h1>
-		<p>A CDO server, as the one provided by Obeo Designer Team, allows one to export the contents of a repository in XML format.</p>
-		<p>A CDO XML Snapshot is not easily read. One must create a new CDO server, load the file using the 
-			<em>cdo export</em> command. And finally locally import a project into the workspace from Obeo Designer Team.
+		<h1 id="cdo_xml_snapshot_importer">ISD &#8211; CDO XML Snapshot Importer</h1>
+		<h2 id="overview">Overview</h2>
+		<p>A CDO server, such as the one provided by Obeo Designer Team, can export the contents of a repository in XML format.</p>
+		<p>Reading a CDO XML snapshot without the importer requires creating a CDO server, loading the file into it and importing a project into the workspace from Obeo Designer Team.</p>
+		<p>The CDO XML Snapshot Importer performs these steps automatically. Select an XML file and a project to import. The importer creates the local project and manages the embedded CDO server in the background.</p>
+		<h2 id="snapshot_creation">Create a CDO XML snapshot</h2>
+		<p>To create a snapshot, enter the following command in the CDO server console. Replace 
+			<code>&lt;repository-name&gt;</code> with the name of the repository to export and 
+			<code>&lt;filename&gt;</code> with the path to the XML file to create:
 		</p>
-		<p>The CDO XML Snapshot Importer can be used to do all these steps for you. You select an XML file, a project to import and the importer automatically creates the local project for you. An embedded CDO server is created and destroyed in the backstage to do this. </p>
-		<h2 id="CreateaCDOXMLSnapshot">Create a CDO XML Snapshot</h2>
-		<p>To use the importer you first need a CDO XML snapchot. To create such a snapshot, just type the following command in the CDO server console, replacing 
-			<strong>&lt;repository-name&gt;</strong> and 
-			<strong>&lt;filename&gt;</strong> with respectively the name of the repository you want to export and the path to the XML file you want to create :
-		</p>
+		<pre><code>cdo export &lt;repository-name&gt; &lt;filename&gt;
+</code></pre>
+		<h2 id="importer_usage">Use the importer</h2>
+		<h3 id="importer_opening">Open the importer</h3>
+		<p>Open the importer from the menu:</p>
 		<blockquote>
-			<p>cdo export &lt;repository-name&gt; &lt;filename&gt;</p>
-		</blockquote>
-		<h2 id="Usetheimporter">Use the importer</h2>
-		<p>The importer can be launched using the 
-			<em>import</em> menu :
-		</p>
-		<blockquote>
-			<p>File... &gt; Import... &gt; Sirius &gt; Import project from CDO XML snapshot</p>
+			<p>
+				<em>File &gt; Import... &gt; Sirius &gt; Import project from CDO XML snapshot</em>
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/ImportMenu.png"/>
+			<img style="max-width:100%" border="0" src="pics/cdoxmlsnapshot/ImportWizard-CDOXMLSnapshotSelection.png"/>
 		</p>
+		<h3 id="snapshot_loading">Load the snapshot and select a project</h3>
 		<p>In the wizard, use 
-			<em>Load file...</em> to select a XML snapshot file. It is then automatically loaded in a freshly created embedded CDO server.
+			<em>Load file...</em> to select an XML snapshot file. The file is automatically loaded into a newly created embedded CDO server.
 		</p>
-		<p>The remote projects list is automatically filled with the contents of the repository and the first project is selected.</p>
-		<p>A local project name is suggested given the remote project name. If a project with this name already exists in workspace an error message is displayed and the wizard can not be completed until a valid local project name has been given.</p>
+		<p>The 
+			<em>Remote project</em> list is populated with the projects in the repository, and the first project is selected.
+		</p>
+		<p>A 
+			<em>Local project name</em> is suggested from the remote project name. If a project with this name already exists in the workspace, an error message is displayed. Enter a valid local project name to complete the wizard.
+		</p>
 		<p>
-			<img border="0" src="pics/ImportWizard.png"/>
+			<img style="max-width:100%" border="0" src="pics/cdoxmlsnapshot/SnapshotImportWizard-ProjectSelection.png"/>
 		</p>
-		<p>Once the wizard is completed a modeling project is created in the workspace.</p>
+		<h3 id="import_result">Import result</h3>
+		<p>Complete the wizard to create a modeling project in the workspace.</p>
 	</body>
 </html>

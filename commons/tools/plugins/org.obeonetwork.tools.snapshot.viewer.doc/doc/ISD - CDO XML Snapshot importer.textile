@@ -1,35 +1,41 @@
 __Copyright (c) 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0__
 
-h1. ISD - CDO XML Snapshot Importer
+h1(#cdo_xml_snapshot_importer). ISD - CDO XML Snapshot Importer
 
-A CDO server, as the one provided by Obeo Designer Team, allows one to export the contents of a repository in XML format.
+h2(#overview). Overview
 
-A CDO XML Snapshot is not easily read. One must create a new CDO server, load the file using the _cdo export_ command. And finally locally import a project into the workspace from Obeo Designer Team.
+A CDO server, such as the one provided by Obeo Designer Team, can export the contents of a repository in XML format.
 
-The CDO XML Snapshot Importer can be used to do all these steps for you. You select an XML file, a project to import and the importer automatically creates the local project for you. An embedded CDO server is created and destroyed in the backstage to do this. 
+Reading a CDO XML snapshot without the importer requires creating a CDO server, loading the file into it and importing a project into the workspace from Obeo Designer Team.
 
-h2. Create a CDO XML Snapshot
+The CDO XML Snapshot Importer performs these steps automatically. Select an XML file and a project to import. The importer creates the local project and manages the embedded CDO server in the background.
 
-To use the importer you first need a CDO XML snapchot. To create such a snapshot, just type the following command in the CDO server console, replacing *&lt;repository-name&gt;* and *&lt;filename&gt;* with respectively the name of the repository you want to export and the path to the XML file you want to create :
+h2(#snapshot_creation). Create a CDO XML snapshot
 
-bq. cdo export &lt;repository-name&gt; &lt;filename&gt;
+To create a snapshot, enter the following command in the CDO server console. Replace @<repository-name>@ with the name of the repository to export and @<filename>@ with the path to the XML file to create:
 
-h2. Use the importer
+bc. cdo export <repository-name> <filename>
 
-The importer can be launched using the _import_ menu :
+h2(#importer_usage). Use the importer
 
-bq. File... > Import... > Sirius > Import project from CDO XML snapshot
+h3(#importer_opening). Open the importer
 
-!pics/ImportMenu.png!
+Open the importer from the menu:
 
-In the wizard, use _Load file..._ to select a XML snapshot file. It is then automatically loaded in a freshly created embedded CDO server.
+bq. _File > Import... > Sirius > Import project from CDO XML snapshot_
 
-The remote projects list is automatically filled with the contents of the repository and the first project is selected.
+!{max-width:100%}pics/cdoxmlsnapshot/ImportWizard-CDOXMLSnapshotSelection.png!
 
-A local project name is suggested given the remote project name. If a project with this name already exists in workspace an error message is displayed and the wizard can not be completed until a valid local project name has been given.
+h3(#snapshot_loading). Load the snapshot and select a project
 
-!pics/ImportWizard.png!
+In the wizard, use _Load file..._ to select an XML snapshot file. The file is automatically loaded into a newly created embedded CDO server.
 
-Once the wizard is completed a modeling project is created in the workspace.
+The _Remote project_ list is populated with the projects in the repository, and the first project is selected.
 
+A _Local project name_ is suggested from the remote project name. If a project with this name already exists in the workspace, an error message is displayed. Enter a valid local project name to complete the wizard.
 
+!{max-width:100%}pics/cdoxmlsnapshot/SnapshotImportWizard-ProjectSelection.png!
+
+h3(#import_result). Import result
+
+Complete the wizard to create a modeling project in the workspace.
