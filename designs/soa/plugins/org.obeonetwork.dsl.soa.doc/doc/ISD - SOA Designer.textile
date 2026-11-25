@@ -619,7 +619,7 @@ Suite à la validation du dialogue, un fichier est généré par _Component_, av
 
 @<Nom du Component>-<Version du Component>.<yaml|json>@
 
-Ainsi, si l'export est lancé depuis un objet racine _Components_ qui contient plusieurs _Component_, autant de fichiers sont générés qu'il y a de _Components_.
+Ainsi, si l'export est lancé depuis un objet racine _Components_ qui contient plusieurs _Component_, autant de fichiers sont générés qu'il y a de _Component_.
 
 La vue "Error Log":../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#error_log peut donner plus de détails sur l'issue du traitement d'export.
  
