@@ -8,56 +8,63 @@
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
 		<h1 id="cinematic_tooling">ISD &#8211; Outillage Cinematic</h1>
-		<p>
-			<strong>Cinematic Designer</strong> est un outil de conception d'écrans d&#8217;application, permettant de décrire la structure d&#8217;une IHM (modélisation statique) et son comportement (modélisation dynamique).
-		</p>
-		<p>
-			<strong>Cinematic Designer</strong> apporte le point de vue 
+		<h2 id="presentation">Présentation</h2>
+		<p>Cinematic Designer est un outil de conception d'écrans d&#8217;application, permettant de décrire la structure d&#8217;une IHM (modélisation statique) et son comportement (modélisation dynamique).</p>
+		<p>Cinematic Designer apporte le point de vue 
 			<em>Cinematic Views</em> qui permet de :
 		</p>
 		<ul>
 			<li>Modéliser des vues et des éléments de vues (les composants graphiques d&#8217;une IHM),</li>
-			<li>Modéliser la structure de la disposition graphique sous une structure de type &#171; Grid Layout &#187;,</li>
+			<li>Modéliser la structure de la disposition graphique sous une structure de type « Grid Layout »,</li>
 			<li>Modéliser les états et le flot entre les états de l&#8217;application,</li>
 			<li>Organiser les 
-				<em>Flows</em> et les 
-				<em>View Elements</em> en packages.
+				<em>Flow</em> et les 
+				<em>ViewElement</em> en packages.
 			</li>
 		</ul>
-		<h2 id="cinematic_model_creation">Création d&#8217;un modèle Cinematic</h2>
+		<h2 id="model_creation">Création des modèles</h2>
+		<h3 id="cinematic_model_creation">Création d&#8217;un modèle Cinematic</h3>
 		<p>Un assistant de création de modèles Cinematic est accessible via le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Cinematic Model (Catégorie IS Designer)</p>
+			<p>
+				<em>File &gt; New &gt; Other... &gt; Cinematic Model</em> (catégorie 
+				<em>IS Designer</em>)
+			</p>
 		</blockquote>
 		<p>Ou bien le menu contextuel sur un projet :</p>
 		<blockquote>
-			<p>New &gt; Other ... &gt; Cinematic Model (Catégorie IS Designer)</p>
+			<p>
+				<em>New &gt; Other... &gt; Cinematic Model</em> (catégorie 
+				<em>IS Designer</em>)
+			</p>
 		</blockquote>
 		<p>Ou encore le raccourci clavier</p>
 		<blockquote>
-			<p>Ctrl+N</p>
+			<p>
+				<code>Ctrl+N</code>
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/Cinematic-ModelCreationWizard-01.jpg"/>
+			<img border="0" src="pics/cinematic/NewWizard-CinematicModelSelection.jpg"/>
 		</p>
-		<p>Cet assistant permet de définir </p>
+		<p>Cet assistant permet de définir :</p>
 		<ul>
 			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
-			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource.</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Cinematic-ModelCreationWizard-02.png"/>
+			<img border="0" src="pics/cinematic/ModelCreationWizard-NameAndLocation.png"/>
 		</p>
 		<p>La dernière page de l&#8217;assistant permet de définir le toolkit à utiliser, et d&#8217;initialiser le modèle avec un diagramme de Mockup et un diagramme de Flow :</p>
 		<p>
-			<img border="0" src="pics/Cinematic-ModelCreationWizard-03.jpg"/>
+			<img border="0" src="pics/cinematic/ModelCreationWizard-ToolkitAndInitialDiagrams.jpg"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé, ainsi que les représentations 
 			<em>Package Diagram</em> et 
 			<em>UI Structure</em>. Les représentations demandées en création sont ouvertes pour commencer à modéliser.
 		</p>
 		<p>
-			<img border="0" src="pics/Cinematic-ModelCreationWizard-04.jpg"/>
+			<img border="0" src="pics/cinematic/ModelExplorer-InitialRepresentations.jpg"/>
 		</p>
 		<p>Lorsqu&#8217;un modèle Cinematic est créé à l&#8217;aide de cet assistant dans un 
 			<em>Modeling Project</em>, les points de vue 
@@ -68,25 +75,28 @@
 			<em>Cinematic Views</em> permet de visualiser et modifier un modèle Cinematic via plusieurs types de diagrammes tels que décrits dans la section suivante. Le point de vue 
 			<em>Environment Views</em> contient la définition des vues de propriétés.
 		</p>
-		<h2 id="toolkit_model_creation">Création d&#8217;un modèle Toolkits</h2>
+		<h3 id="toolkit_model_creation">Création d&#8217;un modèle Toolkits</h3>
 		<p>Un assistant de création de modèles Toolkits est accessible via le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Toolkits Model (Catégorie IS Designer)</p>
+			<p>
+				<em>File &gt; New &gt; Other... &gt; Toolkits Model</em> (catégorie 
+				<em>IS Designer</em>)
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-ModelCreationWizard-01.png"/>
+			<img border="0" src="pics/cinematic/toolkits/NewWizard-ToolkitsModelSelection.png"/>
 		</p>
-		<p>Cet assistant permet de définir </p>
+		<p>Cet assistant permet de définir :</p>
 		<ul>
 			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
-			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource.</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-ModelCreationWizard-02.png"/>
+			<img border="0" src="pics/cinematic/toolkits/ModelCreationWizard-NameAndLocation.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
-		<h2 id="viewpoint_activation">Activation du point de vue</h2>
-		<h3 id="modeling_project_usage">Utilisation d&#8217;un Modeling Project</h3>
+		<h2 id="viewpoint_activation">Utilisation du modeleur</h2>
+		<h3 id="modeling_project_usage">Utilisation d&#8217;un projet de modélisation</h3>
 		<p>Les points de vue 
 			<em>Cinematic Views</em> et 
 			<em>Environment Views</em> sont automatiquement activés lors de la création du modèle avec l&#8217;assistant dans un 
@@ -96,55 +106,56 @@
 			<em>Viewpoints Selection</em> du projet permet de vérifier les points de vue sélectionnés.
 		</p>
 		<p>
-			<img border="0" src="pics/Cinematic-ViewpointSelection.jpg"/>
+			<img border="0" src="pics/cinematic/ViewpointsSelection-CinematicViews.jpg"/>
 		</p>
 		<h3 id="other_project_type_utilisation">Utilisation d&#8217;un autre type de projet</h3>
 		<p>Si le projet est d&#8217;un autre type, il manque alors un fichier 
-			<em>representations file</em> (fichier .aird). L&#8217;action de menu contextuel 
-			<code>Configure &gt; Convert to Modeling Project</code>  permet de remédier à cette situation.
+			<em>representations file</em> (fichier 
+			<code>.aird</code>). L&#8217;action de menu contextuel 
+			<em>Configure &gt; Convert to Modeling Project</em> permet de remédier à cette situation.
 		</p>
 		<p>Pour ajouter le modèle Cinematic à un 
 			<em>representations file</em> existant, choisir 
 			<em>Add Model</em> dans le menu contextuel du 
-			<code>Project Dependencies</code>, puis sélectionner la ressource du modèle Cinematic.
+			<em>Project Dependencies</em>, puis sélectionner la ressource du modèle Cinematic.
 		</p>
 		<p>Après l&#8217;ajout d&#8217;un modèle Cinematic à une session existante, sélectionner les points de vue 
 			<em>Cinematic Views</em> et 
 			<em>Environment Views</em> dans le menu contextuel 
 			<em>Viewpoints Selection</em> du projet s&#8217;ils ne sont pas déjà activés.
 		</p>
-		<h2 id="designer_features">Fonctionnalités du modeleur</h2>
+		<h2 id="designer_features">Représentations</h2>
 		<p>Le modeleur Cinematic apporte les représentations suivantes :</p>
 		<table>
 			<tr>
 				<td>
 					<b>Package Diagram</b> 
 				</td>
-				<td>: diagramme permettant de modéliser les Packages, Flows et ViewContainers.</td>
+				<td>diagramme permettant de modéliser les Packages, Flows et ViewContainers.</td>
 			</tr>
 			<tr>
 				<td>
 					<b>UI Structure</b> 
 				</td>
-				<td>: représentation arborescente permettant de modéliser la description haut niveau statique de l&#8217;IHM.</td>
+				<td>représentation arborescente permettant de modéliser la description haut niveau statique de l&#8217;IHM.</td>
 			</tr>
 			<tr>
 				<td>
 					<b>View Container Mockup</b>
 				</td>
-				<td>: diagramme permettant de modéliser la structure et l&#8217;apparence des IHM et éditer les bindings.</td>
+				<td>diagramme permettant de modéliser la structure et l&#8217;apparence des IHM et éditer les bindings.</td>
 			</tr>
 			<tr>
 				<td>
 					<b>Layout Diagram</b>
 				</td>
-				<td>: diagramme de consultation des composants et composites d&#8217;un Layout.</td>
+				<td>diagramme de consultation des composants et composites d&#8217;un Layout.</td>
 			</tr>
 			<tr>
 				<td>
 					<b>Flow Diagram</b> 
 				</td>
-				<td>: diagramme permettant de modéliser la dynamique de l&#8217;IHM.</td>
+				<td>diagramme permettant de modéliser la dynamique de l&#8217;IHM.</td>
 			</tr>
 		</table>
 		<p>Les représentations suivantes peuvent être ouvertes en mode &#171;Vue Partielle&#187;. Le fonctionnement des Vues Partielles est décrit dans la section 
@@ -157,10 +168,11 @@
 		<h3 id="package_diagram">Package Diagram</h3>
 		<h4 id="package_diagram_content">Contenu</h4>
 		<p>Le 
-			<em>Package Diagram</em> est défini sur un objet de type Package, que nous appellerons par la suite package courant.
+			<em>Package Diagram</em> est défini sur un objet de type 
+			<em>Package</em>, appelé ci-après package courant.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/PackageDiagram/PackageDiagram-01.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/package/PackageDiagram.png"/>
 		</p>
 		<p>Sont affichés sur ce diagramme :</p>
 		<ul>
@@ -168,15 +180,15 @@
 				<em>ViewContainer</em> directement contenus par le package courant,
 			</li>
 			<li>les 
-				<em>Flows</em> du package courant,
+				<em>Flow</em> du package courant,
 			</li>
 			<li>les sous-packages fils du package courant, et leurs 
-				<em>ViewContainers</em>,
+				<em>ViewContainer</em>,
 			</li>
 			<li>les dépendances entre 
-				<em>Flows</em>, 
-				<em>ViewContainers</em> et 
-				<em>Packages</em> quand elles existent (activables/désactivables par le calque 
+				<em>Flow</em>, 
+				<em>ViewContainer</em> et 
+				<em>Package</em> quand elles existent (activables/désactivables par le calque 
 				<em>Dependencies</em>).
 			</li>
 		</ul>
@@ -187,10 +199,10 @@
 			<li>son nom,</li>
 			<li>une icône représentant son type,</li>
 			<li>les 
-				<em>View Elements</em> directement contenus ou référencés,
+				<em>ViewElement</em> directement contenus ou référencés,
 			</li>
 			<li>les 
-				<em>View Containers</em> directement contenus ou référencés.
+				<em>ViewContainer</em> directement contenus ou référencés.
 			</li>
 		</ul>
 		<h4 id="package_diagram_tools">Palette et outils</h4>
@@ -198,7 +210,7 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/PackageDiagram/Palette-CreatePackage.png"/>
+					<img border="0" src="pics/cinematic/package/PackageDiagramPalette-CreatePackage.png"/>
 				</td>
 				<td>Création d&#8217;un 
 					<em>Package</em>.
@@ -206,7 +218,7 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/PackageDiagram/Palette-CreateFlow.png"/>
+					<img border="0" src="pics/cinematic/package/PackageDiagramPalette-CreateFlow.png"/>
 				</td>
 				<td>Création d&#8217;un 
 					<em>Flow</em>.
@@ -214,16 +226,16 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/PackageDiagram/Palette-CreateViewContainer.png"/>
+					<img border="0" src="pics/cinematic/package/PackageDiagramPalette-CreateViewContainer.png"/>
 				</td>
 				<td>Création d&#8217;un 
-					<em>View Container</em>.
+					<em>ViewContainer</em>.
 				</td>
 			</tr>
 		</table>
 		<p>Les autres outils disponibles sont</p>
 		<ul>
-			<li>L'édition directe du label sur tous les éléments (sauf widgets et containers contenus ou référencés par un ViewContainer),</li>
+			<li>L'édition directe du libellé sur tous les éléments (sauf widgets et containers contenus ou référencés par un ViewContainer),</li>
 			<li>La suppression des sous-packages, Flow et ViewContainer (mais pas de suppression du contenu d&#8217;un ViewContainer),</li>
 			<li>Le calque 
 				<em>Dependencies</em> pour afficher ou non les dépendances.
@@ -233,17 +245,17 @@
 		<p>La création d&#8217;un diagramme sur un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
-			<em>View Container</em> se fait par le menu contextuel 
+			<em>ViewContainer</em> se fait par le menu contextuel 
 			<em>New &gt; #Nom du diagramme#</em>.
 			<br/>La navigation vers un diagramme existant lié à un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
-			<em>View Container</em> se fait par le menu contextuel 
+			<em>ViewContainer</em> se fait par le menu contextuel 
 			<em>Open &gt; #Nom du diagramme#</em>.
-			<br/>Un double clic sur un 
+			<br/>Un double-clic sur un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
-			<em>View Container</em> déclenche la création d&#8217;un diagramme s&#8217;il n&#8217;existe pas, ou bien son ouverture s&#8217;il existe.
+			<em>ViewContainer</em> déclenche la création d&#8217;un diagramme s&#8217;il n&#8217;existe pas, ou bien son ouverture s&#8217;il existe.
 		</p>
 		<h3 id="ui_structure">UI Structure</h3>
 		<h4 id="ui_structure_contents">Contenu</h4>
@@ -251,27 +263,27 @@
 			<em>UI Structure</em> fournit une vue de haut niveau de la structure des écrans de l&#8217;application modélisée, sous forme arborescente.
 		</p>
 		<p>Les écrans sont décrits en termes de 
-			<em>View Containers</em> pouvant contenir :
+			<em>ViewContainer</em> pouvant contenir :
 		</p>
 		<ul>
 			<li>d’autres 
-				<em>View Containers</em>,
+				<em>ViewContainer</em>,
 			</li>
 			<li>des 
-				<em>View Container Reference</em> représentant la réutilisation de 
-				<em>View Container</em>.
+				<em>ViewContainerReference</em> représentant la réutilisation de 
+				<em>ViewContainer</em>.
 			</li>
 			<li>les 
-				<em>ViewElements</em> représentant les instances de widgets.
+				<em>ViewElement</em> représentant les instances de widgets.
 			</li>
 		</ul>
 		<p>Les 
-			<em>View Containers</em> peuvent être contenus dans des 
+			<em>ViewContainer</em> peuvent être contenus dans des 
 			<em>Package</em>, permettant une structuration de ces différents éléments.
 		</p>
 		<p>Cette représentation fournit en outre le moyen d’associer un toolkit au modèle Cinematic. Le toolkit est un modèle externe définissant les widgets utilisables pour la définition des écrans.</p>
 		<p>
-			<img border="0" src="pics/UIStructure/UIStructure.png"/>
+			<img border="0" src="pics/cinematic/structure/UIStructure.png"/>
 		</p>
 		<p>Les éléments affichés sont :</p>
 		<ul>
@@ -279,36 +291,36 @@
 				<em>Package</em> principal et ses sous-packages,
 			</li>
 			<li>les 
-				<em>View Containers</em>,
+				<em>ViewContainer</em>,
 				<ul>
 					<li>quand un 
-						<em>View Container</em> est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le 
-						<em>View Container</em> est simplement référencé et non pas contenu (mention dans le libellé et décorateur d&#8217;icône).
+						<em>ViewContainer</em> est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le 
+						<em>ViewContainer</em> est simplement référencé et non pas contenu (mention dans le libellé et décorateur d&#8217;icône).
 					</li>
 				</ul>
 			</li>
 			<li>les 
-				<em>ViewElements</em> contenus dans les 
+				<em>ViewElement</em> contenus dans les 
 				<em>ViewContainer</em>
 			</li>
 		</ul>
 		<h4 id="ui_structure_tools">Palette et outils</h4>
 		<p>Les outils disponibles sont :</p>
 		<ul>
-			<li>création / suppression de Package, ViewContainer et ViewElement,</li>
-			<li>modification de ces éléments via des vues de propriétés avancées,</li>
+			<li>création et suppression de Package, ViewContainer et ViewElement,</li>
+			<li>modification de ces éléments via des vues de propriétés,</li>
 			<li>déplacement et duplication d'élément dans l&#8217;arborescence.</li>
 		</ul>
 		<h3 id="mockup_view">View Container Mockup</h3>
 		<p>Cette représentation vient compléter la représentation 
 			<em>UI Structure</em>, apportant la modélisation de la disposition graphique des composants de l&#8217;IHM. Elle permet de créer et positionner les 
-			<em>View Elements</em> dans les 
-			<em>View Containers</em>. De plus, elle permet d'éditer les bindings sur ces derniers.
+			<em>ViewElement</em> dans les 
+			<em>ViewContainer</em>. De plus, elle permet d'éditer les bindings sur ces derniers.
 		</p>
 		<h4 id="mockup_view_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>La palette propose un outil de création de 
-			<em>View Element</em> ou 
-			<em>View Container</em> par widget disponible dans le toolkit utilisé. Son contenu dépend donc du toolkit actif sur le modèle Cinematic courant.
+			<em>ViewElement</em> ou 
+			<em>ViewContainer</em> par widget disponible dans le toolkit utilisé. Son contenu dépend donc du toolkit actif sur le modèle Cinematic courant.
 		</p>
 		<p>Voici les deux palettes dans le contexte des deux 
 			<em>Toolkits</em> fournis avec le studio 
@@ -326,37 +338,38 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/MockupDiagram/Palette-WebToolkit.png"/>
+					<img border="0" src="pics/cinematic/mockup/MockupPalette-WebToolkit.png"/>
 				</td>
 				<td></td>
 				<td>
-					<img border="0" src="pics/MockupDiagram/Palette-SwtToolkit.png"/>
+					<img border="0" src="pics/cinematic/mockup/MockupPalette-SWTToolkit.png"/>
 				</td>
 			</tr>
 		</table>
-		<p>Par défaut, le label des éléments présentés sur le View Container Mockup est déterminé de la manière suivante :</p>
+		<h4 id="mockup_labels">Libellés et données d’exemple</h4>
+		<p>Par défaut, le libellé des éléments présentés sur le View Container Mockup est déterminé de la manière suivante :</p>
 		<ul>
 			<li>Pour un 
-				<em>View Element</em> ou un 
-				<em>View Container</em> :
+				<em>ViewElement</em> ou un 
+				<em>ViewContainer</em> :
 				<ul>
 					<li>Si l&#8217;attribut label est défini, alors il est utilisé,</li>
 					<li>Sinon si l&#8217;attribut nom est défini alors il est utilisé,</li>
-					<li>Sinon le label est vide.</li>
+					<li>Sinon le libellé est vide.</li>
 				</ul>
 			</li>
 			<li>Pour un 
-				<em>View Container</em>
+				<em>ViewContainer</em>
 				<ul>
 					<li>Si l&#8217;attribut label est défini, alors il est utilisé,</li>
 					<li>Sinon si le nom est défini alors il est utilisé,</li>
-					<li>Sinon le label du View Container référencé est calculé comme ci-dessus et utilisé.</li>
+					<li>Sinon le libellé du View Container référencé est calculé comme ci-dessus et utilisé.</li>
 				</ul>
 			</li>
 		</ul>
 		<p>Le calque 
-			<em>Example</em> modifie le label des 
-			<em>View Elements</em>, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l&#8217;expression AQL &#171; example &#187; du widget.
+			<em>Example</em> modifie le libellé des 
+			<em>ViewElement</em>, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l&#8217;expression AQL &#171; example &#187; du widget.
 		</p>
 		<table>
 			<tr>
@@ -370,67 +383,70 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/MockupDiagram/Mockup-DefaultLayer.png"/>
+					<img border="0" src="pics/cinematic/mockup/ViewContainerMockup-DefaultLayer.png"/>
 				</td>
 				<td></td>
 				<td>
-					<img border="0" src="pics/MockupDiagram/Mockup-ExampleLayer.png"/>
+					<img border="0" src="pics/cinematic/mockup/ViewContainerMockup-ExampleLayer.png"/>
 				</td>
 			</tr>
 		</table>
+		<h4 id="mockup_layout_structure">Structure de disposition graphique</h4>
 		<p>Chaque repositionnement ou redimensionnement de 
-			<em>View Element</em> sur ce diagramme déclenche la mise à jour de la structure de 
+			<em>ViewElement</em> sur ce diagramme déclenche la mise à jour de la structure de 
 			<em>Layout</em> du 
-			<em>View Container</em> représenté sur le diagramme :
+			<em>ViewContainer</em> représenté sur le diagramme :
 		</p>
 		<p>
-			<img border="0" src="pics/MockupDiagram/Layout-ModelStructure.png"/>
+			<img border="0" src="pics/cinematic/mockup/ModelExplorer-LayoutStructure.png"/>
 		</p>
 		<p>La structure de 
-			<em>Layout</em> porte les positionnements graphiques des éléments du Mockup, organisés en structure de type &#171; Grid Layout &#187;. Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
+			<em>Layout</em> porte les positionnements graphiques des éléments du Mockup, organisés en structure de type « Grid Layout ». Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
 			<br/>L&#8217;algorithme de mise à jour de la structure de Layout procède à une analyse de l&#8217;espace en passes successivement verticales et horizontales. Dans l&#8217;exemple ci-dessus, l&#8217;espace est découpé verticalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d&#8217;une deuxième passe.
 		</p>
 		<p>Le choix de direction est déterminé par la direction dans laquelle l&#8217;espace se découpe le plus, avec en cas d'égalité un choix par défaut en découpage vertical.</p>
 		<p>Un élément de 
 			<em>Layout</em> peut être lié ou non à un 
-			<em>View Element</em> suivant qu’il représente le Layout d’un 
-			<em>View Element</em> ou bien le Layout d&#8217;un espace structurant (tel que le Layout qui englobe les deux boutons de l&#8217;exemple ci-dessus).
+			<em>ViewElement</em> suivant qu’il représente le Layout d’un 
+			<em>ViewElement</em> ou bien le Layout d&#8217;un espace structurant (tel que le Layout qui englobe les deux boutons de l&#8217;exemple ci-dessus).
 		</p>
 		<p>Le diagramme 
 			<em>Layout Diagram</em> permet de visualiser cette structure de Layout (décrite dans le chapitre suivant).
 		</p>
 		<h4 id="mockup_view_binding_edition">Édition de bindings</h4>
 		<p>Afin de faire le lien avec les couches SOA et Entity, les 
-			<em>ViewContainer</em> peuvent être bindés à des DTO ou des Entités, et les 
-			<em>ViewElements</em> peuvent être bindés à des attributs ou des références de DTO ou Entités.
+			<em>ViewContainer</em> peuvent être liés par binding à des DTO ou des entités, et les 
+			<em>ViewElement</em> peuvent être liés par binding à des attributs ou des références de DTO ou entités.
 		</p>
-		<p>La fonctionnalité de binding est accessible en menu contextuel de la vue Mockup, sous l&#8217;entrée de menu &#171;Binding...&#187;.</p>
-		<p>Cette action de menu ouvre un dialogue de sélection permettant de binder des DTO/Entités à un 
-			<em>ViewContainer</em>, ou des attributs/références à un 
+		<p>La fonctionnalité de binding est accessible en menu contextuel de la vue Mockup, sous l&#8217;entrée de menu 
+			<em>Binding...</em>.
+		</p>
+		<p>Cette action de menu ouvre un dialogue de sélection permettant de lier par binding des DTO ou entités à un 
+			<em>ViewContainer</em>, ou des attributs ou références à un 
 			<em>ViewElement</em>.
 		</p>
 		<p>Pour un 
-			<em>ViewContainer</em>, le dialogue présente les DTO/Entités accessibles :
+			<em>ViewContainer</em>, le dialogue présente les DTO ou entités accessibles :
 			<br/>
-			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewContainerBinding.png"/>
+			<img border="0" src="pics/cinematic/mockup/BindingDialog-ViewContainer.png"/>
 		</p>
-		<p>Plusieurs DTO/Entités peuvent être sélectionnés. Chaque sélection/désélection de DTO/Entité donne lieu à la création/suppression d&#8217;un objet de binding 
+		<p>Plusieurs DTO ou entités peuvent être sélectionnés. Chaque sélection ou désélection de DTO ou entité donne lieu à la création ou à la suppression d&#8217;un objet de binding 
 			<em>BindingInfo</em>.
 		</p>
 		<p>Si un binding supprimé entraîne la suppression de bindings de références contenus, un dialogue de confirmation est affiché.</p>
 		<p>Si des 
-			<em>ViewContainer</em> parents sont déjà bindés à des DTO/Entités, ces DTO/Entités sont sélectionnés et leur désélection est inactivée. La modification de ce binding est faisable dans le dialogue de binding du 
+			<em>ViewContainer</em> parents sont déjà liés par binding à des DTO ou entités, ces DTO ou entités sont sélectionnés et leur désélection est inactivée. La modification de ce binding est faisable dans le dialogue de binding du 
 			<em>ViewContainer</em> parent en question.
 		</p>
 		<p>Pour un 
-			<em>ViewElement</em>, le dialogue présente les DTO/Entités liés par binding aux 
+			<em>ViewElement</em>, le dialogue présente les DTO ou entités liés par binding aux 
 			<em>ViewContainer</em> parents du 
 			<em>ViewElement</em> sélectionné :
 		</p>
 		<p>
-			<img style="width:40%" border="0" src="pics/MockupDiagram/ViewElementBinding.png"/>
+			<img border="0" src="pics/cinematic/mockup/BindingDialog-ViewElement.png"/>
 		</p>
-		<p>Les DTO/Entités peuvent être dépliés pour accéder à des propriétés de DTO/Entités référencés. Plusieurs attributs/références peuvent être sélectionnés. Chaque sélection/désélection donne lieu à la création/suppression d&#8217;un objet de binding 
+		<p>Les DTO ou entités peuvent être dépliés pour accéder à des propriétés de DTO ou entités référencés. Plusieurs attributs ou références peuvent être sélectionnés. Chaque sélection ou désélection donne lieu à la création ou à la suppression d&#8217;un objet de binding 
 			<em>BindingReference</em> contenu dans le 
 			<em>BindingInfo</em> du 
 			<em>ViewContainer</em> correspondant.
@@ -441,17 +457,17 @@
 			<em>ViewContainer</em> destination.
 		</p>
 		<h4 id="mockup_view_navigation">Navigation vers d&#8217;autres diagrammes</h4>
-		<p>Le double clic sur les éléments du diagramme de Mockup permet de naviguer vers d&#8217;autres diagrammes en les créant à la volée s&#8217;ils n&#8217;existent pas :</p>
+		<p>Le double-clic sur les éléments du diagramme de Mockup permet de naviguer vers d&#8217;autres diagrammes en les créant à la volée s&#8217;ils n&#8217;existent pas :</p>
 		<ul>
 			<li>depuis le 
-				<em>View Container</em> racine vers le diagramme de Layout
+				<em>ViewContainer</em> racine vers le diagramme de Layout,
 			</li>
 			<li>depuis un 
-				<em>View Container</em> vers un sous-diagramme de Mockup
+				<em>ViewContainer</em> vers un sous-diagramme de Mockup,
 			</li>
 			<li>depuis un 
-				<em>View Container Reference</em> vers le diagramme de Mockup du 
-				<em>View Container</em> référencé
+				<em>ViewContainerReference</em> vers le diagramme de Mockup du 
+				<em>ViewContainer</em> référencé.
 			</li>
 		</ul>
 		<p>Lorsque des diagrammes sont créés pour un élément donné, ceux-ci sont navigables via le menu contextuel, dans le sous-menu 
@@ -461,24 +477,33 @@
 		<p>Ce diagramme a pour simple but de visualiser une structure de 
 			<em>Layout</em>. Il n&#8217;a pas vocation à éditer cette structure, et sa palette est vide.
 		</p>
-		<p>L&#8217;action Preview Layout du menu contextuel sur le fond du diagramme permet d&#8217;appliquer les données de positionnement contenues dans les objets 
+		<p>L&#8217;action 
+			<em>Preview Layout</em> du menu contextuel sur le fond du diagramme permet d&#8217;appliquer les données de positionnement contenues dans les objets 
 			<em>Layout</em> aux formes affichées sur le diagramme.
 		</p>
 		<blockquote>
-			<p>IS Designer &gt; Preview Layout</p>
+			<p>
+				<em>IS Designer &gt; Preview Layout</em>
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/LayoutDiagram/LayoutDiagram-01.png"/>
+			<img border="0" src="pics/cinematic/layout/LayoutDiagram.png"/>
 		</p>
-		<p>Les Layouts liés à un View Element sont représentés avec une bordure en trait plein, ceux ayant pour rôle de structurer un compartiment de l’espace sont représentés avec une bordure en trait pointillé.</p>
-		<p>Les Layouts découpant l&#8217;espace verticalement sont présentés en rouge, ceux découpant l&#8217;espace horizontalement sont présentés en vert.</p>
+		<p>Les 
+			<em>Layout</em> liés à un 
+			<em>ViewElement</em> sont représentés avec une bordure en trait plein, ceux ayant pour rôle de structurer un compartiment de l’espace sont représentés avec une bordure en trait pointillé.
+		</p>
+		<p>Les 
+			<em>Layout</em> découpant l&#8217;espace verticalement sont présentés en rouge, ceux découpant l&#8217;espace horizontalement sont présentés en vert.
+		</p>
 		<h3 id="flow_diagram">Flow Diagram</h3>
 		<h4 id="flow_diagram_contents">Contenu</h4>
 		<p>Le 
-			<em>Flow Diagram</em> est défini sur un élément de type Flow.
+			<em>Flow Diagram</em> est défini sur un élément de type 
+			<em>Flow</em>.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/FlowDiagram/FlowDiagram-01.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/flow/FlowDiagram.png"/>
 		</p>
 		<p>Sont affichés sur ce diagramme :</p>
 		<ul>
@@ -489,24 +514,24 @@
 			</li>
 			<li>Les transitions du Flow
 				<ul>
-					<li>Si la transition est déclenchée par un (des) événement(s), le label principal de la transition est de la forme 
+					<li>Si la transition est déclenchée par un (des) événement(s), le libellé principal de la transition est de la forme 
 						<em>
-							<img border="0" src="pics/obj16/ViewEvent.gif"/> evenement1,evenement2
+							<img border="0" src="pics/cinematic/icons/ViewEvent.gif"/> evenement1,evenement2
 						</em>.
 					</li>
-					<li>Si une garde est présente elle est affichée en label secondaire sous la forme 
-						<em>[guard]</em>. 
+					<li>Si une garde est présente elle est affichée en libellé secondaire sous la forme 
+						<em>[guard]</em>.
 					</li>
 					<li>Si la transition est dirigée vers un 
-						<em>View State</em>, elle est représentée par une flèche pleine, sinon elle est représentée par une flèche pointillée.
+						<em>ViewState</em>, elle est représentée par une flèche pleine, sinon elle est représentée par une flèche pointillée.
 					</li>
 				</ul>
 			</li>
 			<li>Un conteneur flottant nommé 
 				<em>FlowEvents</em> présente les FlowEvents génériques du flow de portée globale qui représentent des événements logiques ou métier. Ce conteneur peut être masqué en désactivant le calque 
 				<em>Flow Events</em>. Les événements de &#171;Flow Events&#187; portent l&#8217;icône 
-				<img border="0" src="pics/obj16/FlowEvent.gif"/> pour les distinguer des événements définis dans le toolkit qui portent l&#8217;icône 
-				<img border="0" src="pics/obj16/WidgetEventType.gif"/>.
+				<img border="0" src="pics/cinematic/icons/FlowEvent.gif"/> pour les distinguer des événements définis dans le toolkit qui portent l&#8217;icône 
+				<img border="0" src="pics/cinematic/icons/WidgetEventType.gif"/>.
 			</li>
 			<li>Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque 
 				<em>View Containers</em>.
@@ -517,7 +542,7 @@
 				</ul>
 			</li>
 		</ul>
-		<h4 id="flow_diagram_tools">Palette et outils </h4>
+		<h4 id="flow_diagram_tools">Palette et outils</h4>
 		<p>Les outils proposés par la palette sont :</p>
 		<table>
 			<tr>
@@ -528,52 +553,52 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateTransition.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateTransition.png"/>
 				</td>
 				<td>Tracée entre deux états, permet de créer une transition. Si la transition est issue d&#8217;un 
-					<em>View State</em>, déclenche l&#8217;ouverture de l&#8217;assistant de sélection d'événements déclencheurs.
+					<em>ViewState</em>, déclenche l&#8217;ouverture de l&#8217;assistant de sélection d'événements déclencheurs.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateView.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateView.png"/>
 				</td>
 				<td>Crée un 
-					<em>View State</em>. Déclenche l&#8217;ouverture de l&#8217;assistant de sélection de 
-					<em>View Container</em>.
+					<em>ViewState</em>. Déclenche l&#8217;ouverture de l&#8217;assistant de sélection de 
+					<em>ViewContainer</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateAction.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateAction.png"/>
 				</td>
 				<td>Crée un 
-					<em>Action State</em>.
+					<em>ActionState</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateAsyncEvent.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateAsyncEvent.png"/>
 				</td>
 				<td>Crée un 
-					<em>Async Event</em>.
+					<em>AsyncEventState</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateExistingFlow.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateExistingFlow.png"/>
 				</td>
 				<td>Crée un 
-					<em>Sub Flow State</em> et affiche l&#8217;assistant de sélection de 
+					<em>SubflowState</em> et affiche l&#8217;assistant de sélection de 
 					<em>Flow</em> existant.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateNewFlow.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateNewFlow.png"/>
 				</td>
 				<td>Crée un 
-					<em>Sub Flow State</em> et l&#8217;associe à un nouveau 
+					<em>SubflowState</em> et l&#8217;associe à un nouveau 
 					<em>Flow</em> créé dans la même action.
 				</td>
 			</tr>
@@ -585,34 +610,34 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateInitial.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateInitial.png"/>
 				</td>
 				<td>Crée un 
-					<em>Initial State</em>.
+					<em>InitialState</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateFinal.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateFinal.png"/>
 				</td>
 				<td>Crée un 
-					<em>Final State</em>.
+					<em>FinalState</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateAbort.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateAbort.png"/>
 				</td>
 				<td>Crée un 
-					<em>Abort State</em>.
+					<em>AbortState</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateDecision.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateDecision.png"/>
 				</td>
 				<td>Crée un 
-					<em>Decision Node</em>.
+					<em>DecisionState</em>.
 				</td>
 			</tr>
 			<tr>
@@ -623,11 +648,11 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-CreateFlowEvent.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-CreateFlowEvent.png"/>
 				</td>
 				<td>Présent seulement si le calque 
 					<em>Flow Events</em> est activé. Crée un 
-					<em>Flow Event</em> dans le conteneur 
+					<em>FlowEvent</em> dans le conteneur 
 					<em>Flow Events</em>.
 				</td>
 			</tr>
@@ -639,88 +664,87 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-BindViewStateAndViewContainer.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-BindViewStateAndViewContainer.png"/>
 				</td>
 				<td>Crée un lien d&#8217;association entre un 
-					<em>View State</em> et un 
-					<em>View Container</em> déjà présent sur le diagramme.
+					<em>ViewState</em> et un 
+					<em>ViewContainer</em> déjà présent sur le diagramme.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-BindExistingViewContainer.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-BindExistingViewContainer.png"/>
 				</td>
 				<td>Crée un lien d&#8217;association entre un 
-					<em>View State</em> et un 
-					<em>View Container</em> existant. Déclenche l&#8217;affichage d&#8217;un dialogue de sélection de 
-					<em>View Container</em>.
+					<em>ViewState</em> et un 
+					<em>ViewContainer</em> existant. Déclenche l&#8217;affichage d&#8217;un dialogue de sélection de 
+					<em>ViewContainer</em>.
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/FlowDiagram/Palette-BindNewViewContainer.png"/>
+					<img border="0" src="pics/cinematic/flow/FlowDiagramPalette-BindNewViewContainer.png"/>
 				</td>
 				<td>Crée un lien d&#8217;association entre un 
-					<em>View State</em> et un 
-					<em>View Container</em> créé dans la même action. Déclenche l&#8217;affichage d&#8217;un dialogue de sélection du 
+					<em>ViewState</em> et un 
+					<em>ViewContainer</em> créé dans la même action. Déclenche l&#8217;affichage d&#8217;un dialogue de sélection du 
 					<em>Widget</em> dont le 
-					<em>View Container</em> représentera une instance.
+					<em>ViewContainer</em> représentera une instance.
 				</td>
 			</tr>
 		</table>
 		<p>Autres outils :</p>
 		<table>
 			<tr>
-				<td>Double clic sur une 
+				<td>Double-clic sur une 
 					<em>Transition</em>
 				</td>
-				<td>: Ouvre le dialogue de sélection et de création d'événements déclencheurs</td>
+				<td>Ouvre le dialogue de sélection et de création d'événements déclencheurs</td>
 			</tr>
 			<tr>
-				<td>Double clic sur un 
-					<em>View State</em>
+				<td>Double-clic sur un 
+					<em>ViewState</em>
 				</td>
-				<td>: Ouvre le dialogue de sélection de 
-					<em>View Containers</em>
+				<td>Ouvre le dialogue de sélection de 
+					<em>ViewContainer</em>
 				</td>
 			</tr>
 			<tr>
 				<td>Édition directe des libellés</td>
-				<td>: Sur les états, les conditions de garde, les Flow Events et les View Containers</td>
+				<td>Sur les états, les conditions de garde, les Flow Events et les View Containers</td>
 			</tr>
 			<tr>
 				<td>Reconnexion</td>
-				<td>: Des transitions</td>
+				<td>Des transitions</td>
 			</tr>
 			<tr>
 				<td>Suppression</td>
-				<td>: Les éléments du diagramme</td>
+				<td>Les éléments du diagramme</td>
 			</tr>
 		</table>
 		<p>Outils de navigation :</p>
 		<ul>
-			<li>création / navigation vers le diagramme de flux pour un SubFlowState,</li>
-			<li>création / navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li>
+			<li>création et navigation vers le diagramme de flux pour un SubFlowState,</li>
+			<li>création et navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li>
 		</ul>
 		<p>Menu contextuel :
 			<br/>L&#8217;apparence d&#8217;un ViewState peut prendre celle du diagramme de Mockup du View Container qui lui est associé par l&#8217;action 
 			<em>Apply Mockup Image</em> du menu contextuel, permettant d&#8217;obtenir ce genre de rendu visuel :
 			<br/>
-			<img style="width:100%" border="0" src="pics/FlowDiagram/FlowDiagram-02.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/flow/FlowDiagram-MockupImages.png"/>
 			<br/>L&#8217;action 
 			<em>Remove Mockup Image</em> a pour effet de réinitialiser l&#8217;apparence du 
-			<em>View State</em> à son apparence initiale.
+			<em>ViewState</em> à son apparence initiale.
 		</p>
+		<h4 id="event_selection_dialog">Sélection des événements déclencheurs</h4>
 		<p>
-			<b>Dialogue de sélection d'événements déclencheurs:</b>
-			<br/>
-			<img style="width:50%" border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/flow/EventSelectionDialog.png"/>
 		</p>
 		<p>Ce dialogue permet de sélectionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 			<br/>Les événements des widgets sont classés sous la hiérarchie des View Elements, les événements logiques sont regroupés sous un nœud virtuel « Flow events ».
 		</p>
 		<p>Les événements déclencheurs de la transition sont cochés.</p>
-		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
+		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le libellé se conforme au filtre. L’affichage d’un élément dont le libellé se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
 		<p>La case à cocher « Hide non contextual View Containers » permet de cacher les View Containers qui ne sont pas liés au View State source de la transition. À l’affichage du dialogue elle est cochée si au moins un View Container est lié au View State source.</p>
 		<p>L’arbre de sélection d’événement permet une sélection multiple. Le dialogue peut donc être validé avec une sélection vide, simple ou multiple.</p>
 		<p>À la validation du dialogue,</p>
@@ -739,21 +763,21 @@
 				</ul>
 			</li>
 		</ul>
+		<h4 id="view_container_selection_dialog">Sélection des ViewContainer</h4>
 		<p>
-			<b>Dialogue de sélection de ViewContainer:</b>
-			<br/>
-			<img style="width:50%" border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/flow/ViewContainerSelectionDialog.png"/>
 		</p>
 		<p>Ce dialogue permet de sélectionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hiérarchie de contenance.</p>
 		<p>Les View Containers associés au View State concerné sont cochés.</p>
-		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
+		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le libellé se conforme au filtre. L’affichage d’un élément dont le libellé se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
 		<p>La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent cependant être affichés malgré le filtre.</p>
 		<p>L'état partiellement coché d&#8217;une case indique que des sous-éléments sont sélectionnés. Les éléments partiellement cochés ne font pas partie de la sélection prise en compte à la validation du dialogue.</p>
 		<p>À la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.</p>
-		<h3 id="toolkit_creation">Création de toolkits</h3>
+		<h2 id="toolkit_creation">Définition de toolkits</h2>
+		<h3 id="toolkit_structure">Structure d’un toolkit</h3>
 		<p>Le métamodèle Cinematic est extensible par définition de toolkits.</p>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkits-ClassDiagram.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/toolkits/ToolkitMetamodel.png"/>
 		</p>
 		<p>De manière succincte, la création d&#8217;un toolkit consiste en la création de widgets, et sous chaque widget la création des types d'événements qu&#8217;il peut déclencher.</p>
 		<p>Par exemple, un toolkit peut contenir un widget 
@@ -761,15 +785,16 @@
 			<em>buttonPressed</em>.
 		</p>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-TreeView.png"/>
+			<img border="0" src="pics/cinematic/toolkits/ModelExplorer-ButtonWidget.png"/>
 		</p>
 		<p>La création de toolkits est une tâche réalisée par l'équipe réalisant l&#8217;outillage de l'équipe d&#8217;analyse / conception / développement.
 			<br/>À ce titre, la définition de toolkits se fait par l'éditeur EMF arborescent classique.
 		</p>
 		<p>Pour une meilleure expérience utilisateur il est possible d&#8217;associer une icône à chaque widget. Cette icône est affichée devant le nom des ViewElement utilisant le widget, et dans la palette du diagramme de Mockup.</p>
+		<h3 id="toolkit_information">Informations présentées aux utilisateurs</h3>
 		<p>Certains attributs du toolkit sont utilisés pour restituer des informations aux utilisateurs finaux
 			<br/>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-Properties.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/toolkits/WidgetProperties-Button.png"/>
 		</p>
 		<p>Ainsi :</p>
 		<ul>
@@ -778,64 +803,88 @@
 			</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-Summary.png"/>
+			<img border="0" src="pics/cinematic/toolkits/MockupPalette-ButtonSummary.png"/>
 		</p>
 		<ul>
 			<li>
 				<b>Documentation</b> : est affichée dans une aide sur les 
-				<em>ViewElements</em> et 
-				<em>ViewContainers</em> utilisant le Widget :
+				<em>ViewElement</em> et 
+				<em>ViewContainer</em> utilisant le Widget :
 			</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-Documentation.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/toolkits/WidgetHelp-Documentation.png"/>
 		</p>
 		<ul>
 			<li>
 				<b>Metadata Definitions</b> : définit une liste de clés et de valeurs par défaut pour des métadonnées. Ces données sont exploitées à la création d&#8217;un 
-				<em>View Element</em> pour initialiser autant de métadonnées dans le 
+				<em>ViewElement</em> pour initialiser autant de métadonnées dans le 
 				<em>ViewElement</em> qu&#8217;il y a de valeurs définies dans l&#8217;attribut metadataDefinitions :
 			</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-MetaDatas.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/toolkits/WidgetProperties-DefaultMetadata.png"/>
 		</p>
 		<ul>
 			<li>
 				<b>Metadata Help</b> : définit une aide à l&#8217;usage des métadonnées pour les 
-				<em>ViewElements</em> et 
-				<em>ViewContainers</em> utilisant le Widget :
+				<em>ViewElement</em> et 
+				<em>ViewContainer</em> utilisant le Widget :
 			</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/Toolkits/Toolkit-Example-Button-MetadataHelp.png"/>
+			<img style="max-width:100%" border="0" src="pics/cinematic/toolkits/WidgetHelp-Metadata.png"/>
 		</p>
+		<h3 id="widget_style">Style des widgets</h3>
 		<p>Un 
 			<em>Widget</em> peut définir un style. Le style porte les attributs suivants :
 		</p>
 		<ul>
-			<li>decorator : Chemin vers l’image svg qui décore le widget (cas de combo box, radio button, etc...)</li>
-			<li>decoratorPosition : position cardinale du décorateur (east pour combo box, west pour radio button, etc...)</li>
-			<li>decoratorVFill : booléen spécifiant si le décorateur doit suivre le redimensionnement vertical (valeur par défaut égale à vrai)</li>
-			<li>decoratorHFill : booléen spécifiant si le décorateur doit suivre le redimensionnement horizontal (valeur par défaut égale à faux)</li>
-			<li>bordered : booléen spécifiant si une bordure est visible (faux pour link ou pour label)</li>
-			<li>roundedCorners : booléen spécifiant si les coins doivent être arrondis (vrai pour button)</li>
-			<li>fontColor : couleur de la police de caractères utilisée pour le label. Les couleurs disponibles sont celles définies par la classe 
+			<li>
+				<code>decorator</code> : Chemin vers l’image svg qui décore le widget (cas de combo box, radio button, etc.)
+			</li>
+			<li>
+				<code>decoratorPosition</code> : position cardinale du décorateur (east pour combo box, west pour radio button, etc.)
+			</li>
+			<li>
+				<code>decoratorVFill</code> : booléen spécifiant si le décorateur doit suivre le redimensionnement vertical (valeur par défaut égale à vrai)
+			</li>
+			<li>
+				<code>decoratorHFill</code> : booléen spécifiant si le décorateur doit suivre le redimensionnement horizontal (valeur par défaut égale à faux)
+			</li>
+			<li>
+				<code>bordered</code> : booléen spécifiant si une bordure est visible (faux pour link ou pour label)
+			</li>
+			<li>
+				<code>roundedCorners</code> : booléen spécifiant si les coins doivent être arrondis (vrai pour button)
+			</li>
+			<li>
+				<code>fontColor</code> : couleur de la police de caractères utilisée pour le libellé. Les couleurs disponibles sont celles définies par la classe 
 				<code>org.eclipse.swt.SWT</code> par les champs dont le nom commence par « COLOR_ ». Ainsi, une couleur désignée par la chaîne « BLACK » désigne le champ 
 				<code>org.eclipse.swt.SWT.COLOR_BLACK</code>.
 			</li>
-			<li>fontUnderlined : booléen spécifiant si la police de caractères utilisée pour le label est soulignée (vrai pour link)</li>
-			<li>labelHAlignment : alignement du texte à gauche, droite, ou centre</li>
-			<li>defaultWidth : largeur par défaut utilisée à la création d’un View Element</li>
-			<li>defaultHeight : hauteur par défaut utilisée à la création d’un View Element</li>
-			<li>exampleExpression : Expression AQL définie dans le contexte du 
-				<em>View Element</em> (la variable self est instance de 
-				<em>View Element</em>), définissant le label des 
-				<em>View Elements</em> sur le diagramme Mockup lorsque le calque 
+			<li>
+				<code>fontUnderlined</code> : booléen spécifiant si la police de caractères utilisée pour le libellé est soulignée (vrai pour link)
+			</li>
+			<li>
+				<code>labelHAlignment</code> : alignement du texte à gauche, droite, ou centre
+			</li>
+			<li>
+				<code>defaultWidth</code> : largeur par défaut utilisée à la création d’un View Element
+			</li>
+			<li>
+				<code>defaultHeight</code> : hauteur par défaut utilisée à la création d’un View Element
+			</li>
+			<li>
+				<code>exampleExpression</code> : Expression AQL définie dans le contexte du 
+				<em>ViewElement</em> (la variable self est instance de 
+				<em>ViewElement</em>), définissant le libellé des 
+				<em>ViewElement</em> sur le diagramme Mockup lorsque le calque 
 				<em>Example</em> est activé
 			</li>
-			<li>labelHidden : booléen spécifiant si le label du 
-				<em>View Element</em> représentant ce 
+			<li>
+				<code>labelHidden</code> : booléen spécifiant si le libellé du 
+				<em>ViewElement</em> représentant ce 
 				<em>Widget</em> doit être caché (utile pour les conteneurs tels que Page, Panel, ...)
 			</li>
 		</ul>
