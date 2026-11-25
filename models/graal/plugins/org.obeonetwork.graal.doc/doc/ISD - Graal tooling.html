@@ -7,31 +7,32 @@
 		<p>
 			<i>Copyright &#169; 2008, 2026 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0</i>
 		</p>
-		<h1 id="ISDOutillageGraal">ISD &#8211; Outillage Graal</h1>
+		<h1 id="graal_tooling">ISD &#8211; Outillage Graal</h1>
+		<h2 id="presentation">Présentation</h2>
 		<p>
 			<strong>Graal</strong> est une méthode d&#8217;analyse dont le but est la modélisation du besoin utilisateur et la description des interfaces homme-machine d&#8217;un système d&#8217;information tant d&#8217;un point de vue statique que d&#8217;un point de vue dynamique.
 			<br/>L&#8217;objectif de la méthode Graal est de capturer et de formaliser le besoin utilisateur au travers d&#8217;une analyse de la tâche.
 		</p>
-		<p>L'
-			<strong>outillage Graal</strong> d'
-			<strong>IS Designer</strong> fournit un ensemble d&#8217;outils permettant l&#8217;adoption de la méthodologie Graal au sein d&#8217;Eclipse. L&#8217;outillage fournit des éditeurs graphiques, tabulaires ou arborescents ainsi que des vues Eclipse dédiées.
-		</p>
+		<p>L&#8217;outillage Graal d&#8217;IS Designer fournit un ensemble d&#8217;outils permettant l&#8217;adoption de la méthodologie Graal au sein d&#8217;Eclipse. L&#8217;outillage fournit des éditeurs graphiques, tabulaires ou arborescents ainsi que des vues Eclipse dédiées.</p>
 		<p>Cette documentation a pour objectif de présenter cet outillage Graal et non pas de présenter de manière exhaustive la méthodologie Graal.</p>
-		<h2 id="CrationdunmodleGraal">Création d&#8217;un modèle Graal</h2>
-		<p>Un assistant permet la création de modèles Graal. Cet assistant est accessible via le menu :</p>
+		<h2 id="model_creation">Création d&#8217;un modèle Graal</h2>
+		<p>Pour créer un modèle Graal, ouvrir l’assistant depuis le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Graal Model (Catégorie IS Designer)</p>
+			<p>
+				<em>File &gt; New &gt; Other... &gt; Graal Model</em> (catégorie 
+				<em>IS Designer</em>)
+			</p>
 		</blockquote>
 		<p>
-			<img border="0" src="pics/SafranGraalWizard01.png"/>
+			<img border="0" src="pics/graal/NewWizard-GraalModelSelection.png"/>
 		</p>
-		<p>Cet assistant permet de définir </p>
+		<p>Cet assistant permet de définir :</p>
 		<ul>
 			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisé et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
-			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource.</li>
 		</ul>
 		<p>
-			<img border="0" src="pics/SafranGraalWizard02.png"/>
+			<img border="0" src="pics/graal/ModelCreationWizard-NameAndLocation.png"/>
 		</p>
 		<p>Une fois l&#8217;assistant validé, le modèle est créé, les représentations 
 			<em>Tasks Graph</em>, 
@@ -41,7 +42,7 @@
 			<em>Tasks Graph</em> est ouverte afin de commencer l'édition.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/SafranGraalModelCreated.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/ModelCreationResult-InitialRepresentations.png"/>
 		</p>
 		<p>Lorsqu&#8217;un modèle Graal est créé à l&#8217;aide de cet assistant, les points de vue 
 			<em>Graal Methodology</em>, 
@@ -59,76 +60,98 @@
 			<a href="../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html">ISD &#8211; State Machine tooling</a>. Le point de vue 
 			<em>Environment Views</em> fournit les vues de propriétés.
 		</p>
-		<h2 id="PointdevueGraal">Point de vue Graal</h2>
+		<h2 id="modeler_usage">Utilisation du modeleur</h2>
 		<p>L&#8217;outillage Graal fournit un point de vue dédié à la méthodologie Graal. Ce point de vue permet de visualiser et modifier un modèle Graal via plusieurs types de diagrammes.</p>
-		<h3 id="OuverturedunesessionetactivationdupointdevueGraal">Ouverture d&#8217;une session et activation du point de vue Graal</h3>
-		<p>L&#8217;ouverture d&#8217;une session de travail sur un modèle Graal se fait de manière classique :</p>
+		<h3 id="session_opening">Ouverture d&#8217;une session et activation du point de vue Graal Methodology</h3>
+		<p>Pour ouvrir une session de travail sur un modèle Graal, utiliser l&#8217;une des méthodes suivantes :</p>
 		<ul>
-			<li>En ouvrant le 
-				<em>Modeling Project</em> contenant le modèle
+			<li>ouvrir le 
+				<em>Modeling Project</em> contenant le modèle,
 			</li>
-			<li>En double-cliquant sur un fichier 
-				<em>*.aird</em> existant
+			<li>double-cliquer sur un fichier 
+				<code>*.aird</code> existant,
 			</li>
-			<li>En faisant un glisser/déposer d&#8217;un fichier 
-				<em>*.graal</em> sur la vue 
-				<em>Model Explorer</em>
+			<li>effectuer un glisser-déposer d&#8217;un fichier 
+				<code>*.graal</code> sur la vue 
+				<em>Model Explorer</em>,
 			</li>
-			<li>En convertissant le projet contenant le modèle en un 
-				<em>Modeling Project</em>
+			<li>convertir le projet contenant le modèle en un 
+				<em>Modeling Project</em>.
 			</li>
 		</ul>
-		<p>Le point de vue 
-			<em>Graal Methodology</em> doit être sélectionné sur la session ouverte. Pour vérifier si c&#8217;est bien le cas, lancer le menu suivant sur la session :
+		<p>Pour vérifier que le point de vue 
+			<em>Graal Methodology</em> est activé, ouvrir la boîte de dialogue 
+			<em>Viewpoints Selection</em> depuis le menu contextuel du 
+			<em>Modeling Project</em> :
 		</p>
 		<blockquote>
-			<p>Viewpoint Selection</p>
+			<p>
+				<em>Viewpoints Selection</em>
+			</p>
 		</blockquote>
 		<p>Choisir le point de vue 
-			<em>Graal Methodology</em> :
+			<em>Graal Methodology</em>.
 		</p>
 		<p>
-			<img border="0" src="pics/GraalViewpointSelection.png"/>
+			<img border="0" src="pics/graal/ViewpointsSelection-GraalMethodology.png"/>
 		</p>
 		<p>Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Graal.</p>
-		<h3 id="Crationouverturedediagrammes">Création/ouverture de diagrammes</h3>
+		<h3 id="diagram_handling">Création et ouverture des diagrammes</h3>
 		<p>Chaque type de diagramme est rattaché à un concept Graal précis. Par exemple, un 
 			<em>plan d&#8217;action</em> est rattaché à une 
 			<em>Task</em>, un graphe de tâches est rattaché à un 
 			<em>System</em> ou à un 
-			<em>TasksGroup</em>. 
+			<em>TasksGroup</em>.
 		</p>
-		<p>Pour créer un diagramme d&#8217;un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue 
-			<em>Model Explorer</em> puis, avec un clic droit, de sélectionner le menu :
+		<p>Pour créer un diagramme d&#8217;un certain type, sélectionner l'élément du modèle auquel rattacher le diagramme dans la vue 
+			<em>Model Explorer</em> puis, avec un clic droit, sélectionner le menu :
 		</p>
 		<blockquote>
-			<p>New... &gt; #Nom du diagramme#</p>
+			<p>
+				<em>New... &gt; #Nom du diagramme#</em>
+			</p>
 		</blockquote>
-		<p>puis renseigner le nom du diagramme et, enfin, valider.</p>
+		<p>Renseigner le nom du diagramme et valider.</p>
 		<p>Les diagrammes suivants peuvent être ouverts en mode &#171;Vue Partielle&#187;. Le fonctionnement des Vues Partielles est décrit dans la section 
 			<a href="../../org.obeonetwork.dsl.environment.design.doc/doc/ISD%20-%20Environment%20tooling.html#vues_partielles">ISD – Outillage environnement / Vues Partielles</a>
 		</p>
 		<ul>
-			<li>Tasks Graph</li>
-			<li>Actions Plan</li>
-			<li>Actors Graph</li>
-			<li>TasksGroup Graph</li>
-			<li>Use Cases Main View</li>
-			<li>Use Case Diagram</li>
+			<li>
+				<em>Tasks Graph</em>.
+			</li>
+			<li>
+				<em>Actions Plan</em>.
+			</li>
+			<li>
+				<em>Actors Graph</em>.
+			</li>
+			<li>
+				<em>TasksGroup Graph</em>.
+			</li>
+			<li>
+				<em>Use Cases Main View</em>.
+			</li>
+			<li>
+				<em>Use Case Diagram</em>.
+			</li>
 		</ul>
 		<p>Par exemple sur un 
 			<em>System</em>, trois types de diagrammes peuvent être créés comme présenté sur la capture d'écran suivante :
 		</p>
 		<p>
-			<img border="0" src="pics/GraalGraphsOnSystem.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/ModelExplorer-SystemRepresentations.png"/>
 		</p>
-		<p>Pour ouvrir un diagramme, il suffit de double-cliquer sur le diagramme dans la vue 
+		<p>Pour ouvrir un diagramme, effectuer un double-clic sur le diagramme dans la vue 
 			<em>Model Explorer</em>. Attention, seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
 			<em>Model Explorer</em>.
 		</p>
-		<h3 id="GraphedetchespourunSystem">Graphe de tâches (pour un 
-			<em>System</em>)
-		</h3>
+		<h3 id="model_explorer_organization">Organisation du Model Explorer</h3>
+		<p>Dans l&#8217;explorateur de modèles, en dessous du nœud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.</p>
+		<p>
+			<img border="0" src="pics/graal/ModelExplorer-SystemContents.png"/>
+		</p>
+		<h2 id="representations">Représentations</h2>
+		<h3 id="system_tasks_graph">Tasks Graph</h3>
 		<p>Un graphe de tâches (ou 
 			<em>Tasks Graph</em>) peut être associé à un 
 			<em>System</em>.
@@ -136,9 +159,9 @@
 			<em>System</em> un seul graphe de tâches peut être créé au maximum.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/tasksgraph/Tasks_Graph.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/tasksgraph/TasksGraph.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="system_tasks_graph_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
@@ -154,7 +177,7 @@
 			<li>
 				<em>System</em> : un 
 				<em>System</em> peut contenir d&#8217;autres 
-				<em>Systems</em>. Un découpage d&#8217;une application en plusieurs sous-modules est possible par ce biais-là. Chaque 
+				<em>System</em>. Un découpage d&#8217;une application en plusieurs sous-modules est possible par ce biais-là. Chaque 
 				<em>System</em> contenu directement par le 
 				<em>System</em> principal est affiché.
 			</li>
@@ -167,43 +190,43 @@
 			</li>
 		</ul>
 		<p>
-			<img style="width:25%" border="0" src="pics/diagrams/tasksgraph/Tasks_Graph_Actors_layer.png"/>
+			<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraph-ActorsLayer.png"/>
 		</p>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20task.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateTask.png"/>
 				</td>
 				<td>Création d&#8217;une tâche.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/grouptasksgraph/Import%20existing%20task.png"/>
+					<img border="0" src="pics/graal/diagrams/grouptasksgraph/TasksGraphPalette-ImportExistingTask.png"/>
 				</td>
 				<td>Import d&#8217;une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20group.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateGroup.png"/>
 				</td>
 				<td>Création d&#8217;un groupe.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20system.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateSystem.png"/>
 				</td>
 				<td>Création d&#8217;un système.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20use.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateUse.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;utilisation entre tâches, groupes et systèmes. Les liens d&#8217;utilisation se font normalement entre tâches, l&#8217;outil de création peut néanmoins être utilisé avec un système ou un groupe comme extrémité : dans ce cas une boîte de dialogue s&#8217;ouvre pour permettre de choisir la tâche du système ou du groupe sur laquelle le lien d&#8217;utilisation sera réellement créé.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Attach%20actor.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-SelectActor.png"/>
 				</td>
 				<td>Association entre une tâche et un acteur. Cet outil s&#8217;utilise lorsque l&#8217;acteur voulu n&#8217;est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l&#8217;acteur, une boîte de dialogue s&#8217;ouvre et permet de sélectionner un acteur. L&#8217;acteur apparaît alors sur le diagramme ainsi qu&#8217;un lien de rattachement avec la tâche. 
 					<strong>Disponible uniquement si le calque 
@@ -213,7 +236,7 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Attach%20actor2.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-LinkVisibleActor.png"/>
 				</td>
 				<td>Création d&#8217;une association entre une tâche et un acteur déjà visible sur le diagramme. 
 					<strong>Disponible uniquement si le calque 
@@ -222,7 +245,7 @@
 				</td>
 			</tr>
 		</table>
-		<h4 id="Menucontextuel">Menu contextuel</h4>
+		<h4 id="system_tasks_graph_context_menu">Menu contextuel</h4>
 		<p>Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :</p>
 		<ul>
 			<li>
@@ -232,10 +255,10 @@
 				<em>Graal &gt; Ungroup Tasks</em> : Cette action est disponible si un et un seul groupe est sélectionné. Les éléments du groupe sont déplacés dans le système et le groupe est supprimé.
 			</li>
 			<li>
-				<em>Graal &gt; Create use case</em> : Cette action crée un nouveau use case en l&#8217;associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l&#8217;ensemble des use cases est ensuite ouvert (et créé s&#8217;il n&#8217;existe pas encore). 
+				<em>Graal &gt; Create use case</em> : Cette action crée un nouveau use case en l&#8217;associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l&#8217;ensemble des use cases est ensuite ouvert (et créé s&#8217;il n&#8217;existe pas encore).
 			</li>
 		</ul>
-		<h4 id="Navigationversdautresdiagrammes">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="system_tasks_graph_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers d&#8217;autres diagrammes :</p>
 		<ul>
 			<li>Depuis une tâche, un double-clic ou le menu 
@@ -244,23 +267,21 @@
 			</li>
 			<li>Depuis un groupe de tâches, un double-clic ou le menu 
 				<em>Open</em> permettent de naviguer vers le graphe de tâches (
-				<em>Tasks Graph</em>) du groupe. Si ce graphe de tâches n&#8217;existe pas, il est créé.
+				<em>TasksGroup Graph</em>) du groupe. Si ce graphe de tâches n&#8217;existe pas, il est créé.
 			</li>
 			<li>Depuis un système, un double-clic ou le menu 
 				<em>Open</em> permettent de naviguer vers le graphe de tâches (
 				<em>Tasks Graph</em>) du système. Si ce graphe de tâches n&#8217;existe pas, il est créé.
 			</li>
 		</ul>
-		<h3 id="GraphedetchespourunTasksGroup">Graphe de tâches (pour un 
-			<em>TasksGroup</em>)
-		</h3>
+		<h3 id="group_tasks_graph">TasksGroup Graph</h3>
 		<p>Un graphe de tâches (ou 
-			<em>Tasks Graph</em>) peut être associé à un 
+			<em>TasksGroup Graph</em>) peut être associé à un 
 			<em>TasksGroup</em>.
 			<br/>Pour chaque 
 			<em>TasksGroup</em> un seul graphe de tâches peut être créé au maximum.
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils2">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="group_tasks_graph_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
@@ -284,31 +305,31 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20task.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateTask.png"/>
 				</td>
 				<td>Création d&#8217;une nouvelle tâche.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/grouptasksgraph/Import%20existing%20task.png"/>
+					<img border="0" src="pics/graal/diagrams/grouptasksgraph/TasksGraphPalette-ImportExistingTask.png"/>
 				</td>
 				<td>Import d&#8217;une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20group.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateGroup.png"/>
 				</td>
 				<td>Création d&#8217;un groupe.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Create%20use.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-CreateUse.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;utilisation entre tâches et groupes. Les liens d&#8217;utilisation se font normalement entre tâches, l&#8217;outil de création peut néanmoins être utilisé avec un groupe comme extrémité : dans ce cas une boîte de dialogue s&#8217;ouvre pour permettre de choisir la tâche du groupe sur laquelle le lien d&#8217;utilisation sera réellement créé.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Attach%20actor.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-SelectActor.png"/>
 				</td>
 				<td>Association entre une tâche et un acteur. Cet outil s&#8217;utilise lorsque l&#8217;acteur voulu n&#8217;est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l&#8217;acteur, une boîte de dialogue s&#8217;ouvre et permet de sélectionner un acteur. L&#8217;acteur apparaît alors sur le diagramme ainsi qu&#8217;un lien de rattachement avec la tâche. 
 					<strong>Disponible uniquement si le calque 
@@ -318,7 +339,7 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/tasksgraph/Attach%20actor2.png"/>
+					<img border="0" src="pics/graal/diagrams/tasksgraph/TasksGraphPalette-LinkVisibleActor.png"/>
 				</td>
 				<td>Création d&#8217;une association entre une tâche et un acteur déjà visible sur le diagramme. 
 					<strong>Disponible uniquement si le calque 
@@ -327,7 +348,7 @@
 				</td>
 			</tr>
 		</table>
-		<h4 id="Menucontextuel2">Menu contextuel</h4>
+		<h4 id="group_tasks_graph_context_menu">Menu contextuel</h4>
 		<p>Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :</p>
 		<ul>
 			<li>
@@ -337,10 +358,10 @@
 				<em>Graal &gt; Ungroup Tasks</em> : Cette action est disponible si un et un seul groupe est sélectionné. Les éléments du groupe sont déplacés dans le groupe principal et le groupe de départ est supprimé.
 			</li>
 			<li>
-				<em>Graal &gt; Create use case</em> : Cette action crée un nouveau use case en l&#8217;associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l&#8217;ensemble des use cases est ensuite ouvert (et créé s&#8217;il n&#8217;existe pas encore). 
+				<em>Graal &gt; Create use case</em> : Cette action crée un nouveau use case en l&#8217;associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l&#8217;ensemble des use cases est ensuite ouvert (et créé s&#8217;il n&#8217;existe pas encore).
 			</li>
 		</ul>
-		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="group_tasks_graph_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers d&#8217;autres diagrammes :</p>
 		<ul>
 			<li>Depuis une tâche, un double-clic ou le menu 
@@ -349,10 +370,10 @@
 			</li>
 			<li>Depuis un groupe de tâches, un double-clic ou le menu 
 				<em>Open</em> permettent de naviguer vers le graphe de tâches (
-				<em>Tasks Graph</em>) du groupe. Si ce graphe de tâches n&#8217;existe pas, il est créé.
+				<em>TasksGroup Graph</em>) du groupe. Si ce graphe de tâches n&#8217;existe pas, il est créé.
 			</li>
 		</ul>
-		<h3 id="Plandaction">Plan d&#8217;action</h3>
+		<h3 id="actions_plan">Actions Plan</h3>
 		<p>Un plan d&#8217;action (ou 
 			<em>Actions Plan</em>) est associé à une 
 			<em>Task</em>.
@@ -360,70 +381,70 @@
 			<em>Task</em> un seul plan d&#8217;action peut être créé au maximum.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/actionsplan/ActionsPlan.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/actionsplan/ActionsPlan.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils3">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="actions_plan_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
-			<li>Nœud initial</li>
-			<li>Nœud final</li>
-			<li>Nœud d&#8217;abandon</li>
-			<li>AppliEvent</li>
-			<li>Appli Action </li>
-			<li>UserView</li>
-			<li>UserAction</li>
-			<li>Tâche utilisée</li>
-			<li>Opérateur ET, OU, OU exclusif</li>
-			<li>Boucle</li>
-			<li>Transition (normale, d&#8217;interruption ou d&#8217;abandon)</li>
+			<li>Nœud initial.</li>
+			<li>Nœud final.</li>
+			<li>Nœud d&#8217;abandon.</li>
+			<li>AppliEvent.</li>
+			<li>Appli Action.</li>
+			<li>UserView.</li>
+			<li>UserAction.</li>
+			<li>Tâche utilisée.</li>
+			<li>Opérateur ET, OU, OU exclusif.</li>
+			<li>Boucle.</li>
+			<li>Transition (normale, d&#8217;interruption ou d&#8217;abandon).</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/initialnode.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-InitialNode.png"/>
 				</td>
 				<td>Création d&#8217;un nœud initial. Un nœud initial représente l&#8217;entrée d&#8217;un plan d&#8217;action. Un nœud initial est normalement créé pour tout nouveau plan d&#8217;action.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/finalnode.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-FinalNode.png"/>
 				</td>
 				<td>Création d&#8217;un nœud final. Un nœud final représente la fin normale d&#8217;un plan d&#8217;action.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/abortnode.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-AbortNode.png"/>
 				</td>
 				<td>Création d&#8217;un nœud d&#8217;abandon. Un nœud d&#8217;abandon représente la fin d&#8217;un plan d&#8217;action sur un abandon.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/applievent.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-AppliEvent.png"/>
 				</td>
 				<td>Création d&#8217;un nœud Appli Event.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/appliaction.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-AppliAction.png"/>
 				</td>
 				<td>Création d&#8217;un nœud Appli Action.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/userview.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-UserView.png"/>
 				</td>
 				<td>Création d&#8217;un nœud User View.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/useraction.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-UserAction.png"/>
 				</td>
 				<td>Création d&#8217;un nœud User Action.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/newtask.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-NewTask.png"/>
 				</td>
 				<td>Création d&#8217;un nœud pointant vers une nouvelle tâche. La nouvelle tâche est ajoutée au système ou au groupe contenant la tâche courante : la nouvelle tâche est donc une 
 					<em>sœur</em> de la tâche courante.
@@ -431,54 +452,54 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/existingtask.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-ExistingTask.png"/>
 				</td>
 				<td>Création d&#8217;un nœud pointant vers une tâche existante.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/and.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-And.png"/>
 				</td>
 				<td>Création d&#8217;un opérateur ET.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/or.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-Or.png"/>
 				</td>
 				<td>Création d&#8217;un opérateur OU.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/xor.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-Xor.png"/>
 				</td>
 				<td>Création d&#8217;un opérateur OU exclusif.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/loop.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-Loop.png"/>
 				</td>
 				<td>Création d&#8217;une boucle.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/transition.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-Transition.png"/>
 				</td>
 				<td>Création d&#8217;une transition normale entre deux nœuds.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/interrupttransition.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-InterruptTransition.png"/>
 				</td>
 				<td>Création d&#8217;une transition d&#8217;interruption entre deux nœuds.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actionsplan/aborttransition.png"/>
+					<img border="0" src="pics/graal/diagrams/actionsplan/ActionsPlanPalette-AbortTransition.png"/>
 				</td>
 				<td>Création d&#8217;une transition d&#8217;abandon entre deux nœuds.</td>
 			</tr>
 		</table>
-		<h4 id="Navigationversdautresdiagrammes3">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="actions_plan_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers d&#8217;autres diagrammes :</p>
 		<ul>
 			<li>Depuis un nœud pointant vers une tâche, un double-clic ou le menu 
@@ -486,9 +507,7 @@
 				<em>Actions Plan</em>) de la tâche. Si ce plan d&#8217;action n&#8217;existe pas, il est créé.
 			</li>
 		</ul>
-		<h3 id="GraphedesacteurspourunSystem">Graphe des acteurs (pour un 
-			<em>System</em>)
-		</h3>
+		<h3 id="actors_graph">Actors Graph</h3>
 		<p>Un graphe des acteurs (ou 
 			<em>Actors Graph</em>) peut être associé à un 
 			<em>System</em>. Ce graphe permet de créer/modifier les acteurs du système.
@@ -496,9 +515,9 @@
 			<em>System</em> un seul graphe des acteurs peut être créé au maximum.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/actorsgraph/ActorsGraph.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/actorsgraph/ActorsGraph.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils4">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="actors_graph_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
@@ -513,74 +532,72 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actorsgraph/actor.png"/>
+					<img border="0" src="pics/graal/diagrams/actorsgraph/ActorsGraphPalette-CreateActor.png"/>
 				</td>
 				<td>Création d&#8217;un acteur dans le système.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/actorsgraph/inherits.png"/>
+					<img border="0" src="pics/graal/diagrams/actorsgraph/ActorsGraphPalette-CreateInheritance.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;héritage entre deux acteurs.</td>
 			</tr>
 		</table>
-		<h3 id="GrapheglobaldesUseCasespourunSystem">Graphe global des Use Cases (pour un 
-			<em>System</em>)
-		</h3>
+		<h3 id="use_cases_main_view">Use Cases Main View</h3>
 		<p>Un graphe global des Use Cases (ou 
 			<em>Use Cases Main View</em>) peut être associé à un 
 			<em>System</em>. Ce graphe permet de visualiser, créer, modifier les 
-			<em>Use Cases</em> du système.
+			<em>UseCase</em> du système.
 			<br/>Pour chaque 
 			<em>System</em> un seul graphe global des Use Cases peut être créé au maximum.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/usecasesmainview/UseCasesMainView.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/usecasesmainview/UseCasesMainView.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils5">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="use_cases_main_view_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
-				<em>Use Case</em> : chaque use case défini dans le 
+				<em>UseCase</em> : chaque use case défini dans le 
 				<em>System</em> est affiché.
 			</li>
 			<li>lien 
 				<em>Include</em> : les liens 
 				<em>Include</em> calculés ou créés manuellement sont affichés entre 
-				<em>Use Cases</em>.
+				<em>UseCase</em>.
 			</li>
 			<li>lien 
 				<em>Extend</em> : les liens 
 				<em>Extend</em> créés manuellement entre 
-				<em>Use Cases</em> sont affichés. 
+				<em>UseCase</em> sont affichés.
 			</li>
 			<li>
 				<em>Actor</em> : chaque acteur associé à un use case est affiché. Les acteurs sont affichés uniquement quand le calque 
-				<em>Actors</em> est activé. Les liens entre acteurs et use cases sont déterminés automatiquement à partir des liens entre acteurs et tâches. 
+				<em>Actors</em> est activé. Les liens entre acteurs et use cases sont déterminés automatiquement à partir des liens entre acteurs et tâches.
 			</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasesmainview/usecase.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasesmainview/UseCasesMainViewPalette-CreateUseCase.png"/>
 				</td>
 				<td>Création d&#8217;un use case dans le système.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasesmainview/extend.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasesmainview/UseCasesMainViewPalette-CreateExtension.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;extension entre deux use cases.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasesmainview/include.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasesmainview/UseCasesMainViewPalette-CreateInclusion.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;inclusion entre deux use cases.</td>
 			</tr>
 		</table>
-		<h4 id="Navigationversdautresdiagrammes4">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="use_cases_main_view_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers d&#8217;autres diagrammes :</p>
 		<ul>
 			<li>Depuis un use case, un double-clic ou le menu 
@@ -588,21 +605,19 @@
 				<em>Use Case Diagram</em>) du use case concerné.
 			</li>
 		</ul>
-		<h3 id="DiagrammedeUseCasepourunUseCase">Diagramme de Use Case (pour un 
-			<em>Use Case</em>)
-		</h3>
+		<h3 id="use_case_diagram">Use Case Diagram</h3>
 		<p>Un diagramme de Use Case (ou 
 			<em>Use Case Diagram</em>) peut être associé à un 
-			<em>Use Case</em>. Ce graphe permet de visualiser les tâches référencées par un Use Case.
+			<em>UseCase</em>. Ce graphe permet de visualiser les tâches référencées par un Use Case.
 			<br/>Le graphe global des Use Cases d&#8217;un 
 			<em>System</em> est normalement créé automatiquement à la création d&#8217;une session.
 			<br/>Pour chaque 
 			<em>System</em> un seul graphe global des Use Cases peut être créé au maximum.
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/usecasediagram/UseCaseDiagram.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagram.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils6">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="use_case_diagram_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
@@ -623,7 +638,7 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasediagram/newtask.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagramPalette-NewTask.png"/>
 				</td>
 				<td>Création d&#8217;une nouvelle tâche et ajout au use case courant. La tâche est créée dans le 
 					<em>System</em> contenant le use case courant.
@@ -631,19 +646,19 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasediagram/existingtask.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagramPalette-ExistingTask.png"/>
 				</td>
 				<td>Ajout d&#8217;une tâche existante au use case courant.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasediagram/use.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagramPalette-CreateUse.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;utilisation entre deux tâches.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasediagram/attachactor.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagramPalette-SelectActor.png"/>
 				</td>
 				<td>Association entre une tâche et un acteur. Cet outil s&#8217;utilise lorsque l&#8217;acteur voulu n&#8217;est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l&#8217;acteur, une boîte de dialogue s&#8217;ouvre et permet de sélectionner un acteur. L&#8217;acteur apparaît alors sur le diagramme ainsi qu&#8217;un lien de rattachement avec la tâche. 
 					<strong>Disponible uniquement si le calque 
@@ -653,7 +668,7 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/usecasediagram/workson.png"/>
+					<img border="0" src="pics/graal/diagrams/usecasediagram/UseCaseDiagramPalette-LinkVisibleActor.png"/>
 				</td>
 				<td>Création d&#8217;une association entre une tâche et un acteur déjà visible sur le diagramme. 
 					<strong>Disponible uniquement si le calque 
@@ -662,7 +677,7 @@
 				</td>
 			</tr>
 		</table>
-		<h4 id="Menucontextuel3">Menu contextuel</h4>
+		<h4 id="use_case_diagram_context_menu">Menu contextuel</h4>
 		<p>Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :</p>
 		<ul>
 			<li>
@@ -672,7 +687,7 @@
 				<em>Graal &gt; Remove from use case</em> : Cette action est disponible à partir du moment où au moins une tâche ou un groupe a été sélectionné. Cette action supprime les tâches et groupes sélectionnés du use case courant. Seules les associations avec le use case courant sont supprimées, les tâches et groupes ne sont pas supprimés du modèle.
 			</li>
 		</ul>
-		<h4 id="Navigationversdautresdiagrammes5">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="use_case_diagram_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers d&#8217;autres diagrammes :</p>
 		<ul>
 			<li>Depuis une tâche, un double-clic ou le menu 
@@ -680,10 +695,10 @@
 				<em>Actions Plan</em>) de cette tâche.
 			</li>
 		</ul>
-		<h3 id="Gestiondespackagesdeclassesparticipantes">Gestion des packages de classes participantes</h3>
+		<h3 id="domain_namespaces_hierarchy">Domain Classes Namespaces Hierarchy</h3>
 		<p>Les classes participantes (
-			<em>Domain Classes</em>) sont organisées en packages (
-			<em>Namespaces</em>).
+			<em>DomainClass</em>) sont organisées en packages (
+			<em>Namespace</em>).
 			<br/>La gestion de la hiérarchie de packages se fait en utilisant le diagramme 
 			<em>Domain Classes Namespaces Hierarchy</em>.
 			<br/>Ce diagramme peut être créé sur l&#8217;objet principal 
@@ -691,45 +706,45 @@
 		</p>
 		<p>Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d&#8217;accéder facilement au diagramme de gestion des classes participantes d&#8217;un package.</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/domainclasses/namespacesHierarchy.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/domainclasses/DomainClassesNamespacesHierarchy.png"/>
 		</p>
-		<h4 id="lmentsaffichsetpalettedoutils7">Éléments affichés et palette d&#8217;outils</h4>
+		<h4 id="domain_namespaces_hierarchy_elements_tools">Éléments affichés et palette d&#8217;outils</h4>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
 				<em>Namespace</em> : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package, il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un package apparaît blanche si le package est vide et grisée sinon.
 			</li>
 			<li>
-				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le calque 
 				<em>Dependencies</em>. Les dépendances entre 
-				<em>Namespaces</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
-				<em>Namespaces</em>. Une dépendance est identifiée entre deux 
-				<em>Namespaces</em> s&#8217;il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
+				<em>Namespace</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
+				<em>Namespace</em>. Une dépendance est identifiée entre deux 
+				<em>Namespace</em> s&#8217;il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
 				<em>Enumeration</em> pour typer un attribut entre une 
-				<em>Domain Class</em> d&#8217;un 
-				<em>Namespace</em> et un autre. S&#8217;il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décorée d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>DomainClass</em> d&#8217;un 
+				<em>Namespace</em> et un autre. S&#8217;il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décorée d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le calque 
 				<em>Dependencies</em>. Les 
-				<em>Namespaces</em> dits &#171;externes&#187; sont également affichés dans ce layer. Un 
+				<em>Namespace</em> dits &#171;externes&#187; sont également affichés dans ce calque. Un 
 				<em>Namespace</em> externe est un 
 				<em>Namespace</em> contenant une entité externe liée à une entité présente dans un 
 				<em>Namespace</em> affiché par le diagramme (voir 
 				<em>External Domain Class</em> dans la section 
-				<em>Diagramme de classes participantes</em> ci-après).
+				<em>Domain Classes Diagram</em> ci-après).
 			</li>
 		</ul>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/domainclasses/namespacesHierarchyDependencies.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/domainclasses/DomainClassesNamespacesHierarchy-Dependencies.png"/>
 		</p>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20namespace.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesPalette-CreateNamespace.png"/>
 				</td>
 				<td>Création d&#8217;un package. Un package peut être créé sur le fond du diagramme ou à l&#8217;intérieur d&#8217;un autre package.</td>
 			</tr>
 		</table>
-		<h4 id="Navigationversdautresdiagrammes6">Navigation vers d&#8217;autres diagrammes</h4>
+		<h4 id="domain_namespaces_hierarchy_navigation">Navigation vers d&#8217;autres diagrammes</h4>
 		<p>Il est possible de naviguer depuis ce diagramme vers un autre diagramme :</p>
 		<ul>
 			<li>Depuis un package, un double-clic, le menu 
@@ -737,96 +752,97 @@
 				<em>Open</em> permettent de naviguer (et potentiellement de le créer) vers le diagramme des classes participantes de ce package.
 			</li>
 		</ul>
-		<h3 id="Diagrammedeclassesparticipantes">Diagramme de classes participantes</h3>
+		<h3 id="domain_classes_diagram">Domain Classes Diagram</h3>
 		<p>Un diagramme de classes participantes est associé à un package (
 			<em>Namespace</em>). Il permet de gérer les classes participantes du package.
 		</p>
+		<h4 id="domain_classes_elements_tools">Éléments affichés et palette d’outils</h4>
 		<p>
-			<img style="width:100%" border="0" src="pics/diagrams/domainclasses/DomainClassesDiagram.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagram.png"/>
 		</p>
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
-				<em>Domain class</em> : classe participante
+				<em>DomainClass</em> : classe participante.
 			</li>
-			<li>Attributs</li>
-			<li>Relations entre classes participantes</li>
-			<li>Liens d&#8217;héritage</li>
-			<li>Énumération</li>
-			<li>Packages contenus</li>
+			<li>Attributs.</li>
+			<li>Relations entre classes participantes.</li>
+			<li>Liens d&#8217;héritage.</li>
+			<li>Énumération.</li>
+			<li>Packages contenus.</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20namespace.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesPalette-CreateNamespace.png"/>
 				</td>
 				<td>Création d&#8217;un sous-package.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20domain%20class.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateDomainClass.png"/>
 				</td>
 				<td>Création d&#8217;une classe participante.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20attribute.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateAttribute.png"/>
 				</td>
 				<td>Création d&#8217;un attribut de classe participante.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20enumeration.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateEnumeration.png"/>
 				</td>
 				<td>Création d&#8217;une énumération.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20literal.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateLiteral.png"/>
 				</td>
 				<td>Création d&#8217;une valeur d'énumération.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20relation.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateRelation.png"/>
 				</td>
 				<td>Création d&#8217;une relation simple.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20composition.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateComposition.png"/>
 				</td>
 				<td>Création d&#8217;une relation de composition.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20inheritance.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateInheritance.png"/>
 				</td>
 				<td>Création d&#8217;un lien d&#8217;héritage.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20bidi%20relation.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateBidirectionalRelation.png"/>
 				</td>
 				<td>Création d&#8217;une relation simple bidirectionnelle.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20bidi%20composition.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-CreateBidirectionalComposition.png"/>
 				</td>
 				<td>Création d&#8217;une relation de contenance bidirectionnelle.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/domainclasses/Create%20external.png"/>
+					<img border="0" src="pics/graal/diagrams/domainclasses/DomainClassesDiagramPalette-AddExternalClass.png"/>
 				</td>
 				<td>Ajout d&#8217;une classe participante externe. Cet outil permet de faire apparaître une classe participante définie dans un autre package pour créer des relations avec les classes du package courant. Cet outil est activable via le calque 
 					<em>External Domain Classes</em>
 				</td>
 			</tr>
 		</table>
-		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une entité</h4>
+		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une classe participante</h4>
 		<p>Les attributs de 
 			<em>DomainClass</em> sont pourvus de champs 
 			<em>minimum</em>, 
@@ -848,13 +864,13 @@
 		</p>
 		<ul>
 			<li>
-				<em>minimum</em> : longueur minimale du texte
+				<em>minimum</em> : longueur minimale du texte.
 			</li>
 			<li>
-				<em>maximum</em> : longueur maximale du texte
+				<em>maximum</em> : longueur maximale du texte.
 			</li>
 			<li>
-				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer.
 			</li>
 		</ul>
 		<p>Pour un type de nature 
@@ -862,60 +878,65 @@
 		</p>
 		<ul>
 			<li>
-				<em>minimum</em> : valeur minimale requise
+				<em>minimum</em> : valeur minimale requise.
 			</li>
 			<li>
-				<em>maximum</em> : valeur maximale autorisée
+				<em>maximum</em> : valeur maximale autorisée.
 			</li>
 			<li>
-				<em>pattern</em> : non applicable
+				<em>pattern</em> : non applicable.
 			</li>
 		</ul>
 		<p>Pour un type de nature 
 			<strong>autre</strong> ces champs sont non applicables.
 		</p>
-		<h3 id="GestiondesUserStories">Gestion des User Stories</h3>
+		<h2 id="user_stories">Gestion des User Stories</h2>
 		<p>Graal permet de modéliser des 
 			<em>User Stories</em>. Une user story permet de décrire un enchaînement de tâches et un parcours dans un plan d&#8217;actions.
 		</p>
-		<h4 id="AffichagedelavueUserStories">Affichage de la vue User Stories</h4>
+		<h3 id="user_stories_view">Ouverture de la vue User Stories</h3>
 		<p>La gestion des 
 			<em>User Stories</em> se fait via une vue Eclipse dédiée. Pour ouvrir cette vue :
 		</p>
 		<blockquote>
-			<p>Window &gt; Show View &gt; Other... &gt; Other &gt; User Stories</p>
+			<p>
+				<em>Window &gt; Show View &gt; Other... &gt; Other &gt; User Stories</em>
+			</p>
 		</blockquote>
 		<p>Le raccourci clavier 
 			<code>Shift + Ctrl + 3</code> permet aussi d&#8217;ouvrir cette vue plus facilement en saisissant les premiers caractères de la chaîne 
 			<em>user stories</em>. La liste des menus et vues se réduit en fonction de la saisie.
-			<br/>Ce raccourci est également utilisable pour les autres vues Eclipse. 
+			<br/>Ce raccourci est également utilisable pour les autres vues Eclipse.
 		</p>
 		<p>La vue peut être positionnée à l&#8217;emplacement souhaité à côté de l'éditeur de diagrammes (à droite dans l&#8217;exemple suivant) :</p>
-		<h5 id="AffichagedelalistedesUserStories">Affichage de la liste des User Stories</h5>
+		<p>
+			<img style="max-width:100%" border="0" src="pics/graal/userstories/ActionsPlan-UserStoriesView.png"/>
+		</p>
+		<h3 id="user_stories_list">Affichage de la liste des User Stories</h3>
 		<p>Dès qu&#8217;un élément Graal est sélectionné sur un diagramme ou dans la vue 
 			<em>Model Explorer</em>, les 
 			<em>User Stories</em> du système sont affichées dans la vue.
 		</p>
-		<h5 id="CrationmodificationsuppressionduneUserStory">Création/modification/suppression d&#8217;une User Story</h5>
+		<h3 id="user_story_handling">Création, modification et suppression d&#8217;une User Story</h3>
 		<p>Le bouton 
-			<img border="0" src="pics/userstories/create.png"/> permet de créer une 
+			<img border="0" src="pics/graal/userstories/UserStoriesView-CreateAction.png"/> permet de créer une 
 			<em>User Story</em>.
 		</p>
 		<p>Une boîte de dialogue permettant de saisir le nom et la description de la nouvelle 
 			<em>User Story</em> s&#8217;ouvre.
 		</p>
 		<p>
-			<img border="0" src="pics/userstories/dialogcreate.png"/>
+			<img border="0" src="pics/graal/userstories/UserStoryDialog-NameAndDescription.png"/>
 		</p>
 		<p>Pour modifier une 
 			<em>User Story</em>, sélectionner la User Story et cliquer sur le bouton 
-			<img border="0" src="pics/userstories/update.png"/> devenu actif. La boîte de dialogue semblable à celle de création d&#8217;une User Story s&#8217;affiche et permet la modification.
+			<img border="0" src="pics/graal/userstories/UserStoriesView-EditAction.png"/> devenu actif. La boîte de dialogue semblable à celle de création d&#8217;une User Story s&#8217;affiche et permet la modification.
 		</p>
 		<p>Pour supprimer une 
 			<em>User Story</em>, sélectionner la User Story et cliquer sur le bouton 
-			<img border="0" src="pics/userstories/delete.png"/>. Un message de confirmation s&#8217;affiche avant que la suppression ne soit effectuée.
+			<img border="0" src="pics/graal/userstories/UserStoriesView-DeleteAction.png"/>. Un message de confirmation s&#8217;affiche avant que la suppression ne soit effectuée.
 		</p>
-		<h5 id="AssocierdeslmentsuneUserStory">Associer des éléments à une User Story</h5>
+		<h3 id="user_story_linking">Association d’éléments à une User Story</h3>
 		<p>La case à cocher devant le nom d&#8217;une 
 			<em>User Story</em> permet de :
 		</p>
@@ -926,7 +947,7 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/userstories/check1.png"/>
+					<img border="0" src="pics/graal/userstories/UserStoriesView-AllSelectedElementsLinked.png"/>
 				</td>
 				<td>Les éléments sélectionnés sur le diagramme sont tous associés à la user story 
 					<strong>Scénario nominal</strong>. Aucun n&#8217;est associé à la user story 
@@ -935,7 +956,7 @@
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/userstories/check2.png"/>
+					<img border="0" src="pics/graal/userstories/UserStoriesView-SomeSelectedElementsLinked.png"/>
 				</td>
 				<td>Certains des éléments sélectionnés sur le diagramme sont associés à la user story 
 					<strong>Scénario nominal</strong>. Aucun n&#8217;est associé à la user story 
@@ -947,24 +968,24 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/userstories/checkstate2.png"/>
+					<img border="0" src="pics/graal/userstories/UserStoriesView-UncheckedState.png"/>
 				</td>
 				<td>Un clic sur la case à cocher provoque l&#8217;association de tous les éléments sélectionnés avec la user story.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/userstories/checkstate1.png"/>
+					<img border="0" src="pics/graal/userstories/UserStoriesView-CheckedState.png"/>
 				</td>
 				<td>Un clic provoque la dissociation de tous les éléments sélectionnés de la user story.</td>
 			</tr>
 			<tr>
 				<td>
-					<img border="0" src="pics/userstories/checkstate3.png"/>
+					<img border="0" src="pics/graal/userstories/UserStoriesView-PartiallyCheckedState.png"/>
 				</td>
 				<td>Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. Il n&#8217;y a donc aucun effet pour les éléments sélectionnés qui n'étaient pas associés à la user story.</td>
 			</tr>
 		</table>
-		<h6 id="Associationexpliciteouimplicitedunetche">Association explicite ou implicite d&#8217;une tâche</h6>
+		<h4 id="task_story_association">Association explicite ou implicite d&#8217;une tâche</h4>
 		<p>Une 
 			<em>Task</em> peut être associée à une 
 			<em>User Story</em> de plusieurs manières :
@@ -994,20 +1015,16 @@
 		<p>La dissociation applique les règles réciproques. En particulier, la tâche contenante d&#8217;un nœud reste associée tant qu&#8217;au moins un autre élément de son plan d&#8217;action est encore lié à la 
 			<em>User Story</em>.
 		</p>
-		<h5 id="VisualisationduneUserStory">Visualisation d&#8217;une User Story</h5>
+		<h3 id="user_story_display">Visualisation d&#8217;une User Story</h3>
 		<p>Un double-clic sur une 
 			<em>User Story</em> ou un clic sur le bouton 
-			<img border="0" src="pics/userstories/display.png"/> provoque l&#8217;affichage de la user story sur les différents diagrammes : 
+			<img border="0" src="pics/graal/userstories/UserStoriesView-DisplayAction.png"/> provoque l&#8217;affichage de la user story sur les différents diagrammes :
 		</p>
 		<p>
-			<img style="width:100%" border="0" src="pics/userstories/displayuserstory.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/userstories/ActionsPlan-UserStoryDisplay.png"/>
 		</p>
-		<h3 id="RegroupementsdeslmentsconstituantunSystmeparblocslogiques">Regroupements des éléments constituant un Système par blocs logiques</h3>
-		<p>Dans l&#8217;explorateur de modèles, en dessous du nœud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.</p>
-		<p>
-			<img border="0" src="pics/GraalSystemContentExplorerStructure.png"/>
-		</p>
-		<h2 id="Gestiondesexigences">Gestion des exigences</h2>
+		<h2 id="additional_features">Fonctionnalités complémentaires</h2>
+		<h3 id="requirements">Gestion des exigences</h3>
 		<p>La gestion des exigences pour un modèle Graal utilise le mécanisme transverse de gestion des exigences fourni par l&#8217;outillage.
 			<br/>Se référer à la documentation 
 			<a href="../../org.obeonetwork.dsl.requirement.doc/doc/ISD%20-%20Requirements%20tooling.html">ISD &#8211; Requirements tooling</a> dans l&#8217;aide d&#8217;Eclipse.
@@ -1018,9 +1035,9 @@
 			<em>Repository</em>.
 		</p>
 		<p>
-			<img border="0" src="pics/requirements/New%20task%20traceability.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/requirements/NewRepresentationMenu-RequirementMatrices.png"/>
 		</p>
-		<h3 id="Tasktraceabilitymatrix">Task traceability matrix</h3>
+		<h4 id="task_traceability_matrix">Task traceability matrix</h4>
 		<p>Cette matrice de traçabilité offre une vue consolidée des tâches Graal concernées par des exigences.
 			<br/>Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
 			<br/>Ensuite, pour chaque tâche Graal concernée par une exigence, une colonne est affichée et des &#171;X&#187; apparaissent pour indiquer les exigences rattachées.
@@ -1028,9 +1045,9 @@
 			<em>AppliAction</em> d&#8217;une tâche, l&#8217;exigence apparaîtra rattachée à cette tâche sur la matrice. C&#8217;est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
 		</p>
 		<p>
-			<img border="0" src="pics/requirements/Task%20traceability%20matrix.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/requirements/TaskTraceabilityMatrix.png"/>
 		</p>
-		<h3 id="UseCasetraceabilitymatrix">Use Case traceability matrix</h3>
+		<h4 id="use_case_traceability_matrix">Use Case traceability matrix</h4>
 		<p>Cette matrice de traçabilité offre une vue consolidée des use cases Graal concernés par des exigences.
 			<br/>Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
 			<br/>Ensuite, pour chaque use case Graal concerné par une exigence, une colonne est affichée et des &#171;X&#187; apparaissent pour indiquer les exigences rattachées.
@@ -1038,24 +1055,19 @@
 			<em>AppliAction</em> d&#8217;une tâche ou au niveau d&#8217;une tâche, l&#8217;exigence apparaîtra rattachée aux use cases concernés par la tâche. C&#8217;est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
 		</p>
 		<p>
-			<img border="0" src="pics/requirements/Use%20case%20traceability%20matrix.png"/>
+			<img style="max-width:100%" border="0" src="pics/graal/requirements/UseCaseTraceabilityMatrix.png"/>
 		</p>
-		<h2 id="RegroupementsdeslmentsconstituantunSystmeparblocslogiques2">Regroupements des éléments constituant un Système par blocs logiques</h2>
-		<p>Dans l&#8217;explorateur de modèles, en dessous du nœud Graal System, les éléments de types Task, SubSystem, Actor, UseCase, UserStory et Namespace liés à ce système sont regroupés dans des blocs logiques nommés Tasks, SubSystems, Actors, UseCases, UserStories, Namespaces respectivement. Ces blocs étant logiques, ils ne possèdent aucun attribut affichable dans la vue Propriétés.</p>
-		<p>
-			<img border="0" src="pics/GraalSystemContentExplorerStructure.png"/>
-		</p>
-		<h2 id="Gestiondeladocumentationlie">Gestion de la documentation liée</h2>
+		<h3 id="linked_documentation">Gestion de la documentation liée</h3>
 		<p>Il est possible d&#8217;attacher de la documentation aux éléments d&#8217;un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l&#8217;outillage.
 			<br/>Se référer à la documentation 
 			<a href="../../org.obeonetwork.tools.doc.doc/doc/ISD%20-%20Documentation%20Tooling.html">ISD &#8211; Documentation Tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
-		<h2 id="Crationdediagrammedinteraction">Création de diagramme d&#8217;interaction</h2>
+		<h3 id="interaction_diagrams">Création de diagrammes d&#8217;interaction</h3>
 		<p>Il est possible de créer des diagrammes d&#8217;interaction pour les éléments d&#8217;un modèle Graal.
 			<br/>Se référer à la documentation 
 			<a href="../../org.obeonetwork.dsl.interaction.doc/doc/ISD%20-%20Interaction%20tooling.html">ISD &#8211; Interaction tooling</a> dans l&#8217;aide d&#8217;Eclipse.
 		</p>
-		<h2 id="Crationdediagrammedemachinestats">Création de diagramme de machines à états</h2>
+		<h3 id="state_machine_diagrams">Création de diagrammes de machines à états</h3>
 		<p>Il est possible de créer des diagrammes de machines à états pour les éléments d&#8217;un modèle Graal.
 			<br/>Se référer à la documentation 
 			<a href="../../org.obeonetwork.dsl.statemachine.doc/doc/ISD%20-%20State%20Machine%20tooling.html">ISD &#8211; State Machine tooling</a> dans l&#8217;aide d&#8217;Eclipse.

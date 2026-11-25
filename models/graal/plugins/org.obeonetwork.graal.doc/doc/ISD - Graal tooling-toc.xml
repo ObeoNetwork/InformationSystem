@@ -1,62 +1,66 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc topic="doc/ISD - Graal tooling.html" label="ISD - Graal tooling">
 	<topic href="doc/ISD - Graal tooling.html" label="ISD - Outillage Graal">
-		<topic href="doc/ISD - Graal tooling.html#CrationdunmodleGraal" label="Création d&apos;un modèle Graal"></topic>
-		<topic href="doc/ISD - Graal tooling.html#PointdevueGraal" label="Point de vue Graal">
-			<topic href="doc/ISD - Graal tooling.html#OuverturedunesessionetactivationdupointdevueGraal" label="Ouverture d&apos;une session et activation du point de vue Graal"></topic>
-			<topic href="doc/ISD - Graal tooling.html#Crationouverturedediagrammes" label="Création/ouverture de diagrammes"></topic>
-			<topic href="doc/ISD - Graal tooling.html#GraphedetchespourunSystem" label="Graphe de tâches (pour un _System_)">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Menucontextuel" label="Menu contextuel"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#GraphedetchespourunTasksGroup" label="Graphe de tâches (pour un _TasksGroup_)">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils2" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Menucontextuel2" label="Menu contextuel"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes2" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#Plandaction" label="Plan d&apos;action">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils3" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes3" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#GraphedesacteurspourunSystem" label="Graphe des acteurs (pour un _System_)">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils4" label="Éléments affichés et palette d&apos;outils"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#GrapheglobaldesUseCasespourunSystem" label="Graphe global des Use Cases (pour un _System_)">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils5" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes4" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#DiagrammedeUseCasepourunUseCase" label="Diagramme de Use Case (pour un _Use Case_)">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils6" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Menucontextuel3" label="Menu contextuel"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes5" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#Gestiondespackagesdeclassesparticipantes" label="Gestion des packages de classes participantes">
-				<topic href="doc/ISD - Graal tooling.html#lmentsaffichsetpalettedoutils7" label="Éléments affichés et palette d&apos;outils"></topic>
-				<topic href="doc/ISD - Graal tooling.html#Navigationversdautresdiagrammes6" label="Navigation vers d&apos;autres diagrammes"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#Diagrammedeclassesparticipantes" label="Diagramme de classes participantes">
-				<topic href="doc/ISD - Graal tooling.html#value_constraints" label="Contraintes sur les valeurs des attributs d&apos;une entité"></topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#GestiondesUserStories" label="Gestion des User Stories">
-				<topic href="doc/ISD - Graal tooling.html#AffichagedelavueUserStories" label="Affichage de la vue User Stories">
-					<topic href="doc/ISD - Graal tooling.html#AffichagedelalistedesUserStories" label="Affichage de la liste des User Stories"></topic>
-					<topic href="doc/ISD - Graal tooling.html#CrationmodificationsuppressionduneUserStory" label="Création/modification/suppression d&apos;une User Story"></topic>
-					<topic href="doc/ISD - Graal tooling.html#AssocierdeslmentsuneUserStory" label="Associer des éléments à une User Story">
-						<topic href="doc/ISD - Graal tooling.html#Associationexpliciteouimplicitedunetche" label="Association explicite ou implicite d&apos;une tâche"></topic>
-					</topic>
-					<topic href="doc/ISD - Graal tooling.html#VisualisationduneUserStory" label="Visualisation d&apos;une User Story"></topic>
-				</topic>
-			</topic>
-			<topic href="doc/ISD - Graal tooling.html#RegroupementsdeslmentsconstituantunSystmeparblocslogiques" label="Regroupements des éléments constituant un Système par blocs logiques"></topic>
+		<topic href="doc/ISD - Graal tooling.html#presentation" label="Présentation"></topic>
+		<topic href="doc/ISD - Graal tooling.html#model_creation" label="Création d&apos;un modèle Graal"></topic>
+		<topic href="doc/ISD - Graal tooling.html#modeler_usage" label="Utilisation du modeleur">
+			<topic href="doc/ISD - Graal tooling.html#session_opening" label="Ouverture d&apos;une session et activation du point de vue Graal Methodology"></topic>
+			<topic href="doc/ISD - Graal tooling.html#diagram_handling" label="Création et ouverture des diagrammes"></topic>
+			<topic href="doc/ISD - Graal tooling.html#model_explorer_organization" label="Organisation du Model Explorer"></topic>
 		</topic>
-		<topic href="doc/ISD - Graal tooling.html#Gestiondesexigences" label="Gestion des exigences">
-			<topic href="doc/ISD - Graal tooling.html#Tasktraceabilitymatrix" label="Task traceability matrix"></topic>
-			<topic href="doc/ISD - Graal tooling.html#UseCasetraceabilitymatrix" label="Use Case traceability matrix"></topic>
+		<topic href="doc/ISD - Graal tooling.html#representations" label="Représentations">
+			<topic href="doc/ISD - Graal tooling.html#system_tasks_graph" label="Tasks Graph">
+				<topic href="doc/ISD - Graal tooling.html#system_tasks_graph_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#system_tasks_graph_context_menu" label="Menu contextuel"></topic>
+				<topic href="doc/ISD - Graal tooling.html#system_tasks_graph_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#group_tasks_graph" label="TasksGroup Graph">
+				<topic href="doc/ISD - Graal tooling.html#group_tasks_graph_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#group_tasks_graph_context_menu" label="Menu contextuel"></topic>
+				<topic href="doc/ISD - Graal tooling.html#group_tasks_graph_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#actions_plan" label="Actions Plan">
+				<topic href="doc/ISD - Graal tooling.html#actions_plan_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#actions_plan_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#actors_graph" label="Actors Graph">
+				<topic href="doc/ISD - Graal tooling.html#actors_graph_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#use_cases_main_view" label="Use Cases Main View">
+				<topic href="doc/ISD - Graal tooling.html#use_cases_main_view_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#use_cases_main_view_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#use_case_diagram" label="Use Case Diagram">
+				<topic href="doc/ISD - Graal tooling.html#use_case_diagram_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#use_case_diagram_context_menu" label="Menu contextuel"></topic>
+				<topic href="doc/ISD - Graal tooling.html#use_case_diagram_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#domain_namespaces_hierarchy" label="Domain Classes Namespaces Hierarchy">
+				<topic href="doc/ISD - Graal tooling.html#domain_namespaces_hierarchy_elements_tools" label="Éléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#domain_namespaces_hierarchy_navigation" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#domain_classes_diagram" label="Domain Classes Diagram">
+				<topic href="doc/ISD - Graal tooling.html#domain_classes_elements_tools" label="Éléments affichés et palette d’outils"></topic>
+				<topic href="doc/ISD - Graal tooling.html#value_constraints" label="Contraintes sur les valeurs des attributs d&apos;une classe participante"></topic>
+			</topic>
 		</topic>
-		<topic href="doc/ISD - Graal tooling.html#RegroupementsdeslmentsconstituantunSystmeparblocslogiques2" label="Regroupements des éléments constituant un Système par blocs logiques"></topic>
-		<topic href="doc/ISD - Graal tooling.html#Gestiondeladocumentationlie" label="Gestion de la documentation liée"></topic>
-		<topic href="doc/ISD - Graal tooling.html#Crationdediagrammedinteraction" label="Création de diagramme d&apos;interaction"></topic>
-		<topic href="doc/ISD - Graal tooling.html#Crationdediagrammedemachinestats" label="Création de diagramme de machines à états"></topic>
+		<topic href="doc/ISD - Graal tooling.html#user_stories" label="Gestion des User Stories">
+			<topic href="doc/ISD - Graal tooling.html#user_stories_view" label="Ouverture de la vue User Stories"></topic>
+			<topic href="doc/ISD - Graal tooling.html#user_stories_list" label="Affichage de la liste des User Stories"></topic>
+			<topic href="doc/ISD - Graal tooling.html#user_story_handling" label="Création, modification et suppression d&apos;une User Story"></topic>
+			<topic href="doc/ISD - Graal tooling.html#user_story_linking" label="Association d’éléments à une User Story">
+				<topic href="doc/ISD - Graal tooling.html#task_story_association" label="Association explicite ou implicite d&apos;une tâche"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#user_story_display" label="Visualisation d&apos;une User Story"></topic>
+		</topic>
+		<topic href="doc/ISD - Graal tooling.html#additional_features" label="Fonctionnalités complémentaires">
+			<topic href="doc/ISD - Graal tooling.html#requirements" label="Gestion des exigences">
+				<topic href="doc/ISD - Graal tooling.html#task_traceability_matrix" label="Task traceability matrix"></topic>
+				<topic href="doc/ISD - Graal tooling.html#use_case_traceability_matrix" label="Use Case traceability matrix"></topic>
+			</topic>
+			<topic href="doc/ISD - Graal tooling.html#linked_documentation" label="Gestion de la documentation liée"></topic>
+			<topic href="doc/ISD - Graal tooling.html#interaction_diagrams" label="Création de diagrammes d&apos;interaction"></topic>
+			<topic href="doc/ISD - Graal tooling.html#state_machine_diagrams" label="Création de diagrammes de machines à états"></topic>
+		</topic>
 	</topic>
 </toc>
