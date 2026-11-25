@@ -131,7 +131,11 @@
 				<td>
 					<b>Package Diagram</b> 
 				</td>
-				<td>diagramme permettant de modéliser les Packages, Flows et ViewContainers.</td>
+				<td>diagramme permettant de modéliser les 
+					<em>Package</em>, 
+					<em>Flow</em> et 
+					<em>ViewContainer</em>.
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -353,7 +357,9 @@
 				<em>ViewElement</em> ou un 
 				<em>ViewContainer</em> :
 				<ul>
-					<li>Si l&#8217;attribut label est défini, alors il est utilisé,</li>
+					<li>Si l&#8217;attribut 
+						<code>label</code> est défini, alors il est utilisé,
+					</li>
 					<li>Sinon si l&#8217;attribut nom est défini alors il est utilisé,</li>
 					<li>Sinon le libellé est vide.</li>
 				</ul>
@@ -361,15 +367,20 @@
 			<li>Pour un 
 				<em>ViewContainer</em>
 				<ul>
-					<li>Si l&#8217;attribut label est défini, alors il est utilisé,</li>
+					<li>Si l&#8217;attribut 
+						<code>label</code> est défini, alors il est utilisé,
+					</li>
 					<li>Sinon si le nom est défini alors il est utilisé,</li>
-					<li>Sinon le libellé du View Container référencé est calculé comme ci-dessus et utilisé.</li>
+					<li>Sinon le libellé du 
+						<em>ViewContainer</em> référencé est calculé comme ci-dessus et utilisé.
+					</li>
 				</ul>
 			</li>
 		</ul>
 		<p>Le calque 
 			<em>Example</em> modifie le libellé des 
-			<em>ViewElement</em>, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l&#8217;expression AQL &#171; example &#187; du widget.
+			<em>ViewElement</em>, permettant de visualiser l’IHM avec des données d’exemple. Le libellé est alors calculé à partir de l&#8217;expression AQL 
+			<code>exampleExpression</code> du style du widget.
 		</p>
 		<table>
 			<tr>
@@ -528,12 +539,16 @@
 				</ul>
 			</li>
 			<li>Un conteneur flottant nommé 
-				<em>FlowEvents</em> présente les FlowEvents génériques du flow de portée globale qui représentent des événements logiques ou métier. Ce conteneur peut être masqué en désactivant le calque 
+				<em>FlowEvents</em> présente les 
+				<em>FlowEvent</em> génériques du 
+				<em>Flow</em> de portée globale qui représentent des événements logiques ou métier. Ce conteneur peut être masqué en désactivant le calque 
 				<em>Flow Events</em>. Les événements de &#171;Flow Events&#187; portent l&#8217;icône 
 				<img border="0" src="pics/cinematic/icons/FlowEvent.gif"/> pour les distinguer des événements définis dans le toolkit qui portent l&#8217;icône 
 				<img border="0" src="pics/cinematic/icons/WidgetEventType.gif"/>.
 			</li>
-			<li>Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque 
+			<li>Les 
+				<em>ViewContainer</em> référencés par les 
+				<em>ViewState</em> affichés. Ceux-ci peuvent être masqués par la désactivation du calque 
 				<em>View Containers</em>.
 				<ul>
 					<li>Les informations affichées pour les 

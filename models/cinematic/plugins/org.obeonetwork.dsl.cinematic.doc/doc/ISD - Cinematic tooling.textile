@@ -89,7 +89,7 @@ h2(#designer_features). Représentations
 
 Le modeleur Cinematic apporte les représentations suivantes :
 
-| **Package Diagram**        | diagramme permettant de modéliser les Packages, Flows et ViewContainers. |
+| **Package Diagram**        | diagramme permettant de modéliser les _Package_, _Flow_ et _ViewContainer_. |
 | **UI Structure**           | représentation arborescente permettant de modéliser la description haut niveau statique de l'IHM. |
 | **View Container Mockup**  | diagramme permettant de modéliser la structure et l'apparence des IHM et éditer les bindings. |
 | **Layout Diagram**         | diagramme de consultation des composants et composites d'un Layout. |
@@ -194,15 +194,15 @@ h4(#mockup_labels). Libellés et données d’exemple
 Par défaut, le libellé des éléments présentés sur le View Container Mockup est déterminé de la manière suivante :
 
 * Pour un _ViewElement_ ou un _ViewContainer_ :
-** Si l'attribut label est défini, alors il est utilisé,
+** Si l'attribut @label@ est défini, alors il est utilisé,
 ** Sinon si l'attribut nom est défini alors il est utilisé,
 ** Sinon le libellé est vide.
 * Pour un _ViewContainer_
-** Si l'attribut label est défini, alors il est utilisé,
+** Si l'attribut @label@ est défini, alors il est utilisé,
 ** Sinon si le nom est défini alors il est utilisé,
-** Sinon le libellé du View Container référencé est calculé comme ci-dessus et utilisé.
+** Sinon le libellé du _ViewContainer_ référencé est calculé comme ci-dessus et utilisé.
 
-Le calque _Example_ modifie le libellé des _ViewElement_, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l'expression AQL " example " du widget.
+Le calque _Example_ modifie le libellé des _ViewElement_, permettant de visualiser l’IHM avec des données d’exemple. Le libellé est alors calculé à partir de l'expression AQL @exampleExpression@ du style du widget.
 
 | **Calque Example désactivé**                 |   | **Calque Example activé** |
 | !pics/cinematic/mockup/ViewContainerMockup-DefaultLayer.png! |   | !pics/cinematic/mockup/ViewContainerMockup-ExampleLayer.png! |
@@ -287,8 +287,8 @@ Sont affichés sur ce diagramme :
 ** Si la transition est déclenchée par un (des) événement(s), le libellé principal de la transition est de la forme _!pics/cinematic/icons/ViewEvent.gif! evenement1,evenement2_.
 ** Si une garde est présente elle est affichée en libellé secondaire sous la forme _[guard]_.
 ** Si la transition est dirigée vers un _ViewState_, elle est représentée par une flèche pleine, sinon elle est représentée par une flèche pointillée.
-* Un conteneur flottant nommé _FlowEvents_ présente les FlowEvents génériques du flow de portée globale qui représentent des événements logiques ou métier. Ce conteneur peut être masqué en désactivant le calque _Flow Events_. Les événements de "Flow Events" portent l'icône !pics/cinematic/icons/FlowEvent.gif! pour les distinguer des événements définis dans le toolkit qui portent l'icône !pics/cinematic/icons/WidgetEventType.gif!.
-* Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque _View Containers_.
+* Un conteneur flottant nommé _FlowEvents_ présente les _FlowEvent_ génériques du _Flow_ de portée globale qui représentent des événements logiques ou métier. Ce conteneur peut être masqué en désactivant le calque _Flow Events_. Les événements de "Flow Events" portent l'icône !pics/cinematic/icons/FlowEvent.gif! pour les distinguer des événements définis dans le toolkit qui portent l'icône !pics/cinematic/icons/WidgetEventType.gif!.
+* Les _ViewContainer_ référencés par les _ViewState_ affichés. Ceux-ci peuvent être masqués par la désactivation du calque _View Containers_.
 ** Les informations affichées pour les _ViewContainer_ sont les mêmes que pour le diagramme de Package décrit plus haut.
 
 h4(#flow_diagram_tools). Palette et outils
