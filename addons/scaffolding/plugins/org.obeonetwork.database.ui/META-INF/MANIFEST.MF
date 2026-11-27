@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Database UI
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-SymbolicName: org.obeonetwork.database.ui; singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 6.0.1.qualifier
 Bundle-Activator: org.obeonetwork.database.ui.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.ui,

@@ -16,7 +16,7 @@
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>parent</artifactId>
-	<version>6.0.0-SNAPSHOT</version>
+	<version>6.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Information System Parent</name>
@@ -24,7 +24,7 @@
 	<properties>
 		<tycho-version>5.0.2</tycho-version>
     	<tycho-extras-version>5.0.2</tycho-extras-version>
-        <target-artifact-version>6.0.0-SNAPSHOT</target-artifact-version>
+        <target-artifact-version>6.0.1-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<modules>

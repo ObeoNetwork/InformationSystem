@@ -9,7 +9,7 @@
     Contributors:
         Obeo - initial API and implementation
  -->
-<feature id="org.obeonetwork.is.designer.hidpi.patch" label="IS Designer Windows HiDPI patch" version="6.0.0.qualifier" provider-name="Obeo" os="win32" ws="win32" arch="x86_64">
+<feature id="org.obeonetwork.is.designer.hidpi.patch" label="IS Designer Windows HiDPI patch" version="6.0.1.qualifier" provider-name="Obeo" os="win32" ws="win32" arch="x86_64">
   <description>Temporary SWT upgrade for GEF Classic HiDPI rendering on Windows x86_64. Remove when the OD base provides compatible versions.</description>
   <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
   <requires>

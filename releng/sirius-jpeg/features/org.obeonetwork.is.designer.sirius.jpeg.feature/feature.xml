@@ -9,7 +9,7 @@
     Contributors:
         Obeo - initial API and implementation
  -->
-<feature id="org.obeonetwork.is.designer.sirius.jpeg.feature" label="ISD Sirius JPEG export fix" version="6.0.0.qualifier" provider-name="Obeo">
+<feature id="org.obeonetwork.is.designer.sirius.jpeg.feature" label="ISD Sirius JPEG export fix" version="6.0.1.qualifier" provider-name="Obeo">
   <description>ISD JPEG export fix for the Sirius version delivered with OD 12.</description>
   <license url="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License 2.0</license>
   <includes id="org.obeonetwork.is.designer.sirius.jpeg.runtime.patch" version="0.0.0" />

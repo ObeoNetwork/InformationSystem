@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SQL Generator
 Bundle-SymbolicName: org.obeonetwork.dsl.database.sqlgen
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 6.0.1.qualifier
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.database.sqlgen,
  org.obeonetwork.dsl.database.sqlgen.services
